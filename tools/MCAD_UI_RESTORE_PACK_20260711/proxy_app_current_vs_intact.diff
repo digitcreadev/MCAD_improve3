@@ -1,0 +1,79 @@
+--- /mnt/data/ui_compare/intact/MCAD_improve3-main/bi-stack/mcad-proxy/app.py	2026-06-21 15:16:50.000000000 +0000
++++ /mnt/data/ui_compare/current/MCAD_improve3-main/bi-stack/mcad-proxy/app.py	2026-07-11 15:30:51.000000000 +0000
+@@ -1170,6 +1170,41 @@
+     return str(q.get("query_digest") or ev.get("query_digest") or "")
+ 
+ 
++
++
++def _article_blocked_before_execution(ev: dict | None, exe: dict | None = None, gate: dict | None = None) -> bool:
++    ev = ev or {}
++    exe = exe or ev.get("execution") or {}
++    gate = gate or ev.get("gate") or ev.get("mcad_gate") or {}
++
++    if ev.get("blocked_before_execution") is not None:
++        return bool(ev.get("blocked_before_execution"))
++
++    if exe.get("blocked_before_execution") is not None:
++        return bool(exe.get("blocked_before_execution"))
++
++    decision = str(
++        gate.get("decision")
++        or ev.get("decision")
++        or exe.get("decision")
++        or ""
++    ).upper()
++
++    physical_execution = exe.get("physical_execution")
++    execution_path = str(exe.get("execution_path") or exe.get("path") or "").lower()
++    execution_status = str(exe.get("execution_status") or exe.get("status") or "").lower()
++
++    if decision == "BLOCK" and physical_execution is False:
++        return True
++
++    if "not_executed" in execution_path or "not-executed" in execution_path:
++        return True
++
++    if "rejected" in execution_status or "blocked" in execution_status:
++        return True
++
++    return False
++
+ def _flatten_execution_evidence(ev: dict | None) -> dict:
+     if not isinstance(ev, dict):
+         return {}
+@@ -1184,6 +1219,7 @@
+         "selected_dw_id": exe.get("selected_dw_id") or exe.get("requested_dw_id"),
+         "requested_dw_id": exe.get("requested_dw_id"),
+         "physical_execution": exe.get("physical_execution"),
++        "blocked_before_execution": _article_blocked_before_execution(ev, exe, gate),
+         "execution_attempted": exe.get("attempted"),
+         "status_code": exe.get("status_code"),
+         "elapsed_ms": exe.get("elapsed_ms"),
+@@ -1459,7 +1495,7 @@
+         idx = _evidence_index(sid)
+         evidence_fields = [
+             "execution_status", "execution_path", "adapter_id", "selected_dw_id",
+-            "physical_execution", "status_code", "elapsed_ms", "response_bytes",
++            "physical_execution", "blocked_before_execution", "status_code", "elapsed_ms", "response_bytes",
+             "response_digest", "xmla_response_type", "row_count",
+         ]
+         fieldnames = list(reader.fieldnames)
+@@ -2403,6 +2439,8 @@
+     suffix = ("?" + qs) if qs else ""
+     data = _relay_get(f"/sessions/{sid}/report{suffix}")
+     report = _enrich_report_payload_with_evidence(data.get("report", data), str(sid))
++    if isinstance(report, dict):
++        report.setdefault("contract_version", "mcad.session_report.v1")
+     return {"ok": True, "session_id": sid, "objective_id": oid, "report": report, "execution_evidence_summary": _evidence_summary(str(sid))}
+ 
+ 
+@@ -2442,6 +2480,8 @@
+     suffix = ("?" + qs) if qs else ""
+     data = _relay_get(f"/sessions/{sid}/metrics{suffix}")
+     metrics = _enrich_report_payload_with_evidence(data.get("metrics", data), str(sid))
++    if isinstance(metrics, dict):
++        metrics.setdefault("contract_version", "mcad.experimental_metrics.v1")
+     return {"ok": True, "session_id": sid, "objective_id": oid, "metrics": metrics, "execution_evidence_summary": _evidence_summary(str(sid))}
+ 
+ 
