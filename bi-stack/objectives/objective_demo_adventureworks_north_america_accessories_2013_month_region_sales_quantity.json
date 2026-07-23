@@ -1,0 +1,105 @@
+{
+  "id": "O_AW_NORTH_AMERICA_ACCESSORIES_2013_MONTH_REGION_SALES_QUANTITY",
+  "name": "AdventureWorks North America Accessories 2013 monthly regional sales and quantity",
+  "label": "AdventureWorks North America Accessories 2013 monthly regional sales and quantity",
+  "description": "Demo AdventureWorks objective: make SalesAmount and OrderQuantity calculable for Accessories in North America during 2013, at monthly grain crossed with sales territory region.",
+  "dw_id": "adventureworks_sql_direct",
+  "dataset": "AdventureWorksDW",
+  "cube": "Adventure Works DW",
+  "kpis": [
+    "KPI_AW_NORTH_AMERICA_ACCESSORIES_2013_SALES",
+    "KPI_AW_NORTH_AMERICA_ACCESSORIES_2013_QUANTITY"
+  ],
+  "constraints": [
+    {
+      "id": "aw_NORTH_AMERICA_ACCESSORIES_2013_c1_sales",
+      "label": "SalesAmount for Accessories / North America by month and region",
+      "description": "SalesAmount for Accessories in North America at monthly grain by sales territory region.",
+      "kpi_id": "KPI_AW_NORTH_AMERICA_ACCESSORIES_2013_SALES",
+      "measure": "SalesAmount",
+      "metric": "SalesAmount",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "weight": 1.0,
+      "grain": [
+        "Date.Calendar.Month",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Accessories",
+        "Sales Territory.Sales Territory Group": "North America",
+        "Date.Calendar Year": "2013"
+      },
+      "requirement_sets": [
+        [
+          "NV_AW_NORTH_AMERICA_ACCESSORIES_2013_MONTH_REGION_SALES"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_AW_NORTH_AMERICA_ACCESSORIES_2013_MONTH_REGION_SALES",
+          "fact": "FactInternetSales",
+          "measure": "SalesAmount",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Date.Calendar.Month",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "slicers": {
+            "Product.Product Category": "Accessories",
+            "Sales Territory.Sales Territory Group": "North America",
+            "Date.Calendar Year": "2013"
+          }
+        }
+      ],
+      "fact": "FactInternetSales"
+    },
+    {
+      "id": "aw_NORTH_AMERICA_ACCESSORIES_2013_c2_quantity",
+      "label": "OrderQuantity for Accessories / North America by month and region",
+      "description": "OrderQuantity for Accessories in North America at monthly grain by sales territory region.",
+      "kpi_id": "KPI_AW_NORTH_AMERICA_ACCESSORIES_2013_QUANTITY",
+      "measure": "OrderQuantity",
+      "metric": "OrderQuantity",
+      "aggregator": "SUM",
+      "unit": "COUNT",
+      "weight": 1.0,
+      "grain": [
+        "Date.Calendar.Month",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Accessories",
+        "Sales Territory.Sales Territory Group": "North America",
+        "Date.Calendar Year": "2013"
+      },
+      "requirement_sets": [
+        [
+          "NV_AW_NORTH_AMERICA_ACCESSORIES_2013_MONTH_REGION_QUANTITY"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_AW_NORTH_AMERICA_ACCESSORIES_2013_MONTH_REGION_QUANTITY",
+          "fact": "FactInternetSales",
+          "measure": "OrderQuantity",
+          "aggregator": "SUM",
+          "unit": "COUNT",
+          "grain": [
+            "Date.Calendar.Month",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "slicers": {
+            "Product.Product Category": "Accessories",
+            "Sales Territory.Sales Territory Group": "North America",
+            "Date.Calendar Year": "2013"
+          }
+        }
+      ],
+      "fact": "FactInternetSales"
+    }
+  ],
+  "schema_version": "mcad.objective.import.v1",
+  "notes": "V9.5.6 demo objective for dataset-aware session creation and multi-DW demonstrations."
+}

@@ -1,0 +1,7 @@
+idx	query_id	expected	actual_decision	reason_code	phi	sat	real	ceval	attempted	physical_execution	status	adapter_id	adapter_family	backend_type	catalog	cube	xmla_response_type	fallback_used	error	elapsed_ms_client
+1	AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY	ALLOW	ALLOW	ALLOW_NEW_TOTAL	0.3333333333333333	1.0	0.3333333333333333	0.3333333333333333	True	True	EXECUTED	xmla_mondrian	xmla_mondrian	xmla_mondrian	AdventureWorksDW	Adventure Works DW	ExecuteResponse	False	None	730
+2	AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY	ALLOW	ALLOW	ALLOW_NEW_TOTAL	0.6666666666666666	1.0	0.3333333333333333	0.3333333333333333	True	True	EXECUTED	xmla_mondrian	xmla_mondrian	xmla_mondrian	AdventureWorksDW	Adventure Works DW	ExecuteResponse	False	None	456
+3	AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY	ALLOW	ALLOW	ALLOW_NEW_TOTAL	1.0	1.0	0.3333333333333333	0.3333333333333333	True	True	EXECUTED	xmla_mondrian	xmla_mondrian	xmla_mondrian	AdventureWorksDW	Adventure Works DW	ExecuteResponse	False	None	738
+4	AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY	BLOCK	BLOCK	BLOCK_OUT_OF_OBJECTIVE_SCOPE	0.0	1.0	0.0	0.0	False	False	MCAD_BLOCKED	None	None	None	None	None	None	False	None	231
+5	AW_Q5_BLOCK_BAD_GRAIN_YEAR	BLOCK	BLOCK	BLOCK_GRAIN_MISMATCH	1.0	0.0	0.0	0.0	False	False	MCAD_BLOCKED	None	None	None	None	None	None	False	None	182
+6	AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT	BLOCK	BLOCK	BLOCK_REDUNDANT_DPHI_ZERO	1.0	1.0	0.0	0.0	False	False	MCAD_BLOCKED	None	None	None	None	None	None	False	None	42

@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "dw_id": "adventureworks_sql_direct",
+  "label": "AdventureWorksDW via SQL Server Direct",
+  "backend_type": "sqlserver_direct",
+  "query_language": "mdx",
+  "catalog": "AdventureWorksDW2022",
+  "cube": "Adventure Works DW",
+  "experimental": false,
+  "adapter": "adventureworks_direct",
+  "dataset": "AdventureWorksDW",
+  "logical_input_language": "mdx_or_sql",
+  "physical_query_language": "sqlserver_tsql",
+  "fallback_dw_id": null,
+  "fallback": false,
+  "connection_profile": "sqlserver_adventureworks_dw",
+  "capabilities": [],
+  "database": "AdventureWorksDW2022",
+  "adapter_id": "adventureworks_direct",
+  "supported_measures": [
+    "SalesAmount",
+    "TotalProductCost",
+    "OrderQuantity",
+    "GrossMargin"
+  ],
+  "supported_grains": [
+    "CalendarYear",
+    "Month",
+    "SalesTerritoryCountry",
+    "SalesTerritoryRegion"
+  ],
+  "supported_tables": [
+    "FactInternetSales",
+    "DimDate",
+    "DimSalesTerritory",
+    "DimProduct",
+    "DimProductCategory"
+  ],
+  "execution_contract": "MCAD_ALLOW_THEN_SQLSERVER_EXECUTE",
+  "_http_status": 200,
+  "_url": "http://127.0.0.1:9000/mcad/datawarehouses/adventureworks_sql_direct/metadata",
+  "_attempt": 1,
+  "_label": "adventureworks_dw_metadata"
+}

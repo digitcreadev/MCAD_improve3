@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<Schema name="AdventureWorksDW">
+  <Dimension name="Date" type="TimeDimension">
+    <Hierarchy name="Calendar" hasAll="true" primaryKey="DateKey">
+      <Table schema="dbo" name="DimDate"/>
+      <Level name="Calendar Year"
+             column="CalendarYear"
+             type="Numeric"
+             uniqueMembers="true"
+             levelType="TimeYears"/>
+      <Level name="Month"
+             column="MonthNumberOfYear"
+             nameColumn="EnglishMonthName"
+             ordinalColumn="MonthNumberOfYear"
+             type="Numeric"
+             uniqueMembers="false"
+             levelType="TimeMonths"/>
+    </Hierarchy>
+  </Dimension>
+
+  <Dimension name="Sales Territory">
+    <Hierarchy name="Sales Territory" hasAll="true" primaryKey="SalesTerritoryKey">
+      <Table schema="dbo" name="DimSalesTerritory"/>
+      <Level name="Sales Territory Group"
+             column="SalesTerritoryGroup"
+             uniqueMembers="true"/>
+      <Level name="Sales Territory Country"
+             column="SalesTerritoryCountry"
+             uniqueMembers="false"/>
+      <Level name="Sales Territory Region"
+             column="SalesTerritoryRegion"
+             uniqueMembers="false"/>
+    </Hierarchy>
+  </Dimension>
+
+  <Dimension name="Product">
+    <Hierarchy name="Product" hasAll="true" primaryKey="ProductKey" primaryKeyTable="DimProduct">
+      <Join leftKey="ProductSubcategoryKey" rightKey="ProductSubcategoryKey">
+        <Table schema="dbo" name="DimProduct"/>
+        <Join leftKey="ProductCategoryKey" rightKey="ProductCategoryKey">
+          <Table schema="dbo" name="DimProductSubcategory"/>
+          <Table schema="dbo" name="DimProductCategory"/>
+        </Join>
+      </Join>
+      <Level name="Product Category"
+             table="DimProductCategory"
+             column="EnglishProductCategoryName"
+             uniqueMembers="true"/>
+      <Level name="Product Subcategory"
+             table="DimProductSubcategory"
+             column="EnglishProductSubcategoryName"
+             uniqueMembers="false"/>
+      <Level name="Product"
+             table="DimProduct"
+             column="EnglishProductName"
+             uniqueMembers="true"/>
+    </Hierarchy>
+  </Dimension>
+
+  <Cube name="Adventure Works DW" cache="true" enabled="true">
+    <Table schema="dbo" name="FactInternetSales"/>
+
+    <DimensionUsage name="Date"
+                    source="Date"
+                    foreignKey="OrderDateKey"/>
+
+    <DimensionUsage name="Sales Territory"
+                    source="Sales Territory"
+                    foreignKey="SalesTerritoryKey"/>
+
+    <DimensionUsage name="Product"
+                    source="Product"
+                    foreignKey="ProductKey"/>
+
+    <Measure name="SalesAmount"
+             column="SalesAmount"
+             aggregator="sum"
+             formatString="#,##0.00"/>
+
+    <Measure name="TotalProductCost"
+             column="TotalProductCost"
+             aggregator="sum"
+             formatString="#,##0.00"/>
+
+    <Measure name="OrderQuantity"
+             column="OrderQuantity"
+             aggregator="sum"
+             formatString="#,##0"/>
+
+    <CalculatedMember name="GrossMargin"
+                      dimension="Measures"
+                      formula="[Measures].[SalesAmount] - [Measures].[TotalProductCost]"
+                      formatString="#,##0.00"
+                      visible="true"/>
+  </Cube>
+</Schema>

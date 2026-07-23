@@ -1,0 +1,101 @@
+{
+  "id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+  "name": "SteelWheels EMEA Classic Cars monthly sales and quantity",
+  "label": "SteelWheels EMEA Classic Cars monthly sales and quantity",
+  "description": "Real SteelWheels objective for the SQL Server Direct adapter: make Sales and Quantity calculable for Classic Cars in EMEA at monthly grain, using the upstream SteelWheels HSQLDB dataset imported into SQL Server.",
+  "dw_id": "steelwheels_sql_direct",
+  "dataset": "SteelWheels",
+  "cube": "SteelWheelsSales",
+  "kpis": [
+    "KPI_SW_SALES",
+    "KPI_SW_QUANTITY"
+  ],
+  "constraints": [
+    {
+      "id": "sw_real_c1_sales",
+      "label": "Sales for Classic Cars / EMEA by month",
+      "description": "Sales for Classic Cars in EMEA at monthly grain.",
+      "kpi_id": "KPI_SW_SALES",
+      "measure": "Sales",
+      "metric": "Sales",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "weight": 1.0,
+      "grain": [
+        "Time.Months"
+      ],
+      "slicers": {
+        "Product.Line": "Classic Cars",
+        "Markets.Territory": "EMEA",
+        "Time.Years": "2004"
+      },
+      "requirement_sets": [
+        [
+          "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES",
+          "fact": "orderfact",
+          "measure": "Sales",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Months"
+          ],
+          "slicers": {
+            "Product.Line": "Classic Cars",
+            "Markets.Territory": "EMEA",
+            "Time.Years": "2004"
+          }
+        }
+      ],
+      "fact": "orderfact"
+    },
+    {
+      "id": "sw_real_c2_quantity",
+      "label": "Quantity for Classic Cars / EMEA by month",
+      "description": "Quantity for Classic Cars in EMEA at monthly grain.",
+      "kpi_id": "KPI_SW_QUANTITY",
+      "measure": "Quantity",
+      "metric": "Quantity",
+      "aggregator": "SUM",
+      "unit": "COUNT",
+      "weight": 1.0,
+      "grain": [
+        "Time.Months"
+      ],
+      "slicers": {
+        "Product.Line": "Classic Cars",
+        "Markets.Territory": "EMEA",
+        "Time.Years": "2004"
+      },
+      "requirement_sets": [
+        [
+          "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY",
+          "fact": "orderfact",
+          "measure": "Quantity",
+          "aggregator": "SUM",
+          "unit": "COUNT",
+          "grain": [
+            "Time.Months"
+          ],
+          "slicers": {
+            "Product.Line": "Classic Cars",
+            "Markets.Territory": "EMEA",
+            "Time.Years": "2004"
+          }
+        }
+      ],
+      "fact": "orderfact"
+    }
+  ],
+  "schema_version": "mcad.objective.import.v1",
+  "notes": "V9.5.4 SteelWheels objective derived from the upstream steelwheels-data-hsqldb dataset imported into SQL Server."
+}

@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "status": "available",
+  "dw_id": "adventureworks_sql_direct",
+  "label": "AdventureWorksDW via SQL Server Direct",
+  "backend_type": "sqlserver_direct",
+  "adapter": "adventureworks_direct",
+  "experimental": false,
+  "dataset": "AdventureWorksDW",
+  "logical_input_language": "mdx_or_sql",
+  "physical_query_language": "sqlserver_tsql",
+  "fallback_dw_id": null,
+  "fallback": false,
+  "notes": "Real SQL Server Docker-backed AdventureWorksDW adapter. Run bi-stack/scripts/setup_adventureworks_sqlserver.sh before live validation.",
+  "adapter_family": "sqlserver_direct",
+  "host": "adventureworks-sqlserver",
+  "port": 1433,
+  "database": "AdventureWorksDW2022",
+  "requires_restore": "AdventureWorksDW2022.bak",
+  "setup_script": "bi-stack/scripts/setup_adventureworks_sqlserver.sh",
+  "database_ready": true,
+  "real_execution": true,
+  "fact_rows": [
+    {
+      "FactInternetSalesRows": 60398
+    }
+  ],
+  "_http_status": 200,
+  "_url": "http://127.0.0.1:9000/mcad/datawarehouses/adventureworks_sql_direct/health",
+  "_attempt": 1,
+  "_label": "adventureworks_dw_health"
+}

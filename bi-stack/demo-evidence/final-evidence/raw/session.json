@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "active": {
+    "session_id": "S_0002",
+    "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+    "dw_id": "adventureworks_sql_direct"
+  },
+  "session": {
+    "session_id": "S_0002",
+    "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+    "dw_id": "adventureworks_sql_direct",
+    "status": "open",
+    "step_index": 0,
+    "phi_leq_t": 0.0,
+    "history_length": 0
+  },
+  "_http_status": 200,
+  "_url": "http://127.0.0.1:9000/mcad/session/new",
+  "_attempt": 1,
+  "_label": "create_session:adventureworks_sql_direct"
+}

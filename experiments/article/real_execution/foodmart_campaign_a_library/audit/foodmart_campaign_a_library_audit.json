@@ -1,0 +1,9 @@
+{
+  "ok": false,
+  "scenario_count": 96,
+  "candidate_query_count": 1152,
+  "unique_query_hash_count": 340,
+  "cross_scenario_duplicate_hash_count": 220,
+  "within_scenario_redundant_duplicate_groups": 96,
+  "diagnosis": "Cross-scenario exact duplicates remain and must be corrected."
+}

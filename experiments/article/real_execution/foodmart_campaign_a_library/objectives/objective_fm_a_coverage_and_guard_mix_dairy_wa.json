@@ -1,0 +1,121 @@
+{
+  "id": "O_FM_A_COVERAGE_AND_GUARD_MIX_DAIRY_WA",
+  "objective_id": "O_FM_A_COVERAGE_AND_GUARD_MIX_DAIRY_WA",
+  "dataset_id": "foodmart",
+  "dataset": "FoodMart",
+  "dw_id": "foodmart",
+  "compatible_dw_ids": [
+    "foodmart",
+    "foodmart_sql_direct"
+  ],
+  "cube": "Sales",
+  "title": "FoodMart A / coverage, redundancy and guard mix / Dairy / WA",
+  "description": "Campaign A FoodMart deep objective targeting coverage, redundancy and guard mix for category=Dairy, state=WA, grain=Time.Month.",
+  "article_protocol": "campaign_A_foodmart_deep_v1",
+  "campaign_id": "A_foodmart_deep",
+  "scenario_id": "fm_a_coverage_and_guard_mix_dairy_wa",
+  "business_domain": "Retail sales and profitability analysis",
+  "target_category": "Dairy",
+  "target_state": "WA",
+  "negative_category": "Baking Goods",
+  "negative_state": "Guerrero",
+  "grain": "month",
+  "measures": [
+    "Store Sales",
+    "Profit"
+  ],
+  "dimensions": [
+    "Product Category",
+    "Store State",
+    "Time Month"
+  ],
+  "complexity_level": 4,
+  "virtual_node_depth": 3,
+  "superposition_width": 2,
+  "constraints": [
+    {
+      "id": "C_FM_A_COVERAGE_AND_GUARD_MIX_DAIRY_WA_01",
+      "label": "Store Sales for Dairy/WA by month",
+      "measure": "Store Sales",
+      "metric": "Store Sales",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Dairy",
+        "Store.Store State": "WA"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_A_COVERAGE_AND_GUARD_MIX_DAIRY_WA_STORE_SALES_MONTH"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_A_COVERAGE_AND_GUARD_MIX_DAIRY_WA_STORE_SALES_MONTH",
+          "fact": "Sales",
+          "measure": "Store Sales",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Dairy",
+            "Store.Store State": "WA"
+          },
+          "complexity_level": 4,
+          "virtual_node_depth": 3,
+          "superposition_width": 2
+        }
+      ],
+      "weight": 0.5
+    },
+    {
+      "id": "C_FM_A_COVERAGE_AND_GUARD_MIX_DAIRY_WA_02",
+      "label": "Profit for Dairy/WA by month",
+      "measure": "Profit",
+      "metric": "Profit",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Dairy",
+        "Store.Store State": "WA"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_A_COVERAGE_AND_GUARD_MIX_DAIRY_WA_PROFIT_MONTH"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_A_COVERAGE_AND_GUARD_MIX_DAIRY_WA_PROFIT_MONTH",
+          "fact": "Sales",
+          "measure": "Profit",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Dairy",
+            "Store.Store State": "WA"
+          },
+          "complexity_level": 4,
+          "virtual_node_depth": 3,
+          "superposition_width": 2
+        }
+      ],
+      "weight": 0.5
+    }
+  ],
+  "validation_status": "pending_physical_execution",
+  "generation_note": "Generated as diversified Campaign A FoodMart scenario content, not as a renamed seed template.",
+  "name": "FoodMart A / coverage, redundancy and guard mix / Dairy / WA",
+  "label": "FoodMart A / coverage, redundancy and guard mix / Dairy / WA"
+}

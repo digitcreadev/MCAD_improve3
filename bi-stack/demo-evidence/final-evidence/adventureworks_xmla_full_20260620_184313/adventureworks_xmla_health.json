@@ -1,0 +1,23 @@
+{
+    "ok": true,
+    "status": "configured",
+    "dw_id": "adventureworks_xmla",
+    "label": "AdventureWorksDW \u2014 XMLA/eMondrian experimental",
+    "backend_type": "xmla_mondrian",
+    "adapter": "xmla_mondrian",
+    "experimental": true,
+    "dataset": "AdventureWorksDW",
+    "logical_input_language": "mdx",
+    "physical_query_language": "xmla_mdx",
+    "fallback_dw_id": null,
+    "fallback": false,
+    "notes": "Enabled after direct proof of MDX -> XMLA -> eMondrian -> SQL Server AdventureWorksDW2022 execution.",
+    "xmla_url": "http://emondrian:8080/emondrian/xmla",
+    "real_execution": "conditional_on_emondrian_catalog",
+    "capabilities": [
+        "mdx_via_xmla_execute",
+        "soap_execute",
+        "xmla_result_summary"
+    ],
+    "priority_path": true
+}

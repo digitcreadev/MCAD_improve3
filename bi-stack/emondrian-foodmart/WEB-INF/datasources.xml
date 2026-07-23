@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<DataSources>
+  <DataSource>
+    <DataSourceName>FoodMart</DataSourceName>
+    <DataSourceDescription>FoodMart Sample Data</DataSourceDescription>
+    <URL>http://localhost:8080/emondrian/xmla</URL>
+    <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:hsqldb:res:/hsqldb-foodmart/foodmart;JdbcDrivers=org.hsqldb.jdbc.JDBCDriver;Catalog=file:/usr/local/tomcat/webapps/emondrian/WEB-INF/schema/Foodmart.xml</DataSourceInfo>
+    <ProviderName>Mondrian</ProviderName>
+    <ProviderType>MDP</ProviderType>
+    <AuthenticationMode>Unauthenticated</AuthenticationMode>
+    <Catalogs>
+      <Catalog name="FoodMart">
+        <Definition>file:/usr/local/tomcat/webapps/emondrian/WEB-INF/schema/Foodmart.xml</Definition>
+      </Catalog>
+    </Catalogs>
+  </DataSource>
+</DataSources>

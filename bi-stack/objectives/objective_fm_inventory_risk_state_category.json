@@ -1,0 +1,25 @@
+{
+  "id": "O_FM_INVENTORY_RISK_STATE_CATEGORY",
+  "objective_id": "O_FM_INVENTORY_RISK_STATE_CATEGORY",
+  "dataset_id": "foodmart",
+  "title": "Inventory-risk proxy by state and category",
+  "description": "Article full-real V2 objective for Inventory-risk proxy by state and category.",
+  "business_domain": "Retail decision analysis",
+  "grain": "category-state-month",
+  "measures": [
+    "Unit Sales",
+    "Store Cost",
+    "Profit"
+  ],
+  "dimensions": [
+    "Product Category",
+    "Store State",
+    "Time Month"
+  ],
+  "allow_theme": "inventory-risk proxy through unit sales and cost",
+  "block_theme": "marketing/private attributes and unrelated measures",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "fm_inventory_risk_state_category",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

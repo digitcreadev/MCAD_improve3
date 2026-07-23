@@ -1,0 +1,162 @@
+{
+  "id": "O_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC",
+  "objective_id": "O_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC",
+  "dataset_id": "foodmart",
+  "dataset": "FoodMart",
+  "dw_id": "foodmart",
+  "compatible_dw_ids": [
+    "foodmart",
+    "foodmart_sql_direct"
+  ],
+  "cube": "Sales",
+  "title": "FoodMart A / category/state monthly profitability / Beer and Wine / BC",
+  "description": "Campaign A FoodMart deep objective targeting category/state monthly profitability for category=Beer and Wine, state=BC, grain=Time.Month.",
+  "article_protocol": "campaign_A_foodmart_deep_v1",
+  "campaign_id": "A_foodmart_deep",
+  "scenario_id": "fm_a_category_state_profitability_beer_and_wine_bc",
+  "business_domain": "Retail sales and profitability analysis",
+  "target_category": "Beer and Wine",
+  "target_state": "BC",
+  "negative_category": "Breakfast Foods",
+  "negative_state": "Zacatecas",
+  "grain": "month",
+  "measures": [
+    "Store Sales",
+    "Profit",
+    "Unit Sales"
+  ],
+  "dimensions": [
+    "Product Category",
+    "Store State",
+    "Time Month"
+  ],
+  "complexity_level": 3,
+  "virtual_node_depth": 2,
+  "superposition_width": 2,
+  "constraints": [
+    {
+      "id": "C_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC_01",
+      "label": "Store Sales for Beer and Wine/BC by month",
+      "measure": "Store Sales",
+      "metric": "Store Sales",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Beer and Wine",
+        "Store.Store State": "BC"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC_STORE_SALES_MONTH"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC_STORE_SALES_MONTH",
+          "fact": "Sales",
+          "measure": "Store Sales",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "BC"
+          },
+          "complexity_level": 3,
+          "virtual_node_depth": 2,
+          "superposition_width": 2
+        }
+      ],
+      "weight": 0.3333
+    },
+    {
+      "id": "C_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC_02",
+      "label": "Profit for Beer and Wine/BC by month",
+      "measure": "Profit",
+      "metric": "Profit",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Beer and Wine",
+        "Store.Store State": "BC"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC_PROFIT_MONTH"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC_PROFIT_MONTH",
+          "fact": "Sales",
+          "measure": "Profit",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "BC"
+          },
+          "complexity_level": 3,
+          "virtual_node_depth": 2,
+          "superposition_width": 2
+        }
+      ],
+      "weight": 0.3333
+    },
+    {
+      "id": "C_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC_03",
+      "label": "Unit Sales for Beer and Wine/BC by month",
+      "measure": "Unit Sales",
+      "metric": "Unit Sales",
+      "aggregator": "SUM",
+      "unit": "COUNT",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Beer and Wine",
+        "Store.Store State": "BC"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC_UNIT_SALES_MONTH"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_A_CATEGORY_STATE_PROFITABILITY_BEER_AND_WINE_BC_UNIT_SALES_MONTH",
+          "fact": "Sales",
+          "measure": "Unit Sales",
+          "aggregator": "SUM",
+          "unit": "COUNT",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "BC"
+          },
+          "complexity_level": 3,
+          "virtual_node_depth": 2,
+          "superposition_width": 2
+        }
+      ],
+      "weight": 0.3333
+    }
+  ],
+  "validation_status": "pending_physical_execution",
+  "generation_note": "Generated as diversified Campaign A FoodMart scenario content, not as a renamed seed template.",
+  "name": "FoodMart A / category/state monthly profitability / Beer and Wine / BC",
+  "label": "FoodMart A / category/state monthly profitability / Beer and Wine / BC"
+}

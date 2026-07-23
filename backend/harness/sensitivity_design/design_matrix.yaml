@@ -1,0 +1,122 @@
+design_version: "mcad-sensitivity-e1-v1"
+
+status: design_only
+
+baseline:
+  seed: 20260722
+  repetitions_smoke: 2
+  repetitions_pilot: 10
+  repetitions_final: null
+
+  objective_count: 5
+  constraints_per_objective: 8
+  virtual_nodes_per_objective: 32
+  useful_virtual_node_ratio: 0.75
+  contribution_density: 0.50
+
+  workload_length: 40
+  noise_ratio: 0.25
+
+  noise_distribution:
+    wrong_measure: 0.125
+    wrong_context: 0.125
+    insufficient_grain: 0.125
+    invalid_aggregation: 0.125
+    invalid_unit: 0.125
+    invalid_time_window: 0.125
+    missing_cube: 0.125
+    redundant_contribution: 0.125
+
+axes:
+  objective_count:
+    primary_factor: objective_count
+    levels: [1, 2, 5, 10, 20, 50]
+    fixed:
+      constraints_per_objective: 8
+      virtual_nodes_per_objective: 32
+      contribution_density: 0.50
+      workload_length: 40
+      noise_ratio: 0.25
+
+  constraint_count:
+    primary_factor: constraints_per_objective
+    levels: [2, 4, 8, 16, 32]
+    fixed:
+      objective_count: 5
+      virtual_nodes_per_constraint: 4
+      contribution_density: 0.50
+      workload_length: 40
+      noise_ratio: 0.25
+
+  virtual_node_count:
+    primary_factor: total_virtual_node_count
+    levels: [8, 16, 32, 64, 128, 256, 512]
+    fixed:
+      objective_count: 5
+      constraints_per_objective: 8
+      contribution_density: 0.50
+      workload_length: 40
+      noise_ratio: 0.25
+
+  contribution_density:
+    primary_factor: contribution_density
+    levels: [0.10, 0.25, 0.50, 0.75, 1.00]
+    tolerance: 0.02
+    fixed:
+      objective_count: 5
+      constraints_per_objective: 8
+      total_virtual_node_count: 64
+      workload_length: 40
+      noise_ratio: 0.25
+
+  workload_noise:
+    primary_factor: noise_ratio
+    levels: [0.00, 0.10, 0.25, 0.40, 0.60]
+    tolerance: 0.025
+    fixed:
+      objective_count: 5
+      constraints_per_objective: 8
+      total_virtual_node_count: 64
+      contribution_density: 0.50
+      workload_length: 40
+
+smoke:
+  axes:
+    objective_count:
+      levels: [1, 5]
+    constraint_count:
+      levels: [2, 8]
+    virtual_node_count:
+      levels: [16, 64]
+    contribution_density:
+      levels: [0.25, 0.75]
+    workload_noise:
+      levels: [0.00, 0.40]
+
+required_manifest_fields:
+  - instance_id
+  - axis
+  - requested_factor_value
+  - realised_factor_value
+  - seed
+  - repetition
+  - objective_count
+  - selected_objective_id
+  - selected_objective_constraint_count
+  - total_constraint_count
+  - useful_virtual_node_count
+  - irrelevant_virtual_node_count
+  - total_virtual_node_count
+  - requirement_set_count
+  - requirement_membership_link_count
+  - realised_density
+  - workload_length
+  - non_contributive_query_count
+  - realised_noise_ratio
+  - realised_noise_class_counts
+  - graph_node_count
+  - graph_edge_count
+  - generator_version
+  - code_revision
+  - configuration_digest
+  - instance_digest

@@ -1,0 +1,54 @@
+{
+  "id": "steelwheels_emea_classic_cars_q1_q6",
+  "name": "SteelWheels EMEA Classic Cars validation",
+  "label": "SteelWheels EMEA Classic Cars validation",
+  "description": "Six-query SteelWheels scenario for O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY. It validates useful ALLOW queries for Sales and Quantity, plus out-of-objective, wrong-product, bad-grain and redundant BLOCK cases.",
+  "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+  "dw_id": "steelwheels_sql_direct",
+  "dataset": "SteelWheels",
+  "query_count": 6,
+  "queries": [
+    {
+      "id": "SW_Q1_ALLOW_SALES_MONTH",
+      "label": "SW Q1 — ALLOW Sales by month",
+      "expected_decision": "ALLOW",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Sales]} ON COLUMNS, [Time].[Months].Members ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA], [Time].[Years].[2004])"
+    },
+    {
+      "id": "SW_Q2_ALLOW_QUANTITY_MONTH",
+      "label": "SW Q2 — ALLOW Quantity by month",
+      "expected_decision": "ALLOW",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Quantity]} ON COLUMNS, [Time].[Months].Members ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA], [Time].[Years].[2004])"
+    },
+    {
+      "id": "SW_Q3_BLOCK_OUT_OF_OBJECTIVE_TERRITORY",
+      "label": "SW Q3 — BLOCK APAC instead of EMEA",
+      "expected_decision": "BLOCK",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Sales]} ON COLUMNS, [Time].[Months].Members ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[APAC], [Time].[Years].[2004])"
+    },
+    {
+      "id": "SW_Q4_BLOCK_OUT_OF_OBJECTIVE_PRODUCT",
+      "label": "SW Q4 — BLOCK Motorcycles instead of Classic Cars",
+      "expected_decision": "BLOCK",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Sales]} ON COLUMNS, [Time].[Months].Members ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Motorcycles], [Markets].[Territory].[EMEA], [Time].[Years].[2004])"
+    },
+    {
+      "id": "SW_Q5_BLOCK_BAD_GRAIN_YEAR",
+      "label": "SW Q5 — BLOCK Year grain instead of Month grain",
+      "expected_decision": "BLOCK",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Sales]} ON COLUMNS, [Time].[Years].Members ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA], [Time].[Years].[2004])"
+    },
+    {
+      "id": "SW_Q6_BLOCK_REDUNDANT_SALES",
+      "label": "SW Q6 — BLOCK redundant Sales after Q1",
+      "expected_decision": "BLOCK",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Sales]} ON COLUMNS, [Time].[Months].Members ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA], [Time].[Years].[2004])"
+    }
+  ]
+}

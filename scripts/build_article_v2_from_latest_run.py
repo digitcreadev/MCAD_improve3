@@ -1,0 +1,479 @@
+from __future__ import annotations
+
+import csv
+import json
+import os
+import re
+import shutil
+import subprocess
+from datetime import datetime
+from pathlib import Path
+
+
+def latest_run_dir() -> Path:
+    runs = sorted(Path("campaign_runs").glob("rebuild_article_*"))
+    if not runs:
+        raise SystemExit("No campaign_runs/rebuild_article_* directory found.")
+    return runs[-1]
+
+
+def tex_escape(s) -> str:
+    s = "" if s is None else str(s)
+    return (
+        s.replace("\\", r"\textbackslash{}")
+        .replace("&", r"\&")
+        .replace("%", r"\%")
+        .replace("$", r"\$")
+        .replace("#", r"\#")
+        .replace("_", r"\_")
+        .replace("{", r"\{")
+        .replace("}", r"\}")
+        .replace("~", r"\textasciitilde{}")
+        .replace("^", r"\textasciicircum{}")
+    )
+
+
+def short_value(v, max_len=70) -> str:
+    if isinstance(v, float):
+        return f"{v:.4f}"
+    if isinstance(v, int):
+        return str(v)
+    if isinstance(v, (dict, list)):
+        v = json.dumps(v, ensure_ascii=False)
+    v = "" if v is None else str(v)
+    v = re.sub(r"\s+", " ", v).strip()
+    return v[: max_len - 3] + "..." if len(v) > max_len else v
+
+
+def read_csv_rows(path: Path, max_rows=12, max_cols=7):
+    if not path.exists():
+        return [], []
+    with path.open(newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        headers = reader.fieldnames or []
+        rows = list(reader)
+    keep = headers[:max_cols]
+    return keep, rows[:max_rows]
+
+
+def write_csv_table(path: Path, out_tex: Path, caption: str, label: str):
+    headers, rows = read_csv_rows(path)
+    if not headers or not rows:
+        out_tex.write_text(
+            f"% Missing or empty source: {path}\n",
+            encoding="utf-8",
+        )
+        return False
+
+    colspec = "l" * len(headers)
+    lines = []
+    lines.append(r"\begin{table*}[t]")
+    lines.append(r"\centering")
+    lines.append(r"\scriptsize")
+    lines.append(r"\resizebox{\textwidth}{!}{%")
+    lines.append(rf"\begin{{tabular}}{{{colspec}}}")
+    lines.append(r"\toprule")
+    lines.append(" & ".join(tex_escape(h) for h in headers) + r" \\")
+    lines.append(r"\midrule")
+    for row in rows:
+        lines.append(" & ".join(tex_escape(short_value(row.get(h, ""))) for h in headers) + r" \\")
+    lines.append(r"\bottomrule")
+    lines.append(r"\end{tabular}%")
+    lines.append(r"}")
+    lines.append(rf"\caption{{{tex_escape(caption)}}}")
+    lines.append(rf"\label{{{label}}}")
+    lines.append(r"\end{table*}")
+    out_tex.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return True
+
+
+def flatten_json(obj, prefix=""):
+    rows = []
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            key = f"{prefix}.{k}" if prefix else str(k)
+            if isinstance(v, (dict, list)):
+                if isinstance(v, dict) and len(v) <= 8:
+                    rows.extend(flatten_json(v, key))
+                else:
+                    rows.append((key, short_value(v)))
+            else:
+                rows.append((key, short_value(v)))
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj[:20]):
+            item_prefix = f"{prefix}.item_{i}" if prefix else f"item_{i}"
+            rows.extend(flatten_json(v, item_prefix))
+    else:
+        rows.append((prefix, short_value(obj)))
+    return rows
+
+
+def write_json_table(path: Path, out_tex: Path, caption: str, label: str, max_rows=20):
+    if not path.exists():
+        out_tex.write_text(f"% Missing source: {path}\n", encoding="utf-8")
+        return False
+
+    try:
+        obj = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        out_tex.write_text(f"% Could not parse JSON: {path}: {e}\n", encoding="utf-8")
+        return False
+
+    rows = flatten_json(obj)[:max_rows]
+    if not rows:
+        return False
+
+    lines = []
+    lines.append(r"\begin{table}[t]")
+    lines.append(r"\centering")
+    lines.append(r"\scriptsize")
+    lines.append(r"\begin{tabular}{ll}")
+    lines.append(r"\toprule")
+    lines.append(r"Metric & Value \\")
+    lines.append(r"\midrule")
+    for k, v in rows:
+        lines.append(f"{tex_escape(k)} & {tex_escape(v)} \\\\")
+    lines.append(r"\bottomrule")
+    lines.append(r"\end{tabular}")
+    lines.append(rf"\caption{{{tex_escape(caption)}}}")
+    lines.append(rf"\label{{{label}}}")
+    lines.append(r"\end{table}")
+    out_tex.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return True
+
+
+def rel(path: Path, base: Path) -> str:
+    return os.path.relpath(path, base).replace("\\", "/")
+
+
+def main():
+    run_dir = latest_run_dir()
+    modern = run_dir / "modern"
+    paper = run_dir / "paper"
+    out_dir = paper / "article_v2"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    generated = []
+
+    table_specs = [
+        (
+            modern / "policy_benchmark/policy_summary.csv",
+            out_dir / "tab_policy_summary.tex",
+            "Policy benchmark summary generated by the reproducibility pipeline.",
+            "tab:policy-summary",
+        ),
+        (
+            modern / "robustness/robustness_policy_summary.csv",
+            out_dir / "tab_robustness_summary.tex",
+            "Robustness benchmark summary.",
+            "tab:robustness-summary",
+        ),
+        (
+            modern / "multidataset/summary_by_dataset_and_policy.csv",
+            out_dir / "tab_multidataset_summary.tex",
+            "Multi-dataset summary by dataset and policy.",
+            "tab:multidataset-summary",
+        ),
+        (
+            modern / "stats/pairwise_policy_statistics.csv",
+            out_dir / "tab_pairwise_stats.tex",
+            "Pairwise statistical comparison between policies.",
+            "tab:pairwise-stats",
+        ),
+        (
+            modern / "stats/policy_confidence_intervals.csv",
+            out_dir / "tab_confidence_intervals.tex",
+            "Policy confidence intervals.",
+            "tab:confidence-intervals",
+        ),
+        (
+            modern / "human_validation/system_vs_human.csv",
+            out_dir / "tab_system_vs_human.tex",
+            "System-versus-human validation sample.",
+            "tab:system-human",
+        ),
+    ]
+
+    for src, dst, cap, label in table_specs:
+        if write_csv_table(src, dst, cap, label):
+            generated.append(dst.name)
+
+    json_specs = [
+        (
+            modern / "evidence/evidence_usefulness_report.json",
+            out_dir / "tab_evidence_report.tex",
+            "Evidence-usefulness summary.",
+            "tab:evidence-report",
+        ),
+        (
+            modern / "evidence/bootstrap_benefit_summary.json",
+            out_dir / "tab_bootstrap_benefit.tex",
+            "Bootstrap benefit summary.",
+            "tab:bootstrap-benefit",
+        ),
+        (
+            modern / "scalability/scalability_summary.json",
+            out_dir / "tab_scalability_summary.tex",
+            "Scalability summary.",
+            "tab:scalability-summary",
+        ),
+        (
+            modern / "stats/phase7_statistical_summary.json",
+            out_dir / "tab_statistical_summary.tex",
+            "Phase-7 statistical analysis summary.",
+            "tab:statistical-summary",
+        ),
+        (
+            modern / "human_validation/agreement_summary.json",
+            out_dir / "tab_human_agreement.tex",
+            "Human validation agreement summary.",
+            "tab:human-agreement",
+        ),
+        (
+            modern / "governance/governance_report.json",
+            out_dir / "tab_governance_summary.tex",
+            "Governance replay summary.",
+            "tab:governance-summary",
+        ),
+        (
+            modern / "hardening/hardening_report.json",
+            out_dir / "tab_hardening_summary.tex",
+            "Phase-9 hardening summary.",
+            "tab:hardening-summary",
+        ),
+    ]
+
+    for src, dst, cap, label in json_specs:
+        if write_json_table(src, dst, cap, label):
+            generated.append(dst.name)
+
+    legacy_table_metrics = paper / "results_1000/tables/table_metrics_by_type.tex"
+    legacy_table_contrib = paper / "results_1000/tables/table_contribution_by_type.tex"
+    legacy_table_explain = paper / "results_1000/tables/table_explainability_by_type.tex"
+    legacy_fig = paper / "results_1000/figures/fig_explainability_composite_by_type.png"
+
+    manifest = run_dir / "campaign_manifest.json"
+    error_scan = run_dir / "error_scan.txt"
+
+    article = rf"""
+\documentclass[conference]{{IEEEtran}}
+
+\usepackage[utf8]{{inputenc}}
+
+% Unicode symbols produced by regenerated legacy tables.
+\DeclareUnicodeCharacter{{03C6}}{{\ensuremath{{\phi}}}}
+\DeclareUnicodeCharacter{{2264}}{{\ensuremath{{\leq}}}}
+\DeclareUnicodeCharacter{{2205}}{{\ensuremath{{\emptyset}}}}
+\DeclareUnicodeCharacter{{03BA}}{{\ensuremath{{\kappa}}}}
+\DeclareUnicodeCharacter{{03B1}}{{\ensuremath{{\alpha}}}}
+\DeclareUnicodeCharacter{{03B2}}{{\ensuremath{{\beta}}}}
+\DeclareUnicodeCharacter{{0394}}{{\ensuremath{{\Delta}}}}
+\DeclareUnicodeCharacter{{00B1}}{{\ensuremath{{\pm}}}}
+
+
+\usepackage{{graphicx}}
+\usepackage{{booktabs}}
+\usepackage{{array}}
+\usepackage{{url}}
+\usepackage{{hyperref}}
+\usepackage{{amsmath,amssymb}}
+\usepackage{{multirow}}
+\usepackage{{balance}}
+
+\title{{MCAD: A Reproducible Contextual Decision-Analysis Mask for Goal-Centric OLAP Personalization}}
+
+\author{{
+\IEEEauthorblockN{{Habib Benaouda}}
+\IEEEauthorblockA{{Decision-Support and OLAP Personalization Research\\
+Generated from reproducibility campaign: \texttt{{{tex_escape(run_dir.name)}}}}}
+}}
+
+\begin{{document}}
+\maketitle
+
+\begin{{abstract}}
+This second version of the article is generated from the latest reproducibility campaign. It updates the experimental narrative and paper-ready artifacts using the outputs archived under \texttt{{{tex_escape(str(run_dir))}}}. The evaluated pipeline covers policy benchmarking, ablation, robustness, scalability, multi-dataset validation, evidence usefulness, statistical analysis, human-expert validation, governance replay, phase-9 hardening, and legacy artifact regeneration. The central claim is that MCAD evaluates OLAP/MDX analytical actions according to their calculability contribution to a strategic objective, rather than according to a purely user-centric relevance criterion.
+\end{{abstract}}
+
+\begin{{IEEEkeywords}}
+OLAP personalization, decision-support systems, context-aware analytics, strategic objectives, knowledge graphs, reproducibility, human validation, governance, robustness.
+\end{{IEEEkeywords}}
+
+\section{{Introduction}}
+Decision-support personalization is often framed as a user-centric recommendation problem, where the objective is to adapt analytical navigation to user preferences, interaction history, or perceived relevance. In contrast, the MCAD approach defines personalization from a goal-centric decision-analysis perspective. A query is considered useful when it makes one or more constraints of a strategic objective calculable, partially calculable, or not calculable under explicit contextual guardrails.
+
+The present article version is automatically aligned with the latest reproducibility campaign. The generated artifacts are not detached from the experimental pipeline: they are read directly from the timestamped campaign directory, together with logs, checksums, manifest files, modern experiment outputs, legacy tables, and paper-ready figures.
+
+\section{{MCAD Model Overview}}
+Let $O$ denote a strategic objective represented as a set of constraints. An OLAP query plan $QP$ is evaluated through contextual satisfiability, realized analytical cells, and the subset of constraints made evaluable by the query:
+\[
+SAT(QP), \quad Real(QP), \quad C_{{eval}}(QP,O).
+\]
+The contribution function $\phi(QP,O)$ measures the degree to which a query contributes to the calculability of $O$. Across an analytical session, cumulative coverage tracks whether successive queries progressively activate the constraints attached to the strategic objective.
+
+The contextual knowledge graph stores measures, dimensions, levels, hierarchy relations, aggregability rules, temporal windows, semantic conflicts, and virtual objective nodes. The MCAD engine therefore acts as a verification layer: it does not merely recommend a next query, but determines whether the current query is coherent, evaluable, and strategically useful.
+
+\section{{Reproducibility Protocol}}
+The complete experimental campaign was regenerated by a single reproducibility script. Each run creates a timestamped directory containing raw logs, modern and legacy outputs, paper-ready tables and figures, checksums, a campaign manifest, and an error scan.
+
+The latest campaign used for this article is:
+\[
+\texttt{{{tex_escape(str(run_dir))}}}.
+\]
+
+The generated manifest and error scan are stored respectively in:
+\[
+\texttt{{{tex_escape(str(manifest))}}}, \quad
+\texttt{{{tex_escape(str(error_scan))}}}.
+\]
+
+\section{{Experimental Campaigns}}
+The reproduced pipeline includes the following experimental blocks:
+\begin{{itemize}}
+  \item policy benchmark and ablation analysis;
+  \item robustness evaluation under blocking and contextual-failure scenarios;
+  \item scalability evaluation over catalog and graph-growth conditions;
+  \item multi-dataset validation;
+  \item phase-6 evidence-usefulness evaluation;
+  \item phase-7 statistical analysis;
+  \item human-expert validation using three annotation files;
+  \item governance replay and retained-evidence checks;
+  \item phase-9 hardening and decision-audit checks;
+  \item legacy session aggregation and paper-artifact regeneration.
+\end{{itemize}}
+
+\section{{Modern Results}}
+The following tables are generated directly from the latest reproducibility run.
+
+\input{{tab_policy_summary.tex}}
+
+\input{{tab_robustness_summary.tex}}
+
+\input{{tab_multidataset_summary.tex}}
+
+\input{{tab_evidence_report.tex}}
+
+\input{{tab_bootstrap_benefit.tex}}
+
+\input{{tab_scalability_summary.tex}}
+
+\input{{tab_statistical_summary.tex}}
+
+\input{{tab_pairwise_stats.tex}}
+
+\input{{tab_confidence_intervals.tex}}
+
+\section{{Human Expert Validation}}
+The human validation campaign uses three expert annotation files and compares MCAD decisions against the consolidated human reference. This section is generated from the latest run outputs.
+
+\input{{tab_human_agreement.tex}}
+
+\input{{tab_system_vs_human.tex}}
+
+\section{{Governance and Phase-9 Hardening}}
+The governance and hardening outputs are now generated directly into the campaign directory, without requiring root-level temporary folders. This improves operational reproducibility and avoids hidden dependencies on old audited folders.
+
+\input{{tab_governance_summary.tex}}
+
+\input{{tab_hardening_summary.tex}}
+
+\section{{Legacy Session Artifacts}}
+The legacy part of the campaign regenerates contribution, explainability, and metric tables from archived session timelines. The following inputs are taken from the paper-ready legacy outputs of the latest campaign.
+
+"""
+
+    if legacy_table_metrics.exists():
+        article += rf"""
+\subsection{{Legacy Metrics by Type}}
+\input{{{tex_escape(rel(legacy_table_metrics, out_dir))}}}
+"""
+
+    if legacy_table_contrib.exists():
+        article += rf"""
+\subsection{{Legacy Contribution by Type}}
+\input{{{tex_escape(rel(legacy_table_contrib, out_dir))}}}
+"""
+
+    if legacy_table_explain.exists():
+        article += rf"""
+\subsection{{Legacy Explainability by Type}}
+\input{{{tex_escape(rel(legacy_table_explain, out_dir))}}}
+"""
+
+    if legacy_fig.exists():
+        article += rf"""
+\begin{{figure}}[t]
+\centering
+\includegraphics[width=\linewidth]{{{tex_escape(rel(legacy_fig, out_dir))}}}
+\caption{{Composite explainability figure regenerated from the legacy 1000-session campaign.}}
+\label{{fig:legacy-explainability}}
+\end{{figure}}
+"""
+
+    article += r"""
+\section{Discussion}
+The regenerated results support three methodological properties of MCAD. First, contribution is tied to the calculability of strategic constraints rather than to a generic notion of query relevance. Second, guardrails make the decision process auditable by identifying contextual failures such as grain incompatibility, slicer conflicts, missing measures, or temporal-window violations. Third, the reproducibility pipeline makes each experimental block traceable from source inputs to paper-ready artifacts.
+
+The latest campaign also removes two previously fragile elements: root-level temporary outputs and implicit imports requiring manual \texttt{PYTHONPATH} configuration. Governance and hardening runs now write directly to the campaign directory, and temporary CKG artifacts are confined to the run-specific temporary area.
+
+\section{Threats to Validity}
+The experimental results depend on the representativeness of benchmark scenarios, the quality of objective definitions, and the completeness of contextual constraints encoded in the CKG. Human validation mitigates part of this risk by comparing system decisions with independent expert annotations. Additional external datasets and larger real-world analytical sessions would further strengthen external validity.
+
+\section{Conclusion}
+This article version presents an updated and reproducible MCAD evaluation. The full pipeline regenerates modern benchmarks, human validation, governance, hardening, statistical summaries, and legacy paper artifacts in a single timestamped campaign directory. This supports a reproducible and auditable presentation of MCAD as a goal-centric verification layer for OLAP personalization.
+
+\balance
+\begin{thebibliography}{9}
+
+\bibitem{olap}
+E. F. Codd, S. B. Codd, and C. T. Salley, ``Providing OLAP to User-Analysts: An IT Mandate,'' 1993.
+
+\bibitem{provo}
+W3C, ``PROV-O: The PROV Ontology,'' W3C Recommendation, 2013.
+
+\bibitem{shacl}
+W3C, ``Shapes Constraint Language (SHACL),'' W3C Recommendation, 2017.
+
+\bibitem{qb}
+W3C, ``The RDF Data Cube Vocabulary,'' W3C Recommendation, 2014.
+
+\bibitem{repro}
+V. Stodden, F. Leisch, and R. D. Peng, Eds., \emph{Implementing Reproducible Research}. CRC Press, 2014.
+
+\end{thebibliography}
+
+\end{document}
+"""
+
+    tex_path = out_dir / "mcad_article_v2.tex"
+    tex_path.write_text(article.strip() + "\n", encoding="utf-8")
+
+    print(f"Generated TEX: {tex_path}")
+
+    compiler = shutil.which("pdflatex")
+    if compiler:
+        for _ in range(2):
+            subprocess.run(
+                [
+                    compiler,
+                    "-interaction=nonstopmode",
+                    "-halt-on-error",
+                    tex_path.name,
+                ],
+                cwd=out_dir,
+                check=False,
+            )
+        pdf_path = out_dir / "mcad_article_v2.pdf"
+        if pdf_path.exists():
+            print(f"Generated PDF: {pdf_path}")
+        else:
+            print("PDF was not generated. Check the .log file in article_v2/.")
+    else:
+        print("pdflatex not found. TEX generated only.")
+        print("Install a LaTeX distribution or compile manually later.")
+
+    print(f"Article V2 directory: {out_dir}")
+
+
+if __name__ == "__main__":
+    main()

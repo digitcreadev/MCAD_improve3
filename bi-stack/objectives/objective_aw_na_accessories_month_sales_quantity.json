@@ -1,0 +1,24 @@
+{
+  "id": "O_AW_NA_ACCESSORIES_MONTH_SALES_QUANTITY",
+  "objective_id": "O_AW_NA_ACCESSORIES_MONTH_SALES_QUANTITY",
+  "dataset_id": "adventureworks",
+  "title": "North America Accessories monthly sales and quantity",
+  "description": "Article full-real V2 objective for North America Accessories monthly sales and quantity.",
+  "business_domain": "Manufacturing and sales territory analysis",
+  "grain": "month",
+  "measures": [
+    "Sales Amount",
+    "Order Quantity"
+  ],
+  "dimensions": [
+    "Sales Territory",
+    "Product Category",
+    "Time Month"
+  ],
+  "allow_theme": "North America Accessories monthly sales/quantity",
+  "block_theme": "Bikes instead of Accessories, customer phone, wrong grain",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "aw_na_accessories_month_sales_quantity",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

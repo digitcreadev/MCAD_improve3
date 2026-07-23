@@ -1,0 +1,84 @@
+metrics_contract_version: "mcad-sensitivity-metrics-v1"
+
+missing_value_policy:
+  representation: ""
+  forbidden_substitution: 0
+  rule: >
+    Undefined or unavailable values are represented as missing.
+    They must not be silently converted to zero.
+
+decision_metrics:
+  precision:
+    formula: "TP / (TP + FP)"
+    undefined_when: "TP + FP = 0"
+
+  recall:
+    formula: "TP / (TP + FN)"
+    undefined_when: "TP + FN = 0"
+
+  specificity:
+    formula: "TN / (TN + FP)"
+    undefined_when: "TN + FP = 0"
+
+  f1:
+    formula: "2 * precision * recall / (precision + recall)"
+    undefined_when: "precision + recall = 0 or either component is undefined"
+
+  balanced_accuracy:
+    formula: "(recall + specificity) / 2"
+    undefined_when: "recall or specificity is undefined"
+
+  matthews_correlation_coefficient:
+    formula: >
+      (TP*TN - FP*FN) /
+      sqrt((TP+FP)(TP+FN)(TN+FP)(TN+FN))
+    undefined_when: "denominator = 0"
+
+  false_allow_rate:
+    formula: "FP / (FP + TN)"
+    undefined_when: "FP + TN = 0"
+
+  false_block_rate:
+    formula: "FN / (FN + TP)"
+    undefined_when: "FN + TP = 0"
+
+goal_progress_metrics:
+  phi_final:
+    aggregation: "last phi value of the session"
+
+  auc_phi:
+    aggregation: "arithmetic mean of the per-step phi curve"
+
+  reach_rate_0_8:
+    formula: "sessions reaching phi >= 0.8 / all sessions"
+
+  reach_rate_0_9:
+    formula: "sessions reaching phi >= 0.9 / all sessions"
+
+  time_to_0_8:
+    aggregation: "conditional mean over reaching sessions only"
+    requires_companion_metric: "reach_rate_0_8"
+
+  time_to_0_9:
+    aggregation: "conditional mean over reaching sessions only"
+    requires_companion_metric: "reach_rate_0_9"
+
+runtime_metrics:
+  graph_build_ms:
+    clock: "time.perf_counter_ns"
+
+  cold_latency_ms:
+    definition: "first production evaluation on a newly created instance"
+
+  warm_latency_ms:
+    definition: "subsequent production evaluation on the same instance"
+    missing_when: "no warm evaluation exists"
+
+  peak_memory_kib:
+    mechanism: "tracemalloc"
+
+  snapshot_ms:
+    clock: "time.perf_counter_ns"
+
+  snapshot_bytes:
+    definition: "actual serialized snapshot file size"

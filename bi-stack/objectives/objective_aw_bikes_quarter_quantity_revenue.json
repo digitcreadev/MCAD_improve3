@@ -1,0 +1,24 @@
+{
+  "id": "O_AW_BIKES_QUARTER_QUANTITY_REVENUE",
+  "objective_id": "O_AW_BIKES_QUARTER_QUANTITY_REVENUE",
+  "dataset_id": "adventureworks",
+  "title": "Bikes quarterly quantity and revenue",
+  "description": "Article full-real V2 objective for Bikes quarterly quantity and revenue.",
+  "business_domain": "Manufacturing and sales territory analysis",
+  "grain": "quarter",
+  "measures": [
+    "Order Quantity",
+    "Sales Amount"
+  ],
+  "dimensions": [
+    "Product Category",
+    "Sales Territory",
+    "Time Quarter"
+  ],
+  "allow_theme": "Bikes quarterly order quantity/revenue",
+  "block_theme": "daily grain, employee pay rate, reseller credit limit",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "aw_bikes_quarter_quantity_revenue",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

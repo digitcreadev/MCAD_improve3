@@ -1,0 +1,102 @@
+{
+  "audit": {
+    "candidate_query_count": 1152,
+    "cross_scenario_duplicate_hash_count": 0,
+    "cross_scenario_duplicate_rows": 0,
+    "diagnosis": "FoodMart Campaign A library is hardened: no exact query text is reused across different scenario templates.",
+    "ok": true,
+    "scenario_count": 96,
+    "unique_query_hash_count": 1056,
+    "within_scenario_redundant_duplicate_groups": 96
+  },
+  "campaign_id": "A_foodmart_deep",
+  "candidate_query_count": 1152,
+  "contract_version": "mcad.campaign_a.foodmart_deep_library.v1",
+  "dataset_id": "foodmart",
+  "generation_policy": "diversified FoodMart scenario templates; profile-specific MDX axis/slicer variants; no cross-scenario exact query clones after hardening",
+  "hardening": {
+    "changed_queries": 360,
+    "changed_scenarios": 96,
+    "contract_version": "mcad.foodmart_campaign_a.library_hardening.v1",
+    "cross_scenario_duplicates_after_hardening": "experiments/article/real_execution/foodmart_campaign_a_library/audit/foodmart_campaign_a_cross_scenario_duplicates_after_hardening.csv",
+    "query_inventory_after_hardening": "experiments/article/real_execution/foodmart_campaign_a_library/audit/foodmart_campaign_a_query_inventory_after_hardening.csv",
+    "report": "experiments/article/real_execution/foodmart_campaign_a_library/audit/foodmart_campaign_a_library_hardening_report.json"
+  },
+  "objective_count": 96,
+  "ok": true,
+  "outputs": {
+    "audit_summary": "experiments/article/real_execution/foodmart_campaign_a_library/audit/foodmart_campaign_a_library_audit.json",
+    "objectives_dir": "experiments/article/real_execution/foodmart_campaign_a_library/objectives",
+    "scenario_inventory": "experiments/article/real_execution/foodmart_campaign_a_library/plans/campaign_a_scenario_inventory.csv",
+    "scenarios_dir": "experiments/article/real_execution/foodmart_campaign_a_library/scenarios",
+    "session_plan": "experiments/article/real_execution/foodmart_campaign_a_library/plans/campaign_a_session_plan.csv"
+  },
+  "planned_length_max": 12,
+  "planned_length_mean": 8.0,
+  "planned_length_min": 4,
+  "planned_query_decision_count": 24000,
+  "planned_session_count": 3000,
+  "profiles": [
+    {
+      "complexity_level": 1,
+      "id": "sales_profit_month",
+      "label": "monthly sales and profit",
+      "superposition_width": 1,
+      "target_measures": [
+        "Store Sales",
+        "Profit"
+      ],
+      "virtual_node_depth": 1
+    },
+    {
+      "complexity_level": 2,
+      "id": "unit_sales_month",
+      "label": "monthly unit sales and sales amount",
+      "superposition_width": 1,
+      "target_measures": [
+        "Unit Sales",
+        "Store Sales"
+      ],
+      "virtual_node_depth": 2
+    },
+    {
+      "complexity_level": 3,
+      "id": "category_state_profitability",
+      "label": "category/state monthly profitability",
+      "superposition_width": 2,
+      "target_measures": [
+        "Store Sales",
+        "Profit",
+        "Unit Sales"
+      ],
+      "virtual_node_depth": 2
+    },
+    {
+      "complexity_level": 4,
+      "id": "coverage_and_guard_mix",
+      "label": "coverage, redundancy and guard mix",
+      "superposition_width": 2,
+      "target_measures": [
+        "Store Sales",
+        "Profit"
+      ],
+      "virtual_node_depth": 3
+    }
+  ],
+  "scenario_count": 96,
+  "target_categories": [
+    "Beer and Wine",
+    "Dairy",
+    "Produce",
+    "Snack Foods",
+    "Canned Foods",
+    "Frozen Foods"
+  ],
+  "target_states": [
+    "WA",
+    "CA",
+    "OR",
+    "BC"
+  ],
+  "validation_status": "generated_hardened_pending_runtime_validation"
+}

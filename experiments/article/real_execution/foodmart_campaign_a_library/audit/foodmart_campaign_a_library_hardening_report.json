@@ -1,0 +1,16 @@
+{
+  "audit": {
+    "candidate_query_count": 1152,
+    "cross_scenario_duplicate_hash_count": 0,
+    "cross_scenario_duplicate_rows": 0,
+    "diagnosis": "FoodMart Campaign A library is hardened: no exact query text is reused across different scenario templates.",
+    "ok": true,
+    "scenario_count": 96,
+    "unique_query_hash_count": 1056,
+    "within_scenario_redundant_duplicate_groups": 96
+  },
+  "changed_queries": 360,
+  "changed_scenarios": 96,
+  "manifest": "experiments/article/real_execution/foodmart_campaign_a_library/manifest.json",
+  "ok": true
+}

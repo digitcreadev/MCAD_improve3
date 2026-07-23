@@ -1,0 +1,24 @@
+{
+  "id": "O_FM_CATEGORY_STATE_PROFITABILITY",
+  "objective_id": "O_FM_CATEGORY_STATE_PROFITABILITY",
+  "dataset_id": "foodmart",
+  "title": "Category/state profitability comparison",
+  "description": "Article full-real V2 objective for Category/state profitability comparison.",
+  "business_domain": "Retail decision analysis",
+  "grain": "category-state",
+  "measures": [
+    "Store Sales",
+    "Store Cost",
+    "Profit"
+  ],
+  "dimensions": [
+    "Product Category",
+    "Store State"
+  ],
+  "allow_theme": "category profitability by state",
+  "block_theme": "supplier/private cost and wrong time grain",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "fm_category_state_profitability",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

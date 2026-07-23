@@ -1,0 +1,161 @@
+{
+  "ok": true,
+  "service": "mcad-proxy",
+  "mode": "hybrid_bi_gateway",
+  "gateway": "mcad.execution_gateway.v2.hybrid",
+  "upstream": "http://emondrian:8080/emondrian/xmla",
+  "mcad_eval": "http://mcad-api:8000/eval",
+  "mcad_ckg": "http://mcad-api:8000/ckg/update",
+  "active_context": {
+    "session_id": "S_0001",
+    "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+    "dw_id": "adventureworks_sql_direct"
+  },
+  "last_decision": {},
+  "dw_gateway_health": {
+    "ok": true,
+    "gateway": "mcad.execution_gateway.v2.hybrid",
+    "strategy": "xmla_priority_sql_direct_fallback",
+    "enabled_count": 3,
+    "items": [
+      {
+        "ok": false,
+        "status": "disabled",
+        "dw_id": "adventureworks_xmla",
+        "label": "AdventureWorksDW — XMLA/eMondrian experimental",
+        "backend_type": "xmla_mondrian",
+        "adapter": "adventureworks_direct",
+        "experimental": true,
+        "dataset": "AdventureWorksDW",
+        "logical_input_language": "mdx",
+        "physical_query_language": "xmla_mdx",
+        "fallback_dw_id": "adventureworks_sql_direct",
+        "fallback": false,
+        "notes": "Still disabled: AdventureWorksDW is integrated first through SQL Server Docker + SQL Direct, not through Mondrian XMLA.",
+        "adapter_family": "sqlserver_direct",
+        "host": "adventureworks-sqlserver",
+        "port": 1433,
+        "database": "AdventureWorksDW2022",
+        "requires_restore": "AdventureWorksDW2022.bak",
+        "setup_script": "bi-stack/scripts/setup_adventureworks_sqlserver.sh",
+        "real_execution": false
+      },
+      {
+        "ok": true,
+        "status": "available",
+        "dw_id": "adventureworks_sql_direct",
+        "label": "AdventureWorksDW via SQL Server Direct",
+        "backend_type": "sqlserver_direct",
+        "adapter": "adventureworks_direct",
+        "experimental": false,
+        "dataset": "AdventureWorksDW",
+        "logical_input_language": "mdx_or_sql",
+        "physical_query_language": "sqlserver_tsql",
+        "fallback_dw_id": null,
+        "fallback": false,
+        "notes": "Real SQL Server Docker-backed AdventureWorksDW adapter. Run bi-stack/scripts/setup_adventureworks_sqlserver.sh before live validation.",
+        "adapter_family": "sqlserver_direct",
+        "host": "adventureworks-sqlserver",
+        "port": 1433,
+        "database": "AdventureWorksDW2022",
+        "requires_restore": "AdventureWorksDW2022.bak",
+        "setup_script": "bi-stack/scripts/setup_adventureworks_sqlserver.sh",
+        "database_ready": true,
+        "real_execution": true,
+        "fact_rows": [
+          {
+            "FactInternetSalesRows": 60398
+          }
+        ]
+      },
+      {
+        "ok": true,
+        "status": "configured",
+        "dw_id": "foodmart",
+        "label": "FoodMart via XMLA/eMondrian",
+        "backend_type": "xmla_mondrian",
+        "adapter": "xmla_mondrian",
+        "experimental": false,
+        "dataset": "FoodMart",
+        "logical_input_language": "mdx",
+        "physical_query_language": "xmla_mdx",
+        "fallback_dw_id": "foodmart_sql_direct",
+        "fallback": false,
+        "notes": "Priority MDX/OLAP path for demonstrations: MCAD evaluates first, then MDX is forwarded to eMondrian/XMLA only on ALLOW.",
+        "xmla_url": "http://emondrian:8080/emondrian/xmla",
+        "real_execution": "conditional_on_emondrian_catalog",
+        "capabilities": [
+          "mdx_via_xmla_execute",
+          "soap_execute",
+          "xmla_result_summary"
+        ],
+        "priority_path": true
+      },
+      {
+        "ok": true,
+        "status": "available",
+        "dw_id": "foodmart_sql_direct",
+        "label": "FoodMart via Direct BI",
+        "backend_type": "foodmart_direct",
+        "adapter": "foodmart_direct",
+        "experimental": false,
+        "dataset": "FoodMart",
+        "logical_input_language": "mdx",
+        "physical_query_language": "sql_direct",
+        "fallback_dw_id": null,
+        "fallback": true,
+        "notes": "Stable BI-direct FoodMart execution path preserved as fallback/secondary adapter.",
+        "capabilities": [
+          "execute_mdx_subset",
+          "materialized_public_result",
+          "nvac_probe",
+          "sql_direct_fallback"
+        ],
+        "real_execution": true,
+        "adapter_family": "sql_direct",
+        "logical_query_language": "mdx"
+      },
+      {
+        "ok": false,
+        "status": "disabled",
+        "dw_id": "steelwheels_xmla",
+        "label": "SteelWheels — XMLA/eMondrian",
+        "backend_type": "xmla_mondrian",
+        "adapter": "xmla_mondrian",
+        "experimental": true,
+        "dataset": "SteelWheels / Pentaho SampleData",
+        "logical_input_language": "mdx",
+        "physical_query_language": "xmla_mdx",
+        "fallback_dw_id": "steelwheels_sql_direct",
+        "fallback": false,
+        "notes": "Third reputed Mondrian/Pentaho-compatible dataset candidate. Enable after adding the SteelWheels schema/catalog to eMondrian.",
+        "real_execution": false
+      },
+      {
+        "ok": false,
+        "status": "disabled",
+        "dw_id": "steelwheels_sql_direct",
+        "label": "SteelWheels — SQL Direct fallback",
+        "backend_type": "sql_direct",
+        "adapter": "steelwheels_direct",
+        "experimental": true,
+        "dataset": "SteelWheels / Pentaho SampleData",
+        "logical_input_language": "mdx_or_sql",
+        "physical_query_language": "sql",
+        "fallback_dw_id": null,
+        "fallback": true,
+        "notes": "Registered fallback/secondary adapter for SteelWheels. Physical connection and mapping are deferred to the SteelWheels integration step.",
+        "real_execution": false,
+        "next_step": "SteelWheels integration"
+      }
+    ]
+  },
+  "demo_evidence": {
+    "dir": "/app/demo-evidence",
+    "latest_run_id": "20260619_183536"
+  },
+  "_http_status": 200,
+  "_url": "http://127.0.0.1:9000/health",
+  "_attempt": 1,
+  "_label": "proxy_health"
+}

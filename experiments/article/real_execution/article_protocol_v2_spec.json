@@ -1,0 +1,215 @@
+{
+  "protocol_id": "article_full_real_v2",
+  "terminology": {
+    "objective": "Active analytical/strategic objective.",
+    "scenario": "Logical session: an ordered series of MDX queries evaluated under one objective.",
+    "session_template": "Reusable dataset-specific scenario used to generate session instances.",
+    "session_instance": "Concrete session generated from a session template with a specific length and ALLOW/BLOCK profile.",
+    "backend_validation": "Execution of the same session instance on one physical backend."
+  },
+  "core_counts": {
+    "campaign_a_foodmart_sessions": 3000,
+    "campaign_b_multidataset_sessions": 1200,
+    "campaign_c_backend_validations": 480,
+    "total_sessions_or_validations": 4680,
+    "total_query_level_decisions": 37440,
+    "global_average_session_length": 8,
+    "logical_session_instances": 4440,
+    "backend_validation_units": 4680
+  },
+  "session_lengths": {
+    "allowed_lengths": [
+      4,
+      6,
+      8,
+      10,
+      12
+    ],
+    "balancing_rule": "The generated population must preserve an average length of 8 queries over the 4680 sessions/validations."
+  },
+  "backend_portability_rule": {
+    "principle": "Only Campaign C executes the same session instance on both sql_direct and xmla_emondrian.",
+    "counting_convention": "480 backend validations = 240 logical session instances executed on 2 backends.",
+    "required_backends": [
+      "sql_direct",
+      "xmla_emondrian"
+    ],
+    "not_applied_to": [
+      "A_foodmart_core",
+      "B_multidataset"
+    ]
+  },
+  "campaigns": {
+    "A_foodmart_core": {
+      "count": 3000,
+      "datasets": [
+        "foodmart"
+      ],
+      "uses_dataset_specific_templates": true,
+      "variable_session_lengths": true,
+      "variable_allow_block_profiles": true,
+      "backend_mode": "single_primary_backend",
+      "primary_backend": "sql_direct"
+    },
+    "B_multidataset": {
+      "count": 1200,
+      "datasets": [
+        "foodmart",
+        "adventureworks",
+        "steelwheels"
+      ],
+      "uses_dataset_specific_templates": true,
+      "variable_session_lengths": true,
+      "variable_allow_block_profiles": true,
+      "backend_mode": "single_primary_backend",
+      "primary_backend": "sql_direct"
+    },
+    "C_backend_portability": {
+      "backend_validation_count": 480,
+      "logical_session_count": 240,
+      "datasets": [
+        "foodmart",
+        "adventureworks",
+        "steelwheels"
+      ],
+      "required_backends": [
+        "sql_direct",
+        "xmla_emondrian"
+      ],
+      "same_session_on_both_backends": true,
+      "backend_mode": "paired_backends"
+    }
+  },
+  "complementary_campaigns": {
+    "robustness": "Rerun from current generated sessions and perturbation cases.",
+    "evidence_usefulness": "Compute from current raw executions and retained useful evidence.",
+    "governance_audit_replay": "Replay decisions from current artifacts and verify deterministic outcomes.",
+    "scalability": "Measure decision latency and backend execution latency separately.",
+    "statistical": "Compute paired comparisons, confidence intervals, effect sizes and bootstrap summaries from the current run only."
+  },
+  "hard_validation_rules": [
+    "No session population may have a single fixed length.",
+    "No dataset may reuse another dataset's objective IDs.",
+    "No dataset may reuse another dataset's physical query IDs.",
+    "ALLOW decisions must have physical_execution=true.",
+    "BLOCK decisions must have physical_execution=false and blocked_before_execution=true.",
+    "Statistics and figures must be generated only from the current run artifacts.",
+    "Campaigns A and B must execute each session on exactly one declared primary backend.",
+    "Campaign C must execute each selected logical session instance on both sql_direct and xmla_emondrian.",
+    "The 480 units of Campaign C are backend validations, corresponding to 240 logical sessions executed on two backends."
+  ],
+  "backend_execution_policy": {
+    "campaign_a_foodmart_core": {
+      "backend_mode": "single_primary_backend",
+      "primary_backend": "sql_direct",
+      "rationale": "Campaign A evaluates MCAD decision quality on FoodMart without mixing it with backend-portability effects."
+    },
+    "campaign_b_multidataset": {
+      "backend_mode": "single_primary_backend",
+      "primary_backend": "sql_direct",
+      "rationale": "Campaign B evaluates multi-dataset generalization on one controlled physical execution path."
+    },
+    "campaign_c_backend_portability": {
+      "backend_mode": "paired_backends",
+      "required_backends": [
+        "sql_direct",
+        "xmla_emondrian"
+      ],
+      "rationale": "Campaign C isolates backend portability by executing the same logical session on both physical paths."
+    }
+  },
+  "adopted_execution_strategy": {
+    "campaign_a": {
+      "name": "Core decision-depth campaign",
+      "execution_mode": "massive_automated_pipeline",
+      "dataset": "foodmart",
+      "purpose": "Evaluate decision quality, session complexity, virtual-node depth, and robustness over a large number of sessions.",
+      "backend_policy": "single primary backend"
+    },
+    "campaign_b": {
+      "name": "Multi-dataset campaign",
+      "execution_mode": "instrumented_ui_reports",
+      "datasets": [
+        "foodmart",
+        "adventureworks",
+        "steelwheels"
+      ],
+      "purpose": "Demonstrate that the MCAD-Gate reasoning is not tied to a single dataset.",
+      "backend_policy": "single primary backend"
+    },
+    "campaign_c": {
+      "name": "Backend portability campaign",
+      "execution_mode": "instrumented_ui_reports",
+      "datasets": [
+        "foodmart",
+        "adventureworks",
+        "steelwheels"
+      ],
+      "purpose": "Demonstrate stable behavior when the same logical session is executed through sql_direct and xmla_emondrian.",
+      "backend_policy": "paired backend execution"
+    }
+  },
+  "ui_instrumentation_contract": {
+    "used_for_campaigns": [
+      "B_multidataset",
+      "C_backend_portability"
+    ],
+    "required_exports": [
+      "session_report_json",
+      "session_metrics_json",
+      "current_evidence_json",
+      "evidence_archive_json",
+      "demo_evidence_bundle"
+    ],
+    "required_fields": [
+      "session_id",
+      "objective_id",
+      "dw_id",
+      "backend_id",
+      "decision",
+      "expected_decision",
+      "physical_execution",
+      "blocked_before_execution",
+      "execution_path",
+      "adapter_id",
+      "row_count_or_cell_count",
+      "elapsed_ms",
+      "response_digest",
+      "block_reason"
+    ],
+    "principle": "UI exports are accepted as experimental evidence only when they are generated automatically, journalized, and normalized into article artifacts.",
+    "ckg_first_contract": {
+      "applies_to_campaigns": [
+        "B_multidataset",
+        "C_backend_portability"
+      ],
+      "principle": "Campaigns B and C reuse the same CKG-first contract as Campaign A: CKG read traces must support QP/SAT/Real/Ceval/Phi, physically executed ALLOW decisions must create useful CKG evidence, and BLOCK decisions must not create useful CKG evidence.",
+      "required_ckg_fields": [
+        "ckg_read_used",
+        "ckg_trace_available",
+        "ckg_write_eligible",
+        "ckg_update_event_found",
+        "ckg_update_match_count",
+        "ckg_update_success",
+        "useful_evidence_created",
+        "ckg_event_line",
+        "ckg_event_fingerprint",
+        "ckg_event_ts",
+        "ckg_event_backend_id",
+        "ckg_covered_or_calculable_constraints",
+        "ckg_provenance_digest",
+        "ckg_first_contract_ok"
+      ],
+      "invariants": {
+        "I1_CKG_QP_EXTRACTION": "The canonical query plan is normalized against the CKG vocabulary.",
+        "I2_CKG_SAT_TRACE": "SAT clauses expose CKG-backed checks such as grain, aggregation, unit, slicer, time and NVAC validity.",
+        "I3_CKG_REAL_TRACE": "Real(QP) exposes tested and realized virtual nodes.",
+        "I4_CKG_CEVAL_TRACE": "Ceval(QP,O) exposes calculable and covered constraints.",
+        "I5_CKG_PHI_TRACE": "Phi is derived from Ceval and objective coverage, not from an ad hoc score.",
+        "I6_ALLOW_CKG_UPDATE": "Every physically executed ALLOW creates useful CKG evidence.",
+        "I7_BLOCK_NO_USEFUL_UPDATE": "No BLOCK creates useful CKG evidence.",
+        "I8_PROVENANCE": "Every CKG update is linked to session, objective, query, backend, digest and timestamp."
+      }
+    }
+  }
+}

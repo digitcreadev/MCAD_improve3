@@ -1,0 +1,1296 @@
+{
+  "ok": true,
+  "mode": "hybrid_bi_gateway",
+  "gateway": "mcad.execution_gateway.v2.hybrid",
+  "execution_source_enforced": true,
+  "allow_fallback": false,
+  "query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+  "dw_id": "adventureworks_sql_direct",
+  "adapter_id": "adventureworks_direct",
+  "execution_path": "sqlserver_direct",
+  "decision": {
+    "decision": "ALLOW",
+    "phi": 0.3333333333333333,
+    "threshold": 0.6,
+    "sat": 1.0,
+    "real": 0.3333333333333333,
+    "ceval": 0.3333333333333333,
+    "explain": "ENGINE=real mode=formal_contributive_session_marginal+contract_contributive formal_sat=True legacy_engine_sat=False phi=0.333 theta=0.600 Ceval=0/3 RealNV=0/3 phi_leq_t=0.333 dphi=0.333 => ALLOW",
+    "decision_reason_code": "ALLOW_NEW_TOTAL",
+    "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+    "is_redundant": false,
+    "has_marginal_gain": true,
+    "details": {
+      "engine": "evaluate_with_objective_and_session(payload)",
+      "decision_policy": "formal_contributive_session_marginal+contract_contributive",
+      "decision_reason_code": "ALLOW_NEW_TOTAL",
+      "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+      "is_redundant": false,
+      "has_marginal_gain": true,
+      "gained_resource_ids_count": 1,
+      "threshold_used_for_ranking": 0.6,
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "session_id": "S_0002",
+      "step_index": 2,
+      "phi_weighted": 0.0,
+      "phi_leq_t": 0.3333333333333333,
+      "delta_phi_t": 0.3333333333333333,
+      "real_node_ids": [],
+      "calculable_constraints": [
+        "aw_real_c1_sales_amount"
+      ],
+      "calculable_constraints_total": [
+        "aw_real_c1_sales_amount"
+      ],
+      "calculable_constraints_partial": [],
+      "newly_contributed_constraints_total": [
+        "aw_real_c1_sales_amount"
+      ],
+      "newly_contributed_constraints_partial": [],
+      "gained_resource_ids": [
+        "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+      ],
+      "covered_constraints": [
+        "aw_real_c1_sales_amount"
+      ],
+      "realized_virtual_nodes": [
+        "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+      ],
+      "observed_resources": [
+        "SalesAmount"
+      ],
+      "graph_update": {
+        "contract_version": "mcad.graph_update.v1",
+        "decision": "ALLOW",
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "session_id": "S_0002",
+        "step_index": 2,
+        "covered_constraints": [
+          "aw_real_c1_sales_amount"
+        ],
+        "realized_virtual_nodes": [
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+        ],
+        "observed_resources": [
+          "SalesAmount"
+        ],
+        "sat_checks": {
+          "grain_ok": true,
+          "agg_ok": true,
+          "unit_ok": true,
+          "slc_ok": true,
+          "time_ok": true,
+          "nvac_ok": true
+        },
+        "nvac_evidence": {
+          "method": "hybrid_probe",
+          "known_empty": false,
+          "estimated_cells": 3,
+          "slicers": {
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe",
+            "Date.Calendar Year": "2013"
+          },
+          "probe": {
+            "probe_attempted": true,
+            "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+            "elapsed_ms": 19812,
+            "non_empty": true,
+            "count": 3,
+            "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+            "probe_measure": "SalesAmount",
+            "raw_probe_summary": {
+              "ok": true,
+              "physical_execution": true,
+              "execution_mode": "real",
+              "adapter_family": "sqlserver_direct",
+              "adapter_id": "adventureworks_direct",
+              "dw_id": "adventureworks_sql_direct",
+              "dataset": "AdventureWorksDW",
+              "database": "AdventureWorksDW2022",
+              "logical_query_language": "mdx",
+              "physical_query_language": "sqlserver_tsql",
+              "logical_mapping": "SalesAmount",
+              "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+              "columns": [
+                "SalesTerritoryGroup",
+                "SalesTerritoryCountry",
+                "SalesTerritoryRegion",
+                "SalesAmount"
+              ],
+              "rows": [
+                {
+                  "SalesTerritoryGroup": "Europe",
+                  "SalesTerritoryCountry": "France",
+                  "SalesTerritoryRegion": "France",
+                  "SalesAmount": 1491724.96
+                },
+                {
+                  "SalesTerritoryGroup": "Europe",
+                  "SalesTerritoryCountry": "Germany",
+                  "SalesTerritoryRegion": "Germany",
+                  "SalesAmount": 1679892.32
+                },
+                {
+                  "SalesTerritoryGroup": "Europe",
+                  "SalesTerritoryCountry": "United Kingdom",
+                  "SalesTerritoryRegion": "United Kingdom",
+                  "SalesAmount": 2019210.81
+                }
+              ],
+              "row_count": 3,
+              "status_code": 200,
+              "elapsed_ms": 38,
+              "response_bytes": 1839,
+              "response_digest": "ab1128cead669dfc",
+              "result_digest": "ab1128cead669dfc"
+            },
+            "cache_hit": true
+          },
+          "empty_reason": null,
+          "rule": "probe_count_drives_nvac_ok"
+        }
+      },
+      "scenario": {
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+        "scenario_query_index": 1,
+        "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+        "execution_mode": "v9_5_2_adventureworks_validation"
+      },
+      "formal_sat": true,
+      "formal_sat_source": "formal_sat_eval.checks",
+      "sat_checks": {
+        "grain_ok": true,
+        "agg_ok": true,
+        "unit_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "nvac_ok": true
+      },
+      "sat_evidence": {
+        "grain_ok": {
+          "recognized_grain": [
+            "Date.Calendar",
+            "Date.Month",
+            "Measures.SalesAmount",
+            "Sales Territory.Sales Territory",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "compatible_constraints": [
+            "aw_real_c1_sales_amount"
+          ]
+        },
+        "agg_ok": {
+          "aggregators": [
+            "implicit cube aggregator"
+          ],
+          "reason": "no forbidden aggregation detected"
+        },
+        "unit_ok": {
+          "method": "no explicit unit conflict in QP",
+          "checked_units": {}
+        },
+        "slc_ok": {
+          "recognized_slicers": {
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe",
+            "Date.Calendar Year": "2013"
+          },
+          "errors": [],
+          "member_dictionary": "AdventureWorksDW"
+        },
+        "time_ok": {
+          "time_grains": [],
+          "window": {
+            "start": "2013-01-01",
+            "end": "2013-12-31"
+          },
+          "reason": "time level/window coherent"
+        },
+        "nvac_ok": {
+          "method": "hybrid_probe",
+          "known_empty": false,
+          "estimated_cells": 3,
+          "slicers": {
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe",
+            "Date.Calendar Year": "2013"
+          },
+          "probe": {
+            "probe_attempted": true,
+            "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+            "elapsed_ms": 19812,
+            "non_empty": true,
+            "count": 3,
+            "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+            "probe_measure": "SalesAmount",
+            "raw_probe_summary": {
+              "ok": true,
+              "physical_execution": true,
+              "execution_mode": "real",
+              "adapter_family": "sqlserver_direct",
+              "adapter_id": "adventureworks_direct",
+              "dw_id": "adventureworks_sql_direct",
+              "dataset": "AdventureWorksDW",
+              "database": "AdventureWorksDW2022",
+              "logical_query_language": "mdx",
+              "physical_query_language": "sqlserver_tsql",
+              "logical_mapping": "SalesAmount",
+              "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+              "columns": [
+                "SalesTerritoryGroup",
+                "SalesTerritoryCountry",
+                "SalesTerritoryRegion",
+                "SalesAmount"
+              ],
+              "rows": [
+                {
+                  "SalesTerritoryGroup": "Europe",
+                  "SalesTerritoryCountry": "France",
+                  "SalesTerritoryRegion": "France",
+                  "SalesAmount": 1491724.96
+                },
+                {
+                  "SalesTerritoryGroup": "Europe",
+                  "SalesTerritoryCountry": "Germany",
+                  "SalesTerritoryRegion": "Germany",
+                  "SalesAmount": 1679892.32
+                },
+                {
+                  "SalesTerritoryGroup": "Europe",
+                  "SalesTerritoryCountry": "United Kingdom",
+                  "SalesTerritoryRegion": "United Kingdom",
+                  "SalesAmount": 2019210.81
+                }
+              ],
+              "row_count": 3,
+              "status_code": 200,
+              "elapsed_ms": 38,
+              "response_bytes": 1839,
+              "response_digest": "ab1128cead669dfc",
+              "result_digest": "ab1128cead669dfc"
+            },
+            "cache_hit": true
+          },
+          "empty_reason": null,
+          "rule": "probe_count_drives_nvac_ok"
+        }
+      },
+      "nvac_ok": true,
+      "nvac_evidence": {
+        "method": "hybrid_probe",
+        "known_empty": false,
+        "estimated_cells": 3,
+        "slicers": {
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe",
+          "Date.Calendar Year": "2013"
+        },
+        "probe": {
+          "probe_attempted": true,
+          "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+          "elapsed_ms": 19812,
+          "non_empty": true,
+          "count": 3,
+          "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+          "probe_measure": "SalesAmount",
+          "raw_probe_summary": {
+            "ok": true,
+            "physical_execution": true,
+            "execution_mode": "real",
+            "adapter_family": "sqlserver_direct",
+            "adapter_id": "adventureworks_direct",
+            "dw_id": "adventureworks_sql_direct",
+            "dataset": "AdventureWorksDW",
+            "database": "AdventureWorksDW2022",
+            "logical_query_language": "mdx",
+            "physical_query_language": "sqlserver_tsql",
+            "logical_mapping": "SalesAmount",
+            "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+            "columns": [
+              "SalesTerritoryGroup",
+              "SalesTerritoryCountry",
+              "SalesTerritoryRegion",
+              "SalesAmount"
+            ],
+            "rows": [
+              {
+                "SalesTerritoryGroup": "Europe",
+                "SalesTerritoryCountry": "France",
+                "SalesTerritoryRegion": "France",
+                "SalesAmount": 1491724.96
+              },
+              {
+                "SalesTerritoryGroup": "Europe",
+                "SalesTerritoryCountry": "Germany",
+                "SalesTerritoryRegion": "Germany",
+                "SalesAmount": 1679892.32
+              },
+              {
+                "SalesTerritoryGroup": "Europe",
+                "SalesTerritoryCountry": "United Kingdom",
+                "SalesTerritoryRegion": "United Kingdom",
+                "SalesAmount": 2019210.81
+              }
+            ],
+            "row_count": 3,
+            "status_code": 200,
+            "elapsed_ms": 38,
+            "response_bytes": 1839,
+            "response_digest": "ab1128cead669dfc",
+            "result_digest": "ab1128cead669dfc"
+          },
+          "cache_hit": true
+        },
+        "empty_reason": null,
+        "rule": "probe_count_drives_nvac_ok"
+      },
+      "legacy_engine_sat_debug": false,
+      "legacy_engine_clauses_debug": [
+        {
+          "name": "measures_present",
+          "ok": true,
+          "details": {}
+        },
+        {
+          "name": "cube_present",
+          "ok": true,
+          "details": {}
+        },
+        {
+          "name": "objective_known",
+          "ok": false,
+          "details": {
+            "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN"
+          }
+        },
+        {
+          "name": "slc_ok",
+          "ok": true,
+          "details": {}
+        },
+        {
+          "name": "time_ok",
+          "ok": true,
+          "details": {}
+        },
+        {
+          "name": "grain_ok",
+          "ok": true,
+          "details": {}
+        },
+        {
+          "name": "agg_ok",
+          "ok": true,
+          "details": {}
+        },
+        {
+          "name": "unit_ok",
+          "ok": true,
+          "details": {}
+        },
+        {
+          "name": "nvac_ok",
+          "ok": true,
+          "details": {}
+        }
+      ],
+      "query_spec": {
+        "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+        "cube": "Adventure Works DW",
+        "measures": [
+          "SalesAmount"
+        ],
+        "group_by": [
+          "Date.Calendar",
+          "Date.Month",
+          "Measures.SalesAmount",
+          "Sales Territory.Sales Territory",
+          "Sales Territory.Sales Territory Region"
+        ],
+        "slicers": {
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe",
+          "Date.Calendar Year": "2013"
+        },
+        "analytics": [],
+        "axes": [
+          {
+            "axis": "COLUMNS",
+            "expression": "{[Measures].[SalesAmount]}"
+          },
+          {
+            "axis": "ROWS",
+            "expression": ", CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members)"
+          }
+        ],
+        "time_members": [],
+        "window_start": "2013-01-01",
+        "window_end": "2013-12-31",
+        "calculated_members": [],
+        "named_sets": [],
+        "language": "mdx",
+        "fingerprint": "2529fe2c3e67e832",
+        "dw_id": "adventureworks_sql_direct",
+        "dataset": null
+      },
+      "eval_ms": 3
+    },
+    "graph_update": {
+      "contract_version": "mcad.graph_update.v1",
+      "decision": "ALLOW",
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "session_id": "S_0002",
+      "step_index": 2,
+      "covered_constraints": [
+        "c_sales"
+      ],
+      "realized_virtual_nodes": [
+        "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+      ],
+      "observed_resources": [
+        "SalesAmount"
+      ],
+      "sat_checks": {
+        "grain_ok": true,
+        "agg_ok": true,
+        "unit_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "nvac_ok": true
+      },
+      "nvac_evidence": {
+        "method": "hybrid_probe",
+        "known_empty": false,
+        "estimated_cells": 3,
+        "slicers": {
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe",
+          "Date.Calendar Year": "2013"
+        },
+        "probe": {
+          "probe_attempted": true,
+          "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+          "elapsed_ms": 19812,
+          "non_empty": true,
+          "count": 3,
+          "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+          "probe_measure": "SalesAmount",
+          "raw_probe_summary": {
+            "ok": true,
+            "physical_execution": true,
+            "execution_mode": "real",
+            "adapter_family": "sqlserver_direct",
+            "adapter_id": "adventureworks_direct",
+            "dw_id": "adventureworks_sql_direct",
+            "dataset": "AdventureWorksDW",
+            "database": "AdventureWorksDW2022",
+            "logical_query_language": "mdx",
+            "physical_query_language": "sqlserver_tsql",
+            "logical_mapping": "SalesAmount",
+            "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+            "columns": [
+              "SalesTerritoryGroup",
+              "SalesTerritoryCountry",
+              "SalesTerritoryRegion",
+              "SalesAmount"
+            ],
+            "rows": [
+              {
+                "SalesTerritoryGroup": "Europe",
+                "SalesTerritoryCountry": "France",
+                "SalesTerritoryRegion": "France",
+                "SalesAmount": 1491724.96
+              },
+              {
+                "SalesTerritoryGroup": "Europe",
+                "SalesTerritoryCountry": "Germany",
+                "SalesTerritoryRegion": "Germany",
+                "SalesAmount": 1679892.32
+              },
+              {
+                "SalesTerritoryGroup": "Europe",
+                "SalesTerritoryCountry": "United Kingdom",
+                "SalesTerritoryRegion": "United Kingdom",
+                "SalesAmount": 2019210.81
+              }
+            ],
+            "row_count": 3,
+            "status_code": 200,
+            "elapsed_ms": 38,
+            "response_bytes": 1839,
+            "response_digest": "ab1128cead669dfc",
+            "result_digest": "ab1128cead669dfc"
+          },
+          "cache_hit": true
+        },
+        "empty_reason": null,
+        "rule": "probe_count_drives_nvac_ok"
+      },
+      "measures": [
+        "SalesAmount"
+      ],
+      "grain": [
+        "Date.Calendar",
+        "Date.Month",
+        "Measures.SalesAmount",
+        "Sales Territory.Sales Territory",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "time_window": {
+        "start": "2013-01-01",
+        "end": "2013-12-31"
+      },
+      "mdx_features": {
+        "measures": [
+          "SalesAmount"
+        ],
+        "grain": [
+          "Date.Calendar Year.2013",
+          "Product.Product Category.Bikes",
+          "Sales Territory.Sales Territory Group.Europe"
+        ],
+        "slicers": [
+          "Date.Calendar Year.2013",
+          "Product.Product Category.Bikes",
+          "Sales Territory.Sales Territory Group.Europe"
+        ]
+      },
+      "blocked_reasons": [],
+      "redundant": false,
+      "delta_phi": 0.3333333333333333,
+      "partially_covered_constraints": [],
+      "required_constraints": [
+        "c_sales",
+        "c_profit"
+      ],
+      "cumulative_covered_constraints": [
+        "c_sales"
+      ],
+      "cumulative_partially_covered_constraints": [],
+      "pending_constraints": [
+        "c_profit"
+      ],
+      "cumulative_realized_virtual_nodes": [
+        "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+      ],
+      "objective_state": "partial",
+      "session_phi": 0.5
+    }
+  },
+  "execution_evidence": {
+    "contract_version": "mcad.execution_evidence.v1",
+    "generated_at_ms": 1781914477752,
+    "query": {
+      "query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+      "query_type": "mdx",
+      "query_digest": "2529fe2c3e67e832",
+      "execution_mode": "v9_5_2_adventureworks_validation",
+      "scenario_instance_id": null,
+      "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+      "scenario_query_index": 1,
+      "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY"
+    },
+    "mcad_gate": {
+      "allowed_by_mcad": true,
+      "decision": "ALLOW",
+      "decision_reason_code": "ALLOW_NEW_TOTAL",
+      "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+      "session_id": "S_0002",
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "step_index": 2,
+      "eval_elapsed_ms": 16,
+      "fail_closed": false
+    },
+    "formal_metrics": {
+      "sat": 1.0,
+      "real": 0.3333333333333333,
+      "ceval": 0.3333333333333333,
+      "phi": 0.3333333333333333,
+      "delta_phi": 0.3333333333333333,
+      "threshold": 0.6
+    },
+    "sat_clauses": {
+      "grain_ok": true,
+      "agg_ok": true,
+      "unit_ok": true,
+      "slc_ok": true,
+      "time_ok": true,
+      "nvac_ok": true
+    },
+    "execution": {
+      "attempted": true,
+      "physical_execution": true,
+      "status": "EXECUTED",
+      "requested_dw_id": "adventureworks_sql_direct",
+      "selected_dw_id": "adventureworks_sql_direct",
+      "adapter_id": "adventureworks_direct",
+      "adapter_family": "sqlserver_direct",
+      "backend_type": "sqlserver_direct",
+      "execution_path": "sqlserver_direct",
+      "logical_query_language": "mdx",
+      "physical_query_language": "sqlserver_tsql",
+      "catalog": null,
+      "cube": "Sales",
+      "forwarded_to": null,
+      "xmla_response_type": null,
+      "status_code": 200,
+      "elapsed_ms": 62,
+      "response_bytes": 9275,
+      "response_digest": "bff89680bed53988",
+      "result_digest": "bff89680bed53988",
+      "row_count": 36,
+      "columns_count": 7,
+      "fallback_used": false,
+      "demo_materialized": false,
+      "error": null
+    },
+    "graph_update_summary": {
+      "covered_constraints": [
+        "c_sales"
+      ],
+      "partially_covered_constraints": [],
+      "realized_virtual_nodes": [
+        "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+      ],
+      "delta_phi": 0.3333333333333333,
+      "measures": [
+        "SalesAmount"
+      ],
+      "grain": [
+        "Date.Calendar",
+        "Date.Month",
+        "Measures.SalesAmount",
+        "Sales Territory.Sales Territory",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      }
+    }
+  },
+  "graph_update": {
+    "contract_version": "mcad.graph_update.v1",
+    "decision": "ALLOW",
+    "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+    "session_id": "S_0002",
+    "step_index": 2,
+    "covered_constraints": [
+      "c_sales"
+    ],
+    "realized_virtual_nodes": [
+      "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+    ],
+    "observed_resources": [
+      "SalesAmount"
+    ],
+    "sat_checks": {
+      "grain_ok": true,
+      "agg_ok": true,
+      "unit_ok": true,
+      "slc_ok": true,
+      "time_ok": true,
+      "nvac_ok": true
+    },
+    "nvac_evidence": {
+      "method": "hybrid_probe",
+      "known_empty": false,
+      "estimated_cells": 3,
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "probe": {
+        "probe_attempted": true,
+        "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+        "elapsed_ms": 19812,
+        "non_empty": true,
+        "count": 3,
+        "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+        "probe_measure": "SalesAmount",
+        "raw_probe_summary": {
+          "ok": true,
+          "physical_execution": true,
+          "execution_mode": "real",
+          "adapter_family": "sqlserver_direct",
+          "adapter_id": "adventureworks_direct",
+          "dw_id": "adventureworks_sql_direct",
+          "dataset": "AdventureWorksDW",
+          "database": "AdventureWorksDW2022",
+          "logical_query_language": "mdx",
+          "physical_query_language": "sqlserver_tsql",
+          "logical_mapping": "SalesAmount",
+          "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+          "columns": [
+            "SalesTerritoryGroup",
+            "SalesTerritoryCountry",
+            "SalesTerritoryRegion",
+            "SalesAmount"
+          ],
+          "rows": [
+            {
+              "SalesTerritoryGroup": "Europe",
+              "SalesTerritoryCountry": "France",
+              "SalesTerritoryRegion": "France",
+              "SalesAmount": 1491724.96
+            },
+            {
+              "SalesTerritoryGroup": "Europe",
+              "SalesTerritoryCountry": "Germany",
+              "SalesTerritoryRegion": "Germany",
+              "SalesAmount": 1679892.32
+            },
+            {
+              "SalesTerritoryGroup": "Europe",
+              "SalesTerritoryCountry": "United Kingdom",
+              "SalesTerritoryRegion": "United Kingdom",
+              "SalesAmount": 2019210.81
+            }
+          ],
+          "row_count": 3,
+          "status_code": 200,
+          "elapsed_ms": 38,
+          "response_bytes": 1839,
+          "response_digest": "ab1128cead669dfc",
+          "result_digest": "ab1128cead669dfc"
+        },
+        "cache_hit": true
+      },
+      "empty_reason": null,
+      "rule": "probe_count_drives_nvac_ok"
+    },
+    "measures": [
+      "SalesAmount"
+    ],
+    "grain": [
+      "Date.Calendar",
+      "Date.Month",
+      "Measures.SalesAmount",
+      "Sales Territory.Sales Territory",
+      "Sales Territory.Sales Territory Region"
+    ],
+    "slicers": {
+      "Product.Product Category": "Bikes",
+      "Sales Territory.Sales Territory Group": "Europe",
+      "Date.Calendar Year": "2013"
+    },
+    "time_window": {
+      "start": "2013-01-01",
+      "end": "2013-12-31"
+    },
+    "mdx_features": {
+      "measures": [
+        "SalesAmount"
+      ],
+      "grain": [
+        "Date.Calendar Year.2013",
+        "Product.Product Category.Bikes",
+        "Sales Territory.Sales Territory Group.Europe"
+      ],
+      "slicers": [
+        "Date.Calendar Year.2013",
+        "Product.Product Category.Bikes",
+        "Sales Territory.Sales Territory Group.Europe"
+      ]
+    },
+    "blocked_reasons": [],
+    "redundant": false,
+    "delta_phi": 0.3333333333333333,
+    "partially_covered_constraints": [],
+    "required_constraints": [
+      "c_sales",
+      "c_profit"
+    ],
+    "cumulative_covered_constraints": [
+      "c_sales"
+    ],
+    "cumulative_partially_covered_constraints": [],
+    "pending_constraints": [
+      "c_profit"
+    ],
+    "cumulative_realized_virtual_nodes": [
+      "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+    ],
+    "objective_state": "partial",
+    "session_phi": 0.5
+  },
+  "direct_result": {
+    "ok": true,
+    "physical_execution": true,
+    "execution_mode": "real",
+    "adapter_family": "sqlserver_direct",
+    "adapter_id": "adventureworks_direct",
+    "dw_id": "adventureworks_sql_direct",
+    "dataset": "AdventureWorksDW",
+    "database": "AdventureWorksDW2022",
+    "logical_query_language": "mdx",
+    "physical_query_language": "sqlserver_tsql",
+    "logical_mapping": "SalesAmount",
+    "generated_sql": "SELECT TOP (200)\n       d.CalendarYear, d.MonthNumberOfYear, d.EnglishMonthName, t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY d.CalendarYear, d.MonthNumberOfYear, d.EnglishMonthName, t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY d.CalendarYear, d.MonthNumberOfYear, t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+    "columns": [
+      "CalendarYear",
+      "MonthNumberOfYear",
+      "EnglishMonthName",
+      "SalesTerritoryGroup",
+      "SalesTerritoryCountry",
+      "SalesTerritoryRegion",
+      "SalesAmount"
+    ],
+    "rows": [
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 1,
+        "EnglishMonthName": "January",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 95483.28
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 1,
+        "EnglishMonthName": "January",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 93558.66
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 1,
+        "EnglishMonthName": "January",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 124534.81
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 2,
+        "EnglishMonthName": "February",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 68322.19
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 2,
+        "EnglishMonthName": "February",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 83843.66
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 2,
+        "EnglishMonthName": "February",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 104541.28
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 3,
+        "EnglishMonthName": "March",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 102983.96
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 3,
+        "EnglishMonthName": "March",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 107445.39
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 3,
+        "EnglishMonthName": "March",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 128417.73
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 4,
+        "EnglishMonthName": "April",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 70185.46
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 4,
+        "EnglishMonthName": "April",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 99456.08
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 4,
+        "EnglishMonthName": "April",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 139678.41
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 5,
+        "EnglishMonthName": "May",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 110918.0
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 5,
+        "EnglishMonthName": "May",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 110098.32
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 5,
+        "EnglishMonthName": "May",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 174567.38
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 6,
+        "EnglishMonthName": "June",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 174150.24
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 6,
+        "EnglishMonthName": "June",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 160706.28
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 6,
+        "EnglishMonthName": "June",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 206480.34
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 7,
+        "EnglishMonthName": "July",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 107757.09
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 7,
+        "EnglishMonthName": "July",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 152007.45
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 7,
+        "EnglishMonthName": "July",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 146543.57
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 8,
+        "EnglishMonthName": "August",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 157403.9
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 8,
+        "EnglishMonthName": "August",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 142064.7
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 8,
+        "EnglishMonthName": "August",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 201393.05
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 9,
+        "EnglishMonthName": "September",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 119836.56
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 9,
+        "EnglishMonthName": "September",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 168413.28
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 9,
+        "EnglishMonthName": "September",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 176176.39
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 10,
+        "EnglishMonthName": "October",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 156020.18
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 10,
+        "EnglishMonthName": "October",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 179339.85
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 10,
+        "EnglishMonthName": "October",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 186211.01
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 11,
+        "EnglishMonthName": "November",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 146306.83
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 11,
+        "EnglishMonthName": "November",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 187699.32
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 11,
+        "EnglishMonthName": "November",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 191371.85
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 12,
+        "EnglishMonthName": "December",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "France",
+        "SalesTerritoryRegion": "France",
+        "SalesAmount": 182357.27
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 12,
+        "EnglishMonthName": "December",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "Germany",
+        "SalesTerritoryRegion": "Germany",
+        "SalesAmount": 195259.33
+      },
+      {
+        "CalendarYear": 2013,
+        "MonthNumberOfYear": 12,
+        "EnglishMonthName": "December",
+        "SalesTerritoryGroup": "Europe",
+        "SalesTerritoryCountry": "United Kingdom",
+        "SalesTerritoryRegion": "United Kingdom",
+        "SalesAmount": 239294.99
+      }
+    ],
+    "row_count": 36,
+    "status_code": 200,
+    "elapsed_ms": 62,
+    "response_bytes": 9275,
+    "response_digest": "bff89680bed53988",
+    "result_digest": "bff89680bed53988",
+    "query_language": "mdx",
+    "cube": "Sales",
+    "grain": "Member",
+    "measures": [
+      "SalesAmount"
+    ],
+    "demo_materialized": false,
+    "visualization_ready": true,
+    "backend_type": "sqlserver_direct",
+    "execution_source_enforced": true,
+    "requested_dw_id": "adventureworks_sql_direct",
+    "selected_dw_id": "adventureworks_sql_direct",
+    "execution_path": "sqlserver_direct",
+    "execution_evidence": {
+      "contract_version": "mcad.execution_evidence.v1",
+      "generated_at_ms": 1781914477752,
+      "query": {
+        "query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+        "query_type": "mdx",
+        "query_digest": "2529fe2c3e67e832",
+        "execution_mode": "v9_5_2_adventureworks_validation",
+        "scenario_instance_id": null,
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+        "scenario_query_index": 1,
+        "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY"
+      },
+      "mcad_gate": {
+        "allowed_by_mcad": true,
+        "decision": "ALLOW",
+        "decision_reason_code": "ALLOW_NEW_TOTAL",
+        "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+        "session_id": "S_0002",
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "step_index": 2,
+        "eval_elapsed_ms": 16,
+        "fail_closed": false
+      },
+      "formal_metrics": {
+        "sat": 1.0,
+        "real": 0.3333333333333333,
+        "ceval": 0.3333333333333333,
+        "phi": 0.3333333333333333,
+        "delta_phi": 0.3333333333333333,
+        "threshold": 0.6
+      },
+      "sat_clauses": {
+        "grain_ok": true,
+        "agg_ok": true,
+        "unit_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "nvac_ok": true
+      },
+      "execution": {
+        "attempted": true,
+        "physical_execution": true,
+        "status": "EXECUTED",
+        "requested_dw_id": "adventureworks_sql_direct",
+        "selected_dw_id": "adventureworks_sql_direct",
+        "adapter_id": "adventureworks_direct",
+        "adapter_family": "sqlserver_direct",
+        "backend_type": "sqlserver_direct",
+        "execution_path": "sqlserver_direct",
+        "logical_query_language": "mdx",
+        "physical_query_language": "sqlserver_tsql",
+        "catalog": null,
+        "cube": "Sales",
+        "forwarded_to": null,
+        "xmla_response_type": null,
+        "status_code": 200,
+        "elapsed_ms": 62,
+        "response_bytes": 9275,
+        "response_digest": "bff89680bed53988",
+        "result_digest": "bff89680bed53988",
+        "row_count": 36,
+        "columns_count": 7,
+        "fallback_used": false,
+        "demo_materialized": false,
+        "error": null
+      },
+      "graph_update_summary": {
+        "covered_constraints": [
+          "c_sales"
+        ],
+        "partially_covered_constraints": [],
+        "realized_virtual_nodes": [
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+        ],
+        "delta_phi": 0.3333333333333333,
+        "measures": [
+          "SalesAmount"
+        ],
+        "grain": [
+          "Date.Calendar",
+          "Date.Month",
+          "Measures.SalesAmount",
+          "Sales Territory.Sales Territory",
+          "Sales Territory.Sales Territory Region"
+        ],
+        "slicers": {
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe",
+          "Date.Calendar Year": "2013"
+        }
+      }
+    },
+    "evidence_contract": "mcad.execution_evidence.v1"
+  },
+  "active": {
+    "session_id": "S_0002",
+    "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+    "dw_id": "adventureworks_sql_direct"
+  },
+  "_http_status": 200,
+  "_url": "http://127.0.0.1:9000/bi/execute",
+  "_attempt": 2,
+  "_label": "execute:AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY"
+}

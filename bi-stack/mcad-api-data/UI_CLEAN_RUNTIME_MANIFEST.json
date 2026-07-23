@@ -1,0 +1,75 @@
+{
+  "ok": true,
+  "mode": "applied",
+  "repo": "/workspaces/MCAD_improve3",
+  "profile": "adventureworks",
+  "target_objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "before": {
+    "ckg_state": {
+      "exists": true,
+      "size_bytes": 34231276,
+      "sha256": "bdf4d7658158d7275313ddc490e9d457670f34bafdf0480fd75c8731bea5643b"
+    },
+    "decision_details": {
+      "exists": true,
+      "size_bytes": 85238557,
+      "sha256": "bf149589db140f0ddbb0fe071636b3fec590478eb2a07cb045eaa33d9889f234"
+    },
+    "imported_objectives": {
+      "exists": true,
+      "size_bytes": 283024,
+      "sha256": "d774dd4ab4ea26068a3a4453bd126ecf33042402e8d43fc1197f84a5cead26b1"
+    },
+    "ckg_events": {
+      "exists": true,
+      "size_bytes": 17462757,
+      "sha256": "2eb96cae6d890e6da39ad20f55c7d4d478ea44486f29c46403b04c616bb08bb4"
+    },
+    "ckg_event_lines": 2270
+  },
+  "planned_after": {
+    "ckg_history_count": 0,
+    "session_coverage_count": 0,
+    "decision_detail_session_count": 0,
+    "ckg_event_lines": 0,
+    "imported_objective_count": 1
+  },
+  "untouched": [
+    "reports/article_experiments/ckg_runtimes/locked/**",
+    "reports/article_experiments/**",
+    "bi-stack/demo-evidence/**",
+    "bi-stack/objectives/**",
+    "bi-stack/direct-scenarios/**",
+    "all source code"
+  ],
+  "backup_dir": "exports/ui_runtime_backups/ui_runtime_before_reset_20260711T215624Z",
+  "after": {
+    "ckg_state": {
+      "exists": true,
+      "size_bytes": 16158,
+      "sha256": "bf4ec089fea925b1e488caa549d8101d972e95f494f08baf16712c5a51746ba1"
+    },
+    "decision_details": {
+      "exists": true,
+      "size_bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "imported_objectives": {
+      "exists": true,
+      "size_bytes": 5724,
+      "sha256": "939f666c3d4c1e2467b478719e8b097369e434b0e950da03a19801c3d4a67261"
+    },
+    "ckg_events": {
+      "exists": true,
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ckg_event_lines": 0
+  },
+  "next_steps": [
+    "docker compose -f bi-stack/docker-compose.yml down",
+    "docker compose -f bi-stack/docker-compose.yml up -d --build",
+    "clear browser sessionStorage for the Codespaces origin or open a new incognito window",
+    "open /mcad/session/ui and create an AdventureWorks SQL Direct session"
+  ]
+}

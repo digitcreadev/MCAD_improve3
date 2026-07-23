@@ -1,0 +1,60 @@
+{
+  "id": "demo_adventureworks_europe_bikes_2013_sql_direct_q1_q6",
+  "name": "Demo AdventureWorks Bikes / Europe SQL Direct Q1-Q6",
+  "label": "Demo AdventureWorks Bikes / Europe SQL Direct Q1-Q6",
+  "description": "Six-query AdventureWorks demo scenario for O_AW_EUROPE_BIKES_2013_MONTH_REGION_SALES_QUANTITY. It validates useful ALLOW queries for SalesAmount and OrderQuantity, plus out-of-objective, wrong-product, bad-grain and redundant BLOCK cases.",
+  "objective_id": "O_AW_EUROPE_BIKES_2013_MONTH_REGION_SALES_QUANTITY",
+  "dw_id": "adventureworks_sql_direct",
+  "dataset": "AdventureWorksDW",
+  "query_count": 6,
+  "queries": [
+    {
+      "id": "AW_Q1_ALLOW_SALES_MONTH_REGION",
+      "label": "AW Q1 — ALLOW SalesAmount by month and region",
+      "expected_decision": "ALLOW",
+      "expected_reason_code": "ALLOW_NEW_TOTAL",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    },
+    {
+      "id": "AW_Q2_ALLOW_QUANTITY_MONTH_REGION",
+      "label": "AW Q2 — ALLOW OrderQuantity by month and region",
+      "expected_decision": "ALLOW",
+      "expected_reason_code": "ALLOW_NEW_TOTAL",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[OrderQuantity]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    },
+    {
+      "id": "AW_Q3_BLOCK_OUT_OF_OBJECTIVE_TERRITORY",
+      "label": "AW Q3 — BLOCK North America instead of Europe",
+      "expected_decision": "BLOCK",
+      "expected_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[North America], [Date].[Calendar Year].[2013])"
+    },
+    {
+      "id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_PRODUCT",
+      "label": "AW Q4 — BLOCK Accessories instead of Bikes",
+      "expected_decision": "BLOCK",
+      "expected_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Accessories], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    },
+    {
+      "id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+      "label": "AW Q5 — BLOCK Year grain instead of Month/Region grain",
+      "expected_decision": "BLOCK",
+      "expected_reason_code": "BLOCK_GRAIN_MISMATCH",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, [Date].[Calendar Year].Members ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    },
+    {
+      "id": "AW_Q6_BLOCK_REDUNDANT_SALES",
+      "label": "AW Q6 — BLOCK redundant SalesAmount after Q1",
+      "expected_decision": "BLOCK",
+      "expected_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "article_run_glob": "reports/article_experiments/*/article_summary.json",
+  "campaign_a_locked_events": "reports/article_experiments/ckg_runtimes/locked/A_foodmart_1000_final/ckg_events.jsonl",
+  "campaign_a_locked_summary": "reports/article_experiments/ckg_runtimes/locked/A_foodmart_1000_final/campaign_a_1000_preliminary_summary.json",
+  "campaign_a_fallback_glob": "reports/article_experiments/foodmart_campaign_a_1000_ckg_first_*/campaign_a_1000_preliminary_summary.json",
+  "campaign_b_manifest": "reports/article_experiments/ckg_runtimes/locked/B_multidataset_controlled_minimal_v3/campaign_b_controlled_minimal_v3_manifest.json",
+  "campaign_b_ckg_events": "reports/article_experiments/ckg_runtimes/locked/B_multidataset_controlled_minimal_v3/ckg_events.jsonl",
+  "campaign_c_manifest": "reports/article_experiments/ckg_runtimes/locked/C_backend_portability_adventureworks_sql_vs_xmla/campaign_c_backend_portability_manifest.json",
+  "campaign_c_sql_ckg_events": "reports/article_experiments/ckg_runtimes/locked/C_backend_portability_adventureworks_sql_vs_xmla/sql_direct_ckg_events.jsonl",
+  "campaign_c_xmla_ckg_events": "reports/article_experiments/ckg_runtimes/locked/C_backend_portability_adventureworks_sql_vs_xmla/xmla_ckg_events.jsonl"
+}

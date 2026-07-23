@@ -1,0 +1,59 @@
+{
+  "id": "steelwheels_xmla_emea_classic_cars_q1_q6",
+  "name": "SteelWheels XMLA EMEA Classic Cars validation",
+  "description": "Strict XMLA/eMondrian Q1-Q6 counterpart of the SteelWheels SQL Direct scenario. Uses Mondrian-valid Descendants(...) syntax for monthly 2004 queries.",
+  "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+  "dw_id": "steelwheels_xmla",
+  "dataset": "SteelWheels",
+  "query_count": 6,
+  "queries": [
+    {
+      "id": "SW_XMLA_Q1_ALLOW_SALES_MONTH",
+      "label": "SW XMLA Q1 — ALLOW Sales by month",
+      "expected_decision": "ALLOW",
+      "expected_reason_code": "ALLOW_NEW_TOTAL",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Sales]} ON COLUMNS, Descendants([Time].[Years].[2004], [Time].[Months]) ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])"
+    },
+    {
+      "id": "SW_XMLA_Q2_ALLOW_QUANTITY_MONTH",
+      "label": "SW XMLA Q2 — ALLOW Quantity by month",
+      "expected_decision": "ALLOW",
+      "expected_reason_code": "ALLOW_NEW_TOTAL",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Quantity]} ON COLUMNS, Descendants([Time].[Years].[2004], [Time].[Months]) ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])"
+    },
+    {
+      "id": "SW_XMLA_Q3_BLOCK_OUT_OF_OBJECTIVE_TERRITORY",
+      "label": "SW XMLA Q3 — BLOCK APAC instead of EMEA",
+      "expected_decision": "BLOCK",
+      "expected_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Sales]} ON COLUMNS, Descendants([Time].[Years].[2004], [Time].[Months]) ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[APAC])"
+    },
+    {
+      "id": "SW_XMLA_Q4_BLOCK_OUT_OF_OBJECTIVE_PRODUCT",
+      "label": "SW XMLA Q4 — BLOCK Motorcycles instead of Classic Cars",
+      "expected_decision": "BLOCK",
+      "expected_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Sales]} ON COLUMNS, Descendants([Time].[Years].[2004], [Time].[Months]) ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Motorcycles], [Markets].[Territory].[EMEA])"
+    },
+    {
+      "id": "SW_XMLA_Q5_BLOCK_BAD_GRAIN_YEAR",
+      "label": "SW XMLA Q5 — BLOCK Year grain instead of Month grain",
+      "expected_decision": "BLOCK",
+      "expected_reason_code": "BLOCK_GRAIN_MISMATCH",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Sales]} ON COLUMNS, {[Time].[Years].[2004]} ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])"
+    },
+    {
+      "id": "SW_XMLA_Q6_BLOCK_REDUNDANT_SALES",
+      "label": "SW XMLA Q6 — BLOCK redundant Sales after Q1",
+      "expected_decision": "BLOCK",
+      "expected_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[Sales]} ON COLUMNS, Descendants([Time].[Years].[2004], [Time].[Months]) ON ROWS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])"
+    }
+  ]
+}

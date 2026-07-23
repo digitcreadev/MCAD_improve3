@@ -1,0 +1,64 @@
+{
+  "id": "foodmart_q1_q6",
+  "name": "FoodMart Q1-Q6 validation",
+  "description": "Six FoodMart MDX queries validating ALLOW/BLOCK behavior for O_REAL_BEER_WA_MONTH.",
+  "objective_id": "O_REAL_BEER_WA_MONTH",
+  "dw_id": "foodmart",
+  "dataset": "foodmart",
+  "queries": [
+    {
+      "id": "Q1_ALLOW_USEFUL",
+      "label": "Q1 — ALLOW utile",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "query_type": "mdx",
+      "expected_decision": "ALLOW",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])"
+    },
+    {
+      "id": "Q2_ALLOW_COMPLEMENTARY",
+      "label": "Q2 — ALLOW complémentaire",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "query_type": "mdx",
+      "expected_decision": "ALLOW",
+      "mdx": "SELECT {[Measures].[Profit]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])"
+    },
+    {
+      "id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+      "label": "Q3 — BLOCK hors objectif",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "query_type": "mdx",
+      "expected_decision": "BLOCK",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[CA])"
+    },
+    {
+      "id": "Q4_BLOCK_REDUNDANT",
+      "label": "Q4 — BLOCK redondant",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "query_type": "mdx",
+      "expected_decision": "BLOCK",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])"
+    },
+    {
+      "id": "Q5_BLOCK_NON_TARGET_MEASURE",
+      "label": "Q5 — BLOCK mesure non ciblée",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "query_type": "mdx",
+      "expected_decision": "BLOCK",
+      "mdx": "SELECT {[Measures].[Unit Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])"
+    },
+    {
+      "id": "Q6_BLOCK_BAD_GRAIN",
+      "label": "Q6 — BLOCK grain non conforme",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "query_type": "mdx",
+      "expected_decision": "BLOCK",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Year].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])"
+    }
+  ]
+}

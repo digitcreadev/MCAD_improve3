@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<Schema name="SteelWheels">
+
+  <Dimension name="Time" type="TimeDimension">
+    <Hierarchy hasAll="true" primaryKey="TIME_ID">
+      <Table schema="dbo" name="time"/>
+      <Level name="Years"
+             column="YEAR_ID"
+             type="Numeric"
+             uniqueMembers="true"
+             levelType="TimeYears"/>
+      <Level name="Quarters"
+             column="QTR_NAME"
+             uniqueMembers="false"
+             levelType="TimeQuarters"/>
+      <Level name="Months"
+             column="MONTH_ID"
+             nameColumn="MONTH_NAME"
+             ordinalColumn="MONTH_ID"
+             type="Numeric"
+             uniqueMembers="false"
+             levelType="TimeMonths"/>
+    </Hierarchy>
+  </Dimension>
+
+  <Dimension name="Product">
+    <Hierarchy hasAll="true" primaryKey="PRODUCTCODE">
+      <Table schema="dbo" name="products"/>
+      <Level name="Line"
+             column="PRODUCTLINE"
+             uniqueMembers="true"/>
+      <Level name="Vendor"
+             column="PRODUCTVENDOR"
+             uniqueMembers="false"/>
+      <Level name="Product"
+             column="PRODUCTCODE"
+             nameColumn="PRODUCTNAME"
+             uniqueMembers="true"/>
+    </Hierarchy>
+  </Dimension>
+
+  <Dimension name="Markets">
+    <Hierarchy hasAll="true" primaryKey="CUSTOMERNUMBER">
+      <Table schema="dbo" name="customer_w_ter"/>
+      <Level name="Territory"
+             column="TERRITORY"
+             uniqueMembers="true"/>
+      <Level name="Country"
+             column="COUNTRY"
+             uniqueMembers="false"/>
+      <Level name="City"
+             column="CITY"
+             uniqueMembers="false"/>
+      <Level name="Customer"
+             column="CUSTOMERNUMBER"
+             nameColumn="CUSTOMERNAME"
+             type="Numeric"
+             uniqueMembers="true"/>
+    </Hierarchy>
+  </Dimension>
+
+  <Dimension name="Order Status">
+    <Hierarchy hasAll="true" primaryKey="ORDERNUMBER">
+      <Table schema="dbo" name="orderfact"/>
+      <Level name="Status"
+             column="STATUS"
+             uniqueMembers="true"/>
+    </Hierarchy>
+  </Dimension>
+
+  <Cube name="SteelWheelsSales" cache="true" enabled="true">
+    <Table schema="dbo" name="orderfact"/>
+
+    <DimensionUsage name="Time"
+                    source="Time"
+                    foreignKey="TIME_ID"/>
+
+    <DimensionUsage name="Product"
+                    source="Product"
+                    foreignKey="PRODUCTCODE"/>
+
+    <DimensionUsage name="Markets"
+                    source="Markets"
+                    foreignKey="CUSTOMERNUMBER"/>
+
+    <DimensionUsage name="Order Status"
+                    source="Order Status"
+                    foreignKey="ORDERNUMBER"/>
+
+    <Measure name="Sales"
+             column="TOTALPRICE"
+             aggregator="sum"
+             formatString="#,##0.00"/>
+
+    <Measure name="Quantity"
+             column="QUANTITYORDERED"
+             aggregator="sum"
+             formatString="#,##0"/>
+  </Cube>
+
+</Schema>

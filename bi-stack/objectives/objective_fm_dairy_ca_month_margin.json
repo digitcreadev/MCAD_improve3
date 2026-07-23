@@ -1,0 +1,25 @@
+{
+  "id": "O_FM_DAIRY_CA_MONTH_MARGIN",
+  "objective_id": "O_FM_DAIRY_CA_MONTH_MARGIN",
+  "dataset_id": "foodmart",
+  "title": "Dairy monthly margin in California",
+  "description": "Article full-real V2 objective for Dairy monthly margin in California.",
+  "business_domain": "Retail decision analysis",
+  "grain": "month",
+  "measures": [
+    "Store Sales",
+    "Store Cost",
+    "Profit"
+  ],
+  "dimensions": [
+    "Product Category",
+    "Store State",
+    "Time Month"
+  ],
+  "allow_theme": "Dairy California monthly margin",
+  "block_theme": "private attributes, wrong category, yearly grain",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "fm_dairy_ca_month_margin",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

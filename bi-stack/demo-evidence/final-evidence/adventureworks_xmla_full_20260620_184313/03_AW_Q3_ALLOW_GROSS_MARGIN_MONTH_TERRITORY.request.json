@@ -1,0 +1,19 @@
+{
+  "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "session_id": "S_0004",
+  "dw_id": "adventureworks_xmla",
+  "query_type": "mdx",
+  "query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+  "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+  "scenario_query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+  "query": "SELECT {[Measures].[GrossMargin]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+  "mdx": "SELECT {[Measures].[GrossMargin]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+  "context": {
+    "requested_dw_id": "adventureworks_xmla",
+    "selected_dw_id": "adventureworks_xmla",
+    "allow_fallback": false,
+    "expected_objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+    "scenario_query_index": 3,
+    "scenario_query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY"
+  }
+}

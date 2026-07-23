@@ -1,0 +1,24 @@
+{
+  "id": "O_SW_CUSTOMER_COUNTRY_PRODUCTLINE_MIX",
+  "objective_id": "O_SW_CUSTOMER_COUNTRY_PRODUCTLINE_MIX",
+  "dataset_id": "steelwheels",
+  "title": "Customer-country product-line mix",
+  "description": "Article full-real V2 objective for Customer-country product-line mix.",
+  "business_domain": "Orders, product lines and customer-country sales analysis",
+  "grain": "country-product-line",
+  "measures": [
+    "Sales",
+    "Orders",
+    "Quantity Ordered"
+  ],
+  "dimensions": [
+    "Product Line",
+    "Customer Country"
+  ],
+  "allow_theme": "product-line mix by customer country",
+  "block_theme": "payment identifiers, customer credit limit, wrong daily grain",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "sw_customer_country_productline_mix",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

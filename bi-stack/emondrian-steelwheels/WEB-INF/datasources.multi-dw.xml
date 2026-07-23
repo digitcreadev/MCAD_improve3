@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<DataSources>
+  <DataSource>
+    <DataSourceName>SteelWheels</DataSourceName>
+    <DataSourceDescription>SteelWheels SQL Server dataset imported from upstream HSQLDB sample data</DataSourceDescription>
+    <URL>http://localhost:8080/emondrian/xmla</URL>
+    <DataSourceInfo>Provider=mondrian;Jdbc='jdbc:sqlserver://adventureworks-sqlserver:1433;databaseName=SteelWheels;encrypt=false;trustServerCertificate=true';JdbcDrivers=com.microsoft.sqlserver.jdbc.SQLServerDriver;JdbcUser=sa;JdbcPassword=MCAD_AwDWDemo!2026;Catalog=file:/usr/local/tomcat/webapps/emondrian/WEB-INF/schema/SteelWheels.xml</DataSourceInfo>
+    <ProviderName>Mondrian</ProviderName>
+    <ProviderType>MDP</ProviderType>
+    <AuthenticationMode>Unauthenticated</AuthenticationMode>
+    <Catalogs>
+      <Catalog name="SteelWheels">
+        <Definition>file:/usr/local/tomcat/webapps/emondrian/WEB-INF/schema/SteelWheels.xml</Definition>
+      </Catalog>
+    </Catalogs>
+  </DataSource>
+</DataSources>

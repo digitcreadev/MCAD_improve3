@@ -1,0 +1,5 @@
+- baseline validée sur objective O_REAL_BEER_WA_MONTH
+- DW foodmart
+- Q1/Q2 ALLOW ; Q3/Q4/Q5/Q6 BLOCK
+- graphe et métriques évoluent comme attendu
+- cette version est figée comme baseline opérationnelle

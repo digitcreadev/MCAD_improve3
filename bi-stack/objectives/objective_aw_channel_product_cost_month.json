@@ -1,0 +1,24 @@
+{
+  "id": "O_AW_CHANNEL_PRODUCT_COST_MONTH",
+  "objective_id": "O_AW_CHANNEL_PRODUCT_COST_MONTH",
+  "dataset_id": "adventureworks",
+  "title": "Channel/category monthly product cost",
+  "description": "Article full-real V2 objective for Channel/category monthly product cost.",
+  "business_domain": "Manufacturing and sales territory analysis",
+  "grain": "month",
+  "measures": [
+    "Total Product Cost",
+    "Sales Amount"
+  ],
+  "dimensions": [
+    "Sales Channel",
+    "Product Category",
+    "Time Month"
+  ],
+  "allow_theme": "channel and category monthly product cost",
+  "block_theme": "customer contact and reseller financial attributes",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "aw_channel_product_cost_month",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

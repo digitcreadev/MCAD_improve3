@@ -1,0 +1,121 @@
+{
+  "id": "O_FM_A_COVERAGE_AND_GUARD_MIX_FROZEN_FOODS_BC",
+  "objective_id": "O_FM_A_COVERAGE_AND_GUARD_MIX_FROZEN_FOODS_BC",
+  "dataset_id": "foodmart",
+  "dataset": "FoodMart",
+  "dw_id": "foodmart",
+  "compatible_dw_ids": [
+    "foodmart",
+    "foodmart_sql_direct"
+  ],
+  "cube": "Sales",
+  "title": "FoodMart A / coverage, redundancy and guard mix / Frozen Foods / BC",
+  "description": "Campaign A FoodMart deep objective targeting coverage, redundancy and guard mix for category=Frozen Foods, state=BC, grain=Time.Month.",
+  "article_protocol": "campaign_A_foodmart_deep_v1",
+  "campaign_id": "A_foodmart_deep",
+  "scenario_id": "fm_a_coverage_and_guard_mix_frozen_foods_bc",
+  "business_domain": "Retail sales and profitability analysis",
+  "target_category": "Frozen Foods",
+  "target_state": "BC",
+  "negative_category": "Carousel",
+  "negative_state": "Campeche",
+  "grain": "month",
+  "measures": [
+    "Store Sales",
+    "Profit"
+  ],
+  "dimensions": [
+    "Product Category",
+    "Store State",
+    "Time Month"
+  ],
+  "complexity_level": 4,
+  "virtual_node_depth": 3,
+  "superposition_width": 2,
+  "constraints": [
+    {
+      "id": "C_FM_A_COVERAGE_AND_GUARD_MIX_FROZEN_FOODS_BC_01",
+      "label": "Store Sales for Frozen Foods/BC by month",
+      "measure": "Store Sales",
+      "metric": "Store Sales",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Frozen Foods",
+        "Store.Store State": "BC"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_A_COVERAGE_AND_GUARD_MIX_FROZEN_FOODS_BC_STORE_SALES_MONTH"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_A_COVERAGE_AND_GUARD_MIX_FROZEN_FOODS_BC_STORE_SALES_MONTH",
+          "fact": "Sales",
+          "measure": "Store Sales",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Frozen Foods",
+            "Store.Store State": "BC"
+          },
+          "complexity_level": 4,
+          "virtual_node_depth": 3,
+          "superposition_width": 2
+        }
+      ],
+      "weight": 0.5
+    },
+    {
+      "id": "C_FM_A_COVERAGE_AND_GUARD_MIX_FROZEN_FOODS_BC_02",
+      "label": "Profit for Frozen Foods/BC by month",
+      "measure": "Profit",
+      "metric": "Profit",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Frozen Foods",
+        "Store.Store State": "BC"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_A_COVERAGE_AND_GUARD_MIX_FROZEN_FOODS_BC_PROFIT_MONTH"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_A_COVERAGE_AND_GUARD_MIX_FROZEN_FOODS_BC_PROFIT_MONTH",
+          "fact": "Sales",
+          "measure": "Profit",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Frozen Foods",
+            "Store.Store State": "BC"
+          },
+          "complexity_level": 4,
+          "virtual_node_depth": 3,
+          "superposition_width": 2
+        }
+      ],
+      "weight": 0.5
+    }
+  ],
+  "validation_status": "pending_physical_execution",
+  "generation_note": "Generated as diversified Campaign A FoodMart scenario content, not as a renamed seed template.",
+  "name": "FoodMart A / coverage, redundancy and guard mix / Frozen Foods / BC",
+  "label": "FoodMart A / coverage, redundancy and guard mix / Frozen Foods / BC"
+}

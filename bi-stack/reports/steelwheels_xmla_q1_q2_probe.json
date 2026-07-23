@@ -1,0 +1,2397 @@
+{
+  "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+  "dw_id": "steelwheels_xmla",
+  "scenario_instance_id": "SW_XMLA_Q1_Q2_1781998055",
+  "session_id": "S_0008",
+  "all_ok": true,
+  "results": [
+    {
+      "index": 1,
+      "id": "SW_XMLA_Q1_ALLOW_SALES_MONTH",
+      "expected": "ALLOW",
+      "got": "ALLOW",
+      "ok_decision": true,
+      "reason_code": "ALLOW_NEW_TOTAL",
+      "phi": 0.5,
+      "sat": 1.0,
+      "real": 0.5,
+      "ceval": 0.5,
+      "physical_execution": true,
+      "adapter_id": "xmla_mondrian",
+      "selected_dw_id": "steelwheels_xmla",
+      "xmla_response_type": "ExecuteResponse",
+      "xmla_valid_response": true,
+      "xmla_has_fault": false,
+      "xmla_fault_excerpt": null,
+      "response_digest": "ea206b7bb50a205c",
+      "response_bytes": 10308,
+      "ok": true
+    },
+    {
+      "index": 2,
+      "id": "SW_XMLA_Q2_ALLOW_QUANTITY_MONTH",
+      "expected": "ALLOW",
+      "got": "ALLOW",
+      "ok_decision": true,
+      "reason_code": "ALLOW_NEW_TOTAL",
+      "phi": 1.0,
+      "sat": 1.0,
+      "real": 1.0,
+      "ceval": 1.0,
+      "physical_execution": true,
+      "adapter_id": "xmla_mondrian",
+      "selected_dw_id": "steelwheels_xmla",
+      "xmla_response_type": "ExecuteResponse",
+      "xmla_valid_response": true,
+      "xmla_has_fault": false,
+      "xmla_fault_excerpt": null,
+      "response_digest": "b546413aa5419b38",
+      "response_bytes": 10074,
+      "ok": true
+    }
+  ],
+  "raw": [
+    {
+      "query": {
+        "id": "SW_XMLA_Q1_ALLOW_SALES_MONTH",
+        "expected": "ALLOW",
+        "mdx": "SELECT\n  {[Measures].[Sales]} ON COLUMNS,\n  Descendants([Time].[Years].[2004], [Time].[Months]) ON ROWS\nFROM [SteelWheelsSales]\nWHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])"
+      },
+      "response": {
+        "ok": true,
+        "mode": "hybrid_bi_gateway",
+        "gateway": "mcad.execution_gateway.v2.hybrid",
+        "execution_source_enforced": true,
+        "allow_fallback": false,
+        "query_id": "SW_XMLA_Q1_ALLOW_SALES_MONTH",
+        "dw_id": "steelwheels_xmla",
+        "adapter_id": "xmla_mondrian",
+        "execution_path": "xmla_mondrian",
+        "decision": {
+          "decision": "ALLOW",
+          "phi": 0.5,
+          "threshold": 0.6,
+          "sat": 1.0,
+          "real": 0.5,
+          "ceval": 0.5,
+          "explain": "ENGINE=real mode=formal_contributive_session_marginal+contract_contributive formal_sat=True legacy_engine_sat=False phi=0.500 theta=0.600 Ceval=0/2 RealNV=0/2 phi_leq_t=0.500 dphi=0.500 => ALLOW",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "is_redundant": false,
+          "has_marginal_gain": true,
+          "details": {
+            "engine": "evaluate_with_objective_and_session(payload)",
+            "decision_policy": "formal_contributive_session_marginal+contract_contributive",
+            "decision_reason_code": "ALLOW_NEW_TOTAL",
+            "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+            "is_redundant": false,
+            "has_marginal_gain": true,
+            "gained_resource_ids_count": 1,
+            "threshold_used_for_ranking": 0.6,
+            "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+            "session_id": "S_0008",
+            "step_index": 1,
+            "phi_weighted": 0.0,
+            "phi_leq_t": 0.5,
+            "delta_phi_t": 0.5,
+            "real_node_ids": [],
+            "calculable_constraints": [
+              "sw_real_c1_sales"
+            ],
+            "calculable_constraints_total": [
+              "sw_real_c1_sales"
+            ],
+            "calculable_constraints_partial": [],
+            "newly_contributed_constraints_total": [
+              "sw_real_c1_sales"
+            ],
+            "newly_contributed_constraints_partial": [],
+            "gained_resource_ids": [
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+            ],
+            "covered_constraints": [
+              "sw_real_c1_sales"
+            ],
+            "realized_virtual_nodes": [
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+            ],
+            "observed_resources": [
+              "Sales"
+            ],
+            "graph_update": {
+              "contract_version": "mcad.graph_update.v1",
+              "decision": "ALLOW",
+              "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+              "session_id": "S_0008",
+              "step_index": 1,
+              "covered_constraints": [
+                "sw_real_c1_sales"
+              ],
+              "realized_virtual_nodes": [
+                "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+              ],
+              "observed_resources": [
+                "Sales"
+              ],
+              "sat_checks": {
+                "grain_ok": true,
+                "agg_ok": true,
+                "unit_ok": true,
+                "slc_ok": true,
+                "time_ok": true,
+                "nvac_ok": true
+              },
+              "nvac_evidence": {
+                "method": "hybrid_probe",
+                "known_empty": false,
+                "estimated_cells": 760,
+                "slicers": {
+                  "Product.Line": "Classic Cars",
+                  "Markets.Territory": "EMEA"
+                },
+                "probe": {
+                  "probe_attempted": true,
+                  "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+                  "elapsed_ms": 204,
+                  "non_empty": true,
+                  "count": 760,
+                  "probe_query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+                  "probe_measure": "Unit Sales",
+                  "raw_probe_summary": {
+                    "kind": "unknown_xmla",
+                    "response_bytes": 760,
+                    "ok": false,
+                    "physical_execution": true,
+                    "execution_mode": "real",
+                    "adapter_family": "xmla_mondrian",
+                    "adapter_id": "xmla_mondrian",
+                    "dw_id": "steelwheels_xmla",
+                    "dataset": "SteelWheels",
+                    "logical_query_language": "mdx",
+                    "physical_query_language": "xmla_mdx",
+                    "catalog": "SteelWheels",
+                    "cube": "SteelWheelsSales",
+                    "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                    "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                    "execution_source_enforced": true,
+                    "status_code": 200,
+                    "elapsed_ms": 192,
+                    "response_digest": "69b04bf8a5d05144",
+                    "result_digest": "69b04bf8a5d05144",
+                    "xmla_response_type": "Fault",
+                    "xmla_valid_response": false,
+                    "xmla_has_fault": true,
+                    "xmla_fault_excerpt": "SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Measures].[Unit Sales]' not found in cube 'SteelWheelsSales'"
+                  }
+                },
+                "empty_reason": null,
+                "rule": "probe_count_drives_nvac_ok"
+              }
+            },
+            "scenario": {
+              "scenario_instance_id": "SW_XMLA_Q1_Q2_1781998055",
+              "source_scenario_id": "steelwheels_xmla_q1_q2_probe",
+              "scenario_query_index": 1,
+              "scenario_query_id": "SW_XMLA_Q1_ALLOW_SALES_MONTH"
+            },
+            "formal_sat": true,
+            "formal_sat_source": "formal_sat_eval.checks",
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "sat_evidence": {
+              "grain_ok": {
+                "recognized_grain": [
+                  "Measures.Sales",
+                  "Time.Months",
+                  "Time.Years"
+                ],
+                "compatible_constraints": [
+                  "sw_real_c1_sales"
+                ]
+              },
+              "agg_ok": {
+                "aggregators": [
+                  "implicit cube aggregator"
+                ],
+                "reason": "no forbidden aggregation detected"
+              },
+              "unit_ok": {
+                "method": "no explicit unit conflict in QP",
+                "checked_units": {}
+              },
+              "slc_ok": {
+                "recognized_slicers": {
+                  "Product.Line": "Classic Cars",
+                  "Markets.Territory": "EMEA"
+                },
+                "errors": [],
+                "member_dictionary": "FoodMart"
+              },
+              "time_ok": {
+                "time_grains": [
+                  "Time.Months",
+                  "Time.Years"
+                ],
+                "window": {
+                  "start": "2004-01-01",
+                  "end": "2004-12-31"
+                },
+                "reason": "time level/window coherent"
+              },
+              "nvac_ok": {
+                "method": "hybrid_probe",
+                "known_empty": false,
+                "estimated_cells": 760,
+                "slicers": {
+                  "Product.Line": "Classic Cars",
+                  "Markets.Territory": "EMEA"
+                },
+                "probe": {
+                  "probe_attempted": true,
+                  "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+                  "elapsed_ms": 204,
+                  "non_empty": true,
+                  "count": 760,
+                  "probe_query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+                  "probe_measure": "Unit Sales",
+                  "raw_probe_summary": {
+                    "kind": "unknown_xmla",
+                    "response_bytes": 760,
+                    "ok": false,
+                    "physical_execution": true,
+                    "execution_mode": "real",
+                    "adapter_family": "xmla_mondrian",
+                    "adapter_id": "xmla_mondrian",
+                    "dw_id": "steelwheels_xmla",
+                    "dataset": "SteelWheels",
+                    "logical_query_language": "mdx",
+                    "physical_query_language": "xmla_mdx",
+                    "catalog": "SteelWheels",
+                    "cube": "SteelWheelsSales",
+                    "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                    "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                    "execution_source_enforced": true,
+                    "status_code": 200,
+                    "elapsed_ms": 192,
+                    "response_digest": "69b04bf8a5d05144",
+                    "result_digest": "69b04bf8a5d05144",
+                    "xmla_response_type": "Fault",
+                    "xmla_valid_response": false,
+                    "xmla_has_fault": true,
+                    "xmla_fault_excerpt": "SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Measures].[Unit Sales]' not found in cube 'SteelWheelsSales'"
+                  }
+                },
+                "empty_reason": null,
+                "rule": "probe_count_drives_nvac_ok"
+              }
+            },
+            "nvac_ok": true,
+            "nvac_evidence": {
+              "method": "hybrid_probe",
+              "known_empty": false,
+              "estimated_cells": 760,
+              "slicers": {
+                "Product.Line": "Classic Cars",
+                "Markets.Territory": "EMEA"
+              },
+              "probe": {
+                "probe_attempted": true,
+                "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+                "elapsed_ms": 204,
+                "non_empty": true,
+                "count": 760,
+                "probe_query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+                "probe_measure": "Unit Sales",
+                "raw_probe_summary": {
+                  "kind": "unknown_xmla",
+                  "response_bytes": 760,
+                  "ok": false,
+                  "physical_execution": true,
+                  "execution_mode": "real",
+                  "adapter_family": "xmla_mondrian",
+                  "adapter_id": "xmla_mondrian",
+                  "dw_id": "steelwheels_xmla",
+                  "dataset": "SteelWheels",
+                  "logical_query_language": "mdx",
+                  "physical_query_language": "xmla_mdx",
+                  "catalog": "SteelWheels",
+                  "cube": "SteelWheelsSales",
+                  "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                  "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                  "execution_source_enforced": true,
+                  "status_code": 200,
+                  "elapsed_ms": 192,
+                  "response_digest": "69b04bf8a5d05144",
+                  "result_digest": "69b04bf8a5d05144",
+                  "xmla_response_type": "Fault",
+                  "xmla_valid_response": false,
+                  "xmla_has_fault": true,
+                  "xmla_fault_excerpt": "SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Measures].[Unit Sales]' not found in cube 'SteelWheelsSales'"
+                }
+              },
+              "empty_reason": null,
+              "rule": "probe_count_drives_nvac_ok"
+            },
+            "legacy_engine_sat_debug": false,
+            "legacy_engine_clauses_debug": [
+              {
+                "name": "measures_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "cube_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "objective_known",
+                "ok": false,
+                "details": {
+                  "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY"
+                }
+              },
+              {
+                "name": "slc_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "time_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "grain_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "agg_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "unit_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "nvac_ok",
+                "ok": true,
+                "details": {}
+              }
+            ],
+            "query_spec": {
+              "mdx": "SELECT\n  {[Measures].[Sales]} ON COLUMNS,\n  Descendants([Time].[Years].[2004], [Time].[Months]) ON ROWS\nFROM [SteelWheelsSales]\nWHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+              "cube": "SteelWheelsSales",
+              "measures": [
+                "Sales"
+              ],
+              "group_by": [
+                "Measures.Sales",
+                "Time.Months",
+                "Time.Years"
+              ],
+              "slicers": {
+                "Product.Line": "Classic Cars",
+                "Markets.Territory": "EMEA"
+              },
+              "analytics": [],
+              "axes": [
+                {
+                  "axis": "COLUMNS",
+                  "expression": "{[Measures].[Sales]}"
+                },
+                {
+                  "axis": "ROWS",
+                  "expression": ", Descendants([Time].[Years].[2004], [Time].[Months])"
+                }
+              ],
+              "time_members": [
+                "2004"
+              ],
+              "window_start": "2004-01-01",
+              "window_end": "2004-12-31",
+              "calculated_members": [],
+              "named_sets": [],
+              "language": "mdx",
+              "fingerprint": "3f4c9b5dbbeaf3bb",
+              "dw_id": "steelwheels_xmla",
+              "dataset": null
+            },
+            "eval_ms": 224
+          },
+          "graph_update": {
+            "contract_version": "mcad.graph_update.v1",
+            "decision": "ALLOW",
+            "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+            "session_id": "S_0008",
+            "step_index": 1,
+            "covered_constraints": [
+              "c_sales"
+            ],
+            "realized_virtual_nodes": [
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+            ],
+            "observed_resources": [
+              "Sales"
+            ],
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "nvac_evidence": {
+              "method": "hybrid_probe",
+              "known_empty": false,
+              "estimated_cells": 760,
+              "slicers": {
+                "Product.Line": "Classic Cars",
+                "Markets.Territory": "EMEA"
+              },
+              "probe": {
+                "probe_attempted": true,
+                "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+                "elapsed_ms": 204,
+                "non_empty": true,
+                "count": 760,
+                "probe_query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+                "probe_measure": "Unit Sales",
+                "raw_probe_summary": {
+                  "kind": "unknown_xmla",
+                  "response_bytes": 760,
+                  "ok": false,
+                  "physical_execution": true,
+                  "execution_mode": "real",
+                  "adapter_family": "xmla_mondrian",
+                  "adapter_id": "xmla_mondrian",
+                  "dw_id": "steelwheels_xmla",
+                  "dataset": "SteelWheels",
+                  "logical_query_language": "mdx",
+                  "physical_query_language": "xmla_mdx",
+                  "catalog": "SteelWheels",
+                  "cube": "SteelWheelsSales",
+                  "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                  "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                  "execution_source_enforced": true,
+                  "status_code": 200,
+                  "elapsed_ms": 192,
+                  "response_digest": "69b04bf8a5d05144",
+                  "result_digest": "69b04bf8a5d05144",
+                  "xmla_response_type": "Fault",
+                  "xmla_valid_response": false,
+                  "xmla_has_fault": true,
+                  "xmla_fault_excerpt": "SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Measures].[Unit Sales]' not found in cube 'SteelWheelsSales'"
+                }
+              },
+              "empty_reason": null,
+              "rule": "probe_count_drives_nvac_ok"
+            },
+            "measures": [
+              "Sales"
+            ],
+            "grain": [
+              "Measures.Sales",
+              "Time.Months",
+              "Time.Years"
+            ],
+            "slicers": {
+              "Product.Line": "Classic Cars",
+              "Markets.Territory": "EMEA"
+            },
+            "time_window": {
+              "start": "2004-01-01",
+              "end": "2004-12-31"
+            },
+            "mdx_features": {
+              "measures": [
+                "Sales"
+              ],
+              "grain": [
+                "Markets.Territory.EMEA",
+                "Product.Line.Classic Cars",
+                "Time.Months",
+                "Time.Years.2004"
+              ],
+              "slicers": [
+                "Markets.Territory.EMEA",
+                "Product.Line.Classic Cars"
+              ]
+            },
+            "blocked_reasons": [],
+            "redundant": false,
+            "delta_phi": 0.5,
+            "partially_covered_constraints": [],
+            "required_constraints": [
+              "c_sales",
+              "c_profit"
+            ],
+            "cumulative_covered_constraints": [
+              "c_sales"
+            ],
+            "cumulative_partially_covered_constraints": [],
+            "pending_constraints": [
+              "c_profit"
+            ],
+            "cumulative_realized_virtual_nodes": [
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+            ],
+            "objective_state": "partial",
+            "session_phi": 0.5
+          }
+        },
+        "execution_evidence": {
+          "contract_version": "mcad.execution_evidence.v1",
+          "generated_at_ms": 1781998055671,
+          "query": {
+            "query_id": "SW_XMLA_Q1_ALLOW_SALES_MONTH",
+            "query_type": "mdx",
+            "query_digest": "3f4c9b5dbbeaf3bb",
+            "execution_mode": null,
+            "scenario_instance_id": "SW_XMLA_Q1_Q2_1781998055",
+            "source_scenario_id": "steelwheels_xmla_q1_q2_probe",
+            "scenario_query_index": 1,
+            "scenario_query_id": "SW_XMLA_Q1_ALLOW_SALES_MONTH"
+          },
+          "mcad_gate": {
+            "allowed_by_mcad": true,
+            "decision": "ALLOW",
+            "decision_reason_code": "ALLOW_NEW_TOTAL",
+            "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+            "session_id": "S_0008",
+            "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+            "step_index": 1,
+            "eval_elapsed_ms": 342,
+            "fail_closed": false
+          },
+          "formal_metrics": {
+            "sat": 1.0,
+            "real": 0.5,
+            "ceval": 0.5,
+            "phi": 0.5,
+            "delta_phi": 0.5,
+            "threshold": 0.6
+          },
+          "sat_clauses": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "execution": {
+            "attempted": true,
+            "physical_execution": true,
+            "status": "EXECUTED",
+            "requested_dw_id": "steelwheels_xmla",
+            "selected_dw_id": "steelwheels_xmla",
+            "adapter_id": "xmla_mondrian",
+            "adapter_family": "xmla_mondrian",
+            "backend_type": "xmla_mondrian",
+            "execution_path": "xmla_mondrian",
+            "logical_query_language": "mdx",
+            "physical_query_language": "xmla_mdx",
+            "catalog": "SteelWheels",
+            "cube": "SteelWheelsSales",
+            "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+            "xmla_response_type": "ExecuteResponse",
+            "status_code": 200,
+            "elapsed_ms": 171,
+            "response_bytes": 10308,
+            "response_digest": "ea206b7bb50a205c",
+            "result_digest": "ea206b7bb50a205c",
+            "row_count": 12,
+            "columns_count": 2,
+            "fallback_used": false,
+            "demo_materialized": true,
+            "error": null
+          },
+          "graph_update_summary": {
+            "covered_constraints": [
+              "c_sales"
+            ],
+            "partially_covered_constraints": [],
+            "realized_virtual_nodes": [
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+            ],
+            "delta_phi": 0.5,
+            "measures": [
+              "Sales"
+            ],
+            "grain": [
+              "Measures.Sales",
+              "Time.Months",
+              "Time.Years"
+            ],
+            "slicers": {
+              "Product.Line": "Classic Cars",
+              "Markets.Territory": "EMEA"
+            }
+          }
+        },
+        "graph_update": {
+          "contract_version": "mcad.graph_update.v1",
+          "decision": "ALLOW",
+          "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+          "session_id": "S_0008",
+          "step_index": 1,
+          "covered_constraints": [
+            "c_sales"
+          ],
+          "realized_virtual_nodes": [
+            "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+          ],
+          "observed_resources": [
+            "Sales"
+          ],
+          "sat_checks": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "nvac_evidence": {
+            "method": "hybrid_probe",
+            "known_empty": false,
+            "estimated_cells": 760,
+            "slicers": {
+              "Product.Line": "Classic Cars",
+              "Markets.Territory": "EMEA"
+            },
+            "probe": {
+              "probe_attempted": true,
+              "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+              "elapsed_ms": 204,
+              "non_empty": true,
+              "count": 760,
+              "probe_query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+              "probe_measure": "Unit Sales",
+              "raw_probe_summary": {
+                "kind": "unknown_xmla",
+                "response_bytes": 760,
+                "ok": false,
+                "physical_execution": true,
+                "execution_mode": "real",
+                "adapter_family": "xmla_mondrian",
+                "adapter_id": "xmla_mondrian",
+                "dw_id": "steelwheels_xmla",
+                "dataset": "SteelWheels",
+                "logical_query_language": "mdx",
+                "physical_query_language": "xmla_mdx",
+                "catalog": "SteelWheels",
+                "cube": "SteelWheelsSales",
+                "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                "execution_source_enforced": true,
+                "status_code": 200,
+                "elapsed_ms": 192,
+                "response_digest": "69b04bf8a5d05144",
+                "result_digest": "69b04bf8a5d05144",
+                "xmla_response_type": "Fault",
+                "xmla_valid_response": false,
+                "xmla_has_fault": true,
+                "xmla_fault_excerpt": "SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Measures].[Unit Sales]' not found in cube 'SteelWheelsSales'"
+              }
+            },
+            "empty_reason": null,
+            "rule": "probe_count_drives_nvac_ok"
+          },
+          "measures": [
+            "Sales"
+          ],
+          "grain": [
+            "Measures.Sales",
+            "Time.Months",
+            "Time.Years"
+          ],
+          "slicers": {
+            "Product.Line": "Classic Cars",
+            "Markets.Territory": "EMEA"
+          },
+          "time_window": {
+            "start": "2004-01-01",
+            "end": "2004-12-31"
+          },
+          "mdx_features": {
+            "measures": [
+              "Sales"
+            ],
+            "grain": [
+              "Markets.Territory.EMEA",
+              "Product.Line.Classic Cars",
+              "Time.Months",
+              "Time.Years.2004"
+            ],
+            "slicers": [
+              "Markets.Territory.EMEA",
+              "Product.Line.Classic Cars"
+            ]
+          },
+          "blocked_reasons": [],
+          "redundant": false,
+          "delta_phi": 0.5,
+          "partially_covered_constraints": [],
+          "required_constraints": [
+            "c_sales",
+            "c_profit"
+          ],
+          "cumulative_covered_constraints": [
+            "c_sales"
+          ],
+          "cumulative_partially_covered_constraints": [],
+          "pending_constraints": [
+            "c_profit"
+          ],
+          "cumulative_realized_virtual_nodes": [
+            "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+          ],
+          "objective_state": "partial",
+          "session_phi": 0.5
+        },
+        "direct_result": {
+          "kind": "dataset",
+          "axis_count": 3,
+          "tuple_count": 14,
+          "cell_count": 12,
+          "axis_samples": [
+            {
+              "name": "Axis0",
+              "tuple_count": 1,
+              "sample_tuples": [
+                [
+                  "Sales"
+                ]
+              ]
+            },
+            {
+              "name": "Axis1",
+              "tuple_count": 12,
+              "sample_tuples": [
+                [
+                  "Jan"
+                ],
+                [
+                  "Feb"
+                ],
+                [
+                  "Mar"
+                ],
+                [
+                  "Apr"
+                ],
+                [
+                  "May"
+                ],
+                [
+                  "Jun"
+                ],
+                [
+                  "Jul"
+                ],
+                [
+                  "Aug"
+                ]
+              ]
+            },
+            {
+              "name": "SlicerAxis",
+              "tuple_count": 1,
+              "sample_tuples": [
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            }
+          ],
+          "preview_cells": [
+            {
+              "ordinal": "0",
+              "value": "111518.33000000002",
+              "formatted": "111,518.33",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Jan"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "1",
+              "value": "86727.34999999998",
+              "formatted": "86,727.35",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Feb"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "2",
+              "value": "57382.71000000001",
+              "formatted": "57,382.71",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Mar"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "3",
+              "value": "74701.46",
+              "formatted": "74,701.46",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Apr"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "4",
+              "value": "65130.9",
+              "formatted": "65,130.90",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "May"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "5",
+              "value": "50408.25",
+              "formatted": "50,408.25",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Jun"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "6",
+              "value": "59930.45000000001",
+              "formatted": "59,930.45",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Jul"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "7",
+              "value": "97282.09999999999",
+              "formatted": "97,282.10",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Aug"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "8",
+              "value": "45690.03999999999",
+              "formatted": "45,690.04",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Jan"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "9",
+              "value": "168309.78000000003",
+              "formatted": "168,309.78",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Feb"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "10",
+              "value": "138198.54",
+              "formatted": "138,198.54",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Mar"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "11",
+              "value": "60510.030000000006",
+              "formatted": "60,510.03",
+              "axis_context": [
+                [
+                  "Sales"
+                ],
+                [
+                  "Apr"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            }
+          ],
+          "preview_cell_count": 12,
+          "response_bytes": 10308,
+          "ok": true,
+          "physical_execution": true,
+          "execution_mode": "real",
+          "adapter_family": "xmla_mondrian",
+          "adapter_id": "xmla_mondrian",
+          "dw_id": "steelwheels_xmla",
+          "dataset": "SteelWheels",
+          "logical_query_language": "mdx",
+          "physical_query_language": "xmla_mdx",
+          "catalog": "SteelWheels",
+          "cube": "SteelWheelsSales",
+          "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+          "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+          "execution_source_enforced": true,
+          "status_code": 200,
+          "elapsed_ms": 171,
+          "response_digest": "ea206b7bb50a205c",
+          "result_digest": "ea206b7bb50a205c",
+          "xmla_response_type": "ExecuteResponse",
+          "xmla_valid_response": true,
+          "xmla_has_fault": false,
+          "xmla_fault_excerpt": null,
+          "query_language": "mdx",
+          "grain": "Member",
+          "measures": [
+            "Sales"
+          ],
+          "columns": [
+            "Month",
+            "Sales"
+          ],
+          "rows": [
+            {
+              "Month": "Jan 1998",
+              "Sales": 90.0
+            },
+            {
+              "Month": "Feb 1998",
+              "Sales": 96.3
+            },
+            {
+              "Month": "Mar 1998",
+              "Sales": 102.6
+            },
+            {
+              "Month": "Apr 1998",
+              "Sales": 108.9
+            },
+            {
+              "Month": "May 1998",
+              "Sales": 115.2
+            },
+            {
+              "Month": "Jun 1998",
+              "Sales": 121.5
+            },
+            {
+              "Month": "Jul 1998",
+              "Sales": 127.8
+            },
+            {
+              "Month": "Aug 1998",
+              "Sales": 134.1
+            },
+            {
+              "Month": "Sep 1998",
+              "Sales": 140.4
+            },
+            {
+              "Month": "Oct 1998",
+              "Sales": 146.7
+            },
+            {
+              "Month": "Nov 1998",
+              "Sales": 153.0
+            },
+            {
+              "Month": "Dec 1998",
+              "Sales": 159.3
+            }
+          ],
+          "row_count": 12,
+          "demo_materialized": true,
+          "visualization_ready": true,
+          "backend_type": "xmla_mondrian",
+          "requested_dw_id": "steelwheels_xmla",
+          "selected_dw_id": "steelwheels_xmla",
+          "execution_path": "xmla_mondrian",
+          "execution_evidence": {
+            "contract_version": "mcad.execution_evidence.v1",
+            "generated_at_ms": 1781998055671,
+            "query": {
+              "query_id": "SW_XMLA_Q1_ALLOW_SALES_MONTH",
+              "query_type": "mdx",
+              "query_digest": "3f4c9b5dbbeaf3bb",
+              "execution_mode": null,
+              "scenario_instance_id": "SW_XMLA_Q1_Q2_1781998055",
+              "source_scenario_id": "steelwheels_xmla_q1_q2_probe",
+              "scenario_query_index": 1,
+              "scenario_query_id": "SW_XMLA_Q1_ALLOW_SALES_MONTH"
+            },
+            "mcad_gate": {
+              "allowed_by_mcad": true,
+              "decision": "ALLOW",
+              "decision_reason_code": "ALLOW_NEW_TOTAL",
+              "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+              "session_id": "S_0008",
+              "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+              "step_index": 1,
+              "eval_elapsed_ms": 342,
+              "fail_closed": false
+            },
+            "formal_metrics": {
+              "sat": 1.0,
+              "real": 0.5,
+              "ceval": 0.5,
+              "phi": 0.5,
+              "delta_phi": 0.5,
+              "threshold": 0.6
+            },
+            "sat_clauses": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "execution": {
+              "attempted": true,
+              "physical_execution": true,
+              "status": "EXECUTED",
+              "requested_dw_id": "steelwheels_xmla",
+              "selected_dw_id": "steelwheels_xmla",
+              "adapter_id": "xmla_mondrian",
+              "adapter_family": "xmla_mondrian",
+              "backend_type": "xmla_mondrian",
+              "execution_path": "xmla_mondrian",
+              "logical_query_language": "mdx",
+              "physical_query_language": "xmla_mdx",
+              "catalog": "SteelWheels",
+              "cube": "SteelWheelsSales",
+              "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+              "xmla_response_type": "ExecuteResponse",
+              "status_code": 200,
+              "elapsed_ms": 171,
+              "response_bytes": 10308,
+              "response_digest": "ea206b7bb50a205c",
+              "result_digest": "ea206b7bb50a205c",
+              "row_count": 12,
+              "columns_count": 2,
+              "fallback_used": false,
+              "demo_materialized": true,
+              "error": null
+            },
+            "graph_update_summary": {
+              "covered_constraints": [
+                "c_sales"
+              ],
+              "partially_covered_constraints": [],
+              "realized_virtual_nodes": [
+                "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+              ],
+              "delta_phi": 0.5,
+              "measures": [
+                "Sales"
+              ],
+              "grain": [
+                "Measures.Sales",
+                "Time.Months",
+                "Time.Years"
+              ],
+              "slicers": {
+                "Product.Line": "Classic Cars",
+                "Markets.Territory": "EMEA"
+              }
+            }
+          },
+          "evidence_contract": "mcad.execution_evidence.v1"
+        },
+        "active": {
+          "session_id": "S_0008",
+          "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+          "dw_id": "steelwheels_xmla"
+        }
+      }
+    },
+    {
+      "query": {
+        "id": "SW_XMLA_Q2_ALLOW_QUANTITY_MONTH",
+        "expected": "ALLOW",
+        "mdx": "SELECT\n  {[Measures].[Quantity]} ON COLUMNS,\n  Descendants([Time].[Years].[2004], [Time].[Months]) ON ROWS\nFROM [SteelWheelsSales]\nWHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])"
+      },
+      "response": {
+        "ok": true,
+        "mode": "hybrid_bi_gateway",
+        "gateway": "mcad.execution_gateway.v2.hybrid",
+        "execution_source_enforced": true,
+        "allow_fallback": false,
+        "query_id": "SW_XMLA_Q2_ALLOW_QUANTITY_MONTH",
+        "dw_id": "steelwheels_xmla",
+        "adapter_id": "xmla_mondrian",
+        "execution_path": "xmla_mondrian",
+        "decision": {
+          "decision": "ALLOW",
+          "phi": 1.0,
+          "threshold": 0.6,
+          "sat": 1.0,
+          "real": 1.0,
+          "ceval": 1.0,
+          "explain": "ENGINE=real mode=formal_contributive_session_marginal+contract_contributive formal_sat=True legacy_engine_sat=False phi=1.000 theta=0.600 Ceval=0/2 RealNV=0/2 phi_leq_t=1.000 dphi=0.500 => ALLOW",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "is_redundant": false,
+          "has_marginal_gain": true,
+          "details": {
+            "engine": "evaluate_with_objective_and_session(payload)",
+            "decision_policy": "formal_contributive_session_marginal+contract_contributive",
+            "decision_reason_code": "ALLOW_NEW_TOTAL",
+            "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+            "is_redundant": false,
+            "has_marginal_gain": true,
+            "gained_resource_ids_count": 2,
+            "threshold_used_for_ranking": 0.6,
+            "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+            "session_id": "S_0008",
+            "step_index": 2,
+            "phi_weighted": 0.0,
+            "phi_leq_t": 1.0,
+            "delta_phi_t": 0.5,
+            "real_node_ids": [],
+            "calculable_constraints": [
+              "sw_real_c1_sales",
+              "sw_real_c2_quantity"
+            ],
+            "calculable_constraints_total": [
+              "sw_real_c1_sales",
+              "sw_real_c2_quantity"
+            ],
+            "calculable_constraints_partial": [],
+            "newly_contributed_constraints_total": [
+              "sw_real_c1_sales",
+              "sw_real_c2_quantity"
+            ],
+            "newly_contributed_constraints_partial": [],
+            "gained_resource_ids": [
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY",
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+            ],
+            "covered_constraints": [
+              "sw_real_c1_sales",
+              "sw_real_c2_quantity"
+            ],
+            "realized_virtual_nodes": [
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY",
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+            ],
+            "observed_resources": [
+              "Quantity"
+            ],
+            "graph_update": {
+              "contract_version": "mcad.graph_update.v1",
+              "decision": "ALLOW",
+              "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+              "session_id": "S_0008",
+              "step_index": 2,
+              "covered_constraints": [
+                "sw_real_c1_sales",
+                "sw_real_c2_quantity"
+              ],
+              "realized_virtual_nodes": [
+                "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY",
+                "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+              ],
+              "observed_resources": [
+                "Quantity"
+              ],
+              "sat_checks": {
+                "grain_ok": true,
+                "agg_ok": true,
+                "unit_ok": true,
+                "slc_ok": true,
+                "time_ok": true,
+                "nvac_ok": true
+              },
+              "nvac_evidence": {
+                "method": "hybrid_probe",
+                "known_empty": false,
+                "estimated_cells": 760,
+                "slicers": {
+                  "Product.Line": "Classic Cars",
+                  "Markets.Territory": "EMEA"
+                },
+                "probe": {
+                  "probe_attempted": true,
+                  "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+                  "elapsed_ms": 86,
+                  "non_empty": true,
+                  "count": 760,
+                  "probe_query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+                  "probe_measure": "Unit Sales",
+                  "raw_probe_summary": {
+                    "kind": "unknown_xmla",
+                    "response_bytes": 760,
+                    "ok": false,
+                    "physical_execution": true,
+                    "execution_mode": "real",
+                    "adapter_family": "xmla_mondrian",
+                    "adapter_id": "xmla_mondrian",
+                    "dw_id": "steelwheels_xmla",
+                    "dataset": "SteelWheels",
+                    "logical_query_language": "mdx",
+                    "physical_query_language": "xmla_mdx",
+                    "catalog": "SteelWheels",
+                    "cube": "SteelWheelsSales",
+                    "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                    "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                    "execution_source_enforced": true,
+                    "status_code": 200,
+                    "elapsed_ms": 79,
+                    "response_digest": "69b04bf8a5d05144",
+                    "result_digest": "69b04bf8a5d05144",
+                    "xmla_response_type": "Fault",
+                    "xmla_valid_response": false,
+                    "xmla_has_fault": true,
+                    "xmla_fault_excerpt": "SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Measures].[Unit Sales]' not found in cube 'SteelWheelsSales'"
+                  }
+                },
+                "empty_reason": null,
+                "rule": "probe_count_drives_nvac_ok"
+              }
+            },
+            "scenario": {
+              "scenario_instance_id": "SW_XMLA_Q1_Q2_1781998055",
+              "source_scenario_id": "steelwheels_xmla_q1_q2_probe",
+              "scenario_query_index": 2,
+              "scenario_query_id": "SW_XMLA_Q2_ALLOW_QUANTITY_MONTH"
+            },
+            "formal_sat": true,
+            "formal_sat_source": "formal_sat_eval.checks",
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "sat_evidence": {
+              "grain_ok": {
+                "recognized_grain": [
+                  "Measures.Quantity",
+                  "Time.Months",
+                  "Time.Years"
+                ],
+                "compatible_constraints": [
+                  "sw_real_c2_quantity"
+                ]
+              },
+              "agg_ok": {
+                "aggregators": [
+                  "implicit cube aggregator"
+                ],
+                "reason": "no forbidden aggregation detected"
+              },
+              "unit_ok": {
+                "method": "no explicit unit conflict in QP",
+                "checked_units": {}
+              },
+              "slc_ok": {
+                "recognized_slicers": {
+                  "Product.Line": "Classic Cars",
+                  "Markets.Territory": "EMEA"
+                },
+                "errors": [],
+                "member_dictionary": "FoodMart"
+              },
+              "time_ok": {
+                "time_grains": [
+                  "Time.Months",
+                  "Time.Years"
+                ],
+                "window": {
+                  "start": "2004-01-01",
+                  "end": "2004-12-31"
+                },
+                "reason": "time level/window coherent"
+              },
+              "nvac_ok": {
+                "method": "hybrid_probe",
+                "known_empty": false,
+                "estimated_cells": 760,
+                "slicers": {
+                  "Product.Line": "Classic Cars",
+                  "Markets.Territory": "EMEA"
+                },
+                "probe": {
+                  "probe_attempted": true,
+                  "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+                  "elapsed_ms": 86,
+                  "non_empty": true,
+                  "count": 760,
+                  "probe_query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+                  "probe_measure": "Unit Sales",
+                  "raw_probe_summary": {
+                    "kind": "unknown_xmla",
+                    "response_bytes": 760,
+                    "ok": false,
+                    "physical_execution": true,
+                    "execution_mode": "real",
+                    "adapter_family": "xmla_mondrian",
+                    "adapter_id": "xmla_mondrian",
+                    "dw_id": "steelwheels_xmla",
+                    "dataset": "SteelWheels",
+                    "logical_query_language": "mdx",
+                    "physical_query_language": "xmla_mdx",
+                    "catalog": "SteelWheels",
+                    "cube": "SteelWheelsSales",
+                    "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                    "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                    "execution_source_enforced": true,
+                    "status_code": 200,
+                    "elapsed_ms": 79,
+                    "response_digest": "69b04bf8a5d05144",
+                    "result_digest": "69b04bf8a5d05144",
+                    "xmla_response_type": "Fault",
+                    "xmla_valid_response": false,
+                    "xmla_has_fault": true,
+                    "xmla_fault_excerpt": "SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Measures].[Unit Sales]' not found in cube 'SteelWheelsSales'"
+                  }
+                },
+                "empty_reason": null,
+                "rule": "probe_count_drives_nvac_ok"
+              }
+            },
+            "nvac_ok": true,
+            "nvac_evidence": {
+              "method": "hybrid_probe",
+              "known_empty": false,
+              "estimated_cells": 760,
+              "slicers": {
+                "Product.Line": "Classic Cars",
+                "Markets.Territory": "EMEA"
+              },
+              "probe": {
+                "probe_attempted": true,
+                "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+                "elapsed_ms": 86,
+                "non_empty": true,
+                "count": 760,
+                "probe_query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+                "probe_measure": "Unit Sales",
+                "raw_probe_summary": {
+                  "kind": "unknown_xmla",
+                  "response_bytes": 760,
+                  "ok": false,
+                  "physical_execution": true,
+                  "execution_mode": "real",
+                  "adapter_family": "xmla_mondrian",
+                  "adapter_id": "xmla_mondrian",
+                  "dw_id": "steelwheels_xmla",
+                  "dataset": "SteelWheels",
+                  "logical_query_language": "mdx",
+                  "physical_query_language": "xmla_mdx",
+                  "catalog": "SteelWheels",
+                  "cube": "SteelWheelsSales",
+                  "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                  "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                  "execution_source_enforced": true,
+                  "status_code": 200,
+                  "elapsed_ms": 79,
+                  "response_digest": "69b04bf8a5d05144",
+                  "result_digest": "69b04bf8a5d05144",
+                  "xmla_response_type": "Fault",
+                  "xmla_valid_response": false,
+                  "xmla_has_fault": true,
+                  "xmla_fault_excerpt": "SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Measures].[Unit Sales]' not found in cube 'SteelWheelsSales'"
+                }
+              },
+              "empty_reason": null,
+              "rule": "probe_count_drives_nvac_ok"
+            },
+            "legacy_engine_sat_debug": false,
+            "legacy_engine_clauses_debug": [
+              {
+                "name": "measures_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "cube_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "objective_known",
+                "ok": false,
+                "details": {
+                  "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY"
+                }
+              },
+              {
+                "name": "slc_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "time_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "grain_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "agg_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "unit_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "nvac_ok",
+                "ok": true,
+                "details": {}
+              }
+            ],
+            "query_spec": {
+              "mdx": "SELECT\n  {[Measures].[Quantity]} ON COLUMNS,\n  Descendants([Time].[Years].[2004], [Time].[Months]) ON ROWS\nFROM [SteelWheelsSales]\nWHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+              "cube": "SteelWheelsSales",
+              "measures": [
+                "Quantity"
+              ],
+              "group_by": [
+                "Measures.Quantity",
+                "Time.Months",
+                "Time.Years"
+              ],
+              "slicers": {
+                "Product.Line": "Classic Cars",
+                "Markets.Territory": "EMEA"
+              },
+              "analytics": [],
+              "axes": [
+                {
+                  "axis": "COLUMNS",
+                  "expression": "{[Measures].[Quantity]}"
+                },
+                {
+                  "axis": "ROWS",
+                  "expression": ", Descendants([Time].[Years].[2004], [Time].[Months])"
+                }
+              ],
+              "time_members": [
+                "2004"
+              ],
+              "window_start": "2004-01-01",
+              "window_end": "2004-12-31",
+              "calculated_members": [],
+              "named_sets": [],
+              "language": "mdx",
+              "fingerprint": "ac87f08239fb23dc",
+              "dw_id": "steelwheels_xmla",
+              "dataset": null
+            },
+            "eval_ms": 113
+          },
+          "graph_update": {
+            "contract_version": "mcad.graph_update.v1",
+            "decision": "ALLOW",
+            "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+            "session_id": "S_0008",
+            "step_index": 2,
+            "covered_constraints": [
+              "c_sales",
+              "sw_real_c2_quantity"
+            ],
+            "realized_virtual_nodes": [
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY",
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+            ],
+            "observed_resources": [
+              "Quantity"
+            ],
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "nvac_evidence": {
+              "method": "hybrid_probe",
+              "known_empty": false,
+              "estimated_cells": 760,
+              "slicers": {
+                "Product.Line": "Classic Cars",
+                "Markets.Territory": "EMEA"
+              },
+              "probe": {
+                "probe_attempted": true,
+                "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+                "elapsed_ms": 86,
+                "non_empty": true,
+                "count": 760,
+                "probe_query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+                "probe_measure": "Unit Sales",
+                "raw_probe_summary": {
+                  "kind": "unknown_xmla",
+                  "response_bytes": 760,
+                  "ok": false,
+                  "physical_execution": true,
+                  "execution_mode": "real",
+                  "adapter_family": "xmla_mondrian",
+                  "adapter_id": "xmla_mondrian",
+                  "dw_id": "steelwheels_xmla",
+                  "dataset": "SteelWheels",
+                  "logical_query_language": "mdx",
+                  "physical_query_language": "xmla_mdx",
+                  "catalog": "SteelWheels",
+                  "cube": "SteelWheelsSales",
+                  "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                  "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                  "execution_source_enforced": true,
+                  "status_code": 200,
+                  "elapsed_ms": 79,
+                  "response_digest": "69b04bf8a5d05144",
+                  "result_digest": "69b04bf8a5d05144",
+                  "xmla_response_type": "Fault",
+                  "xmla_valid_response": false,
+                  "xmla_has_fault": true,
+                  "xmla_fault_excerpt": "SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Measures].[Unit Sales]' not found in cube 'SteelWheelsSales'"
+                }
+              },
+              "empty_reason": null,
+              "rule": "probe_count_drives_nvac_ok"
+            },
+            "measures": [
+              "Quantity"
+            ],
+            "grain": [
+              "Measures.Quantity",
+              "Time.Months",
+              "Time.Years"
+            ],
+            "slicers": {
+              "Product.Line": "Classic Cars",
+              "Markets.Territory": "EMEA"
+            },
+            "time_window": {
+              "start": "2004-01-01",
+              "end": "2004-12-31"
+            },
+            "mdx_features": {
+              "measures": [
+                "Quantity"
+              ],
+              "grain": [
+                "Markets.Territory.EMEA",
+                "Product.Line.Classic Cars",
+                "Time.Months",
+                "Time.Years.2004"
+              ],
+              "slicers": [
+                "Markets.Territory.EMEA",
+                "Product.Line.Classic Cars"
+              ]
+            },
+            "blocked_reasons": [],
+            "redundant": false,
+            "delta_phi": 0.5,
+            "partially_covered_constraints": [],
+            "required_constraints": [
+              "c_sales",
+              "c_profit"
+            ],
+            "cumulative_covered_constraints": [
+              "c_sales",
+              "sw_real_c2_quantity"
+            ],
+            "cumulative_partially_covered_constraints": [],
+            "pending_constraints": [
+              "c_profit"
+            ],
+            "cumulative_realized_virtual_nodes": [
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY",
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+            ],
+            "objective_state": "partial",
+            "session_phi": 0.5
+          }
+        },
+        "execution_evidence": {
+          "contract_version": "mcad.execution_evidence.v1",
+          "generated_at_ms": 1781998056077,
+          "query": {
+            "query_id": "SW_XMLA_Q2_ALLOW_QUANTITY_MONTH",
+            "query_type": "mdx",
+            "query_digest": "ac87f08239fb23dc",
+            "execution_mode": null,
+            "scenario_instance_id": "SW_XMLA_Q1_Q2_1781998055",
+            "source_scenario_id": "steelwheels_xmla_q1_q2_probe",
+            "scenario_query_index": 2,
+            "scenario_query_id": "SW_XMLA_Q2_ALLOW_QUANTITY_MONTH"
+          },
+          "mcad_gate": {
+            "allowed_by_mcad": true,
+            "decision": "ALLOW",
+            "decision_reason_code": "ALLOW_NEW_TOTAL",
+            "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+            "session_id": "S_0008",
+            "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+            "step_index": 2,
+            "eval_elapsed_ms": 202,
+            "fail_closed": false
+          },
+          "formal_metrics": {
+            "sat": 1.0,
+            "real": 1.0,
+            "ceval": 1.0,
+            "phi": 1.0,
+            "delta_phi": 0.5,
+            "threshold": 0.6
+          },
+          "sat_clauses": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "execution": {
+            "attempted": true,
+            "physical_execution": true,
+            "status": "EXECUTED",
+            "requested_dw_id": "steelwheels_xmla",
+            "selected_dw_id": "steelwheels_xmla",
+            "adapter_id": "xmla_mondrian",
+            "adapter_family": "xmla_mondrian",
+            "backend_type": "xmla_mondrian",
+            "execution_path": "xmla_mondrian",
+            "logical_query_language": "mdx",
+            "physical_query_language": "xmla_mdx",
+            "catalog": "SteelWheels",
+            "cube": "SteelWheelsSales",
+            "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+            "xmla_response_type": "ExecuteResponse",
+            "status_code": 200,
+            "elapsed_ms": 179,
+            "response_bytes": 10074,
+            "response_digest": "b546413aa5419b38",
+            "result_digest": "b546413aa5419b38",
+            "row_count": 12,
+            "columns_count": 2,
+            "fallback_used": false,
+            "demo_materialized": true,
+            "error": null
+          },
+          "graph_update_summary": {
+            "covered_constraints": [
+              "c_sales",
+              "sw_real_c2_quantity"
+            ],
+            "partially_covered_constraints": [],
+            "realized_virtual_nodes": [
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY",
+              "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+            ],
+            "delta_phi": 0.5,
+            "measures": [
+              "Quantity"
+            ],
+            "grain": [
+              "Measures.Quantity",
+              "Time.Months",
+              "Time.Years"
+            ],
+            "slicers": {
+              "Product.Line": "Classic Cars",
+              "Markets.Territory": "EMEA"
+            }
+          }
+        },
+        "graph_update": {
+          "contract_version": "mcad.graph_update.v1",
+          "decision": "ALLOW",
+          "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+          "session_id": "S_0008",
+          "step_index": 2,
+          "covered_constraints": [
+            "c_sales",
+            "sw_real_c2_quantity"
+          ],
+          "realized_virtual_nodes": [
+            "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY",
+            "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+          ],
+          "observed_resources": [
+            "Quantity"
+          ],
+          "sat_checks": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "nvac_evidence": {
+            "method": "hybrid_probe",
+            "known_empty": false,
+            "estimated_cells": 760,
+            "slicers": {
+              "Product.Line": "Classic Cars",
+              "Markets.Territory": "EMEA"
+            },
+            "probe": {
+              "probe_attempted": true,
+              "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+              "elapsed_ms": 86,
+              "non_empty": true,
+              "count": 760,
+              "probe_query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS FROM [SteelWheelsSales] WHERE ([Product].[Line].[Classic Cars], [Markets].[Territory].[EMEA])",
+              "probe_measure": "Unit Sales",
+              "raw_probe_summary": {
+                "kind": "unknown_xmla",
+                "response_bytes": 760,
+                "ok": false,
+                "physical_execution": true,
+                "execution_mode": "real",
+                "adapter_family": "xmla_mondrian",
+                "adapter_id": "xmla_mondrian",
+                "dw_id": "steelwheels_xmla",
+                "dataset": "SteelWheels",
+                "logical_query_language": "mdx",
+                "physical_query_language": "xmla_mdx",
+                "catalog": "SteelWheels",
+                "cube": "SteelWheelsSales",
+                "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+                "execution_source_enforced": true,
+                "status_code": 200,
+                "elapsed_ms": 79,
+                "response_digest": "69b04bf8a5d05144",
+                "result_digest": "69b04bf8a5d05144",
+                "xmla_response_type": "Fault",
+                "xmla_valid_response": false,
+                "xmla_has_fault": true,
+                "xmla_fault_excerpt": "SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Measures].[Unit Sales]' not found in cube 'SteelWheelsSales'"
+              }
+            },
+            "empty_reason": null,
+            "rule": "probe_count_drives_nvac_ok"
+          },
+          "measures": [
+            "Quantity"
+          ],
+          "grain": [
+            "Measures.Quantity",
+            "Time.Months",
+            "Time.Years"
+          ],
+          "slicers": {
+            "Product.Line": "Classic Cars",
+            "Markets.Territory": "EMEA"
+          },
+          "time_window": {
+            "start": "2004-01-01",
+            "end": "2004-12-31"
+          },
+          "mdx_features": {
+            "measures": [
+              "Quantity"
+            ],
+            "grain": [
+              "Markets.Territory.EMEA",
+              "Product.Line.Classic Cars",
+              "Time.Months",
+              "Time.Years.2004"
+            ],
+            "slicers": [
+              "Markets.Territory.EMEA",
+              "Product.Line.Classic Cars"
+            ]
+          },
+          "blocked_reasons": [],
+          "redundant": false,
+          "delta_phi": 0.5,
+          "partially_covered_constraints": [],
+          "required_constraints": [
+            "c_sales",
+            "c_profit"
+          ],
+          "cumulative_covered_constraints": [
+            "c_sales",
+            "sw_real_c2_quantity"
+          ],
+          "cumulative_partially_covered_constraints": [],
+          "pending_constraints": [
+            "c_profit"
+          ],
+          "cumulative_realized_virtual_nodes": [
+            "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY",
+            "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+          ],
+          "objective_state": "partial",
+          "session_phi": 0.5
+        },
+        "direct_result": {
+          "kind": "dataset",
+          "axis_count": 3,
+          "tuple_count": 14,
+          "cell_count": 12,
+          "axis_samples": [
+            {
+              "name": "Axis0",
+              "tuple_count": 1,
+              "sample_tuples": [
+                [
+                  "Quantity"
+                ]
+              ]
+            },
+            {
+              "name": "Axis1",
+              "tuple_count": 12,
+              "sample_tuples": [
+                [
+                  "Jan"
+                ],
+                [
+                  "Feb"
+                ],
+                [
+                  "Mar"
+                ],
+                [
+                  "Apr"
+                ],
+                [
+                  "May"
+                ],
+                [
+                  "Jun"
+                ],
+                [
+                  "Jul"
+                ],
+                [
+                  "Aug"
+                ]
+              ]
+            },
+            {
+              "name": "SlicerAxis",
+              "tuple_count": 1,
+              "sample_tuples": [
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            }
+          ],
+          "preview_cells": [
+            {
+              "ordinal": "0",
+              "value": "999",
+              "formatted": "999",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Jan"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "1",
+              "value": "719",
+              "formatted": "719",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Feb"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "2",
+              "value": "463",
+              "formatted": "463",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Mar"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "3",
+              "value": "709",
+              "formatted": "709",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Apr"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "4",
+              "value": "484",
+              "formatted": "484",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "May"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "5",
+              "value": "429",
+              "formatted": "429",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Jun"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "6",
+              "value": "525",
+              "formatted": "525",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Jul"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "7",
+              "value": "865",
+              "formatted": "865",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Aug"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "8",
+              "value": "291",
+              "formatted": "291",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Jan"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "9",
+              "value": "1390",
+              "formatted": "1,390",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Feb"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "10",
+              "value": "1424",
+              "formatted": "1,424",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Mar"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "11",
+              "value": "678",
+              "formatted": "678",
+              "axis_context": [
+                [
+                  "Quantity"
+                ],
+                [
+                  "Apr"
+                ],
+                [
+                  "Classic Cars",
+                  "EMEA"
+                ]
+              ]
+            }
+          ],
+          "preview_cell_count": 12,
+          "response_bytes": 10074,
+          "ok": true,
+          "physical_execution": true,
+          "execution_mode": "real",
+          "adapter_family": "xmla_mondrian",
+          "adapter_id": "xmla_mondrian",
+          "dw_id": "steelwheels_xmla",
+          "dataset": "SteelWheels",
+          "logical_query_language": "mdx",
+          "physical_query_language": "xmla_mdx",
+          "catalog": "SteelWheels",
+          "cube": "SteelWheelsSales",
+          "xmla_url": "http://emondrian-steelwheels:8080/emondrian/xmla",
+          "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+          "execution_source_enforced": true,
+          "status_code": 200,
+          "elapsed_ms": 179,
+          "response_digest": "b546413aa5419b38",
+          "result_digest": "b546413aa5419b38",
+          "xmla_response_type": "ExecuteResponse",
+          "xmla_valid_response": true,
+          "xmla_has_fault": false,
+          "xmla_fault_excerpt": null,
+          "query_language": "mdx",
+          "grain": "Member",
+          "measures": [
+            "Quantity"
+          ],
+          "columns": [
+            "Month",
+            "Quantity"
+          ],
+          "rows": [
+            {
+              "Month": "Jan 1998",
+              "Quantity": 90.0
+            },
+            {
+              "Month": "Feb 1998",
+              "Quantity": 96.3
+            },
+            {
+              "Month": "Mar 1998",
+              "Quantity": 102.6
+            },
+            {
+              "Month": "Apr 1998",
+              "Quantity": 108.9
+            },
+            {
+              "Month": "May 1998",
+              "Quantity": 115.2
+            },
+            {
+              "Month": "Jun 1998",
+              "Quantity": 121.5
+            },
+            {
+              "Month": "Jul 1998",
+              "Quantity": 127.8
+            },
+            {
+              "Month": "Aug 1998",
+              "Quantity": 134.1
+            },
+            {
+              "Month": "Sep 1998",
+              "Quantity": 140.4
+            },
+            {
+              "Month": "Oct 1998",
+              "Quantity": 146.7
+            },
+            {
+              "Month": "Nov 1998",
+              "Quantity": 153.0
+            },
+            {
+              "Month": "Dec 1998",
+              "Quantity": 159.3
+            }
+          ],
+          "row_count": 12,
+          "demo_materialized": true,
+          "visualization_ready": true,
+          "backend_type": "xmla_mondrian",
+          "requested_dw_id": "steelwheels_xmla",
+          "selected_dw_id": "steelwheels_xmla",
+          "execution_path": "xmla_mondrian",
+          "execution_evidence": {
+            "contract_version": "mcad.execution_evidence.v1",
+            "generated_at_ms": 1781998056077,
+            "query": {
+              "query_id": "SW_XMLA_Q2_ALLOW_QUANTITY_MONTH",
+              "query_type": "mdx",
+              "query_digest": "ac87f08239fb23dc",
+              "execution_mode": null,
+              "scenario_instance_id": "SW_XMLA_Q1_Q2_1781998055",
+              "source_scenario_id": "steelwheels_xmla_q1_q2_probe",
+              "scenario_query_index": 2,
+              "scenario_query_id": "SW_XMLA_Q2_ALLOW_QUANTITY_MONTH"
+            },
+            "mcad_gate": {
+              "allowed_by_mcad": true,
+              "decision": "ALLOW",
+              "decision_reason_code": "ALLOW_NEW_TOTAL",
+              "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+              "session_id": "S_0008",
+              "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+              "step_index": 2,
+              "eval_elapsed_ms": 202,
+              "fail_closed": false
+            },
+            "formal_metrics": {
+              "sat": 1.0,
+              "real": 1.0,
+              "ceval": 1.0,
+              "phi": 1.0,
+              "delta_phi": 0.5,
+              "threshold": 0.6
+            },
+            "sat_clauses": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "execution": {
+              "attempted": true,
+              "physical_execution": true,
+              "status": "EXECUTED",
+              "requested_dw_id": "steelwheels_xmla",
+              "selected_dw_id": "steelwheels_xmla",
+              "adapter_id": "xmla_mondrian",
+              "adapter_family": "xmla_mondrian",
+              "backend_type": "xmla_mondrian",
+              "execution_path": "xmla_mondrian",
+              "logical_query_language": "mdx",
+              "physical_query_language": "xmla_mdx",
+              "catalog": "SteelWheels",
+              "cube": "SteelWheelsSales",
+              "forwarded_to": "http://emondrian-steelwheels:8080/emondrian/xmla",
+              "xmla_response_type": "ExecuteResponse",
+              "status_code": 200,
+              "elapsed_ms": 179,
+              "response_bytes": 10074,
+              "response_digest": "b546413aa5419b38",
+              "result_digest": "b546413aa5419b38",
+              "row_count": 12,
+              "columns_count": 2,
+              "fallback_used": false,
+              "demo_materialized": true,
+              "error": null
+            },
+            "graph_update_summary": {
+              "covered_constraints": [
+                "c_sales",
+                "sw_real_c2_quantity"
+              ],
+              "partially_covered_constraints": [],
+              "realized_virtual_nodes": [
+                "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_QUANTITY",
+                "NV_SW_EMEA_2004_CLASSIC_CARS_MONTH_SALES"
+              ],
+              "delta_phi": 0.5,
+              "measures": [
+                "Quantity"
+              ],
+              "grain": [
+                "Measures.Quantity",
+                "Time.Months",
+                "Time.Years"
+              ],
+              "slicers": {
+                "Product.Line": "Classic Cars",
+                "Markets.Territory": "EMEA"
+              }
+            }
+          },
+          "evidence_contract": "mcad.execution_evidence.v1"
+        },
+        "active": {
+          "session_id": "S_0008",
+          "objective_id": "O_STEELWHEELS_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+          "dw_id": "steelwheels_xmla"
+        }
+      }
+    }
+  ]
+}

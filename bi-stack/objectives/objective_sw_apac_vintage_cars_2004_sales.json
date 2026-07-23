@@ -1,0 +1,24 @@
+{
+  "id": "O_SW_APAC_VINTAGE_CARS_2004_SALES",
+  "objective_id": "O_SW_APAC_VINTAGE_CARS_2004_SALES",
+  "dataset_id": "steelwheels",
+  "title": "APAC Vintage Cars 2004 sales",
+  "description": "Article full-real V2 objective for APAC Vintage Cars 2004 sales.",
+  "business_domain": "Orders, product lines and customer-country sales analysis",
+  "grain": "month",
+  "measures": [
+    "Sales",
+    "Quantity Ordered"
+  ],
+  "dimensions": [
+    "Product Line",
+    "Customer Country",
+    "Time Month"
+  ],
+  "allow_theme": "APAC Vintage Cars 2004 monthly sales",
+  "block_theme": "Motorcycles, wrong region, payment check number",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "sw_apac_vintage_cars_2004_sales",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

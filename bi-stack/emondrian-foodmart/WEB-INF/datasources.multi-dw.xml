@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+  MCAD eMondrian XMLA datasources.
+  FoodMart is preserved as the original XMLA demonstrator.
+  AdventureWorksDW is added for SQL Server-backed XMLA validation.
+-->
+<DataSources>
+  <DataSource>
+    <DataSourceName>Foodmart</DataSourceName>
+    <DataSourceDescription>Foodmart Sample Data</DataSourceDescription>
+    <URL>http://localhost:8080/emondrian/xmla</URL>
+    <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:hsqldb:res:/hsqldb-foodmart/foodmart;JdbcDrivers=org.hsqldb.jdbc.JDBCDriver</DataSourceInfo>
+    <ProviderName>Mondrian</ProviderName>
+    <ProviderType>MDP</ProviderType>
+    <AuthenticationMode>Unauthenticated</AuthenticationMode>
+    <Catalogs>
+      <Catalog name="FoodMart">
+        <Definition>/WEB-INF/schema/Foodmart.xml</Definition>
+      </Catalog>
+    </Catalogs>
+  </DataSource>
+
+  <DataSource>
+    <DataSourceName>AdventureWorksDW</DataSourceName>
+    <DataSourceDescription>AdventureWorksDW2022 SQL Server Data Warehouse</DataSourceDescription>
+    <URL>http://localhost:8080/emondrian/xmla</URL>
+    <DataSourceInfo>Provider=mondrian;Jdbc='jdbc:sqlserver://adventureworks-sqlserver:1433;databaseName=AdventureWorksDW2022;encrypt=false;trustServerCertificate=true';JdbcDrivers=com.microsoft.sqlserver.jdbc.SQLServerDriver;JdbcUser=sa;JdbcPassword=MCAD_AwDWDemo!2026;Catalog=file:/usr/local/tomcat/webapps/emondrian/WEB-INF/schema/AdventureWorksDW.xml</DataSourceInfo>
+    <ProviderName>Mondrian</ProviderName>
+    <ProviderType>MDP</ProviderType>
+    <AuthenticationMode>Unauthenticated</AuthenticationMode>
+    <Catalogs>
+      <Catalog name="AdventureWorksDW">
+        <Definition>file:/usr/local/tomcat/webapps/emondrian/WEB-INF/schema/AdventureWorksDW.xml</Definition>
+      </Catalog>
+    </Catalogs>
+  </DataSource>
+</DataSources>

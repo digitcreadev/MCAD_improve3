@@ -1,0 +1,24 @@
+{
+  "id": "O_FM_BEER_WA_MONTH_SALES_PROFIT",
+  "objective_id": "O_FM_BEER_WA_MONTH_SALES_PROFIT",
+  "dataset_id": "foodmart",
+  "title": "Beer and wine monthly sales/profit in Washington",
+  "description": "Article full-real V2 objective for Beer and wine monthly sales/profit in Washington.",
+  "business_domain": "Retail decision analysis",
+  "grain": "month",
+  "measures": [
+    "Store Sales",
+    "Profit"
+  ],
+  "dimensions": [
+    "Product Category",
+    "Store State",
+    "Time Month"
+  ],
+  "allow_theme": "Beer/Wine Washington monthly sales and profit",
+  "block_theme": "wrong state/category, bad grain, non-target measures",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "fm_beer_wa_month_sales_profit",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

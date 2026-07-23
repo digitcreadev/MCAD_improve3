@@ -1,0 +1,31 @@
+{
+  "id": "mcad_demo_adventureworks_steelwheels_objectives_scenarios_pack",
+  "name": "MCAD demo objectives/scenarios pack for AdventureWorksDW and SteelWheels",
+  "schema_version": "mcad.demo.pack.v1",
+  "description": "V9.5.6 demo pack: additional objectives and Q1-Q6 scenarios for AdventureWorksDW and SteelWheels, usable as integrated defaults or load-on-demand demonstration material.",
+  "objective_files": [
+    "bi-stack/objectives/objective_demo_adventureworks_europe_bikes_2013_month_region_sales_quantity.json",
+    "bi-stack/objectives/objective_demo_adventureworks_north_america_accessories_2013_month_region_sales_quantity.json",
+    "bi-stack/objectives/objective_demo_steelwheels_na_motorcycles_2004_month_sales_quantity.json",
+    "bi-stack/objectives/objective_demo_steelwheels_apac_vintage_cars_2004_month_sales_quantity.json"
+  ],
+  "scenario_files": [
+    "bi-stack/direct-scenarios/demo_adventureworks_europe_bikes_2013_sql_direct_q1_q6.json",
+    "bi-stack/direct-scenarios/demo_adventureworks_europe_bikes_2013_xmla_q1_q6.json",
+    "bi-stack/direct-scenarios/demo_adventureworks_north_america_accessories_2013_sql_direct_q1_q6.json",
+    "bi-stack/direct-scenarios/demo_adventureworks_north_america_accessories_2013_xmla_q1_q6.json",
+    "bi-stack/direct-scenarios/demo_steelwheels_na_motorcycles_2004_sql_direct_q1_q6.json",
+    "bi-stack/direct-scenarios/demo_steelwheels_na_motorcycles_2004_xmla_q1_q6.json",
+    "bi-stack/direct-scenarios/demo_steelwheels_apac_vintage_cars_2004_sql_direct_q1_q6.json",
+    "bi-stack/direct-scenarios/demo_steelwheels_apac_vintage_cars_2004_xmla_q1_q6.json"
+  ],
+  "datasets": [
+    "AdventureWorksDW",
+    "SteelWheels"
+  ],
+  "notes": [
+    "Each scenario follows the same Q1-Q6 pattern: ALLOW Sales, ALLOW Quantity, BLOCK wrong territory, BLOCK wrong product, BLOCK bad grain, BLOCK redundant query.",
+    "SteelWheels XMLA scenarios use Descendants([Time].[Years].[YYYY], [Time].[Months]) to avoid putting the same Time hierarchy independently on ROWS and WHERE.",
+    "Use bi-stack/scripts/load_demo_objectives_scenarios.sh to import this pack into a running MCAD demo instance."
+  ]
+}

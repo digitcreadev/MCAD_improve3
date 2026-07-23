@@ -1,0 +1,121 @@
+{
+  "id": "O_FM_A_SALES_PROFIT_MONTH_PRODUCE_OR",
+  "objective_id": "O_FM_A_SALES_PROFIT_MONTH_PRODUCE_OR",
+  "dataset_id": "foodmart",
+  "dataset": "FoodMart",
+  "dw_id": "foodmart",
+  "compatible_dw_ids": [
+    "foodmart",
+    "foodmart_sql_direct"
+  ],
+  "cube": "Sales",
+  "title": "FoodMart A / monthly sales and profit / Produce / OR",
+  "description": "Campaign A FoodMart deep objective targeting monthly sales and profit for category=Produce, state=OR, grain=Time.Month.",
+  "article_protocol": "campaign_A_foodmart_deep_v1",
+  "campaign_id": "A_foodmart_deep",
+  "scenario_id": "fm_a_sales_profit_month_produce_or",
+  "business_domain": "Retail sales and profitability analysis",
+  "target_category": "Produce",
+  "target_state": "OR",
+  "negative_category": "Seafood",
+  "negative_state": "Veracruz",
+  "grain": "month",
+  "measures": [
+    "Store Sales",
+    "Profit"
+  ],
+  "dimensions": [
+    "Product Category",
+    "Store State",
+    "Time Month"
+  ],
+  "complexity_level": 1,
+  "virtual_node_depth": 1,
+  "superposition_width": 1,
+  "constraints": [
+    {
+      "id": "C_FM_A_SALES_PROFIT_MONTH_PRODUCE_OR_01",
+      "label": "Store Sales for Produce/OR by month",
+      "measure": "Store Sales",
+      "metric": "Store Sales",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Produce",
+        "Store.Store State": "OR"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_A_SALES_PROFIT_MONTH_PRODUCE_OR_STORE_SALES_MONTH"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_A_SALES_PROFIT_MONTH_PRODUCE_OR_STORE_SALES_MONTH",
+          "fact": "Sales",
+          "measure": "Store Sales",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Produce",
+            "Store.Store State": "OR"
+          },
+          "complexity_level": 1,
+          "virtual_node_depth": 1,
+          "superposition_width": 1
+        }
+      ],
+      "weight": 0.5
+    },
+    {
+      "id": "C_FM_A_SALES_PROFIT_MONTH_PRODUCE_OR_02",
+      "label": "Profit for Produce/OR by month",
+      "measure": "Profit",
+      "metric": "Profit",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Produce",
+        "Store.Store State": "OR"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_A_SALES_PROFIT_MONTH_PRODUCE_OR_PROFIT_MONTH"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_A_SALES_PROFIT_MONTH_PRODUCE_OR_PROFIT_MONTH",
+          "fact": "Sales",
+          "measure": "Profit",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Produce",
+            "Store.Store State": "OR"
+          },
+          "complexity_level": 1,
+          "virtual_node_depth": 1,
+          "superposition_width": 1
+        }
+      ],
+      "weight": 0.5
+    }
+  ],
+  "validation_status": "pending_physical_execution",
+  "generation_note": "Generated as diversified Campaign A FoodMart scenario content, not as a renamed seed template.",
+  "name": "FoodMart A / monthly sales and profit / Produce / OR",
+  "label": "FoodMart A / monthly sales and profit / Produce / OR"
+}

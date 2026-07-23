@@ -1,0 +1,32 @@
+\begin{table*}[!t]
+\centering
+\caption{Résumé par dataset et politique pour le benchmark article courant.}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Campagne & Dataset & Politique & Sessions & \$\textbackslash\{\}phi\_\{final\}\$ & False allow & Exec. non contrib. & p95 ms \\
+\midrule
+A\_core\_foodmart\_mcad\_gate & FoodMart & MCAD-Gate & 750 & 0.9200 & 0.0000 & 0.0000 & 0.2491 \\
+A\_core\_foodmart\_mcad\_gate & FoodMart & Measure-overlap & 750 & 0.9200 & 0.9297 & 0.7568 & 0.1092 \\
+A\_core\_foodmart\_mcad\_gate & FoodMart & Naïve & 750 & 0.9200 & 1.0000 & 0.7700 & 0.0788 \\
+A\_core\_foodmart\_mcad\_gate & FoodMart & Random matched & 750 & 0.2360 & 0.2184 & 0.7403 & 0.0909 \\
+B\_multidataset\_generalization & AdventureWorksDW & MCAD-Gate & 100 & 0.9200 & 0.0000 & 0.0000 & 0.2485 \\
+B\_multidataset\_generalization & AdventureWorksDW & Measure-overlap & 100 & 0.9200 & 0.9318 & 0.7573 & 0.1083 \\
+B\_multidataset\_generalization & AdventureWorksDW & Naïve & 100 & 0.9200 & 1.0000 & 0.7700 & 0.0785 \\
+B\_multidataset\_generalization & AdventureWorksDW & Random matched & 100 & 0.2500 & 0.1948 & 0.7059 & 0.0905 \\
+B\_multidataset\_generalization & FoodMart & MCAD-Gate & 100 & 0.9200 & 0.0000 & 0.0000 & 0.2490 \\
+B\_multidataset\_generalization & FoodMart & Measure-overlap & 100 & 0.9200 & 0.9286 & 0.7566 & 0.1086 \\
+B\_multidataset\_generalization & FoodMart & Naïve & 100 & 0.9200 & 1.0000 & 0.7700 & 0.0791 \\
+B\_multidataset\_generalization & FoodMart & Random matched & 100 & 0.2600 & 0.2354 & 0.7360 & 0.0908 \\
+B\_multidataset\_generalization & SteelWheels & MCAD-Gate & 100 & 0.9200 & 0.0000 & 0.0000 & 0.2491 \\
+B\_multidataset\_generalization & SteelWheels & Measure-overlap & 100 & 0.9200 & 0.9269 & 0.7563 & 0.1092 \\
+B\_multidataset\_generalization & SteelWheels & Naïve & 100 & 0.9200 & 1.0000 & 0.7700 & 0.0791 \\
+B\_multidataset\_generalization & SteelWheels & Random matched & 100 & 0.2300 & 0.1883 & 0.7160 & 0.0966 \\
+C\_backend\_portability & AdventureWorksDW & MCAD-Gate & 240 & 0.9250 & 0.0000 & 0.0000 & 0.2486 \\
+C\_backend\_portability & SteelWheels & MCAD-Gate & 240 & 0.9250 & 0.0000 & 0.0000 & 0.2491 \\
+\bottomrule
+\end{tabular}
+\normalsize
+\label{tab:dataset-results}
+\end{table*}

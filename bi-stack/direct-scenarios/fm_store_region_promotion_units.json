@@ -1,0 +1,115 @@
+{
+  "id": "fm_store_region_promotion_units",
+  "scenario_id": "fm_store_region_promotion_units",
+  "dataset_id": "foodmart",
+  "objective_id": "O_FM_STORE_REGION_PROMOTION_UNITS",
+  "title": "Store-region promotion unit sales and cost",
+  "description": "Backend-neutral article scenario: Store-region promotion unit sales and cost. The same scenario must be executed through sql_direct and xmla_emondrian.",
+  "business_domain": "Retail decision analysis",
+  "cube": "Sales",
+  "grain": "month",
+  "measures": [
+    "Unit Sales",
+    "Store Cost"
+  ],
+  "dimensions": [
+    "Store Region",
+    "Promotion",
+    "Time Month"
+  ],
+  "allow_theme": "promotion and region unit-sales analysis",
+  "block_theme": "customer private attributes and non-retail measures",
+  "backend_neutral": true,
+  "required_backends": [
+    "sql_direct",
+    "xmla_emondrian"
+  ],
+  "source_seed_scenario": "bi-stack/direct-scenarios/foodmart_q1_q6.json",
+  "validation_status": "pending_physical_execution",
+  "queries": [
+    {
+      "id": "fm_store_region_promotion_units_Q01_Q1_ALLOW_USEFUL",
+      "label": "Q1 — ALLOW utile",
+      "objective_id": "O_FM_STORE_REGION_PROMOTION_UNITS",
+      "query_type": "mdx",
+      "expected_decision": "ALLOW",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+      "query_id": "fm_store_region_promotion_units_Q01_Q1_ALLOW_USEFUL",
+      "logical_query_id": "Q01_Q1_ALLOW_USEFUL",
+      "decision": "ALLOW",
+      "purpose": "Q1 — ALLOW utile",
+      "backend_neutral": true,
+      "query": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])"
+    },
+    {
+      "id": "fm_store_region_promotion_units_Q02_Q2_ALLOW_COMPLEMENTARY",
+      "label": "Q2 — ALLOW complémentaire",
+      "objective_id": "O_FM_STORE_REGION_PROMOTION_UNITS",
+      "query_type": "mdx",
+      "expected_decision": "ALLOW",
+      "mdx": "SELECT {[Measures].[Profit]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+      "query_id": "fm_store_region_promotion_units_Q02_Q2_ALLOW_COMPLEMENTARY",
+      "logical_query_id": "Q02_Q2_ALLOW_COMPLEMENTARY",
+      "decision": "ALLOW",
+      "purpose": "Q2 — ALLOW complémentaire",
+      "backend_neutral": true,
+      "query": "SELECT {[Measures].[Profit]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])"
+    },
+    {
+      "id": "fm_store_region_promotion_units_Q03_Q3_BLOCK_OUT_OF_OBJECTIVE",
+      "label": "Q3 — BLOCK hors objectif",
+      "objective_id": "O_FM_STORE_REGION_PROMOTION_UNITS",
+      "query_type": "mdx",
+      "expected_decision": "BLOCK",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[CA])",
+      "query_id": "fm_store_region_promotion_units_Q03_Q3_BLOCK_OUT_OF_OBJECTIVE",
+      "logical_query_id": "Q03_Q3_BLOCK_OUT_OF_OBJECTIVE",
+      "decision": "BLOCK",
+      "purpose": "Q3 — BLOCK hors objectif",
+      "backend_neutral": true,
+      "query": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[CA])"
+    },
+    {
+      "id": "fm_store_region_promotion_units_Q04_Q4_BLOCK_REDUNDANT",
+      "label": "Q4 — BLOCK redondant",
+      "objective_id": "O_FM_STORE_REGION_PROMOTION_UNITS",
+      "query_type": "mdx",
+      "expected_decision": "BLOCK",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+      "query_id": "fm_store_region_promotion_units_Q04_Q4_BLOCK_REDUNDANT",
+      "logical_query_id": "Q04_Q4_BLOCK_REDUNDANT",
+      "decision": "BLOCK",
+      "purpose": "Q4 — BLOCK redondant",
+      "backend_neutral": true,
+      "query": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])"
+    },
+    {
+      "id": "fm_store_region_promotion_units_Q05_Q5_BLOCK_NON_TARGET_MEASURE",
+      "label": "Q5 — BLOCK mesure non ciblée",
+      "objective_id": "O_FM_STORE_REGION_PROMOTION_UNITS",
+      "query_type": "mdx",
+      "expected_decision": "BLOCK",
+      "mdx": "SELECT {[Measures].[Unit Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+      "query_id": "fm_store_region_promotion_units_Q05_Q5_BLOCK_NON_TARGET_MEASURE",
+      "logical_query_id": "Q05_Q5_BLOCK_NON_TARGET_MEASURE",
+      "decision": "BLOCK",
+      "purpose": "Q5 — BLOCK mesure non ciblée",
+      "backend_neutral": true,
+      "query": "SELECT {[Measures].[Unit Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])"
+    },
+    {
+      "id": "fm_store_region_promotion_units_Q06_Q6_BLOCK_BAD_GRAIN",
+      "label": "Q6 — BLOCK grain non conforme",
+      "objective_id": "O_FM_STORE_REGION_PROMOTION_UNITS",
+      "query_type": "mdx",
+      "expected_decision": "BLOCK",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Year].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+      "query_id": "fm_store_region_promotion_units_Q06_Q6_BLOCK_BAD_GRAIN",
+      "logical_query_id": "Q06_Q6_BLOCK_BAD_GRAIN",
+      "decision": "BLOCK",
+      "purpose": "Q6 — BLOCK grain non conforme",
+      "backend_neutral": true,
+      "query": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Year].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])"
+    }
+  ]
+}

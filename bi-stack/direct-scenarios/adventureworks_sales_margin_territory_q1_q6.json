@@ -1,0 +1,54 @@
+{
+  "id": "adventureworks_sales_margin_territory_q1_q6",
+  "name": "AdventureWorksDW Sales/Margin Territory validation",
+  "label": "AdventureWorksDW Sales/Margin Territory validation",
+  "description": "Six-query AdventureWorksDW scenario for O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN. It validates useful ALLOW queries for SalesAmount, TotalProductCost and GrossMargin, plus out-of-objective, bad-grain and redundant BLOCK cases. The number of queries is illustrative, not fixed by MCAD.",
+  "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "dw_id": "adventureworks_sql_direct",
+  "dataset": "AdventureWorksDW",
+  "query_count": 6,
+  "queries": [
+    {
+      "id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+      "label": "AW Q1 — ALLOW SalesAmount by month and territory",
+      "expected_decision": "ALLOW",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    },
+    {
+      "id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+      "label": "AW Q2 — ALLOW TotalProductCost by month and territory",
+      "expected_decision": "ALLOW",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[TotalProductCost]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    },
+    {
+      "id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+      "label": "AW Q3 — ALLOW GrossMargin by month and territory",
+      "expected_decision": "ALLOW",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[GrossMargin]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    },
+    {
+      "id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+      "label": "AW Q4 — BLOCK Accessories instead of Bikes",
+      "expected_decision": "BLOCK",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Accessories], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    },
+    {
+      "id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+      "label": "AW Q5 — BLOCK Year grain instead of Month grain",
+      "expected_decision": "BLOCK",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Calendar Year].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    },
+    {
+      "id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+      "label": "AW Q6 — BLOCK redundant SalesAmount after Q1",
+      "expected_decision": "BLOCK",
+      "query_type": "mdx",
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])"
+    }
+  ]
+}

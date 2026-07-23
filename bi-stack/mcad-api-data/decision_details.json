@@ -1,0 +1,736 @@
+{
+  "S_0001": [
+    {
+      "session_id": "S_0001",
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "step_index": 1,
+      "timestamp": "2026-07-11T23:09:13.803101+00:00",
+      "query_digest": "2529fe2c3e67e832",
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+      "cube": "Adventure Works DW",
+      "measures": [
+        "SalesAmount"
+      ],
+      "group_by": [
+        "Date.Calendar",
+        "Date.Month",
+        "Measures.SalesAmount",
+        "Sales Territory.Sales Territory",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "decision": {
+        "decision": "ALLOW",
+        "phi": 0.3333333333333333,
+        "threshold": 0.6,
+        "sat": 1.0,
+        "real": 0.3333333333333333,
+        "ceval": 0.3333333333333333,
+        "explain": "ENGINE=real mode=formal_contributive_session_marginal+contract_contributive formal_sat=True legacy_engine_sat=False phi=0.333 theta=0.600 Ceval=0/3 RealNV=0/3 phi_leq_t=0.333 dphi=0.333 => ALLOW",
+        "decision_reason_code": "ALLOW_NEW_TOTAL",
+        "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+        "is_redundant": false,
+        "has_marginal_gain": true,
+        "details": {
+          "engine": "evaluate_with_objective_and_session(payload)",
+          "decision_policy": "formal_contributive_session_marginal+contract_contributive",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "is_redundant": false,
+          "has_marginal_gain": true,
+          "gained_resource_ids_count": 1,
+          "threshold_used_for_ranking": 0.6,
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "session_id": "S_0001",
+          "step_index": 1,
+          "phi_weighted": 0.0,
+          "phi_leq_t": 0.3333333333333333,
+          "delta_phi_t": 0.3333333333333333,
+          "real_node_ids": [],
+          "calculable_constraints": [
+            "aw_real_c1_sales_amount"
+          ],
+          "calculable_constraints_total": [
+            "aw_real_c1_sales_amount"
+          ],
+          "calculable_constraints_partial": [],
+          "newly_contributed_constraints_total": [
+            "aw_real_c1_sales_amount"
+          ],
+          "newly_contributed_constraints_partial": [],
+          "gained_resource_ids": [
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+          ],
+          "covered_constraints": [
+            "aw_real_c1_sales_amount"
+          ],
+          "realized_virtual_nodes": [
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+          ],
+          "observed_resources": [
+            "SalesAmount"
+          ],
+          "graph_update": {
+            "contract_version": "mcad.graph_update.v1",
+            "decision": "ALLOW",
+            "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+            "session_id": "S_0001",
+            "step_index": 1,
+            "covered_constraints": [
+              "aw_real_c1_sales_amount"
+            ],
+            "realized_virtual_nodes": [
+              "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+            ],
+            "observed_resources": [
+              "SalesAmount"
+            ],
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "nvac_evidence": {
+              "method": "hybrid_probe",
+              "known_empty": false,
+              "estimated_cells": 1015,
+              "slicers": {
+                "Product.Product Category": "Bikes",
+                "Sales Territory.Sales Territory Group": "Europe",
+                "Date.Calendar Year": "2013"
+              },
+              "probe": {
+                "probe_attempted": true,
+                "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+                "elapsed_ms": 1076,
+                "non_empty": true,
+                "count": 1015,
+                "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+                "probe_measure": "SalesAmount",
+                "raw_probe_summary": {
+                  "ok": false,
+                  "physical_execution": false,
+                  "execution_mode": "real_attempt_failed",
+                  "adapter_family": "sqlserver_direct",
+                  "adapter_id": "adventureworks_direct",
+                  "dw_id": "adventureworks_sql_direct",
+                  "dataset": "AdventureWorksDW",
+                  "database": "AdventureWorksDW2022",
+                  "logical_query_language": "mdx",
+                  "physical_query_language": "sqlserver_tsql",
+                  "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+                  "elapsed_ms": 1015,
+                  "error": "('Cannot open database \"AdventureWorksDW2022\" requested by the login. The login failed. Login failed for user \\'sa\\'.', None)"
+                }
+              },
+              "empty_reason": null,
+              "rule": "probe_count_drives_nvac_ok"
+            }
+          },
+          "scenario": {
+            "scenario_instance_id": "SSI_001",
+            "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+            "scenario_name": "AdventureWorksDW Sales/Margin Territory validation",
+            "scenario_source": "catalog",
+            "scenario_query_index": 0,
+            "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+            "execution_mode": "scenario"
+          },
+          "formal_sat": true,
+          "formal_sat_source": "formal_sat_eval.checks",
+          "sat_checks": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "sat_evidence": {
+            "grain_ok": {
+              "recognized_grain": [
+                "Date.Calendar",
+                "Date.Month",
+                "Measures.SalesAmount",
+                "Sales Territory.Sales Territory",
+                "Sales Territory.Sales Territory Region"
+              ],
+              "compatible_constraints": [
+                "aw_real_c1_sales_amount"
+              ]
+            },
+            "agg_ok": {
+              "aggregators": [
+                "implicit cube aggregator"
+              ],
+              "reason": "no forbidden aggregation detected"
+            },
+            "unit_ok": {
+              "method": "no explicit unit conflict in QP",
+              "checked_units": {}
+            },
+            "slc_ok": {
+              "recognized_slicers": {
+                "Product.Product Category": "Bikes",
+                "Sales Territory.Sales Territory Group": "Europe",
+                "Date.Calendar Year": "2013"
+              },
+              "errors": [],
+              "member_dictionary": "AdventureWorksDW"
+            },
+            "time_ok": {
+              "time_grains": [],
+              "window": {
+                "start": "2013-01-01",
+                "end": "2013-12-31"
+              },
+              "reason": "time level/window coherent"
+            },
+            "nvac_ok": {
+              "method": "hybrid_probe",
+              "known_empty": false,
+              "estimated_cells": 1015,
+              "slicers": {
+                "Product.Product Category": "Bikes",
+                "Sales Territory.Sales Territory Group": "Europe",
+                "Date.Calendar Year": "2013"
+              },
+              "probe": {
+                "probe_attempted": true,
+                "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+                "elapsed_ms": 1076,
+                "non_empty": true,
+                "count": 1015,
+                "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+                "probe_measure": "SalesAmount",
+                "raw_probe_summary": {
+                  "ok": false,
+                  "physical_execution": false,
+                  "execution_mode": "real_attempt_failed",
+                  "adapter_family": "sqlserver_direct",
+                  "adapter_id": "adventureworks_direct",
+                  "dw_id": "adventureworks_sql_direct",
+                  "dataset": "AdventureWorksDW",
+                  "database": "AdventureWorksDW2022",
+                  "logical_query_language": "mdx",
+                  "physical_query_language": "sqlserver_tsql",
+                  "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+                  "elapsed_ms": 1015,
+                  "error": "('Cannot open database \"AdventureWorksDW2022\" requested by the login. The login failed. Login failed for user \\'sa\\'.', None)"
+                }
+              },
+              "empty_reason": null,
+              "rule": "probe_count_drives_nvac_ok"
+            }
+          },
+          "nvac_ok": true,
+          "nvac_evidence": {
+            "method": "hybrid_probe",
+            "known_empty": false,
+            "estimated_cells": 1015,
+            "slicers": {
+              "Product.Product Category": "Bikes",
+              "Sales Territory.Sales Territory Group": "Europe",
+              "Date.Calendar Year": "2013"
+            },
+            "probe": {
+              "probe_attempted": true,
+              "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+              "elapsed_ms": 1076,
+              "non_empty": true,
+              "count": 1015,
+              "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+              "probe_measure": "SalesAmount",
+              "raw_probe_summary": {
+                "ok": false,
+                "physical_execution": false,
+                "execution_mode": "real_attempt_failed",
+                "adapter_family": "sqlserver_direct",
+                "adapter_id": "adventureworks_direct",
+                "dw_id": "adventureworks_sql_direct",
+                "dataset": "AdventureWorksDW",
+                "database": "AdventureWorksDW2022",
+                "logical_query_language": "mdx",
+                "physical_query_language": "sqlserver_tsql",
+                "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+                "elapsed_ms": 1015,
+                "error": "('Cannot open database \"AdventureWorksDW2022\" requested by the login. The login failed. Login failed for user \\'sa\\'.', None)"
+              }
+            },
+            "empty_reason": null,
+            "rule": "probe_count_drives_nvac_ok"
+          },
+          "legacy_engine_sat_debug": false,
+          "legacy_engine_clauses_debug": [
+            {
+              "name": "measures_present",
+              "ok": true,
+              "details": {}
+            },
+            {
+              "name": "cube_present",
+              "ok": true,
+              "details": {}
+            },
+            {
+              "name": "objective_known",
+              "ok": false,
+              "details": {
+                "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN"
+              }
+            },
+            {
+              "name": "slc_ok",
+              "ok": true,
+              "details": {}
+            },
+            {
+              "name": "time_ok",
+              "ok": true,
+              "details": {}
+            },
+            {
+              "name": "grain_ok",
+              "ok": true,
+              "details": {}
+            },
+            {
+              "name": "agg_ok",
+              "ok": true,
+              "details": {}
+            },
+            {
+              "name": "unit_ok",
+              "ok": true,
+              "details": {}
+            },
+            {
+              "name": "nvac_ok",
+              "ok": true,
+              "details": {}
+            }
+          ],
+          "query_spec": {
+            "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+            "cube": "Adventure Works DW",
+            "measures": [
+              "SalesAmount"
+            ],
+            "group_by": [
+              "Date.Calendar",
+              "Date.Month",
+              "Measures.SalesAmount",
+              "Sales Territory.Sales Territory",
+              "Sales Territory.Sales Territory Region"
+            ],
+            "slicers": {
+              "Product.Product Category": "Bikes",
+              "Sales Territory.Sales Territory Group": "Europe",
+              "Date.Calendar Year": "2013"
+            },
+            "analytics": [],
+            "axes": [
+              {
+                "axis": "COLUMNS",
+                "expression": "{[Measures].[SalesAmount]}"
+              },
+              {
+                "axis": "ROWS",
+                "expression": ", CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members)"
+              }
+            ],
+            "time_members": [],
+            "window_start": "2013-01-01",
+            "window_end": "2013-12-31",
+            "calculated_members": [],
+            "named_sets": [],
+            "language": "mdx",
+            "fingerprint": "2529fe2c3e67e832",
+            "dw_id": "adventureworks_sql_direct",
+            "dataset": null
+          },
+          "eval_ms": 2652
+        }
+      },
+      "scenario": {
+        "scenario_instance_id": "SSI_001",
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+        "scenario_name": "AdventureWorksDW Sales/Margin Territory validation",
+        "scenario_source": "catalog",
+        "scenario_query_index": 0,
+        "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+        "execution_mode": "scenario"
+      },
+      "decision_summary": {
+        "decision": "ALLOW",
+        "decision_reason_code": "ALLOW_NEW_TOTAL",
+        "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+        "phi": 0.3333333333333333,
+        "delta_phi_t": 0.3333333333333333,
+        "sat": true,
+        "formal_sat": true,
+        "formal_sat_source": "formal_sat_eval.checks",
+        "legacy_engine_sat_debug": false,
+        "real": 0.3333333333333333,
+        "ceval": 0.3333333333333333
+      },
+      "sat_checks": {
+        "grain_ok": true,
+        "agg_ok": true,
+        "unit_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "nvac_ok": true
+      },
+      "sat_evidence": {
+        "grain_ok": {
+          "recognized_grain": [
+            "Date.Calendar",
+            "Date.Month",
+            "Measures.SalesAmount",
+            "Sales Territory.Sales Territory",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "compatible_constraints": [
+            "aw_real_c1_sales_amount"
+          ]
+        },
+        "agg_ok": {
+          "aggregators": [
+            "implicit cube aggregator"
+          ],
+          "reason": "no forbidden aggregation detected"
+        },
+        "unit_ok": {
+          "method": "no explicit unit conflict in QP",
+          "checked_units": {}
+        },
+        "slc_ok": {
+          "recognized_slicers": {
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe",
+            "Date.Calendar Year": "2013"
+          },
+          "errors": [],
+          "member_dictionary": "AdventureWorksDW"
+        },
+        "time_ok": {
+          "time_grains": [],
+          "window": {
+            "start": "2013-01-01",
+            "end": "2013-12-31"
+          },
+          "reason": "time level/window coherent"
+        },
+        "nvac_ok": {
+          "method": "hybrid_probe",
+          "known_empty": false,
+          "estimated_cells": 1015,
+          "slicers": {
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe",
+            "Date.Calendar Year": "2013"
+          },
+          "probe": {
+            "probe_attempted": true,
+            "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+            "elapsed_ms": 1076,
+            "non_empty": true,
+            "count": 1015,
+            "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+            "probe_measure": "SalesAmount",
+            "raw_probe_summary": {
+              "ok": false,
+              "physical_execution": false,
+              "execution_mode": "real_attempt_failed",
+              "adapter_family": "sqlserver_direct",
+              "adapter_id": "adventureworks_direct",
+              "dw_id": "adventureworks_sql_direct",
+              "dataset": "AdventureWorksDW",
+              "database": "AdventureWorksDW2022",
+              "logical_query_language": "mdx",
+              "physical_query_language": "sqlserver_tsql",
+              "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+              "elapsed_ms": 1015,
+              "error": "('Cannot open database \"AdventureWorksDW2022\" requested by the login. The login failed. Login failed for user \\'sa\\'.', None)"
+            }
+          },
+          "empty_reason": null,
+          "rule": "probe_count_drives_nvac_ok"
+        }
+      },
+      "nvac_evidence": {
+        "method": "hybrid_probe",
+        "known_empty": false,
+        "estimated_cells": 1015,
+        "slicers": {
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe",
+          "Date.Calendar Year": "2013"
+        },
+        "probe": {
+          "probe_attempted": true,
+          "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+          "elapsed_ms": 1076,
+          "non_empty": true,
+          "count": 1015,
+          "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+          "probe_measure": "SalesAmount",
+          "raw_probe_summary": {
+            "ok": false,
+            "physical_execution": false,
+            "execution_mode": "real_attempt_failed",
+            "adapter_family": "sqlserver_direct",
+            "adapter_id": "adventureworks_direct",
+            "dw_id": "adventureworks_sql_direct",
+            "dataset": "AdventureWorksDW",
+            "database": "AdventureWorksDW2022",
+            "logical_query_language": "mdx",
+            "physical_query_language": "sqlserver_tsql",
+            "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+            "elapsed_ms": 1015,
+            "error": "('Cannot open database \"AdventureWorksDW2022\" requested by the login. The login failed. Login failed for user \\'sa\\'.', None)"
+          }
+        },
+        "empty_reason": null,
+        "rule": "probe_count_drives_nvac_ok"
+      },
+      "query_spec": {
+        "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+        "cube": "Adventure Works DW",
+        "measures": [
+          "SalesAmount"
+        ],
+        "group_by": [
+          "Date.Calendar",
+          "Date.Month",
+          "Measures.SalesAmount",
+          "Sales Territory.Sales Territory",
+          "Sales Territory.Sales Territory Region"
+        ],
+        "slicers": {
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe",
+          "Date.Calendar Year": "2013"
+        },
+        "analytics": [],
+        "axes": [
+          {
+            "axis": "COLUMNS",
+            "expression": "{[Measures].[SalesAmount]}"
+          },
+          {
+            "axis": "ROWS",
+            "expression": ", CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members)"
+          }
+        ],
+        "time_members": [],
+        "window_start": "2013-01-01",
+        "window_end": "2013-12-31",
+        "calculated_members": [],
+        "named_sets": [],
+        "language": "mdx",
+        "fingerprint": "2529fe2c3e67e832",
+        "dw_id": "adventureworks_sql_direct",
+        "dataset": null
+      },
+      "graph_update": {
+        "contract_version": "mcad.graph_update.v1",
+        "decision": "ALLOW",
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "session_id": "S_0001",
+        "step_index": 1,
+        "covered_constraints": [
+          "aw_real_c1_sales_amount"
+        ],
+        "realized_virtual_nodes": [
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+        ],
+        "observed_resources": [
+          "SalesAmount"
+        ],
+        "sat_checks": {
+          "grain_ok": true,
+          "agg_ok": true,
+          "unit_ok": true,
+          "slc_ok": true,
+          "time_ok": true,
+          "nvac_ok": true
+        },
+        "nvac_evidence": {
+          "method": "hybrid_probe",
+          "known_empty": false,
+          "estimated_cells": 1015,
+          "slicers": {
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe",
+            "Date.Calendar Year": "2013"
+          },
+          "probe": {
+            "probe_attempted": true,
+            "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+            "elapsed_ms": 1076,
+            "non_empty": true,
+            "count": 1015,
+            "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+            "probe_measure": "SalesAmount",
+            "raw_probe_summary": {
+              "ok": false,
+              "physical_execution": false,
+              "execution_mode": "real_attempt_failed",
+              "adapter_family": "sqlserver_direct",
+              "adapter_id": "adventureworks_direct",
+              "dw_id": "adventureworks_sql_direct",
+              "dataset": "AdventureWorksDW",
+              "database": "AdventureWorksDW2022",
+              "logical_query_language": "mdx",
+              "physical_query_language": "sqlserver_tsql",
+              "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+              "elapsed_ms": 1015,
+              "error": "('Cannot open database \"AdventureWorksDW2022\" requested by the login. The login failed. Login failed for user \\'sa\\'.', None)"
+            }
+          },
+          "empty_reason": null,
+          "rule": "probe_count_drives_nvac_ok"
+        }
+      },
+      "formal_explanation": {
+        "version": "mcad.explainability.v1",
+        "is_authoritative": true,
+        "generator": "deterministic_formal_evidence_renderer",
+        "llm_safe": true,
+        "summary_fr": "Ceval(QP,O) contient 1 contrainte(s) calculable(s) : aw_real_c1_sales_amount. Décision ALLOW : Δφ=0.3333333333333333 indique un gain marginal positif pour la session.",
+        "summary_en": "Ceval(QP,O) contains 1 calculable constraint(s): aw_real_c1_sales_amount. Decision ALLOW: Δφ=0.3333333333333333 indicates a positive marginal gain for the session.",
+        "reasoning_steps_fr": [
+          "QP interroge le cube Adventure Works DW avec les mesures SalesAmount, le grain Date.Calendar, Date.Month, Measures.SalesAmount, Sales Territory.Sales Territory, Sales Territory.Sales Territory Region et les slicers {\"Product.Product Category\": \"Bikes\", \"Sales Territory.Sales Territory Group\": \"Europe\", \"Date.Calendar Year\": \"2013\"}.",
+          "SAT(QP)=true : toutes les clauses formelles disponibles sont satisfaites (grain_ok, agg_ok, unit_ok, slc_ok, time_ok, nvac_ok).",
+          "nvac_ok(QP)=true : méthode=hybrid_probe, estimated_cells=1015, probe_attempted=None.",
+          "Ceval(QP,O) contient 1 contrainte(s) calculable(s) : aw_real_c1_sales_amount.",
+          "Décision ALLOW : Δφ=0.3333333333333333 indique un gain marginal positif pour la session."
+        ],
+        "reasoning_steps_en": [
+          "QP queries cube Adventure Works DW with measures SalesAmount, grain Date.Calendar, Date.Month, Measures.SalesAmount, Sales Territory.Sales Territory, Sales Territory.Sales Territory Region and slicers {\"Product.Product Category\": \"Bikes\", \"Sales Territory.Sales Territory Group\": \"Europe\", \"Date.Calendar Year\": \"2013\"}.",
+          "SAT(QP)=true: all available formal clauses are satisfied (grain_ok, agg_ok, unit_ok, slc_ok, time_ok, nvac_ok).",
+          "nvac_ok(QP)=true: method=hybrid_probe, estimated_cells=1015, probe_attempted=None.",
+          "Ceval(QP,O) contains 1 calculable constraint(s): aw_real_c1_sales_amount.",
+          "Decision ALLOW: Δφ=0.3333333333333333 indicates a positive marginal gain for the session."
+        ],
+        "formal_mapping": {
+          "SAT(QP)": true,
+          "Real(QP)": 0.3333333333333333,
+          "Ceval(QP,O)": [
+            "aw_real_c1_sales_amount"
+          ],
+          "phi": 0.3333333333333333,
+          "delta_phi": 0.3333333333333333,
+          "decision": "ALLOW",
+          "reason_code": "ALLOW_NEW_TOTAL"
+        },
+        "evidence_digest": {
+          "passed_sat_clauses": [
+            "grain_ok",
+            "agg_ok",
+            "unit_ok",
+            "slc_ok",
+            "time_ok",
+            "nvac_ok"
+          ],
+          "failed_sat_clauses": [],
+          "nvac_method": "hybrid_probe",
+          "covered_constraints": [
+            "aw_real_c1_sales_amount"
+          ],
+          "realized_virtual_nodes": [
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+          ],
+          "observed_resources": [
+            "SalesAmount"
+          ]
+        },
+        "llm_grounding_payload": {
+          "instruction": "Rewrite the explanation without changing facts. Do not alter the decision, SAT clauses, Ceval, phi, delta_phi, or evidence.",
+          "facts": {
+            "SAT(QP)": true,
+            "Real(QP)": 0.3333333333333333,
+            "Ceval(QP,O)": [
+              "aw_real_c1_sales_amount"
+            ],
+            "phi": 0.3333333333333333,
+            "delta_phi": 0.3333333333333333,
+            "decision": "ALLOW",
+            "reason_code": "ALLOW_NEW_TOTAL"
+          },
+          "sat_checks": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "nvac_evidence": {
+            "method": "hybrid_probe",
+            "known_empty": false,
+            "estimated_cells": 1015,
+            "slicers": {
+              "Product.Product Category": "Bikes",
+              "Sales Territory.Sales Territory Group": "Europe",
+              "Date.Calendar Year": "2013"
+            },
+            "probe": {
+              "probe_attempted": true,
+              "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+              "elapsed_ms": 1076,
+              "non_empty": true,
+              "count": 1015,
+              "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+              "probe_measure": "SalesAmount",
+              "raw_probe_summary": {
+                "ok": false,
+                "physical_execution": false,
+                "execution_mode": "real_attempt_failed",
+                "adapter_family": "sqlserver_direct",
+                "adapter_id": "adventureworks_direct",
+                "dw_id": "adventureworks_sql_direct",
+                "dataset": "AdventureWorksDW",
+                "database": "AdventureWorksDW2022",
+                "logical_query_language": "mdx",
+                "physical_query_language": "sqlserver_tsql",
+                "generated_sql": "SELECT TOP (200)\n       t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion,\n       CAST(SUM(f.SalesAmount) AS DECIMAL(18,2)) AS [SalesAmount]\nFROM dbo.FactInternetSales AS f\nJOIN dbo.DimDate AS d ON d.DateKey = f.OrderDateKey\nLEFT JOIN dbo.DimSalesTerritory AS t ON t.SalesTerritoryKey = f.SalesTerritoryKey\nLEFT JOIN dbo.DimProduct AS p ON p.ProductKey = f.ProductKey\nLEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nWHERE f.SalesAmount IS NOT NULL AND d.CalendarYear = 2013 AND t.SalesTerritoryGroup = 'Europe' AND pc.EnglishProductCategoryName = 'Bikes'\nGROUP BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion\nORDER BY t.SalesTerritoryGroup, t.SalesTerritoryCountry, t.SalesTerritoryRegion;",
+                "elapsed_ms": 1015,
+                "error": "('Cannot open database \"AdventureWorksDW2022\" requested by the login. The login failed. Login failed for user \\'sa\\'.', None)"
+              }
+            },
+            "empty_reason": null,
+            "rule": "probe_count_drives_nvac_ok"
+          },
+          "query_spec": {
+            "cube": "Adventure Works DW",
+            "measures": [
+              "SalesAmount"
+            ],
+            "group_by": [
+              "Date.Calendar",
+              "Date.Month",
+              "Measures.SalesAmount",
+              "Sales Territory.Sales Territory",
+              "Sales Territory.Sales Territory Region"
+            ],
+            "slicers": {
+              "Product.Product Category": "Bikes",
+              "Sales Territory.Sales Territory Group": "Europe",
+              "Date.Calendar Year": "2013"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

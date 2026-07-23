@@ -1,0 +1,25 @@
+{
+  "id": "O_SW_OFFICE_QUARTER_SALES_ORDERS",
+  "objective_id": "O_SW_OFFICE_QUARTER_SALES_ORDERS",
+  "dataset_id": "steelwheels",
+  "title": "Office quarterly sales and orders",
+  "description": "Article full-real V2 objective for Office quarterly sales and orders.",
+  "business_domain": "Orders, product lines and customer-country sales analysis",
+  "grain": "quarter",
+  "measures": [
+    "Sales",
+    "Orders",
+    "Quantity Ordered"
+  ],
+  "dimensions": [
+    "Office",
+    "Territory",
+    "Time Quarter"
+  ],
+  "allow_theme": "office-level quarterly sales/orders",
+  "block_theme": "payment check number and employee extension",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "sw_office_quarter_sales_orders",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

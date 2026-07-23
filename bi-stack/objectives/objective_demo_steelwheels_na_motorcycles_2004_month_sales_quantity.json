@@ -1,0 +1,101 @@
+{
+  "id": "O_STEELWHEELS_NA_MOTORCYCLES_2004_MONTH_SALES_QUANTITY",
+  "name": "SteelWheels NA Motorcycles 2004 monthly sales and quantity",
+  "label": "SteelWheels NA Motorcycles 2004 monthly sales and quantity",
+  "description": "Demo SteelWheels objective: make Sales and Quantity calculable for Motorcycles in NA during 2004, at monthly grain.",
+  "dw_id": "steelwheels_sql_direct",
+  "dataset": "SteelWheels",
+  "cube": "SteelWheelsSales",
+  "kpis": [
+    "KPI_SW_NA_MOTORCYCLES_2004_SALES",
+    "KPI_SW_NA_MOTORCYCLES_2004_QUANTITY"
+  ],
+  "constraints": [
+    {
+      "id": "sw_NA_MOTORCYCLES_2004_c1_sales",
+      "label": "Sales for Motorcycles / NA by month",
+      "description": "Sales for Motorcycles in NA at monthly grain.",
+      "kpi_id": "KPI_SW_NA_MOTORCYCLES_2004_SALES",
+      "measure": "Sales",
+      "metric": "Sales",
+      "aggregator": "SUM",
+      "unit": "CURRENCY",
+      "weight": 1.0,
+      "grain": [
+        "Time.Months"
+      ],
+      "slicers": {
+        "Product.Line": "Motorcycles",
+        "Markets.Territory": "NA",
+        "Time.Years": "2004"
+      },
+      "requirement_sets": [
+        [
+          "NV_SW_NA_MOTORCYCLES_2004_MONTH_SALES"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_SW_NA_MOTORCYCLES_2004_MONTH_SALES",
+          "fact": "orderfact",
+          "measure": "Sales",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Months"
+          ],
+          "slicers": {
+            "Product.Line": "Motorcycles",
+            "Markets.Territory": "NA",
+            "Time.Years": "2004"
+          }
+        }
+      ],
+      "fact": "orderfact"
+    },
+    {
+      "id": "sw_NA_MOTORCYCLES_2004_c2_quantity",
+      "label": "Quantity for Motorcycles / NA by month",
+      "description": "Quantity for Motorcycles in NA at monthly grain.",
+      "kpi_id": "KPI_SW_NA_MOTORCYCLES_2004_QUANTITY",
+      "measure": "Quantity",
+      "metric": "Quantity",
+      "aggregator": "SUM",
+      "unit": "COUNT",
+      "weight": 1.0,
+      "grain": [
+        "Time.Months"
+      ],
+      "slicers": {
+        "Product.Line": "Motorcycles",
+        "Markets.Territory": "NA",
+        "Time.Years": "2004"
+      },
+      "requirement_sets": [
+        [
+          "NV_SW_NA_MOTORCYCLES_2004_MONTH_QUANTITY"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_SW_NA_MOTORCYCLES_2004_MONTH_QUANTITY",
+          "fact": "orderfact",
+          "measure": "Quantity",
+          "aggregator": "SUM",
+          "unit": "COUNT",
+          "grain": [
+            "Time.Months"
+          ],
+          "slicers": {
+            "Product.Line": "Motorcycles",
+            "Markets.Territory": "NA",
+            "Time.Years": "2004"
+          }
+        }
+      ],
+      "fact": "orderfact"
+    }
+  ],
+  "schema_version": "mcad.objective.import.v1",
+  "notes": "V9.5.6 demo objective for dataset-aware session creation and SQL/XMLA demonstrations."
+}

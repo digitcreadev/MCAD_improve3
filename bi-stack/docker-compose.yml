@@ -1,0 +1,124 @@
+networks:
+  mcad_net:
+    name: mcad_net
+services:
+  pivot4j:
+    build:
+      context: ./pivot4j
+    ports:
+    - 8090:8080
+    depends_on:
+    - mcad-proxy
+    - emondrian-foodmart
+    networks:
+    - mcad_net
+  adventureworks-sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_PID: Developer
+      MSSQL_SA_PASSWORD: ${ADVENTUREWORKS_SA_PASSWORD:-MCAD_AwDWDemo!2026}
+    ports:
+    - 14333:1433
+    volumes:
+    - adventureworks_sqlserver_data:/var/opt/mssql
+    - ./adventureworks/backups:/var/opt/mssql/backup
+    networks:
+    - mcad_net
+  mcad-api:
+    build:
+      context: ..
+      dockerfile: bi-stack/mcad-api/Dockerfile
+    ports:
+    - 8000:8000
+    volumes:
+    - ../backend:/app/backend:ro
+    - ./mcad-api-data:/app/data
+    environment:
+      MCAD_THRESHOLD_DEFAULT: '0.60'
+      MCAD_OBJECTIVE_ID_DEFAULT: O_REAL_BEER_WA_MONTH
+      MCAD_DW_ID_DEFAULT: foodmart
+      MCAD_BI_DECISION_MODE: formal_contributive
+      MCAD_NVAC_MODE: hybrid
+      MCAD_NVAC_PROBE_URL: http://mcad-proxy:9000/bi/nvac-probe
+      MCAD_NVAC_PROBE_TIMEOUT_S: '120.0'
+      PYTHONPATH: /app/backend:/app
+      MCAD_OBJECTIVES_YAML: /app/backend/objectives.yaml
+      MCAD_OBJECTIVES_FALLBACK_YAML: /app/backend/config/objectives.yaml
+      MCAD_DATAWAREHOUSES_YAML: /app/backend/config/datawarehouses.yaml
+    networks:
+    - mcad_net
+  mcad-proxy:
+    build: ./mcad-proxy
+    depends_on:
+    - mcad-api
+    - adventureworks-sqlserver
+    - emondrian-foodmart
+    - emondrian-adventureworks
+    - emondrian-steelwheels
+    ports:
+    - 9000:9000
+    volumes:
+    - ./direct-scenarios:/app/direct-scenarios:ro
+    - ./scripts:/app/scripts:ro
+    - ./demo-evidence:/app/demo-evidence:rw
+    - ./mcad-proxy/datawarehouses.yaml:/app/datawarehouses.yaml:ro
+    environment:
+      MCAD_API_BASE: http://mcad-api:8000
+      MCAD_EVAL_URL: http://mcad-api:8000/eval
+      MCAD_CKG_URL: http://mcad-api:8000/ckg/update
+      MCAD_OBJECTIVE_ID_DEFAULT: O_REAL_BEER_WA_MONTH
+      MCAD_DW_ID_DEFAULT: foodmart
+      MCAD_BI_MODE: hybrid
+      MCAD_DEMO_EVIDENCE_DIR: /app/demo-evidence
+      UPSTREAM_XMLA: http://emondrian-foodmart:8080/emondrian/xmla
+      EMONDRIAN_XMLA_URL: http://emondrian-foodmart:8080/emondrian/xmla
+      PIVOT4J_URL: http://pivot4j:8080/pivot4j
+      MCAD_DW_REGISTRY: /app/datawarehouses.yaml
+      ADVENTUREWORKS_SQLSERVER_HOST: adventureworks-sqlserver
+      ADVENTUREWORKS_SQLSERVER_PORT: '1433'
+      ADVENTUREWORKS_SQLSERVER_DATABASE: AdventureWorksDW2022
+      ADVENTUREWORKS_SQLSERVER_USER: sa
+      ADVENTUREWORKS_SQLSERVER_PASSWORD: ${ADVENTUREWORKS_SA_PASSWORD:-MCAD_AwDWDemo!2026}
+      STEELWHEELS_SQLSERVER_HOST: adventureworks-sqlserver
+      STEELWHEELS_SQLSERVER_PORT: '1433'
+      STEELWHEELS_SQLSERVER_DATABASE: SteelWheels
+      STEELWHEELS_SQLSERVER_USER: sa
+      STEELWHEELS_SQLSERVER_PASSWORD: ${ADVENTUREWORKS_SA_PASSWORD:-MCAD_AwDWDemo!2026}
+    command:
+    - uvicorn
+    - app:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '9000'
+    - --log-level
+    - info
+    - --access-log
+    networks:
+    - mcad_net
+  emondrian-foodmart:
+    build: ./emondrian-foodmart
+    ports:
+    - 8081:8080
+    networks:
+    - mcad_net
+  emondrian-adventureworks:
+    build: ./emondrian-adventureworks
+    ports:
+    - 8082:8080
+    networks:
+    - mcad_net
+    depends_on:
+    - adventureworks-sqlserver
+  emondrian-steelwheels:
+    build: ./emondrian-steelwheels
+    ports:
+    - 8083:8080
+    networks:
+    - mcad_net
+    depends_on:
+    - adventureworks-sqlserver
+
+volumes:
+  adventureworks_sqlserver_data: null

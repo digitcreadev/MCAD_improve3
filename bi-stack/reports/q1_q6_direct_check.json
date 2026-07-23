@@ -1,0 +1,519 @@
+{
+  "base_url": "http://localhost:9000",
+  "scenario": "foodmart_q1_q6",
+  "results": [
+    {
+      "id": "Q1_ALLOW_USEFUL",
+      "label": "Q1 — ALLOW utile",
+      "expected": "ALLOW",
+      "got": "ALLOW",
+      "ok": true,
+      "reason_code": "ALLOW_NEW_TOTAL",
+      "phi": 0.5,
+      "sat": 1.0,
+      "real": 0.5,
+      "ceval": 0.5
+    },
+    {
+      "id": "Q2_ALLOW_COMPLEMENTARY",
+      "label": "Q2 — ALLOW complémentaire",
+      "expected": "ALLOW",
+      "got": "ALLOW",
+      "ok": true,
+      "reason_code": "ALLOW_NEW_TOTAL",
+      "phi": 1.0,
+      "sat": 1.0,
+      "real": 0.5,
+      "ceval": 1.0
+    },
+    {
+      "id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+      "label": "Q3 — BLOCK hors objectif",
+      "expected": "BLOCK",
+      "got": "BLOCK",
+      "ok": true,
+      "reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "phi": 0.0,
+      "sat": 0.0,
+      "real": 0.0,
+      "ceval": 0.0
+    },
+    {
+      "id": "Q4_BLOCK_REDUNDANT",
+      "label": "Q4 — BLOCK redondant",
+      "expected": "BLOCK",
+      "got": "BLOCK",
+      "ok": true,
+      "reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+      "phi": 1.0,
+      "sat": 1.0,
+      "real": 0.5,
+      "ceval": 1.0
+    },
+    {
+      "id": "Q5_BLOCK_NON_TARGET_MEASURE",
+      "label": "Q5 — BLOCK mesure non ciblée",
+      "expected": "BLOCK",
+      "got": "BLOCK",
+      "ok": true,
+      "reason_code": "BLOCK_MEASURE_NOT_TARGETED",
+      "phi": 0.0,
+      "sat": 0.0,
+      "real": 0.0,
+      "ceval": 0.0
+    },
+    {
+      "id": "Q6_BLOCK_BAD_GRAIN",
+      "label": "Q6 — BLOCK grain non conforme",
+      "expected": "BLOCK",
+      "got": "BLOCK",
+      "ok": true,
+      "reason_code": "BLOCK_GRAIN_MISMATCH",
+      "phi": 0.0,
+      "sat": 0.0,
+      "real": 0.0,
+      "ceval": 0.0
+    }
+  ],
+  "metrics": {
+    "constraint_count": 2,
+    "resource_count": 2,
+    "calculability_rate_total": 1.0,
+    "calculability_rate_partial": 0.0,
+    "completion_rate": 1.0,
+    "analytic_alignment_score": -0.3333333333333333,
+    "allow_rate": 0.3333333333333333,
+    "allow_count": 2,
+    "block_count": 4
+  },
+  "history_count": 6,
+  "history": [
+    {
+      "step_index": 1,
+      "timestamp": "2026-05-30 10:45:15.454414+00:00",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+      "decision": "ALLOW",
+      "decision_reason_code": "ALLOW_NEW_TOTAL",
+      "decision_reason": "Query adds at least one new fully calculable constraint in the current session.",
+      "sat": true,
+      "phi": 0.5,
+      "phi_leq_t": 0.5,
+      "delta_phi_t": 0.5,
+      "real_count": 1,
+      "ceval_count": 1,
+      "total_constraints": 2,
+      "total_nv": 2,
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "is_redundant": false,
+      "has_marginal_gain": true,
+      "gained_resource_ids": [
+        "NV_REAL_BEER_WA_MONTH_SALES"
+      ],
+      "gained_resource_ids_count": 1,
+      "calculable_constraints": [
+        "real_c1"
+      ],
+      "calculable_constraints_total": [
+        "real_c1"
+      ],
+      "calculable_constraints_partial": [],
+      "non_calculable_constraints": [
+        "real_c2"
+      ],
+      "newly_contributed_constraints_total": [
+        "real_c1"
+      ],
+      "newly_contributed_constraints_partial": [],
+      "covered_constraints": [
+        "real_c1"
+      ],
+      "query_digest": "433ec704dd84093b7482bc9da659835ce86fff55",
+      "explain": "Query adds at least one new fully calculable constraint in the current session.",
+      "query_spec": {
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "cube": "Sales",
+        "measures": [
+          "Store Sales"
+        ],
+        "group_by": [
+          "Measures.Store Sales",
+          "Time.Month"
+        ],
+        "slicers": {
+          "Product.Product Category": "Beer and Wine",
+          "Store.Store State": "WA"
+        },
+        "analytics": [],
+        "axes": [
+          {
+            "axis": "COLUMNS",
+            "expression": "{[Measures].[Store Sales]}"
+          },
+          {
+            "axis": "ROWS",
+            "expression": ", [Time].[Month].Members"
+          }
+        ],
+        "time_members": [],
+        "window_start": null,
+        "window_end": null,
+        "calculated_members": [],
+        "named_sets": [],
+        "language": "mdx",
+        "fingerprint": "2ca04c491bfaed4f"
+      }
+    },
+    {
+      "step_index": 2,
+      "timestamp": "2026-05-30 10:45:15.669545+00:00",
+      "mdx": "SELECT {[Measures].[Profit]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+      "decision": "ALLOW",
+      "decision_reason_code": "ALLOW_NEW_TOTAL",
+      "decision_reason": "Query adds at least one new fully calculable constraint in the current session.",
+      "sat": true,
+      "phi": 1.0,
+      "phi_leq_t": 1.0,
+      "delta_phi_t": 0.5,
+      "real_count": 1,
+      "ceval_count": 2,
+      "total_constraints": 2,
+      "total_nv": 2,
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "is_redundant": false,
+      "has_marginal_gain": true,
+      "gained_resource_ids": [
+        "NV_REAL_BEER_WA_MONTH_PROFIT"
+      ],
+      "gained_resource_ids_count": 1,
+      "calculable_constraints": [
+        "real_c1",
+        "real_c2"
+      ],
+      "calculable_constraints_total": [
+        "real_c1",
+        "real_c2"
+      ],
+      "calculable_constraints_partial": [],
+      "non_calculable_constraints": [],
+      "newly_contributed_constraints_total": [
+        "real_c2"
+      ],
+      "newly_contributed_constraints_partial": [],
+      "covered_constraints": [
+        "real_c1",
+        "real_c2"
+      ],
+      "query_digest": "784310ea05a582f3da4e50777eb22aacff0d8614",
+      "explain": "Query adds at least one new fully calculable constraint in the current session.",
+      "query_spec": {
+        "mdx": "SELECT {[Measures].[Profit]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "cube": "Sales",
+        "measures": [
+          "Profit"
+        ],
+        "group_by": [
+          "Measures.Profit",
+          "Time.Month"
+        ],
+        "slicers": {
+          "Product.Product Category": "Beer and Wine",
+          "Store.Store State": "WA"
+        },
+        "analytics": [],
+        "axes": [
+          {
+            "axis": "COLUMNS",
+            "expression": "{[Measures].[Profit]}"
+          },
+          {
+            "axis": "ROWS",
+            "expression": ", [Time].[Month].Members"
+          }
+        ],
+        "time_members": [],
+        "window_start": null,
+        "window_end": null,
+        "calculated_members": [],
+        "named_sets": [],
+        "language": "mdx",
+        "fingerprint": "73a10b57576f8dbe"
+      }
+    },
+    {
+      "step_index": 3,
+      "timestamp": "2026-05-30 10:45:15.883782+00:00",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[CA])",
+      "decision": "BLOCK",
+      "decision_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "decision_reason": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+      "sat": false,
+      "phi": 0.0,
+      "phi_leq_t": 1.0,
+      "delta_phi_t": 0.0,
+      "real_count": 0,
+      "ceval_count": 0,
+      "total_constraints": 2,
+      "total_nv": 2,
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "is_redundant": false,
+      "has_marginal_gain": false,
+      "gained_resource_ids": [],
+      "gained_resource_ids_count": 0,
+      "calculable_constraints": [],
+      "calculable_constraints_total": [],
+      "calculable_constraints_partial": [],
+      "non_calculable_constraints": [],
+      "newly_contributed_constraints_total": [],
+      "newly_contributed_constraints_partial": [],
+      "covered_constraints": [
+        "real_c1",
+        "real_c2"
+      ],
+      "query_digest": "5103382512c77f567f8d4f05924de5dcc3aae011",
+      "explain": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+      "query_spec": {
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[CA])",
+        "cube": "Sales",
+        "measures": [
+          "Store Sales"
+        ],
+        "group_by": [
+          "Measures.Store Sales",
+          "Time.Month"
+        ],
+        "slicers": {
+          "Product.Product Category": "Beer and Wine",
+          "Store.Store State": "CA"
+        },
+        "analytics": [],
+        "axes": [
+          {
+            "axis": "COLUMNS",
+            "expression": "{[Measures].[Store Sales]}"
+          },
+          {
+            "axis": "ROWS",
+            "expression": ", [Time].[Month].Members"
+          }
+        ],
+        "time_members": [],
+        "window_start": null,
+        "window_end": null,
+        "calculated_members": [],
+        "named_sets": [],
+        "language": "mdx",
+        "fingerprint": "dcc960ebf1e1213a"
+      }
+    },
+    {
+      "step_index": 4,
+      "timestamp": "2026-05-30 10:45:16.096194+00:00",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+      "decision": "BLOCK",
+      "decision_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+      "decision_reason": "Query is aligned with the objective but adds no new marginal contribution in the current session.",
+      "sat": true,
+      "phi": 1.0,
+      "phi_leq_t": 1.0,
+      "delta_phi_t": 0.0,
+      "real_count": 1,
+      "ceval_count": 2,
+      "total_constraints": 2,
+      "total_nv": 2,
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "is_redundant": true,
+      "has_marginal_gain": false,
+      "gained_resource_ids": [],
+      "gained_resource_ids_count": 0,
+      "calculable_constraints": [
+        "real_c1",
+        "real_c2"
+      ],
+      "calculable_constraints_total": [
+        "real_c1",
+        "real_c2"
+      ],
+      "calculable_constraints_partial": [],
+      "non_calculable_constraints": [],
+      "newly_contributed_constraints_total": [],
+      "newly_contributed_constraints_partial": [],
+      "covered_constraints": [
+        "real_c1",
+        "real_c2"
+      ],
+      "query_digest": "433ec704dd84093b7482bc9da659835ce86fff55",
+      "explain": "Query is aligned with the objective but adds no new marginal contribution in the current session.",
+      "query_spec": {
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "cube": "Sales",
+        "measures": [
+          "Store Sales"
+        ],
+        "group_by": [
+          "Measures.Store Sales",
+          "Time.Month"
+        ],
+        "slicers": {
+          "Product.Product Category": "Beer and Wine",
+          "Store.Store State": "WA"
+        },
+        "analytics": [],
+        "axes": [
+          {
+            "axis": "COLUMNS",
+            "expression": "{[Measures].[Store Sales]}"
+          },
+          {
+            "axis": "ROWS",
+            "expression": ", [Time].[Month].Members"
+          }
+        ],
+        "time_members": [],
+        "window_start": null,
+        "window_end": null,
+        "calculated_members": [],
+        "named_sets": [],
+        "language": "mdx",
+        "fingerprint": "2ca04c491bfaed4f"
+      }
+    },
+    {
+      "step_index": 5,
+      "timestamp": "2026-05-30 10:45:16.309659+00:00",
+      "mdx": "SELECT {[Measures].[Unit Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+      "decision": "BLOCK",
+      "decision_reason_code": "BLOCK_MEASURE_NOT_TARGETED",
+      "decision_reason": "Query uses resources/measures that are not targeted by the active objective.",
+      "sat": false,
+      "phi": 0.0,
+      "phi_leq_t": 1.0,
+      "delta_phi_t": 0.0,
+      "real_count": 0,
+      "ceval_count": 0,
+      "total_constraints": 2,
+      "total_nv": 2,
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "is_redundant": false,
+      "has_marginal_gain": false,
+      "gained_resource_ids": [],
+      "gained_resource_ids_count": 0,
+      "calculable_constraints": [],
+      "calculable_constraints_total": [],
+      "calculable_constraints_partial": [],
+      "non_calculable_constraints": [],
+      "newly_contributed_constraints_total": [],
+      "newly_contributed_constraints_partial": [],
+      "covered_constraints": [
+        "real_c1",
+        "real_c2"
+      ],
+      "query_digest": "abaf0a8f9262c89ee361ccf6e92a2154b28c1754",
+      "explain": "Query uses resources/measures that are not targeted by the active objective.",
+      "query_spec": {
+        "mdx": "SELECT {[Measures].[Unit Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "cube": "Sales",
+        "measures": [
+          "Unit Sales"
+        ],
+        "group_by": [
+          "Measures.Unit Sales",
+          "Time.Month"
+        ],
+        "slicers": {
+          "Product.Product Category": "Beer and Wine",
+          "Store.Store State": "WA"
+        },
+        "analytics": [],
+        "axes": [
+          {
+            "axis": "COLUMNS",
+            "expression": "{[Measures].[Unit Sales]}"
+          },
+          {
+            "axis": "ROWS",
+            "expression": ", [Time].[Month].Members"
+          }
+        ],
+        "time_members": [],
+        "window_start": null,
+        "window_end": null,
+        "calculated_members": [],
+        "named_sets": [],
+        "language": "mdx",
+        "fingerprint": "d3e33f3f187e09ac"
+      }
+    },
+    {
+      "step_index": 6,
+      "timestamp": "2026-05-30 10:45:16.520639+00:00",
+      "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Year].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+      "decision": "BLOCK",
+      "decision_reason_code": "BLOCK_GRAIN_MISMATCH",
+      "decision_reason": "Query grain is incompatible with the objective target grain.",
+      "sat": false,
+      "phi": 0.0,
+      "phi_leq_t": 1.0,
+      "delta_phi_t": 0.0,
+      "real_count": 0,
+      "ceval_count": 0,
+      "total_constraints": 2,
+      "total_nv": 2,
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "is_redundant": false,
+      "has_marginal_gain": false,
+      "gained_resource_ids": [],
+      "gained_resource_ids_count": 0,
+      "calculable_constraints": [],
+      "calculable_constraints_total": [],
+      "calculable_constraints_partial": [],
+      "non_calculable_constraints": [],
+      "newly_contributed_constraints_total": [],
+      "newly_contributed_constraints_partial": [],
+      "covered_constraints": [
+        "real_c1",
+        "real_c2"
+      ],
+      "query_digest": "4b47248d14661183ad91dfde9da022e00d4cdf5c",
+      "explain": "Query grain is incompatible with the objective target grain.",
+      "query_spec": {
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Year].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "cube": "Sales",
+        "measures": [
+          "Store Sales"
+        ],
+        "group_by": [
+          "Measures.Store Sales",
+          "Time.Year"
+        ],
+        "slicers": {
+          "Product.Product Category": "Beer and Wine",
+          "Store.Store State": "WA"
+        },
+        "analytics": [],
+        "axes": [
+          {
+            "axis": "COLUMNS",
+            "expression": "{[Measures].[Store Sales]}"
+          },
+          {
+            "axis": "ROWS",
+            "expression": ", [Time].[Year].Members"
+          }
+        ],
+        "time_members": [],
+        "window_start": null,
+        "window_end": null,
+        "calculated_members": [],
+        "named_sets": [],
+        "language": "mdx",
+        "fingerprint": "33cf5f057d815765"
+      }
+    }
+  ]
+}

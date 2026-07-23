@@ -1,0 +1,24 @@
+{
+  "id": "O_FM_STORE_REGION_PROMOTION_UNITS",
+  "objective_id": "O_FM_STORE_REGION_PROMOTION_UNITS",
+  "dataset_id": "foodmart",
+  "title": "Store-region promotion unit sales and cost",
+  "description": "Article full-real V2 objective for Store-region promotion unit sales and cost.",
+  "business_domain": "Retail decision analysis",
+  "grain": "month",
+  "measures": [
+    "Unit Sales",
+    "Store Cost"
+  ],
+  "dimensions": [
+    "Store Region",
+    "Promotion",
+    "Time Month"
+  ],
+  "allow_theme": "promotion and region unit-sales analysis",
+  "block_theme": "customer private attributes and non-retail measures",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "fm_store_region_promotion_units",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

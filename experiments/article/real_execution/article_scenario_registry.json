@@ -1,0 +1,159 @@
+{
+  "version": "backend_neutral_article_scenarios_v1",
+  "rule": "Each scenario is defined once, independently from the backend, and must be executed on both sql_direct and xmla_emondrian.",
+  "required_backends": ["sql_direct", "xmla_emondrian"],
+  "logical_scenarios": [
+    {
+      "dataset_id": "foodmart",
+      "scenario_id": "fm_beer_wa_month_sales_profit",
+      "objective_id": "O_FM_BEER_WA_MONTH_SALES_PROFIT",
+      "scenario_path": "bi-stack/direct-scenarios/fm_beer_wa_month_sales_profit.json",
+      "backends": {
+        "sql_direct": {"dw_id": "foodmart"},
+        "xmla_emondrian": {"dw_id": "foodmart"}
+      }
+    },
+    {
+      "dataset_id": "foodmart",
+      "scenario_id": "fm_dairy_ca_month_margin",
+      "objective_id": "O_FM_DAIRY_CA_MONTH_MARGIN",
+      "scenario_path": "bi-stack/direct-scenarios/fm_dairy_ca_month_margin.json",
+      "backends": {
+        "sql_direct": {"dw_id": "foodmart"},
+        "xmla_emondrian": {"dw_id": "foodmart"}
+      }
+    },
+    {
+      "dataset_id": "foodmart",
+      "scenario_id": "fm_store_region_promotion_units",
+      "objective_id": "O_FM_STORE_REGION_PROMOTION_UNITS",
+      "scenario_path": "bi-stack/direct-scenarios/fm_store_region_promotion_units.json",
+      "backends": {
+        "sql_direct": {"dw_id": "foodmart"},
+        "xmla_emondrian": {"dw_id": "foodmart"}
+      }
+    },
+    {
+      "dataset_id": "foodmart",
+      "scenario_id": "fm_category_state_profitability",
+      "objective_id": "O_FM_CATEGORY_STATE_PROFITABILITY",
+      "scenario_path": "bi-stack/direct-scenarios/fm_category_state_profitability.json",
+      "backends": {
+        "sql_direct": {"dw_id": "foodmart"},
+        "xmla_emondrian": {"dw_id": "foodmart"}
+      }
+    },
+    {
+      "dataset_id": "foodmart",
+      "scenario_id": "fm_inventory_risk_state_category",
+      "objective_id": "O_FM_INVENTORY_RISK_STATE_CATEGORY",
+      "scenario_path": "bi-stack/direct-scenarios/fm_inventory_risk_state_category.json",
+      "backends": {
+        "sql_direct": {"dw_id": "foodmart"},
+        "xmla_emondrian": {"dw_id": "foodmart"}
+      }
+    },
+
+    {
+      "dataset_id": "adventureworks",
+      "scenario_id": "aw_europe_bikes_month_margin",
+      "objective_id": "O_AW_EUROPE_BIKES_MONTH_MARGIN",
+      "scenario_path": "bi-stack/direct-scenarios/aw_europe_bikes_month_margin.json",
+      "backends": {
+        "sql_direct": {"dw_id": "adventureworks_sql_direct"},
+        "xmla_emondrian": {"dw_id": "adventureworks_xmla"}
+      }
+    },
+    {
+      "dataset_id": "adventureworks",
+      "scenario_id": "aw_na_accessories_month_sales_quantity",
+      "objective_id": "O_AW_NA_ACCESSORIES_MONTH_SALES_QUANTITY",
+      "scenario_path": "bi-stack/direct-scenarios/aw_na_accessories_month_sales_quantity.json",
+      "backends": {
+        "sql_direct": {"dw_id": "adventureworks_sql_direct"},
+        "xmla_emondrian": {"dw_id": "adventureworks_xmla"}
+      }
+    },
+    {
+      "dataset_id": "adventureworks",
+      "scenario_id": "aw_bikes_quarter_quantity_revenue",
+      "objective_id": "O_AW_BIKES_QUARTER_QUANTITY_REVENUE",
+      "scenario_path": "bi-stack/direct-scenarios/aw_bikes_quarter_quantity_revenue.json",
+      "backends": {
+        "sql_direct": {"dw_id": "adventureworks_sql_direct"},
+        "xmla_emondrian": {"dw_id": "adventureworks_xmla"}
+      }
+    },
+    {
+      "dataset_id": "adventureworks",
+      "scenario_id": "aw_channel_product_cost_month",
+      "objective_id": "O_AW_CHANNEL_PRODUCT_COST_MONTH",
+      "scenario_path": "bi-stack/direct-scenarios/aw_channel_product_cost_month.json",
+      "backends": {
+        "sql_direct": {"dw_id": "adventureworks_sql_direct"},
+        "xmla_emondrian": {"dw_id": "adventureworks_xmla"}
+      }
+    },
+    {
+      "dataset_id": "adventureworks",
+      "scenario_id": "aw_territory_margin_variance_month",
+      "objective_id": "O_AW_TERRITORY_MARGIN_VARIANCE_MONTH",
+      "scenario_path": "bi-stack/direct-scenarios/aw_territory_margin_variance_month.json",
+      "backends": {
+        "sql_direct": {"dw_id": "adventureworks_sql_direct"},
+        "xmla_emondrian": {"dw_id": "adventureworks_xmla"}
+      }
+    },
+
+    {
+      "dataset_id": "steelwheels",
+      "scenario_id": "sw_emea_classic_cars_month_sales_quantity",
+      "objective_id": "O_SW_EMEA_CLASSIC_CARS_MONTH_SALES_QUANTITY",
+      "scenario_path": "bi-stack/direct-scenarios/sw_emea_classic_cars_month_sales_quantity.json",
+      "backends": {
+        "sql_direct": {"dw_id": "steelwheels_sql_direct"},
+        "xmla_emondrian": {"dw_id": "steelwheels_xmla"}
+      }
+    },
+    {
+      "dataset_id": "steelwheels",
+      "scenario_id": "sw_apac_vintage_cars_2004_sales",
+      "objective_id": "O_SW_APAC_VINTAGE_CARS_2004_SALES",
+      "scenario_path": "bi-stack/direct-scenarios/sw_apac_vintage_cars_2004_sales.json",
+      "backends": {
+        "sql_direct": {"dw_id": "steelwheels_sql_direct"},
+        "xmla_emondrian": {"dw_id": "steelwheels_xmla"}
+      }
+    },
+    {
+      "dataset_id": "steelwheels",
+      "scenario_id": "sw_na_motorcycles_2004_orders",
+      "objective_id": "O_SW_NA_MOTORCYCLES_2004_ORDERS",
+      "scenario_path": "bi-stack/direct-scenarios/sw_na_motorcycles_2004_orders.json",
+      "backends": {
+        "sql_direct": {"dw_id": "steelwheels_sql_direct"},
+        "xmla_emondrian": {"dw_id": "steelwheels_xmla"}
+      }
+    },
+    {
+      "dataset_id": "steelwheels",
+      "scenario_id": "sw_office_quarter_sales_orders",
+      "objective_id": "O_SW_OFFICE_QUARTER_SALES_ORDERS",
+      "scenario_path": "bi-stack/direct-scenarios/sw_office_quarter_sales_orders.json",
+      "backends": {
+        "sql_direct": {"dw_id": "steelwheels_sql_direct"},
+        "xmla_emondrian": {"dw_id": "steelwheels_xmla"}
+      }
+    },
+    {
+      "dataset_id": "steelwheels",
+      "scenario_id": "sw_customer_country_productline_mix",
+      "objective_id": "O_SW_CUSTOMER_COUNTRY_PRODUCTLINE_MIX",
+      "scenario_path": "bi-stack/direct-scenarios/sw_customer_country_productline_mix.json",
+      "backends": {
+        "sql_direct": {"dw_id": "steelwheels_sql_direct"},
+        "xmla_emondrian": {"dw_id": "steelwheels_xmla"}
+      }
+    }
+  ]
+}

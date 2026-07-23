@@ -1,0 +1,3 @@
+# Generated validation runs can be large and environment-specific.
+runs/
+latest_path.txt

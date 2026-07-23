@@ -1,0 +1,118 @@
+datawarehouses:
+- id: foodmart
+  label: FoodMart via XMLA/eMondrian
+  dataset: FoodMart
+  backend_type: xmla_mondrian
+  adapter: xmla_mondrian
+  query_language: mdx
+  logical_input_language: mdx
+  physical_query_language: xmla_mdx
+  catalog: FoodMart
+  cube: Sales
+  enabled: true
+  default: true
+  experimental: false
+  execution_priority: 1
+  fallback_dw_id: foodmart_sql_direct
+  xmla_url: http://emondrian-foodmart:8080/emondrian/xmla
+  notes: 'Priority MDX/OLAP path for demonstrations: MCAD evaluates first, then MDX
+    is forwarded to eMondrian/XMLA only on ALLOW.'
+  datasource_info: FoodMart
+  real_execution: conditional_on_emondrian_foodmart_catalog
+- id: foodmart_sql_direct
+  label: FoodMart via Direct BI
+  dataset: FoodMart
+  backend_type: foodmart_direct
+  adapter: foodmart_direct
+  query_language: mdx
+  logical_input_language: mdx
+  physical_query_language: sql_direct
+  catalog: FoodMart
+  cube: Sales
+  enabled: true
+  default: false
+  experimental: false
+  fallback: true
+  execution_priority: 2
+  notes: Stable BI-direct FoodMart execution path preserved as fallback/secondary
+    adapter.
+- id: adventureworks_xmla
+  label: AdventureWorksDW — XMLA/eMondrian experimental
+  dataset: AdventureWorksDW
+  backend_type: xmla_mondrian
+  adapter: xmla_mondrian
+  query_language: mdx
+  logical_input_language: mdx
+  physical_query_language: xmla_mdx
+  catalog: AdventureWorksDW
+  cube: Adventure Works DW
+  enabled: true
+  default: false
+  experimental: true
+  execution_priority: 1
+  fallback: false
+  fallback_dw_id: null
+  xmla_url: http://emondrian-adventureworks:8080/emondrian/xmla
+  datasource_info: AdventureWorksDW
+  real_execution: conditional_on_emondrian_adventureworks_catalog
+  notes: Enabled after direct proof of MDX -> XMLA -> eMondrian -> SQL Server AdventureWorksDW2022
+    execution.
+- id: adventureworks_sql_direct
+  label: AdventureWorksDW via SQL Server Direct
+  dataset: AdventureWorksDW
+  backend_type: sqlserver_direct
+  adapter: adventureworks_direct
+  query_language: mdx
+  logical_input_language: mdx_or_sql
+  physical_query_language: sqlserver_tsql
+  catalog: AdventureWorksDW2022
+  cube: Adventure Works DW
+  enabled: true
+  default: false
+  experimental: false
+  execution_priority: 3
+  connection_profile: sqlserver_adventureworks_dw
+  host_env: ADVENTUREWORKS_SQLSERVER_HOST
+  port_env: ADVENTUREWORKS_SQLSERVER_PORT
+  database_env: ADVENTUREWORKS_SQLSERVER_DATABASE
+  user_env: ADVENTUREWORKS_SQLSERVER_USER
+  password_env: ADVENTUREWORKS_SQLSERVER_PASSWORD
+  notes: Real SQL Server Docker-backed AdventureWorksDW adapter. Run bi-stack/scripts/setup_adventureworks_sqlserver.sh
+    before live validation.
+- id: steelwheels_xmla
+  label: SteelWheels — XMLA/eMondrian
+  dataset: SteelWheels
+  backend_type: xmla_mondrian
+  adapter: xmla_mondrian
+  query_language: mdx
+  logical_input_language: mdx
+  physical_query_language: xmla_mdx
+  catalog: SteelWheels
+  cube: SteelWheelsSales
+  enabled: true
+  default: false
+  experimental: true
+  execution_priority: 1
+  fallback_dw_id: steelwheels_sql_direct
+  xmla_url: http://emondrian-steelwheels:8080/emondrian/xmla
+  datasource_info: SteelWheels
+  real_execution: conditional_on_emondrian_steelwheels_catalog
+  notes: Enabled after adding a dedicated eMondrian SteelWheels service backed by the SQL Server SteelWheels database.
+
+- id: steelwheels_sql_direct
+  label: SteelWheels — SQL Server Direct
+  dataset: SteelWheels
+  backend_type: sql_direct
+  adapter: steelwheels_direct
+  query_language: mdx
+  logical_input_language: mdx_or_sql
+  physical_query_language: sqlserver_tsql
+  catalog: SteelWheels
+  cube: SteelWheelsSales
+  enabled: true
+  default: false
+  experimental: true
+  fallback: true
+  execution_priority: 2
+  connection_profile: steelwheels_sqlserver
+  notes: SQL Server-backed SteelWheels direct adapter for the V9.5.4 double-path integration.

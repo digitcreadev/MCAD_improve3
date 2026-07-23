@@ -1,0 +1,24 @@
+{
+  "id": "O_AW_TERRITORY_MARGIN_VARIANCE_MONTH",
+  "objective_id": "O_AW_TERRITORY_MARGIN_VARIANCE_MONTH",
+  "dataset_id": "adventureworks",
+  "title": "Territory monthly margin variance",
+  "description": "Article full-real V2 objective for Territory monthly margin variance.",
+  "business_domain": "Manufacturing and sales territory analysis",
+  "grain": "month",
+  "measures": [
+    "Sales Amount",
+    "Total Product Cost",
+    "Gross Margin"
+  ],
+  "dimensions": [
+    "Sales Territory",
+    "Time Month"
+  ],
+  "allow_theme": "territory monthly margin variance",
+  "block_theme": "tax detail, personal/contact attributes, wrong grain",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "aw_territory_margin_variance_month",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

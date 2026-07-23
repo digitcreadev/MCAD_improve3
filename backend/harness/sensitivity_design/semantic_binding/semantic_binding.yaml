@@ -1,0 +1,44 @@
+binding_version: "mcad-sensitivity-semantic-binding-e1.1"
+
+canonical_store:
+  objectives: "CKGGraph.objectives"
+  graph: "CKGGraph.G"
+
+nested_fields:
+  constraints: "objectives[objective_id].constraints"
+  virtual_nodes: >
+    objectives[objective_id].constraints[constraint_id].virtual_nodes
+  requirement_sets: >
+    objectives[objective_id].constraints[constraint_id].requirement_sets
+
+graph_projection:
+  objective_node_type: objective
+  constraint_node_type: constraint
+  virtual_node_type: virtual_node
+
+  required_relations:
+    - HAS_CONSTRAINT
+    - REQUIRES_NV
+
+requirement_set_semantics:
+  within_set: conjunction
+  across_sets: disjunction
+
+density:
+  name: membership_density
+  numerator: requirement_membership_link_count
+  denominator: >
+    sum(number_of_requirement_sets_per_constraint *
+        declared_virtual_nodes_per_constraint)
+  undefined_when_denominator_zero: true
+  tolerance: 0.02
+
+e2_1_forbidden_calls:
+  - sat
+  - real
+  - ceval
+  - phi
+
+future_phi_fields:
+  - phi_unweighted
+  - phi_weighted

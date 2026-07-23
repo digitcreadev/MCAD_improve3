@@ -1,0 +1,102 @@
+{
+  "id": "O_REAL_BEER_WA_MONTH",
+  "objective_id": "O_REAL_BEER_WA_MONTH",
+  "name": "FoodMart Beer and Wine WA monthly sales/profit",
+  "title": "FoodMart Beer and Wine WA monthly sales/profit",
+  "description": "Campaign B/C FoodMart objective for the foodmart_q1_q6 scenario. It makes Store Sales and Profit calculable for Beer and Wine in Washington at monthly grain.",
+  "dataset_id": "foodmart",
+  "dw_id": "foodmart",
+  "cube": "Sales",
+  "business_domain": "Retail decision analysis",
+  "grain": "month",
+  "kpis": [
+    "KPI_FM_STORE_SALES",
+    "KPI_FM_PROFIT"
+  ],
+  "constraints": [
+    {
+      "id": "c_sales",
+      "kpi_id": "KPI_FM_STORE_SALES",
+      "description": "Store Sales for Beer and Wine in Washington at monthly grain.",
+      "weight": 1.0,
+      "measure": "Store Sales",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Beer and Wine",
+        "Store.Store State": "WA"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_BEER_WA_MONTH_STORE_SALES"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_BEER_WA_MONTH_STORE_SALES",
+          "fact": "Sales",
+          "measure": "Store Sales",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "WA"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c_profit",
+      "kpi_id": "KPI_FM_PROFIT",
+      "description": "Profit for Beer and Wine in Washington at monthly grain.",
+      "weight": 1.0,
+      "measure": "Profit",
+      "grain": [
+        "Time.Month"
+      ],
+      "slicers": {
+        "Product.Product Category": "Beer and Wine",
+        "Store.Store State": "WA"
+      },
+      "requirement_sets": [
+        [
+          "NV_FM_BEER_WA_MONTH_PROFIT"
+        ]
+      ],
+      "virtual_nodes": [
+        {
+          "id": "NV_FM_BEER_WA_MONTH_PROFIT",
+          "fact": "Sales",
+          "measure": "Profit",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "grain": [
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "WA"
+          }
+        }
+      ]
+    }
+  ],
+  "measures": [
+    "Store Sales",
+    "Profit"
+  ],
+  "dimensions": [
+    "Product Category",
+    "Store State",
+    "Time Month"
+  ],
+  "scenario_id": "foodmart_q1_q6",
+  "backend_neutral": true,
+  "alias_of": "O_FM_BEER_WA_MONTH_SALES_PROFIT",
+  "created_for": "campaign_b_multidataset_alignment",
+  "validation_status": "import_contract_ready"
+}

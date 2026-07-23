@@ -1,0 +1,221 @@
+{
+  "session_length_schedule": {
+    "allowed_lengths": [4, 6, 8, 10, 12],
+    "global_average_length": 8,
+    "rationale": "Variable session lengths are used to avoid a fixed Q1-Q8 pattern while preserving the V2 total of 37440 query-level decisions over 4680 sessions/validations."
+  },
+  "allow_block_profiles": [
+    {
+      "id": "mostly_allow",
+      "description": "Most queries are expected to contribute to the active objective.",
+      "expected_allow_ratio_range": [0.65, 0.9]
+    },
+    {
+      "id": "mostly_block",
+      "description": "Most queries are expected to be blocked because they are out-of-objective, contradictory, or non-calculable.",
+      "expected_allow_ratio_range": [0.1, 0.35]
+    },
+    {
+      "id": "balanced_mixed",
+      "description": "ALLOW and BLOCK decisions are approximately balanced.",
+      "expected_allow_ratio_range": [0.4, 0.6]
+    },
+    {
+      "id": "progressive_coverage",
+      "description": "A session starts with partial contributions and progressively covers the objective.",
+      "expected_allow_ratio_range": [0.45, 0.75]
+    },
+    {
+      "id": "contradictory_or_invalid",
+      "description": "The session includes contradictory slicers, wrong granularity, private attributes, or measures outside the active objective.",
+      "expected_allow_ratio_range": [0.0, 0.4]
+    }
+  ],
+  "datasets": {
+    "foodmart": {
+      "business_domain": "Retail decision analysis",
+      "objectives": [
+        {
+          "id": "fm_retail_sales_profit_state_month",
+          "title": "Monthly retail sales and profit by product category and store state",
+          "measures": ["Store Sales", "Profit"],
+          "dimensions": ["Product Category", "Store State", "Time Month"],
+          "grain": "month",
+          "typical_allow_queries": [
+            "sales by category/state/month",
+            "profit by category/state/month",
+            "sales and profit by store state/month"
+          ],
+          "typical_block_queries": [
+            "employee salary by store",
+            "customer birth date",
+            "supplier private cost",
+            "year-only aggregation when monthly grain is required"
+          ]
+        },
+        {
+          "id": "fm_store_cost_unit_sales_region_month",
+          "title": "Monthly store cost and unit sales by region and promotion",
+          "measures": ["Store Cost", "Unit Sales"],
+          "dimensions": ["Store Region", "Promotion", "Time Month"],
+          "grain": "month",
+          "typical_allow_queries": [
+            "store cost by region/month",
+            "unit sales by promotion/month"
+          ],
+          "typical_block_queries": [
+            "customer personal attributes",
+            "supplier private cost",
+            "non-retail financial attributes"
+          ]
+        },
+        {
+          "id": "fm_category_margin_inventory_state",
+          "title": "Category margin and inventory risk across store states",
+          "measures": ["Profit", "Store Sales", "Store Cost"],
+          "dimensions": ["Product Category", "Store State"],
+          "grain": "category-state",
+          "typical_allow_queries": [
+            "profit by category/state",
+            "sales-cost margin by category/state"
+          ],
+          "typical_block_queries": [
+            "employee salary",
+            "customer birthdate",
+            "supplier private cost"
+          ]
+        }
+      ],
+      "session_families": [
+        "fm_dairy_ca_monthly_kpi",
+        "fm_beer_wine_wa_monthly_profit",
+        "fm_store_region_cost_units",
+        "fm_category_margin_state",
+        "fm_out_of_objective_private_attributes"
+      ]
+    },
+    "adventureworks": {
+      "business_domain": "Manufacturing and sales territory analysis",
+      "objectives": [
+        {
+          "id": "aw_sales_margin_territory_month",
+          "title": "Sales amount, product cost and gross margin by territory and month",
+          "measures": ["Sales Amount", "Total Product Cost", "Gross Margin"],
+          "dimensions": ["Sales Territory", "Product Category", "Time Month"],
+          "grain": "month",
+          "typical_allow_queries": [
+            "sales amount by territory/month",
+            "total product cost by territory/month",
+            "gross margin by bikes category and territory"
+          ],
+          "typical_block_queries": [
+            "employee pay rate",
+            "customer phone",
+            "reseller credit limit",
+            "daily tax detail when monthly grain is required"
+          ]
+        },
+        {
+          "id": "aw_bikes_order_quantity_quarter",
+          "title": "Bike-category order quantity and revenue by territory and quarter",
+          "measures": ["Order Quantity", "Sales Amount"],
+          "dimensions": ["Product Category", "Sales Territory", "Time Quarter"],
+          "grain": "quarter",
+          "typical_allow_queries": [
+            "bike order quantity by territory/quarter",
+            "bike sales amount by quarter"
+          ],
+          "typical_block_queries": [
+            "employee pay rate",
+            "customer phone",
+            "daily tax detail"
+          ]
+        },
+        {
+          "id": "aw_manufacturing_cost_channel_month",
+          "title": "Manufacturing and sales cost contribution by category and channel",
+          "measures": ["Total Product Cost", "Sales Amount"],
+          "dimensions": ["Product Category", "Sales Channel", "Time Month"],
+          "grain": "month",
+          "typical_allow_queries": [
+            "product cost by category/channel/month",
+            "sales amount by channel/month"
+          ],
+          "typical_block_queries": [
+            "reseller credit limit",
+            "employee pay rate",
+            "customer contact attributes"
+          ]
+        }
+      ],
+      "session_families": [
+        "aw_europe_bikes_2013_margin",
+        "aw_north_america_accessories_2013_sales",
+        "aw_territory_month_margin",
+        "aw_bikes_quarter_quantity",
+        "aw_private_or_wrong_grain_queries"
+      ]
+    },
+    "steelwheels": {
+      "business_domain": "Orders, product lines and customer-country sales analysis",
+      "objectives": [
+        {
+          "id": "sw_orders_sales_productline_country_month",
+          "title": "Order sales and quantity by product line, customer country and month",
+          "measures": ["Sales", "Quantity Ordered"],
+          "dimensions": ["Product Line", "Customer Country", "Time Month"],
+          "grain": "month",
+          "typical_allow_queries": [
+            "sales by product line/country/month",
+            "quantity ordered by product line/country/month"
+          ],
+          "typical_block_queries": [
+            "customer credit limit",
+            "employee extension",
+            "payment check number",
+            "daily order status when monthly grain is required"
+          ]
+        },
+        {
+          "id": "sw_office_sales_quarter",
+          "title": "Office-level sales and order quantities by quarter and territory",
+          "measures": ["Sales", "Quantity Ordered"],
+          "dimensions": ["Office", "Territory", "Time Quarter"],
+          "grain": "quarter",
+          "typical_allow_queries": [
+            "sales by office/quarter",
+            "quantity ordered by office/territory/quarter"
+          ],
+          "typical_block_queries": [
+            "employee extension",
+            "payment check number",
+            "customer credit limit"
+          ]
+        },
+        {
+          "id": "sw_classic_cars_customer_country",
+          "title": "Classic Cars revenue and order volume by customer country",
+          "measures": ["Sales", "Orders", "Quantity Ordered"],
+          "dimensions": ["Product Line", "Customer Country"],
+          "grain": "country-product-line",
+          "typical_allow_queries": [
+            "classic cars sales by customer country",
+            "classic cars order volume by country"
+          ],
+          "typical_block_queries": [
+            "payment check number",
+            "customer credit limit",
+            "employee extension"
+          ]
+        }
+      ],
+      "session_families": [
+        "sw_emea_classic_cars_monthly_sales",
+        "sw_apac_vintage_cars_2004_sales_quantity",
+        "sw_na_motorcycles_2004_orders",
+        "sw_office_quarter_sales",
+        "sw_private_or_wrong_grain_queries"
+      ]
+    }
+  }
+}

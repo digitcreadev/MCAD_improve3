@@ -1,0 +1,42 @@
+bi-stack/reports/mcad_gate_v2/
+
+# Article experimental outputs
+reports/article_experiments/
+
+# Python runtime artefacts
+__pycache__/
+*.pyc
+
+# MCAD local generated artifacts
+/reports/
+/reports_v948_current_structure_diagnostic/
+/exports/final_evidence_backups/
+/exports/ui_runtime_backups/
+/exports/ui_v948_backups/
+/bi-stack/mcad-api-data/deleted_sessions/
+
+# Local V9.4.8 migration and diagnostic packs
+/MCAD_UI_V948*.zip
+/MCAD_*DIAGNOSTIC*.zip
+/REPORTS_CURRENT_STRUCTURE_DIAGNOSTIC.zip
+/Reports Pane*.zip
+/PR_BODY_V948.md
+/finalize_v948t_validation.py
+/validate_v948t_session_coverage*.py
+/tools/MCAD_UI_V948*/
+/tools/MCAD_FINAL_*/
+/tools/MCAD_*DIAGNOSTIC*/
+/tools/apply_mcad_ui_v948b.py
+/tools/verify_mcad_ui_v948b.py
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# LaTeX generated files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz

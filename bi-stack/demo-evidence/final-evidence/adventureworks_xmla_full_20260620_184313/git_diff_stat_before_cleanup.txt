@@ -1,0 +1,11 @@
+ bi-stack/docker-compose.yml                        |     2 +-
+ bi-stack/emondrian/Dockerfile                      |    13 +-
+ bi-stack/mcad-api-data/ckg_events.jsonl            |     5 +
+ bi-stack/mcad-api-data/decision_details.json       | 11048 +++++++++----------
+ .../mcad-proxy/__pycache__/app.cpython-312.pyc     |   Bin 197401 -> 197987 bytes
+ bi-stack/mcad-proxy/app.py                         |    10 +-
+ bi-stack/mcad-proxy/datawarehouses.yaml            |    13 +-
+ .../execution/adapters/xmla_mondrian_adapter.py    |    76 +-
+ bi-stack/mcad-proxy/execution/gateway.py           |     8 +-
+ bi-stack/mcad-proxy/execution/registry.py          |    13 +-
+ 10 files changed, 5164 insertions(+), 6024 deletions(-)

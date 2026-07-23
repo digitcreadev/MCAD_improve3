@@ -1,0 +1,25 @@
+{
+  "id": "O_SW_NA_MOTORCYCLES_2004_ORDERS",
+  "objective_id": "O_SW_NA_MOTORCYCLES_2004_ORDERS",
+  "dataset_id": "steelwheels",
+  "title": "North America Motorcycles 2004 orders",
+  "description": "Article full-real V2 objective for North America Motorcycles 2004 orders.",
+  "business_domain": "Orders, product lines and customer-country sales analysis",
+  "grain": "month",
+  "measures": [
+    "Sales",
+    "Orders",
+    "Quantity Ordered"
+  ],
+  "dimensions": [
+    "Product Line",
+    "Customer Country",
+    "Time Month"
+  ],
+  "allow_theme": "NA Motorcycles 2004 order and sales volume",
+  "block_theme": "Classic Cars, employee extension, customer credit limit",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "sw_na_motorcycles_2004_orders",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

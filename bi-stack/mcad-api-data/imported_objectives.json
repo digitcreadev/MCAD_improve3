@@ -1,0 +1,154 @@
+{
+  "objectives": [
+    {
+      "id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "name": "AdventureWorksDW Bikes Europe monthly territory margin",
+      "label": "AdventureWorksDW Bikes Europe monthly territory margin",
+      "description": "Real AdventureWorksDW objective for the SQL Server Direct adapter: make SalesAmount, TotalProductCost, and GrossMargin calculable for Bikes in Europe at Month x SalesTerritoryRegion grain. This objective is designed for the live BI demonstrator and not for replacing the article benchmark campaign.",
+      "dw_id": "adventureworks_sql_direct",
+      "dataset": "AdventureWorksDW",
+      "cube": "Adventure Works DW",
+      "kpis": [
+        "KPI_AW_SALES_AMOUNT",
+        "KPI_AW_TOTAL_PRODUCT_COST",
+        "KPI_AW_GROSS_MARGIN"
+      ],
+      "constraints": [
+        {
+          "id": "aw_real_c1_sales_amount",
+          "label": "SalesAmount for Bikes / Europe by month and territory",
+          "description": "SalesAmount for Bikes in Europe at Month x SalesTerritoryRegion grain.",
+          "kpi_id": "KPI_AW_SALES_AMOUNT",
+          "measure": "SalesAmount",
+          "metric": "SalesAmount",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "weight": 1.0,
+          "grain": [
+            "Date.Month",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "slicers": {
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe",
+            "Date.Calendar Year": "2013"
+          },
+          "requirement_sets": [
+            [
+              "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+            ]
+          ],
+          "virtual_nodes": [
+            {
+              "id": "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES",
+              "fact": "FactInternetSales",
+              "measure": "SalesAmount",
+              "aggregator": "SUM",
+              "unit": "CURRENCY",
+              "grain": [
+                "Date.Month",
+                "Sales Territory.Sales Territory Region"
+              ],
+              "slicers": {
+                "Product.Product Category": "Bikes",
+                "Sales Territory.Sales Territory Group": "Europe",
+                "Date.Calendar Year": "2013"
+              }
+            }
+          ],
+          "fact": "FactInternetSales"
+        },
+        {
+          "id": "aw_real_c2_total_product_cost",
+          "label": "TotalProductCost for Bikes / Europe by month and territory",
+          "description": "TotalProductCost for Bikes in Europe at Month x SalesTerritoryRegion grain.",
+          "kpi_id": "KPI_AW_TOTAL_PRODUCT_COST",
+          "measure": "TotalProductCost",
+          "metric": "TotalProductCost",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "weight": 1.0,
+          "grain": [
+            "Date.Month",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "slicers": {
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe",
+            "Date.Calendar Year": "2013"
+          },
+          "requirement_sets": [
+            [
+              "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST"
+            ]
+          ],
+          "virtual_nodes": [
+            {
+              "id": "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST",
+              "fact": "FactInternetSales",
+              "measure": "TotalProductCost",
+              "aggregator": "SUM",
+              "unit": "CURRENCY",
+              "grain": [
+                "Date.Month",
+                "Sales Territory.Sales Territory Region"
+              ],
+              "slicers": {
+                "Product.Product Category": "Bikes",
+                "Sales Territory.Sales Territory Group": "Europe",
+                "Date.Calendar Year": "2013"
+              }
+            }
+          ],
+          "fact": "FactInternetSales"
+        },
+        {
+          "id": "aw_real_c3_gross_margin",
+          "label": "GrossMargin for Bikes / Europe by month and territory",
+          "description": "GrossMargin = SalesAmount - TotalProductCost for Bikes in Europe at Month x SalesTerritoryRegion grain.",
+          "kpi_id": "KPI_AW_GROSS_MARGIN",
+          "measure": "GrossMargin",
+          "metric": "GrossMargin",
+          "aggregator": "SUM",
+          "unit": "CURRENCY",
+          "weight": 1.0,
+          "grain": [
+            "Date.Month",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "slicers": {
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe",
+            "Date.Calendar Year": "2013"
+          },
+          "requirement_sets": [
+            [
+              "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN"
+            ]
+          ],
+          "virtual_nodes": [
+            {
+              "id": "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN",
+              "fact": "FactInternetSales",
+              "measure": "GrossMargin",
+              "aggregator": "SUM",
+              "unit": "CURRENCY",
+              "grain": [
+                "Date.Month",
+                "Sales Territory.Sales Territory Region"
+              ],
+              "slicers": {
+                "Product.Product Category": "Bikes",
+                "Sales Territory.Sales Territory Group": "Europe",
+                "Date.Calendar Year": "2013"
+              }
+            }
+          ],
+          "fact": "FactInternetSales"
+        }
+      ],
+      "schema_version": "mcad.objective.import.v1",
+      "notes": "V9.5.2a removes duplicate virtual_node/virtual_nodes binding so the canonical objective import validator accepts the payload."
+    }
+  ]
+}

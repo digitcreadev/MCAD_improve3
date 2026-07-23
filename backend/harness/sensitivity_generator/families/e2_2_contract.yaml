@@ -1,0 +1,57 @@
+schema_version: mcad-sensitivity-e2.2-contract-v1
+
+phase:
+  id: E2.2
+  name: controlled-experimental-families
+  mode: structural-generation-only
+
+dependency:
+  phase: E2.1
+  generator_version: mcad-sensitivity-e2.1-v1
+  canonical_entrypoint: generate_structural_instance
+
+supported_factors:
+  constraint_count:
+    config_field: n_constraints
+    positive_integer: true
+  virtual_node_count:
+    config_field: n_virtual_nodes
+    positive_integer: true
+
+unsupported_factors:
+  - objective_count
+  - membership_density
+  - structural_noise
+  - invalid_reference_injection
+  - semantic_perturbation
+
+design:
+  method: OFAT
+  replication_unit: seed
+  deterministic_naming: true
+  wall_clock_in_identifiers: false
+
+forbidden_calls:
+  - sat
+  - real
+  - ceval
+  - phi
+
+required_outputs:
+  - campaign_spec.json
+  - campaign_manifest.json
+  - instances.csv
+  - instances/*/manifest.json
+  - instances/*/objectives.yaml
+
+required_validations:
+  - unique_factor_levels
+  - positive_factor_levels
+  - unique_seeds
+  - one_factor_varies
+  - baseline_dimensions_preserved
+  - complete_condition_matrix
+  - deterministic_campaign_digest
+  - e2_1_generator_version_preserved
+  - instance_files_exist
+  - forbidden_evaluation_calls_absent

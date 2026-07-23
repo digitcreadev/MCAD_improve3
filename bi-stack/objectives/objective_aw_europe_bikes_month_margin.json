@@ -1,0 +1,25 @@
+{
+  "id": "O_AW_EUROPE_BIKES_MONTH_MARGIN",
+  "objective_id": "O_AW_EUROPE_BIKES_MONTH_MARGIN",
+  "dataset_id": "adventureworks",
+  "title": "Europe Bikes monthly margin",
+  "description": "Article full-real V2 objective for Europe Bikes monthly margin.",
+  "business_domain": "Manufacturing and sales territory analysis",
+  "grain": "month",
+  "measures": [
+    "Sales Amount",
+    "Total Product Cost",
+    "Gross Margin"
+  ],
+  "dimensions": [
+    "Sales Territory",
+    "Product Category",
+    "Time Month"
+  ],
+  "allow_theme": "Europe Bikes monthly sales/cost/margin",
+  "block_theme": "wrong category, wrong territory, yearly grain",
+  "article_protocol": "full_real_v2",
+  "scenario_id": "aw_europe_bikes_month_margin",
+  "backend_neutral": true,
+  "validation_status": "pending_physical_execution"
+}

@@ -1,0 +1,245 @@
+{
+  "campaign_counts": {
+    "FoodMart core evaluation": 3000,
+    "Multi-dataset generalization": 1200,
+    "Backend portability": 480,
+    "Total": 4680,
+    "Total query decisions": 37440
+  },
+  "policies": [
+    "mcad_gate",
+    "measure_overlap",
+    "naive",
+    "random_matched"
+  ],
+  "core_foodmart": [
+    {
+      "policy": "mcad_gate",
+      "sessions": 750,
+      "mean_phi_final": 0.92,
+      "false_allow_rate": 0.0,
+      "false_block_rate": 0.0,
+      "precision_block": 1.0,
+      "recall_block": 1.0,
+      "F1_block": 1.0,
+      "non_contributive_execution_rate": 0.0,
+      "explanation_coverage_rate": 1.0,
+      "decision_latency_p95_ms": 0.249
+    },
+    {
+      "policy": "measure_overlap",
+      "sessions": 750,
+      "mean_phi_final": 0.92,
+      "false_allow_rate": 0.9297,
+      "false_block_rate": 0.0,
+      "precision_block": 1.0,
+      "recall_block": 0.0703,
+      "F1_block": 0.1314,
+      "non_contributive_execution_rate": 0.7568,
+      "explanation_coverage_rate": 1.0,
+      "decision_latency_p95_ms": 0.1091
+    },
+    {
+      "policy": "naive",
+      "sessions": 750,
+      "mean_phi_final": 0.92,
+      "false_allow_rate": 1.0,
+      "false_block_rate": 0.0,
+      "precision_block": 0.0,
+      "recall_block": 0.0,
+      "F1_block": 0.0,
+      "non_contributive_execution_rate": 0.77,
+      "explanation_coverage_rate": 0.0,
+      "decision_latency_p95_ms": 0.0787
+    },
+    {
+      "policy": "random_matched",
+      "sessions": 750,
+      "mean_phi_final": 0.236,
+      "false_allow_rate": 0.2184,
+      "false_block_rate": 0.7435,
+      "precision_block": 0.7787,
+      "recall_block": 0.7816,
+      "F1_block": 0.7802,
+      "non_contributive_execution_rate": 0.7403,
+      "explanation_coverage_rate": 1.0,
+      "decision_latency_p95_ms": 0.0917
+    }
+  ],
+  "multidataset": [
+    {
+      "policy": "mcad_gate",
+      "sessions": 300,
+      "mean_phi_final": 0.92,
+      "false_allow_rate": 0.0,
+      "false_block_rate": 0.0,
+      "precision_block": 1.0,
+      "recall_block": 1.0,
+      "F1_block": 1.0,
+      "non_contributive_execution_rate": 0.0,
+      "explanation_coverage_rate": 1.0,
+      "decision_latency_p95_ms": 0.2488
+    },
+    {
+      "policy": "measure_overlap",
+      "sessions": 300,
+      "mean_phi_final": 0.92,
+      "false_allow_rate": 0.9291,
+      "false_block_rate": 0.0,
+      "precision_block": 1.0,
+      "recall_block": 0.0709,
+      "F1_block": 0.1324,
+      "non_contributive_execution_rate": 0.7567,
+      "explanation_coverage_rate": 1.0,
+      "decision_latency_p95_ms": 0.1086
+    },
+    {
+      "policy": "naive",
+      "sessions": 300,
+      "mean_phi_final": 0.92,
+      "false_allow_rate": 1.0,
+      "false_block_rate": 0.0,
+      "precision_block": 0.0,
+      "recall_block": 0.0,
+      "F1_block": 0.0,
+      "non_contributive_execution_rate": 0.77,
+      "explanation_coverage_rate": 0.0,
+      "decision_latency_p95_ms": 0.0789
+    },
+    {
+      "policy": "random_matched",
+      "sessions": 300,
+      "mean_phi_final": 0.2467,
+      "false_allow_rate": 0.2062,
+      "false_block_rate": 0.7319,
+      "precision_block": 0.7841,
+      "recall_block": 0.7938,
+      "F1_block": 0.7889,
+      "non_contributive_execution_rate": 0.7202,
+      "explanation_coverage_rate": 1.0,
+      "decision_latency_p95_ms": 0.0915
+    }
+  ],
+  "paired_stats": [
+    {
+      "campaign": "FoodMart core",
+      "baseline": "naive",
+      "paired_traces": 750,
+      "coverage_preservation_ratio_mean": 1.0,
+      "coverage_gain_mean": 0.0,
+      "execution_reduction_ratio_mean": 0.7467,
+      "non_contrib_execution_reduction_ratio_mean": 1.0,
+      "false_allow_reduction_ratio_mean": 1.0,
+      "false_block_diff_mean": 0.0,
+      "cohens_dz_phi_diff": 0.0,
+      "sign_test_pvalue_phi_diff": 1.0
+    },
+    {
+      "campaign": "FoodMart core",
+      "baseline": "measure_overlap",
+      "paired_traces": 750,
+      "coverage_preservation_ratio_mean": 1.0,
+      "coverage_gain_mean": 0.0,
+      "execution_reduction_ratio_mean": 0.7371,
+      "non_contrib_execution_reduction_ratio_mean": 1.0,
+      "false_allow_reduction_ratio_mean": 1.0,
+      "false_block_diff_mean": 0.0,
+      "cohens_dz_phi_diff": 0.0,
+      "sign_test_pvalue_phi_diff": 1.0
+    },
+    {
+      "campaign": "FoodMart core",
+      "baseline": "random_matched",
+      "paired_traces": 750,
+      "coverage_preservation_ratio_mean": 1.0,
+      "coverage_gain_mean": 0.684,
+      "execution_reduction_ratio_mean": 0.0174,
+      "non_contrib_execution_reduction_ratio_mean": 1.0,
+      "false_allow_reduction_ratio_mean": 1.0,
+      "false_block_diff_mean": -1.368,
+      "cohens_dz_phi_diff": 2.1318,
+      "sign_test_pvalue_phi_diff": 0.0
+    },
+    {
+      "campaign": "Multi-dataset",
+      "baseline": "naive",
+      "paired_traces": 300,
+      "coverage_preservation_ratio_mean": 1.0,
+      "coverage_gain_mean": 0.0,
+      "execution_reduction_ratio_mean": 0.7467,
+      "non_contrib_execution_reduction_ratio_mean": 1.0,
+      "false_allow_reduction_ratio_mean": 1.0,
+      "false_block_diff_mean": 0.0,
+      "cohens_dz_phi_diff": 0.0,
+      "sign_test_pvalue_phi_diff": 1.0
+    },
+    {
+      "campaign": "Multi-dataset",
+      "baseline": "measure_overlap",
+      "paired_traces": 300,
+      "coverage_preservation_ratio_mean": 1.0,
+      "coverage_gain_mean": 0.0,
+      "execution_reduction_ratio_mean": 0.7366,
+      "non_contrib_execution_reduction_ratio_mean": 1.0,
+      "false_allow_reduction_ratio_mean": 1.0,
+      "false_block_diff_mean": 0.0,
+      "cohens_dz_phi_diff": 0.0,
+      "sign_test_pvalue_phi_diff": 1.0
+    },
+    {
+      "campaign": "Multi-dataset",
+      "baseline": "random_matched",
+      "paired_traces": 300,
+      "coverage_preservation_ratio_mean": 1.0,
+      "coverage_gain_mean": 0.6733,
+      "execution_reduction_ratio_mean": 0.0397,
+      "non_contrib_execution_reduction_ratio_mean": 1.0,
+      "false_allow_reduction_ratio_mean": 1.0,
+      "false_block_diff_mean": -1.3467,
+      "cohens_dz_phi_diff": 1.9972,
+      "sign_test_pvalue_phi_diff": 0.0
+    }
+  ],
+  "backend_portability": [
+    {
+      "dataset": "AdventureWorksDW",
+      "backend": "SQL Direct",
+      "validations": 120,
+      "contract_success_rate": 1.0,
+      "false_allow_rate": 0.0,
+      "false_block_rate": 0.0,
+      "explanation_coverage_rate": 1.0,
+      "decision_latency_p95_ms": 0.249
+    },
+    {
+      "dataset": "AdventureWorksDW",
+      "backend": "XMLA/eMondrian",
+      "validations": 120,
+      "contract_success_rate": 1.0,
+      "false_allow_rate": 0.0,
+      "false_block_rate": 0.0,
+      "explanation_coverage_rate": 1.0,
+      "decision_latency_p95_ms": 0.249
+    },
+    {
+      "dataset": "SteelWheels",
+      "backend": "SQL Direct",
+      "validations": 120,
+      "contract_success_rate": 1.0,
+      "false_allow_rate": 0.0,
+      "false_block_rate": 0.0,
+      "explanation_coverage_rate": 1.0,
+      "decision_latency_p95_ms": 0.249
+    },
+    {
+      "dataset": "SteelWheels",
+      "backend": "XMLA/eMondrian",
+      "validations": 120,
+      "contract_success_rate": 1.0,
+      "false_allow_rate": 0.0,
+      "false_block_rate": 0.0,
+      "explanation_coverage_rate": 1.0,
+      "decision_latency_p95_ms": 0.249
+    }
+  ]
+}

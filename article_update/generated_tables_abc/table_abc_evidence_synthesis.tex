@@ -1,0 +1,17 @@
+\begin{table*}[!t]
+\centering
+\caption{Synthèse expérimentale A--B--C fondée sur les preuves verrouillées.}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Camp. & But & Portée & Requêtes & ALLOW & BLOCK & ALLOW physiques & BLOCK sans exéc. & Évidence CKG \\
+\midrule
+A & FoodMart depth & FoodMart / CKG-first & 7960 & 2266 & 5694 & 2266 & 5694 & 2266 \\
+B & Multi-dataset physical execution & FoodMart XMLA, AdventureWorks SQL, SteelWheels SQL & 18 & 7 & 11 & 7 & 11 & 7 \\
+C & Backend portability & AdventureWorks SQL Direct vs XMLA/eMondrian & 12 & 4 & 8 & 4 & 8 & 2+2 \\
+\bottomrule
+\end{tabular}
+\normalsize
+\label{tab:abc-evidence-synthesis}
+\end{table*}
