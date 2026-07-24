@@ -1,0 +1,75 @@
+{
+  "campaign_generator_version": "mcad-sensitivity-e2.2-v1",
+  "campaigns": {
+    "constraint_count": {
+      "distinct_configuration_digests": 6,
+      "distinct_instance_digests": 6,
+      "manifest": {
+        "baseline_constraint_count": 4,
+        "baseline_virtual_node_count": 12,
+        "campaign_digest": "a1f5bc036fca834dd412b6d527796cfec643294159bdb52e298ff7061c7494b6",
+        "campaign_generator_version": "mcad-sensitivity-e2.2-v1",
+        "campaign_id": "e22_freeze_constraint_count",
+        "campaign_spec_digest": "6aaf37ef60f03da7f044529e47272c4a56a92be4c1969ff07a131503fa354c7e",
+        "expected_instance_count": 6,
+        "factor": "constraint_count",
+        "level_count": 3,
+        "levels": [
+          2,
+          4,
+          8
+        ],
+        "realised_instance_count": 6,
+        "replication_count": 2,
+        "seeds": [
+          101,
+          202
+        ],
+        "structural_generator_version": "mcad-sensitivity-e2.1-v1"
+      },
+      "row_count": 6
+    },
+    "virtual_node_count": {
+      "distinct_configuration_digests": 6,
+      "distinct_instance_digests": 6,
+      "manifest": {
+        "baseline_constraint_count": 4,
+        "baseline_virtual_node_count": 12,
+        "campaign_digest": "2c09abd90dd51cbc84ae4bef77b72be12b243bab53b477b07bf7664ff7304e78",
+        "campaign_generator_version": "mcad-sensitivity-e2.2-v1",
+        "campaign_id": "e22_freeze_virtual_node_count",
+        "campaign_spec_digest": "aa65de47c29b95b252fa65de4c1daf5b610f803c621950c026d639142a56976c",
+        "expected_instance_count": 6,
+        "factor": "virtual_node_count",
+        "level_count": 3,
+        "levels": [
+          6,
+          12,
+          24
+        ],
+        "realised_instance_count": 6,
+        "replication_count": 2,
+        "seeds": [
+          101,
+          202
+        ],
+        "structural_generator_version": "mcad-sensitivity-e2.1-v1"
+      },
+      "row_count": 6
+    }
+  },
+  "design": "OFAT",
+  "freeze_schema_version": "mcad-sensitivity-e2.2-freeze-v1",
+  "structural_generator_version": "mcad-sensitivity-e2.1-v1",
+  "supported_factors": [
+    "constraint_count",
+    "virtual_node_count"
+  ],
+  "validated_invariants": {
+    "complete_condition_matrices": true,
+    "distinct_instances_per_condition": true,
+    "membership_density_equals_one": true,
+    "one_factor_at_a_time": true,
+    "production_evaluation_calls_absent": true
+  }
+}

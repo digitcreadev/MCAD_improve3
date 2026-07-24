@@ -1,0 +1,6 @@
+branch=paper/phase2-controlled-evaluations
+head=7bcba3b975e916bea310b49d5ab4bd9b517539bb
+remote_origin=https://github.com/bena-BI/MCAD_improve3
+python=Python 3.12.1
+pytest=pytest 9.1.1
+generated_at_utc=2026-07-23T20:33:21Z

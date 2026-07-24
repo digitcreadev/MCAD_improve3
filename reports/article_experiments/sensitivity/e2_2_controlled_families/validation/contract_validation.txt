@@ -1,0 +1,6 @@
+[OK] E2.2 contract is valid.
+[OK] dependency=mcad-sensitivity-e2.1-v1
+[OK] supported_factors=constraint_count,virtual_node_count
+[OK] design=OFAT
+[OK] replication_unit=seed
+[OK] sat/real/ceval/phi calls are forbidden

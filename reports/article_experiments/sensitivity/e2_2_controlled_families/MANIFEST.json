@@ -1,0 +1,22 @@
+{
+  "canonical_campaign_count": 2,
+  "canonical_instance_count": 12,
+  "component": "Controlled Experimental Families",
+  "component_version": "mcad-sensitivity-e2.2-v1",
+  "dependency": "mcad-sensitivity-e2.1-v1",
+  "design": "OFAT",
+  "freeze_schema_version": "mcad-sensitivity-e2.2-freeze-v1",
+  "replication_unit": "seed",
+  "required_validations": [
+    "contract_validation",
+    "pytest",
+    "canonical_campaign_generation",
+    "ofat_invariants",
+    "digest_uniqueness",
+    "deterministic_archive"
+  ],
+  "supported_factors": [
+    "constraint_count",
+    "virtual_node_count"
+  ]
+}
