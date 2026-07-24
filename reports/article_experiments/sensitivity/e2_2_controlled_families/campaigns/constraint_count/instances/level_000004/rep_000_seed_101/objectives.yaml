@@ -1,0 +1,202 @@
+objectives:
+- id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000
+  name: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000
+  description: Synthetic sensitivity structural objective
+  kpis:
+  - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_KPI0001
+  - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_KPI0002
+  - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_KPI0003
+  - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_KPI0004
+  constraints:
+  - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0001
+    kpi_id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_KPI0001
+    description: Synthetic constraint 1
+    weight: 1.0
+    virtual_nodes:
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0001_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_04
+        Time.Year: '2018'
+      window_start: '2018-01-01'
+      window_end: '2018-12-31'
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0001_NV0002
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_06
+        Time.Year: '2017'
+      window_start: '2017-01-01'
+      window_end: '2017-12-31'
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0001_NV0003
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_01
+        Time.Year: '2014'
+      window_start: '2014-01-01'
+      window_end: '2014-12-31'
+    requirement_sets:
+    - - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0001_NV0001
+      - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0001_NV0002
+      - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0001_NV0003
+  - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0002
+    kpi_id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_KPI0002
+    description: Synthetic constraint 2
+    weight: 1.0
+    virtual_nodes:
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0002_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_04
+        Time.Year: '2016'
+      window_start: '2016-01-01'
+      window_end: '2016-12-31'
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0002_NV0002
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_04
+        Time.Year: '2019'
+      window_start: '2019-01-01'
+      window_end: '2019-12-31'
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0002_NV0003
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_08
+        Time.Year: '2009'
+      window_start: '2009-01-01'
+      window_end: '2009-12-31'
+    requirement_sets:
+    - - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0002_NV0001
+      - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0002_NV0002
+      - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0002_NV0003
+  - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0003
+    kpi_id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_KPI0003
+    description: Synthetic constraint 3
+    weight: 1.0
+    virtual_nodes:
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0003_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Margin
+      aggregator: MIN
+      unit: COUNT
+      slicers:
+        Geography.Region: Region_06
+        Time.Year: '2006'
+      window_start: '2006-01-01'
+      window_end: '2006-12-31'
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0003_NV0002
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Margin
+      aggregator: MIN
+      unit: COUNT
+      slicers:
+        Geography.Region: Region_02
+        Time.Year: '2014'
+      window_start: '2014-01-01'
+      window_end: '2014-12-31'
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0003_NV0003
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Margin
+      aggregator: MIN
+      unit: COUNT
+      slicers:
+        Geography.Region: Region_04
+        Time.Year: '2008'
+      window_start: '2008-01-01'
+      window_end: '2008-12-31'
+    requirement_sets:
+    - - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0003_NV0001
+      - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0003_NV0002
+      - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0003_NV0003
+  - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0004
+    kpi_id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_KPI0004
+    description: Synthetic constraint 4
+    weight: 1.0
+    virtual_nodes:
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0004_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Quantity
+      aggregator: MAX
+      unit: USD
+      slicers:
+        Geography.Region: Region_02
+        Time.Year: '2005'
+      window_start: '2005-01-01'
+      window_end: '2005-12-31'
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0004_NV0002
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Quantity
+      aggregator: MAX
+      unit: USD
+      slicers:
+        Geography.Region: Region_09
+        Time.Year: '2014'
+      window_start: '2014-01-01'
+      window_end: '2014-12-31'
+    - id: O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0004_NV0003
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Quantity
+      aggregator: MAX
+      unit: USD
+      slicers:
+        Geography.Region: Region_04
+        Time.Year: '2011'
+      window_start: '2011-01-01'
+      window_end: '2011-12-31'
+    requirement_sets:
+    - - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0004_NV0001
+      - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0004_NV0002
+      - O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L4_R000_C0004_NV0003

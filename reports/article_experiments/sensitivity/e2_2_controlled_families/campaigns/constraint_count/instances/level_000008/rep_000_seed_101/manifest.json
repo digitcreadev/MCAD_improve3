@@ -1,0 +1,16 @@
+{
+  "configuration_digest": "815740186a11988042adc53cfc7747f7099ceb93b47d664fcc93e6502a891909",
+  "generator_version": "mcad-sensitivity-e2.1-v1",
+  "graph_edge_count": 28,
+  "graph_node_count": 29,
+  "instance_digest": "eab08c32a21df31af93dd62330ed19ccd867630ad71977cd8fb68c390f0b0702",
+  "membership_density": 1.0,
+  "objective_id": "O_E22_FREEZE_CONSTRAINT_COUNT_CONSTRAINT_COUNT_L8_R000",
+  "realised_constraint_count": 8,
+  "realised_virtual_node_count": 12,
+  "requested_constraint_count": 8,
+  "requested_virtual_node_count": 12,
+  "requirement_membership_link_count": 12,
+  "requirement_set_count": 8,
+  "seed": 101
+}

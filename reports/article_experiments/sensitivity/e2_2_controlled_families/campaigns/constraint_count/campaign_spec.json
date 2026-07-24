@@ -1,0 +1,18 @@
+{
+  "baseline_constraint_count": 4,
+  "baseline_virtual_node_count": 12,
+  "campaign_generator_version": "mcad-sensitivity-e2.2-v1",
+  "campaign_id": "e22_freeze_constraint_count",
+  "campaign_spec_digest": "6aaf37ef60f03da7f044529e47272c4a56a92be4c1969ff07a131503fa354c7e",
+  "factor": "constraint_count",
+  "levels": [
+    2,
+    4,
+    8
+  ],
+  "seeds": [
+    101,
+    202
+  ],
+  "structural_generator_version": "mcad-sensitivity-e2.1-v1"
+}

@@ -1,0 +1,23 @@
+{
+  "baseline_constraint_count": 4,
+  "baseline_virtual_node_count": 12,
+  "campaign_digest": "2c09abd90dd51cbc84ae4bef77b72be12b243bab53b477b07bf7664ff7304e78",
+  "campaign_generator_version": "mcad-sensitivity-e2.2-v1",
+  "campaign_id": "e22_freeze_virtual_node_count",
+  "campaign_spec_digest": "aa65de47c29b95b252fa65de4c1daf5b610f803c621950c026d639142a56976c",
+  "expected_instance_count": 6,
+  "factor": "virtual_node_count",
+  "level_count": 3,
+  "levels": [
+    6,
+    12,
+    24
+  ],
+  "realised_instance_count": 6,
+  "replication_count": 2,
+  "seeds": [
+    101,
+    202
+  ],
+  "structural_generator_version": "mcad-sensitivity-e2.1-v1"
+}
