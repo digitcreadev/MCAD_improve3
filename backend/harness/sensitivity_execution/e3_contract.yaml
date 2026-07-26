@@ -1,0 +1,153 @@
+schema_version: mcad-sensitivity-e3-contract-v1
+
+phase:
+  id: E3
+  name: controlled-execution
+  mode: controlled-local-evaluation
+
+dependencies:
+  structural_generation:
+    phase: E2.1
+    generator_version: mcad-sensitivity-e2.1-v1
+    canonical_entrypoint: generate_structural_instance
+
+  controlled_families:
+    phase: E2.2
+    generator_version: mcad-sensitivity-e2.2-v1
+    canonical_entrypoint: generate_controlled_family
+
+  evaluator:
+    component: CKGGraph
+    canonical_entrypoint: backend.ckg.ckg_updater.CKGGraph.evaluate_step
+    invocation_mode: local-python
+    backend_api_is_source_of_truth: false
+
+input_contract:
+  immutable_e2_inputs:
+    - campaign_manifest.json
+    - campaign_spec.json
+    - instances.csv
+    - instances/*/manifest.json
+    - instances/*/objectives.yaml
+
+  required_e3_inputs:
+    - execution_spec.json
+    - workload_spec.json
+
+  workload_requirements:
+    ordered_steps: true
+    stable_step_identifiers: true
+    objective_binding_required: true
+    query_plan_required_per_step: true
+    wall_clock_in_identifiers: false
+
+execution_semantics:
+  execution_unit: controlled-family-instance
+  replication_unit: seed
+
+  isolation:
+    fresh_runtime_state_per_instance: true
+    fresh_session_per_instance: true
+    cross_instance_state_reuse: false
+
+  ordering:
+    preserve_campaign_instance_order: true
+    preserve_workload_step_order: true
+
+  evaluation:
+    evaluate_every_step: true
+    commit_only_evaluator_reported_state: true
+    production_evaluator_semantics_preserved: true
+    evaluator_reimplementation_forbidden: true
+
+  failure_policy:
+    fail_fast_on_invalid_input: true
+    persist_failed_execution_audit: true
+    continue_after_step_failure: false
+
+required_step_fields:
+  - step_index
+  - step_id
+  - session_id
+  - objective_id
+  - sat
+  - real_node_ids
+  - calculable_constraints
+  - phi
+  - phi_weighted
+  - phi_leq_t
+  - delta_phi_t
+  - evaluator_latency_ms
+  - status
+
+required_instance_outputs:
+  - execution_manifest.json
+  - timeline.json
+  - metrics.json
+  - audit.json
+
+required_campaign_outputs:
+  - execution_spec.json
+  - execution_manifest.json
+  - instance_results.csv
+  - campaign_metrics.json
+
+required_metrics:
+  - step_count
+  - successful_step_count
+  - failed_step_count
+  - sat_fail_count
+  - real_empty_count
+  - ceval_empty_count
+  - phi_final
+  - phi_weighted_final
+  - auc_phi
+  - evaluator_latency_p50_ms
+  - evaluator_latency_p95_ms
+  - evaluator_latency_p99_ms
+
+determinism:
+  deterministic_execution_identifiers: true
+  deterministic_output_paths: true
+  deterministic_manifest_digest: true
+  wall_clock_in_identifiers: false
+  stable_json_serialization: true
+  stable_csv_column_order: true
+
+immutability:
+  e2_inputs_are_read_only: true
+  source_objectives_are_read_only: true
+  source_manifests_are_read_only: true
+  outputs_written_outside_e2_tree: true
+
+forbidden_behaviors:
+  - mutate_e2_campaign
+  - mutate_e2_instance
+  - regenerate_e2_instance
+  - bypass_ckg_evaluator
+  - reimplement_sat
+  - reimplement_real
+  - reimplement_ceval
+  - reimplement_phi
+  - use_backend_http_api_as_source_of_truth
+  - reuse_runtime_state_across_instances
+  - use_wall_clock_identifiers
+
+required_validations:
+  - contract_schema_valid
+  - e2_generator_versions_preserved
+  - required_inputs_exist
+  - workload_objective_binding_valid
+  - workload_step_identifiers_unique
+  - workload_step_order_stable
+  - campaign_condition_matrix_preserved
+  - one_execution_per_instance
+  - fresh_session_per_instance
+  - required_step_fields_present
+  - required_outputs_exist
+  - e2_inputs_unchanged
+  - deterministic_execution_digest
+  - cumulative_phi_in_range
+  - cumulative_phi_monotone
+  - evaluator_entrypoint_preserved
+  - forbidden_behaviors_absent

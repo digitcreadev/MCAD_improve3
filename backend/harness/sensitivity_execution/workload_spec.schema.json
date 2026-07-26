@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MCAD E3 Workload Specification",
+  "description": "Input workload for controlled execution.",
+  "type": "object",
+
+  "required": [
+    "contract_version",
+    "workload_id",
+    "objective_id",
+    "session_id",
+    "steps"
+  ],
+
+  "properties": {
+
+    "contract_version": {
+      "const": "mcad-sensitivity-e3-workload-v1"
+    },
+
+    "workload_id": {
+      "type": "string",
+      "minLength": 1
+    },
+
+    "objective_id": {
+      "type": "string",
+      "minLength": 1
+    },
+
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+
+      "items": {
+
+        "type": "object",
+
+        "required": [
+          "step_index",
+          "step_id",
+          "query_spec"
+        ],
+
+        "properties": {
+
+          "step_index": {
+            "type": "integer",
+            "minimum": 1
+          },
+
+          "step_id": {
+            "type": "string",
+            "minLength": 1
+          },
+
+          "query_spec": {
+            "type": "object",
+
+            "required": [
+              "cube",
+              "measures"
+            ],
+
+            "properties": {
+
+              "cube": {
+                "type": "string"
+              },
+
+              "measures": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              },
+
+              "group_by": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+
+              "slicers": {
+                "type": "object"
+              },
+
+              "aggregators": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+
+              "units": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+
+              "window_start": {
+                "type": "string"
+              },
+
+              "window_end": {
+                "type": "string"
+              },
+
+              "time_members": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+
+            },
+
+            "additionalProperties": true
+          }
+
+        },
+
+        "additionalProperties": false
+      }
+
+    }
+
+  },
+
+  "additionalProperties": false
+}
