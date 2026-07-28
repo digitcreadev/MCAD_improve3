@@ -305,4 +305,3 @@ def test_non_membership_digest_normalizes_identifier_only_fields() -> None:
         non_membership_semantic_digest(reference)
         == non_membership_semantic_digest(renamed)
     )
-
