@@ -227,3 +227,86 @@ def test_invalid_required_level_contract_is_rejected(
             campaign_dir,
             required_levels=(25, 50, 100),
         )
+
+def test_auditor_import_is_silent_and_does_not_touch_constraint_count_reports(
+    tmp_path: Path,
+) -> None:
+    import hashlib
+    import os
+    import subprocess
+    import sys
+
+    repository_root = (
+        Path(__file__).resolve().parents[4]
+    )
+
+    constraint_count_report_dir = (
+        repository_root
+        / "reports/article_experiments/sensitivity/"
+        "e3_controlled_execution/audits/"
+        "constraint_count"
+    )
+
+    def snapshot() -> dict[str, str]:
+        if not constraint_count_report_dir.is_dir():
+            return {}
+
+        result = {}
+
+        for path in sorted(
+            constraint_count_report_dir.rglob("*")
+        ):
+            if path.is_file():
+                relative = str(
+                    path.relative_to(
+                        constraint_count_report_dir
+                    )
+                )
+
+                result[relative] = (
+                    hashlib.sha256(
+                        path.read_bytes()
+                    ).hexdigest()
+                )
+
+        return result
+
+    before = snapshot()
+
+    environment = dict(os.environ)
+
+    environment["PYTHONPATH"] = str(
+        repository_root
+    )
+
+    environment[
+        "PYTHONDONTWRITEBYTECODE"
+    ] = "1"
+
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "-c",
+            (
+                "import "
+                "backend.harness.sensitivity_execution."
+                "tools."
+                "audit_membership_density_common_workload"
+            ),
+        ],
+        cwd=tmp_path,
+        env=environment,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+
+    assert completed.returncode == 0, (
+        completed.stdout
+        + completed.stderr
+    )
+
+    assert completed.stdout == ""
+    assert completed.stderr == ""
+    assert snapshot() == before

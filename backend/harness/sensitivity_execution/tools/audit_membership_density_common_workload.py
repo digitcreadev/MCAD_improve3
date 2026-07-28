@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 from collections import defaultdict
+from copy import deepcopy
 from dataclasses import dataclass
 from hashlib import sha256
 from pathlib import Path
@@ -10,10 +11,6 @@ from typing import Any, Mapping, Sequence
 
 from backend.harness.sensitivity_execution.execute_controlled_family import (
     _discover_all_instances,
-)
-from backend.harness.sensitivity_execution.tools.audit_constraint_count_common_workload import (
-    SEMANTIC_FIELDS,
-    workload_query_spec,
 )
 from backend.harness.sensitivity_generator.oracles.membership_density_oracle import (
     assert_valid_density,
@@ -46,6 +43,64 @@ TARGET_MEMBERSHIP_COUNTS = {
     75: 18,
     100: 24,
 }
+
+
+# Copied from the validated historical workload contract.
+# It is defined locally because importing the historical
+# audit script executes that script and produces unrelated
+# constraint-count reports.
+SEMANTIC_FIELDS = (
+    "fact",
+    "grain",
+    "measure",
+    "aggregator",
+    "unit",
+    "slicers",
+    "window_start",
+    "window_end",
+)
+
+
+def workload_query_spec(
+    semantic_node: dict[str, Any],
+) -> dict[str, Any]:
+    year = (
+        semantic_node
+        .get("slicers", {})
+        .get("Time.Year")
+    )
+
+    query_spec = {
+        "cube": semantic_node["fact"],
+        "measures": [
+            semantic_node["measure"]
+        ],
+        "group_by": list(
+            semantic_node["grain"]
+        ),
+        "slicers": deepcopy(
+            semantic_node["slicers"]
+        ),
+        "aggregators": [
+            semantic_node["aggregator"]
+        ],
+        "units": [
+            semantic_node["unit"]
+        ],
+        "window_start": (
+            semantic_node["window_start"]
+        ),
+        "window_end": (
+            semantic_node["window_end"]
+        ),
+    }
+
+    if year is not None:
+        query_spec["time_members"] = [
+            str(year)
+        ]
+
+    return query_spec
 
 
 class MembershipDensityWorkloadAuditError(
