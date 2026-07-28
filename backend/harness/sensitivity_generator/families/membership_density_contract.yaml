@@ -1,0 +1,84 @@
+schema_version: mcad-sensitivity-sa4-membership-density-contract-v1
+
+stage: SA4_membership_density_contract_formalization
+factor: membership_density
+
+factor_level_encoding:
+  type: integer_percentage
+  levels:
+    - 25
+    - 50
+    - 75
+    - 100
+  realised_density_formula: factor_level / 100
+
+mathematical_definition:
+  numerator: sum of requirement-set membership link counts
+  denominator: sum over constraints of requirement_set_count multiplied by local_virtual_node_count
+  formula: membership_count / maximum_membership_count
+
+baseline:
+  constraint_count: 4
+  total_virtual_node_count: 24
+  requirement_sets_per_constraint: 1
+  total_requirement_set_count: 4
+  maximum_membership_count: 24
+
+target_membership_counts:
+  25: 6
+  50: 12
+  75: 18
+  100: 24
+
+ofat_invariants:
+  - constraint count remains equal to 4
+  - total virtual-node count remains equal to 24
+  - virtual-node distribution by constraint remains fixed
+  - requirement-set count remains equal to 4
+  - one requirement set remains attached to each constraint
+  - all virtual-node attributes remain fixed within one seed
+  - all KPI, measure, aggregator, unit and grain attributes remain fixed
+  - only requirement-set membership links vary
+  - graph node count remains fixed
+  - graph edges excluding membership links remain fixed
+  - generator version remains fixed
+
+membership_selection:
+  deterministic: true
+  nested_across_levels: true
+  balanced_across_constraints: true
+  maximum_count_difference_between_constraints: 1
+  every_requirement_set_nonempty: true
+  unknown_references_allowed: false
+  duplicate_memberships_allowed: false
+
+oracle:
+  implementation: backend/harness/sensitivity_generator/oracles/membership_density_oracle.py
+  independent_from_structural_generator: true
+  independent_from_controlled_family_generator: true
+  validates:
+    - exact numerator and denominator
+    - exact rational density
+    - reference integrity
+    - nonempty requirement sets
+    - nested membership sets
+    - balanced allocation
+    - one-factor-at-a-time invariants
+
+replication_design:
+  initial_stage: 10
+  adaptive_stages:
+    - 10
+    - 20
+    - 30
+  seed_schedule: sa3_preregistered_seed_schedule.json
+  timing_precision_targets:
+    median_relative_half_width: 0.10
+    p95_relative_half_width: 0.15
+
+execution_status:
+  generator_extension_complete: false
+  instances_generated: false
+  controlled_execution_started: false
+  timing_execution_started: false
+  scientific_freeze: false
