@@ -5,11 +5,11 @@ import csv
 import hashlib
 import json
 import math
+import random
+from bisect import bisect_right
 from collections import defaultdict
 from pathlib import Path
 from typing import Any, Sequence
-
-import numpy as np
 
 
 ANALYZER_VERSION = (
@@ -85,29 +85,53 @@ def truth_value(value: Any) -> bool:
 
 
 def linear_quantile(
-    values: np.ndarray,
+    values: Sequence[float],
     probability: float,
-    *,
-    axis: int | tuple[int, ...] | None = None,
-) -> np.ndarray | np.floating[Any]:
-    try:
-        return np.quantile(
-            values,
-            probability,
-            axis=axis,
-            method="linear",
+) -> float:
+    if not values:
+        raise PrecisionAnalysisError(
+            "Cannot calculate a quantile from "
+            "an empty sequence."
         )
-    except TypeError:
-        return np.quantile(
-            values,
-            probability,
-            axis=axis,
-            interpolation="linear",
+
+    if not 0.0 <= probability <= 1.0:
+        raise PrecisionAnalysisError(
+            "Quantile probability must lie "
+            "between 0 and 1."
         )
+
+    ordered = sorted(
+        float(value)
+        for value in values
+    )
+
+    if len(ordered) == 1:
+        return ordered[0]
+
+    position = probability * (
+        len(ordered) - 1
+    )
+
+    lower_index = math.floor(position)
+    upper_index = math.ceil(position)
+
+    if lower_index == upper_index:
+        return ordered[lower_index]
+
+    fraction = position - lower_index
+
+    return (
+        ordered[lower_index]
+        + fraction
+        * (
+            ordered[upper_index]
+            - ordered[lower_index]
+        )
+    )
 
 
 def percentile_interval(
-    values: np.ndarray,
+    values: Sequence[float],
     confidence_level: float,
 ) -> tuple[float, float]:
     alpha = 1.0 - confidence_level
@@ -184,7 +208,7 @@ def validate_and_group(
 ) -> tuple[
     dict[
         tuple[int, int],
-        dict[int, np.ndarray],
+        dict[int, tuple[float, ...]],
     ],
     dict[int, int],
 ]:
@@ -203,8 +227,8 @@ def validate_and_group(
     ):
         if row.get("phase") != "measurement":
             raise PrecisionAnalysisError(
-                "Combined formal timing CSV must contain "
-                "measurement rows only; "
+                "Combined formal timing CSV must "
+                "contain measurement rows only; "
                 f"row={row_index}."
             )
 
@@ -212,8 +236,8 @@ def validate_and_group(
             row.get("fresh_state")
         ):
             raise PrecisionAnalysisError(
-                "Observation lacks fresh-state evidence; "
-                f"row={row_index}."
+                "Observation lacks fresh-state "
+                f"evidence; row={row_index}."
             )
 
         if not truth_value(
@@ -246,11 +270,14 @@ def validate_and_group(
             ValueError,
         ) as exc:
             raise PrecisionAnalysisError(
-                "Invalid formal timing observation at "
-                f"row {row_index}: {exc}"
+                "Invalid formal timing observation "
+                f"at row {row_index}: {exc}"
             ) from exc
 
-        if not math.isfinite(latency) or latency <= 0:
+        if (
+            not math.isfinite(latency)
+            or latency <= 0.0
+        ):
             raise PrecisionAnalysisError(
                 "Latency must be positive and finite; "
                 f"row={row_index}, value={latency}."
@@ -306,9 +333,9 @@ def validate_and_group(
             f"{sorted(grouped_lists)}."
         )
 
-    grouped_arrays: dict[
+    grouped: dict[
         tuple[int, int],
-        dict[int, np.ndarray],
+        dict[int, tuple[float, ...]],
     ] = {}
 
     for cell, replication_groups in (
@@ -323,45 +350,185 @@ def validate_and_group(
                 f"replications: cell={cell}."
             )
 
-        grouped_arrays[cell] = {}
+        grouped[cell] = {}
 
         for replication, values in (
             replication_groups.items()
         ):
             if len(values) != 100:
                 raise PrecisionAnalysisError(
-                    "Every seed-level-step cluster must "
-                    "contain 100 measurements: "
+                    "Every seed-level-step cluster "
+                    "must contain 100 measurements: "
                     f"cell={cell}, "
                     f"replication={replication}, "
                     f"count={len(values)}."
                 )
 
-            grouped_arrays[cell][
-                replication
-            ] = np.asarray(
-                values,
-                dtype=np.float64,
+            grouped[cell][replication] = tuple(
+                sorted(values)
             )
 
-    return grouped_arrays, seed_by_replication
+    return grouped, seed_by_replication
+
+
+def weighted_kth(
+    *,
+    sorted_clusters: Sequence[
+        Sequence[float]
+    ],
+    multiplicities: Sequence[int],
+    support: Sequence[float],
+    rank: int,
+) -> float:
+    total_count = sum(
+        multiplicity * len(cluster)
+        for cluster, multiplicity
+        in zip(
+            sorted_clusters,
+            multiplicities,
+            strict=True,
+        )
+    )
+
+    if rank < 0 or rank >= total_count:
+        raise PrecisionAnalysisError(
+            "Weighted rank lies outside the "
+            "bootstrap sample."
+        )
+
+    lower = 0
+    upper = len(support) - 1
+
+    while lower < upper:
+        middle = (
+            lower + upper
+        ) // 2
+
+        candidate = support[middle]
+
+        cumulative_count = sum(
+            multiplicity
+            * bisect_right(
+                cluster,
+                candidate,
+            )
+            for cluster, multiplicity
+            in zip(
+                sorted_clusters,
+                multiplicities,
+                strict=True,
+            )
+        )
+
+        if cumulative_count > rank:
+            upper = middle
+        else:
+            lower = middle + 1
+
+    return float(support[lower])
+
+
+def weighted_linear_quantile(
+    *,
+    sorted_clusters: Sequence[
+        Sequence[float]
+    ],
+    multiplicities: Sequence[int],
+    support: Sequence[float],
+    probability: float,
+) -> float:
+    if not 0.0 <= probability <= 1.0:
+        raise PrecisionAnalysisError(
+            "Quantile probability must lie "
+            "between 0 and 1."
+        )
+
+    sample_size = sum(
+        multiplicity * len(cluster)
+        for cluster, multiplicity
+        in zip(
+            sorted_clusters,
+            multiplicities,
+            strict=True,
+        )
+    )
+
+    if sample_size <= 0:
+        raise PrecisionAnalysisError(
+            "Weighted bootstrap sample is empty."
+        )
+
+    position = probability * (
+        sample_size - 1
+    )
+
+    lower_rank = math.floor(position)
+    upper_rank = math.ceil(position)
+
+    lower_value = weighted_kth(
+        sorted_clusters=sorted_clusters,
+        multiplicities=multiplicities,
+        support=support,
+        rank=lower_rank,
+    )
+
+    if lower_rank == upper_rank:
+        return lower_value
+
+    upper_value = weighted_kth(
+        sorted_clusters=sorted_clusters,
+        multiplicities=multiplicities,
+        support=support,
+        rank=upper_rank,
+    )
+
+    fraction = position - lower_rank
+
+    return (
+        lower_value
+        + fraction
+        * (upper_value - lower_value)
+    )
 
 
 def cluster_bootstrap_cell(
-    cluster_matrix: np.ndarray,
+    cluster_matrix: Sequence[
+        Sequence[float]
+    ],
     *,
     repetitions: int,
     bootstrap_seed: int,
     confidence_level: float,
     chunk_size: int = 500,
 ) -> dict[str, Any]:
-    if (
-        cluster_matrix.ndim != 2
-        or cluster_matrix.shape != (10, 100)
-    ):
+    del chunk_size
+
+    if len(cluster_matrix) != 10:
         raise PrecisionAnalysisError(
-            "Expected a 10 × 100 cluster matrix; "
-            f"actual={cluster_matrix.shape}."
+            "Expected ten structural-seed clusters; "
+            f"actual={len(cluster_matrix)}."
+        )
+
+    sorted_clusters = [
+        tuple(
+            sorted(
+                float(value)
+                for value in cluster
+            )
+        )
+        for cluster in cluster_matrix
+    ]
+
+    invalid_lengths = [
+        len(cluster)
+        for cluster in sorted_clusters
+        if len(cluster) != 100
+    ]
+
+    if invalid_lengths:
+        raise PrecisionAnalysisError(
+            "Every structural-seed cluster must "
+            "contain 100 measurements."
         )
 
     if repetitions < 1000:
@@ -377,78 +544,74 @@ def cluster_bootstrap_cell(
             "Confidence level must lie between 0 and 1."
         )
 
-    pooled = cluster_matrix.reshape(-1)
+    pooled = [
+        value
+        for cluster in sorted_clusters
+        for value in cluster
+    ]
 
-    point_median = float(
-        np.median(pooled)
+    support = sorted(set(pooled))
+
+    point_median = linear_quantile(
+        pooled,
+        0.50,
     )
 
-    point_p95 = float(
-        linear_quantile(
-            pooled,
-            0.95,
-        )
+    point_p95 = linear_quantile(
+        pooled,
+        0.95,
     )
 
-    rng = np.random.default_rng(
+    rng = random.Random(
         bootstrap_seed
     )
 
-    bootstrap_medians = np.empty(
-        repetitions,
-        dtype=np.float64,
+    bootstrap_medians: list[float] = []
+    bootstrap_p95: list[float] = []
+
+    cluster_count = len(
+        sorted_clusters
     )
 
-    bootstrap_p95 = np.empty(
-        repetitions,
-        dtype=np.float64,
-    )
+    for _ in range(repetitions):
+        multiplicities = [
+            0
+            for _ in range(cluster_count)
+        ]
 
-    cluster_count = cluster_matrix.shape[0]
+        for _ in range(cluster_count):
+            selected_cluster = rng.randrange(
+                cluster_count
+            )
 
-    for start in range(
-        0,
-        repetitions,
-        chunk_size,
-    ):
-        stop = min(
-            start + chunk_size,
-            repetitions,
-        )
+            multiplicities[
+                selected_cluster
+            ] += 1
 
-        current_size = stop - start
-
-        sampled_cluster_indices = (
-            rng.integers(
-                0,
-                cluster_count,
-                size=(
-                    current_size,
-                    cluster_count,
+        bootstrap_medians.append(
+            weighted_linear_quantile(
+                sorted_clusters=(
+                    sorted_clusters
                 ),
+                multiplicities=(
+                    multiplicities
+                ),
+                support=support,
+                probability=0.50,
             )
         )
 
-        sampled = cluster_matrix[
-            sampled_cluster_indices
-        ].reshape(
-            current_size,
-            -1,
-        )
-
-        bootstrap_medians[
-            start:stop
-        ] = np.median(
-            sampled,
-            axis=1,
-        )
-
-        bootstrap_p95[
-            start:stop
-        ] = linear_quantile(
-            sampled,
-            0.95,
-            axis=1,
+        bootstrap_p95.append(
+            weighted_linear_quantile(
+                sorted_clusters=(
+                    sorted_clusters
+                ),
+                multiplicities=(
+                    multiplicities
+                ),
+                support=support,
+                probability=0.95,
+            )
         )
 
     (
@@ -489,22 +652,26 @@ def cluster_bootstrap_cell(
     for excluded_cluster in range(
         cluster_count
     ):
-        retained = np.delete(
-            cluster_matrix,
-            excluded_cluster,
-            axis=0,
-        ).reshape(-1)
+        retained = [
+            value
+            for cluster_index, cluster
+            in enumerate(sorted_clusters)
+            if cluster_index
+            != excluded_cluster
+            for value in cluster
+        ]
 
         leave_one_out_medians.append(
-            float(np.median(retained))
+            linear_quantile(
+                retained,
+                0.50,
+            )
         )
 
         leave_one_out_p95.append(
-            float(
-                linear_quantile(
-                    retained,
-                    0.95,
-                )
+            linear_quantile(
+                retained,
+                0.95,
             )
         )
 
@@ -564,14 +731,12 @@ def analyze_precision(
     cell_results = []
 
     for level, step in sorted(grouped):
-        cluster_matrix = np.vstack(
-            [
-                grouped[
-                    (level, step)
-                ][replication]
-                for replication in range(10)
-            ]
-        )
+        cluster_groups = [
+            grouped[
+                (level, step)
+            ][replication]
+            for replication in range(10)
+        ]
 
         cell_seed = (
             bootstrap_seed
@@ -581,7 +746,7 @@ def analyze_precision(
 
         statistics_record = (
             cluster_bootstrap_cell(
-                cluster_matrix,
+                cluster_groups,
                 repetitions=(
                     bootstrap_repetitions
                 ),
@@ -905,6 +1070,14 @@ def main(
             "analyzer_version": (
                 ANALYZER_VERSION
             ),
+            "analyzer_source": {
+                "path": str(
+                    Path(__file__).resolve()
+                ),
+                "sha256": sha256_file(
+                    Path(__file__)
+                ),
+            },
             "stage": (
                 "SA3_stage_10_precision_analysis"
             ),

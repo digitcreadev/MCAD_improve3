@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-import numpy as np
 import pytest
 
 from backend.harness.sensitivity_execution.analyze_clustered_timing_precision import (
     PrecisionAnalysisError,
     cluster_bootstrap_cell,
+    linear_quantile,
     relative_half_width,
 )
 
@@ -29,12 +29,25 @@ def test_relative_half_width_rejects_zero_point() -> None:
         )
 
 
+def test_linear_quantile() -> None:
+    values = [1.0, 2.0, 3.0, 4.0]
+
+    assert linear_quantile(
+        values,
+        0.50,
+    ) == pytest.approx(2.5)
+
+    assert linear_quantile(
+        values,
+        0.95,
+    ) == pytest.approx(3.85)
+
+
 def test_constant_clusters_have_zero_width() -> None:
-    matrix = np.full(
-        (10, 100),
-        0.5,
-        dtype=np.float64,
-    )
+    matrix = [
+        [0.5] * 100
+        for _ in range(10)
+    ]
 
     result = cluster_bootstrap_cell(
         matrix,
@@ -57,40 +70,99 @@ def test_constant_clusters_have_zero_width() -> None:
     )
 
 
-def test_cluster_bootstrap_is_deterministic() -> None:
-    matrix = np.vstack(
+def test_cluster_bootstrap_point_estimates_match_pool() -> None:
+    matrix = [
         [
-            np.linspace(
-                0.1 + index * 0.01,
-                0.2 + index * 0.01,
-                100,
-            )
-            for index in range(10)
+            0.1
+            + cluster_index * 0.01
+            + observation_index * 0.0001
+            for observation_index in range(100)
         ]
+        for cluster_index in range(10)
+    ]
+
+    pooled = [
+        value
+        for cluster in matrix
+        for value in cluster
+    ]
+
+    result = cluster_bootstrap_cell(
+        matrix,
+        repetitions=1000,
+        bootstrap_seed=456,
+        confidence_level=0.95,
     )
+
+    assert result[
+        "point_median_ms"
+    ] == pytest.approx(
+        linear_quantile(
+            pooled,
+            0.50,
+        )
+    )
+
+    assert result[
+        "point_p95_ms"
+    ] == pytest.approx(
+        linear_quantile(
+            pooled,
+            0.95,
+        )
+    )
+
+
+def test_cluster_bootstrap_is_deterministic() -> None:
+    matrix = [
+        [
+            0.1
+            + cluster_index * 0.01
+            + observation_index * 0.001
+            for observation_index in range(100)
+        ]
+        for cluster_index in range(10)
+    ]
 
     first = cluster_bootstrap_cell(
         matrix,
         repetitions=1000,
-        bootstrap_seed=456,
+        bootstrap_seed=789,
         confidence_level=0.95,
     )
 
     second = cluster_bootstrap_cell(
         matrix,
         repetitions=1000,
-        bootstrap_seed=456,
+        bootstrap_seed=789,
         confidence_level=0.95,
     )
 
     assert first == second
 
 
-def test_cluster_bootstrap_rejects_wrong_shape() -> None:
-    matrix = np.ones(
-        (9, 100),
-        dtype=np.float64,
-    )
+def test_cluster_bootstrap_rejects_wrong_cluster_count() -> None:
+    matrix = [
+        [1.0] * 100
+        for _ in range(9)
+    ]
+
+    with pytest.raises(PrecisionAnalysisError):
+        cluster_bootstrap_cell(
+            matrix,
+            repetitions=1000,
+            bootstrap_seed=1,
+            confidence_level=0.95,
+        )
+
+
+def test_cluster_bootstrap_rejects_wrong_cluster_size() -> None:
+    matrix = [
+        [1.0] * 100
+        for _ in range(10)
+    ]
+
+    matrix[3] = [1.0] * 99
 
     with pytest.raises(PrecisionAnalysisError):
         cluster_bootstrap_cell(
@@ -102,10 +174,10 @@ def test_cluster_bootstrap_rejects_wrong_shape() -> None:
 
 
 def test_cluster_bootstrap_rejects_too_few_repetitions() -> None:
-    matrix = np.ones(
-        (10, 100),
-        dtype=np.float64,
-    )
+    matrix = [
+        [1.0] * 100
+        for _ in range(10)
+    ]
 
     with pytest.raises(PrecisionAnalysisError):
         cluster_bootstrap_cell(
