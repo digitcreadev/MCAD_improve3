@@ -140,3 +140,19 @@ must not be reused across structural seeds.
 The auditor produces deterministic per-replication workload blueprints.
 These blueprints are not yet canonical E3 workload specifications. No
 canonical campaign or execution has been started.
+
+## Canonical campaign preregistration
+
+The canonical SA4 campaign reuses the first ten structural seeds from the
+existing preregistered sensitivity schedule. The `additional_seeds` field
+from the SA3 stage-20 audit is the second ten-seed tranche of that same
+schedule, not an alternative seed schedule.
+
+The frozen campaign identifier is
+`membership_density_stage10_c4_nv24`. It contains four density levels and
+ten structural replications, for 40 expected instances. Each replication
+uses one deterministic 24-step workload across its four density levels.
+
+The preregistration authorizes canonical campaign generation but does not
+constitute campaign generation, controlled execution, timing execution or
+scientific freeze.

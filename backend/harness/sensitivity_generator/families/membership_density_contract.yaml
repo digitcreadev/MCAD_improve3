@@ -80,6 +80,7 @@ execution_status:
   generator_extension_complete: true
   e3_compatibility_complete: true
   common_workload_auditor_complete: true
+  canonical_campaign_preregistration_complete: true
   instances_generated: false
   controlled_execution_started: false
   timing_execution_started: false
@@ -136,3 +137,27 @@ common_workload_auditor:
   cross_replication_workload_reuse: false
   global_workload_authorized: false
   canonical_campaign_generated: false
+
+canonical_campaign_preregistration:
+  path: backend/harness/sensitivity_generator/families/membership_density_preregistration.json
+  status: frozen
+  campaign_id: membership_density_stage10_c4_nv24
+  factor: membership_density
+  seed_schedule_source: reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_preregistered_seed_schedule.json
+  seed_schedule_key: $.all_seeds
+  seed_selection_rule: first_10_preregistered_structural_seeds
+  structural_seed_count: 10
+  structural_seed_digest: 451262bdcb669f38f98b4d15bbf32df768a31f2d0c790c6c1d43d57f8ad195a7
+  levels: [25, 50, 75, 100]
+  expected_instance_count: 40
+  baseline_constraint_count: 4
+  baseline_virtual_node_count: 24
+  expected_partition_count: 10
+  workload_steps_per_partition: 24
+  additional_seeds_are_continuation: true
+  alternative_seed_schedule: false
+  canonical_campaign_generation_authorized: true
+  canonical_campaign_generated: false
+  controlled_execution_started: false
+  timing_execution_started: false
+  scientific_freeze: false
