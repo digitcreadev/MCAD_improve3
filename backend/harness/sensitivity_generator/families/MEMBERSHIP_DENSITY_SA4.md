@@ -125,3 +125,18 @@ executor and treats factor levels as integers.
 
 No canonical membership-density campaign has yet been generated or
 executed.
+
+## Membership-density common-workload auditor
+
+The SA4 workload is stratified by structural replication. Each structural
+seed receives one deterministic 24-step workload that is shared across its
+25%, 50%, 75% and 100% density instances.
+
+The auditor verifies the exact level matrix, fixed non-membership
+semantics, identical semantic-node sets, identical query specifications,
+exact membership counts and strictly nested membership edges. Workloads
+must not be reused across structural seeds.
+
+The auditor produces deterministic per-replication workload blueprints.
+These blueprints are not yet canonical E3 workload specifications. No
+canonical campaign or execution has been started.
