@@ -107,3 +107,21 @@ non-membership semantic attributes.
 
 The generator extension is implemented and tested. No canonical SA4
 campaign has yet been generated.
+
+## E3 compatibility
+
+E3 compatibility is defined by factor-specific generator profiles rather
+than by a global set of independently accepted versions.
+
+The historical profiles remain accepted for `constraint_count` and
+`virtual_node_count`. The dedicated density profile is accepted only for
+`membership_density`. Cross-factor generator-version combinations are
+rejected.
+
+The E3 executor records the campaign generator version read from the
+validated campaign manifest. The reset-safe timing harness remains
+unchanged because it already delegates input discovery to the canonical
+executor and treats factor levels as integers.
+
+No canonical membership-density campaign has yet been generated or
+executed.

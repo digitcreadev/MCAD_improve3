@@ -78,6 +78,7 @@ replication_design:
 
 execution_status:
   generator_extension_complete: true
+  e3_compatibility_complete: true
   instances_generated: false
   controlled_execution_started: false
   timing_execution_started: false
@@ -96,3 +97,21 @@ implementation:
   legacy_structural_generator_modified: false
   legacy_controlled_family_generator_modified: false
   independent_oracle_validation_required: true
+
+e3_compatibility:
+  executor_path: backend/harness/sensitivity_execution/execute_controlled_family.py
+  executor_version: mcad-sensitivity-e3-v2
+  validation_mode: factor_specific_generator_profiles
+  accepted_profiles:
+    constraint_count:
+      campaign_generator_version: mcad-sensitivity-e2.2-v1
+      structural_generator_version: mcad-sensitivity-e2.1-v1
+    virtual_node_count:
+      campaign_generator_version: mcad-sensitivity-e2.2-v1
+      structural_generator_version: mcad-sensitivity-e2.1-v1
+    membership_density:
+      campaign_generator_version: mcad-sensitivity-e2.2-membership-density-v1
+      structural_generator_version: mcad-sensitivity-e2.1-membership-density-v1
+  cross_factor_version_pairs_allowed: false
+  actual_campaign_version_preserved_in_evidence: true
+  timing_harness_modified: false

@@ -14,13 +14,55 @@ from typing import Any, Iterable, Mapping, Sequence
 from backend.ckg.ckg_updater import CKGGraph
 
 
-E3_EXECUTOR_VERSION = "mcad-sensitivity-e3-v1"
-EXPECTED_E22_VERSION = "mcad-sensitivity-e2.2-v1"
-EXPECTED_E21_VERSION = "mcad-sensitivity-e2.1-v1"
+E3_EXECUTOR_VERSION = "mcad-sensitivity-e3-v2"
+
+LEGACY_E22_VERSION = "mcad-sensitivity-e2.2-v1"
+LEGACY_E21_VERSION = "mcad-sensitivity-e2.1-v1"
+
+MEMBERSHIP_DENSITY_E22_VERSION = (
+    "mcad-sensitivity-e2.2-membership-density-v1"
+)
+MEMBERSHIP_DENSITY_E21_VERSION = (
+    "mcad-sensitivity-e2.1-membership-density-v1"
+)
+
+# Backward-compatible aliases retained for callers that
+# imported the historical single-version constants.
+EXPECTED_E22_VERSION = LEGACY_E22_VERSION
+EXPECTED_E21_VERSION = LEGACY_E21_VERSION
+
+SUPPORTED_GENERATOR_VERSION_PAIRS = {
+    "constraint_count": (
+        LEGACY_E22_VERSION,
+        LEGACY_E21_VERSION,
+    ),
+    "virtual_node_count": (
+        LEGACY_E22_VERSION,
+        LEGACY_E21_VERSION,
+    ),
+    "membership_density": (
+        MEMBERSHIP_DENSITY_E22_VERSION,
+        MEMBERSHIP_DENSITY_E21_VERSION,
+    ),
+}
 
 
 class E3ExecutionError(RuntimeError):
     """Raised when an E3 controlled execution input is invalid."""
+
+
+def _expected_generator_versions(
+    factor: str,
+) -> tuple[str, str]:
+    try:
+        return SUPPORTED_GENERATOR_VERSION_PAIRS[
+            factor
+        ]
+    except KeyError as exc:
+        raise E3ExecutionError(
+            "Unsupported controlled-experiment factor: "
+            f"{factor!r}."
+        ) from exc
 
 
 @dataclass(frozen=True)
@@ -466,22 +508,35 @@ def _discover_all_instances(
         )
     )
 
+    (
+        expected_campaign_generator_version,
+        expected_structural_generator_version,
+    ) = _expected_generator_versions(
+        factor
+    )
+
     if (
         campaign_generator_version
-        != EXPECTED_E22_VERSION
+        != expected_campaign_generator_version
     ):
         raise E3ExecutionError(
-            "Unsupported E2.2 campaign generator version: "
-            f"{campaign_generator_version!r}"
+            "Unsupported E2.2 campaign generator version "
+            f"for factor {factor!r}: "
+            f"expected="
+            f"{expected_campaign_generator_version!r}, "
+            f"actual={campaign_generator_version!r}."
         )
 
     if (
         structural_generator_version
-        != EXPECTED_E21_VERSION
+        != expected_structural_generator_version
     ):
         raise E3ExecutionError(
-            "Unsupported E2.1 structural generator version: "
-            f"{structural_generator_version!r}"
+            "Unsupported E2.1 structural generator version "
+            f"for factor {factor!r}: "
+            f"expected="
+            f"{expected_structural_generator_version!r}, "
+            f"actual={structural_generator_version!r}."
         )
 
     expected_count = _required_integer(
@@ -641,11 +696,17 @@ def _discover_all_instances(
             row_number,
         )
 
-        if generator_version != EXPECTED_E21_VERSION:
+        if (
+            generator_version
+            != expected_structural_generator_version
+        ):
             raise E3ExecutionError(
                 f"Instance {canonical_instance_id}: "
-                "unexpected generator version "
-                f"{generator_version!r}."
+                "unexpected generator version for "
+                f"factor {factor!r}: "
+                f"expected="
+                f"{expected_structural_generator_version!r}, "
+                f"actual={generator_version!r}."
             )
 
         discovered.append(
@@ -1529,7 +1590,9 @@ def _base_instance_manifest(
             instance.generator_version
         ),
         "campaign_generator_version": (
-            EXPECTED_E22_VERSION
+            inputs.campaign_manifest[
+                "campaign_generator_version"
+            ]
         ),
         "evaluator_component": "CKGGraph",
         "evaluator_entrypoint": (
