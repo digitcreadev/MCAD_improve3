@@ -86,3 +86,24 @@ the constraint-count family.
 
 No instance generation, controlled execution, timing claim or scientific
 freeze is authorized by this contract alone.
+
+## Generator implementation
+
+The density-controlled implementation is isolated from the historical
+E2.1 and E2.2 generators:
+
+- `membership_density_generator.py`;
+- `families/membership_density_family.py`.
+
+The historical `structural_generator.py` and `controlled_families.py`
+remain byte-identical. The dedicated family generator emits integer
+percentage levels and validates every replication through the independent
+oracle.
+
+Objective, constraint, KPI and virtual-node identifiers may depend on the
+experimental condition. The independent oracle therefore normalizes these
+technical identifiers while preserving KPI cardinality and all
+non-membership semantic attributes.
+
+The generator extension is implemented and tested. No canonical SA4
+campaign has yet been generated.

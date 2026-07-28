@@ -69,6 +69,11 @@ def make_document(
             {
                 "id": "O_TEST",
                 "name": "O_TEST",
+                "kpis": [
+                    f"KPI{constraint_index}"
+                    for constraint_index
+                    in range(1, 5)
+                ],
                 "constraints": constraints,
             }
         ]
@@ -234,3 +239,70 @@ def test_oracle_source_does_not_import_generators() -> None:
 
     assert "structural_generator" not in source
     assert "controlled_families" not in source
+
+def test_non_membership_digest_normalizes_identifier_only_fields() -> None:
+    reference = make_document(
+        LEVEL_ALLOCATIONS[100]
+    )
+
+    renamed = make_document(
+        LEVEL_ALLOCATIONS[100]
+    )
+
+    objective = renamed["objectives"][0]
+
+    objective["id"] = "O_RENAMED"
+    objective["name"] = "O_RENAMED"
+
+    renamed_kpis = []
+
+    for constraint_index, constraint in enumerate(
+        objective["constraints"],
+        start=1,
+    ):
+        constraint["id"] = (
+            f"RENAMED_CONSTRAINT_{constraint_index}"
+        )
+
+        renamed_kpi = (
+            f"RENAMED_KPI_{constraint_index}"
+        )
+
+        constraint["kpi_id"] = renamed_kpi
+        renamed_kpis.append(renamed_kpi)
+
+        identifier_mapping = {}
+
+        for node_index, node in enumerate(
+            constraint["virtual_nodes"],
+            start=1,
+        ):
+            previous_id = node["id"]
+
+            renamed_id = (
+                f"RENAMED_C{constraint_index}_"
+                f"NV{node_index}"
+            )
+
+            node["id"] = renamed_id
+
+            identifier_mapping[
+                previous_id
+            ] = renamed_id
+
+        constraint["requirement_sets"] = [
+            [
+                identifier_mapping[member]
+                for member in requirement_set
+            ]
+            for requirement_set
+            in constraint["requirement_sets"]
+        ]
+
+    objective["kpis"] = renamed_kpis
+
+    assert (
+        non_membership_semantic_digest(reference)
+        == non_membership_semantic_digest(renamed)
+    )
+

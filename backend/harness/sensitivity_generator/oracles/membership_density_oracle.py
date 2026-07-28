@@ -560,12 +560,29 @@ def normalized_non_membership_payload(
         "constraints",
     }
 
+    objective_payload: dict[str, Any] = {}
+
+    for key, value in objective.items():
+        if key in objective_excluded:
+            continue
+
+        if key == "kpis":
+            if not isinstance(value, list):
+                raise DensityOracleError(
+                    "Objective KPI declarations must "
+                    "form a list."
+                )
+
+            objective_payload["kpi_count"] = len(
+                value
+            )
+
+            continue
+
+        objective_payload[key] = value
+
     return {
-        "objective_payload": {
-            key: value
-            for key, value in objective.items()
-            if key not in objective_excluded
-        },
+        "objective_payload": objective_payload,
         "constraints": normalized_constraints,
     }
 

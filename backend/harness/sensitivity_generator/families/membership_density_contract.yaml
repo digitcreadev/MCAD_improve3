@@ -77,8 +77,22 @@ replication_design:
     p95_relative_half_width: 0.15
 
 execution_status:
-  generator_extension_complete: false
+  generator_extension_complete: true
   instances_generated: false
   controlled_execution_started: false
   timing_execution_started: false
   scientific_freeze: false
+
+implementation:
+  structural_generator:
+    path: backend/harness/sensitivity_generator/membership_density_generator.py
+    version: mcad-sensitivity-e2.1-membership-density-v1
+  controlled_family_generator:
+    path: backend/harness/sensitivity_generator/families/membership_density_family.py
+    version: mcad-sensitivity-e2.2-membership-density-v1
+  independent_oracle:
+    path: backend/harness/sensitivity_generator/oracles/membership_density_oracle.py
+    version: mcad-sensitivity-sa4-membership-density-oracle-v1
+  legacy_structural_generator_modified: false
+  legacy_controlled_family_generator_modified: false
+  independent_oracle_validation_required: true
