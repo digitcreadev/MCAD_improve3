@@ -81,6 +81,7 @@ execution_status:
   e3_compatibility_complete: true
   common_workload_auditor_complete: true
   canonical_campaign_preregistration_complete: true
+  query_equivalence_contract_amendment_complete: true
   instances_generated: false
   controlled_execution_started: false
   timing_execution_started: false
@@ -120,11 +121,19 @@ e3_compatibility:
 
 common_workload_auditor:
   path: backend/harness/sensitivity_execution/tools/audit_membership_density_common_workload.py
-  version: mcad-sensitivity-sa4-membership-density-common-workload-auditor-v1
+  version: mcad-sensitivity-sa4-membership-density-common-workload-auditor-v2
   strategy: one_workload_per_structural_seed_shared_across_density_levels
   execution_partition_key: replication_index
   exact_levels: [25, 50, 75, 100]
-  workload_steps_per_replication: 24
+  workload_equivalence_key: canonical_query_spec_digest
+  workload_step_count_basis: unique_canonical_query_specs
+  structural_virtual_node_count_per_replication: 24
+  allowed_workload_steps_per_replication: [23, 24]
+  expected_partition_step_histogram:
+    23: 2
+    24: 8
+  equivalence_class_metadata_required: true
+  query_equivalent_nodes_grouped: true
   non_membership_semantics_fixed_within_replication: true
   semantic_node_sets_fixed_within_replication: true
   query_specs_fixed_within_replication: true
@@ -153,11 +162,44 @@ canonical_campaign_preregistration:
   baseline_constraint_count: 4
   baseline_virtual_node_count: 24
   expected_partition_count: 10
-  workload_steps_per_partition: 24
+  workload_equivalence_key: canonical_query_spec_digest
+  workload_step_count_basis: unique_canonical_query_specs
+  structural_virtual_node_count_per_partition: 24
+  allowed_workload_steps_per_partition: [23, 24]
+  expected_partition_step_histogram:
+    23: 2
+    24: 8
+  equivalence_class_metadata_required: true
   additional_seeds_are_continuation: true
   alternative_seed_schedule: false
   canonical_campaign_generation_authorized: true
   canonical_campaign_generated: false
   controlled_execution_started: false
   timing_execution_started: false
+  scientific_freeze: false
+
+query_equivalence_contract_amendment:
+  version: mcad-sensitivity-sa4-membership-density-query-equivalence-amendment-v1
+  status: frozen
+  amendment_parent_commit: 1880d15005b484bd22b327c168eb4dcc487a6933
+  trigger: pre_execution_query_equivalence_discovery
+  workload_equivalence_key: canonical_query_spec_digest
+  workload_step_count_basis: unique_canonical_query_specs
+  structural_virtual_node_count_per_partition: 24
+  allowed_workload_steps_per_partition: [23, 24]
+  expected_partition_step_histogram:
+    23: 2
+    24: 8
+  affected_structural_seeds: [1126922093, 1767972531]
+  affected_canonical_replications: [4, 9]
+  equivalence_class_metadata_required: true
+  support_conditional_contribution: true
+  original_seed_schedule_changed: false
+  original_density_levels_changed: false
+  original_instance_count_changed: false
+  generator_changed: false
+  evaluator_changed: false
+  canonical_campaign_generated_before_amendment: false
+  controlled_execution_observed: false
+  timing_data_observed: false
   scientific_freeze: false

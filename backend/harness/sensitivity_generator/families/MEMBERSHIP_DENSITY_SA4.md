@@ -129,17 +129,26 @@ executed.
 ## Membership-density common-workload auditor
 
 The SA4 workload is stratified by structural replication. Each structural
-seed receives one deterministic 24-step workload that is shared across its
-25%, 50%, 75% and 100% density instances.
+seed receives one deterministic workload shared across its 25%, 50%, 75%
+and 100% density instances. Workload steps are keyed by the digest of the
+canonical query specification rather than by the virtual-node identifier.
+
+Distinct virtual nodes that compile to the same canonical query
+specification form one explicit equivalence class and therefore share one
+workload step. Their structural identifiers, multiplicity and
+level-specific identifiers remain recorded in the blueprint. The
+structural baseline remains exactly 24 virtual nodes per replication.
 
 The auditor verifies the exact level matrix, fixed non-membership
-semantics, identical semantic-node sets, identical query specifications,
-exact membership counts and strictly nested membership edges. Workloads
-must not be reused across structural seeds.
+semantics, identical canonical query-specification sets, stable
+equivalence-class multiplicity, exact membership counts and strictly nested
+membership edges. Workloads must not be reused across structural seeds.
 
-The auditor produces deterministic per-replication workload blueprints.
-These blueprints are not yet canonical E3 workload specifications. No
-canonical campaign or execution has been started.
+For the preregistered ten-seed schedule, two replications contain 23 unique
+canonical query specifications and eight contain 24. The expected workload
+histogram is therefore 2 x 23 steps and 8 x 24 steps. These blueprints are
+not yet canonical E3 workload specifications. No canonical campaign or
+controlled execution has been started.
 
 ## Canonical campaign preregistration
 
@@ -151,8 +160,30 @@ schedule, not an alternative seed schedule.
 The frozen campaign identifier is
 `membership_density_stage10_c4_nv24`. It contains four density levels and
 ten structural replications, for 40 expected instances. Each replication
-uses one deterministic 24-step workload across its four density levels.
+retains 24 structural virtual nodes, while its workload contains either 23
+or 24 unique canonical query specifications. The frozen expected
+distribution is 2 x 23 steps and 8 x 24 steps.
 
-The preregistration authorizes canonical campaign generation but does not
-constitute campaign generation, controlled execution, timing execution or
+The versioned query-equivalence amendment was established before canonical
+campaign persistence, controlled execution and timing collection. It does
+not change the structural seeds, density levels, instance count, generator
+or evaluator. The preregistration authorizes canonical campaign generation
+but does not constitute controlled execution, timing execution or
 scientific freeze.
+
+## Query-equivalence contract amendment
+
+The amendment distinguishes structural virtual-node multiplicity from
+workload-query multiplicity. The workload equivalence key is the digest of
+the canonical query specification. Every blueprint step records the full
+equivalence class through its semantic digests, multiplicity and
+level-specific virtual-node identifiers.
+
+A support-aware runtime probe established that one canonical query realizes
+all virtual nodes in its equivalence class. Contribution remains conditional
+on active requirement-set support, and repeating the same query adds no
+resource and yields a zero contribution increment.
+
+This was a pre-execution protocol correction. No canonical campaign,
+controlled execution, temporal repetition, latency estimate or outcome
+statistic was available when the amendment was frozen.

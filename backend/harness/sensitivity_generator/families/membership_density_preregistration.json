@@ -54,6 +54,33 @@
     }
   },
   "next_stage": "SA4_membership_density_canonical_campaign_generation",
+  "query_equivalence_contract_amendment": {
+    "affected_canonical_replications": [
+      4,
+      9
+    ],
+    "affected_structural_seeds": [
+      1126922093,
+      1767972531
+    ],
+    "amendment_parent_commit": "1880d15005b484bd22b327c168eb4dcc487a6933",
+    "amendment_version": "mcad-sensitivity-sa4-membership-density-query-equivalence-amendment-v1",
+    "canonical_campaign_generated_before_amendment": false,
+    "controlled_execution_observed": false,
+    "equivalence_class_metadata_required": true,
+    "evaluator_changed": false,
+    "generator_changed": false,
+    "original_density_levels_changed": false,
+    "original_instance_count_changed": false,
+    "original_seed_schedule_changed": false,
+    "outcome_statistics_observed": false,
+    "reason": "Distinct virtual nodes may compile to the same canonical query specification. One query realizes every member of the equivalence class; repeating that query adds no resource.",
+    "runtime_evidence_path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_query_equivalence_support_aware_runtime_probe.json",
+    "runtime_evidence_status": "sa4_membership_density_query_equivalence_support_aware_runtime_probe_success",
+    "timing_data_observed": false,
+    "trigger": "pre_execution_query_equivalence_discovery",
+    "workload_equivalence_key": "canonical_query_spec_digest"
+  },
   "safety_state": {
     "canonical_campaign_generated": false,
     "canonical_campaign_generation_authorized": true,
@@ -63,7 +90,7 @@
     "scientific_freeze": false,
     "timing_execution_started": false
   },
-  "schema_version": "mcad-sensitivity-sa4-membership-density-canonical-campaign-preregistration-v1",
+  "schema_version": "mcad-sensitivity-sa4-membership-density-canonical-campaign-preregistration-v2",
   "seed_schedule_provenance": {
     "full_schedule_digest": "49b8c3d76acf79d4dbb0cda88b9446828c4a676f303ce5ebd68c4dbf4b30b1a1",
     "full_schedule_seed_count": 30,
@@ -88,10 +115,27 @@
   "stage": "SA4_membership_density_canonical_campaign_preregistration",
   "status": "frozen",
   "workload_contract": {
+    "allowed_workload_steps_per_partition": [
+      23,
+      24
+    ],
+    "equivalence_class_metadata_required": true,
     "execution_partition_key": "replication_index",
     "expected_partition_count": 10,
+    "expected_partition_step_histogram": {
+      "23": 2,
+      "24": 8
+    },
+    "expected_steps_by_affected_seed": {
+      "1126922093": 23,
+      "1767972531": 23
+    },
     "global_workload_authorized": false,
+    "query_equivalent_nodes_realized_together": true,
     "strategy": "one_workload_per_structural_seed_shared_across_density_levels",
-    "workload_steps_per_partition": 24
+    "structural_virtual_node_count_per_partition": 24,
+    "support_conditional_contribution": true,
+    "workload_equivalence_key": "canonical_query_spec_digest",
+    "workload_step_count_basis": "unique_canonical_query_specs"
   }
 }

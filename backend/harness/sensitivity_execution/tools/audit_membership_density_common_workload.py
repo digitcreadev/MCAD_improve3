@@ -22,7 +22,7 @@ from backend.harness.sensitivity_generator.oracles.membership_density_oracle imp
 
 AUDITOR_VERSION = (
     "mcad-sensitivity-sa4-membership-density-"
-    "common-workload-auditor-v1"
+    "common-workload-auditor-v2"
 )
 
 EXPECTED_FACTOR = "membership_density"
@@ -265,7 +265,13 @@ def _semantic_projection(
 def _semantic_node_map(
     document: Mapping[str, Any],
 ) -> dict[str, dict[str, Any]]:
+    """Group virtual nodes by canonical query specification.
+
+    Structural virtual-node identity and multiplicity are
+    preserved inside each query-equivalence class.
+    """
     result: dict[str, dict[str, Any]] = {}
+    seen_virtual_node_ids: set[str] = set()
 
     for node in _virtual_nodes(document):
         projection = _semantic_projection(node)
@@ -283,31 +289,197 @@ def _semantic_node_map(
                 "workload_query_spec must return a mapping."
             )
 
-        record = {
-            "semantic_id": semantic_id,
-            "semantic_projection": projection,
-            "query_spec": query_spec,
-        }
+        query_spec_digest = _sha256_payload(
+            query_spec
+        )
 
-        existing = result.get(semantic_id)
+        raw_virtual_node_id = node.get("id")
 
-        if existing is not None:
-            if (
-                _canonical_json_bytes(existing)
-                != _canonical_json_bytes(record)
-            ):
-                raise MembershipDensityWorkloadAuditError(
-                    "Semantic digest collision detected."
-                )
-
+        if (
+            not isinstance(
+                raw_virtual_node_id,
+                str,
+            )
+            or not raw_virtual_node_id.strip()
+        ):
             raise MembershipDensityWorkloadAuditError(
-                "Duplicate semantic virtual node detected "
-                f"for digest {semantic_id}."
+                "Every virtual node must expose a "
+                "non-empty string id."
             )
 
-        result[semantic_id] = record
+        virtual_node_id = (
+            raw_virtual_node_id.strip()
+        )
+
+        if (
+            virtual_node_id
+            in seen_virtual_node_ids
+        ):
+            raise MembershipDensityWorkloadAuditError(
+                "Duplicate virtual-node identifier "
+                f"detected: {virtual_node_id}."
+            )
+
+        seen_virtual_node_ids.add(
+            virtual_node_id
+        )
+
+        existing = result.get(
+            query_spec_digest
+        )
+
+        if existing is None:
+            result[
+                query_spec_digest
+            ] = {
+                # Legacy alias retained for downstream
+                # readers that previously consumed
+                # semantic_id as the workload key.
+                "semantic_id": (
+                    query_spec_digest
+                ),
+                "equivalence_class_id": (
+                    query_spec_digest
+                ),
+                "query_spec_digest": (
+                    query_spec_digest
+                ),
+                "semantic_ids": [
+                    semantic_id
+                ],
+                "semantic_projections": [
+                    projection
+                ],
+                "equivalent_virtual_node_ids": [
+                    virtual_node_id
+                ],
+                "equivalence_class_size": 1,
+                "query_spec": query_spec,
+            }
+
+            continue
+
+        if (
+            _canonical_json_bytes(
+                existing["query_spec"]
+            )
+            != _canonical_json_bytes(
+                query_spec
+            )
+        ):
+            raise MembershipDensityWorkloadAuditError(
+                "Canonical query-spec digest collision "
+                f"detected: {query_spec_digest}."
+            )
+
+        if (
+            semantic_id
+            in existing["semantic_ids"]
+        ):
+            semantic_index = (
+                existing["semantic_ids"].index(
+                    semantic_id
+                )
+            )
+
+            if (
+                _canonical_json_bytes(
+                    existing[
+                        "semantic_projections"
+                    ][semantic_index]
+                )
+                != _canonical_json_bytes(
+                    projection
+                )
+            ):
+                raise (
+                    MembershipDensityWorkloadAuditError(
+                        "Semantic digest collision "
+                        f"detected: {semantic_id}."
+                    )
+                )
+        else:
+            existing[
+                "semantic_ids"
+            ].append(
+                semantic_id
+            )
+
+            existing[
+                "semantic_projections"
+            ].append(
+                projection
+            )
+
+        existing[
+            "equivalent_virtual_node_ids"
+        ].append(
+            virtual_node_id
+        )
+
+        existing[
+            "equivalence_class_size"
+        ] = len(
+            existing[
+                "equivalent_virtual_node_ids"
+            ]
+        )
+
+    for record in result.values():
+        semantic_pairs = sorted(
+            zip(
+                record["semantic_ids"],
+                record[
+                    "semantic_projections"
+                ],
+                strict=True,
+            ),
+            key=lambda item: item[0],
+        )
+
+        record["semantic_ids"] = [
+            semantic_id
+            for semantic_id, _
+            in semantic_pairs
+        ]
+
+        record[
+            "semantic_projections"
+        ] = [
+            projection
+            for _, projection
+            in semantic_pairs
+        ]
+
+        record[
+            "equivalent_virtual_node_ids"
+        ] = sorted(
+            record[
+                "equivalent_virtual_node_ids"
+            ]
+        )
+
+        record[
+            "equivalence_class_size"
+        ] = len(
+            record[
+                "equivalent_virtual_node_ids"
+            ]
+        )
+
+        if (
+            record[
+                "equivalence_class_size"
+            ]
+            < 1
+        ):
+            raise MembershipDensityWorkloadAuditError(
+                "A query-equivalence class must "
+                "contain at least one virtual node."
+            )
 
     return result
+
 
 
 def _validate_nested_membership_edges(
@@ -462,40 +634,87 @@ def _audit_replication(
             "density levels."
         )
 
-    semantic_id_sets = [
+    query_spec_id_sets = [
         set(item.semantic_nodes)
         for item in ordered
     ]
 
-    reference_semantic_ids = (
-        semantic_id_sets[0]
+    reference_query_spec_ids = (
+        query_spec_id_sets[0]
     )
 
     if any(
-        value != reference_semantic_ids
-        for value in semantic_id_sets[1:]
+        value
+        != reference_query_spec_ids
+        for value
+        in query_spec_id_sets[1:]
     ):
         raise MembershipDensityWorkloadAuditError(
-            "Semantic virtual-node sets vary across "
-            "density levels."
+            "Canonical query-specification sets vary "
+            "across density levels."
         )
 
-    for semantic_id in sorted(
-        reference_semantic_ids
+    comparable_fields = (
+        "equivalence_class_id",
+        "query_spec_digest",
+        "semantic_ids",
+        "semantic_projections",
+        "equivalence_class_size",
+        "query_spec",
+    )
+
+    for query_spec_id in sorted(
+        reference_query_spec_ids
     ):
         serialized_records = {
             _canonical_json_bytes(
-                item.semantic_nodes[semantic_id]
+                {
+                    field: item.semantic_nodes[
+                        query_spec_id
+                    ][field]
+                    for field
+                    in comparable_fields
+                }
             )
             for item in ordered
         }
 
         if len(serialized_records) != 1:
             raise MembershipDensityWorkloadAuditError(
-                "A workload query specification varies "
+                "A query-equivalence class varies "
                 "across density levels: "
-                f"semantic_id={semantic_id}."
+                f"query_spec_digest={query_spec_id}."
             )
+
+    structural_counts = [
+        sum(
+            int(
+                record[
+                    "equivalence_class_size"
+                ]
+            )
+            for record
+            in item.semantic_nodes.values()
+        )
+        for item in ordered
+    ]
+
+    if len(set(structural_counts)) != 1:
+        raise MembershipDensityWorkloadAuditError(
+            "Structural virtual-node multiplicity "
+            "varies across density levels."
+        )
+
+    structural_virtual_node_count = (
+        structural_counts[0]
+    )
+
+    if structural_virtual_node_count != 24:
+        raise MembershipDensityWorkloadAuditError(
+            "SA4 requires exactly 24 structural "
+            "virtual nodes per instance: "
+            f"actual={structural_virtual_node_count}."
+        )
 
     edges_by_level = {
         item.factor_level: item.membership_edges
@@ -515,24 +734,89 @@ def _audit_replication(
 
     reference = ordered[0]
 
-    # Order the common workload by semantic digest,
-    # independently of level-specific identifiers.
+    # The workload is ordered by canonical query-spec
+    # digest. Query-equivalent virtual nodes share one
+    # step, while their identifiers and multiplicity
+    # remain explicit in the equivalence-class metadata.
     steps = []
 
-    for position, semantic_id in enumerate(
+    for position, query_spec_id in enumerate(
         sorted(reference.semantic_nodes),
         start=1,
     ):
+        reference_class = (
+            reference.semantic_nodes[
+                query_spec_id
+            ]
+        )
+
+        equivalent_ids_by_level = {
+            str(item.factor_level): list(
+                item.semantic_nodes[
+                    query_spec_id
+                ][
+                    "equivalent_virtual_node_ids"
+                ]
+            )
+            for item in ordered
+        }
+
+        expected_class_size = int(
+            reference_class[
+                "equivalence_class_size"
+            ]
+        )
+
+        if any(
+            len(node_ids)
+            != expected_class_size
+            for node_ids
+            in equivalent_ids_by_level.values()
+        ):
+            raise MembershipDensityWorkloadAuditError(
+                "Query-equivalence class multiplicity "
+                "varies across density levels: "
+                f"query_spec_digest={query_spec_id}."
+            )
+
         steps.append(
             {
                 "step_position": position,
                 "step_index": position,
                 "step_id": f"Q{position:03d}",
-                "semantic_id": semantic_id,
+                # Backward-compatible alias. In v2 the
+                # workload key is the canonical
+                # query-specification digest.
+                "semantic_id": query_spec_id,
+                "equivalence_class_id": (
+                    query_spec_id
+                ),
+                "query_spec_digest": (
+                    reference_class[
+                        "query_spec_digest"
+                    ]
+                ),
+                "semantic_ids": list(
+                    reference_class[
+                        "semantic_ids"
+                    ]
+                ),
+                "semantic_projections": list(
+                    reference_class[
+                        "semantic_projections"
+                    ]
+                ),
+                "equivalence_class_size": (
+                    expected_class_size
+                ),
+                (
+                    "equivalent_"
+                    "virtual_node_ids_by_level"
+                ): equivalent_ids_by_level,
                 "query_spec": (
-                    reference.semantic_nodes[
-                        semantic_id
-                    ]["query_spec"]
+                    reference_class[
+                        "query_spec"
+                    ]
                 ),
             }
         )
@@ -558,15 +842,53 @@ def _audit_replication(
         for level in required_levels
     }
 
+    equivalence_class_size_histogram: dict[
+        str,
+        int,
+    ] = {}
+
+    for step in steps:
+        key = str(
+            step[
+                "equivalence_class_size"
+            ]
+        )
+
+        equivalence_class_size_histogram[
+            key
+        ] = (
+            equivalence_class_size_histogram.get(
+                key,
+                0,
+            )
+            + 1
+        )
+
+    query_equivalence_class_count = len(
+        steps
+    )
+
+    query_equivalent_virtual_node_count = (
+        structural_virtual_node_count
+        - query_equivalence_class_count
+    )
+
     blueprint_payload = {
         "schema_version": (
             "mcad-sensitivity-sa4-membership-density-"
-            "replication-workload-blueprint-v1"
+            "replication-workload-blueprint-v2"
         ),
         "strategy": (
             "one_workload_per_structural_seed_"
             "shared_across_density_levels"
         ),
+        "workload_equivalence_key": (
+            "canonical_query_spec_digest"
+        ),
+        "workload_step_count_basis": (
+            "unique_canonical_query_specs"
+        ),
+        "equivalence_class_metadata_required": True,
         "replication_index": replication_index,
         "seed": seed,
         "levels": list(required_levels),
@@ -575,6 +897,12 @@ def _audit_replication(
         ),
         "objective_ids_by_level": (
             objective_ids_by_level
+        ),
+        "structural_virtual_node_count": (
+            structural_virtual_node_count
+        ),
+        "query_equivalence_class_count": (
+            query_equivalence_class_count
         ),
         "step_count": len(steps),
         "steps": steps,
@@ -597,12 +925,37 @@ def _audit_replication(
         "objective_ids_by_level": (
             objective_ids_by_level
         ),
-        "semantic_node_count": len(
-            reference.semantic_nodes
+        # Backward-compatible structural count.
+        "semantic_node_count": (
+            structural_virtual_node_count
         ),
+        "structural_virtual_node_count": (
+            structural_virtual_node_count
+        ),
+        # In v2 this count is the number of unique
+        # canonical query specifications.
         "strict_common_semantic_node_count": (
-            len(reference.semantic_nodes)
+            query_equivalence_class_count
         ),
+        "strict_common_query_spec_count": (
+            query_equivalence_class_count
+        ),
+        "query_equivalence_class_count": (
+            query_equivalence_class_count
+        ),
+        "query_equivalent_virtual_node_count": (
+            query_equivalent_virtual_node_count
+        ),
+        "equivalence_class_size_histogram": (
+            equivalence_class_size_histogram
+        ),
+        "workload_equivalence_key": (
+            "canonical_query_spec_digest"
+        ),
+        "workload_step_count_basis": (
+            "unique_canonical_query_specs"
+        ),
+        "equivalence_class_metadata_preserved": True,
         "non_membership_semantic_digest": (
             next(iter(non_membership_digests))
         ),
@@ -611,6 +964,7 @@ def _audit_replication(
         ),
         "membership_edges_strictly_nested": True,
         "semantic_sets_exactly_equal": True,
+        "query_spec_sets_exactly_equal": True,
         "query_specs_identical": True,
         "workload_blueprint": (
             blueprint_payload
@@ -619,6 +973,7 @@ def _audit_replication(
             blueprint_digest
         ),
     }
+
 
 
 def audit_membership_density_campaign(
@@ -639,7 +994,11 @@ def audit_membership_density_campaign(
 
     if (
         required_level_tuple
-        != tuple(sorted(set(required_level_tuple)))
+        != tuple(
+            sorted(
+                set(required_level_tuple)
+            )
+        )
     ):
         raise MembershipDensityWorkloadAuditError(
             "required_levels must be sorted and unique."
@@ -649,7 +1008,7 @@ def audit_membership_density_campaign(
         DEFAULT_REQUIRED_LEVELS
     ):
         raise MembershipDensityWorkloadAuditError(
-            "SA4 v1 requires the exact levels "
+            "SA4 v2 requires the exact levels "
             "25, 50, 75 and 100."
         )
 
@@ -714,8 +1073,12 @@ def audit_membership_density_campaign(
 
     replication_audits = [
         _audit_replication(
-            by_replication[replication_index],
-            required_levels=required_level_tuple,
+            by_replication[
+                replication_index
+            ],
+            required_levels=(
+                required_level_tuple
+            ),
         )
         for replication_index in sorted(
             by_replication
@@ -733,9 +1096,11 @@ def audit_membership_density_campaign(
             "replications."
         )
 
-    semantic_sets = [
+    query_spec_sets = [
         {
-            step["semantic_id"]
+            step[
+                "query_spec_digest"
+            ]
             for step in audit[
                 "workload_blueprint"
             ]["steps"]
@@ -744,22 +1109,81 @@ def audit_membership_density_campaign(
     ]
 
     global_common = set.intersection(
-        *semantic_sets
+        *query_spec_sets
     )
 
     global_union = set.union(
-        *semantic_sets
+        *query_spec_sets
     )
 
     global_exact_equality = all(
-        semantic_set == semantic_sets[0]
-        for semantic_set in semantic_sets[1:]
+        query_spec_set
+        == query_spec_sets[0]
+        for query_spec_set
+        in query_spec_sets[1:]
     )
+
+    partition_step_count_histogram: dict[
+        str,
+        int,
+    ] = {}
+
+    structural_node_count_histogram: dict[
+        str,
+        int,
+    ] = {}
+
+    for replication in replication_audits:
+        step_key = str(
+            replication[
+                "workload_blueprint"
+            ]["step_count"]
+        )
+
+        partition_step_count_histogram[
+            step_key
+        ] = (
+            partition_step_count_histogram.get(
+                step_key,
+                0,
+            )
+            + 1
+        )
+
+        structural_key = str(
+            replication[
+                "structural_virtual_node_count"
+            ]
+        )
+
+        structural_node_count_histogram[
+            structural_key
+        ] = (
+            structural_node_count_histogram.get(
+                structural_key,
+                0,
+            )
+            + 1
+        )
+
+    query_equivalence_replications = [
+        replication[
+            "replication_index"
+        ]
+        for replication
+        in replication_audits
+        if (
+            replication[
+                "query_equivalent_virtual_node_count"
+            ]
+            > 0
+        )
+    ]
 
     audit_payload = {
         "schema_version": (
             "mcad-sensitivity-sa4-membership-density-"
-            "common-workload-audit-v1"
+            "common-workload-audit-v2"
         ),
         "auditor_version": AUDITOR_VERSION,
         "status": "success",
@@ -781,9 +1205,35 @@ def audit_membership_density_campaign(
             "one_workload_per_structural_seed_"
             "shared_across_density_levels"
         ),
+        "workload_equivalence_key": (
+            "canonical_query_spec_digest"
+        ),
+        "workload_step_count_basis": (
+            "unique_canonical_query_specs"
+        ),
+        "equivalence_class_metadata_required": True,
         "execution_partition_required": True,
         "replications": replication_audits,
+        "partition_step_count_histogram": (
+            partition_step_count_histogram
+        ),
+        "structural_virtual_node_count_histogram": (
+            structural_node_count_histogram
+        ),
+        "query_equivalence_replication_indices": (
+            query_equivalence_replications
+        ),
         "global_diagnostics": {
+            "strict_common_query_spec_count": (
+                len(global_common)
+            ),
+            "query_spec_union_count": (
+                len(global_union)
+            ),
+            "exact_query_spec_set_equality": (
+                global_exact_equality
+            ),
+            # Legacy aliases retained for v1 readers.
             "strict_common_semantic_node_count": (
                 len(global_common)
             ),
@@ -799,9 +1249,12 @@ def audit_membership_density_campaign(
             "factor_profile_valid": True,
             "exact_level_matrix_per_replication": True,
             "one_seed_per_replication": True,
+            "structural_virtual_node_count_fixed": True,
             "non_membership_semantics_fixed": True,
-            "semantic_node_sets_fixed": True,
+            "query_spec_sets_fixed": True,
             "query_specs_fixed": True,
+            "query_equivalent_nodes_grouped": True,
+            "equivalence_class_metadata_preserved": True,
             "membership_counts_exact": True,
             "membership_edges_strictly_nested": True,
             "cross_replication_workload_reuse": False,
@@ -818,6 +1271,7 @@ def audit_membership_density_campaign(
     )
 
     return audit_payload
+
 
 
 def write_audit_bundle(
@@ -863,7 +1317,7 @@ def write_audit_bundle(
     blueprint_payload = {
         "schema_version": (
             "mcad-sensitivity-sa4-membership-density-"
-            "replication-workload-blueprints-v1"
+            "replication-workload-blueprints-v2"
         ),
         "auditor_version": AUDITOR_VERSION,
         "campaign_id": audit["campaign_id"],
