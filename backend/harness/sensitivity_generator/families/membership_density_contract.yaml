@@ -1,0 +1,205 @@
+schema_version: mcad-sensitivity-sa4-membership-density-contract-v1
+
+stage: SA4_membership_density_contract_formalization
+factor: membership_density
+
+factor_level_encoding:
+  type: integer_percentage
+  levels:
+    - 25
+    - 50
+    - 75
+    - 100
+  realised_density_formula: factor_level / 100
+
+mathematical_definition:
+  numerator: sum of requirement-set membership link counts
+  denominator: sum over constraints of requirement_set_count multiplied by local_virtual_node_count
+  formula: membership_count / maximum_membership_count
+
+baseline:
+  constraint_count: 4
+  total_virtual_node_count: 24
+  requirement_sets_per_constraint: 1
+  total_requirement_set_count: 4
+  maximum_membership_count: 24
+
+target_membership_counts:
+  25: 6
+  50: 12
+  75: 18
+  100: 24
+
+ofat_invariants:
+  - constraint count remains equal to 4
+  - total virtual-node count remains equal to 24
+  - virtual-node distribution by constraint remains fixed
+  - requirement-set count remains equal to 4
+  - one requirement set remains attached to each constraint
+  - all virtual-node attributes remain fixed within one seed
+  - all KPI, measure, aggregator, unit and grain attributes remain fixed
+  - only requirement-set membership links vary
+  - graph node count remains fixed
+  - graph edges excluding membership links remain fixed
+  - generator version remains fixed
+
+membership_selection:
+  deterministic: true
+  nested_across_levels: true
+  balanced_across_constraints: true
+  maximum_count_difference_between_constraints: 1
+  every_requirement_set_nonempty: true
+  unknown_references_allowed: false
+  duplicate_memberships_allowed: false
+
+oracle:
+  implementation: backend/harness/sensitivity_generator/oracles/membership_density_oracle.py
+  independent_from_structural_generator: true
+  independent_from_controlled_family_generator: true
+  validates:
+    - exact numerator and denominator
+    - exact rational density
+    - reference integrity
+    - nonempty requirement sets
+    - nested membership sets
+    - balanced allocation
+    - one-factor-at-a-time invariants
+
+replication_design:
+  initial_stage: 10
+  adaptive_stages:
+    - 10
+    - 20
+    - 30
+  seed_schedule: sa3_preregistered_seed_schedule.json
+  timing_precision_targets:
+    median_relative_half_width: 0.10
+    p95_relative_half_width: 0.15
+
+execution_status:
+  generator_extension_complete: true
+  e3_compatibility_complete: true
+  common_workload_auditor_complete: true
+  canonical_campaign_preregistration_complete: true
+  query_equivalence_contract_amendment_complete: true
+  instances_generated: false
+  controlled_execution_started: false
+  timing_execution_started: false
+  scientific_freeze: false
+
+implementation:
+  structural_generator:
+    path: backend/harness/sensitivity_generator/membership_density_generator.py
+    version: mcad-sensitivity-e2.1-membership-density-v1
+  controlled_family_generator:
+    path: backend/harness/sensitivity_generator/families/membership_density_family.py
+    version: mcad-sensitivity-e2.2-membership-density-v1
+  independent_oracle:
+    path: backend/harness/sensitivity_generator/oracles/membership_density_oracle.py
+    version: mcad-sensitivity-sa4-membership-density-oracle-v1
+  legacy_structural_generator_modified: false
+  legacy_controlled_family_generator_modified: false
+  independent_oracle_validation_required: true
+
+e3_compatibility:
+  executor_path: backend/harness/sensitivity_execution/execute_controlled_family.py
+  executor_version: mcad-sensitivity-e3-v2
+  validation_mode: factor_specific_generator_profiles
+  accepted_profiles:
+    constraint_count:
+      campaign_generator_version: mcad-sensitivity-e2.2-v1
+      structural_generator_version: mcad-sensitivity-e2.1-v1
+    virtual_node_count:
+      campaign_generator_version: mcad-sensitivity-e2.2-v1
+      structural_generator_version: mcad-sensitivity-e2.1-v1
+    membership_density:
+      campaign_generator_version: mcad-sensitivity-e2.2-membership-density-v1
+      structural_generator_version: mcad-sensitivity-e2.1-membership-density-v1
+  cross_factor_version_pairs_allowed: false
+  actual_campaign_version_preserved_in_evidence: true
+  timing_harness_modified: false
+
+common_workload_auditor:
+  path: backend/harness/sensitivity_execution/tools/audit_membership_density_common_workload.py
+  version: mcad-sensitivity-sa4-membership-density-common-workload-auditor-v2
+  strategy: one_workload_per_structural_seed_shared_across_density_levels
+  execution_partition_key: replication_index
+  exact_levels: [25, 50, 75, 100]
+  workload_equivalence_key: canonical_query_spec_digest
+  workload_step_count_basis: unique_canonical_query_specs
+  structural_virtual_node_count_per_replication: 24
+  allowed_workload_steps_per_replication: [23, 24]
+  expected_partition_step_histogram:
+    23: 2
+    24: 8
+  equivalence_class_metadata_required: true
+  query_equivalent_nodes_grouped: true
+  non_membership_semantics_fixed_within_replication: true
+  semantic_node_sets_fixed_within_replication: true
+  query_specs_fixed_within_replication: true
+  membership_link_counts:
+    25: 6
+    50: 12
+    75: 18
+    100: 24
+  membership_edges_strictly_nested: true
+  cross_replication_workload_reuse: false
+  global_workload_authorized: false
+  canonical_campaign_generated: false
+
+canonical_campaign_preregistration:
+  path: backend/harness/sensitivity_generator/families/membership_density_preregistration.json
+  status: frozen
+  campaign_id: membership_density_stage10_c4_nv24
+  factor: membership_density
+  seed_schedule_source: reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_preregistered_seed_schedule.json
+  seed_schedule_key: $.all_seeds
+  seed_selection_rule: first_10_preregistered_structural_seeds
+  structural_seed_count: 10
+  structural_seed_digest: 451262bdcb669f38f98b4d15bbf32df768a31f2d0c790c6c1d43d57f8ad195a7
+  levels: [25, 50, 75, 100]
+  expected_instance_count: 40
+  baseline_constraint_count: 4
+  baseline_virtual_node_count: 24
+  expected_partition_count: 10
+  workload_equivalence_key: canonical_query_spec_digest
+  workload_step_count_basis: unique_canonical_query_specs
+  structural_virtual_node_count_per_partition: 24
+  allowed_workload_steps_per_partition: [23, 24]
+  expected_partition_step_histogram:
+    23: 2
+    24: 8
+  equivalence_class_metadata_required: true
+  additional_seeds_are_continuation: true
+  alternative_seed_schedule: false
+  canonical_campaign_generation_authorized: true
+  canonical_campaign_generated: false
+  controlled_execution_started: false
+  timing_execution_started: false
+  scientific_freeze: false
+
+query_equivalence_contract_amendment:
+  version: mcad-sensitivity-sa4-membership-density-query-equivalence-amendment-v1
+  status: frozen
+  amendment_parent_commit: 1880d15005b484bd22b327c168eb4dcc487a6933
+  trigger: pre_execution_query_equivalence_discovery
+  workload_equivalence_key: canonical_query_spec_digest
+  workload_step_count_basis: unique_canonical_query_specs
+  structural_virtual_node_count_per_partition: 24
+  allowed_workload_steps_per_partition: [23, 24]
+  expected_partition_step_histogram:
+    23: 2
+    24: 8
+  affected_structural_seeds: [1126922093, 1767972531]
+  affected_canonical_replications: [4, 9]
+  equivalence_class_metadata_required: true
+  support_conditional_contribution: true
+  original_seed_schedule_changed: false
+  original_density_levels_changed: false
+  original_instance_count_changed: false
+  generator_changed: false
+  evaluator_changed: false
+  canonical_campaign_generated_before_amendment: false
+  controlled_execution_observed: false
+  timing_data_observed: false
+  scientific_freeze: false

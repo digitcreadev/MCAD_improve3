@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MCAD E3 Execution Specification",
+  "description": "Deterministic execution configuration for an E2 controlled family.",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "execution_id",
+    "campaign_dir",
+    "workload_path",
+    "output_dir"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "mcad-sensitivity-e3-execution-v1"
+    },
+    "execution_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "campaign_dir": {
+      "type": "string",
+      "minLength": 1
+    },
+    "workload_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "output_dir": {
+      "type": "string",
+      "minLength": 1
+    },
+    "instance_selection": {
+      "type": "object",
+      "properties": {
+        "instance_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "overwrite": {
+      "type": "boolean",
+      "default": false
+    },
+    "continue_on_instance_failure": {
+      "const": false
+    }
+  },
+  "additionalProperties": false
+}
