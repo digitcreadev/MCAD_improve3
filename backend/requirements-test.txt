@@ -1,0 +1,8 @@
+# Phase 3 regression dependencies.
+#
+# Runtime dependencies remain defined in requirements.txt.
+# The lock file is generated only after the complete E3 and
+# targeted SA4 regression suites pass.
+
+-r requirements.txt
+pytest==9.1.1
