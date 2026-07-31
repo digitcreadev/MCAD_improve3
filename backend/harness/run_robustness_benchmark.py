@@ -130,79 +130,393 @@ def _plot_grouped_by_type(rows: List[Dict[str, Any]], metric_key: str, out_png: 
     plt.close()
 
 
-def _collect_mcad_explainability(config_paths: List[str]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+def _collect_mcad_explainability(
+    config_paths: List[str],
+) -> Tuple[
+    List[Dict[str, Any]],
+    List[Dict[str, Any]],
+]:
+    """
+    Build explanations from the same MCAD policy contract
+    used by the robustness campaign.
+
+    The campaign decision is intentionally based on the
+    strict single-query chain:
+
+        SAT(QP) and non-empty complete Ceval(QP, O)
+
+    CKGGraph.evaluate_step additionally exposes cumulative
+    and partial contribution semantics. Those semantics are
+    valid for the incremental evaluator, but they must not
+    be reused to reconstruct a different ALLOW/BLOCK result
+    for this strict-policy benchmark.
+    """
     explain_rows: List[Dict[str, Any]] = []
+
     for config_path in config_paths:
         cfg = load_yaml(config_path)
-        objective_id = str(cfg['objective_id'])
-        dw_id = str(cfg.get('dw_id') or 'UNKNOWN')
-        for scenario in list(cfg.get('scenarios') or []):
-            ckg = CKGGraph(output_dir=os.environ.get('MCAD_TMP_DIR', 'results_robustness_explain_tmp'))
-            session_id = f"exp::{scenario.get('id')}"
-            for idx, step in enumerate(scenario.get('steps') or [], start=1):
-                qp = _normalize_qp(step, objective_id)
-                result = ckg.evaluate_step(session_id=session_id, objective_id=objective_id, step_idx=idx, qp=qp)
-                allow = bool(result.get('sat') and result.get('calculable_constraints'))
-                failed = [c['name'] for c in (result.get('clauses') or []) if not bool(c.get('ok', False))]
-                missing = result.get('missing_requirements') or {}
-                primary = 'missing_requirement_set'
+        objective_id = str(
+            cfg["objective_id"]
+        )
+        dw_id = str(
+            cfg.get("dw_id")
+            or "UNKNOWN"
+        )
+
+        for scenario in list(
+            cfg.get("scenarios")
+            or []
+        ):
+            ckg = CKGGraph(
+                output_dir=os.environ.get(
+                    "MCAD_TMP_DIR",
+                    "results_robustness_explain_tmp",
+                )
+            )
+
+            objective = (
+                ckg.objectives.get(
+                    objective_id
+                )
+                or {}
+            )
+            constraints = (
+                objective.get("constraints")
+                or {}
+            )
+
+            for idx, step in enumerate(
+                scenario.get("steps")
+                or [],
+                start=1,
+            ):
+                qp = _normalize_qp(
+                    step,
+                    objective_id,
+                )
+
+                decision = policy_decision(
+                    "mcad",
+                    ckg,
+                    objective_id,
+                    qp,
+                    rng=random.Random(idx),
+                    matched_random_allow_prob=0.0,
+                    step_idx=idx,
+                )
+
+                allow = bool(
+                    decision.get("allow")
+                )
+
+                failed = [
+                    str(
+                        clause.get("name", "")
+                        if isinstance(clause, dict)
+                        else getattr(
+                            clause,
+                            "name",
+                            "",
+                        )
+                    )
+                    for clause in (
+                        decision.get("clauses")
+                        or []
+                    )
+                    if not bool(
+                        clause.get("ok", False)
+                        if isinstance(clause, dict)
+                        else getattr(
+                            clause,
+                            "ok",
+                            False,
+                        )
+                    )
+                ]
+
+                real_nv_ids = {
+                    str(value)
+                    for value
+                    in (
+                        decision.get(
+                            "real_nv_ids"
+                        )
+                        or []
+                    )
+                }
+
+                ceval_ids = {
+                    str(value)
+                    for value
+                    in (
+                        decision.get(
+                            "ceval_ids"
+                        )
+                        or []
+                    )
+                }
+
+                missing: Dict[
+                    str,
+                    List[str],
+                ] = {}
+
+                for constraint_id, info in (
+                    constraints.items()
+                ):
+                    required = {
+                        str(value)
+                        for value
+                        in (
+                            info.get(
+                                "virtual_nodes"
+                            )
+                            or []
+                        )
+                    }
+
+                    if not required:
+                        continue
+
+                    absent = sorted(
+                        required
+                        - real_nv_ids
+                    )
+
+                    if absent:
+                        missing[
+                            str(constraint_id)
+                        ] = absent
+
+                primary = (
+                    "missing_requirement_set"
+                )
+
                 for clause in FAILURE_PRIORITY:
                     if clause in failed:
                         primary = clause
                         break
-                if not failed and not missing and not allow:
-                    primary = 'unclassified_block'
-                explain_rows.append({
-                    'dw_id': dw_id,
-                    'objective_id': objective_id,
-                    'scenario_id': scenario.get('id'),
-                    'scenario_type': scenario.get('type'),
-                    'step_idx': idx,
-                    'step_name': step.get('name'),
-                    'oracle_allow': bool(step.get('oracle_allow', False)),
-                    'mcad_allow': allow,
-                    'sat': bool(result.get('sat')),
-                    'failed_clauses': ','.join(failed),
-                    'primary_reason': primary if not allow else 'allowed',
-                    'has_missing_requirements': bool(missing),
-                    'missing_requirement_constraints': ','.join(sorted(missing.keys())),
-                    'n_missing_requirements': int(sum(len(v or []) for v in missing.values())),
-                    'n_calculable_constraints': len(result.get('calculable_constraints') or []),
-                    'induced_mask_size': len(result.get('induced_mask_node_ids') or []),
-                    'explainable_block': int((not allow) and (bool(failed) or bool(missing))),
-                })
-    summary_map: Dict[str, Dict[str, Any]] = {}
-    blocked_reason_counter: Counter[str] = Counter()
-    for row in explain_rows:
-        stype = str(row['scenario_type'])
-        blocked = not bool(row['mcad_allow'])
-        bucket = summary_map.setdefault(stype, {
-            'scenario_type': stype,
-            'n_steps': 0,
-            'n_blocked': 0,
-            'n_explainable_blocks': 0,
-            'mean_missing_requirements_when_blocked': 0.0,
-            'dominant_block_reason': '',
-        })
-        bucket['n_steps'] += 1
-        if blocked:
-            bucket['n_blocked'] += 1
-            bucket['n_explainable_blocks'] += int(row['explainable_block'])
-            bucket['mean_missing_requirements_when_blocked'] += float(row['n_missing_requirements'])
-            blocked_reason_counter[str(row['primary_reason'])] += 1
-            local = bucket.setdefault('_reason_counter', Counter())
-            local[str(row['primary_reason'])] += 1
-    summaries: List[Dict[str, Any]] = []
-    for stype, bucket in sorted(summary_map.items()):
-        n_blocked = max(1, int(bucket['n_blocked']))
-        local_counter = bucket.pop('_reason_counter', Counter())
-        bucket['explainable_block_rate'] = round(float(bucket['n_explainable_blocks']) / float(n_blocked), 6) if bucket['n_blocked'] else 1.0
-        bucket['mean_missing_requirements_when_blocked'] = round(float(bucket['mean_missing_requirements_when_blocked']) / float(n_blocked), 6) if bucket['n_blocked'] else 0.0
-        bucket['dominant_block_reason'] = local_counter.most_common(1)[0][0] if local_counter else ''
-        summaries.append(bucket)
-    reason_rows = [{'primary_reason': reason, 'count': count} for reason, count in blocked_reason_counter.most_common()]
-    return explain_rows, summaries + reason_rows
 
+                if (
+                    not failed
+                    and not missing
+                    and not allow
+                ):
+                    primary = (
+                        "unclassified_block"
+                    )
+
+                explain_rows.append(
+                    {
+                        "dw_id": dw_id,
+                        "objective_id": (
+                            objective_id
+                        ),
+                        "scenario_id": (
+                            scenario.get("id")
+                        ),
+                        "scenario_type": (
+                            scenario.get("type")
+                        ),
+                        "step_idx": idx,
+                        "step_name": (
+                            step.get("name")
+                        ),
+                        "oracle_allow": bool(
+                            step.get(
+                                "oracle_allow",
+                                False,
+                            )
+                        ),
+                        "mcad_allow": allow,
+                        "sat": bool(
+                            decision.get("sat")
+                        ),
+                        "failed_clauses": (
+                            ",".join(failed)
+                        ),
+                        "primary_reason": (
+                            primary
+                            if not allow
+                            else "allowed"
+                        ),
+                        "has_missing_requirements": (
+                            bool(missing)
+                        ),
+                        "missing_requirement_constraints": (
+                            ",".join(
+                                sorted(
+                                    missing.keys()
+                                )
+                            )
+                        ),
+                        "n_missing_requirements": (
+                            int(
+                                sum(
+                                    len(values)
+                                    for values
+                                    in missing.values()
+                                )
+                            )
+                        ),
+                        "n_calculable_constraints": (
+                            len(ceval_ids)
+                        ),
+                        "induced_mask_size": (
+                            len(real_nv_ids)
+                        ),
+                        "explainable_block": int(
+                            (
+                                not allow
+                            )
+                            and (
+                                bool(failed)
+                                or bool(missing)
+                            )
+                        ),
+                    }
+                )
+
+    summary_map: Dict[
+        str,
+        Dict[str, Any],
+    ] = {}
+
+    blocked_reason_counter: Counter[
+        str
+    ] = Counter()
+
+    for row in explain_rows:
+        scenario_type = str(
+            row["scenario_type"]
+        )
+        blocked = not bool(
+            row["mcad_allow"]
+        )
+
+        bucket = summary_map.setdefault(
+            scenario_type,
+            {
+                "scenario_type": (
+                    scenario_type
+                ),
+                "n_steps": 0,
+                "n_blocked": 0,
+                "n_explainable_blocks": 0,
+                "mean_missing_requirements_when_blocked": (
+                    0.0
+                ),
+                "dominant_block_reason": "",
+            },
+        )
+
+        bucket["n_steps"] += 1
+
+        if blocked:
+            bucket["n_blocked"] += 1
+            bucket[
+                "n_explainable_blocks"
+            ] += int(
+                row["explainable_block"]
+            )
+            bucket[
+                "mean_missing_requirements_when_blocked"
+            ] += float(
+                row[
+                    "n_missing_requirements"
+                ]
+            )
+
+            reason = str(
+                row["primary_reason"]
+            )
+            blocked_reason_counter[
+                reason
+            ] += 1
+
+            local = bucket.setdefault(
+                "_reason_counter",
+                Counter(),
+            )
+            local[reason] += 1
+
+    summaries: List[
+        Dict[str, Any]
+    ] = []
+
+    for _, bucket in sorted(
+        summary_map.items()
+    ):
+        blocked_count = int(
+            bucket["n_blocked"]
+        )
+        denominator = max(
+            1,
+            blocked_count,
+        )
+
+        local_counter = bucket.pop(
+            "_reason_counter",
+            Counter(),
+        )
+
+        bucket[
+            "explainable_block_rate"
+        ] = (
+            round(
+                float(
+                    bucket[
+                        "n_explainable_blocks"
+                    ]
+                )
+                / float(denominator),
+                6,
+            )
+            if blocked_count
+            else 1.0
+        )
+
+        bucket[
+            "mean_missing_requirements_when_blocked"
+        ] = (
+            round(
+                float(
+                    bucket[
+                        "mean_missing_requirements_when_blocked"
+                    ]
+                )
+                / float(denominator),
+                6,
+            )
+            if blocked_count
+            else 0.0
+        )
+
+        bucket[
+            "dominant_block_reason"
+        ] = (
+            local_counter.most_common(
+                1
+            )[0][0]
+            if local_counter
+            else ""
+        )
+
+        summaries.append(bucket)
+
+    reason_rows = [
+        {
+            "primary_reason": reason,
+            "count": count,
+        }
+        for reason, count
+        in blocked_reason_counter.most_common()
+    ]
+
+    return (
+        explain_rows,
+        summaries + reason_rows,
+    )
 
 def _plot_reason_distribution(reason_rows: List[Dict[str, Any]], out_png: str) -> None:
     ensure_dir(os.path.dirname(out_png) or '.')
