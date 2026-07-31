@@ -650,6 +650,7 @@ def main() -> None:
             'dw_id': dw_id,
             'n_scenarios': len(scenarios),
             'repeats': args.repeats,
+            'seed': args.seed,
             'matched_random_allow_prob': matched_random_allow_prob,
             'config_path': config_path,
         })
