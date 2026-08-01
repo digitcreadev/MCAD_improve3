@@ -1,0 +1,62 @@
+{
+  "campaign_id": "robustness_non_temporal",
+  "file_count": 11,
+  "files": [
+    {
+      "path": "CONTENTS.txt",
+      "sha256": "d44a1b6f7831effca0501328cbee444ab5b67be3257e1c8fc13545015c684eb6",
+      "size_bytes": 4480
+    },
+    {
+      "path": "PROVENANCE.json",
+      "sha256": "cc8a83517a88ca3787186916162ebc444387ee44e2016ad1b923540c72fdeac2",
+      "size_bytes": 293
+    },
+    {
+      "path": "README.md",
+      "sha256": "fa53be6bfd17ad4ffd2f61bb5505d562157456419f57bab8426db391cd865253",
+      "size_bytes": 194
+    },
+    {
+      "path": "REPRODUCE.md",
+      "sha256": "624f97f8bc45227d247911d7c021ddfb3eb15b3748ae305e3e69ec690b111acf",
+      "size_bytes": 256
+    },
+    {
+      "path": "STATUS.json",
+      "sha256": "0761ec994608444b58a31e44d7be8aef3b3f33158cba3bfe488038a57f77d113",
+      "size_bytes": 285
+    },
+    {
+      "path": "archive/mcad_robustness_canonical_20260731T223533Z.tar.gz",
+      "sha256": "181ad92da7e7153869e453e1c76ecfc7b021713684c5842e33f4e3273b3119d2",
+      "size_bytes": 670407
+    },
+    {
+      "path": "archive/mcad_robustness_canonical_20260731T223533Z.tar.gz.sha256",
+      "sha256": "6a581e221231eefcf0fe59c279d6af160edba8e46d177205a8d7116e2948c2e7",
+      "size_bytes": 116
+    },
+    {
+      "path": "freeze/mcad_robustness_canonical_20260731T223533Z_FREEZE.json",
+      "sha256": "0e56edc654cd32f406be0b535dff23d6214a1c83374ee60345afdc56acb7fd93",
+      "size_bytes": 1022
+    },
+    {
+      "path": "freeze/mcad_robustness_canonical_20260731T223533Z_FREEZE.md",
+      "sha256": "df6dd1b45d531c035d3b48af80dc5cdcb0dfd46d5cb7f563e040214f4635aa4f",
+      "size_bytes": 526
+    },
+    {
+      "path": "freeze/mcad_robustness_canonical_20260731T223533Z_FREEZE.sha256",
+      "sha256": "e1c40fb4e5277b413d7facb84795a2e1ba794af918aa2607394736dbd857adaf",
+      "size_bytes": 240
+    },
+    {
+      "path": "scripts/run_robustness_canonical_v3.sh",
+      "sha256": "75c8102779cf230d1cf3ae89537f2ce42f3b5e6685c9bb3a19381b7378b7785b",
+      "size_bytes": 32801
+    }
+  ],
+  "schema_version": "mcad-frozen-campaign-manifest-v1"
+}

@@ -1,0 +1,13 @@
+{
+  "archived_log_count": 10,
+  "campaign_id": "sa4_membership_density_controlled_execution",
+  "canonical_output_count": 200,
+  "freeze_scope": "membership_density_controlled_execution",
+  "global_scientific_freeze": false,
+  "latency_claim_authorized": false,
+  "manifest_file_count": 212,
+  "repository_persistence_status": "complete",
+  "scientific_freeze": true,
+  "scientific_status": "completed_recovered",
+  "timing_execution_authorized": false
+}
