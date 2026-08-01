@@ -1,0 +1,72 @@
+schema_version: mcad-frozen-campaign-registry-v1
+authoritative: true
+
+campaigns:
+  robustness_non_temporal:
+    scientific_status: completed_frozen
+    repository_persistence_status: complete
+    path: robustness_non_temporal
+    canonical_archive_sha256: 181ad92da7e7153869e453e1c76ecfc7b021713684c5842e33f4e3273b3119d2
+    freeze_scope: robustness_non_temporal
+    latency_claim_authorized: false
+
+  sa4_membership_density_controlled_execution:
+    scientific_status: completed_recovered
+    repository_persistence_status: complete
+    path: sa4_membership_density_controlled_execution
+    canonical_archive_sha256: 6282dac7f04b5d788e6e83590a6fce65ad299cb5f2af999d2cd1c3dfbdebf53d
+    manifest_file_count: 212
+    canonical_output_count: 200
+    archived_log_count: 10
+    latency_claim_authorized: false
+
+  ui_q1_q6:
+    scientific_status: completed_frozen
+    repository_persistence_status: recovery_audit_required
+
+  campaign_a_foodmart:
+    scientific_status: completed_frozen
+    repository_persistence_status: recovery_audit_required
+
+  campaign_b_multidataset:
+    scientific_status: completed_frozen
+    repository_persistence_status: recovery_audit_required
+
+  campaign_c_backend_portability:
+    scientific_status: completed_frozen
+    repository_persistence_status: recovery_audit_required
+
+  ablations:
+    scientific_status: completed_functional_causal_freeze
+    repository_persistence_status: recovery_audit_required
+    statistical_scope_warning: smoke_archive_is_not_final_statistical_campaign
+
+  remaining_sensitivity:
+    scientific_status: partial
+    repository_persistence_status: not_frozen
+    next_action: inventory_and_continue_remaining_factors
+
+  baselines:
+    scientific_status: incomplete
+    repository_persistence_status: not_frozen
+
+  structural_scalability:
+    scientific_status: incomplete
+    repository_persistence_status: not_frozen
+
+  evidence_usefulness:
+    scientific_status: incomplete
+    repository_persistence_status: not_frozen
+
+  human_validation:
+    scientific_status: incomplete
+    repository_persistence_status: not_frozen
+
+  final_statistics:
+    scientific_status: incomplete
+    repository_persistence_status: not_frozen
+
+global_state:
+  global_scientific_freeze: false
+  latency_claim_authorized: false
+  manuscript_resume_authorized: false

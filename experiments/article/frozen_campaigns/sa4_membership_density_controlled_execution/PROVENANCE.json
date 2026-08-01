@@ -1,0 +1,8 @@
+{
+  "campaign_regenerated": false,
+  "canonical_archive_sha256": "6282dac7f04b5d788e6e83590a6fce65ad299cb5f2af999d2cd1c3dfbdebf53d",
+  "historical_source_commit": "36fe29d42c8ca53e79e5fa2a8dc35df6e1860c48",
+  "recovery_mode": "exact_manifest_validated_recovery",
+  "repository_reconciliation_base": "463d0d4e76904edc80cb7a90637f0eae2ac87d72",
+  "repository_reconciliation_head_before_persistence": "7efc3e74a0f416adc7e0d07cc732e796cf5cc2f0"
+}
