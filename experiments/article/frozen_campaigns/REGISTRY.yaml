@@ -41,10 +41,23 @@ campaigns:
     repository_persistence_status: recovery_audit_required
     statistical_scope_warning: smoke_archive_is_not_final_statistical_campaign
 
+  sa3_constraint_count_stage20:
+    scientific_status: completed_precision_targets_met
+    repository_persistence_status: complete
+    path: sa3_constraint_count_stage20
+    canonical_archive_sha256: 7805d817dc355b4ef7720b8f63ba5eb605c5bf2c58d10f824214f8d3428eff00
+    scientific_freeze: true
+    run_count: 20
+    measurement_observation_count: 20000
+    functional_mismatch_count: 0
+    precision_targets_met: true
+    latency_claim_authorized: false
+    rerun_required: false
+
   remaining_sensitivity:
     scientific_status: partial
     repository_persistence_status: not_frozen
-    next_action: inventory_and_continue_remaining_factors
+    next_action: continue_virtual_node_count
 
   baselines:
     scientific_status: incomplete
