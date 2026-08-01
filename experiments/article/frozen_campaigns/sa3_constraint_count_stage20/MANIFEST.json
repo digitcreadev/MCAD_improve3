@@ -1,0 +1,47 @@
+{
+  "campaign_id": "sa3_constraint_count_stage20",
+  "file_count": 8,
+  "files": [
+    {
+      "path": "CONTENTS.txt",
+      "sha256": "c5794b3f840c1488a43465c945a0cce967fd71a6f0d0f14ed97ea9b5bffd1ad9",
+      "size_bytes": 344055
+    },
+    {
+      "path": "PROVENANCE.json",
+      "sha256": "ee8ce595cb959ea3d46b1babc493e8d386af65def19994b4963588faf032f782",
+      "size_bytes": 395
+    },
+    {
+      "path": "README.md",
+      "sha256": "91572c53516377b2ae800b5d1dbaf7e7272c836a6d1af1f844f5e31d871de648",
+      "size_bytes": 336
+    },
+    {
+      "path": "REPRODUCE.md",
+      "sha256": "4d646f82be1b60965a0672561abe2ad18986115d59a36c9670d13b370e581ec1",
+      "size_bytes": 369
+    },
+    {
+      "path": "STATUS.json",
+      "sha256": "f545609c6980794fa2710ddf185738300c3bc876cd67dcf8159e828af719f569",
+      "size_bytes": 491
+    },
+    {
+      "path": "archive/constraint_count_stage20_canonical_20260801T203621Z.tar.gz",
+      "sha256": "7805d817dc355b4ef7720b8f63ba5eb605c5bf2c58d10f824214f8d3428eff00",
+      "size_bytes": 2303801
+    },
+    {
+      "path": "archive/constraint_count_stage20_canonical_20260801T203621Z.tar.gz.sha256",
+      "sha256": "92847028c6575eb3b5fcb6aca1cae8680098d6a3d839a26f30137421020979ad",
+      "size_bytes": 125
+    },
+    {
+      "path": "freeze/FREEZE.json",
+      "sha256": "3d53b5d9d0c326357571ff147b1a3b5dd3b920b1d96fb2cfcfd3326283085db5",
+      "size_bytes": 185
+    }
+  ],
+  "schema_version": "mcad-frozen-campaign-manifest-v1"
+}
