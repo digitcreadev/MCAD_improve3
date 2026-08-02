@@ -1,0 +1,219 @@
+{
+  "authorization_gates": {
+    "formal_timing_execution_authorized": false,
+    "historical_functional_prefix_reuse_authorized": true,
+    "historical_functional_rerun_authorized": false,
+    "latency_claim_authorized": false,
+    "new_functional_execution_authorized": false,
+    "preregistration_contract_complete": true,
+    "scientific_freeze": false,
+    "stage20_execution_authorized": false,
+    "structural_stage10_generation_authorized": true
+  },
+  "campaign_contract": {
+    "baseline_virtual_node_count": 12,
+    "campaign_generator_version": "mcad-sensitivity-e2.2-v1",
+    "campaign_id": "virtual_node_count_stage10_c4",
+    "expected_stage10_functional_step_count": 60,
+    "expected_stage10_instance_count": 30,
+    "factor": "virtual_node_count",
+    "fixed_constraint_count": 4,
+    "levels": [
+      6,
+      12,
+      24
+    ],
+    "stage10_replication_count": 10,
+    "stage10_seeds": [
+      101,
+      202,
+      1198202409,
+      796786883,
+      1126922093,
+      809989256,
+      618554674,
+      1363159082,
+      874332939,
+      1767972531
+    ],
+    "steps_per_instance": 2,
+    "structural_generator_version": "mcad-sensitivity-e2.1-v1"
+  },
+  "common_workload_contract": {
+    "comparison_scope": "within_replication_across_levels",
+    "cross_replication_workload_reuse": false,
+    "expected_common_query_count_per_replication": 2,
+    "fully_nested_intersection_required": true,
+    "policy": "one_workload_per_structural_seed_shared_across_virtual_node_levels",
+    "semantic_digest_equality_required": true
+  },
+  "created_utc": "2026-08-02T10:00:22Z",
+  "creation_stamp": "20260802T100022Z",
+  "historical_functional_prefix": {
+    "functional_step_count": 12,
+    "instance_count": 6,
+    "replications": [
+      0,
+      1
+    ],
+    "rerun_authorized": false,
+    "rerun_required": false,
+    "reuse_required": true,
+    "seeds": [
+      101,
+      202
+    ],
+    "validation_status": "valid"
+  },
+  "next_stage": "generate_and_audit_virtual_node_count_stage10_structure",
+  "precision_protocol": {
+    "all_cells_must_pass": true,
+    "analyzer_path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+    "analyzer_sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504",
+    "bootstrap_cell_seed_policy": "deterministic_derivation_by_versioned_analyzer",
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed_base": 20260728,
+    "cluster_unit": "structural_seed",
+    "confidence_level": 0.95,
+    "measurements_per_cluster": 100,
+    "median_relative_half_width_target": 0.1,
+    "p95_relative_half_width_target": 0.15,
+    "stage_size": 10,
+    "within_cluster_measurements": "retained_together"
+  },
+  "schema_version": "mcad-virtual-node-count-stage10-preregistration-v1",
+  "scientific_scope": {
+    "design": "one_factor_at_a_time",
+    "factor": "virtual_node_count",
+    "latency_claim_authorized_before_execution": false,
+    "scientific_freeze_before_execution": false,
+    "scientific_question": "Evaluate the effect of the number of virtual nodes while holding the strategic constraint count and all other declared factors constant."
+  },
+  "source_branch": "paper/phase3-controlled-execution",
+  "source_commit": "6132923eb211b14109e2bda851948da7ddbe2220",
+  "source_evidence": {
+    "historical_campaign_manifest_path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/campaign_manifest.json",
+    "historical_campaign_manifest_sha256": "220fa2f892e3d7ecd5aa6f6a9462008f6d89eef8fe1a880e851823dac98dee6c",
+    "historical_campaign_spec_path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/campaign_spec.json",
+    "historical_campaign_spec_sha256": "d14b69d48b1b4684612200584f9ccc1773a518780bb0283b5e809394d21a6958",
+    "preflight_path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/virtual_node_count_stage10_preregistration_preflight.json",
+    "preflight_sha256": "58a6af4ab8b791c2c7de44e8dee1c2cb4958f5690d93b7bd90a8c8a0ef0b3360",
+    "seed_schedule_path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_preregistered_seed_schedule.json",
+    "seed_schedule_sha256": "6ca751335ef23c12f550dd9a58356eaf5dd6804113137263a3ff0d54e6bfee60"
+  },
+  "stage10_functional_plan": {
+    "authorization_prerequisite": "generated_campaign_and_common_workload_audits_pass",
+    "combined_functional_step_count": 60,
+    "combined_instance_count": 30,
+    "combined_replications": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "new_execution_authorized_by_preregistration": false,
+    "new_functional_step_count": 48,
+    "new_instance_count": 24,
+    "new_replications": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "new_seeds": [
+      1198202409,
+      796786883,
+      1126922093,
+      809989256,
+      618554674,
+      1363159082,
+      874332939,
+      1767972531
+    ],
+    "reused_replications": [
+      0,
+      1
+    ]
+  },
+  "stage_extension_policy": {
+    "stage10_to_stage20": "extend_only_if_one_or_more_preregistered_precision_cells_fail",
+    "stage20_functional_execution_authorized": false,
+    "stage20_generation_authorized": false,
+    "stage20_new_replications": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "stage20_seeds": [
+      101,
+      202,
+      1198202409,
+      796786883,
+      1126922093,
+      809989256,
+      618554674,
+      1363159082,
+      874332939,
+      1767972531,
+      630497049,
+      1826704550,
+      668799093,
+      1989792316,
+      625293714,
+      578407288,
+      1347026516,
+      1457944287,
+      134577186,
+      1985010596
+    ],
+    "stage20_timing_execution_authorized": false,
+    "stage30_policy": "not_authorized_requires_contract_amendment"
+  },
+  "status": "preregistered",
+  "timing_protocol": {
+    "authorization_prerequisite": "functional_stage10_combined_audit_pass",
+    "execution_authorized": false,
+    "expected_cell_count": 60,
+    "expected_measurement_observation_count": 6000,
+    "expected_warmup_observation_count": 600,
+    "fresh_ckg_state_required": true,
+    "functional_digest_check_required": true,
+    "measurements_per_cell": 100,
+    "order_seed_base": 20260728,
+    "order_seed_policy": "order_seed_base_plus_replication_index",
+    "replications": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "reuse_successful": true,
+    "reuse_successful_scope": "only_successful_outputs_from_the_same_preregistered_campaign",
+    "runner_path": "backend/harness/sensitivity_execution/run_timing_repetitions.py",
+    "runner_sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595",
+    "warmups_per_cell": 10
+  }
+}

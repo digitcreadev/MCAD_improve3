@@ -1,0 +1,11 @@
+{
+  "contract_path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/virtual_node_count_stage10_preregistration.json",
+  "contract_sha256": "69913ec1d6195c165149a59b7285d7525e08f76cdbef452a7235347d33ccad29",
+  "error_count": 0,
+  "errors": [],
+  "experimental_execution_performed": false,
+  "historical_prefix_rerun_required": false,
+  "next_stage": "generate_and_audit_virtual_node_count_stage10_structure",
+  "schema_version": "mcad-virtual-node-count-stage10-preregistration-validation-v1",
+  "status": "pass"
+}
