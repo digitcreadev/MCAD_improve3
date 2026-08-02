@@ -105,12 +105,16 @@ def test_historical_prefix_is_reused_without_rerun() -> None:
     )
 
 
-def test_no_execution_or_timing_was_performed() -> None:
+def test_preparation_recorded_no_execution_or_timing() -> None:
+    """Validate the preparation-stage audit, not later repository state."""
     report = load_json(
         AUDIT_ROOT
         / "stage10_common_workload_audit.json"
     )
 
+    # These fields describe what the workload-preparation stage did.
+    # Later, separately authorized functional executions may legitimately
+    # create run directories without invalidating this historical audit.
     assert (
         report["functional_execution_performed"]
         is False
@@ -124,11 +128,3 @@ def test_no_execution_or_timing_was_performed() -> None:
         report["formal_timing_execution_authorized"]
         is False
     )
-
-    for replication_index in range(10):
-        stem = (
-            "virtual_node_count_stage10_"
-            f"rep_{replication_index:03d}_strict_common"
-        )
-
-        assert not (RUNS_DIR / stem).exists()
