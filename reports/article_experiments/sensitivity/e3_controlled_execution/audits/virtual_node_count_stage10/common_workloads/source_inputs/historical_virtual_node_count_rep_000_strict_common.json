@@ -1,0 +1,66 @@
+{
+  "contract_version": "mcad-sensitivity-e3-workload-v1",
+  "workload_id": "e3-virtual-node-count-rep_000-strict-common-v1",
+  "objective_id": "O_E3_VIRTUAL_NODE_COUNT_REP_000_RUNTIME_BOUND",
+  "session_id": "S_E3_VIRTUAL_NODE_COUNT_REP_000_STRICT_COMMON",
+  "steps": [
+    {
+      "step_index": 1,
+      "step_id": "step-0001-sales-sum-region-04-2018",
+      "query_spec": {
+        "cube": "SyntheticFact",
+        "measures": [
+          "Sales"
+        ],
+        "group_by": [
+          "Geography.Region",
+          "Time.Month"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_04",
+          "Time.Year": "2018"
+        },
+        "aggregators": [
+          "SUM"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_start": "2018-01-01",
+        "window_end": "2018-12-31",
+        "time_members": [
+          "2018"
+        ]
+      }
+    },
+    {
+      "step_index": 2,
+      "step_id": "step-0002-sales-sum-region-06-2017",
+      "query_spec": {
+        "cube": "SyntheticFact",
+        "measures": [
+          "Sales"
+        ],
+        "group_by": [
+          "Geography.Region",
+          "Time.Month"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_06",
+          "Time.Year": "2017"
+        },
+        "aggregators": [
+          "SUM"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_start": "2017-01-01",
+        "window_end": "2017-12-31",
+        "time_members": [
+          "2017"
+        ]
+      }
+    }
+  ]
+}

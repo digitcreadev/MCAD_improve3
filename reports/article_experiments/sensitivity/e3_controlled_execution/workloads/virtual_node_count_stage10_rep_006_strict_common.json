@@ -1,0 +1,66 @@
+{
+  "contract_version": "mcad-sensitivity-e3-workload-v1",
+  "objective_id": "O_E3_VIRTUAL_NODE_COUNT_STAGE10_REP_006_RUNTIME_BOUND",
+  "session_id": "S_E3_VIRTUAL_NODE_COUNT_STAGE10_REP_006_STRICT_COMMON",
+  "steps": [
+    {
+      "query_spec": {
+        "aggregators": [
+          "SUM"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Geography.Region",
+          "Time.Month"
+        ],
+        "measures": [
+          "Sales"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_10",
+          "Time.Year": "2016"
+        },
+        "time_members": [
+          "2016"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2016-12-31",
+        "window_start": "2016-01-01"
+      },
+      "step_id": "step-0001-sales-sum-region-10-2016",
+      "step_index": 1
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "SUM"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Geography.Region",
+          "Time.Month"
+        ],
+        "measures": [
+          "Sales"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_10",
+          "Time.Year": "2018"
+        },
+        "time_members": [
+          "2018"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2018-12-31",
+        "window_start": "2018-01-01"
+      },
+      "step_id": "step-0002-sales-sum-region-10-2018",
+      "step_index": 2
+    }
+  ],
+  "workload_id": "e3-virtual-node-count-stage10-rep_006-strict-common-v1"
+}
