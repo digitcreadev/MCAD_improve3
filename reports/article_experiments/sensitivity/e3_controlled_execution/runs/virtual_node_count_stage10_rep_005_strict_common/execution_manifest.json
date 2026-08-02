@@ -1,0 +1,42 @@
+{
+  "campaign_id": "virtual_node_count_stage10_c4",
+  "commit_entrypoint": "backend.ckg.ckg_updater.CKGGraph.update_from_step",
+  "cross_instance_state_reuse": false,
+  "deterministic_execution_digest": "235a491e8ff6503616be47c07db09640b0ef195f561924829abee794e8576fca",
+  "e2_inputs_unchanged": true,
+  "evaluator_entrypoint": "backend.ckg.ckg_updater.CKGGraph.evaluate_step",
+  "execution_id": "e3-virtual-node-count-stage10-rep_005-strict-common-v1",
+  "executor_version": "mcad-sensitivity-e3-v2",
+  "factor": "virtual_node_count",
+  "failed_instance_count": 0,
+  "fresh_runtime_state_per_instance": true,
+  "fresh_session_per_instance": true,
+  "input_digests": {
+    "campaign_manifest.json": "90872fc400bdd01fef6b3892d8772ba924ab6441f0d4a5424912cf4a73613294",
+    "campaign_spec.json": "afb5e5507bb3a758f32ab20177848d9601311b501d48e46dbc79cb7f8dd20719",
+    "instances.csv": "84fd588988b623f030c69eed8a61de9d1200e241dd75ea67985a213048621903",
+    "instances/level_000006/rep_005_seed_809989256/manifest.json": "9b2c88f027178f558c533d8aadd8acdfc3da7d30fd2581590dd742eb1ceee843",
+    "instances/level_000006/rep_005_seed_809989256/objectives.yaml": "3cd9c296b3cbf54c80d5df153b17e96cd15aef0a1421dfe09ee43a5f682faba9",
+    "instances/level_000012/rep_005_seed_809989256/manifest.json": "605f7e655955d286241cfb78addb3a95ff1e33f3f10d5e0a93e744468c49475b",
+    "instances/level_000012/rep_005_seed_809989256/objectives.yaml": "03e247164c79eefda4884d2a79cee178cff2f2212748aea837c21b5eb343a074",
+    "instances/level_000024/rep_005_seed_809989256/manifest.json": "da116dc3c73e72d702f42fd2ad4937ba7dfe1ba83feb5a1c678dcaf37ac01208",
+    "instances/level_000024/rep_005_seed_809989256/objectives.yaml": "b5afea11ce0756025eb007fc131a6d2640f9c2faf1a562e4a6a518639aa45f70"
+  },
+  "instance_order": [
+    "level_000006/rep_005_seed_809989256",
+    "level_000012/rep_005_seed_809989256",
+    "level_000024/rep_005_seed_809989256"
+  ],
+  "required_outputs": [
+    "execution_spec.json",
+    "execution_manifest.json",
+    "instance_results.csv",
+    "campaign_metrics.json"
+  ],
+  "schema_version": "mcad-sensitivity-e3-execution-manifest-v1",
+  "selected_instance_count": 3,
+  "status": "success",
+  "successful_instance_count": 3,
+  "workload_id": "e3-virtual-node-count-stage10-rep_005-strict-common-v1",
+  "workload_objective_binding": "O_E3_VIRTUAL_NODE_COUNT_STAGE10_REP_005_RUNTIME_BOUND"
+}
