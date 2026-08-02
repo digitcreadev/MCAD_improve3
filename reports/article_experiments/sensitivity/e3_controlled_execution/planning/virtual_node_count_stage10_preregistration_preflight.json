@@ -1,0 +1,1936 @@
+{
+  "decisions": {
+    "formal_timing_execution_authorized": false,
+    "historical_functional_prefix_reuse": true,
+    "historical_functional_rerun_authorized": false,
+    "new_functional_execution_authorized": false,
+    "next_stage": "freeze_exact_timing_parameters_and_validate_stage10_contract",
+    "preregistration_contract_complete": false,
+    "stage20_execution_authorized": false
+  },
+  "historical_campaign": {
+    "campaign_manifest": {
+      "baseline_constraint_count": 4,
+      "baseline_virtual_node_count": 12,
+      "campaign_digest": "2c09abd90dd51cbc84ae4bef77b72be12b243bab53b477b07bf7664ff7304e78",
+      "campaign_generator_version": "mcad-sensitivity-e2.2-v1",
+      "campaign_id": "e22_freeze_virtual_node_count",
+      "campaign_spec_digest": "aa65de47c29b95b252fa65de4c1daf5b610f803c621950c026d639142a56976c",
+      "expected_instance_count": 6,
+      "factor": "virtual_node_count",
+      "level_count": 3,
+      "levels": [
+        6,
+        12,
+        24
+      ],
+      "realised_instance_count": 6,
+      "replication_count": 2,
+      "seeds": [
+        101,
+        202
+      ],
+      "structural_generator_version": "mcad-sensitivity-e2.1-v1"
+    },
+    "campaign_manifest_path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/campaign_manifest.json",
+    "campaign_manifest_sha256": "220fa2f892e3d7ecd5aa6f6a9462008f6d89eef8fe1a880e851823dac98dee6c",
+    "campaign_spec": {
+      "baseline_constraint_count": 4,
+      "baseline_virtual_node_count": 12,
+      "campaign_generator_version": "mcad-sensitivity-e2.2-v1",
+      "campaign_id": "e22_freeze_virtual_node_count",
+      "campaign_spec_digest": "aa65de47c29b95b252fa65de4c1daf5b610f803c621950c026d639142a56976c",
+      "factor": "virtual_node_count",
+      "levels": [
+        6,
+        12,
+        24
+      ],
+      "seeds": [
+        101,
+        202
+      ],
+      "structural_generator_version": "mcad-sensitivity-e2.1-v1"
+    },
+    "campaign_spec_path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/campaign_spec.json",
+    "campaign_spec_sha256": "d14b69d48b1b4684612200584f9ccc1773a518780bb0283b5e809394d21a6958",
+    "prefix_valid": true,
+    "rerun_required": false,
+    "runs": [
+      {
+        "failed_step_count": 0,
+        "files_present": {
+          "campaign_metrics": true,
+          "execution_manifest": true,
+          "instance_results": true
+        },
+        "instance_result_count": 3,
+        "mean_auc_phi": 0.25,
+        "mean_phi_final": 0.25,
+        "realised_levels": [
+          6,
+          12,
+          24
+        ],
+        "replication_index": 0,
+        "run_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_rep_000_strict_common",
+        "run_valid": true,
+        "seed": 101,
+        "statuses": [
+          "success"
+        ],
+        "step_count": 6,
+        "successful_step_count": 6
+      },
+      {
+        "failed_step_count": 0,
+        "files_present": {
+          "campaign_metrics": true,
+          "execution_manifest": true,
+          "instance_results": true
+        },
+        "instance_result_count": 3,
+        "mean_auc_phi": 0.25,
+        "mean_phi_final": 0.25,
+        "realised_levels": [
+          6,
+          12,
+          24
+        ],
+        "replication_index": 1,
+        "run_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_rep_001_strict_common",
+        "run_valid": true,
+        "seed": 202,
+        "statuses": [
+          "success"
+        ],
+        "step_count": 6,
+        "successful_step_count": 6
+      }
+    ]
+  },
+  "proposed_stage10_contract": {
+    "campaign_id": "virtual_node_count_stage10_c4",
+    "common_workload_policy": "one_workload_per_structural_seed_shared_across_virtual_node_levels",
+    "factor": "virtual_node_count",
+    "fixed_constraint_count": 4,
+    "formal_timing_replications": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "historical_functional_prefix": {
+      "replications": [
+        0,
+        1
+      ],
+      "rerun_required": false,
+      "seeds": [
+        101,
+        202
+      ],
+      "valid": true
+    },
+    "levels": [
+      6,
+      12,
+      24
+    ],
+    "new_functional_replications": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "replication_count": 10,
+    "seeds": [
+      101,
+      202,
+      1198202409,
+      796786883,
+      1126922093,
+      809989256,
+      618554674,
+      1363159082,
+      874332939,
+      1767972531
+    ],
+    "stage20_policy": "conditional_only_if_preregistered_precision_targets_fail"
+  },
+  "repository_clean": true,
+  "required_parameter_resolution": {
+    "bootstrap_repetitions": {
+      "candidate_evidence": [
+        "bootstrap_contract.bootstrap_repetitions=10000",
+        "cell_results[0].bootstrap_repetitions=10000",
+        "cell_results[1].bootstrap_repetitions=10000",
+        "cell_results[2].bootstrap_repetitions=10000",
+        "cell_results[3].bootstrap_repetitions=10000",
+        "cell_results[4].bootstrap_repetitions=10000",
+        "cell_results[5].bootstrap_repetitions=10000",
+        "cell_results[6].bootstrap_repetitions=10000",
+        "cell_results[7].bootstrap_repetitions=10000",
+        "cell_results[8].bootstrap_repetitions=10000",
+        "cell_results[9].bootstrap_repetitions=10000",
+        "bootstrap_contract.bootstrap_repetitions=10000",
+        "cell_results[0].bootstrap_repetitions=10000",
+        "cell_results[1].bootstrap_repetitions=10000",
+        "cell_results[2].bootstrap_repetitions=10000",
+        "cell_results[3].bootstrap_repetitions=10000",
+        "cell_results[4].bootstrap_repetitions=10000",
+        "cell_results[5].bootstrap_repetitions=10000",
+        "cell_results[6].bootstrap_repetitions=10000",
+        "cell_results[7].bootstrap_repetitions=10000",
+        "cell_results[8].bootstrap_repetitions=10000",
+        "cell_results[9].bootstrap_repetitions=10000",
+        "{\"action\": null, \"choices\": null, \"default\": 10000, \"dest\": null, \"flags\": [\"--bootstrap-repetitions\"], \"required\": false, \"type\": \"int\"}",
+        "{\"action\": null, \"choices\": null, \"default\": 10000, \"dest\": null, \"flags\": [\"--bootstrap-repetitions\"], \"required\": false, \"type\": \"int\"}"
+      ],
+      "resolved": true
+    },
+    "bootstrap_seed": {
+      "candidate_evidence": [
+        "bootstrap_contract.bootstrap_seed=20260728",
+        "cell_results[0].bootstrap_seed=20280828",
+        "cell_results[1].bootstrap_seed=20280928",
+        "cell_results[2].bootstrap_seed=20300828",
+        "cell_results[3].bootstrap_seed=20300928",
+        "cell_results[4].bootstrap_seed=20340828",
+        "cell_results[5].bootstrap_seed=20340928",
+        "cell_results[6].bootstrap_seed=20380828",
+        "cell_results[7].bootstrap_seed=20380928",
+        "cell_results[8].bootstrap_seed=20420828",
+        "cell_results[9].bootstrap_seed=20420928",
+        "bootstrap_contract.bootstrap_seed=20260728",
+        "cell_results[0].bootstrap_seed=20280828",
+        "cell_results[1].bootstrap_seed=20280928",
+        "cell_results[2].bootstrap_seed=20300828",
+        "cell_results[3].bootstrap_seed=20300928",
+        "cell_results[4].bootstrap_seed=20340828",
+        "cell_results[5].bootstrap_seed=20340928",
+        "cell_results[6].bootstrap_seed=20380828",
+        "cell_results[7].bootstrap_seed=20380928",
+        "cell_results[8].bootstrap_seed=20420828",
+        "cell_results[9].bootstrap_seed=20420928",
+        "{\"action\": null, \"choices\": null, \"default\": 20260728, \"dest\": null, \"flags\": [\"--bootstrap-seed\"], \"required\": false, \"type\": \"int\"}",
+        "{\"action\": null, \"choices\": null, \"default\": 20260728, \"dest\": null, \"flags\": [\"--bootstrap-seed\"], \"required\": false, \"type\": \"int\"}"
+      ],
+      "resolved": true
+    },
+    "confidence_level": {
+      "candidate_evidence": [
+        "bootstrap_contract.confidence_level=0.95",
+        "cell_results[0].confidence_level=0.95",
+        "cell_results[1].confidence_level=0.95",
+        "cell_results[2].confidence_level=0.95",
+        "cell_results[3].confidence_level=0.95",
+        "cell_results[4].confidence_level=0.95",
+        "cell_results[5].confidence_level=0.95",
+        "cell_results[6].confidence_level=0.95",
+        "cell_results[7].confidence_level=0.95",
+        "cell_results[8].confidence_level=0.95",
+        "cell_results[9].confidence_level=0.95",
+        "bootstrap_contract.confidence_level=0.95",
+        "cell_results[0].confidence_level=0.95",
+        "cell_results[1].confidence_level=0.95",
+        "cell_results[2].confidence_level=0.95",
+        "cell_results[3].confidence_level=0.95",
+        "cell_results[4].confidence_level=0.95",
+        "cell_results[5].confidence_level=0.95",
+        "cell_results[6].confidence_level=0.95",
+        "cell_results[7].confidence_level=0.95",
+        "cell_results[8].confidence_level=0.95",
+        "cell_results[9].confidence_level=0.95",
+        "{\"action\": null, \"choices\": null, \"default\": 0.95, \"dest\": null, \"flags\": [\"--confidence-level\"], \"required\": false, \"type\": \"float\"}",
+        "{\"action\": null, \"choices\": null, \"default\": 0.95, \"dest\": null, \"flags\": [\"--confidence-level\"], \"required\": false, \"type\": \"float\"}"
+      ],
+      "resolved": true
+    },
+    "measurements_per_cell": {
+      "candidate_evidence": [
+        "protocol.measurements_per_cell=100",
+        "bootstrap_contract.within_cluster_measurements=retained together",
+        "cell_results[0].measurements_per_seed=100",
+        "cell_results[1].measurements_per_seed=100",
+        "cell_results[2].measurements_per_seed=100",
+        "cell_results[3].measurements_per_seed=100",
+        "cell_results[4].measurements_per_seed=100",
+        "cell_results[5].measurements_per_seed=100",
+        "cell_results[6].measurements_per_seed=100",
+        "cell_results[7].measurements_per_seed=100",
+        "cell_results[8].measurements_per_seed=100",
+        "cell_results[9].measurements_per_seed=100",
+        "combined_validation.measurement_count=20000",
+        "protocol.measurements_per_cell=100",
+        "bootstrap_contract.within_cluster_measurements=retained together",
+        "cell_results[0].measurements_per_seed=100",
+        "cell_results[1].measurements_per_seed=100",
+        "cell_results[2].measurements_per_seed=100",
+        "cell_results[3].measurements_per_seed=100",
+        "cell_results[4].measurements_per_seed=100",
+        "cell_results[5].measurements_per_seed=100",
+        "cell_results[6].measurements_per_seed=100",
+        "cell_results[7].measurements_per_seed=100",
+        "cell_results[8].measurements_per_seed=100",
+        "cell_results[9].measurements_per_seed=100",
+        "{\"action\": null, \"choices\": null, \"default\": 100, \"dest\": null, \"flags\": [\"--measurements\"], \"required\": false, \"type\": \"int\"}",
+        "{\"action\": null, \"choices\": null, \"default\": 100, \"dest\": null, \"flags\": [\"--measurements-per-cluster\"], \"required\": false, \"type\": \"int\"}"
+      ],
+      "resolved": true
+    },
+    "median_relative_half_width_target": {
+      "candidate_evidence": [
+        "bootstrap_contract.median_relative_half_width_target=0.1",
+        "cell_results[0].median_relative_half_width=0.01752455484537993",
+        "cell_results[1].median_relative_half_width=0.02525408926129876",
+        "cell_results[2].median_relative_half_width=0.01366446179731306",
+        "cell_results[3].median_relative_half_width=0.012869084459402704",
+        "cell_results[4].median_relative_half_width=0.015295399753617364",
+        "cell_results[5].median_relative_half_width=0.010844217668830071",
+        "cell_results[6].median_relative_half_width=0.010747577984506294",
+        "cell_results[7].median_relative_half_width=0.012574584377794573",
+        "cell_results[8].median_relative_half_width=0.009698847375745057",
+        "cell_results[9].median_relative_half_width=0.008945331478927206",
+        "failing_cells[0].median_relative_half_width=0.01752455484537993",
+        "failing_cells[1].median_relative_half_width=0.02525408926129876",
+        "failing_cells[2].median_relative_half_width=0.01366446179731306",
+        "failing_cells[3].median_relative_half_width=0.010844217668830071",
+        "failing_cells[4].median_relative_half_width=0.010747577984506294",
+        "failing_cells[5].median_relative_half_width=0.012574584377794573",
+        "bootstrap_contract.median_relative_half_width_target=0.1",
+        "cell_results[0].median_relative_half_width=0.016778660685095675",
+        "cell_results[1].median_relative_half_width=0.014991752268710763",
+        "cell_results[2].median_relative_half_width=0.015104806340327053",
+        "cell_results[3].median_relative_half_width=0.010105556535249645",
+        "cell_results[4].median_relative_half_width=0.01471783103541039",
+        "cell_results[5].median_relative_half_width=0.008882349735709201",
+        "cell_results[6].median_relative_half_width=0.016002532870308984",
+        "cell_results[7].median_relative_half_width=0.008994438377499138",
+        "cell_results[8].median_relative_half_width=0.013609343381231414",
+        "cell_results[9].median_relative_half_width=0.007002321893823906"
+      ],
+      "resolved": true
+    },
+    "order_seed": {
+      "candidate_evidence": [
+        "protocol.order_seed_policy=20260728 + replication_index",
+        "runs[0].order_seed=20260728",
+        "runs[1].order_seed=20260729",
+        "runs[2].order_seed=20260730",
+        "runs[3].order_seed=20260731",
+        "runs[4].order_seed=20260732",
+        "runs[5].order_seed=20260733",
+        "runs[6].order_seed=20260734",
+        "runs[7].order_seed=20260735",
+        "runs[8].order_seed=20260736",
+        "runs[9].order_seed=20260737",
+        "new_runs[0].order_seed=20260738",
+        "new_runs[1].order_seed=20260739",
+        "new_runs[2].order_seed=20260740",
+        "new_runs[3].order_seed=20260741",
+        "new_runs[4].order_seed=20260742",
+        "new_runs[5].order_seed=20260743",
+        "new_runs[6].order_seed=20260744",
+        "new_runs[7].order_seed=20260745",
+        "new_runs[8].order_seed=20260746",
+        "new_runs[9].order_seed=20260747",
+        "protocol.order_seed_policy=20260728 + replication_index",
+        "{\"action\": null, \"choices\": null, \"default\": 20260728, \"dest\": null, \"flags\": [\"--order-seed\"], \"required\": false, \"type\": \"int\"}"
+      ],
+      "resolved": true
+    },
+    "p95_relative_half_width_target": {
+      "candidate_evidence": [
+        "bootstrap_contract.p95_relative_half_width_target=0.15",
+        "cell_results[0].p95_relative_half_width=0.2134889842391699",
+        "cell_results[1].p95_relative_half_width=0.23394181423881033",
+        "cell_results[2].p95_relative_half_width=0.19420834338565066",
+        "cell_results[3].p95_relative_half_width=0.016587832717280086",
+        "cell_results[4].p95_relative_half_width=0.08397906853544668",
+        "cell_results[5].p95_relative_half_width=0.21812452577034014",
+        "cell_results[6].p95_relative_half_width=0.2012993824011585",
+        "cell_results[7].p95_relative_half_width=0.18310970261220028",
+        "cell_results[8].p95_relative_half_width=0.11009882210619072",
+        "cell_results[9].p95_relative_half_width=0.06481489717184409",
+        "failing_cells[0].p95_relative_half_width=0.2134889842391699",
+        "failing_cells[1].p95_relative_half_width=0.23394181423881033",
+        "failing_cells[2].p95_relative_half_width=0.19420834338565066",
+        "failing_cells[3].p95_relative_half_width=0.21812452577034014",
+        "failing_cells[4].p95_relative_half_width=0.2012993824011585",
+        "failing_cells[5].p95_relative_half_width=0.18310970261220028",
+        "bootstrap_contract.p95_relative_half_width_target=0.15",
+        "cell_results[0].p95_relative_half_width=0.02986000137861953",
+        "cell_results[1].p95_relative_half_width=0.015179910923108341",
+        "cell_results[2].p95_relative_half_width=0.02420195483336553",
+        "cell_results[3].p95_relative_half_width=0.018277528664099717",
+        "cell_results[4].p95_relative_half_width=0.014211446509459035",
+        "cell_results[5].p95_relative_half_width=0.014683287087945808",
+        "cell_results[6].p95_relative_half_width=0.02424101696366615",
+        "cell_results[7].p95_relative_half_width=0.017979856939250968",
+        "cell_results[8].p95_relative_half_width=0.014073779021601897",
+        "cell_results[9].p95_relative_half_width=0.01905925110471172"
+      ],
+      "resolved": true
+    },
+    "reuse_successful_policy": {
+      "candidate_evidence": [
+        "{\"action\": \"store_true\", \"choices\": null, \"default\": null, \"dest\": null, \"flags\": [\"--reuse-successful\"], \"required\": false, \"type\": null}"
+      ],
+      "resolved": true
+    },
+    "warmups": {
+      "candidate_evidence": [
+        "protocol.warmups_per_cell=10",
+        "runs[0].warmup_observation_count=100",
+        "runs[1].warmup_observation_count=100",
+        "runs[2].warmup_observation_count=100",
+        "runs[3].warmup_observation_count=100",
+        "runs[4].warmup_observation_count=100",
+        "runs[5].warmup_observation_count=100",
+        "runs[6].warmup_observation_count=100",
+        "runs[7].warmup_observation_count=100",
+        "runs[8].warmup_observation_count=100",
+        "runs[9].warmup_observation_count=100",
+        "totals.warmup_observation_count=1000",
+        "combined_totals.warmup_observation_count=2000",
+        "new_runs[0].warmup_observation_count=100",
+        "new_runs[1].warmup_observation_count=100",
+        "new_runs[2].warmup_observation_count=100",
+        "new_runs[3].warmup_observation_count=100",
+        "new_runs[4].warmup_observation_count=100",
+        "new_runs[5].warmup_observation_count=100",
+        "new_runs[6].warmup_observation_count=100",
+        "new_runs[7].warmup_observation_count=100",
+        "new_runs[8].warmup_observation_count=100",
+        "new_runs[9].warmup_observation_count=100",
+        "new_totals.warmup_observation_count=1000",
+        "protocol.warmups_per_cell=10",
+        "{\"action\": null, \"choices\": null, \"default\": 10, \"dest\": null, \"flags\": [\"--warmups\"], \"required\": false, \"type\": \"int\"}"
+      ],
+      "resolved": true
+    }
+  },
+  "schema_version": "mcad-virtual-node-count-stage10-preregistration-preflight-v1",
+  "source_branch": "paper/phase3-controlled-execution",
+  "source_commit": "6132923eb211b14109e2bda851948da7ddbe2220",
+  "status": "preflight_complete_parameter_freeze_pending",
+  "timing_parameter_evidence": [
+    {
+      "matched_fields": [
+        {
+          "key": "requirements.bootstrap_path_found",
+          "value": true
+        }
+      ],
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_timing_harness_implementation_audit.json",
+      "present": true,
+      "sha256": "c4853c455087964d5abfc5d190d8ee2652bdf699218a524eab84b53d499ae6a5"
+    },
+    {
+      "matched_fields": [
+        {
+          "key": "measurement_observation_count",
+          "value": 200
+        }
+      ],
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_timing_harness_reproducibility_checkpoint.json",
+      "present": true,
+      "sha256": "602a2d450e9acca6045d64a2d3dfec4636e0143309bcaeab1c6c5e4136231857"
+    },
+    {
+      "matched_fields": [
+        {
+          "key": "inference_status.precision_analysis_report",
+          "value": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_stage10_precision_analysis_report.json"
+        },
+        {
+          "key": "inference_status.precision_targets_evaluated",
+          "value": true
+        },
+        {
+          "key": "inference_status.seed_clustered_intervals_complete",
+          "value": true
+        },
+        {
+          "key": "protocol.measurements_per_cell",
+          "value": 100
+        },
+        {
+          "key": "protocol.order_seed_policy",
+          "value": "20260728 + replication_index"
+        },
+        {
+          "key": "protocol.warmups_per_cell",
+          "value": 10
+        },
+        {
+          "key": "runs[0].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "runs[0].order_seed",
+          "value": 20260728
+        },
+        {
+          "key": "runs[0].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "runs[1].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "runs[1].order_seed",
+          "value": 20260729
+        },
+        {
+          "key": "runs[1].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "runs[2].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "runs[2].order_seed",
+          "value": 20260730
+        },
+        {
+          "key": "runs[2].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "runs[3].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "runs[3].order_seed",
+          "value": 20260731
+        },
+        {
+          "key": "runs[3].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "runs[4].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "runs[4].order_seed",
+          "value": 20260732
+        },
+        {
+          "key": "runs[4].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "runs[5].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "runs[5].order_seed",
+          "value": 20260733
+        },
+        {
+          "key": "runs[5].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "runs[6].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "runs[6].order_seed",
+          "value": 20260734
+        },
+        {
+          "key": "runs[6].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "runs[7].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "runs[7].order_seed",
+          "value": 20260735
+        },
+        {
+          "key": "runs[7].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "runs[8].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "runs[8].order_seed",
+          "value": 20260736
+        },
+        {
+          "key": "runs[8].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "runs[9].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "runs[9].order_seed",
+          "value": 20260737
+        },
+        {
+          "key": "runs[9].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "totals.measurement_observation_count",
+          "value": 10000
+        },
+        {
+          "key": "totals.warmup_observation_count",
+          "value": 1000
+        }
+      ],
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_stage10_formal_timing_execution_report.json",
+      "present": true,
+      "sha256": "064fdf6a8f0a48e28d14ef0550d830789862dabd286093714f7c2663e32b2487"
+    },
+    {
+      "matched_fields": [
+        {
+          "key": "all_precision_targets_met",
+          "value": false
+        },
+        {
+          "key": "bootstrap_contract.bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "bootstrap_contract.bootstrap_seed",
+          "value": 20260728
+        },
+        {
+          "key": "bootstrap_contract.confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "bootstrap_contract.gate_rule",
+          "value": "Every level-step cell must meet both precision targets."
+        },
+        {
+          "key": "bootstrap_contract.interval_method",
+          "value": "percentile cluster bootstrap"
+        },
+        {
+          "key": "bootstrap_contract.median_relative_half_width_target",
+          "value": 0.1
+        },
+        {
+          "key": "bootstrap_contract.p95_relative_half_width_target",
+          "value": 0.15
+        },
+        {
+          "key": "bootstrap_contract.unit_of_resampling",
+          "value": "structural seed cluster"
+        },
+        {
+          "key": "bootstrap_contract.within_cluster_measurements",
+          "value": "retained together"
+        },
+        {
+          "key": "cell_results[0].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[0].bootstrap_seed",
+          "value": 20280828
+        },
+        {
+          "key": "cell_results[0].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[0].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[0].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[0].median_relative_half_width",
+          "value": 0.01752455484537993
+        },
+        {
+          "key": "cell_results[0].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[0].p95_relative_half_width",
+          "value": 0.2134889842391699
+        },
+        {
+          "key": "cell_results[1].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[1].bootstrap_seed",
+          "value": 20280928
+        },
+        {
+          "key": "cell_results[1].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[1].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[1].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[1].median_relative_half_width",
+          "value": 0.02525408926129876
+        },
+        {
+          "key": "cell_results[1].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[1].p95_relative_half_width",
+          "value": 0.23394181423881033
+        },
+        {
+          "key": "cell_results[2].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[2].bootstrap_seed",
+          "value": 20300828
+        },
+        {
+          "key": "cell_results[2].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[2].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[2].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[2].median_relative_half_width",
+          "value": 0.01366446179731306
+        },
+        {
+          "key": "cell_results[2].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[2].p95_relative_half_width",
+          "value": 0.19420834338565066
+        },
+        {
+          "key": "cell_results[3].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[3].bootstrap_seed",
+          "value": 20300928
+        },
+        {
+          "key": "cell_results[3].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[3].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[3].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[3].median_relative_half_width",
+          "value": 0.012869084459402704
+        },
+        {
+          "key": "cell_results[3].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[3].p95_relative_half_width",
+          "value": 0.016587832717280086
+        },
+        {
+          "key": "cell_results[4].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[4].bootstrap_seed",
+          "value": 20340828
+        },
+        {
+          "key": "cell_results[4].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[4].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[4].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[4].median_relative_half_width",
+          "value": 0.015295399753617364
+        },
+        {
+          "key": "cell_results[4].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[4].p95_relative_half_width",
+          "value": 0.08397906853544668
+        },
+        {
+          "key": "cell_results[5].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[5].bootstrap_seed",
+          "value": 20340928
+        },
+        {
+          "key": "cell_results[5].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[5].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[5].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[5].median_relative_half_width",
+          "value": 0.010844217668830071
+        },
+        {
+          "key": "cell_results[5].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[5].p95_relative_half_width",
+          "value": 0.21812452577034014
+        },
+        {
+          "key": "cell_results[6].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[6].bootstrap_seed",
+          "value": 20380828
+        },
+        {
+          "key": "cell_results[6].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[6].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[6].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[6].median_relative_half_width",
+          "value": 0.010747577984506294
+        },
+        {
+          "key": "cell_results[6].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[6].p95_relative_half_width",
+          "value": 0.2012993824011585
+        },
+        {
+          "key": "cell_results[7].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[7].bootstrap_seed",
+          "value": 20380928
+        },
+        {
+          "key": "cell_results[7].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[7].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[7].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[7].median_relative_half_width",
+          "value": 0.012574584377794573
+        },
+        {
+          "key": "cell_results[7].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[7].p95_relative_half_width",
+          "value": 0.18310970261220028
+        },
+        {
+          "key": "cell_results[8].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[8].bootstrap_seed",
+          "value": 20420828
+        },
+        {
+          "key": "cell_results[8].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[8].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[8].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[8].median_relative_half_width",
+          "value": 0.009698847375745057
+        },
+        {
+          "key": "cell_results[8].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[8].p95_relative_half_width",
+          "value": 0.11009882210619072
+        },
+        {
+          "key": "cell_results[9].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[9].bootstrap_seed",
+          "value": 20420928
+        },
+        {
+          "key": "cell_results[9].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[9].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[9].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[9].median_relative_half_width",
+          "value": 0.008945331478927206
+        },
+        {
+          "key": "cell_results[9].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[9].p95_relative_half_width",
+          "value": 0.06481489717184409
+        },
+        {
+          "key": "failing_cells[0].median_relative_half_width",
+          "value": 0.01752455484537993
+        },
+        {
+          "key": "failing_cells[0].p95_relative_half_width",
+          "value": 0.2134889842391699
+        },
+        {
+          "key": "failing_cells[1].median_relative_half_width",
+          "value": 0.02525408926129876
+        },
+        {
+          "key": "failing_cells[1].p95_relative_half_width",
+          "value": 0.23394181423881033
+        },
+        {
+          "key": "failing_cells[2].median_relative_half_width",
+          "value": 0.01366446179731306
+        },
+        {
+          "key": "failing_cells[2].p95_relative_half_width",
+          "value": 0.19420834338565066
+        },
+        {
+          "key": "failing_cells[3].median_relative_half_width",
+          "value": 0.010844217668830071
+        },
+        {
+          "key": "failing_cells[3].p95_relative_half_width",
+          "value": 0.21812452577034014
+        },
+        {
+          "key": "failing_cells[4].median_relative_half_width",
+          "value": 0.010747577984506294
+        },
+        {
+          "key": "failing_cells[4].p95_relative_half_width",
+          "value": 0.2012993824011585
+        },
+        {
+          "key": "failing_cells[5].median_relative_half_width",
+          "value": 0.012574584377794573
+        },
+        {
+          "key": "failing_cells[5].p95_relative_half_width",
+          "value": 0.18310970261220028
+        }
+      ],
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_stage10_precision_analysis_report.json",
+      "present": true,
+      "sha256": "b47667cffcc37db3be637406254717449a24f12494db438868978c3d33ff3899"
+    },
+    {
+      "matched_fields": [
+        {
+          "key": "combined_totals.measurement_observation_count",
+          "value": 20000
+        },
+        {
+          "key": "combined_totals.warmup_observation_count",
+          "value": 2000
+        },
+        {
+          "key": "combined_validation.measurement_count",
+          "value": 20000
+        },
+        {
+          "key": "inference_status.precision_analysis_report",
+          "value": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_stage20_precision_analysis_report.json"
+        },
+        {
+          "key": "inference_status.precision_targets_evaluated",
+          "value": true
+        },
+        {
+          "key": "inference_status.seed_clustered_intervals_complete",
+          "value": true
+        },
+        {
+          "key": "new_runs[0].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "new_runs[0].order_seed",
+          "value": 20260738
+        },
+        {
+          "key": "new_runs[0].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "new_runs[1].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "new_runs[1].order_seed",
+          "value": 20260739
+        },
+        {
+          "key": "new_runs[1].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "new_runs[2].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "new_runs[2].order_seed",
+          "value": 20260740
+        },
+        {
+          "key": "new_runs[2].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "new_runs[3].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "new_runs[3].order_seed",
+          "value": 20260741
+        },
+        {
+          "key": "new_runs[3].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "new_runs[4].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "new_runs[4].order_seed",
+          "value": 20260742
+        },
+        {
+          "key": "new_runs[4].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "new_runs[5].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "new_runs[5].order_seed",
+          "value": 20260743
+        },
+        {
+          "key": "new_runs[5].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "new_runs[6].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "new_runs[6].order_seed",
+          "value": 20260744
+        },
+        {
+          "key": "new_runs[6].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "new_runs[7].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "new_runs[7].order_seed",
+          "value": 20260745
+        },
+        {
+          "key": "new_runs[7].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "new_runs[8].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "new_runs[8].order_seed",
+          "value": 20260746
+        },
+        {
+          "key": "new_runs[8].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "new_runs[9].measurement_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "new_runs[9].order_seed",
+          "value": 20260747
+        },
+        {
+          "key": "new_runs[9].warmup_observation_count",
+          "value": 100
+        },
+        {
+          "key": "new_totals.measurement_observation_count",
+          "value": 10000
+        },
+        {
+          "key": "new_totals.warmup_observation_count",
+          "value": 1000
+        },
+        {
+          "key": "protocol.measurements_per_cell",
+          "value": 100
+        },
+        {
+          "key": "protocol.order_seed_policy",
+          "value": "20260728 + replication_index"
+        },
+        {
+          "key": "protocol.warmups_per_cell",
+          "value": 10
+        }
+      ],
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_stage20_formal_timing_execution_report.json",
+      "present": true,
+      "sha256": "ab27e45a79d27148828145b2c7bf1b32eb6eb9ee051493979a0dce1d23724dff"
+    },
+    {
+      "matched_fields": [
+        {
+          "key": "all_precision_targets_met",
+          "value": true
+        },
+        {
+          "key": "bootstrap_contract.bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "bootstrap_contract.bootstrap_seed",
+          "value": 20260728
+        },
+        {
+          "key": "bootstrap_contract.confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "bootstrap_contract.gate_rule",
+          "value": "Every level-step cell must meet both precision targets."
+        },
+        {
+          "key": "bootstrap_contract.interval_method",
+          "value": "percentile cluster bootstrap"
+        },
+        {
+          "key": "bootstrap_contract.median_relative_half_width_target",
+          "value": 0.1
+        },
+        {
+          "key": "bootstrap_contract.p95_relative_half_width_target",
+          "value": 0.15
+        },
+        {
+          "key": "bootstrap_contract.unit_of_resampling",
+          "value": "structural seed cluster"
+        },
+        {
+          "key": "bootstrap_contract.within_cluster_measurements",
+          "value": "retained together"
+        },
+        {
+          "key": "cell_results[0].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[0].bootstrap_seed",
+          "value": 20280828
+        },
+        {
+          "key": "cell_results[0].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[0].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[0].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[0].median_relative_half_width",
+          "value": 0.016778660685095675
+        },
+        {
+          "key": "cell_results[0].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[0].p95_relative_half_width",
+          "value": 0.02986000137861953
+        },
+        {
+          "key": "cell_results[1].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[1].bootstrap_seed",
+          "value": 20280928
+        },
+        {
+          "key": "cell_results[1].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[1].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[1].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[1].median_relative_half_width",
+          "value": 0.014991752268710763
+        },
+        {
+          "key": "cell_results[1].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[1].p95_relative_half_width",
+          "value": 0.015179910923108341
+        },
+        {
+          "key": "cell_results[2].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[2].bootstrap_seed",
+          "value": 20300828
+        },
+        {
+          "key": "cell_results[2].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[2].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[2].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[2].median_relative_half_width",
+          "value": 0.015104806340327053
+        },
+        {
+          "key": "cell_results[2].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[2].p95_relative_half_width",
+          "value": 0.02420195483336553
+        },
+        {
+          "key": "cell_results[3].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[3].bootstrap_seed",
+          "value": 20300928
+        },
+        {
+          "key": "cell_results[3].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[3].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[3].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[3].median_relative_half_width",
+          "value": 0.010105556535249645
+        },
+        {
+          "key": "cell_results[3].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[3].p95_relative_half_width",
+          "value": 0.018277528664099717
+        },
+        {
+          "key": "cell_results[4].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[4].bootstrap_seed",
+          "value": 20340828
+        },
+        {
+          "key": "cell_results[4].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[4].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[4].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[4].median_relative_half_width",
+          "value": 0.01471783103541039
+        },
+        {
+          "key": "cell_results[4].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[4].p95_relative_half_width",
+          "value": 0.014211446509459035
+        },
+        {
+          "key": "cell_results[5].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[5].bootstrap_seed",
+          "value": 20340928
+        },
+        {
+          "key": "cell_results[5].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[5].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[5].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[5].median_relative_half_width",
+          "value": 0.008882349735709201
+        },
+        {
+          "key": "cell_results[5].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[5].p95_relative_half_width",
+          "value": 0.014683287087945808
+        },
+        {
+          "key": "cell_results[6].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[6].bootstrap_seed",
+          "value": 20380828
+        },
+        {
+          "key": "cell_results[6].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[6].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[6].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[6].median_relative_half_width",
+          "value": 0.016002532870308984
+        },
+        {
+          "key": "cell_results[6].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[6].p95_relative_half_width",
+          "value": 0.02424101696366615
+        },
+        {
+          "key": "cell_results[7].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[7].bootstrap_seed",
+          "value": 20380928
+        },
+        {
+          "key": "cell_results[7].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[7].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[7].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[7].median_relative_half_width",
+          "value": 0.008994438377499138
+        },
+        {
+          "key": "cell_results[7].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[7].p95_relative_half_width",
+          "value": 0.017979856939250968
+        },
+        {
+          "key": "cell_results[8].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[8].bootstrap_seed",
+          "value": 20420828
+        },
+        {
+          "key": "cell_results[8].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[8].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[8].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[8].median_relative_half_width",
+          "value": 0.013609343381231414
+        },
+        {
+          "key": "cell_results[8].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[8].p95_relative_half_width",
+          "value": 0.014073779021601897
+        },
+        {
+          "key": "cell_results[9].bootstrap_repetitions",
+          "value": 10000
+        },
+        {
+          "key": "cell_results[9].bootstrap_seed",
+          "value": 20420928
+        },
+        {
+          "key": "cell_results[9].confidence_level",
+          "value": 0.95
+        },
+        {
+          "key": "cell_results[9].measurements_per_seed",
+          "value": 100
+        },
+        {
+          "key": "cell_results[9].median_precision_target",
+          "value": 0.1
+        },
+        {
+          "key": "cell_results[9].median_relative_half_width",
+          "value": 0.007002321893823906
+        },
+        {
+          "key": "cell_results[9].p95_precision_target",
+          "value": 0.15
+        },
+        {
+          "key": "cell_results[9].p95_relative_half_width",
+          "value": 0.01905925110471172
+        },
+        {
+          "key": "stage_size",
+          "value": 20
+        }
+      ],
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa3_stage20_precision_analysis_report.json",
+      "present": true,
+      "sha256": "23eb40061410f10b3749741a9a08c3dabd3db255d3fae3153cd74169196012c1"
+    }
+  ],
+  "unresolved_required_parameters": [],
+  "versioned_interfaces": [
+    {
+      "arguments": [
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "execution_spec_path"
+          ],
+          "required": false,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--output-dir"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 10,
+          "dest": null,
+          "flags": [
+            "--warmups"
+          ],
+          "required": false,
+          "type": "int"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 100,
+          "dest": null,
+          "flags": [
+            "--measurements"
+          ],
+          "required": false,
+          "type": "int"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 20260728,
+          "dest": null,
+          "flags": [
+            "--order-seed"
+          ],
+          "required": false,
+          "type": "int"
+        },
+        {
+          "action": "store_true",
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--reuse-successful"
+          ],
+          "required": false,
+          "type": null
+        }
+      ],
+      "parse_error": null,
+      "path": "backend/harness/sensitivity_execution/run_timing_repetitions.py",
+      "present": true,
+      "sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595"
+    },
+    {
+      "arguments": [
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--observations"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--timing-report"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--intervals-csv"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--report-json"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--report-md"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 10000,
+          "dest": null,
+          "flags": [
+            "--bootstrap-repetitions"
+          ],
+          "required": false,
+          "type": "int"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 20260728,
+          "dest": null,
+          "flags": [
+            "--bootstrap-seed"
+          ],
+          "required": false,
+          "type": "int"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 0.95,
+          "dest": null,
+          "flags": [
+            "--confidence-level"
+          ],
+          "required": false,
+          "type": "float"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 0.1,
+          "dest": null,
+          "flags": [
+            "--median-target"
+          ],
+          "required": false,
+          "type": "float"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 0.15,
+          "dest": null,
+          "flags": [
+            "--p95-target"
+          ],
+          "required": false,
+          "type": "float"
+        }
+      ],
+      "parse_error": null,
+      "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision.py",
+      "present": true,
+      "sha256": "a42c98ec88ac996bdf3e06f7d58ab1e0bc20d76a8910dd3790e47e124bb5d977"
+    },
+    {
+      "arguments": [
+        {
+          "action": null,
+          "choices": [
+            10,
+            20,
+            30
+          ],
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--stage-size"
+          ],
+          "required": true,
+          "type": "int"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--observations"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--timing-report"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--intervals-csv"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--report-json"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": null,
+          "dest": null,
+          "flags": [
+            "--report-md"
+          ],
+          "required": true,
+          "type": "Path"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": "2,4,8,12,16",
+          "dest": null,
+          "flags": [
+            "--levels"
+          ],
+          "required": false,
+          "type": null
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": "1,2",
+          "dest": null,
+          "flags": [
+            "--steps"
+          ],
+          "required": false,
+          "type": null
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 100,
+          "dest": null,
+          "flags": [
+            "--measurements-per-cluster"
+          ],
+          "required": false,
+          "type": "int"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 10000,
+          "dest": null,
+          "flags": [
+            "--bootstrap-repetitions"
+          ],
+          "required": false,
+          "type": "int"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 20260728,
+          "dest": null,
+          "flags": [
+            "--bootstrap-seed"
+          ],
+          "required": false,
+          "type": "int"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 0.95,
+          "dest": null,
+          "flags": [
+            "--confidence-level"
+          ],
+          "required": false,
+          "type": "float"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 0.1,
+          "dest": null,
+          "flags": [
+            "--median-target"
+          ],
+          "required": false,
+          "type": "float"
+        },
+        {
+          "action": null,
+          "choices": null,
+          "default": 0.15,
+          "dest": null,
+          "flags": [
+            "--p95-target"
+          ],
+          "required": false,
+          "type": "float"
+        }
+      ],
+      "parse_error": null,
+      "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+      "present": true,
+      "sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504"
+    },
+    {
+      "arguments": [],
+      "parse_error": null,
+      "path": "backend/harness/sensitivity_execution/tools/prepare_virtual_node_count_replication_runs.py",
+      "present": true,
+      "sha256": "c57301e212299fc85abe9ceea783db90b5fe3e5ac6e877a9aee7e2c1427289fa"
+    }
+  ]
+}
