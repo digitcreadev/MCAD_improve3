@@ -1,0 +1,1264 @@
+{
+  "references": {
+    "level_000006/rep_007_seed_1363159082::step_0001": {
+      "projection": {
+        "calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001"
+        ],
+        "calculable_constraints_partial": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001"
+        ],
+        "calculable_constraints_total": [],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0002"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001"
+              ],
+              "calculable_constraints_total": []
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001"
+        ],
+        "delta_phi_t": 0.25,
+        "delta_phi_weighted_t": 0.25,
+        "gained_resource_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0002"
+        ],
+        "induced_mask_constraints": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002_NV0002"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0003": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0003_NV0001"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0004": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0004_NV0001"
+          ]
+        },
+        "newly_contributed_constraints_partial": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001"
+        ],
+        "newly_contributed_constraints_total": [],
+        "non_calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0003",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0002"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001": {
+            "covered_after": 1,
+            "covered_after_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0002"
+            ],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0002"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0002"
+            ],
+            "ratio_after": 0.5,
+            "state": "partial",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0002"
+            ],
+            "support_size": 2
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002_NV0002"
+            ],
+            "support_size": 2
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0003_NV0001"
+            ],
+            "support_size": 1
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0004_NV0001"
+            ],
+            "support_size": 1
+          }
+        }
+      },
+      "semantic_digest": "8641b813c08195b001c60bc141bd55a5570e58e428fecbd1f255e18b29b7f7ea"
+    },
+    "level_000006/rep_007_seed_1363159082::step_0002": {
+      "projection": {
+        "calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001"
+        ],
+        "calculable_constraints_partial": [],
+        "calculable_constraints_total": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001"
+        ],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0001"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [],
+              "calculable_constraints_total": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001"
+              ]
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001"
+        ],
+        "delta_phi_t": 0.0,
+        "delta_phi_weighted_t": 0.0,
+        "gained_resource_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0001"
+        ],
+        "induced_mask_constraints": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002_NV0002"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0003": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0003_NV0001"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0004": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0004_NV0001"
+          ]
+        },
+        "newly_contributed_constraints_partial": [],
+        "newly_contributed_constraints_total": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001"
+        ],
+        "non_calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0003",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0001"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001": {
+            "covered_after": 2,
+            "covered_after_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0002"
+            ],
+            "covered_before": 1,
+            "covered_before_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0002"
+            ],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0001"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0001"
+            ],
+            "ratio_after": 1.0,
+            "state": "total",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0001_NV0002"
+            ],
+            "support_size": 2
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0002_NV0002"
+            ],
+            "support_size": 2
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0003_NV0001"
+            ],
+            "support_size": 1
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R007_C0004_NV0001"
+            ],
+            "support_size": 1
+          }
+        }
+      },
+      "semantic_digest": "c6409149c4b847012d194b0aae93826be267da7a62640652e1dc60d5eaf383d3"
+    },
+    "level_000012/rep_007_seed_1363159082::step_0001": {
+      "projection": {
+        "calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001"
+        ],
+        "calculable_constraints_partial": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001"
+        ],
+        "calculable_constraints_total": [],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0002"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001"
+              ],
+              "calculable_constraints_total": []
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001"
+        ],
+        "delta_phi_t": 0.25,
+        "delta_phi_weighted_t": 0.25,
+        "gained_resource_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0002"
+        ],
+        "induced_mask_constraints": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0003"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0003"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0003"
+          ]
+        },
+        "newly_contributed_constraints_partial": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001"
+        ],
+        "newly_contributed_constraints_total": [],
+        "non_calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0002"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001": {
+            "covered_after": 1,
+            "covered_after_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0002"
+            ],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0002"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0002"
+            ],
+            "ratio_after": 0.333333,
+            "state": "partial",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0003"
+            ],
+            "support_size": 3
+          }
+        }
+      },
+      "semantic_digest": "271ae130f1dfb1e9eeeb02076783ff943be20a2b018ab6d9da83d09a7afbce97"
+    },
+    "level_000012/rep_007_seed_1363159082::step_0002": {
+      "projection": {
+        "calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001"
+        ],
+        "calculable_constraints_partial": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001"
+        ],
+        "calculable_constraints_total": [],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0001"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001"
+              ],
+              "calculable_constraints_total": []
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001"
+        ],
+        "delta_phi_t": 0.0,
+        "delta_phi_weighted_t": 0.0,
+        "gained_resource_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0001"
+        ],
+        "induced_mask_constraints": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0003"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0003"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0003"
+          ]
+        },
+        "newly_contributed_constraints_partial": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001"
+        ],
+        "newly_contributed_constraints_total": [],
+        "non_calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0001"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001": {
+            "covered_after": 2,
+            "covered_after_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0002"
+            ],
+            "covered_before": 1,
+            "covered_before_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0002"
+            ],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0001"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0001"
+            ],
+            "ratio_after": 0.666667,
+            "state": "partial",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0001_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0002_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0003_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R007_C0004_NV0003"
+            ],
+            "support_size": 3
+          }
+        }
+      },
+      "semantic_digest": "b0d246a6ac0a6d14566c0eb7f24198852853f81eb8c05f8fa2de6cdbbb597d07"
+    },
+    "level_000024/rep_007_seed_1363159082::step_0001": {
+      "projection": {
+        "calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001"
+        ],
+        "calculable_constraints_partial": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001"
+        ],
+        "calculable_constraints_total": [],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0002"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001"
+              ],
+              "calculable_constraints_total": []
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001"
+        ],
+        "delta_phi_t": 0.25,
+        "delta_phi_weighted_t": 0.25,
+        "gained_resource_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0002"
+        ],
+        "induced_mask_constraints": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0003",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0004",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0005",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0006"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0003",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0004",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0005",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0006"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0003",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0004",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0005",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0006"
+          ]
+        },
+        "newly_contributed_constraints_partial": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001"
+        ],
+        "newly_contributed_constraints_total": [],
+        "non_calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0002"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001": {
+            "covered_after": 1,
+            "covered_after_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0002"
+            ],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0002"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0002"
+            ],
+            "ratio_after": 0.166667,
+            "state": "partial",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0003",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0004",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0005",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0003",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0004",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0005",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0003",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0004",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0005",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0003",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0004",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0005",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0006"
+            ],
+            "support_size": 6
+          }
+        }
+      },
+      "semantic_digest": "7c4de8c5ae39f9678ac402cd633c98d2f97189195865efa70a1b794b90898ef6"
+    },
+    "level_000024/rep_007_seed_1363159082::step_0002": {
+      "projection": {
+        "calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001"
+        ],
+        "calculable_constraints_partial": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001"
+        ],
+        "calculable_constraints_total": [],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0001"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [
+                "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001"
+              ],
+              "calculable_constraints_total": []
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001"
+        ],
+        "delta_phi_t": 0.0,
+        "delta_phi_weighted_t": 0.0,
+        "gained_resource_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0001"
+        ],
+        "induced_mask_constraints": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0003",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0004",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0005",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0006"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0003",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0004",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0005",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0006"
+          ],
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004": [
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0001",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0002",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0003",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0004",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0005",
+            "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0006"
+          ]
+        },
+        "newly_contributed_constraints_partial": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001"
+        ],
+        "newly_contributed_constraints_total": [],
+        "non_calculable_constraints": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003",
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0001"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001": {
+            "covered_after": 2,
+            "covered_after_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0002"
+            ],
+            "covered_before": 1,
+            "covered_before_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0002"
+            ],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0001"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0001"
+            ],
+            "ratio_after": 0.333333,
+            "state": "partial",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0003",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0004",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0005",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0001_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0003",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0004",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0005",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0002_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0003",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0004",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0005",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0003_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0001",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0002",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0003",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0004",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0005",
+              "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R007_C0004_NV0006"
+            ],
+            "support_size": 6
+          }
+        }
+      },
+      "semantic_digest": "4cce141eba65358660cc3f6bc07e77b5078683f76a0d428b0213efa114e33c88"
+    }
+  },
+  "schema_version": "mcad-sensitivity-sa3-functional-references-v1"
+}

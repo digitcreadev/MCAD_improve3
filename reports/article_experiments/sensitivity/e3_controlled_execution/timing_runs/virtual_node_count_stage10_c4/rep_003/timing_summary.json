@@ -1,0 +1,218 @@
+{
+  "all_cells_exactly_balanced": false,
+  "level_step_summaries": [
+    {
+      "count": 100,
+      "factor_level": 6,
+      "maximum_ms": 0.645768,
+      "mean_ms": 0.38526007,
+      "median_ms": 0.3421995,
+      "minimum_ms": 0.323566,
+      "p95_ms": 0.5870479999999999,
+      "p99_ms": 0.64206936,
+      "stdev_ms": 0.09316232782050073,
+      "step_id": "step-0001-sales-sum-region-01-2010"
+    },
+    {
+      "count": 100,
+      "factor_level": 6,
+      "maximum_ms": 1.399849,
+      "mean_ms": 0.35939357,
+      "median_ms": 0.2863955,
+      "minimum_ms": 0.272699,
+      "p95_ms": 0.5421433,
+      "p99_ms": 0.7008684100000035,
+      "stdev_ms": 0.1500229732044938,
+      "step_id": "step-0002-sales-sum-region-02-2013"
+    },
+    {
+      "count": 100,
+      "factor_level": 12,
+      "maximum_ms": 2.160397,
+      "mean_ms": 0.47543571999999995,
+      "median_ms": 0.396001,
+      "minimum_ms": 0.378959,
+      "p95_ms": 0.73661535,
+      "p99_ms": 0.9828415000000061,
+      "stdev_ms": 0.21528206420833018,
+      "step_id": "step-0001-sales-sum-region-01-2010"
+    },
+    {
+      "count": 100,
+      "factor_level": 12,
+      "maximum_ms": 0.712595,
+      "mean_ms": 0.37905608999999996,
+      "median_ms": 0.333909,
+      "minimum_ms": 0.319685,
+      "p95_ms": 0.63193855,
+      "p99_ms": 0.6736246400000002,
+      "stdev_ms": 0.10446347243923364,
+      "step_id": "step-0002-sales-sum-region-02-2013"
+    },
+    {
+      "count": 100,
+      "factor_level": 24,
+      "maximum_ms": 1.250395,
+      "mean_ms": 0.62072656,
+      "median_ms": 0.5252745000000001,
+      "minimum_ms": 0.504447,
+      "p95_ms": 0.96468195,
+      "p99_ms": 1.0949273800000008,
+      "stdev_ms": 0.1822472293914367,
+      "step_id": "step-0001-sales-sum-region-01-2010"
+    },
+    {
+      "count": 100,
+      "factor_level": 24,
+      "maximum_ms": 1.404658,
+      "mean_ms": 0.5517602,
+      "median_ms": 0.475287,
+      "minimum_ms": 0.456787,
+      "p95_ms": 0.9020198499999998,
+      "p99_ms": 1.007024500000002,
+      "stdev_ms": 0.17465035601059123,
+      "step_id": "step-0002-sales-sum-region-02-2013"
+    }
+  ],
+  "level_summaries": [
+    {
+      "count": 200,
+      "factor_level": 6,
+      "maximum_ms": 1.399849,
+      "mean_ms": 0.37232681999999995,
+      "median_ms": 0.33585849999999995,
+      "minimum_ms": 0.272699,
+      "p95_ms": 0.5788531499999999,
+      "p99_ms": 0.6462483999999996,
+      "stdev_ms": 0.1252310199001981
+    },
+    {
+      "count": 200,
+      "factor_level": 12,
+      "maximum_ms": 2.160397,
+      "mean_ms": 0.427245905,
+      "median_ms": 0.387028,
+      "minimum_ms": 0.319685,
+      "p95_ms": 0.70925575,
+      "p99_ms": 0.7775366399999982,
+      "stdev_ms": 0.17555498636219116
+    },
+    {
+      "count": 200,
+      "factor_level": 24,
+      "maximum_ms": 1.404658,
+      "mean_ms": 0.58624338,
+      "median_ms": 0.5173335,
+      "minimum_ms": 0.456787,
+      "p95_ms": 0.9500606999999999,
+      "p99_ms": 1.0949273799999986,
+      "stdev_ms": 0.18136530071874166
+    }
+  ],
+  "measurement_observation_count": 600,
+  "order_balance": [
+    {
+      "cell_id": "level_000006/rep_003_seed_796786883::step_0001",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 16,
+        "1": 16,
+        "2": 17,
+        "3": 17,
+        "4": 17,
+        "5": 17
+      },
+      "unique_position_count": 6
+    },
+    {
+      "cell_id": "level_000006/rep_003_seed_796786883::step_0002",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 17,
+        "1": 17,
+        "2": 17,
+        "3": 17,
+        "4": 16,
+        "5": 16
+      },
+      "unique_position_count": 6
+    },
+    {
+      "cell_id": "level_000012/rep_003_seed_796786883::step_0001",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 16,
+        "1": 17,
+        "2": 17,
+        "3": 17,
+        "4": 17,
+        "5": 16
+      },
+      "unique_position_count": 6
+    },
+    {
+      "cell_id": "level_000012/rep_003_seed_796786883::step_0002",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 17,
+        "1": 16,
+        "2": 16,
+        "3": 17,
+        "4": 17,
+        "5": 17
+      },
+      "unique_position_count": 6
+    },
+    {
+      "cell_id": "level_000024/rep_003_seed_796786883::step_0001",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 17,
+        "1": 17,
+        "2": 17,
+        "3": 16,
+        "4": 16,
+        "5": 17
+      },
+      "unique_position_count": 6
+    },
+    {
+      "cell_id": "level_000024/rep_003_seed_796786883::step_0002",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 17,
+        "1": 17,
+        "2": 16,
+        "3": 16,
+        "4": 17,
+        "5": 17
+      },
+      "unique_position_count": 6
+    }
+  ],
+  "schema_version": "mcad-sensitivity-sa3-timing-summary-v1"
+}

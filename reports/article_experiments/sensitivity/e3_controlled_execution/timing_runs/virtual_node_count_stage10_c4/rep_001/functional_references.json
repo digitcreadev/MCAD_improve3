@@ -1,0 +1,1264 @@
+{
+  "references": {
+    "level_000006/rep_001_seed_202::step_0001": {
+      "projection": {
+        "calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001"
+        ],
+        "calculable_constraints_partial": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001"
+        ],
+        "calculable_constraints_total": [],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0002"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001"
+              ],
+              "calculable_constraints_total": []
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001"
+        ],
+        "delta_phi_t": 0.25,
+        "delta_phi_weighted_t": 0.25,
+        "gained_resource_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0002"
+        ],
+        "induced_mask_constraints": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002_NV0002"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0003": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0003_NV0001"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0004": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0004_NV0001"
+          ]
+        },
+        "newly_contributed_constraints_partial": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001"
+        ],
+        "newly_contributed_constraints_total": [],
+        "non_calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0003",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0002"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001": {
+            "covered_after": 1,
+            "covered_after_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0002"
+            ],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0002"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0002"
+            ],
+            "ratio_after": 0.5,
+            "state": "partial",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0002"
+            ],
+            "support_size": 2
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002_NV0002"
+            ],
+            "support_size": 2
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0003_NV0001"
+            ],
+            "support_size": 1
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0004_NV0001"
+            ],
+            "support_size": 1
+          }
+        }
+      },
+      "semantic_digest": "974bbcf9621910fcaf553e1107be6a17afd5da550f8209444277fda2e35a691d"
+    },
+    "level_000006/rep_001_seed_202::step_0002": {
+      "projection": {
+        "calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001"
+        ],
+        "calculable_constraints_partial": [],
+        "calculable_constraints_total": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001"
+        ],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0001"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [],
+              "calculable_constraints_total": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001"
+              ]
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001"
+        ],
+        "delta_phi_t": 0.0,
+        "delta_phi_weighted_t": 0.0,
+        "gained_resource_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0001"
+        ],
+        "induced_mask_constraints": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002_NV0002"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0003": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0003_NV0001"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0004": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0004_NV0001"
+          ]
+        },
+        "newly_contributed_constraints_partial": [],
+        "newly_contributed_constraints_total": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001"
+        ],
+        "non_calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0003",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0001"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001": {
+            "covered_after": 2,
+            "covered_after_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0002"
+            ],
+            "covered_before": 1,
+            "covered_before_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0002"
+            ],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0001"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0001"
+            ],
+            "ratio_after": 1.0,
+            "state": "total",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0001_NV0002"
+            ],
+            "support_size": 2
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0002_NV0002"
+            ],
+            "support_size": 2
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0003_NV0001"
+            ],
+            "support_size": 1
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L6_R001_C0004_NV0001"
+            ],
+            "support_size": 1
+          }
+        }
+      },
+      "semantic_digest": "7a6190b9a582b50b404818edc40487315f9855c4241a5d4aebf59eddc93162d6"
+    },
+    "level_000012/rep_001_seed_202::step_0001": {
+      "projection": {
+        "calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001"
+        ],
+        "calculable_constraints_partial": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001"
+        ],
+        "calculable_constraints_total": [],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0002"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001"
+              ],
+              "calculable_constraints_total": []
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001"
+        ],
+        "delta_phi_t": 0.25,
+        "delta_phi_weighted_t": 0.25,
+        "gained_resource_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0002"
+        ],
+        "induced_mask_constraints": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0003"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0003"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0003"
+          ]
+        },
+        "newly_contributed_constraints_partial": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001"
+        ],
+        "newly_contributed_constraints_total": [],
+        "non_calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0002"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001": {
+            "covered_after": 1,
+            "covered_after_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0002"
+            ],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0002"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0002"
+            ],
+            "ratio_after": 0.333333,
+            "state": "partial",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0003"
+            ],
+            "support_size": 3
+          }
+        }
+      },
+      "semantic_digest": "146ee7ee7fa2e7d5f9061cb980ec0093e8608ce8582242d7f47f2f5c28dc8ada"
+    },
+    "level_000012/rep_001_seed_202::step_0002": {
+      "projection": {
+        "calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001"
+        ],
+        "calculable_constraints_partial": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001"
+        ],
+        "calculable_constraints_total": [],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0001"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001"
+              ],
+              "calculable_constraints_total": []
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001"
+        ],
+        "delta_phi_t": 0.0,
+        "delta_phi_weighted_t": 0.0,
+        "gained_resource_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0001"
+        ],
+        "induced_mask_constraints": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0003"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0003"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0003"
+          ]
+        },
+        "newly_contributed_constraints_partial": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001"
+        ],
+        "newly_contributed_constraints_total": [],
+        "non_calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0001"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001": {
+            "covered_after": 2,
+            "covered_after_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0002"
+            ],
+            "covered_before": 1,
+            "covered_before_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0002"
+            ],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0001"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0001"
+            ],
+            "ratio_after": 0.666667,
+            "state": "partial",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0001_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0002_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0003_NV0003"
+            ],
+            "support_size": 3
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L12_R001_C0004_NV0003"
+            ],
+            "support_size": 3
+          }
+        }
+      },
+      "semantic_digest": "55950104bc77972d4cd81a4b111e687f4d99306092ce2ee31e5fd57f0036fff2"
+    },
+    "level_000024/rep_001_seed_202::step_0001": {
+      "projection": {
+        "calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001"
+        ],
+        "calculable_constraints_partial": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001"
+        ],
+        "calculable_constraints_total": [],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0002"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001"
+              ],
+              "calculable_constraints_total": []
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001"
+        ],
+        "delta_phi_t": 0.25,
+        "delta_phi_weighted_t": 0.25,
+        "gained_resource_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0002"
+        ],
+        "induced_mask_constraints": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0003",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0004",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0005",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0006"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0003",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0004",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0005",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0006"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0003",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0004",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0005",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0006"
+          ]
+        },
+        "newly_contributed_constraints_partial": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001"
+        ],
+        "newly_contributed_constraints_total": [],
+        "non_calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0002"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001": {
+            "covered_after": 1,
+            "covered_after_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0002"
+            ],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0002"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0002"
+            ],
+            "ratio_after": 0.166667,
+            "state": "partial",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0003",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0004",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0005",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0003",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0004",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0005",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0003",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0004",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0005",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0003",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0004",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0005",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0006"
+            ],
+            "support_size": 6
+          }
+        }
+      },
+      "semantic_digest": "77c210043d7c539665beebecdedb29f1a1452bedf16598411334fca91fbf173c"
+    },
+    "level_000024/rep_001_seed_202::step_0002": {
+      "projection": {
+        "calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001"
+        ],
+        "calculable_constraints_partial": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001"
+        ],
+        "calculable_constraints_total": [],
+        "clauses": [
+          {
+            "details": {},
+            "name": "measures_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "cube_present",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "objective_known",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "slc_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "time_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "grain_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "agg_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "unit_ok",
+            "ok": true
+          },
+          {
+            "details": {},
+            "name": "nvac_ok",
+            "ok": true
+          },
+          {
+            "details": {
+              "real_node_ids": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0001"
+              ]
+            },
+            "name": "has_realizable_nodes",
+            "ok": true
+          },
+          {
+            "details": {
+              "calculable_constraints_partial": [
+                "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001"
+              ],
+              "calculable_constraints_total": []
+            },
+            "name": "has_contributive_constraints",
+            "ok": true
+          }
+        ],
+        "covered_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001"
+        ],
+        "delta_phi_t": 0.0,
+        "delta_phi_weighted_t": 0.0,
+        "gained_resource_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0001"
+        ],
+        "induced_mask_constraints": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001": []
+        },
+        "induced_mask_node_ids": [],
+        "is_session_contributive": true,
+        "missing_requirements": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0003",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0004",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0005",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0006"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0003",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0004",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0005",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0006"
+          ],
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004": [
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0001",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0002",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0003",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0004",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0005",
+            "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0006"
+          ]
+        },
+        "newly_contributed_constraints_partial": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001"
+        ],
+        "newly_contributed_constraints_total": [],
+        "non_calculable_constraints": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003",
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004"
+        ],
+        "phi": 0.25,
+        "phi_leq_t": 0.25,
+        "phi_weighted": 0.25,
+        "phi_weighted_leq_t": 0.25,
+        "real_node_ids": [
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0001"
+        ],
+        "sat": true,
+        "support_progress_by_constraint": {
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001": {
+            "covered_after": 2,
+            "covered_after_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0002"
+            ],
+            "covered_before": 1,
+            "covered_before_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0002"
+            ],
+            "newly_added": 1,
+            "newly_added_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0001"
+            ],
+            "produced_now": 1,
+            "produced_now_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0001"
+            ],
+            "ratio_after": 0.333333,
+            "state": "partial",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0003",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0004",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0005",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0001_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0003",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0004",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0005",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0002_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0003",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0004",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0005",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0003_NV0006"
+            ],
+            "support_size": 6
+          },
+          "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004": {
+            "covered_after": 0,
+            "covered_after_ids": [],
+            "covered_before": 0,
+            "covered_before_ids": [],
+            "newly_added": 0,
+            "newly_added_ids": [],
+            "produced_now": 0,
+            "produced_now_ids": [],
+            "ratio_after": 0.0,
+            "state": "none",
+            "support_ids": [
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0001",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0002",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0003",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0004",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0005",
+              "O_E22_FREEZE_VIRTUAL_NODE_COUNT_VIRTUAL_NODE_COUNT_L24_R001_C0004_NV0006"
+            ],
+            "support_size": 6
+          }
+        }
+      },
+      "semantic_digest": "64a10fe2cfc6e40c19c7e90de6d4aa9298107f33f69aa8e4ea4124d3042078bf"
+    }
+  },
+  "schema_version": "mcad-sensitivity-sa3-functional-references-v1"
+}

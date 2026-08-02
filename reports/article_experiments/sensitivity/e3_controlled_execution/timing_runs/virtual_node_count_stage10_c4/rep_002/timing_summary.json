@@ -1,0 +1,218 @@
+{
+  "all_cells_exactly_balanced": false,
+  "level_step_summaries": [
+    {
+      "count": 100,
+      "factor_level": 6,
+      "maximum_ms": 2.686484,
+      "mean_ms": 0.40434011,
+      "median_ms": 0.3439065,
+      "minimum_ms": 0.31567,
+      "p95_ms": 0.58522455,
+      "p99_ms": 0.6654178100000104,
+      "stdev_ms": 0.24702861780944807,
+      "step_id": "step-0001-sales-sum-region-04-2020"
+    },
+    {
+      "count": 100,
+      "factor_level": 6,
+      "maximum_ms": 0.638287,
+      "mean_ms": 0.3484153,
+      "median_ms": 0.28932800000000003,
+      "minimum_ms": 0.277142,
+      "p95_ms": 0.5502893,
+      "p99_ms": 0.62073628,
+      "stdev_ms": 0.10650561790622061,
+      "step_id": "step-0002-sales-sum-region-09-2016"
+    },
+    {
+      "count": 100,
+      "factor_level": 12,
+      "maximum_ms": 2.786837,
+      "mean_ms": 0.46635354,
+      "median_ms": 0.3962725,
+      "minimum_ms": 0.370083,
+      "p95_ms": 0.7024600499999999,
+      "p99_ms": 0.8954578400000098,
+      "stdev_ms": 0.2616390783282824,
+      "step_id": "step-0001-sales-sum-region-04-2020"
+    },
+    {
+      "count": 100,
+      "factor_level": 12,
+      "maximum_ms": 9.303715,
+      "mean_ms": 0.48643651,
+      "median_ms": 0.340016,
+      "minimum_ms": 0.326108,
+      "p95_ms": 0.64066995,
+      "p99_ms": 0.7639423300000441,
+      "stdev_ms": 0.8977541814247181,
+      "step_id": "step-0002-sales-sum-region-09-2016"
+    },
+    {
+      "count": 100,
+      "factor_level": 24,
+      "maximum_ms": 1.351509,
+      "mean_ms": 0.60072711,
+      "median_ms": 0.5241895000000001,
+      "minimum_ms": 0.503161,
+      "p95_ms": 0.9791309499999999,
+      "p99_ms": 1.33737477,
+      "stdev_ms": 0.18484594961466527,
+      "step_id": "step-0001-sales-sum-region-04-2020"
+    },
+    {
+      "count": 100,
+      "factor_level": 24,
+      "maximum_ms": 2.756544,
+      "mean_ms": 0.6071428600000001,
+      "median_ms": 0.467129,
+      "minimum_ms": 0.449766,
+      "p95_ms": 0.9362362999999999,
+      "p99_ms": 1.3019389800000074,
+      "stdev_ms": 0.29442215175749864,
+      "step_id": "step-0002-sales-sum-region-09-2016"
+    }
+  ],
+  "level_summaries": [
+    {
+      "count": 200,
+      "factor_level": 6,
+      "maximum_ms": 2.686484,
+      "mean_ms": 0.376377705,
+      "median_ms": 0.336793,
+      "minimum_ms": 0.277142,
+      "p95_ms": 0.5791645,
+      "p99_ms": 0.64225278,
+      "stdev_ms": 0.19180013545640015
+    },
+    {
+      "count": 200,
+      "factor_level": 12,
+      "maximum_ms": 9.303715,
+      "mean_ms": 0.47639502499999997,
+      "median_ms": 0.3868565,
+      "minimum_ms": 0.326108,
+      "p95_ms": 0.6927544999999999,
+      "p99_ms": 0.8954578399999826,
+      "stdev_ms": 0.6596310315693164
+    },
+    {
+      "count": 200,
+      "factor_level": 24,
+      "maximum_ms": 2.756544,
+      "mean_ms": 0.603934985,
+      "median_ms": 0.5182450000000001,
+      "minimum_ms": 0.449766,
+      "p95_ms": 0.9552306499999997,
+      "p99_ms": 1.3373747699999998,
+      "stdev_ms": 0.24522011973365013
+    }
+  ],
+  "measurement_observation_count": 600,
+  "order_balance": [
+    {
+      "cell_id": "level_000006/rep_002_seed_1198202409::step_0001",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 17,
+        "1": 17,
+        "2": 16,
+        "3": 16,
+        "4": 17,
+        "5": 17
+      },
+      "unique_position_count": 6
+    },
+    {
+      "cell_id": "level_000006/rep_002_seed_1198202409::step_0002",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 17,
+        "1": 17,
+        "2": 17,
+        "3": 17,
+        "4": 16,
+        "5": 16
+      },
+      "unique_position_count": 6
+    },
+    {
+      "cell_id": "level_000012/rep_002_seed_1198202409::step_0001",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 17,
+        "1": 16,
+        "2": 16,
+        "3": 17,
+        "4": 17,
+        "5": 17
+      },
+      "unique_position_count": 6
+    },
+    {
+      "cell_id": "level_000012/rep_002_seed_1198202409::step_0002",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 17,
+        "1": 17,
+        "2": 17,
+        "3": 16,
+        "4": 16,
+        "5": 17
+      },
+      "unique_position_count": 6
+    },
+    {
+      "cell_id": "level_000024/rep_002_seed_1198202409::step_0001",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 16,
+        "1": 17,
+        "2": 17,
+        "3": 17,
+        "4": 17,
+        "5": 16
+      },
+      "unique_position_count": 6
+    },
+    {
+      "cell_id": "level_000024/rep_002_seed_1198202409::step_0002",
+      "exact_full_balance": false,
+      "expected_repetitions_per_position": null,
+      "maximum_position_count_difference": 1,
+      "near_balance": true,
+      "position_count": 100,
+      "position_counts": {
+        "0": 16,
+        "1": 16,
+        "2": 17,
+        "3": 17,
+        "4": 17,
+        "5": 17
+      },
+      "unique_position_count": 6
+    }
+  ],
+  "schema_version": "mcad-sensitivity-sa3-timing-summary-v1"
+}
