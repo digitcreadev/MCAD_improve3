@@ -54,10 +54,23 @@ campaigns:
     latency_claim_authorized: false
     rerun_required: false
 
+  sa3_virtual_node_count_stage10:
+    scientific_status: completed_precision_targets_met
+    repository_persistence_status: complete
+    path: sa3_virtual_node_count_stage10
+    canonical_archive_sha256: f192aa5a2204c43776f3d8a4cef176ef3233fc101a5e40230557934c0698d072
+    scientific_freeze: true
+    run_count: 10
+    measurement_observation_count: 6000
+    functional_mismatch_count: 0
+    precision_targets_met: true
+    latency_claim_authorized: false
+    rerun_required: false
+
   remaining_sensitivity:
     scientific_status: partial
     repository_persistence_status: not_frozen
-    next_action: continue_virtual_node_count
+    next_action: continue_membership_density_temporal
 
   baselines:
     scientific_status: incomplete
