@@ -1,0 +1,530 @@
+{
+  "all_replications_passed": true,
+  "campaign_id": "virtual_node_count_stage10_c4",
+  "expected_functional_step_count": 60,
+  "expected_instance_count": 30,
+  "expected_replication_count": 10,
+  "factor": "virtual_node_count",
+  "functional_step_count": 60,
+  "historical_prefix": {
+    "functional_step_count": 12,
+    "instance_count": 6,
+    "replications": [
+      0,
+      1
+    ],
+    "rerun_performed": false,
+    "rerun_required": false,
+    "reused": true
+  },
+  "instance_count": 30,
+  "latency_claim_authorized": false,
+  "new_functional_execution": {
+    "all_passed": true,
+    "functional_step_count": 48,
+    "instance_count": 24,
+    "replications": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "next_stage": "prepare_stage10_formal_timing_authorization",
+  "replication_count": 10,
+  "runs": [
+    {
+      "campaign_metrics_sha256": "3938f1df83b9c43b00bdf0f258c14ed1c76b51ee194eb2f27f67aeba0bd85a62",
+      "deterministic_execution_digest": "9ede5a7dd54ec9dd953cda6a06dfd6bdf9e72470614faf12b0dd794551560a33",
+      "evidence_class": "historical_prefix_reused",
+      "execution_manifest_sha256": "21bacdd9087cfcbc9e32f13913a810dcbe375f9d86c1b764d0475b23388a6b88",
+      "execution_spec_sha256": "e4ec86adc77fb279390581c47dba88be5ab50f136532829a712c0bea5bd57263",
+      "functional_step_count": 6,
+      "instance_results_sha256": "136af377128e2f66b7ce67e43ab7503ab6369fac83eb3d8e6ef0b63f3ab6a34b",
+      "instances": [
+        {
+          "audit_sha256": "fdca487430baed7d0e76aef0c0412c490d422ce45cda0c39ef45ac1af5e2a817",
+          "execution_manifest_sha256": "addcd971630eb0377d3c1e3354564771dedca5001ffdfa2f4becca95756aead5",
+          "factor_level": 6,
+          "metrics_sha256": "e477e6ff77c98a2c352944a0394ca9146eb00552f8e7aeff14f335544eedef71",
+          "relative_instance_dir": "instances/level_000006/rep_000_seed_101",
+          "replication_index": 0,
+          "seed": 101,
+          "timeline_sha256": "18ae11ea2504a8b22c083a384a31588f4fdb07d528246f9bc05ed07e9a47fd1f"
+        },
+        {
+          "audit_sha256": "33f18baf777742e0d5c20efc0a1384533285417636e28fc4726f67d8bbc1cf9c",
+          "execution_manifest_sha256": "e8f0942be66054a766b17276796f73cf1778d39f4dfa60a055649bbf4676c633",
+          "factor_level": 12,
+          "metrics_sha256": "f774ad9d16bfdf53778d5510e9ebd0a51d2309d821878c16ce8d6a26513f24d5",
+          "relative_instance_dir": "instances/level_000012/rep_000_seed_101",
+          "replication_index": 0,
+          "seed": 101,
+          "timeline_sha256": "f58feffaa84dde02e3c7184fa84890da186a63b7852c07a86a81b43e0553d735"
+        },
+        {
+          "audit_sha256": "870b863462adb2bbbc34406021d8c13c00065d9786acd1200473f0fe891da911",
+          "execution_manifest_sha256": "34d27e64ca9c72ea3d6ec3e25b5806ec6a53521080a0f16acb9b4abb3eb9e90e",
+          "factor_level": 24,
+          "metrics_sha256": "83114e5c8291730e5cfb1d9f490dd34076cdfcb4eb0221f60b0a9788cadafc32",
+          "relative_instance_dir": "instances/level_000024/rep_000_seed_101",
+          "replication_index": 0,
+          "seed": 101,
+          "timeline_sha256": "30e1aef52359a6cddbdbb5198f8245c4656816476094f1d4a34a968a1e945544"
+        }
+      ],
+      "replication_index": 0,
+      "run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_rep_000_strict_common",
+      "seed": 101,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "timing_artifact_count": 0
+    },
+    {
+      "campaign_metrics_sha256": "4291c1d96e9bffbeddf22986c07fe165a1e089f63777242f6fd4ab6edefe5b85",
+      "deterministic_execution_digest": "8b8ed79b6788f810d87ef16297f0697cddacab191efe32261d03b5350fde7a0a",
+      "evidence_class": "historical_prefix_reused",
+      "execution_manifest_sha256": "895117dba22fe1797fe823619cd657112ae2c05ab9fa1a70e80097cf6a96ebc6",
+      "execution_spec_sha256": "62c09fbee50f88b37013483a19aa2e043152c06fcd892609bfce0cb02f4279a8",
+      "functional_step_count": 6,
+      "instance_results_sha256": "ad5fceba6cfa9d800e17d2f13a2aeeb4680ca228bda9c47c5b18a414802f5628",
+      "instances": [
+        {
+          "audit_sha256": "564f6a4d31fc078614f287fbde11e32bcc86d4cb730fbe19cce50b59b5e4e412",
+          "execution_manifest_sha256": "66dd80d8ef650362fb57824ce5ae1eb360826985983ee48bfe2c444c1eefebbf",
+          "factor_level": 6,
+          "metrics_sha256": "b5034ae31701dac6d361383a7f60d87bed95a98dc5012f6f41cf005a80142161",
+          "relative_instance_dir": "instances/level_000006/rep_001_seed_202",
+          "replication_index": 1,
+          "seed": 202,
+          "timeline_sha256": "898c0ecdc304433c42b1c4c0000aae7c2523ee41ec48364085573e6f4f6a7752"
+        },
+        {
+          "audit_sha256": "bbc47b897fe11e12ef51c0de69a4404d55d557804d5ebb0c19024098e389afd4",
+          "execution_manifest_sha256": "2c3fac4771b6ffe0b44969fc26bc0af5f28f9384f10cdb92e5d5b860d76ac0d4",
+          "factor_level": 12,
+          "metrics_sha256": "bf3815be925f1d6f0ad970c4391d0ea08cc1bf0527a0147c35a0be705c1306bc",
+          "relative_instance_dir": "instances/level_000012/rep_001_seed_202",
+          "replication_index": 1,
+          "seed": 202,
+          "timeline_sha256": "a63a8d43d6c9396f6c0aac38954598c3cfaf0714547ed92620ed9b478a765511"
+        },
+        {
+          "audit_sha256": "16f42ee9886d359886ca89ed240602019d594f551950e10e12c1321ed6df9330",
+          "execution_manifest_sha256": "24cac3029756f6817129c11a8cbba8941ab77d8f022149099922c72bab24964c",
+          "factor_level": 24,
+          "metrics_sha256": "64b444a4daf3e2c0676b724b54c0767a4fbb685d277a63b69a828ba91dc88d2d",
+          "relative_instance_dir": "instances/level_000024/rep_001_seed_202",
+          "replication_index": 1,
+          "seed": 202,
+          "timeline_sha256": "20916c3d6a4dd707cfd3da3baaef933bbe566056a75fd4fbd6827eb4b81e329d"
+        }
+      ],
+      "replication_index": 1,
+      "run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_rep_001_strict_common",
+      "seed": 202,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "timing_artifact_count": 0
+    },
+    {
+      "campaign_metrics_sha256": "59c3a30b422bc1de24abd3f286f5e07feb7357bb726a57525deba11b9811c378",
+      "deterministic_execution_digest": "86355da49e861a4fbd66c6548a28d37b5663242d29c83d325187253992a80da4",
+      "evidence_class": "stage10_new_functional_execution",
+      "execution_manifest_sha256": "7a390413826308e85460295b37cb3aa8c15594b4c07ab5987cb12a10ccee16c3",
+      "execution_spec_sha256": "680c78f69dc30627114d857cc19a892edfa2ae08e50ca1a6451b40f5e7a3b9a0",
+      "functional_step_count": 6,
+      "instance_results_sha256": "1a258f3646639a26e54b50b7534c905c8923054d56f887fa42db17e3931fbf82",
+      "instances": [
+        {
+          "audit_sha256": "f8ca45e4e77112907a58d753efde565c02f8e4c88fed9825c3d3e657d44dd81f",
+          "execution_manifest_sha256": "74b33fbb0838cb2530ce78dddbea36c994ea0f0f9318139642884ef90f83a1cf",
+          "factor_level": 6,
+          "metrics_sha256": "a78ffc646bdda7ae498efa1e8fd51bdfc0ab53bd3890cc66afc161a0786335e9",
+          "relative_instance_dir": "instances/level_000006/rep_002_seed_1198202409",
+          "replication_index": 2,
+          "seed": 1198202409,
+          "timeline_sha256": "71a3a6650169b6ba248514815b8ba09bd3611625715d08185ba7274bdbff771c"
+        },
+        {
+          "audit_sha256": "031614e09fb16df673b84af3724d031076f537933aab8c57a42217ecef86026e",
+          "execution_manifest_sha256": "5a2db7629a6dafb88a4d2cd34328d24f62f0af98569472547f0c92b769f0462c",
+          "factor_level": 12,
+          "metrics_sha256": "56cf036bafebcf927e510401213264f28acb29f8a1ae7b97cd76a1450ea2b6fc",
+          "relative_instance_dir": "instances/level_000012/rep_002_seed_1198202409",
+          "replication_index": 2,
+          "seed": 1198202409,
+          "timeline_sha256": "7000cf37ecee60964c666b47915f9dbf6083936e9360063912e87b86c1ae73b6"
+        },
+        {
+          "audit_sha256": "5cd86a3b259dcaba66d41af93b33169648318c6aa9e7e534102eeb807c4d9d3a",
+          "execution_manifest_sha256": "c36217ba81055876fe8e222085f75d57a15b90132b4c9b982979125c2438f1e4",
+          "factor_level": 24,
+          "metrics_sha256": "99eb2efd29ccbe714da74b0c86e638b855a5379d9f756b57a4b8669df22d2774",
+          "relative_instance_dir": "instances/level_000024/rep_002_seed_1198202409",
+          "replication_index": 2,
+          "seed": 1198202409,
+          "timeline_sha256": "be1eb472fb2bf8c947ed637a461aba53d0523966fb642c99d337e3c58b3e1747"
+        }
+      ],
+      "replication_index": 2,
+      "run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_002_strict_common",
+      "seed": 1198202409,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "timing_artifact_count": 0
+    },
+    {
+      "campaign_metrics_sha256": "39ade59ba9f2bf599838eff9e3f9a9474684f21c509d3302539a0f0592e233cb",
+      "deterministic_execution_digest": "1b8281afedc50f8c38871dabb279b6d720a1322f904014a9f314dc678e7e4572",
+      "evidence_class": "stage10_new_functional_execution",
+      "execution_manifest_sha256": "594eeb4e960dc24e5161d567a09ebe615eb25db40b1ed49b6a10804e760303db",
+      "execution_spec_sha256": "b66f87501c14ccad308264ed6455975ad1e95e3bee97dff9441a4ab9281563ec",
+      "functional_step_count": 6,
+      "instance_results_sha256": "359c178693d3521662b881be3aa6d8b1c14aeda3a97c84ea38af58b7ac5481fd",
+      "instances": [
+        {
+          "audit_sha256": "85526933bf4ec3246a1821f4bf38b5392532ba265f9d751a1f055172a6089647",
+          "execution_manifest_sha256": "1d838d01d1fd8366197007ef5da0cb1a5e472f3bba1255df0c05e40e75e5fb47",
+          "factor_level": 6,
+          "metrics_sha256": "9555094484284c6f5b2f98c1de52317ff42e8cccabd7119c43b1e5a50e36e2a9",
+          "relative_instance_dir": "instances/level_000006/rep_003_seed_796786883",
+          "replication_index": 3,
+          "seed": 796786883,
+          "timeline_sha256": "280ea89cb6e2885835a907544249c261f96372e4d48338030c1f2aad0b610e6a"
+        },
+        {
+          "audit_sha256": "fd11c248052e3a5545c51934e646285746810fd59be57ccfa7ac4c445dfe86c1",
+          "execution_manifest_sha256": "8e00c500c360f8feff615bfd2edc924c762b322a0e7ad3c4b27550c4c04514d1",
+          "factor_level": 12,
+          "metrics_sha256": "a4547382faf87df427bdd3541f3548cc1adf13488507c9943e10d951688d24b5",
+          "relative_instance_dir": "instances/level_000012/rep_003_seed_796786883",
+          "replication_index": 3,
+          "seed": 796786883,
+          "timeline_sha256": "6779dbf31278f1161eb0ff71ed9153eab6387c6fe428ae913bc3793d51c179d4"
+        },
+        {
+          "audit_sha256": "ab6ac30ba552ada4d404c809fdab06f937ce830c17f1df2e86e52b57c8cb09e8",
+          "execution_manifest_sha256": "7234ccbb0f4a2c36f6e8ec49d4db3b82f0b9a81f3997fd674b9feb05a31dd648",
+          "factor_level": 24,
+          "metrics_sha256": "82a7c10b715ded4f943447fcbcbf00c072a739c8298fcc017f58dc65ebf0b6a7",
+          "relative_instance_dir": "instances/level_000024/rep_003_seed_796786883",
+          "replication_index": 3,
+          "seed": 796786883,
+          "timeline_sha256": "4749bb36b0805fce6833b04cc7964911474eb3ed15778894053f48090ba8e673"
+        }
+      ],
+      "replication_index": 3,
+      "run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_003_strict_common",
+      "seed": 796786883,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "timing_artifact_count": 0
+    },
+    {
+      "campaign_metrics_sha256": "1d7238da521859a5129115eda501bf754eb8eae74e1393312d662fdcbbe967de",
+      "deterministic_execution_digest": "b0e835f4d027e497a030034e487b0fa515232483caf54fa68b3ea8f9496fd191",
+      "evidence_class": "stage10_new_functional_execution",
+      "execution_manifest_sha256": "bbb4e6bc618e5b2430f459fb6057f7616b0a764b52a3bf2da86cb0da18181c94",
+      "execution_spec_sha256": "67a5f38aa4f2c972c6b56518a818abf21c4cc81db0e3211a6d5bdd27c7e43fcd",
+      "functional_step_count": 6,
+      "instance_results_sha256": "27033a8dc64425d871bd222b5f8745414f49085f10568b2906005a8842fe0cb2",
+      "instances": [
+        {
+          "audit_sha256": "3e21861159e9267d5629e65c532d951f5fbac5e9eb8b21dd51239bfd7ae64e5b",
+          "execution_manifest_sha256": "24d3e2a370032fe12a63425c723762506c7c7e95366eb877fd0b90f83ff72909",
+          "factor_level": 6,
+          "metrics_sha256": "c71382ad4c74550d54107fd3bc3b557e4b8561d77f67e9db5e0fa80a8bc470a0",
+          "relative_instance_dir": "instances/level_000006/rep_004_seed_1126922093",
+          "replication_index": 4,
+          "seed": 1126922093,
+          "timeline_sha256": "eab0a894f2cf4c469f40cc21b3a2a2b442f1bce5cf822edc8006857baa6de6b3"
+        },
+        {
+          "audit_sha256": "e563fb04efbd3e0ba9aac7adb8c54a713a4dbc68f730a7fdc41d2d29960c23ff",
+          "execution_manifest_sha256": "e0d561fff284976f9ac948e6a122fee2d07cd7a6af50cd1a5ca16e96317ce886",
+          "factor_level": 12,
+          "metrics_sha256": "b3f8271cf0d70a27c3d71e450d124def265e0271d1fdf1900de0cc2b5a633f77",
+          "relative_instance_dir": "instances/level_000012/rep_004_seed_1126922093",
+          "replication_index": 4,
+          "seed": 1126922093,
+          "timeline_sha256": "4d2207eedd8d8fcd8f7adbd202030a2a6fabc0b986f472a517723e17f70614a0"
+        },
+        {
+          "audit_sha256": "978b57521876d8b71f05d418a8a8ae1b6c0cc6d44052b5762dc5f15c202e7e7a",
+          "execution_manifest_sha256": "2c15645286256bc776ccba98b75684ce5c6b2e12b2cf57b54351a55769340b3e",
+          "factor_level": 24,
+          "metrics_sha256": "b754df874ac6fc0f2765b2ad9ad33df810cd3d3f07c9f920bbe30cc79c1947e3",
+          "relative_instance_dir": "instances/level_000024/rep_004_seed_1126922093",
+          "replication_index": 4,
+          "seed": 1126922093,
+          "timeline_sha256": "b97a46c8e6a3c6a3ed6f2ed679cde44b4f7bc9c2e72aba942e613ab2ef6ef12f"
+        }
+      ],
+      "replication_index": 4,
+      "run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_004_strict_common",
+      "seed": 1126922093,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "timing_artifact_count": 0
+    },
+    {
+      "campaign_metrics_sha256": "911ebac148d4b82bb796686a17236367cb5c39712265c39a780ff884817ccb3e",
+      "deterministic_execution_digest": "235a491e8ff6503616be47c07db09640b0ef195f561924829abee794e8576fca",
+      "evidence_class": "stage10_new_functional_execution",
+      "execution_manifest_sha256": "bb1e804c20a84da2ffb0be687cc6d8443e124efe67c1538a269a2c5544a3f783",
+      "execution_spec_sha256": "73bc0bd46507a077ef5c66b620c04083bd0ee39208dbc81e282e139136aa172d",
+      "functional_step_count": 6,
+      "instance_results_sha256": "e0e31aca25e0f18985991f2662470f0d87ffc366b3f959eb9aa639d73a9f2476",
+      "instances": [
+        {
+          "audit_sha256": "3c7fddcc05d660dbfc3505ca37e031dc0834fe313595b4892cfd9529c003403a",
+          "execution_manifest_sha256": "cc5fffedd4acc726dd51f4e1c73677c66d200627bec764fad0df718a3ce5be19",
+          "factor_level": 6,
+          "metrics_sha256": "7a2aed89e1da3217167e4174a5bb05b7facbc57d2febc333fb6712167d4a9647",
+          "relative_instance_dir": "instances/level_000006/rep_005_seed_809989256",
+          "replication_index": 5,
+          "seed": 809989256,
+          "timeline_sha256": "e86ff1d99b059ad7e009d120151239d16636176f17c392dfa8a29c4a87391a59"
+        },
+        {
+          "audit_sha256": "639ff1775a04f76c5fd99a2af43f51e9105fc585a44cced982a284e3de1a011b",
+          "execution_manifest_sha256": "ee9c2cb25ac3212c3a5bd6d06d55f2fc484435b012dd28ec3060189676d3b193",
+          "factor_level": 12,
+          "metrics_sha256": "ec48cb65e65ec10a0e3631b125635d5b6c2fdcc334054ff2e2c5c36538d7b0f4",
+          "relative_instance_dir": "instances/level_000012/rep_005_seed_809989256",
+          "replication_index": 5,
+          "seed": 809989256,
+          "timeline_sha256": "b34dabd163e442f41754477be98e6cb18c12ef7a3b4c76414b0728d4d30f0146"
+        },
+        {
+          "audit_sha256": "d1b761c738f78238d524e459c922403c4bf69afbcfdfe8606264822005d24666",
+          "execution_manifest_sha256": "2f60557841a144c30407e386b1678b3d631f4e7ea34b62fcd0080997095ab1c2",
+          "factor_level": 24,
+          "metrics_sha256": "b52297bc96964e5e83f8dc1a717bc2140ccba9ad45d6a9853e7151506be73b6f",
+          "relative_instance_dir": "instances/level_000024/rep_005_seed_809989256",
+          "replication_index": 5,
+          "seed": 809989256,
+          "timeline_sha256": "7a3fb1477e5b7efd2722cf63c5c8158f21cc94e133aacd517bcec98051ba3cab"
+        }
+      ],
+      "replication_index": 5,
+      "run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_005_strict_common",
+      "seed": 809989256,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "timing_artifact_count": 0
+    },
+    {
+      "campaign_metrics_sha256": "74ff214fe00a1bc1d3cd4537828db53f72d18c6906a525a79419ad122583e3f6",
+      "deterministic_execution_digest": "0b4007419ca537892d18dc479b17f9cddd33d8f6c1b3a1599542beec4aacaa38",
+      "evidence_class": "stage10_new_functional_execution",
+      "execution_manifest_sha256": "f95e34461a9a6d2360283f097ce423ea511bcac706b1eadd5cf31def9b58bb86",
+      "execution_spec_sha256": "f643de3f2506602bbc8532b50ed24afc44c7afa97fffe69b9eb4f707c358871c",
+      "functional_step_count": 6,
+      "instance_results_sha256": "08e60e30aaad1d42ca9b6688cfd49aa1984352c356ab9645dd1211f6bd7c55fc",
+      "instances": [
+        {
+          "audit_sha256": "0728d06c525fd7650b2cd6ffe2654ecc3675857e3c8d5244ab3326f5bcd1a4b0",
+          "execution_manifest_sha256": "62c293b3501957507c1178e5cd1f0eae798ac0c9c5fd46d3541d6e4b7e74c6b9",
+          "factor_level": 6,
+          "metrics_sha256": "ea9d51001c390462045c2a139fc0d6a917d0308a2848ab82b81f4112aa3fcf5d",
+          "relative_instance_dir": "instances/level_000006/rep_006_seed_618554674",
+          "replication_index": 6,
+          "seed": 618554674,
+          "timeline_sha256": "c8fc94f9da0bbc3b6ff2c6cf7730ae37d9e5739b2b45d3ae69aa9f7663b4084f"
+        },
+        {
+          "audit_sha256": "b3036ca978fc6b1624711a016b2feeba3ef1fe84d7775c439d7555c5126f0f29",
+          "execution_manifest_sha256": "275a005706f18f1ff6820a3532396dc8591c65c483d80684dbc585d5799e5472",
+          "factor_level": 12,
+          "metrics_sha256": "01da268db5f8ffe06af34fa398dee64e88609aef62ae09851918fd97a1e752ed",
+          "relative_instance_dir": "instances/level_000012/rep_006_seed_618554674",
+          "replication_index": 6,
+          "seed": 618554674,
+          "timeline_sha256": "075f975272db75ceb349b0fe1b36d246a77399e45056c5bd7fa6c87886b53cbb"
+        },
+        {
+          "audit_sha256": "c56391bbbdd95e98cd7287a396da579a3bb532960d37fcae19528fe58bf2184e",
+          "execution_manifest_sha256": "87912b7705ee7255012412765c76075717e028f3e9adbfb11e861fab0792e83a",
+          "factor_level": 24,
+          "metrics_sha256": "eed41cb3824c337666d8456e8f4ba596e7a1a1912d1fd4a76d3d16cd8a1e5011",
+          "relative_instance_dir": "instances/level_000024/rep_006_seed_618554674",
+          "replication_index": 6,
+          "seed": 618554674,
+          "timeline_sha256": "865ca64b084fddf340574bebb13eb88e649c4a1d51bdde20bbf55d2554c90b7a"
+        }
+      ],
+      "replication_index": 6,
+      "run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_006_strict_common",
+      "seed": 618554674,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "timing_artifact_count": 0
+    },
+    {
+      "campaign_metrics_sha256": "43fb5edd2169b1248facfdad8127cbc4fcf756a7c202c904d6ef94ce467fbacc",
+      "deterministic_execution_digest": "ac2977eb3ffe66d1e69ccec9dd75cfaa62e3692aeff102fdcb4dca4a8c90fe62",
+      "evidence_class": "stage10_new_functional_execution",
+      "execution_manifest_sha256": "e55d40144ea9c13f99ebdb2d9965d167f25a865377a626c76c07b5049c4c0a3d",
+      "execution_spec_sha256": "438d12403f10e0834a3476c02cc8e64ad93faa6e60c9d8a92b6491dc88f414cb",
+      "functional_step_count": 6,
+      "instance_results_sha256": "bf1035ffa4014705fae9ab766513e27e18f8c13bb997dc14989b0d0942569cb9",
+      "instances": [
+        {
+          "audit_sha256": "346701ba1af2f5f6cd1318eb96cfb2ff25853d196d5eff67e53e810027914712",
+          "execution_manifest_sha256": "e9d20da0fc882dae8e50c55d3d465b43430f58e5551e7fcea9cbddb18cc5a918",
+          "factor_level": 6,
+          "metrics_sha256": "b01f7c3d7c0f6ad81b29b526ce4278bc2256e1af5d08b462c88b6b9eccd9ae39",
+          "relative_instance_dir": "instances/level_000006/rep_007_seed_1363159082",
+          "replication_index": 7,
+          "seed": 1363159082,
+          "timeline_sha256": "b65add0a9b17c4bfef7f84760c0f8251e616d2234e9dda3815d855b190da9987"
+        },
+        {
+          "audit_sha256": "b48c931712c1a569d9c0b4ad91c303a0318f655583fffb8fcdde862e44b7492d",
+          "execution_manifest_sha256": "2012e18fee1b88a58420d50b0d9f14956d10c5206738a03076cb53ddfedb6525",
+          "factor_level": 12,
+          "metrics_sha256": "10fce905ff5a05a7042bbf111212d10e1d11ef2805e56287f395e7cd2b2dd77c",
+          "relative_instance_dir": "instances/level_000012/rep_007_seed_1363159082",
+          "replication_index": 7,
+          "seed": 1363159082,
+          "timeline_sha256": "42e87d3765053e05e40bd3ed46cae942f7367810aa0017ab3464c702d1d08e6f"
+        },
+        {
+          "audit_sha256": "4f1d801347c1b2b071ea78537eeeb5af2c7782a8363d465dd9bb66de46c3149a",
+          "execution_manifest_sha256": "e0ee66467d727505203a96aa328aca2ce690803f099ae8f3bf3bbf5d34e45544",
+          "factor_level": 24,
+          "metrics_sha256": "f883d9ea99aa6ccc1059d6132f74df2930c2acdb02152e5084c5337bbffc89de",
+          "relative_instance_dir": "instances/level_000024/rep_007_seed_1363159082",
+          "replication_index": 7,
+          "seed": 1363159082,
+          "timeline_sha256": "60379611498912f8c017d3e6c0b6adbf596d1f30b71132bf79c5ca24381bb8bf"
+        }
+      ],
+      "replication_index": 7,
+      "run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_007_strict_common",
+      "seed": 1363159082,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "timing_artifact_count": 0
+    },
+    {
+      "campaign_metrics_sha256": "0b1d2292160c4dd87425cda4621651dc2ebd1bbe95f3a94165481c828f7c9316",
+      "deterministic_execution_digest": "6e3c2a31e0b74af5d2c8ba7f40a4f33b269b5bbb6fcc180ab3ef72f7690803e8",
+      "evidence_class": "stage10_new_functional_execution",
+      "execution_manifest_sha256": "f2c54a1857bf8925980716809acb2ba98a8239009c3b0ce4f3fced8de7c7b741",
+      "execution_spec_sha256": "a7517f803cdeb6e66c72986b23393944669479f9d81cf64fb89e1c694429f0c4",
+      "functional_step_count": 6,
+      "instance_results_sha256": "9636900e888ab43f6fc09593d37d1f2919670be54ab4d97ecc8aca930652346a",
+      "instances": [
+        {
+          "audit_sha256": "62a1d6ea8512091e93ad22c92a35dd40bc5ee1c6087d6233db99a3226456f5e3",
+          "execution_manifest_sha256": "23ef35a55445ab20ea8e6f804096d5516c87fcd5518624a89da1e1498c671db0",
+          "factor_level": 6,
+          "metrics_sha256": "92a3b81380c21e8d553ccf29e4a144be74b9401e02a3975be748d4f5713cce10",
+          "relative_instance_dir": "instances/level_000006/rep_008_seed_874332939",
+          "replication_index": 8,
+          "seed": 874332939,
+          "timeline_sha256": "02fd4c15e6e7f815bcfbdd576a43bf4e5c09aeb12128b32b8c33c891fa94b4bd"
+        },
+        {
+          "audit_sha256": "6b3f1357bb6f2f991d73aa25f180b0848d7e458b5561eb759a9db7b00cac6cf9",
+          "execution_manifest_sha256": "9db7857d4b711f6de40e2f95ff6b9afa5944c86a59f9efe29af5d473d462dc26",
+          "factor_level": 12,
+          "metrics_sha256": "7167ac80a9cfb2a2d1c258eec3c331dfceec1463f715bbb11610acfaa44dc223",
+          "relative_instance_dir": "instances/level_000012/rep_008_seed_874332939",
+          "replication_index": 8,
+          "seed": 874332939,
+          "timeline_sha256": "9ceab5d596d8dfd2533baf2d8f3a2fdcbbba372d48a94395da8f956d8c97b71b"
+        },
+        {
+          "audit_sha256": "55d9f76843e75b58e40c02a1b6b2612d6c2fc939214a00c6d69f386f98a5400b",
+          "execution_manifest_sha256": "601f8a18e59af677d9fa720f01827c47f6c8ce7df9c5fe5a9f08154e9d2a5e4d",
+          "factor_level": 24,
+          "metrics_sha256": "99b0488a4f740c922da98aad7d8e3083bc0690a24bfc75c8627d087350c48e9d",
+          "relative_instance_dir": "instances/level_000024/rep_008_seed_874332939",
+          "replication_index": 8,
+          "seed": 874332939,
+          "timeline_sha256": "10ea2664e31e53f4f99c7d01f3edc45f9b524a44a67243563747ba014d405cbf"
+        }
+      ],
+      "replication_index": 8,
+      "run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_008_strict_common",
+      "seed": 874332939,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "timing_artifact_count": 0
+    },
+    {
+      "campaign_metrics_sha256": "a7a2af40f0af60a26f838e10ab39aa1e9b42c70da3a02bc392d89f84c37cfc6f",
+      "deterministic_execution_digest": "c8bc36db2bb0cde366531bc0f131e5ee84ff4368f7b50a2b281bd0d70b3f1127",
+      "evidence_class": "stage10_new_functional_execution",
+      "execution_manifest_sha256": "8165e51e069db3f237aea9daf0bcef4df5e5cea1ba27f825648d4911a17da0d2",
+      "execution_spec_sha256": "a33c1a49bbc08f358800aea16880236e2b5ac6a8a867c4f21ef373f4a6aab092",
+      "functional_step_count": 6,
+      "instance_results_sha256": "03af45be2f7fe52d132c9fbad940af1563fb2824d08a2f1bdb50b9fe943b24c0",
+      "instances": [
+        {
+          "audit_sha256": "0d27149d37e72f0f3a35ac3c0acd95155ba473fd32379004802c27b9b8b599de",
+          "execution_manifest_sha256": "f3b472cf0c3e753eced7e43b06b63e914b7c033094e578616919d7b1f22b8e8c",
+          "factor_level": 6,
+          "metrics_sha256": "f3d56428c30c858c787da050225148e8dc19213bd949bdd2c9b31ab1ee628fd2",
+          "relative_instance_dir": "instances/level_000006/rep_009_seed_1767972531",
+          "replication_index": 9,
+          "seed": 1767972531,
+          "timeline_sha256": "bf39ff3b69d0c87e4ed3c0036b24cd04712d213d34a204dc1e51f5a7a35b73f0"
+        },
+        {
+          "audit_sha256": "20c5789a5d4d772dfccabd9fcd239d2b906e9b6c0546e7649ad0d2954398444d",
+          "execution_manifest_sha256": "f54d047f51a9b5848c4a5cc5eb59d8c83a2dbe688108147cfabaa21a3406df48",
+          "factor_level": 12,
+          "metrics_sha256": "0676c416f4da8eb04a44601883b8208417d2e80117ecf7e4457261bd2c9ab44b",
+          "relative_instance_dir": "instances/level_000012/rep_009_seed_1767972531",
+          "replication_index": 9,
+          "seed": 1767972531,
+          "timeline_sha256": "3f9fbecfd6dea989087b1a4bda56261b530e32ab73edf79c1786596b63efa340"
+        },
+        {
+          "audit_sha256": "8d2090019deb37296d6e8aa49ce7f52bb1a6f7c8b0644f1f73a3ba5d94a1a4c1",
+          "execution_manifest_sha256": "8f9f12676ab25a08ebf7e2a1e91b179c78ebd2ae024ecf6c29dcad7eea5c30a8",
+          "factor_level": 24,
+          "metrics_sha256": "ee247b47a005a292980654bb73e2b4dc999f6df584d264a31fbfd8cf7f63717b",
+          "relative_instance_dir": "instances/level_000024/rep_009_seed_1767972531",
+          "replication_index": 9,
+          "seed": 1767972531,
+          "timeline_sha256": "6e248494ffc6db1fab8710608b916fce541e26090223074177536776c89fbf5a"
+        }
+      ],
+      "replication_index": 9,
+      "run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_009_strict_common",
+      "seed": 1767972531,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "timing_artifact_count": 0
+    }
+  ],
+  "schema_version": "mcad-virtual-node-count-stage10-functional-completion-audit-v1",
+  "source_artifacts": {
+    "common_workload_audit": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/common_workloads/stage10_common_workload_audit.json",
+      "sha256": "d618e9b1efcea10d7050cafec51dac092e3139ac38583fd80cd7b31a5de88aee"
+    },
+    "new_execution_report": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/functional_execution/new_replications_functional_execution_report.json",
+      "sha256": "4608963b786e15dbeecce09b856e11a9e2f35f6ad1fab0d7409e113905034b58"
+    },
+    "preregistration": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/virtual_node_count_stage10_preregistration.json",
+      "sha256": "69913ec1d6195c165149a59b7285d7525e08f76cdbef452a7235347d33ccad29"
+    }
+  },
+  "source_commit": "46b95f74df41cb9ae255839dd999cefe94cf0ae4",
+  "status": "pass",
+  "timing_artifact_count": 0,
+  "timing_execution_performed": false
+}
