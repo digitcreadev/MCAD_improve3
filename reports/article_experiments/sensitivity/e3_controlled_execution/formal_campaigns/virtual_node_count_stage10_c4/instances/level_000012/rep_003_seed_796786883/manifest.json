@@ -1,0 +1,16 @@
+{
+  "configuration_digest": "97a3fae3a727141defac2406546ab43913cf33924ea4fac132ec07915ffc7e6b",
+  "generator_version": "mcad-sensitivity-e2.1-v1",
+  "graph_edge_count": 20,
+  "graph_node_count": 21,
+  "instance_digest": "eb1dc8c11dfa76dc8164a008ee43cc3411a8a6505a09300e1ae0c4e26fbc72f0",
+  "membership_density": 1.0,
+  "objective_id": "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R003",
+  "realised_constraint_count": 4,
+  "realised_virtual_node_count": 12,
+  "requested_constraint_count": 4,
+  "requested_virtual_node_count": 12,
+  "requirement_membership_link_count": 12,
+  "requirement_set_count": 4,
+  "seed": 796786883
+}

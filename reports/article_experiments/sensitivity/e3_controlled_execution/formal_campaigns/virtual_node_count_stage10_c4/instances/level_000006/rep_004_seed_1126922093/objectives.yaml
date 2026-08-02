@@ -1,0 +1,118 @@
+objectives:
+- id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004
+  name: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004
+  description: Synthetic sensitivity structural objective
+  kpis:
+  - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_KPI0001
+  - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_KPI0002
+  - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_KPI0003
+  - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_KPI0004
+  constraints:
+  - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0001
+    kpi_id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_KPI0001
+    description: Synthetic constraint 1
+    weight: 1.0
+    virtual_nodes:
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0001_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_07
+        Time.Year: '2002'
+      window_start: '2002-01-01'
+      window_end: '2002-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0001_NV0002
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_06
+        Time.Year: '2011'
+      window_start: '2011-01-01'
+      window_end: '2011-12-31'
+    requirement_sets:
+    - - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0001_NV0001
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0001_NV0002
+  - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0002
+    kpi_id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_KPI0002
+    description: Synthetic constraint 2
+    weight: 1.0
+    virtual_nodes:
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0002_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_09
+        Time.Year: '2005'
+      window_start: '2005-01-01'
+      window_end: '2005-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0002_NV0002
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_05
+        Time.Year: '2014'
+      window_start: '2014-01-01'
+      window_end: '2014-12-31'
+    requirement_sets:
+    - - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0002_NV0001
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0002_NV0002
+  - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0003
+    kpi_id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_KPI0003
+    description: Synthetic constraint 3
+    weight: 1.0
+    virtual_nodes:
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0003_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Margin
+      aggregator: MIN
+      unit: COUNT
+      slicers:
+        Geography.Region: Region_10
+        Time.Year: '2007'
+      window_start: '2007-01-01'
+      window_end: '2007-12-31'
+    requirement_sets:
+    - - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0003_NV0001
+  - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0004
+    kpi_id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_KPI0004
+    description: Synthetic constraint 4
+    weight: 1.0
+    virtual_nodes:
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0004_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Quantity
+      aggregator: MAX
+      unit: USD
+      slicers:
+        Geography.Region: Region_10
+        Time.Year: '2009'
+      window_start: '2009-01-01'
+      window_end: '2009-12-31'
+    requirement_sets:
+    - - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R004_C0004_NV0001
