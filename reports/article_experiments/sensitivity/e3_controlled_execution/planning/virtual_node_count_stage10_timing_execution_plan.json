@@ -1,0 +1,319 @@
+{
+  "campaign_id": "virtual_node_count_stage10_c4",
+  "created_utc": "2026-08-02T15:52:32Z",
+  "execution_state": {
+    "measurement_count_observed": 0,
+    "runner_invocation_performed": false,
+    "timing_execution_performed": false,
+    "timing_output_directories_created": false,
+    "warmup_count_observed": 0
+  },
+  "factor": "virtual_node_count",
+  "next_stage": "authorize_and_execute_stage10_formal_timing",
+  "precision_analyzer": {
+    "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+    "preregistered_sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504",
+    "sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504",
+    "sha256_matches_preregistration": true
+  },
+  "precision_protocol": {
+    "all_cells_must_pass": true,
+    "analyzer_version": "v2",
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed_base": 20260728,
+    "cluster_unit": "structural_seed",
+    "confidence_level": 0.95,
+    "median_relative_half_width_target": 0.1,
+    "p95_relative_half_width_target": 0.15
+  },
+  "prohibitions": {
+    "functional_execution_rerun_authorized": false,
+    "historical_prefix_rerun_authorized": false,
+    "latency_claim_authorized": false,
+    "scientific_freeze_authorized": false,
+    "stage20_execution_authorized": false
+  },
+  "protocol": {
+    "fresh_ckg_state_required": true,
+    "functional_digest_check_required": true,
+    "order_seed_base": 20260728,
+    "order_seed_policy": "order_seed_base_plus_replication_index",
+    "reuse_successful": true,
+    "reuse_successful_scope": "only_successful_outputs_from_the_same_preregistered_campaign"
+  },
+  "replications": [
+    {
+      "execution_order_seed": 20260728,
+      "expected_measurement_count": 600,
+      "expected_warmup_count": 60,
+      "factor_levels": [
+        6,
+        12,
+        24
+      ],
+      "fresh_ckg_state_required": true,
+      "functional_digest_check_required": true,
+      "logical_status": "ready",
+      "measurements_per_cell": 100,
+      "replication_index": 0,
+      "reuse_successful": true,
+      "runner_invocation_performed": false,
+      "source_evidence_class": "historical_prefix_reused",
+      "source_functional_digest": "9ede5a7dd54ec9dd953cda6a06dfd6bdf9e72470614faf12b0dd794551560a33",
+      "source_functional_run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_rep_000_strict_common",
+      "steps_per_instance": 2,
+      "structural_seed": 101,
+      "timing_cell_count": 6,
+      "warmups_per_cell": 10
+    },
+    {
+      "execution_order_seed": 20260729,
+      "expected_measurement_count": 600,
+      "expected_warmup_count": 60,
+      "factor_levels": [
+        6,
+        12,
+        24
+      ],
+      "fresh_ckg_state_required": true,
+      "functional_digest_check_required": true,
+      "logical_status": "ready",
+      "measurements_per_cell": 100,
+      "replication_index": 1,
+      "reuse_successful": true,
+      "runner_invocation_performed": false,
+      "source_evidence_class": "historical_prefix_reused",
+      "source_functional_digest": "8b8ed79b6788f810d87ef16297f0697cddacab191efe32261d03b5350fde7a0a",
+      "source_functional_run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_rep_001_strict_common",
+      "steps_per_instance": 2,
+      "structural_seed": 202,
+      "timing_cell_count": 6,
+      "warmups_per_cell": 10
+    },
+    {
+      "execution_order_seed": 20260730,
+      "expected_measurement_count": 600,
+      "expected_warmup_count": 60,
+      "factor_levels": [
+        6,
+        12,
+        24
+      ],
+      "fresh_ckg_state_required": true,
+      "functional_digest_check_required": true,
+      "logical_status": "ready",
+      "measurements_per_cell": 100,
+      "replication_index": 2,
+      "reuse_successful": true,
+      "runner_invocation_performed": false,
+      "source_evidence_class": "stage10_new_functional_execution",
+      "source_functional_digest": "86355da49e861a4fbd66c6548a28d37b5663242d29c83d325187253992a80da4",
+      "source_functional_run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_002_strict_common",
+      "steps_per_instance": 2,
+      "structural_seed": 1198202409,
+      "timing_cell_count": 6,
+      "warmups_per_cell": 10
+    },
+    {
+      "execution_order_seed": 20260731,
+      "expected_measurement_count": 600,
+      "expected_warmup_count": 60,
+      "factor_levels": [
+        6,
+        12,
+        24
+      ],
+      "fresh_ckg_state_required": true,
+      "functional_digest_check_required": true,
+      "logical_status": "ready",
+      "measurements_per_cell": 100,
+      "replication_index": 3,
+      "reuse_successful": true,
+      "runner_invocation_performed": false,
+      "source_evidence_class": "stage10_new_functional_execution",
+      "source_functional_digest": "1b8281afedc50f8c38871dabb279b6d720a1322f904014a9f314dc678e7e4572",
+      "source_functional_run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_003_strict_common",
+      "steps_per_instance": 2,
+      "structural_seed": 796786883,
+      "timing_cell_count": 6,
+      "warmups_per_cell": 10
+    },
+    {
+      "execution_order_seed": 20260732,
+      "expected_measurement_count": 600,
+      "expected_warmup_count": 60,
+      "factor_levels": [
+        6,
+        12,
+        24
+      ],
+      "fresh_ckg_state_required": true,
+      "functional_digest_check_required": true,
+      "logical_status": "ready",
+      "measurements_per_cell": 100,
+      "replication_index": 4,
+      "reuse_successful": true,
+      "runner_invocation_performed": false,
+      "source_evidence_class": "stage10_new_functional_execution",
+      "source_functional_digest": "b0e835f4d027e497a030034e487b0fa515232483caf54fa68b3ea8f9496fd191",
+      "source_functional_run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_004_strict_common",
+      "steps_per_instance": 2,
+      "structural_seed": 1126922093,
+      "timing_cell_count": 6,
+      "warmups_per_cell": 10
+    },
+    {
+      "execution_order_seed": 20260733,
+      "expected_measurement_count": 600,
+      "expected_warmup_count": 60,
+      "factor_levels": [
+        6,
+        12,
+        24
+      ],
+      "fresh_ckg_state_required": true,
+      "functional_digest_check_required": true,
+      "logical_status": "ready",
+      "measurements_per_cell": 100,
+      "replication_index": 5,
+      "reuse_successful": true,
+      "runner_invocation_performed": false,
+      "source_evidence_class": "stage10_new_functional_execution",
+      "source_functional_digest": "235a491e8ff6503616be47c07db09640b0ef195f561924829abee794e8576fca",
+      "source_functional_run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_005_strict_common",
+      "steps_per_instance": 2,
+      "structural_seed": 809989256,
+      "timing_cell_count": 6,
+      "warmups_per_cell": 10
+    },
+    {
+      "execution_order_seed": 20260734,
+      "expected_measurement_count": 600,
+      "expected_warmup_count": 60,
+      "factor_levels": [
+        6,
+        12,
+        24
+      ],
+      "fresh_ckg_state_required": true,
+      "functional_digest_check_required": true,
+      "logical_status": "ready",
+      "measurements_per_cell": 100,
+      "replication_index": 6,
+      "reuse_successful": true,
+      "runner_invocation_performed": false,
+      "source_evidence_class": "stage10_new_functional_execution",
+      "source_functional_digest": "0b4007419ca537892d18dc479b17f9cddd33d8f6c1b3a1599542beec4aacaa38",
+      "source_functional_run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_006_strict_common",
+      "steps_per_instance": 2,
+      "structural_seed": 618554674,
+      "timing_cell_count": 6,
+      "warmups_per_cell": 10
+    },
+    {
+      "execution_order_seed": 20260735,
+      "expected_measurement_count": 600,
+      "expected_warmup_count": 60,
+      "factor_levels": [
+        6,
+        12,
+        24
+      ],
+      "fresh_ckg_state_required": true,
+      "functional_digest_check_required": true,
+      "logical_status": "ready",
+      "measurements_per_cell": 100,
+      "replication_index": 7,
+      "reuse_successful": true,
+      "runner_invocation_performed": false,
+      "source_evidence_class": "stage10_new_functional_execution",
+      "source_functional_digest": "ac2977eb3ffe66d1e69ccec9dd75cfaa62e3692aeff102fdcb4dca4a8c90fe62",
+      "source_functional_run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_007_strict_common",
+      "steps_per_instance": 2,
+      "structural_seed": 1363159082,
+      "timing_cell_count": 6,
+      "warmups_per_cell": 10
+    },
+    {
+      "execution_order_seed": 20260736,
+      "expected_measurement_count": 600,
+      "expected_warmup_count": 60,
+      "factor_levels": [
+        6,
+        12,
+        24
+      ],
+      "fresh_ckg_state_required": true,
+      "functional_digest_check_required": true,
+      "logical_status": "ready",
+      "measurements_per_cell": 100,
+      "replication_index": 8,
+      "reuse_successful": true,
+      "runner_invocation_performed": false,
+      "source_evidence_class": "stage10_new_functional_execution",
+      "source_functional_digest": "6e3c2a31e0b74af5d2c8ba7f40a4f33b269b5bbb6fcc180ab3ef72f7690803e8",
+      "source_functional_run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_008_strict_common",
+      "steps_per_instance": 2,
+      "structural_seed": 874332939,
+      "timing_cell_count": 6,
+      "warmups_per_cell": 10
+    },
+    {
+      "execution_order_seed": 20260737,
+      "expected_measurement_count": 600,
+      "expected_warmup_count": 60,
+      "factor_levels": [
+        6,
+        12,
+        24
+      ],
+      "fresh_ckg_state_required": true,
+      "functional_digest_check_required": true,
+      "logical_status": "ready",
+      "measurements_per_cell": 100,
+      "replication_index": 9,
+      "reuse_successful": true,
+      "runner_invocation_performed": false,
+      "source_evidence_class": "stage10_new_functional_execution",
+      "source_functional_digest": "c8bc36db2bb0cde366531bc0f131e5ee84ff4368f7b50a2b281bd0d70b3f1127",
+      "source_functional_run_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_009_strict_common",
+      "steps_per_instance": 2,
+      "structural_seed": 1767972531,
+      "timing_cell_count": 6,
+      "warmups_per_cell": 10
+    }
+  ],
+  "runner": {
+    "discovered_cli_options": [
+      "--help",
+      "--measurements",
+      "--order-seed",
+      "--output-dir",
+      "--reuse-successful",
+      "--warmups"
+    ],
+    "help_exit_status": 0,
+    "help_sha256": "ca5512a746b61c4b3a793ad3893c87aea7cbfc9951530ea02c182191b537596e",
+    "path": "backend/harness/sensitivity_execution/run_timing_repetitions.py",
+    "preregistered_sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595",
+    "sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595",
+    "sha256_matches_preregistration": true
+  },
+  "schema_version": "mcad-virtual-node-count-stage10-timing-execution-plan-v1",
+  "scope": {
+    "expected_measurement_count": 6000,
+    "expected_warmup_count": 600,
+    "factor_levels": [
+      6,
+      12,
+      24
+    ],
+    "measurements_per_cell": 100,
+    "replication_count": 10,
+    "steps_per_instance": 2,
+    "timing_cell_count": 60,
+    "warmups_per_cell": 10
+  },
+  "source_commit": "f2942f1c895c7643332f89490e68bd17ea88f9b2",
+  "status": "prepared"
+}
