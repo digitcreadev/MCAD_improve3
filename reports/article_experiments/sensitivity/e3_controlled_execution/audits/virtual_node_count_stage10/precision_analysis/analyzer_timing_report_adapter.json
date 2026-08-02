@@ -1,0 +1,28 @@
+{
+  "adapter_purpose": "Expose the formally validated timing evidence through the preregistered analyzer's immutable stage-contract interface.",
+  "campaign_id": "virtual_node_count_stage10_c4",
+  "factor": "virtual_node_count",
+  "schema_version": "mcad-virtual-node-count-stage10-precision-analyzer-input-adapter-v1",
+  "scientific_constraints": {
+    "functional_execution_rerun_performed": false,
+    "latency_claim_authorized": false,
+    "scientific_freeze_authorized": false,
+    "stage20_execution_authorized": false,
+    "timing_execution_rerun_performed": false
+  },
+  "source_formal_timing_report": {
+    "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/timing_execution/formal_timing_execution_report.json",
+    "sha256": "7bf884257fae2d12196f3b53834d335feb78b68214bf7f7e39fc283787a29612",
+    "status": "pass"
+  },
+  "status": "stage10_formal_timing_execution_success",
+  "totals": {
+    "cell_count": 60,
+    "exactly_balanced_run_count": 10,
+    "functional_mismatch_count": 0,
+    "measurement_observation_count": 6000,
+    "run_count": 10,
+    "structural_seed_count": 10,
+    "successful_run_count": 10
+  }
+}

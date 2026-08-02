@@ -1,0 +1,16 @@
+status=stage10_precision_targets_met
+level=6 step=1 median_ms=0.344749 median_rhw=0.007899 median_pass=true p95_ms=0.613223 p95_rhw=0.014225 p95_pass=true
+level=6 step=2 median_ms=0.290751 median_rhw=0.012577 median_pass=true p95_ms=0.546918 p95_rhw=0.013266 p95_pass=true
+level=12 step=1 median_ms=0.402110 median_rhw=0.010965 median_pass=true p95_ms=0.727644 p95_rhw=0.016676 p95_pass=true
+level=12 step=2 median_ms=0.343171 median_rhw=0.020931 median_pass=true p95_ms=0.655151 p95_rhw=0.027801 p95_pass=true
+level=24 step=1 median_ms=0.535223 median_rhw=0.014208 median_pass=true p95_ms=0.975809 p95_rhw=0.017938 p95_pass=true
+level=24 step=2 median_ms=0.477994 median_rhw=0.013154 median_pass=true p95_ms=0.928373 p95_rhw=0.023118 p95_pass=true
+all_median_targets_met=true
+all_p95_targets_met=true
+all_precision_targets_met=true
+failing_cell_count=0
+stage10_sufficient=true
+extension_to_stage20_required=false
+next_stage=SA4_membership_density_design
+report_json=reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/raw_analyzer_report.json
+intervals_csv=reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/clustered_precision_intervals.csv
