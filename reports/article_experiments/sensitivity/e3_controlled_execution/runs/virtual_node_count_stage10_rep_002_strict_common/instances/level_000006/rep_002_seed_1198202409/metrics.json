@@ -1,0 +1,18 @@
+{
+  "auc_phi": 0.25,
+  "canonical_instance_id": "level_000006/rep_002_seed_1198202409",
+  "ceval_empty_count": 0,
+  "evaluator_latency_p50_ms": 0.447163,
+  "evaluator_latency_p95_ms": 0.561719,
+  "evaluator_latency_p99_ms": 0.571901,
+  "execution_id": "e3-virtual-node-count-stage10-rep_002-strict-common-v1",
+  "failed_step_count": 0,
+  "objective_id": "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R002",
+  "phi_final": 0.25,
+  "phi_weighted_final": 0.25,
+  "real_empty_count": 0,
+  "sat_fail_count": 0,
+  "schema_version": "mcad-sensitivity-e3-metrics-v1",
+  "step_count": 2,
+  "successful_step_count": 2
+}

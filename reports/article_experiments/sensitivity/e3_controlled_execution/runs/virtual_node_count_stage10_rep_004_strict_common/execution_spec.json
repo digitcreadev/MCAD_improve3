@@ -1,0 +1,14 @@
+{
+  "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/formal_campaigns/virtual_node_count_stage10_c4",
+  "contract_version": "mcad-sensitivity-e3-execution-v1",
+  "execution_id": "e3-virtual-node-count-stage10-rep_004-strict-common-v1",
+  "instance_selection": {
+    "instance_ids": [
+      "instances/level_000006/rep_004_seed_1126922093",
+      "instances/level_000012/rep_004_seed_1126922093",
+      "instances/level_000024/rep_004_seed_1126922093"
+    ]
+  },
+  "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_004_strict_common",
+  "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_004_strict_common.json"
+}
