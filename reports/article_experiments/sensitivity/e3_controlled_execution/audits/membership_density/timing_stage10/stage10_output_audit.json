@@ -1,0 +1,475 @@
+{
+  "audit_decision": {
+    "balance_flag_explained": true,
+    "cell_counts_exactly_balanced": true,
+    "functional_equivalence_verified": true,
+    "order_position_near_balance_verified": true,
+    "stage10_timing_execution_accepted": true,
+    "timing_outputs_complete": true,
+    "timing_outputs_integrity_verified": true
+  },
+  "balance_flag_interpretation": {
+    "all_positions_seen_per_cell": true,
+    "declared_value": false,
+    "division_quotient": 1,
+    "division_remainder": 8,
+    "does_not_measure": "Per-cell warmup or measurement observation counts.",
+    "exact_full_position_balance_possible": false,
+    "expected_value_under_protocol": false,
+    "field": "all_cells_exactly_balanced",
+    "measurement_round_count": 100,
+    "near_balance_verified": true,
+    "order_position_count": 92,
+    "positions_seen_once_per_cell": 84,
+    "positions_seen_twice_per_cell": 8,
+    "protocol_change_required": false,
+    "scientific_defect": false,
+    "semantic_domain": "measurement-order positions",
+    "timing_rerun_required": false
+  },
+  "created_utc": "2026-08-03T18:16:53Z",
+  "execution_results": {
+    "direct_cell_count_balance": true,
+    "failed_replication_count": 0,
+    "functional_mismatch_count": 0,
+    "measurement_observation_count": 92000,
+    "raw_timing_cell_count": 920,
+    "successful_replication_count": 10,
+    "total_observation_count": 101200,
+    "warmup_observation_count": 9200
+  },
+  "factor": "membership_density",
+  "next_stage": "prepare_membership_density_portfolio_analysis_adapter",
+  "replications": [
+    {
+      "declared_all_cells_exactly_balanced": false,
+      "direct_cell_count_balance": true,
+      "files": {
+        "functional_references": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_000_portfolio_timing_stage10/functional_references.json",
+          "sha256": "f91757122fe955590270bb9fafe8bde45dc09ff4aac3f58c39002e7cf7e4fa45"
+        },
+        "timing_manifest": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_000_portfolio_timing_stage10/timing_manifest.json",
+          "sha256": "504cac15014626deb282f944e488574ed454b0ee3adf4a82f3768bde8656e6a5"
+        },
+        "timing_observations": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_000_portfolio_timing_stage10/timing_observations.csv",
+          "sha256": "3e4e127c35ec7cf9b41185325a9d37bcfd7ae91f12731b50fb5dfa8e02686ba6"
+        },
+        "timing_summary": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_000_portfolio_timing_stage10/timing_summary.json",
+          "sha256": "77caaaa7d202bd303ac8a7c967f99fcf5afec0742c9e971a4ea28ce6c216c160"
+        }
+      },
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 9200,
+      "order_position_balance": {
+        "all_positions_seen_per_cell": true,
+        "exact_full_balance_possible": false,
+        "measurement_round_count": 100,
+        "near_balance_verified": true,
+        "order_position_count": 92,
+        "positions_seen_once_per_cell": 84,
+        "positions_seen_twice_per_cell": 8,
+        "quotient": 1,
+        "remainder": 8
+      },
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_000_portfolio_timing_stage10",
+      "raw_timing_cell_count": 92,
+      "replication_index": 0,
+      "total_observation_count": 10120,
+      "warmup_observation_count": 920
+    },
+    {
+      "declared_all_cells_exactly_balanced": false,
+      "direct_cell_count_balance": true,
+      "files": {
+        "functional_references": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_001_portfolio_timing_stage10/functional_references.json",
+          "sha256": "c2957e0dd38a4a8d0bfa72484536bcffd92f8e97acc0c312af1a8a9fc7967b91"
+        },
+        "timing_manifest": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_001_portfolio_timing_stage10/timing_manifest.json",
+          "sha256": "a0ad755912551fadbbd32abe477cf09c5c645fc35022120bc7466e90d6852803"
+        },
+        "timing_observations": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_001_portfolio_timing_stage10/timing_observations.csv",
+          "sha256": "2bf6674abba900c185dec5bd16aca409be6110eaf5c3d2b60d7e1672191bb99c"
+        },
+        "timing_summary": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_001_portfolio_timing_stage10/timing_summary.json",
+          "sha256": "fc05f72890fbc3d24d99422861b4e8e58ec425b0b8ef2236377738219d71a3f9"
+        }
+      },
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 9200,
+      "order_position_balance": {
+        "all_positions_seen_per_cell": true,
+        "exact_full_balance_possible": false,
+        "measurement_round_count": 100,
+        "near_balance_verified": true,
+        "order_position_count": 92,
+        "positions_seen_once_per_cell": 84,
+        "positions_seen_twice_per_cell": 8,
+        "quotient": 1,
+        "remainder": 8
+      },
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_001_portfolio_timing_stage10",
+      "raw_timing_cell_count": 92,
+      "replication_index": 1,
+      "total_observation_count": 10120,
+      "warmup_observation_count": 920
+    },
+    {
+      "declared_all_cells_exactly_balanced": false,
+      "direct_cell_count_balance": true,
+      "files": {
+        "functional_references": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_002_portfolio_timing_stage10/functional_references.json",
+          "sha256": "3be5696288c7cb0278de0c4da487defde1855d5691fd73ffa3525192bb252d1c"
+        },
+        "timing_manifest": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_002_portfolio_timing_stage10/timing_manifest.json",
+          "sha256": "2deb1457a8b9294611d522b0961ed09f1f0cc1ed8ebe5d25430105d27f88de32"
+        },
+        "timing_observations": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_002_portfolio_timing_stage10/timing_observations.csv",
+          "sha256": "b69335a1315d8f5796211eaf9b256fb4b4b002a59798ae3d083da32aa8b0fc62"
+        },
+        "timing_summary": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_002_portfolio_timing_stage10/timing_summary.json",
+          "sha256": "242578560e3fb3536888800ef47b7c00a9a3b31ebe08646f86b884010437030e"
+        }
+      },
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 9200,
+      "order_position_balance": {
+        "all_positions_seen_per_cell": true,
+        "exact_full_balance_possible": false,
+        "measurement_round_count": 100,
+        "near_balance_verified": true,
+        "order_position_count": 92,
+        "positions_seen_once_per_cell": 84,
+        "positions_seen_twice_per_cell": 8,
+        "quotient": 1,
+        "remainder": 8
+      },
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_002_portfolio_timing_stage10",
+      "raw_timing_cell_count": 92,
+      "replication_index": 2,
+      "total_observation_count": 10120,
+      "warmup_observation_count": 920
+    },
+    {
+      "declared_all_cells_exactly_balanced": false,
+      "direct_cell_count_balance": true,
+      "files": {
+        "functional_references": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_003_portfolio_timing_stage10/functional_references.json",
+          "sha256": "34a7d27f4b01f8c9bf0b8c67cbae1ba978432190d80e0ad30bed1bd557f9dd45"
+        },
+        "timing_manifest": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_003_portfolio_timing_stage10/timing_manifest.json",
+          "sha256": "84d6a7f070b03d06ea79a377cb03200a4d2850d2e085b591abb959e860ba41e8"
+        },
+        "timing_observations": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_003_portfolio_timing_stage10/timing_observations.csv",
+          "sha256": "9ae665238b67cc8d1822b6b6283f3e6cdb4c1a99868bbc9bb6b018fe06229a70"
+        },
+        "timing_summary": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_003_portfolio_timing_stage10/timing_summary.json",
+          "sha256": "db564fe7f60cb1bf59ffcbfb5917ee7cb4e8c80cbb70f8004255473485d850fb"
+        }
+      },
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 9200,
+      "order_position_balance": {
+        "all_positions_seen_per_cell": true,
+        "exact_full_balance_possible": false,
+        "measurement_round_count": 100,
+        "near_balance_verified": true,
+        "order_position_count": 92,
+        "positions_seen_once_per_cell": 84,
+        "positions_seen_twice_per_cell": 8,
+        "quotient": 1,
+        "remainder": 8
+      },
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_003_portfolio_timing_stage10",
+      "raw_timing_cell_count": 92,
+      "replication_index": 3,
+      "total_observation_count": 10120,
+      "warmup_observation_count": 920
+    },
+    {
+      "declared_all_cells_exactly_balanced": false,
+      "direct_cell_count_balance": true,
+      "files": {
+        "functional_references": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_004_portfolio_timing_stage10/functional_references.json",
+          "sha256": "e3410c0b243ee766f305e2e846013edff466ea002bd9bd7c79e868a1f92ad24b"
+        },
+        "timing_manifest": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_004_portfolio_timing_stage10/timing_manifest.json",
+          "sha256": "c700d4e25b0cfd0088dcffd9a00abd48b172e7e462520222fb243af0fae827c5"
+        },
+        "timing_observations": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_004_portfolio_timing_stage10/timing_observations.csv",
+          "sha256": "0e8ce53f0896dbe0d45f077e797f0c6c02f0ebc3d5ebbd5619306d223978b624"
+        },
+        "timing_summary": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_004_portfolio_timing_stage10/timing_summary.json",
+          "sha256": "9071ec6750521ac7572025e84fd02a23088e01feb2470d9a77c609297f42554a"
+        }
+      },
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 9200,
+      "order_position_balance": {
+        "all_positions_seen_per_cell": true,
+        "exact_full_balance_possible": false,
+        "measurement_round_count": 100,
+        "near_balance_verified": true,
+        "order_position_count": 92,
+        "positions_seen_once_per_cell": 84,
+        "positions_seen_twice_per_cell": 8,
+        "quotient": 1,
+        "remainder": 8
+      },
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_004_portfolio_timing_stage10",
+      "raw_timing_cell_count": 92,
+      "replication_index": 4,
+      "total_observation_count": 10120,
+      "warmup_observation_count": 920
+    },
+    {
+      "declared_all_cells_exactly_balanced": false,
+      "direct_cell_count_balance": true,
+      "files": {
+        "functional_references": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_005_portfolio_timing_stage10/functional_references.json",
+          "sha256": "c2785e5379ac69588f8f8ab0ac9328568fab6bf2a89d7d018d661ebc44d56d21"
+        },
+        "timing_manifest": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_005_portfolio_timing_stage10/timing_manifest.json",
+          "sha256": "22cc477b74c0b13b161ac0fee7f263baa85ebbc7cc47afb8be66059d8fe3812c"
+        },
+        "timing_observations": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_005_portfolio_timing_stage10/timing_observations.csv",
+          "sha256": "f8d3a27cc7ab16536d2cca41c3f985b25143ada752bcc8da1e44c5a8e051e4af"
+        },
+        "timing_summary": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_005_portfolio_timing_stage10/timing_summary.json",
+          "sha256": "4c5ec538c806ea4b21ff887e90c51dcbe95497f6903c8f5ab53c2702457b49fb"
+        }
+      },
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 9200,
+      "order_position_balance": {
+        "all_positions_seen_per_cell": true,
+        "exact_full_balance_possible": false,
+        "measurement_round_count": 100,
+        "near_balance_verified": true,
+        "order_position_count": 92,
+        "positions_seen_once_per_cell": 84,
+        "positions_seen_twice_per_cell": 8,
+        "quotient": 1,
+        "remainder": 8
+      },
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_005_portfolio_timing_stage10",
+      "raw_timing_cell_count": 92,
+      "replication_index": 5,
+      "total_observation_count": 10120,
+      "warmup_observation_count": 920
+    },
+    {
+      "declared_all_cells_exactly_balanced": false,
+      "direct_cell_count_balance": true,
+      "files": {
+        "functional_references": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_006_portfolio_timing_stage10/functional_references.json",
+          "sha256": "844a9484edbceb61c0eb0ec8a232952962c18fdf5828d8ba25004009c83577ff"
+        },
+        "timing_manifest": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_006_portfolio_timing_stage10/timing_manifest.json",
+          "sha256": "41868cda3ddfa6af058ee15154e216f5b97d3d25cb631dfedf4bb86dea7c85fb"
+        },
+        "timing_observations": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_006_portfolio_timing_stage10/timing_observations.csv",
+          "sha256": "dc671f7d70ffacb8f5b1c912bf21dab174bff54819bfe8f509c52e3159d89162"
+        },
+        "timing_summary": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_006_portfolio_timing_stage10/timing_summary.json",
+          "sha256": "35db3bb60fcd6c061c69d469aecab5c25be1862dfbaf32b45b02007d93050468"
+        }
+      },
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 9200,
+      "order_position_balance": {
+        "all_positions_seen_per_cell": true,
+        "exact_full_balance_possible": false,
+        "measurement_round_count": 100,
+        "near_balance_verified": true,
+        "order_position_count": 92,
+        "positions_seen_once_per_cell": 84,
+        "positions_seen_twice_per_cell": 8,
+        "quotient": 1,
+        "remainder": 8
+      },
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_006_portfolio_timing_stage10",
+      "raw_timing_cell_count": 92,
+      "replication_index": 6,
+      "total_observation_count": 10120,
+      "warmup_observation_count": 920
+    },
+    {
+      "declared_all_cells_exactly_balanced": false,
+      "direct_cell_count_balance": true,
+      "files": {
+        "functional_references": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_007_portfolio_timing_stage10/functional_references.json",
+          "sha256": "48857db600d4fd5a7afc4b0553fceebd61faa303dc567d3522d04cc6cb51f94d"
+        },
+        "timing_manifest": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_007_portfolio_timing_stage10/timing_manifest.json",
+          "sha256": "8f67a3818901ef7cd0871403f58c380b9fd52c9850bf81f49e7d41d200329d60"
+        },
+        "timing_observations": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_007_portfolio_timing_stage10/timing_observations.csv",
+          "sha256": "aab7cd1f27ccc3383e70087d6650a86aad7212e17d713d1ae6547802acb7c66c"
+        },
+        "timing_summary": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_007_portfolio_timing_stage10/timing_summary.json",
+          "sha256": "a8bd11182c7f1384342af7cfc06d4d48392ff4936329428834df721344b86466"
+        }
+      },
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 9200,
+      "order_position_balance": {
+        "all_positions_seen_per_cell": true,
+        "exact_full_balance_possible": false,
+        "measurement_round_count": 100,
+        "near_balance_verified": true,
+        "order_position_count": 92,
+        "positions_seen_once_per_cell": 84,
+        "positions_seen_twice_per_cell": 8,
+        "quotient": 1,
+        "remainder": 8
+      },
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_007_portfolio_timing_stage10",
+      "raw_timing_cell_count": 92,
+      "replication_index": 7,
+      "total_observation_count": 10120,
+      "warmup_observation_count": 920
+    },
+    {
+      "declared_all_cells_exactly_balanced": false,
+      "direct_cell_count_balance": true,
+      "files": {
+        "functional_references": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_008_portfolio_timing_stage10/functional_references.json",
+          "sha256": "fdb2c66c522d9c7f87c7af9bdeb640a373365cb10cc68287c551ee12ae2b676b"
+        },
+        "timing_manifest": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_008_portfolio_timing_stage10/timing_manifest.json",
+          "sha256": "cfc27d84cfddbd90e0d8ca3a4f9a5ef215e9a28a20fcc427fa0dd8b7f73d0b21"
+        },
+        "timing_observations": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_008_portfolio_timing_stage10/timing_observations.csv",
+          "sha256": "f66d6ec2e30d85889b9ff4fed1b0e75778c2d83af5dbd1b276b1d19d9eb08c10"
+        },
+        "timing_summary": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_008_portfolio_timing_stage10/timing_summary.json",
+          "sha256": "39ab0dec4e4b85bc28fd724825cc49a89e83574480ad725fb79faf723841cd0e"
+        }
+      },
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 9200,
+      "order_position_balance": {
+        "all_positions_seen_per_cell": true,
+        "exact_full_balance_possible": false,
+        "measurement_round_count": 100,
+        "near_balance_verified": true,
+        "order_position_count": 92,
+        "positions_seen_once_per_cell": 84,
+        "positions_seen_twice_per_cell": 8,
+        "quotient": 1,
+        "remainder": 8
+      },
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_008_portfolio_timing_stage10",
+      "raw_timing_cell_count": 92,
+      "replication_index": 8,
+      "total_observation_count": 10120,
+      "warmup_observation_count": 920
+    },
+    {
+      "declared_all_cells_exactly_balanced": false,
+      "direct_cell_count_balance": true,
+      "files": {
+        "functional_references": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_009_portfolio_timing_stage10/functional_references.json",
+          "sha256": "2a0e0988e00142af03c40a9e04177bd210ef921633cf7822ea405196289ea28a"
+        },
+        "timing_manifest": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_009_portfolio_timing_stage10/timing_manifest.json",
+          "sha256": "d02d4a3f01af5b435584f0cb39de1ccdd2c6ac6b91b90d44c473b6d13a4f6408"
+        },
+        "timing_observations": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_009_portfolio_timing_stage10/timing_observations.csv",
+          "sha256": "d436fd3a107c1ccb2d144fdda78f0fe0119e1f1f34e4f6ec2cc4684c5f0ce63a"
+        },
+        "timing_summary": {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_009_portfolio_timing_stage10/timing_summary.json",
+          "sha256": "76a58bbeba06c769f0171de7dd0a1fa45bb8bc876086fdefe0c93538f7f4eb13"
+        }
+      },
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 9200,
+      "order_position_balance": {
+        "all_positions_seen_per_cell": true,
+        "exact_full_balance_possible": false,
+        "measurement_round_count": 100,
+        "near_balance_verified": true,
+        "order_position_count": 92,
+        "positions_seen_once_per_cell": 84,
+        "positions_seen_twice_per_cell": 8,
+        "quotient": 1,
+        "remainder": 8
+      },
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_009_portfolio_timing_stage10",
+      "raw_timing_cell_count": 92,
+      "replication_index": 9,
+      "total_observation_count": 10120,
+      "warmup_observation_count": 920
+    }
+  ],
+  "schema_version": "mcad-sa4-membership-density-stage10-output-audit-v1",
+  "scientific_controls": {
+    "functional_execution_rerun_performed": false,
+    "global_scientific_freeze": false,
+    "latency_claim_authorized": false,
+    "manuscript_resume_authorized": false,
+    "precision_analysis_authorized": false,
+    "precision_analysis_performed": false,
+    "scientific_freeze": false,
+    "stage20_execution_authorized": false,
+    "timing_execution_authorized": true,
+    "timing_execution_performed": true,
+    "timing_reexecution_performed": false
+  },
+  "source_artifacts": {
+    "authorization": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_timing_execution_authorization.json",
+      "sha256": "dc9010e319e238f1419e4fdb4d52cd184fc9470d346cef8833ef0355ff0c4be0"
+    },
+    "execution_ledger": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/stage10_execution_ledger.json",
+      "sha256": "27e7c716e51eb7cff7fcc17ad506495f0cd4f128f4be9a2b81c5185d190d2d8f"
+    },
+    "timing_runner": {
+      "path": "backend/harness/sensitivity_execution/run_timing_repetitions.py",
+      "sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595"
+    }
+  },
+  "stage": 10,
+  "status": "membership_density_stage10_output_audit_complete"
+}
