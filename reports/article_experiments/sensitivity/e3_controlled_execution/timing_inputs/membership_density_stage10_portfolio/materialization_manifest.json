@@ -1,0 +1,2055 @@
+{
+  "campaign_id": "membership_density_stage10_c4_nv24",
+  "created_utc": "2026-08-03T10:51:22Z",
+  "factor": "membership_density",
+  "immutability_controls": {
+    "source_execution_specs_modified": false,
+    "source_functional_output_dirs_modified": false,
+    "source_hashes_verified_before_and_after": true,
+    "source_workload_files_modified": false,
+    "timing_run_directories_created": false
+  },
+  "implementation_identity": {
+    "timing_runner": "backend/harness/sensitivity_execution/run_timing_repetitions.py",
+    "timing_runner_sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595"
+  },
+  "input_contract": {
+    "density_level_count": 4,
+    "density_levels": [
+      25,
+      50,
+      75,
+      100
+    ],
+    "derived_execution_spec_count": 10,
+    "derived_workload_count": 10,
+    "measurement_observation_count": 92000,
+    "measurements_per_raw_cell": 100,
+    "raw_timing_cell_count": 920,
+    "replication_count": 10,
+    "selected_instance_count": 40,
+    "selected_step_count_per_replication": 23,
+    "selected_step_indexes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "warmup_observation_count": 9200,
+    "warmups_per_raw_cell": 10
+  },
+  "materialization_decision": {
+    "derived_inputs_auditable": true,
+    "derived_inputs_complete": true,
+    "timing_execution_authorized": false,
+    "timing_execution_ready_for_authorization": true
+  },
+  "next_stage": "audit_and_authorize_membership_density_timing_execution",
+  "replications": [
+    {
+      "canonical_instance_count": 4,
+      "canonical_instance_ids": [
+        "level_000025/rep_000_seed_101",
+        "level_000050/rep_000_seed_101",
+        "level_000075/rep_000_seed_101",
+        "level_000100/rep_000_seed_101"
+      ],
+      "density_levels": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "derived_execution_spec": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_000_portfolio_timing_stage10.json",
+        "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+        "execution_id": "e3-membership-density-rep_000-portfolio-timing-stage10-v1",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_000_portfolio_timing_stage10.json",
+        "sha256": "56f1db817e9ca68db7de7e6b50ec393345af0abbf88066e0cd8796749ab045f3",
+        "timing_output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_000_portfolio_timing_stage10",
+        "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_000_portfolio_timing_stage10.json"
+      },
+      "derived_workload": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_000_portfolio_timing_stage10.json",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_000_portfolio_timing_stage10.json",
+        "sha256": "b3c1382feb285f92a673f2a93599ffab7b6ec7902ad5c92737746162fff9a0ba",
+        "step_count": 23,
+        "workload_id": "e3-membership-density-rep_000-portfolio-timing-stage10-v1"
+      },
+      "excluded_step_indexes": [
+        24
+      ],
+      "future_timing_parameters": {
+        "measurements": 100,
+        "order_seed": 20260728,
+        "reuse_successful": true,
+        "warmups": 10
+      },
+      "instance_selection_sha256": "0273cacfd54474f5f5f4e7b2b95b299c49f312a38535d9872fa5073d9e34148d",
+      "replication_index": 0,
+      "selected_query_digests": [
+        {
+          "query_spec_digest": "01fb53150765a59c91287fd89775b833b647c4632d1dc3182842fc68dfae7174",
+          "step_id": "Q001",
+          "step_index": 1
+        },
+        {
+          "query_spec_digest": "0a73d9b105107c7471c2d04e48edfcee078d3faa924e1728d633f443b324aa41",
+          "step_id": "Q002",
+          "step_index": 2
+        },
+        {
+          "query_spec_digest": "21443cc8ac552e5a39a4813ccaa4a3839e072f6ddc876898d602cab7a715e40b",
+          "step_id": "Q003",
+          "step_index": 3
+        },
+        {
+          "query_spec_digest": "229fae07dd8b03426e2187db0f1f9bac88ecfcbf4581012ceec340a76d3b9ac7",
+          "step_id": "Q004",
+          "step_index": 4
+        },
+        {
+          "query_spec_digest": "26b4f891b7969a24050f418a08e61482e70c8d0dc8935cd6a2120b21fd280fe7",
+          "step_id": "Q005",
+          "step_index": 5
+        },
+        {
+          "query_spec_digest": "360aecff739eac39d54fc9492e1f30df807a148e5bfb06d9b174f29bf763ca3e",
+          "step_id": "Q006",
+          "step_index": 6
+        },
+        {
+          "query_spec_digest": "4336cacb266bcf383952c54256783d213822054a661fcd4aa07d11a4ff77a14c",
+          "step_id": "Q007",
+          "step_index": 7
+        },
+        {
+          "query_spec_digest": "671cb93d672addd012d21c1f725db88a43bf0a9abf02049fde61c74d94b600c2",
+          "step_id": "Q008",
+          "step_index": 8
+        },
+        {
+          "query_spec_digest": "6ee7d6a67089d1139c9ef360895be9277562bb36d2f5088ca8fd7ded79ed665e",
+          "step_id": "Q009",
+          "step_index": 9
+        },
+        {
+          "query_spec_digest": "6f04146f5a4d74825b50257f2e620bbe0a2ee73befe91520936038c26f18e137",
+          "step_id": "Q010",
+          "step_index": 10
+        },
+        {
+          "query_spec_digest": "8300c09f888f8df4740159812a47611620b8bbae78a6d50ee854a9cd333da62e",
+          "step_id": "Q011",
+          "step_index": 11
+        },
+        {
+          "query_spec_digest": "83aaf76eba5160c119fab4590cd1c9e43911429a98c4173856c57dfe41fb4ad6",
+          "step_id": "Q012",
+          "step_index": 12
+        },
+        {
+          "query_spec_digest": "aa7dcf6497ac28a0c2508a068ebd48db424d5b0e6a1a5fc3a8193c3a1c11fe9a",
+          "step_id": "Q013",
+          "step_index": 13
+        },
+        {
+          "query_spec_digest": "ac06985e2a65e29b5f8a2fe426f7105e3039b63f0ecedd1552fc84c9ac46e6b5",
+          "step_id": "Q014",
+          "step_index": 14
+        },
+        {
+          "query_spec_digest": "b5f16b2003884f220535004ecf8dae8c8b9175c922d1c57e83a3b3fb5880b6a5",
+          "step_id": "Q015",
+          "step_index": 15
+        },
+        {
+          "query_spec_digest": "b93c0423389d71fef2b32809b789f322d9e1808d5f893a2934882cea364c1b5f",
+          "step_id": "Q016",
+          "step_index": 16
+        },
+        {
+          "query_spec_digest": "c42b2b582bba4cdf731053dd8837acfbc10ed9462b0dd10eeed84fb9df2187ac",
+          "step_id": "Q017",
+          "step_index": 17
+        },
+        {
+          "query_spec_digest": "cb68628a41b183f2b8d029d8400a6d21c097f0cdd6ed5814fbd6d47c9f0922da",
+          "step_id": "Q018",
+          "step_index": 18
+        },
+        {
+          "query_spec_digest": "ced41aa12d611c6560045a1e6d0b6e59f7286e804da4d64d160930be470af2e1",
+          "step_id": "Q019",
+          "step_index": 19
+        },
+        {
+          "query_spec_digest": "dee544c73170c892c88e6fe22bcd3e2fbaeba04d6ed05541876cf7ba419ad018",
+          "step_id": "Q020",
+          "step_index": 20
+        },
+        {
+          "query_spec_digest": "e471ca4c2471721c011dd5afac3cc6670db5f256c309a9234afb93ae1bf8f968",
+          "step_id": "Q021",
+          "step_index": 21
+        },
+        {
+          "query_spec_digest": "e8fbb94438e1512b93ac5e8bf24d15ef9b913b8bc519124623cf1de0ebcd2dfb",
+          "step_id": "Q022",
+          "step_index": 22
+        },
+        {
+          "query_spec_digest": "f6660188d77001c9a843517768d60efa4c1498817e36e4c50a28dae9dc2faaf5",
+          "step_id": "Q023",
+          "step_index": 23
+        }
+      ],
+      "selected_step_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "source_execution_spec": {
+        "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/membership_density_rep_000_canonical",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/membership_density_rep_000_canonical.json",
+        "sha256": "eaf3936efe5b26702521578b26169699926e514fcba05bedb487965d7cbfb83c"
+      },
+      "source_workload": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/membership_density_rep_000_canonical.json",
+        "sha256": "21b96fdcd8df019a42603ecb21f81942ceb2b1e5d2bd561c7c4d42c775a50628",
+        "step_count": 24
+      },
+      "structural_seed": 101
+    },
+    {
+      "canonical_instance_count": 4,
+      "canonical_instance_ids": [
+        "level_000025/rep_001_seed_202",
+        "level_000050/rep_001_seed_202",
+        "level_000075/rep_001_seed_202",
+        "level_000100/rep_001_seed_202"
+      ],
+      "density_levels": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "derived_execution_spec": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_001_portfolio_timing_stage10.json",
+        "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+        "execution_id": "e3-membership-density-rep_001-portfolio-timing-stage10-v1",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_001_portfolio_timing_stage10.json",
+        "sha256": "5af4a0cdeae8abdb21e475f56b010b3a63931d904061a64092cdad3dc35ba21a",
+        "timing_output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_001_portfolio_timing_stage10",
+        "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_001_portfolio_timing_stage10.json"
+      },
+      "derived_workload": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_001_portfolio_timing_stage10.json",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_001_portfolio_timing_stage10.json",
+        "sha256": "0e76fcdcc43f1ce311b7aa5716dc12d4eb7b6b20e6f2880ed2aa5376f8c97708",
+        "step_count": 23,
+        "workload_id": "e3-membership-density-rep_001-portfolio-timing-stage10-v1"
+      },
+      "excluded_step_indexes": [
+        24
+      ],
+      "future_timing_parameters": {
+        "measurements": 100,
+        "order_seed": 20260729,
+        "reuse_successful": true,
+        "warmups": 10
+      },
+      "instance_selection_sha256": "d48bdfa7678ab05642921167dd99517b37c22632b2cf4534c38098d31e8fcbeb",
+      "replication_index": 1,
+      "selected_query_digests": [
+        {
+          "query_spec_digest": "060305780b2cd8a0887be0b937d36ba6b3a1534d1595e862307afeba61e77db4",
+          "step_id": "Q001",
+          "step_index": 1
+        },
+        {
+          "query_spec_digest": "0a54478ae4b54047be56f04005b1e94f2fb9e5537c9b79b7843b1d041d60159e",
+          "step_id": "Q002",
+          "step_index": 2
+        },
+        {
+          "query_spec_digest": "23fce1406bcad7454722ceff950acf771d51a06dd5b0f287d6cdf178851dde71",
+          "step_id": "Q003",
+          "step_index": 3
+        },
+        {
+          "query_spec_digest": "479b8b566fce29403b0efa7d6687359815d2c9cc1883673a0d2533dcbf7f2409",
+          "step_id": "Q004",
+          "step_index": 4
+        },
+        {
+          "query_spec_digest": "4acadbab61410187e404b37d74d8b0f1984a1e7b11bbf3054ab6e92a30f3837f",
+          "step_id": "Q005",
+          "step_index": 5
+        },
+        {
+          "query_spec_digest": "4afbad9a9992a8a04584a77d524b5a9b0b752cb31924e63e36e629f29c769372",
+          "step_id": "Q006",
+          "step_index": 6
+        },
+        {
+          "query_spec_digest": "569d3baa5084c5225d8429429590174ff4c6f65ea612c28a14b443ea326045f1",
+          "step_id": "Q007",
+          "step_index": 7
+        },
+        {
+          "query_spec_digest": "5749fdc54a8ca3262aea8ca7aa0417327b88ea43bb08fbe4d2e266c182f85600",
+          "step_id": "Q008",
+          "step_index": 8
+        },
+        {
+          "query_spec_digest": "7f9e62ae9615728616ea31eeddf76f8b40554c5faf82e6b29c044e5aebd1ee14",
+          "step_id": "Q009",
+          "step_index": 9
+        },
+        {
+          "query_spec_digest": "8ae68269a63e91363f22275b68002ddb6ffdb24f89d563f2d2b0e1325e440bac",
+          "step_id": "Q010",
+          "step_index": 10
+        },
+        {
+          "query_spec_digest": "9ec7cd4d27cf6f5ba049224cff352eb25d85c8a1918bab9ac75d1db9dc6f3615",
+          "step_id": "Q011",
+          "step_index": 11
+        },
+        {
+          "query_spec_digest": "a82686f16d896fe136e2fb11a5674c4ca5599d2f6ae64122636b0ef4030e1aa7",
+          "step_id": "Q012",
+          "step_index": 12
+        },
+        {
+          "query_spec_digest": "bb4e4b212e2449215ee60174ab587fb68a0cd515c5c1871c802723818171358e",
+          "step_id": "Q013",
+          "step_index": 13
+        },
+        {
+          "query_spec_digest": "bbdb2358c6a2437f1daa6ef2fd098bd51b76bd27866f4c3d35dfe9cdaef9cdc6",
+          "step_id": "Q014",
+          "step_index": 14
+        },
+        {
+          "query_spec_digest": "c401a1c46481eeff863b9596c92dd1c54e1c60d8ef62f902e8d1a2a8ce9e2b61",
+          "step_id": "Q015",
+          "step_index": 15
+        },
+        {
+          "query_spec_digest": "c6561114e8286862cdeb624ad925dc1b547a85cce24bf173e513648d59d1b8fa",
+          "step_id": "Q016",
+          "step_index": 16
+        },
+        {
+          "query_spec_digest": "c7f035438d91be9216f24a443a3725108d5d2ffdd55e41cc6beef1dde2377aa2",
+          "step_id": "Q017",
+          "step_index": 17
+        },
+        {
+          "query_spec_digest": "dd397e7f03ad68969f4d2b37c114fe927841462777f03dff1fc2c6aa5577d162",
+          "step_id": "Q018",
+          "step_index": 18
+        },
+        {
+          "query_spec_digest": "e6b13e3f22f713fe16dd4c9da0ce4133adcea871fb02e3ca9a00852192010461",
+          "step_id": "Q019",
+          "step_index": 19
+        },
+        {
+          "query_spec_digest": "eedaa487c0672dbeab7ea8e566ced3249c11e1818bdf563f12bf0a3f31126e61",
+          "step_id": "Q020",
+          "step_index": 20
+        },
+        {
+          "query_spec_digest": "f2099c0674f63befecba23d879db450719ff4bd83346ef3eb67ad689253efb88",
+          "step_id": "Q021",
+          "step_index": 21
+        },
+        {
+          "query_spec_digest": "f242266ca26f69510954a40a7632ddd4a4a91e04e64cbe78828d7eb58b593147",
+          "step_id": "Q022",
+          "step_index": 22
+        },
+        {
+          "query_spec_digest": "f679d6651ec0b5dc2283e09ae47827ac7f6cbaccaab31b9f210552ce2a5b63e2",
+          "step_id": "Q023",
+          "step_index": 23
+        }
+      ],
+      "selected_step_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "source_execution_spec": {
+        "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/membership_density_rep_001_canonical",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/membership_density_rep_001_canonical.json",
+        "sha256": "d8275b166fece9f1a0955c9da8d3ef3b77b22a1a3d6fa013d88d0e1e0e4224dd"
+      },
+      "source_workload": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/membership_density_rep_001_canonical.json",
+        "sha256": "cffa50ec4f1dcb606b3829f254f13e13134d5995429ede443e4813bceeb3bbd0",
+        "step_count": 24
+      },
+      "structural_seed": 202
+    },
+    {
+      "canonical_instance_count": 4,
+      "canonical_instance_ids": [
+        "level_000025/rep_002_seed_1198202409",
+        "level_000050/rep_002_seed_1198202409",
+        "level_000075/rep_002_seed_1198202409",
+        "level_000100/rep_002_seed_1198202409"
+      ],
+      "density_levels": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "derived_execution_spec": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_002_portfolio_timing_stage10.json",
+        "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+        "execution_id": "e3-membership-density-rep_002-portfolio-timing-stage10-v1",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_002_portfolio_timing_stage10.json",
+        "sha256": "9389f1b472855dfaffbaeff0133be0f6ba07641135c2079c26e2ea30d3a8c246",
+        "timing_output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_002_portfolio_timing_stage10",
+        "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_002_portfolio_timing_stage10.json"
+      },
+      "derived_workload": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_002_portfolio_timing_stage10.json",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_002_portfolio_timing_stage10.json",
+        "sha256": "838e22ea061d2ebe2704a323dff4f3d205975895747d1aae3685ae0a8dff376d",
+        "step_count": 23,
+        "workload_id": "e3-membership-density-rep_002-portfolio-timing-stage10-v1"
+      },
+      "excluded_step_indexes": [
+        24
+      ],
+      "future_timing_parameters": {
+        "measurements": 100,
+        "order_seed": 20260730,
+        "reuse_successful": true,
+        "warmups": 10
+      },
+      "instance_selection_sha256": "6e3a91a607818eb68a0b2b32bf85b8aefbc65fd1966d7eee885efeccc9ad7778",
+      "replication_index": 2,
+      "selected_query_digests": [
+        {
+          "query_spec_digest": "007a7e87537a5c2d7bce295547357c0f991a7692c8941c5dc2fd2407c9a6ee65",
+          "step_id": "Q001",
+          "step_index": 1
+        },
+        {
+          "query_spec_digest": "0e80a1618fbef5fef6e9b92a173bf496f6abeed3cd03cc9a23b9882048f37140",
+          "step_id": "Q002",
+          "step_index": 2
+        },
+        {
+          "query_spec_digest": "1082abb58a3237d8268ab25acd331ca80862eca272ef51e6de7d9567a8eb5a33",
+          "step_id": "Q003",
+          "step_index": 3
+        },
+        {
+          "query_spec_digest": "135febe39cc9d67c068032c3d0b69095bfed1b2517f3e066a760f5e2521d8614",
+          "step_id": "Q004",
+          "step_index": 4
+        },
+        {
+          "query_spec_digest": "137fc1d7ebb78abcf98d220c6003e50c45563d2833fd331c6ace71f183fa16a9",
+          "step_id": "Q005",
+          "step_index": 5
+        },
+        {
+          "query_spec_digest": "14d40cef09a6285a7cbdd36e8f5e644f8457eda3fc350ea657e2df44ff4d4da6",
+          "step_id": "Q006",
+          "step_index": 6
+        },
+        {
+          "query_spec_digest": "1b9f82b581bf8f0eebbfc687206ec093a27f2dbeb08f13d9abf18b73c4347df7",
+          "step_id": "Q007",
+          "step_index": 7
+        },
+        {
+          "query_spec_digest": "1e5c290408dd1aa915eb66ad4c7a28e81769821eb2e72830408a42c3200816bf",
+          "step_id": "Q008",
+          "step_index": 8
+        },
+        {
+          "query_spec_digest": "2e1f5fdde166f4962e0d737f0aca83e0614d64b4b87fed03351dfeb45655f2ff",
+          "step_id": "Q009",
+          "step_index": 9
+        },
+        {
+          "query_spec_digest": "2f32a3386b68881e2cc4ef44e22374323796765d668421ac63fb49b16b6778fe",
+          "step_id": "Q010",
+          "step_index": 10
+        },
+        {
+          "query_spec_digest": "48149db400b07fbcf1e763bf797927bdf8b5f324685692bdab160cee30653a2f",
+          "step_id": "Q011",
+          "step_index": 11
+        },
+        {
+          "query_spec_digest": "4f5d6e364d54f2dcfedd8d38417e9ceaa76578a661e2578569b160938c359e2e",
+          "step_id": "Q012",
+          "step_index": 12
+        },
+        {
+          "query_spec_digest": "5172cf96e73c38a97aec77505a2893a758e94087741fbaf69cac413bdd381a97",
+          "step_id": "Q013",
+          "step_index": 13
+        },
+        {
+          "query_spec_digest": "671cb93d672addd012d21c1f725db88a43bf0a9abf02049fde61c74d94b600c2",
+          "step_id": "Q014",
+          "step_index": 14
+        },
+        {
+          "query_spec_digest": "849eccb3963afed6f92ca36e816f1369e881fd833aed50fe90d1395242d771c8",
+          "step_id": "Q015",
+          "step_index": 15
+        },
+        {
+          "query_spec_digest": "8e7ed28750ad325c84bb4f0d7d3b54a1803204494fd1570ae89589af011feaff",
+          "step_id": "Q016",
+          "step_index": 16
+        },
+        {
+          "query_spec_digest": "bd240b2979a2ad917e7c4e9b94f60e7c51b809424db2149844db66eb5e7be98b",
+          "step_id": "Q017",
+          "step_index": 17
+        },
+        {
+          "query_spec_digest": "bfa5a646983ded4ea44ec8c4485855657a17c4dd3951489cf9a47223e3a8f0df",
+          "step_id": "Q018",
+          "step_index": 18
+        },
+        {
+          "query_spec_digest": "c36ac2562fc49152efb889bb7f12d785e3fcaff48e446cb00561fdaf75e56240",
+          "step_id": "Q019",
+          "step_index": 19
+        },
+        {
+          "query_spec_digest": "cb68628a41b183f2b8d029d8400a6d21c097f0cdd6ed5814fbd6d47c9f0922da",
+          "step_id": "Q020",
+          "step_index": 20
+        },
+        {
+          "query_spec_digest": "d906a4c5b0d5bc4ce75609c362ea078c3afa24d06327c1fed3148a18de385a78",
+          "step_id": "Q021",
+          "step_index": 21
+        },
+        {
+          "query_spec_digest": "db4719d5a53b7d0f228291a57ac2a28d50cc9ea624b591132d8c4fdcc3a2d4f6",
+          "step_id": "Q022",
+          "step_index": 22
+        },
+        {
+          "query_spec_digest": "e39c353626bfdc0ee7435df00607134484ee95d3375c19abc3cbf9dc71c95c9b",
+          "step_id": "Q023",
+          "step_index": 23
+        }
+      ],
+      "selected_step_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "source_execution_spec": {
+        "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/membership_density_rep_002_canonical",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/membership_density_rep_002_canonical.json",
+        "sha256": "ca55f3ba0b29d9205f433249790abfe42b6d75d395410c7700457159f23083ea"
+      },
+      "source_workload": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/membership_density_rep_002_canonical.json",
+        "sha256": "c33ecdd6677f4c07dfa7ef4214c31975c14ee03aaa70871e64e06c71112a0982",
+        "step_count": 24
+      },
+      "structural_seed": 1198202409
+    },
+    {
+      "canonical_instance_count": 4,
+      "canonical_instance_ids": [
+        "level_000025/rep_003_seed_796786883",
+        "level_000050/rep_003_seed_796786883",
+        "level_000075/rep_003_seed_796786883",
+        "level_000100/rep_003_seed_796786883"
+      ],
+      "density_levels": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "derived_execution_spec": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_003_portfolio_timing_stage10.json",
+        "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+        "execution_id": "e3-membership-density-rep_003-portfolio-timing-stage10-v1",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_003_portfolio_timing_stage10.json",
+        "sha256": "2e55e061703f66ca3daf4fee669d419142c0edede1950b06141519284fb58a75",
+        "timing_output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_003_portfolio_timing_stage10",
+        "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_003_portfolio_timing_stage10.json"
+      },
+      "derived_workload": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_003_portfolio_timing_stage10.json",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_003_portfolio_timing_stage10.json",
+        "sha256": "ea7316a3e3583d394c331ebedfbf5f880e98e5ac3dd012537c814700e9c6556f",
+        "step_count": 23,
+        "workload_id": "e3-membership-density-rep_003-portfolio-timing-stage10-v1"
+      },
+      "excluded_step_indexes": [
+        24
+      ],
+      "future_timing_parameters": {
+        "measurements": 100,
+        "order_seed": 20260731,
+        "reuse_successful": true,
+        "warmups": 10
+      },
+      "instance_selection_sha256": "9e678396a5c56272fd835b607a921352f4aab0b1a192a7f4cf76577828fd95d4",
+      "replication_index": 3,
+      "selected_query_digests": [
+        {
+          "query_spec_digest": "0ba51284bfa857c1410d54eb04aaa93d88d108939fff7b5d6aa8940c11088f68",
+          "step_id": "Q001",
+          "step_index": 1
+        },
+        {
+          "query_spec_digest": "19001b61f4622ce11d75a2a9330a3d2dcaf951b16a6b786d2cc0afddd558574f",
+          "step_id": "Q002",
+          "step_index": 2
+        },
+        {
+          "query_spec_digest": "1e237c31be843d37b4d588b82b0e2e2a188e60ce34751be769852699085bceb5",
+          "step_id": "Q003",
+          "step_index": 3
+        },
+        {
+          "query_spec_digest": "27ed6d0b8ea9fc57a1a0098662b0a3da9ca3052e04bd74c1904b97a9cf073358",
+          "step_id": "Q004",
+          "step_index": 4
+        },
+        {
+          "query_spec_digest": "3cf39ad10a0c47497c992fde73dcec799c7fb3835eb89d345a891d34100654c1",
+          "step_id": "Q005",
+          "step_index": 5
+        },
+        {
+          "query_spec_digest": "42f38edd0f1f5b62b1cbbe974136ebe322230a5a227e3f3829d12d1a69ff84fb",
+          "step_id": "Q006",
+          "step_index": 6
+        },
+        {
+          "query_spec_digest": "4731d819e60abd10ea4af6a8df1529ffd4b5d0e8b0088de2047457cabca60487",
+          "step_id": "Q007",
+          "step_index": 7
+        },
+        {
+          "query_spec_digest": "4e9efe392ffbeba9dbe87aaa1e512c614a24600cd7850cf93d56b0b16dc0bde2",
+          "step_id": "Q008",
+          "step_index": 8
+        },
+        {
+          "query_spec_digest": "5f053ffb6eb38e5826067661efaaad4bb7d3ce9e98fb171a91e7e33202600dda",
+          "step_id": "Q009",
+          "step_index": 9
+        },
+        {
+          "query_spec_digest": "6eaddc73a443f98a3ff5dc304220948b22caf3334e4eec1624d2ade508c35cbe",
+          "step_id": "Q010",
+          "step_index": 10
+        },
+        {
+          "query_spec_digest": "70befbe734edefd535b50f571f598a6f027f31ad292a8345172b3da6a051322f",
+          "step_id": "Q011",
+          "step_index": 11
+        },
+        {
+          "query_spec_digest": "71a19814d6aef6acce66ff82d49844b815368ab1cca29d15eed97b4690e86863",
+          "step_id": "Q012",
+          "step_index": 12
+        },
+        {
+          "query_spec_digest": "7ccac5109f1d4cf9f0f4c1a06ab2bf8250e2f3a1de096f02d8b5975f7f5e6c2f",
+          "step_id": "Q013",
+          "step_index": 13
+        },
+        {
+          "query_spec_digest": "7d4367bcf42fc1c9c641dd65333ddbed75f21d051bc61795aab1d6a13e9fc778",
+          "step_id": "Q014",
+          "step_index": 14
+        },
+        {
+          "query_spec_digest": "86861ec342f2ba69e0b41e596fd69637f91a2de154da1d534dd003a3c5bc3fc5",
+          "step_id": "Q015",
+          "step_index": 15
+        },
+        {
+          "query_spec_digest": "8ceb8c7cf1aaa500704ddb5b4ea68e1e7113a9280ddb63c9838ba3413017e3ac",
+          "step_id": "Q016",
+          "step_index": 16
+        },
+        {
+          "query_spec_digest": "8f9fffb569250b27abc3e7b10c3b9debfb6d335128baba26ab9b64f4a500948f",
+          "step_id": "Q017",
+          "step_index": 17
+        },
+        {
+          "query_spec_digest": "bc2b4b094929217ac0468ddcdd049e2f31c201c58d35cb407cca3210a171393b",
+          "step_id": "Q018",
+          "step_index": 18
+        },
+        {
+          "query_spec_digest": "c8a529227889838157049b759e54b75105c05d95b2655f3d240a3d17d13a7487",
+          "step_id": "Q019",
+          "step_index": 19
+        },
+        {
+          "query_spec_digest": "d4a19ef67be1c2df153132f70575f733317ebf61f5ec1346b97050cc67a74052",
+          "step_id": "Q020",
+          "step_index": 20
+        },
+        {
+          "query_spec_digest": "df40099b063dc10c136a22d64185fa94cc08d10b3e5438c61e8c466710f93abd",
+          "step_id": "Q021",
+          "step_index": 21
+        },
+        {
+          "query_spec_digest": "e3d59a9e38bc1e340d4aa9b004dd850c1d47b4c05da6e40f5e0ca17edd655963",
+          "step_id": "Q022",
+          "step_index": 22
+        },
+        {
+          "query_spec_digest": "f242266ca26f69510954a40a7632ddd4a4a91e04e64cbe78828d7eb58b593147",
+          "step_id": "Q023",
+          "step_index": 23
+        }
+      ],
+      "selected_step_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "source_execution_spec": {
+        "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/membership_density_rep_003_canonical",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/membership_density_rep_003_canonical.json",
+        "sha256": "d4067980823a369f52ac549d33fdd906b6b6122797ed418ae625f7e09c7b7da4"
+      },
+      "source_workload": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/membership_density_rep_003_canonical.json",
+        "sha256": "8a29a4b22df98935f1c3573cffd124969107fa19d41b83be9567c269149a8892",
+        "step_count": 24
+      },
+      "structural_seed": 796786883
+    },
+    {
+      "canonical_instance_count": 4,
+      "canonical_instance_ids": [
+        "level_000025/rep_004_seed_1126922093",
+        "level_000050/rep_004_seed_1126922093",
+        "level_000075/rep_004_seed_1126922093",
+        "level_000100/rep_004_seed_1126922093"
+      ],
+      "density_levels": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "derived_execution_spec": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_004_portfolio_timing_stage10.json",
+        "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+        "execution_id": "e3-membership-density-rep_004-portfolio-timing-stage10-v1",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_004_portfolio_timing_stage10.json",
+        "sha256": "dca4414bcb763aa6201e0663cceb50690bb8030ffd180c0189b36c6cb7133010",
+        "timing_output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_004_portfolio_timing_stage10",
+        "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_004_portfolio_timing_stage10.json"
+      },
+      "derived_workload": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_004_portfolio_timing_stage10.json",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_004_portfolio_timing_stage10.json",
+        "sha256": "96b3e1c820cf7ca7909fd9fb865b5ea9e8ab277037c112acc8c41a5fe712e8a9",
+        "step_count": 23,
+        "workload_id": "e3-membership-density-rep_004-portfolio-timing-stage10-v1"
+      },
+      "excluded_step_indexes": [],
+      "future_timing_parameters": {
+        "measurements": 100,
+        "order_seed": 20260732,
+        "reuse_successful": true,
+        "warmups": 10
+      },
+      "instance_selection_sha256": "616a0c49f5c9fc98db70ac9784ca35df77e9c5040e99af3da57bc46d7770e874",
+      "replication_index": 4,
+      "selected_query_digests": [
+        {
+          "query_spec_digest": "16ee4c45f7ff761bd44dda42f9f3c686719e85e87e6bd50670b5a9f3a710cb1b",
+          "step_id": "Q001",
+          "step_index": 1
+        },
+        {
+          "query_spec_digest": "1c56a810ffb569c0e9cfcc56b025aa4472de128b94f2527230533d33317ba731",
+          "step_id": "Q002",
+          "step_index": 2
+        },
+        {
+          "query_spec_digest": "1f5f7d02010e540a568095d073ca9f1526b6d71f9edb13b2bb1d7bde6165f747",
+          "step_id": "Q003",
+          "step_index": 3
+        },
+        {
+          "query_spec_digest": "2073a62daad1d4f6652f7966b5b9d9b99be98337739f876ed46c6d97ca3931a7",
+          "step_id": "Q004",
+          "step_index": 4
+        },
+        {
+          "query_spec_digest": "24f2c05f8c4b43549ab4d6590c700cfdc0f239c7309df13e0e8d7bc3a4bc6175",
+          "step_id": "Q005",
+          "step_index": 5
+        },
+        {
+          "query_spec_digest": "2dcead7f2151e4161c326ec0918a835c2eb66dda32f1a60cc34eb7c7f8ec94f9",
+          "step_id": "Q006",
+          "step_index": 6
+        },
+        {
+          "query_spec_digest": "30be5bab65862806bf26ea43239319c1c01a274ae657c2087e20f4dbd52df916",
+          "step_id": "Q007",
+          "step_index": 7
+        },
+        {
+          "query_spec_digest": "338e2ad8b4f5f300dd43f3961008f1dc374ee6d7a5ddfb231255079bd79b3751",
+          "step_id": "Q008",
+          "step_index": 8
+        },
+        {
+          "query_spec_digest": "3e3d03d784deddf6fda82ed5a67fa9b1b1153498041d3119f57cae859f620148",
+          "step_id": "Q009",
+          "step_index": 9
+        },
+        {
+          "query_spec_digest": "4f5d6e364d54f2dcfedd8d38417e9ceaa76578a661e2578569b160938c359e2e",
+          "step_id": "Q010",
+          "step_index": 10
+        },
+        {
+          "query_spec_digest": "543d295b1734aa395f3f14781e3c1622c2d9851dc18e952d85c015fdaddc3821",
+          "step_id": "Q011",
+          "step_index": 11
+        },
+        {
+          "query_spec_digest": "64c2aa444ada3a8a0efdc4980dc9e8531c743e266a4b08dce40d22388726a3aa",
+          "step_id": "Q012",
+          "step_index": 12
+        },
+        {
+          "query_spec_digest": "69952adc5af6b50c302b157de86246fb284dea05aa64d6af4bef1c90573cf113",
+          "step_id": "Q013",
+          "step_index": 13
+        },
+        {
+          "query_spec_digest": "7fbe819275724cd9ff7e0ad2e01d8bb02b7f595f7ca3b20ed89578da8efd8fc2",
+          "step_id": "Q014",
+          "step_index": 14
+        },
+        {
+          "query_spec_digest": "83907205bd823a854041ad1a72d328e6dae8f6b702179d3f60b18a51e54e2ec7",
+          "step_id": "Q015",
+          "step_index": 15
+        },
+        {
+          "query_spec_digest": "83c9814219db6c48e97d2648cdd074dad7b00bf96893d5e9041b0c293057b7af",
+          "step_id": "Q016",
+          "step_index": 16
+        },
+        {
+          "query_spec_digest": "849eccb3963afed6f92ca36e816f1369e881fd833aed50fe90d1395242d771c8",
+          "step_id": "Q017",
+          "step_index": 17
+        },
+        {
+          "query_spec_digest": "b9ee37db460953e19e2007a68b0d64e6b3cd629ef7635828e53ce81aa2ebfda6",
+          "step_id": "Q018",
+          "step_index": 18
+        },
+        {
+          "query_spec_digest": "d6358ac3da390a2c25d16c7cce6f12af2044bc657af59ed191f08950b9bf2b38",
+          "step_id": "Q019",
+          "step_index": 19
+        },
+        {
+          "query_spec_digest": "dd397e7f03ad68969f4d2b37c114fe927841462777f03dff1fc2c6aa5577d162",
+          "step_id": "Q020",
+          "step_index": 20
+        },
+        {
+          "query_spec_digest": "e4be69571f94e84cb4ef20d31d2b62c957bd7248a1d5aad297ba7596f205245d",
+          "step_id": "Q021",
+          "step_index": 21
+        },
+        {
+          "query_spec_digest": "ed445897843107caa76d42d676c3f1d4552fa99673042bb3b7a7eebdde341c90",
+          "step_id": "Q022",
+          "step_index": 22
+        },
+        {
+          "query_spec_digest": "f1b3c47f35e5e9ea2a5e1b18f6ea281427580d92f84a9b54463c5e485fa475d3",
+          "step_id": "Q023",
+          "step_index": 23
+        }
+      ],
+      "selected_step_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "source_execution_spec": {
+        "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/membership_density_rep_004_canonical",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/membership_density_rep_004_canonical.json",
+        "sha256": "848dd6e4a573f435a7ea2a54044e26e772e0f3bfa37df511c9732100c0b43f55"
+      },
+      "source_workload": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/membership_density_rep_004_canonical.json",
+        "sha256": "89204c9773178d3a0afdd9afdf8150e501399cd8323d2c5b1414c7fac108e53e",
+        "step_count": 23
+      },
+      "structural_seed": 1126922093
+    },
+    {
+      "canonical_instance_count": 4,
+      "canonical_instance_ids": [
+        "level_000025/rep_005_seed_809989256",
+        "level_000050/rep_005_seed_809989256",
+        "level_000075/rep_005_seed_809989256",
+        "level_000100/rep_005_seed_809989256"
+      ],
+      "density_levels": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "derived_execution_spec": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_005_portfolio_timing_stage10.json",
+        "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+        "execution_id": "e3-membership-density-rep_005-portfolio-timing-stage10-v1",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_005_portfolio_timing_stage10.json",
+        "sha256": "c3216458a46f1b3af323a9b3bf6c8f8284156099fc5fda674208bfff394f5cf5",
+        "timing_output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_005_portfolio_timing_stage10",
+        "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_005_portfolio_timing_stage10.json"
+      },
+      "derived_workload": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_005_portfolio_timing_stage10.json",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_005_portfolio_timing_stage10.json",
+        "sha256": "6f68d409e501975dd464903e0e97acbc6f028b1727985c609f064c55059cbe9d",
+        "step_count": 23,
+        "workload_id": "e3-membership-density-rep_005-portfolio-timing-stage10-v1"
+      },
+      "excluded_step_indexes": [
+        24
+      ],
+      "future_timing_parameters": {
+        "measurements": 100,
+        "order_seed": 20260733,
+        "reuse_successful": true,
+        "warmups": 10
+      },
+      "instance_selection_sha256": "4b527896099f5bc48ea3a8cf33750d21ac312cbe407a6357782e6f14140d0da1",
+      "replication_index": 5,
+      "selected_query_digests": [
+        {
+          "query_spec_digest": "002b6eb9d3dd5c7733addd9b2475417fbf8480426b39357ec0a67d300dba3509",
+          "step_id": "Q001",
+          "step_index": 1
+        },
+        {
+          "query_spec_digest": "07ed11304579e56540024dd1f57969bec709924c67f08c3d3cc2f33b14522b5f",
+          "step_id": "Q002",
+          "step_index": 2
+        },
+        {
+          "query_spec_digest": "0e5f12a40b0056147e5b6c17307849888af12e85e9191fd1ed5db991d83e227e",
+          "step_id": "Q003",
+          "step_index": 3
+        },
+        {
+          "query_spec_digest": "137ee9d9c2f64c724daee216fe2b6cdb3a56c4adeab0a10c9fbbade2e82755d8",
+          "step_id": "Q004",
+          "step_index": 4
+        },
+        {
+          "query_spec_digest": "16cec20f264f514596a871c6f5780a35d2bd29018bc6a7d73e004941a3ae251c",
+          "step_id": "Q005",
+          "step_index": 5
+        },
+        {
+          "query_spec_digest": "30be5bab65862806bf26ea43239319c1c01a274ae657c2087e20f4dbd52df916",
+          "step_id": "Q006",
+          "step_index": 6
+        },
+        {
+          "query_spec_digest": "3496a8238f6991a82e4629423a680b503e031079deb0ad5a54936a6acae86ec5",
+          "step_id": "Q007",
+          "step_index": 7
+        },
+        {
+          "query_spec_digest": "42f38edd0f1f5b62b1cbbe974136ebe322230a5a227e3f3829d12d1a69ff84fb",
+          "step_id": "Q008",
+          "step_index": 8
+        },
+        {
+          "query_spec_digest": "4afbad9a9992a8a04584a77d524b5a9b0b752cb31924e63e36e629f29c769372",
+          "step_id": "Q009",
+          "step_index": 9
+        },
+        {
+          "query_spec_digest": "4f53ce4ea5220fb5016308df9894a710509d2ee8f896aaa47f89d1d05e925c3c",
+          "step_id": "Q010",
+          "step_index": 10
+        },
+        {
+          "query_spec_digest": "4f61286cfb264c9926163c978fed942132f569a7a9927ecb5db2f13206bf5ccb",
+          "step_id": "Q011",
+          "step_index": 11
+        },
+        {
+          "query_spec_digest": "5223a5f2cad6269e914fe7ddd5bb4c5c6324ba21323c189b5b666a18352a254d",
+          "step_id": "Q012",
+          "step_index": 12
+        },
+        {
+          "query_spec_digest": "9d3815227732889a173e25f6137d9257f1dd4ad1c01e7c02ff43308d5e016d88",
+          "step_id": "Q013",
+          "step_index": 13
+        },
+        {
+          "query_spec_digest": "a52094cf53a3352b3ba79abb9962887cac20549098bdafee4ea6027c932d3a63",
+          "step_id": "Q014",
+          "step_index": 14
+        },
+        {
+          "query_spec_digest": "b10765523483cb6c54ebcdd98dee83bc438b558c652bc57455cfc0b49061b853",
+          "step_id": "Q015",
+          "step_index": 15
+        },
+        {
+          "query_spec_digest": "bd74392d1242d9f80c74a38cc51075030b5556d9bfe89d28883a941faa7f3eac",
+          "step_id": "Q016",
+          "step_index": 16
+        },
+        {
+          "query_spec_digest": "c09ca421ea5d87199fcb852d9d25d6c6a2a73844db0b43e0729074ee68dd92c5",
+          "step_id": "Q017",
+          "step_index": 17
+        },
+        {
+          "query_spec_digest": "c9cd83f1a5e7e9f687f2e638a583cd9d155de4fcc2641ace1fd59aaf522f50fe",
+          "step_id": "Q018",
+          "step_index": 18
+        },
+        {
+          "query_spec_digest": "cc4213a63189f8ca9f07f878920487f4851b9ce4057add3ea358275c79b30109",
+          "step_id": "Q019",
+          "step_index": 19
+        },
+        {
+          "query_spec_digest": "e1b21628f3f4f3ce2ca61571b44196d5ef1c94789bc48871f962da11f24cdb24",
+          "step_id": "Q020",
+          "step_index": 20
+        },
+        {
+          "query_spec_digest": "e934a4c033438850077a012a190544ef8f96ecf68a3df8877f8297338cf495b4",
+          "step_id": "Q021",
+          "step_index": 21
+        },
+        {
+          "query_spec_digest": "f28bf6531a0ee764e9c42af34948e2f915f0c086e6171da7ec5685b00926e8ca",
+          "step_id": "Q022",
+          "step_index": 22
+        },
+        {
+          "query_spec_digest": "f76fbc69bac48a00e6cc5441643797801b468d35efe3645150d642d7b2192ad9",
+          "step_id": "Q023",
+          "step_index": 23
+        }
+      ],
+      "selected_step_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "source_execution_spec": {
+        "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/membership_density_rep_005_canonical",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/membership_density_rep_005_canonical.json",
+        "sha256": "ae1d10c65105db3fa531ffaa31ef1544a29560704858b1b1fb89e1457068c987"
+      },
+      "source_workload": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/membership_density_rep_005_canonical.json",
+        "sha256": "4428890f3545fb80a0df28e62df52e99800ad43663b70dca92f5ef4a14b10579",
+        "step_count": 24
+      },
+      "structural_seed": 809989256
+    },
+    {
+      "canonical_instance_count": 4,
+      "canonical_instance_ids": [
+        "level_000025/rep_006_seed_618554674",
+        "level_000050/rep_006_seed_618554674",
+        "level_000075/rep_006_seed_618554674",
+        "level_000100/rep_006_seed_618554674"
+      ],
+      "density_levels": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "derived_execution_spec": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_006_portfolio_timing_stage10.json",
+        "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+        "execution_id": "e3-membership-density-rep_006-portfolio-timing-stage10-v1",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_006_portfolio_timing_stage10.json",
+        "sha256": "7ea4dd211f3f22b2cfffa1cab5ec9a46509fc9b5e269478d35c631a3f234b82a",
+        "timing_output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_006_portfolio_timing_stage10",
+        "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_006_portfolio_timing_stage10.json"
+      },
+      "derived_workload": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_006_portfolio_timing_stage10.json",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_006_portfolio_timing_stage10.json",
+        "sha256": "c8eb854c742147ef57ce10650556440006dc22a2e6b3972d064ceef990721c36",
+        "step_count": 23,
+        "workload_id": "e3-membership-density-rep_006-portfolio-timing-stage10-v1"
+      },
+      "excluded_step_indexes": [
+        24
+      ],
+      "future_timing_parameters": {
+        "measurements": 100,
+        "order_seed": 20260734,
+        "reuse_successful": true,
+        "warmups": 10
+      },
+      "instance_selection_sha256": "59d80a6a605631108c525172e472e13ebe8ee1e0af5c6a584d26f26f3fad4c01",
+      "replication_index": 6,
+      "selected_query_digests": [
+        {
+          "query_spec_digest": "03d7383b69e5b9665921dac46d7694859f4bea6f84e24a42d3f723d5ec87b5aa",
+          "step_id": "Q001",
+          "step_index": 1
+        },
+        {
+          "query_spec_digest": "2b54e5f6976d16cfa80a4fdacdbd4ce2b47df2f2dc0185e54a288e823aa91e5e",
+          "step_id": "Q002",
+          "step_index": 2
+        },
+        {
+          "query_spec_digest": "424a22ee359f6340e91c1a681468d7aac0236693e16252d3fa55a47c90b3316b",
+          "step_id": "Q003",
+          "step_index": 3
+        },
+        {
+          "query_spec_digest": "4336cacb266bcf383952c54256783d213822054a661fcd4aa07d11a4ff77a14c",
+          "step_id": "Q004",
+          "step_index": 4
+        },
+        {
+          "query_spec_digest": "4afbad9a9992a8a04584a77d524b5a9b0b752cb31924e63e36e629f29c769372",
+          "step_id": "Q005",
+          "step_index": 5
+        },
+        {
+          "query_spec_digest": "4c3fc6d2159c1b7b13f33ba72d3e64f55d1a8990234865d29decd1b2e6587aa4",
+          "step_id": "Q006",
+          "step_index": 6
+        },
+        {
+          "query_spec_digest": "5661abea891c95865a57c0c9740306f9735e874753b8a1b0dfc89e042d316602",
+          "step_id": "Q007",
+          "step_index": 7
+        },
+        {
+          "query_spec_digest": "5b68d9485b1ab86f251d89f6a512e92827c7092d5e95857daefe7a99a34784f0",
+          "step_id": "Q008",
+          "step_index": 8
+        },
+        {
+          "query_spec_digest": "5e4223d4d369e4b84a57e01451d3ede65c8e76fa0033568fa11b8e58d11c3460",
+          "step_id": "Q009",
+          "step_index": 9
+        },
+        {
+          "query_spec_digest": "663096309e4abc32f51513f985fabfbb002ffafb992a0a4158e8adff7a8f1c3e",
+          "step_id": "Q010",
+          "step_index": 10
+        },
+        {
+          "query_spec_digest": "6b7fbc9fd2ab3d3d48bd677385ffaedf8596f9fbb7191b6d3b3f61d1f5324595",
+          "step_id": "Q011",
+          "step_index": 11
+        },
+        {
+          "query_spec_digest": "79d76966364f5859f91300e9189e4bb5422b1ca1d2bf0d22a43011076a3f50bc",
+          "step_id": "Q012",
+          "step_index": 12
+        },
+        {
+          "query_spec_digest": "80f77df33053f710244185cb4fcbc435096a864fda2de060af851b4bff1e5b8c",
+          "step_id": "Q013",
+          "step_index": 13
+        },
+        {
+          "query_spec_digest": "94152a0c49948414674babc964134a7201ad6ba340993de319d55acc23537c37",
+          "step_id": "Q014",
+          "step_index": 14
+        },
+        {
+          "query_spec_digest": "aac419295d6468b3ff6c89164f349a147ffa62f965cadc0f8513858943d8ebb5",
+          "step_id": "Q015",
+          "step_index": 15
+        },
+        {
+          "query_spec_digest": "aad180aca53e9728d689f491c1d67bff4c790dbbc258711cf906634b5e316fdd",
+          "step_id": "Q016",
+          "step_index": 16
+        },
+        {
+          "query_spec_digest": "be85c96f06790747b016d442bc3b556dd79f457bf0b231823f30ef963e1b28e5",
+          "step_id": "Q017",
+          "step_index": 17
+        },
+        {
+          "query_spec_digest": "c6561114e8286862cdeb624ad925dc1b547a85cce24bf173e513648d59d1b8fa",
+          "step_id": "Q018",
+          "step_index": 18
+        },
+        {
+          "query_spec_digest": "c861a72b6f5b1971edc501e165c80032c5cbca300341718fbaf03a9d3f2d8315",
+          "step_id": "Q019",
+          "step_index": 19
+        },
+        {
+          "query_spec_digest": "caa8aa268b91f7d7e92b255dfd6b63cdfbfa737ebd0039ce6b29192b1f4e453e",
+          "step_id": "Q020",
+          "step_index": 20
+        },
+        {
+          "query_spec_digest": "d4071ff9a7fa695cab04048617ccad65202d0ab2b85a2a395daeebf78230d93b",
+          "step_id": "Q021",
+          "step_index": 21
+        },
+        {
+          "query_spec_digest": "dc932d88bdfc4f5471fc7b9bba97c59353d531b654aeb4ab5d3dda8df2a88d2c",
+          "step_id": "Q022",
+          "step_index": 22
+        },
+        {
+          "query_spec_digest": "ed445897843107caa76d42d676c3f1d4552fa99673042bb3b7a7eebdde341c90",
+          "step_id": "Q023",
+          "step_index": 23
+        }
+      ],
+      "selected_step_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "source_execution_spec": {
+        "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/membership_density_rep_006_canonical",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/membership_density_rep_006_canonical.json",
+        "sha256": "1eeb18b26d0a9586639b050fc16987bfa36fcc3a5c7306db755e5f4b3335cb6b"
+      },
+      "source_workload": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/membership_density_rep_006_canonical.json",
+        "sha256": "ecb3d16c1098b996b7d9636415ed2db6c93fba2d3dd4b70456f94375882fd146",
+        "step_count": 24
+      },
+      "structural_seed": 618554674
+    },
+    {
+      "canonical_instance_count": 4,
+      "canonical_instance_ids": [
+        "level_000025/rep_007_seed_1363159082",
+        "level_000050/rep_007_seed_1363159082",
+        "level_000075/rep_007_seed_1363159082",
+        "level_000100/rep_007_seed_1363159082"
+      ],
+      "density_levels": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "derived_execution_spec": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_007_portfolio_timing_stage10.json",
+        "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+        "execution_id": "e3-membership-density-rep_007-portfolio-timing-stage10-v1",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_007_portfolio_timing_stage10.json",
+        "sha256": "43dc6e3d4933a7fec279f3165bcda57ab2c5b1518d88d4322c3f0fb98ba198e1",
+        "timing_output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_007_portfolio_timing_stage10",
+        "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_007_portfolio_timing_stage10.json"
+      },
+      "derived_workload": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_007_portfolio_timing_stage10.json",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_007_portfolio_timing_stage10.json",
+        "sha256": "43baee0b720037f60c3c18cd392667e156bd0c3a120f64c4bdf4f60e57dac98f",
+        "step_count": 23,
+        "workload_id": "e3-membership-density-rep_007-portfolio-timing-stage10-v1"
+      },
+      "excluded_step_indexes": [
+        24
+      ],
+      "future_timing_parameters": {
+        "measurements": 100,
+        "order_seed": 20260735,
+        "reuse_successful": true,
+        "warmups": 10
+      },
+      "instance_selection_sha256": "6bc4c3dfb746260bba33c833e269ade1ffcff50edb3a000a7d1022ce4a22bfa6",
+      "replication_index": 7,
+      "selected_query_digests": [
+        {
+          "query_spec_digest": "008a015631d8ba962e0027961271556d8dacbb4f6b29126a5354f1c849c6a284",
+          "step_id": "Q001",
+          "step_index": 1
+        },
+        {
+          "query_spec_digest": "060305780b2cd8a0887be0b937d36ba6b3a1534d1595e862307afeba61e77db4",
+          "step_id": "Q002",
+          "step_index": 2
+        },
+        {
+          "query_spec_digest": "0720e08a2575a51f0bb393bedd25d8619323ded8e43f69124f22486ab6060eec",
+          "step_id": "Q003",
+          "step_index": 3
+        },
+        {
+          "query_spec_digest": "135febe39cc9d67c068032c3d0b69095bfed1b2517f3e066a760f5e2521d8614",
+          "step_id": "Q004",
+          "step_index": 4
+        },
+        {
+          "query_spec_digest": "335d012dee9d2002e3c865bbc662b237c929f6b5232ec0e075504922ec4d17af",
+          "step_id": "Q005",
+          "step_index": 5
+        },
+        {
+          "query_spec_digest": "4f5d6e364d54f2dcfedd8d38417e9ceaa76578a661e2578569b160938c359e2e",
+          "step_id": "Q006",
+          "step_index": 6
+        },
+        {
+          "query_spec_digest": "58a7a18035d1cc2ca3efc5c62af583bae1e13ab9efef011546b936d19aac0b8f",
+          "step_id": "Q007",
+          "step_index": 7
+        },
+        {
+          "query_spec_digest": "58a8425184ac337a6217bf784720c7aaa1d1f4523f9d1365556f872548bbd03a",
+          "step_id": "Q008",
+          "step_index": 8
+        },
+        {
+          "query_spec_digest": "5a60ef49bb9292ba932ffe0ae6b698c3f950c4d217886bb33a0c87066cd2b304",
+          "step_id": "Q009",
+          "step_index": 9
+        },
+        {
+          "query_spec_digest": "5cbc88896504936e7639f0abddda7780b45bcc06658edf4fa3f620cb60960ff8",
+          "step_id": "Q010",
+          "step_index": 10
+        },
+        {
+          "query_spec_digest": "759ff3423f5267a6038815c95445ec4a4474a2bafafeece28643beba17fabed0",
+          "step_id": "Q011",
+          "step_index": 11
+        },
+        {
+          "query_spec_digest": "79d76966364f5859f91300e9189e4bb5422b1ca1d2bf0d22a43011076a3f50bc",
+          "step_id": "Q012",
+          "step_index": 12
+        },
+        {
+          "query_spec_digest": "849eccb3963afed6f92ca36e816f1369e881fd833aed50fe90d1395242d771c8",
+          "step_id": "Q013",
+          "step_index": 13
+        },
+        {
+          "query_spec_digest": "90c074bfc5d46633e1c997f202ce1dc06ce05eaa617e495d1b2d20ab1264bc18",
+          "step_id": "Q014",
+          "step_index": 14
+        },
+        {
+          "query_spec_digest": "962165583ea706600530d73b82cc1b02d17265d103fb6c73d7762b97b27371b6",
+          "step_id": "Q015",
+          "step_index": 15
+        },
+        {
+          "query_spec_digest": "96dd26cc73ac24a15d053d6ca0e5886727467f9b0cc44cb263cbf19f92e7a211",
+          "step_id": "Q016",
+          "step_index": 16
+        },
+        {
+          "query_spec_digest": "9a4fdab5c33e3eec0ec6b852712691258e730e72dac2696a79e8099210650706",
+          "step_id": "Q017",
+          "step_index": 17
+        },
+        {
+          "query_spec_digest": "bb4e4b212e2449215ee60174ab587fb68a0cd515c5c1871c802723818171358e",
+          "step_id": "Q018",
+          "step_index": 18
+        },
+        {
+          "query_spec_digest": "d2ffddde09176db1ac6bb5d6abd0589dba8e4e0c0f59e2068a0386febab50d0a",
+          "step_id": "Q019",
+          "step_index": 19
+        },
+        {
+          "query_spec_digest": "d3bc0752e3c96900046d59c06fe832945331922408150c5e7b0a2e0fe0e7f708",
+          "step_id": "Q020",
+          "step_index": 20
+        },
+        {
+          "query_spec_digest": "dd397e7f03ad68969f4d2b37c114fe927841462777f03dff1fc2c6aa5577d162",
+          "step_id": "Q021",
+          "step_index": 21
+        },
+        {
+          "query_spec_digest": "e73691c21b82b8e69593fa4318bcce8bb844cc9fc569d09a2a3ca5fe219b50eb",
+          "step_id": "Q022",
+          "step_index": 22
+        },
+        {
+          "query_spec_digest": "f58e0a66031ff4a99f18cdaed880bde6246d95e76625d3c98bfd8cab72850c69",
+          "step_id": "Q023",
+          "step_index": 23
+        }
+      ],
+      "selected_step_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "source_execution_spec": {
+        "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/membership_density_rep_007_canonical",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/membership_density_rep_007_canonical.json",
+        "sha256": "b62392c8c6fe970044fd21ea703718ab2a92c31efbc95ec8c6efacf95f869d73"
+      },
+      "source_workload": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/membership_density_rep_007_canonical.json",
+        "sha256": "6421679b53be7e379959261391a807b0f6c51d62fecc2079dba171ab00b071a6",
+        "step_count": 24
+      },
+      "structural_seed": 1363159082
+    },
+    {
+      "canonical_instance_count": 4,
+      "canonical_instance_ids": [
+        "level_000025/rep_008_seed_874332939",
+        "level_000050/rep_008_seed_874332939",
+        "level_000075/rep_008_seed_874332939",
+        "level_000100/rep_008_seed_874332939"
+      ],
+      "density_levels": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "derived_execution_spec": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_008_portfolio_timing_stage10.json",
+        "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+        "execution_id": "e3-membership-density-rep_008-portfolio-timing-stage10-v1",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_008_portfolio_timing_stage10.json",
+        "sha256": "503adde4141ff9c46606d0981ae2bda937fa8879af16a7f09befa914c47eb273",
+        "timing_output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_008_portfolio_timing_stage10",
+        "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_008_portfolio_timing_stage10.json"
+      },
+      "derived_workload": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_008_portfolio_timing_stage10.json",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_008_portfolio_timing_stage10.json",
+        "sha256": "a63e875833e8d331cee387f6b2985701678e1c9fb73a03a3131d19721805975e",
+        "step_count": 23,
+        "workload_id": "e3-membership-density-rep_008-portfolio-timing-stage10-v1"
+      },
+      "excluded_step_indexes": [
+        24
+      ],
+      "future_timing_parameters": {
+        "measurements": 100,
+        "order_seed": 20260736,
+        "reuse_successful": true,
+        "warmups": 10
+      },
+      "instance_selection_sha256": "45588ee2585a122c446ba58f9707f4076872bc83a3b72b06b66016edab41498c",
+      "replication_index": 8,
+      "selected_query_digests": [
+        {
+          "query_spec_digest": "0009596eef0289580da557b7b7b205225ea32e99e478f059b6054c5e599dee40",
+          "step_id": "Q001",
+          "step_index": 1
+        },
+        {
+          "query_spec_digest": "05fb8e6a4d3e1124355950d82928905479319b0ae285af508a4946ac92ee101f",
+          "step_id": "Q002",
+          "step_index": 2
+        },
+        {
+          "query_spec_digest": "13ff6c856b0432bb8bef22913c6c14a8dfc21b9c052138a37b4c7878986841a3",
+          "step_id": "Q003",
+          "step_index": 3
+        },
+        {
+          "query_spec_digest": "16fe33874e415c2ae688e822ce69347f688f62d565f0ecb443e2302ce4755740",
+          "step_id": "Q004",
+          "step_index": 4
+        },
+        {
+          "query_spec_digest": "482c48898ef534b799164e994a98f0329ae88b18f73a6f8a739e7e1a6d5cb77a",
+          "step_id": "Q005",
+          "step_index": 5
+        },
+        {
+          "query_spec_digest": "485f888256c7f63fa8d052a1114e814dfb475e862c46725da551df388331f602",
+          "step_id": "Q006",
+          "step_index": 6
+        },
+        {
+          "query_spec_digest": "4afbad9a9992a8a04584a77d524b5a9b0b752cb31924e63e36e629f29c769372",
+          "step_id": "Q007",
+          "step_index": 7
+        },
+        {
+          "query_spec_digest": "5ed64bf7dc63b20db496b576ad99cedbe22673c2d174251bc20b5b500a271544",
+          "step_id": "Q008",
+          "step_index": 8
+        },
+        {
+          "query_spec_digest": "678d6d4269bc806e8c7780d022e76fe46b760450f3479ba38170368f3aedaa0b",
+          "step_id": "Q009",
+          "step_index": 9
+        },
+        {
+          "query_spec_digest": "6fe0021b3097f02589199407e178eaea40f1bc320980e85e723c0b3326b02803",
+          "step_id": "Q010",
+          "step_index": 10
+        },
+        {
+          "query_spec_digest": "716efcd9d3d7e2d4d6bd8160ce8b284dd39f36b93ebbb4cc6e8f33ed9d88e306",
+          "step_id": "Q011",
+          "step_index": 11
+        },
+        {
+          "query_spec_digest": "722a74ece225f7647fd1770d810da7c0dc9e448fa0d1e93a415caf1801deace6",
+          "step_id": "Q012",
+          "step_index": 12
+        },
+        {
+          "query_spec_digest": "85dd70ee7a77b481cbf6f60fa0c72e093d916d524d72d4c2edea3f08da8eb69d",
+          "step_id": "Q013",
+          "step_index": 13
+        },
+        {
+          "query_spec_digest": "87a1f53b1aa8c35910129369469ea7bc9863325d92c176d3004440728e4bdbc9",
+          "step_id": "Q014",
+          "step_index": 14
+        },
+        {
+          "query_spec_digest": "89b214eafbc7feb629f05eae601487b05d471928ea5a68cbbab66ca0de62cbfe",
+          "step_id": "Q015",
+          "step_index": 15
+        },
+        {
+          "query_spec_digest": "9be7d6445d718d9088452927ce89ef189ccd3442c3fdf7de8ad4837a538616a3",
+          "step_id": "Q016",
+          "step_index": 16
+        },
+        {
+          "query_spec_digest": "9cf53ded7fa3b4fae71760296e000fef26532c9dd1473129bbd34cf4c69281a4",
+          "step_id": "Q017",
+          "step_index": 17
+        },
+        {
+          "query_spec_digest": "a10f095bf53cc4ecc131986cd03599e094180aa6ee6a2e386bed57d39732980d",
+          "step_id": "Q018",
+          "step_index": 18
+        },
+        {
+          "query_spec_digest": "ade43f77b026ae12d13bdf659676aaf9ea30773dce49ce2dd97e9269ce684cd8",
+          "step_id": "Q019",
+          "step_index": 19
+        },
+        {
+          "query_spec_digest": "ba40fbf7d5e1478920e350ccb876203eaf35da61bd89168e20584795a2254ebc",
+          "step_id": "Q020",
+          "step_index": 20
+        },
+        {
+          "query_spec_digest": "bcd964376eef6eb0b70f3db5376ed1c38837236eafd48fef4cc7c72ac4fb6558",
+          "step_id": "Q021",
+          "step_index": 21
+        },
+        {
+          "query_spec_digest": "da861d71871b47b7c236d3bd506309593ece9e08834f79fb56cd64f06168ae93",
+          "step_id": "Q022",
+          "step_index": 22
+        },
+        {
+          "query_spec_digest": "dcb05b32d19146ac785b77ff2933aa077c472471f45cfcc53162a8c9d88978c8",
+          "step_id": "Q023",
+          "step_index": 23
+        }
+      ],
+      "selected_step_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "source_execution_spec": {
+        "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/membership_density_rep_008_canonical",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/membership_density_rep_008_canonical.json",
+        "sha256": "fd97d5cb28e937b8bbfdf0f44a076e05ec528cf227051351d66dcd92c6d27d02"
+      },
+      "source_workload": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/membership_density_rep_008_canonical.json",
+        "sha256": "50820cde3837a5d8b109d76db3a27c670633c24fcd47400c5f931ea04de35b25",
+        "step_count": 24
+      },
+      "structural_seed": 874332939
+    },
+    {
+      "canonical_instance_count": 4,
+      "canonical_instance_ids": [
+        "level_000025/rep_009_seed_1767972531",
+        "level_000050/rep_009_seed_1767972531",
+        "level_000075/rep_009_seed_1767972531",
+        "level_000100/rep_009_seed_1767972531"
+      ],
+      "density_levels": [
+        25,
+        50,
+        75,
+        100
+      ],
+      "derived_execution_spec": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_009_portfolio_timing_stage10.json",
+        "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+        "execution_id": "e3-membership-density-rep_009-portfolio-timing-stage10-v1",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_009_portfolio_timing_stage10.json",
+        "sha256": "f7f37458ee9804c397137d1bbbb72e3b4aca41ce10b979cf21329618bef7e9c2",
+        "timing_output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_009_portfolio_timing_stage10",
+        "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_009_portfolio_timing_stage10.json"
+      },
+      "derived_workload": {
+        "absolute_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_009_portfolio_timing_stage10.json",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_009_portfolio_timing_stage10.json",
+        "sha256": "00b7b897fbf1442a2edbda71394a75782514783c573068ebbe863a24d90c4901",
+        "step_count": 23,
+        "workload_id": "e3-membership-density-rep_009-portfolio-timing-stage10-v1"
+      },
+      "excluded_step_indexes": [],
+      "future_timing_parameters": {
+        "measurements": 100,
+        "order_seed": 20260737,
+        "reuse_successful": true,
+        "warmups": 10
+      },
+      "instance_selection_sha256": "be593632c7b8c294219a82cfaada368c99286a0bc0b36b6d392a2c8eb89d9418",
+      "replication_index": 9,
+      "selected_query_digests": [
+        {
+          "query_spec_digest": "075422e2022479228bac5ef48cf67d9d26d7dda21100b2e9d8f2c0af3f4064ab",
+          "step_id": "Q001",
+          "step_index": 1
+        },
+        {
+          "query_spec_digest": "3440b6e48d76793142aeac7a905c39912c652f040d87ec9e27fd0e4e1039a604",
+          "step_id": "Q002",
+          "step_index": 2
+        },
+        {
+          "query_spec_digest": "46c081bca855f26010d45ceb6125ff91bb5a7832c8c60a3cfd9eea3cc4281740",
+          "step_id": "Q003",
+          "step_index": 3
+        },
+        {
+          "query_spec_digest": "4994f3a04da34f185a6e33c64b308865c0d7722b1ebaf96ab89223eaa40820b0",
+          "step_id": "Q004",
+          "step_index": 4
+        },
+        {
+          "query_spec_digest": "5cbc88896504936e7639f0abddda7780b45bcc06658edf4fa3f620cb60960ff8",
+          "step_id": "Q005",
+          "step_index": 5
+        },
+        {
+          "query_spec_digest": "637f4e6145feac7fd0102c4ed33662a675fd799d0f2d3f4747d46194818ed235",
+          "step_id": "Q006",
+          "step_index": 6
+        },
+        {
+          "query_spec_digest": "63901617e9052ebfdca5aa4d4448154a14cf20f9b73fbead1f2527b3997e5aba",
+          "step_id": "Q007",
+          "step_index": 7
+        },
+        {
+          "query_spec_digest": "6980fdaa1cf48f6e79a71b52893241814308bfda2ad3480a7cdd3e148f2cb357",
+          "step_id": "Q008",
+          "step_index": 8
+        },
+        {
+          "query_spec_digest": "7d4367bcf42fc1c9c641dd65333ddbed75f21d051bc61795aab1d6a13e9fc778",
+          "step_id": "Q009",
+          "step_index": 9
+        },
+        {
+          "query_spec_digest": "9d072cd0fcaaa2f5144ad51747050eb35bfd600477bfe68549fcbb8864dcfe44",
+          "step_id": "Q010",
+          "step_index": 10
+        },
+        {
+          "query_spec_digest": "a09e2487c39ff23ac9431812137fd36404bd3ac8a4458b8251fe53c4829a627e",
+          "step_id": "Q011",
+          "step_index": 11
+        },
+        {
+          "query_spec_digest": "aabedf0689e6272767b71391ec23bdab587a1ffa04e47cf01d9b154b80e7489a",
+          "step_id": "Q012",
+          "step_index": 12
+        },
+        {
+          "query_spec_digest": "ab13e4c99ce0a12d88abfdd264c510b6a40d0178411eef96647920ee7f39e51a",
+          "step_id": "Q013",
+          "step_index": 13
+        },
+        {
+          "query_spec_digest": "af62e9046335f8c17e75bbd5b48e56961d8ef40f86b14290558d8015da2faa5c",
+          "step_id": "Q014",
+          "step_index": 14
+        },
+        {
+          "query_spec_digest": "c2cc640b2fb7ed96598e33a08b43e605eed17d8fce0271fae0f9a003ec7a6508",
+          "step_id": "Q015",
+          "step_index": 15
+        },
+        {
+          "query_spec_digest": "ca943b300322ca755a922562ea8b299fa1c84d4d9e771d5448dc69e8f1cca424",
+          "step_id": "Q016",
+          "step_index": 16
+        },
+        {
+          "query_spec_digest": "d18d373aeafea73902256f2c42fbd1327ab85f2279ac1268018ee9795254650e",
+          "step_id": "Q017",
+          "step_index": 17
+        },
+        {
+          "query_spec_digest": "dc016d77fb2607747d0ce543c170d08f84c3180d1c2b2a1b947078abbff9c4fa",
+          "step_id": "Q018",
+          "step_index": 18
+        },
+        {
+          "query_spec_digest": "ea7616952426d0ae70435db22276164c849d4a80cbe640b3660036526af7b6ee",
+          "step_id": "Q019",
+          "step_index": 19
+        },
+        {
+          "query_spec_digest": "edd6c8912deef6b3e9cffec9bba640d4a2a29a203ee2fc7451c4fc7046b6a9da",
+          "step_id": "Q020",
+          "step_index": 20
+        },
+        {
+          "query_spec_digest": "f30a09e451776926bb1521bc9d2226fcb9a502f99e697e36c22362ae5fc8018c",
+          "step_id": "Q021",
+          "step_index": 21
+        },
+        {
+          "query_spec_digest": "fad6ad9cf8c9fe752fe35b0661b8f9530e81c2af19415ecd34eae4e1a95f4dca",
+          "step_id": "Q022",
+          "step_index": 22
+        },
+        {
+          "query_spec_digest": "fb139a2f0c45cf9ba8243362bd52e449363b280202673c82a11c85cf1aabd66f",
+          "step_id": "Q023",
+          "step_index": 23
+        }
+      ],
+      "selected_step_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "source_execution_spec": {
+        "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/membership_density_rep_009_canonical",
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/membership_density_rep_009_canonical.json",
+        "sha256": "236630a910529e3799046364956044316562d1fb6852256e7e9b1a429c99125c"
+      },
+      "source_workload": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/membership_density_rep_009_canonical.json",
+        "sha256": "ef57ca20814a8edfd726bc8600a698c3aa87db04756bf5d1fa390946938ee746",
+        "step_count": 23
+      },
+      "structural_seed": 1767972531
+    }
+  ],
+  "schema_version": "mcad-sa4-membership-density-timing-input-materialization-manifest-v1",
+  "scientific_controls": {
+    "functional_execution_rerun_performed": false,
+    "global_scientific_freeze": false,
+    "latency_claim_authorized": false,
+    "manuscript_resume_authorized": false,
+    "precision_analysis_authorized": false,
+    "precision_analysis_performed": false,
+    "scientific_freeze": false,
+    "stage20_execution_authorized": false,
+    "timing_execution_authorized": false,
+    "timing_execution_performed": false,
+    "timing_input_materialization_authorized": true,
+    "timing_input_materialization_performed": true
+  },
+  "source_artifacts": {
+    "formal_preregistration": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_portfolio_timing_preregistration.json",
+      "sha256": "1d019eb8a26d38a7073788b4d54a4254bdad8e5e8fbabc69e0bd2ef0da7c185b"
+    },
+    "replication_execution_plan": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/by_replication/replication_execution_plan.json",
+      "sha256": "074a2c33fd573effce7df919047a03d2969983b43e4d7feca0527d392bb2e955"
+    },
+    "timing_preflight": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_timing_preregistration_preflight.json",
+      "sha256": "bf6a7c111d31b9e5e8936133e8be715a64c6c7b90e2f628dc9b4651b7cf611f3"
+    }
+  },
+  "source_balance": {
+    "derived_workload_step_count": 230,
+    "excluded_step_occurrence_count": 8,
+    "source_step_count_histogram": {
+      "23": 2,
+      "24": 8
+    },
+    "source_workload_step_count": 238
+  },
+  "source_commit": "5a25d5e5a90c0fd821d9c0c21dc539fcfb9e8766",
+  "status": "membership_density_timing_inputs_materialized"
+}
