@@ -1,0 +1,675 @@
+{
+  "contract_version": "mcad-sensitivity-e3-workload-v1",
+  "objective_id": "O_E3_MEMBERSHIP_DENSITY_REP_000_RUNTIME_BOUND",
+  "session_id": "S_E3_MEMBERSHIP_DENSITY_REP_000_CANONICAL",
+  "steps": [
+    {
+      "query_spec": {
+        "aggregators": [
+          "AVG"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Cost"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_02",
+          "Time.Year": "2014"
+        },
+        "time_members": [
+          "2014"
+        ],
+        "units": [
+          "PERCENT"
+        ],
+        "window_end": "2014-12-31",
+        "window_start": "2014-01-01"
+      },
+      "step_id": "Q001",
+      "step_index": 1
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MAX"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Quantity"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_07",
+          "Time.Year": "2002"
+        },
+        "time_members": [
+          "2002"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2002-12-31",
+        "window_start": "2002-01-01"
+      },
+      "step_id": "Q002",
+      "step_index": 2
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MAX"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Quantity"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_07",
+          "Time.Year": "2012"
+        },
+        "time_members": [
+          "2012"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2012-12-31",
+        "window_start": "2012-01-01"
+      },
+      "step_id": "Q003",
+      "step_index": 3
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MAX"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Quantity"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_10",
+          "Time.Year": "2020"
+        },
+        "time_members": [
+          "2020"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2020-12-31",
+        "window_start": "2020-01-01"
+      },
+      "step_id": "Q004",
+      "step_index": 4
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MAX"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Quantity"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_05",
+          "Time.Year": "2010"
+        },
+        "time_members": [
+          "2010"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2010-12-31",
+        "window_start": "2010-01-01"
+      },
+      "step_id": "Q005",
+      "step_index": 5
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "AVG"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Cost"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_09",
+          "Time.Year": "2014"
+        },
+        "time_members": [
+          "2014"
+        ],
+        "units": [
+          "PERCENT"
+        ],
+        "window_end": "2014-12-31",
+        "window_start": "2014-01-01"
+      },
+      "step_id": "Q006",
+      "step_index": 6
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "AVG"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Cost"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_04",
+          "Time.Year": "2008"
+        },
+        "time_members": [
+          "2008"
+        ],
+        "units": [
+          "PERCENT"
+        ],
+        "window_end": "2008-12-31",
+        "window_start": "2008-01-01"
+      },
+      "step_id": "Q007",
+      "step_index": 7
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "SUM"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Sales"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_06",
+          "Time.Year": "2017"
+        },
+        "time_members": [
+          "2017"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2017-12-31",
+        "window_start": "2017-01-01"
+      },
+      "step_id": "Q008",
+      "step_index": 8
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MAX"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Quantity"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_07",
+          "Time.Year": "2007"
+        },
+        "time_members": [
+          "2007"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2007-12-31",
+        "window_start": "2007-01-01"
+      },
+      "step_id": "Q009",
+      "step_index": 9
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "SUM"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Sales"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_04",
+          "Time.Year": "2018"
+        },
+        "time_members": [
+          "2018"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2018-12-31",
+        "window_start": "2018-01-01"
+      },
+      "step_id": "Q010",
+      "step_index": 10
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MIN"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Margin"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_07",
+          "Time.Year": "2007"
+        },
+        "time_members": [
+          "2007"
+        ],
+        "units": [
+          "COUNT"
+        ],
+        "window_end": "2007-12-31",
+        "window_start": "2007-01-01"
+      },
+      "step_id": "Q011",
+      "step_index": 11
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "AVG"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Cost"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_02",
+          "Time.Year": "2005"
+        },
+        "time_members": [
+          "2005"
+        ],
+        "units": [
+          "PERCENT"
+        ],
+        "window_end": "2005-12-31",
+        "window_start": "2005-01-01"
+      },
+      "step_id": "Q012",
+      "step_index": 12
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MIN"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Margin"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_07",
+          "Time.Year": "2002"
+        },
+        "time_members": [
+          "2002"
+        ],
+        "units": [
+          "COUNT"
+        ],
+        "window_end": "2002-12-31",
+        "window_start": "2002-01-01"
+      },
+      "step_id": "Q013",
+      "step_index": 13
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "AVG"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Cost"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_06",
+          "Time.Year": "2006"
+        },
+        "time_members": [
+          "2006"
+        ],
+        "units": [
+          "PERCENT"
+        ],
+        "window_end": "2006-12-31",
+        "window_start": "2006-01-01"
+      },
+      "step_id": "Q014",
+      "step_index": 14
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MIN"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Margin"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_02",
+          "Time.Year": "2006"
+        },
+        "time_members": [
+          "2006"
+        ],
+        "units": [
+          "COUNT"
+        ],
+        "window_end": "2006-12-31",
+        "window_start": "2006-01-01"
+      },
+      "step_id": "Q015",
+      "step_index": 15
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MIN"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Margin"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_04",
+          "Time.Year": "2013"
+        },
+        "time_members": [
+          "2013"
+        ],
+        "units": [
+          "COUNT"
+        ],
+        "window_end": "2013-12-31",
+        "window_start": "2013-01-01"
+      },
+      "step_id": "Q016",
+      "step_index": 16
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "SUM"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Sales"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_04",
+          "Time.Year": "2016"
+        },
+        "time_members": [
+          "2016"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2016-12-31",
+        "window_start": "2016-01-01"
+      },
+      "step_id": "Q017",
+      "step_index": 17
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "SUM"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Sales"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_01",
+          "Time.Year": "2014"
+        },
+        "time_members": [
+          "2014"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2014-12-31",
+        "window_start": "2014-01-01"
+      },
+      "step_id": "Q018",
+      "step_index": 18
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MIN"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Margin"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_06",
+          "Time.Year": "2015"
+        },
+        "time_members": [
+          "2015"
+        ],
+        "units": [
+          "COUNT"
+        ],
+        "window_end": "2015-12-31",
+        "window_start": "2015-01-01"
+      },
+      "step_id": "Q019",
+      "step_index": 19
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "SUM"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Sales"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_08",
+          "Time.Year": "2009"
+        },
+        "time_members": [
+          "2009"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2009-12-31",
+        "window_start": "2009-01-01"
+      },
+      "step_id": "Q020",
+      "step_index": 20
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "AVG"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Cost"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_04",
+          "Time.Year": "2011"
+        },
+        "time_members": [
+          "2011"
+        ],
+        "units": [
+          "PERCENT"
+        ],
+        "window_end": "2011-12-31",
+        "window_start": "2011-01-01"
+      },
+      "step_id": "Q021",
+      "step_index": 21
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "SUM"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Sales"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_04",
+          "Time.Year": "2019"
+        },
+        "time_members": [
+          "2019"
+        ],
+        "units": [
+          "USD"
+        ],
+        "window_end": "2019-12-31",
+        "window_start": "2019-01-01"
+      },
+      "step_id": "Q022",
+      "step_index": 22
+    },
+    {
+      "query_spec": {
+        "aggregators": [
+          "MIN"
+        ],
+        "cube": "SyntheticFact",
+        "group_by": [
+          "Time.Month",
+          "Geography.Region"
+        ],
+        "measures": [
+          "Margin"
+        ],
+        "slicers": {
+          "Geography.Region": "Region_05",
+          "Time.Year": "2014"
+        },
+        "time_members": [
+          "2014"
+        ],
+        "units": [
+          "COUNT"
+        ],
+        "window_end": "2014-12-31",
+        "window_start": "2014-01-01"
+      },
+      "step_id": "Q023",
+      "step_index": 23
+    }
+  ],
+  "workload_id": "e3-membership-density-rep_000-portfolio-timing-stage10-v1"
+}

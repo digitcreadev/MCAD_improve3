@@ -1,0 +1,15 @@
+{
+  "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24",
+  "contract_version": "mcad-sensitivity-e3-execution-v1",
+  "execution_id": "e3-membership-density-rep_003-portfolio-timing-stage10-v1",
+  "instance_selection": {
+    "instance_ids": [
+      "instances/level_000025/rep_003_seed_796786883",
+      "instances/level_000050/rep_003_seed_796786883",
+      "instances/level_000075/rep_003_seed_796786883",
+      "instances/level_000100/rep_003_seed_796786883"
+    ]
+  },
+  "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/membership_density_rep_003_portfolio_timing_stage10",
+  "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_003_portfolio_timing_stage10.json"
+}
