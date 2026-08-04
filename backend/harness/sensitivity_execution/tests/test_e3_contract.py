@@ -235,3 +235,36 @@ def test_validator_rejects_contract_regressions(
         match=expected_message,
     ):
         validate_contract(contract)
+
+
+def test_contract_registers_factor_generator_profiles() -> None:
+    contract = load_contract()
+
+    profiles = contract[
+        "factor_generator_profiles"
+    ]
+
+    assert profiles["objective_count"] == {
+        "campaign_generator_version": (
+            "mcad-sensitivity-e2.2-"
+            "objective-count-v1"
+        ),
+        "structural_generator_version": (
+            "mcad-sensitivity-e2.1-"
+            "objective-count-v1"
+        ),
+    }
+
+
+def test_validator_rejects_missing_objective_count_profile() -> None:
+    contract = deepcopy(load_contract())
+
+    del contract[
+        "factor_generator_profiles"
+    ]["objective_count"]
+
+    with pytest.raises(
+        AssertionError,
+        match="factor_generator_profiles keys",
+    ):
+        validate_contract(contract)

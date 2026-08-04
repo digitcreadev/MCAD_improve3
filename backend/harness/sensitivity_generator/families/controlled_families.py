@@ -21,6 +21,7 @@ STRUCTURAL_GENERATOR_VERSION = "mcad-sensitivity-e2.1-v1"
 SUPPORTED_FACTORS = {
     "constraint_count",
     "virtual_node_count",
+    "objective_count",
 }
 
 
@@ -590,6 +591,28 @@ def write_instances_csv(
 def generate_controlled_family(
     spec: ControlledFamilySpec,
 ) -> ControlledFamilyManifest:
+    if spec.factor == "objective_count":
+        from backend.harness.sensitivity_generator.families.objective_count_family import (
+            ObjectiveCountFamilySpec,
+            generate_objective_count_family,
+        )
+
+        return generate_objective_count_family(
+            ObjectiveCountFamilySpec(
+                campaign_id=spec.campaign_id,
+                levels=spec.levels,
+                seeds=spec.seeds,
+                baseline_constraints_per_objective=(
+                    spec.baseline_constraint_count
+                ),
+                baseline_virtual_nodes_per_objective=(
+                    spec.baseline_virtual_node_count
+                ),
+                selected_objective_index=0,
+                output_dir=spec.output_dir,
+            )
+        )
+
     validate_spec(spec)
 
     output_dir = Path(
