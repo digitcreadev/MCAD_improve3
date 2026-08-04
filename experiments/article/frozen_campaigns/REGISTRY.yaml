@@ -92,6 +92,28 @@ campaigns:
     scientific_status: incomplete
     repository_persistence_status: not_frozen
 
+
+  sa4_membership_density_stage10:
+    scientific_status: completed_precision_targets_met
+    repository_persistence_status: complete
+    path: sa4_membership_density_stage10
+    source_commit: 39da63c63a3062a79460377280758771d934c9b4
+    frozen_utc: 2026-08-04T16:11:19Z
+    canonical_archive_sha256: 1729d7913e68407f754804c9d23468559e0eeefbf616e8f7ecc6be5fab940ffc
+    canonical_archive_size_bytes: 9004737
+    scientific_freeze: true
+    factor: membership_density
+    stage: 10
+    run_count: 10
+    measurement_observation_count: 92000
+    successful_bootstrap_execution_count: 1
+    all_precision_targets_met: true
+    failing_cell_count: 0
+    stage10_sufficient: true
+    stage20_extension_required: false
+    stage20_execution_authorized: false
+    latency_claim_authorized: true
+    manuscript_resume_authorized: true
 global_state:
   global_scientific_freeze: false
   latency_claim_authorized: false

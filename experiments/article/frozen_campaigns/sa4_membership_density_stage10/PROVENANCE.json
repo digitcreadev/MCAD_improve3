@@ -1,0 +1,49 @@
+{
+  "campaign_id": "sa4_membership_density_stage10",
+  "canonical_archive": {
+    "deterministic_tar_metadata": true,
+    "gzip_timestamp_suppressed": true,
+    "path": "archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz",
+    "payload_file_count": 149,
+    "payload_uncompressed_bytes": 92236352,
+    "sha256": "1729d7913e68407f754804c9d23468559e0eeefbf616e8f7ecc6be5fab940ffc",
+    "size_bytes": 9004737
+  },
+  "canonical_artifacts": {
+    "adapter_preregistration": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_non_mutating_precision_adapter_preregistration.json",
+      "sha256": "4e7041988c388837f5d4d71c07a659a209b479ddf4dd1f1cd7798cbb8aa2695b"
+    },
+    "precision_analyzer": {
+      "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+      "sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504"
+    },
+    "precision_authorization": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_portfolio_precision_analysis_authorization.json",
+      "sha256": "835a22c0f74f18c2da64ed91257fcd58839a85a7c4f6113579b9bba05cd068d1"
+    },
+    "precision_decision": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/stage10_portfolio_precision_decision_report.json",
+      "sha256": "92a9307a89e92c5e849b0e058f5e0a3c89633f6f8cd39f98ec9a2b9392cc88a4"
+    },
+    "precision_input_manifest": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/precision_input_manifest.json",
+      "sha256": "449d0d54bb10df84327e3d757382e33c78abe9d2c9b3c5f55e3d8d5ee6ac2451"
+    },
+    "raw_analyzer_report": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/raw_analyzer_report.json",
+      "sha256": "a58361d1927c771bd98c6428d013b91d46f1cc731795136c9ca122be9e7a6240"
+    }
+  },
+  "frozen_utc": "2026-08-04T16:11:19Z",
+  "raw_analyzer_interpretation": {
+    "canonical_factor": "membership_density",
+    "raw_factor_label": "constraint_count",
+    "raw_factor_label_authoritative": false,
+    "raw_next_stage_authoritative": false
+  },
+  "schema_version": "mcad-frozen-campaign-provenance-v1",
+  "source_branch": "paper/phase3-controlled-execution",
+  "source_commit": "39da63c63a3062a79460377280758771d934c9b4",
+  "source_repository": "digitcreadev/MCAD_improve3"
+}
