@@ -151,3 +151,18 @@ required_validations:
   - cumulative_phi_monotone
   - evaluator_entrypoint_preserved
   - forbidden_behaviors_absent
+
+
+factor_generator_profiles:
+  constraint_count:
+    campaign_generator_version: mcad-sensitivity-e2.2-v1
+    structural_generator_version: mcad-sensitivity-e2.1-v1
+  virtual_node_count:
+    campaign_generator_version: mcad-sensitivity-e2.2-v1
+    structural_generator_version: mcad-sensitivity-e2.1-v1
+  membership_density:
+    campaign_generator_version: mcad-sensitivity-e2.2-membership-density-v1
+    structural_generator_version: mcad-sensitivity-e2.1-membership-density-v1
+  objective_count:
+    campaign_generator_version: mcad-sensitivity-e2.2-objective-count-v1
+    structural_generator_version: mcad-sensitivity-e2.1-objective-count-v1

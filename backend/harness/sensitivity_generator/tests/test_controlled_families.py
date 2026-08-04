@@ -377,3 +377,39 @@ def test_no_production_evaluation_call() -> None:
 
     for token in forbidden_call_tokens:
         assert token not in source
+
+
+def test_objective_count_dispatch_uses_dedicated_profile(
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "objective_count_dispatch"
+
+    manifest = generate_controlled_family(
+        make_spec(
+            output_dir,
+            factor="objective_count",
+            levels=(1, 2),
+            seeds=(101,),
+            baseline_constraint_count=2,
+            baseline_virtual_node_count=6,
+        )
+    )
+
+    assert manifest.factor == "objective_count"
+    assert manifest.campaign_generator_version == (
+        "mcad-sensitivity-e2.2-objective-count-v1"
+    )
+    assert manifest.structural_generator_version == (
+        "mcad-sensitivity-e2.1-objective-count-v1"
+    )
+
+    rows = read_csv(
+        output_dir / "instances.csv"
+    )
+
+    assert len(rows) == 2
+
+    assert {
+        int(row["realised_objective_count"])
+        for row in rows
+    } == {1, 2}

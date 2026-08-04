@@ -26,6 +26,14 @@ MEMBERSHIP_DENSITY_E21_VERSION = (
     "mcad-sensitivity-e2.1-membership-density-v1"
 )
 
+OBJECTIVE_COUNT_E22_VERSION = (
+    "mcad-sensitivity-e2.2-objective-count-v1"
+)
+
+OBJECTIVE_COUNT_E21_VERSION = (
+    "mcad-sensitivity-e2.1-objective-count-v1"
+)
+
 # Backward-compatible aliases retained for callers that
 # imported the historical single-version constants.
 EXPECTED_E22_VERSION = LEGACY_E22_VERSION
@@ -43,6 +51,10 @@ SUPPORTED_GENERATOR_VERSION_PAIRS = {
     "membership_density": (
         MEMBERSHIP_DENSITY_E22_VERSION,
         MEMBERSHIP_DENSITY_E21_VERSION,
+    ),
+    "objective_count": (
+        OBJECTIVE_COUNT_E22_VERSION,
+        OBJECTIVE_COUNT_E21_VERSION,
     ),
 }
 

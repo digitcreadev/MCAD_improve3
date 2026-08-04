@@ -89,6 +89,12 @@ def test_executor_registers_exact_generator_profiles() -> None:
                 "mcad-sensitivity-e2.1-"
                 "membership-density-v1",
             ),
+            "objective_count": (
+                "mcad-sensitivity-e2.2-"
+                "objective-count-v1",
+                "mcad-sensitivity-e2.1-"
+                "objective-count-v1",
+            ),
         }
     )
 
