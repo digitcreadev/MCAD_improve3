@@ -1,0 +1,14 @@
+status=stage10_precision_targets_met
+level=25 step=0 median_ms=0.456054 median_rhw=0.006101 median_pass=true p95_ms=0.897460 p95_rhw=0.023701 p95_pass=true
+level=50 step=0 median_ms=0.459504 median_rhw=0.006567 median_pass=true p95_ms=0.907403 p95_rhw=0.018646 p95_pass=true
+level=75 step=0 median_ms=0.462777 median_rhw=0.006595 median_pass=true p95_ms=0.910817 p95_rhw=0.015337 p95_pass=true
+level=100 step=0 median_ms=0.465190 median_rhw=0.006613 median_pass=true p95_ms=0.916927 p95_rhw=0.019849 p95_pass=true
+all_median_targets_met=true
+all_p95_targets_met=true
+all_precision_targets_met=true
+failing_cell_count=0
+stage10_sufficient=true
+extension_to_stage20_required=false
+next_stage=SA4_membership_density_design
+report_json=reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/raw_analyzer_report.json
+intervals_csv=reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/raw_analyzer_intervals.csv
