@@ -1,0 +1,51 @@
+{
+  "campaign_id": "sa4_membership_density_stage10",
+  "excluded_self_referential_files": [
+    "MANIFEST.json",
+    "SHA256SUMS"
+  ],
+  "file_count": 8,
+  "files": [
+    {
+      "path": "CONTENTS.txt",
+      "sha256": "6718b1af199ed26183e941b542870c82c820f917f48e89892cd49d7b03832ab6",
+      "size_bytes": 253
+    },
+    {
+      "path": "PROVENANCE.json",
+      "sha256": "584e780c4c3c6fb79e7376d2a02873b24f16b370776c1ad8ccd5aacc24967b9b",
+      "size_bytes": 2622
+    },
+    {
+      "path": "README.md",
+      "sha256": "7dc16d16ca4d6e9f940fc441e58da278eacdfc2297aa90961a20cc1c6d525c94",
+      "size_bytes": 1058
+    },
+    {
+      "path": "REPRODUCE.md",
+      "sha256": "a659b056756745dfb356f747ef88413ef8893ded00056b13ece599f51e28b27a",
+      "size_bytes": 2043
+    },
+    {
+      "path": "STATUS.json",
+      "sha256": "361abc3215348e03fc295c0dcd8759de90ddcce8e8af49bce05091d3226b03da",
+      "size_bytes": 873
+    },
+    {
+      "path": "archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz",
+      "sha256": "1729d7913e68407f754804c9d23468559e0eeefbf616e8f7ecc6be5fab940ffc",
+      "size_bytes": 9004737
+    },
+    {
+      "path": "archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz.sha256",
+      "sha256": "5bc1417ac2318851ebde1edbca7753d0c99d4129a6baedd22a5cb20793dc5bec",
+      "size_bytes": 127
+    },
+    {
+      "path": "freeze/FREEZE.json",
+      "sha256": "c7676bf7eb60e100c6b0416434b7438a2fd32e519789cb6a42d2119d98b29a98",
+      "size_bytes": 3701
+    }
+  ],
+  "schema_version": "mcad-frozen-campaign-manifest-v1"
+}
