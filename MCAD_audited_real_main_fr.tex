@@ -773,6 +773,36 @@ Les trois campagnes ne mesurent pas la même propriété. La Campagne A établit
 
 La portée de ces résultats reste celle d'un prototype de recherche. Les expériences ne démontrent pas une supériorité universelle sur tout moteur OLAP ou toute politique analytique possible. Elles établissent cependant que la chaîne formelle proposée est exécutable, reproductible, auditable, multi-dataset et portable sur les scénarios étudiés.
 
+\subsection{Sensibilité à la densité d'appartenance des ensembles d'exigences}
+\label{subsec:sa4-membership-density}
+
+Nous avons complété l'analyse de sensibilité structurelle par une campagne contrôlée faisant varier la densité d'appartenance des ensembles d'exigences. Cette densité correspond au rapport entre les liens d'appartenance effectivement présents et le maximum admissible, calculé localement pour chaque contrainte. Le protocole OFAT maintient quatre contraintes et 24 nœuds virtuels, puis évalue les niveaux 25\%, 50\%, 75\% et 100\% sur dix graines structurelles. Les charges canoniques sont partagées entre les niveaux d'une même réplication afin d'isoler l'effet de la densité.
+
+L'analyse repose sur 92\,000 observations temporelles. La précision a été évaluée par un bootstrap groupé de 10\,000 réplications, avec la graine 20260728 et un niveau de confiance de 95\%. Les seuils préenregistrés imposaient une demi-largeur relative (RHW) inférieure ou égale à 0,10 pour la médiane et à 0,15 pour le 95\ieme{} percentile. Les huit contrôles correspondants sont satisfaits et aucune cellule inférentielle n'échoue.
+
+\begin{table}[t]
+\caption{Sensibilité temporelle à la densité d'appartenance.}
+\label{tab:membership-density-stage10}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{r r r r r}
+\hline
+Densité & Médiane & p95 & RHW méd. & RHW p95 \\
+ & (ms) & (ms) & & \\
+\hline
+25\% & 0.456054 & 0.897460 & 0.006101 & 0.023701 \\
+50\% & 0.459504 & 0.907403 & 0.006567 & 0.018646 \\
+75\% & 0.462777 & 0.910817 & 0.006595 & 0.015337 \\
+100\% & 0.465190 & 0.916927 & 0.006613 & 0.019849 \\
+\hline
+\end{tabular}
+\end{table}
+
+La médiane passe de 0.456054\,ms à 0.465190\,ms entre 25\% et 100\% de densité, soit une variation relative de 2.00\%. Le 95\ieme{} percentile passe de 0.897460\,ms à 0.916927\,ms, soit 2.17\%. Dans le périmètre contrôlé de cette campagne, ces résultats indiquent donc une stabilité temporelle empirique lorsque la densité d'appartenance augmente.
+
+Cette conclusion reste limitée aux instances, charges et environnement du prototype étudié. Elle ne démontre ni une invariance universelle de la latence ni un gel scientifique global de l'article. Le gel scientifique et l'autorisation des revendications temporelles portent uniquement sur cette campagne SA4.
+
 \section{Discussion, limites et perspectives}
 \label{sec:disc}
 
