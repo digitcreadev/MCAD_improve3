@@ -1,0 +1,46 @@
+{
+  "balance_semantics": {
+    "does_not_claim_exact_order_position_balance": true,
+    "exactly_balanced_run_count_means": "Every replication contributes exactly 2,300 measurement observations to every density-level synthetic-step cluster."
+  },
+  "created_utc": "2026-08-04T13:59:30Z",
+  "factor": "membership_density",
+  "schema_version": "mcad-sa4-membership-density-analyzer-timing-report-adapter-v1",
+  "scientific_controls": {
+    "latency_claim_authorized": false,
+    "precision_analysis_authorized": false,
+    "precision_analysis_performed": false,
+    "timing_reexecution_performed": false
+  },
+  "source_artifacts": {
+    "derived_observations": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/stage10_portfolio_measurement_observations.csv",
+      "row_count": 92000,
+      "sha256": "757c8e7684396cf1b5d7a923a4b7935a95b746896fac357c7ef4ea93df36133a"
+    },
+    "execution_ledger": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/membership_density_stage10_portfolio/stage10_execution_ledger.json",
+      "sha256": "27e7c716e51eb7cff7fcc17ad506495f0cd4f128f4be9a2b81c5185d190d2d8f"
+    },
+    "precision_adapter_preregistration": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_non_mutating_precision_adapter_preregistration.json",
+      "sha256": "4e7041988c388837f5d4d71c07a659a209b479ddf4dd1f1cd7798cbb8aa2695b"
+    },
+    "stage10_output_audit": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/stage10_output_audit.json",
+      "sha256": "fd3bf7ef8ee06e09ffe88548b361516ee9ad0760964932fed1ed3b7e83477888"
+    }
+  },
+  "source_commit": "4f1b8fef37f0feac0be7019ac3d6d9fe51dc12a4",
+  "stage": 10,
+  "status": "stage10_formal_timing_execution_success",
+  "totals": {
+    "cell_count": 40,
+    "exactly_balanced_run_count": 10,
+    "functional_mismatch_count": 0,
+    "measurement_observation_count": 92000,
+    "run_count": 10,
+    "structural_seed_count": 10,
+    "successful_run_count": 10
+  }
+}
