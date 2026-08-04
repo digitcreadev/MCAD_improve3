@@ -990,6 +990,128 @@ def _clear_ckg_runtime_state(
         clear()
 
 
+def _expected_bootstrap_objective_ids(
+    instance: DiscoveredInstance,
+) -> set[str]:
+    """
+    Resolve the exact objective catalogue expected after bootstrap.
+
+    Historical controlled families remain strictly single-objective.
+    The objective-count family carries a factor-specific manifest with
+    the complete generated objective set and one selected objective.
+    """
+    if instance.factor != "objective_count":
+        return {instance.objective_id}
+
+    manifest = _read_json(
+        instance.manifest_path,
+        "objective-count E2.1 instance manifest",
+    )
+
+    raw_objective_ids = manifest.get(
+        "objective_ids"
+    )
+
+    if (
+        not isinstance(raw_objective_ids, list)
+        or not raw_objective_ids
+        or any(
+            not isinstance(value, str)
+            or not value.strip()
+            for value in raw_objective_ids
+        )
+    ):
+        raise E3ExecutionError(
+            "Objective-count instance manifest must "
+            "contain a non-empty objective_ids list."
+        )
+
+    objective_ids = {
+        value.strip()
+        for value in raw_objective_ids
+    }
+
+    if len(objective_ids) != len(
+        raw_objective_ids
+    ):
+        raise E3ExecutionError(
+            "Objective-count instance manifest contains "
+            "duplicate objective identifiers."
+        )
+
+    requested_count = _required_integer(
+        manifest,
+        "requested_objective_count",
+        "objective-count instance manifest",
+    )
+
+    realised_count = _required_integer(
+        manifest,
+        "realised_objective_count",
+        "objective-count instance manifest",
+    )
+
+    selected_objective_id = (
+        _required_non_empty_string(
+            manifest,
+            "selected_objective_id",
+            "objective-count instance manifest",
+        )
+    )
+
+    manifest_objective_id = (
+        _required_non_empty_string(
+            manifest,
+            "objective_id",
+            "objective-count instance manifest",
+        )
+    )
+
+    if requested_count != instance.factor_level:
+        raise E3ExecutionError(
+            "Objective-count requested_objective_count "
+            "differs from the factor level: "
+            f"expected={instance.factor_level}, "
+            f"actual={requested_count}."
+        )
+
+    if realised_count != instance.factor_level:
+        raise E3ExecutionError(
+            "Objective-count realised_objective_count "
+            "differs from the factor level: "
+            f"expected={instance.factor_level}, "
+            f"actual={realised_count}."
+        )
+
+    if len(objective_ids) != realised_count:
+        raise E3ExecutionError(
+            "Objective-count objective_ids cardinality "
+            "differs from realised_objective_count: "
+            f"expected={realised_count}, "
+            f"actual={len(objective_ids)}."
+        )
+
+    if selected_objective_id != instance.objective_id:
+        raise E3ExecutionError(
+            "Objective-count selected_objective_id "
+            "differs from instances.csv."
+        )
+
+    if manifest_objective_id != instance.objective_id:
+        raise E3ExecutionError(
+            "Objective-count manifest objective_id "
+            "differs from instances.csv."
+        )
+
+    if instance.objective_id not in objective_ids:
+        raise E3ExecutionError(
+            "Selected objective is absent from the "
+            "objective-count objective catalogue."
+        )
+
+    return objective_ids
+
+
 def _build_instance_ckg(
     *,
     instance: DiscoveredInstance,
@@ -1018,12 +1140,18 @@ def _build_instance_ckg(
 
     objective_ids = set(ckg.objectives)
 
-    if objective_ids != {instance.objective_id}:
+    expected_objective_ids = (
+        _expected_bootstrap_objective_ids(
+            instance
+        )
+    )
+
+    if objective_ids != expected_objective_ids:
         raise E3ExecutionError(
             "Bootstrapped objective set differs from the "
             f"instance manifest for "
             f"{instance.canonical_instance_id!r}: "
-            f"expected={[instance.objective_id]!r}, "
+            f"expected={sorted(expected_objective_ids)!r}, "
             f"actual={sorted(objective_ids)!r}."
         )
 

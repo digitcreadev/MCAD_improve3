@@ -182,3 +182,168 @@ def test_objective_count_evidence_uses_exact_versions(
         "mcad-sensitivity-e2.1-"
         "objective-count-v1"
     )
+
+
+def test_objective_count_bootstrap_loads_complete_catalogue(
+    tmp_path: Path,
+) -> None:
+    campaign_dir = (
+        tmp_path / "objective_count_bootstrap"
+    )
+
+    manifest = _generate_campaign(
+        campaign_dir
+    )
+
+    instances = executor._discover_all_instances(
+        campaign_dir=campaign_dir,
+        campaign_manifest=manifest,
+    )
+
+    assert len(instances) == 1
+
+    instance = instances[0]
+
+    ckg = executor._build_instance_ckg(
+        instance=instance,
+        runtime_output_dir=(
+            tmp_path / "runtime"
+        ),
+    )
+
+    instance_manifest = _read_json(
+        instance.manifest_path
+    )
+
+    expected_objective_ids = set(
+        instance_manifest["objective_ids"]
+    )
+
+    assert len(expected_objective_ids) == 2
+    assert set(ckg.objectives) == (
+        expected_objective_ids
+    )
+
+    assert instance.objective_id == (
+        instance_manifest[
+            "selected_objective_id"
+        ]
+    )
+
+    assert instance.objective_id in (
+        ckg.objectives
+    )
+
+    assert not ckg.history
+    assert not ckg.session_coverage
+    assert not ckg.session_weighted_coverage
+    assert not ckg.session_resource_coverage
+
+
+def test_objective_count_bootstrap_rejects_catalogue_cardinality_mismatch(
+    tmp_path: Path,
+) -> None:
+    campaign_dir = (
+        tmp_path / "objective_count_bad_cardinality"
+    )
+
+    manifest = _generate_campaign(
+        campaign_dir
+    )
+
+    instances = executor._discover_all_instances(
+        campaign_dir=campaign_dir,
+        campaign_manifest=manifest,
+    )
+
+    instance = instances[0]
+
+    instance_manifest = _read_json(
+        instance.manifest_path
+    )
+
+    instance_manifest["objective_ids"] = (
+        instance_manifest["objective_ids"][:1]
+    )
+
+    instance.manifest_path.write_text(
+        json.dumps(
+            instance_manifest,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        executor.E3ExecutionError,
+        match=(
+            "objective_ids cardinality differs "
+            "from realised_objective_count"
+        ),
+    ):
+        executor._build_instance_ckg(
+            instance=instance,
+            runtime_output_dir=(
+                tmp_path / "runtime_bad_cardinality"
+            ),
+        )
+
+
+def test_objective_count_bootstrap_rejects_selected_objective_mismatch(
+    tmp_path: Path,
+) -> None:
+    campaign_dir = (
+        tmp_path / "objective_count_bad_selected"
+    )
+
+    manifest = _generate_campaign(
+        campaign_dir
+    )
+
+    instances = executor._discover_all_instances(
+        campaign_dir=campaign_dir,
+        campaign_manifest=manifest,
+    )
+
+    instance = instances[0]
+
+    instance_manifest = _read_json(
+        instance.manifest_path
+    )
+
+    alternate_objective_id = next(
+        objective_id
+        for objective_id
+        in instance_manifest["objective_ids"]
+        if objective_id != instance.objective_id
+    )
+
+    instance_manifest[
+        "selected_objective_id"
+    ] = alternate_objective_id
+
+    instance.manifest_path.write_text(
+        json.dumps(
+            instance_manifest,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(
+        executor.E3ExecutionError,
+        match=(
+            "selected_objective_id differs "
+            "from instances.csv"
+        ),
+    ):
+        executor._build_instance_ckg(
+            instance=instance,
+            runtime_output_dir=(
+                tmp_path / "runtime_bad_selected"
+            ),
+        )
