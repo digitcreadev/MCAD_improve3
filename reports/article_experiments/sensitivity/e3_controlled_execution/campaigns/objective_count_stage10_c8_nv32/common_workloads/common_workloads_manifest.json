@@ -1,0 +1,325 @@
+{
+  "campaign_generator_version": "mcad-sensitivity-e2.2-objective-count-v2",
+  "campaign_id": "objective_count_stage10_c8_nv32",
+  "contributive_query_count_per_workload": 24,
+  "entries": [
+    {
+      "contributive_query_count": 24,
+      "file_sha256": "ac374c2ec90bd7051bacb83490c6aeb4175d7cfaef7901d21834ac3c0bbaf61c",
+      "noise_classes": [
+        "redundant_contribution",
+        "missing_cube",
+        "wrong_context",
+        "invalid_aggregation",
+        "invalid_unit",
+        "insufficient_grain",
+        "wrong_measure",
+        "invalid_time_window"
+      ],
+      "non_contributive_query_count": 8,
+      "replication_index": 0,
+      "representative_factor_level": 1,
+      "representative_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R000_OBJ0001",
+      "seed": 101,
+      "semantic_workload_digest": "b5b89e662ea577f138b33c84fc9c1f7c6f80b1e97627a7005a86aa7287ad0361",
+      "shared_factor_levels": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "workload_length": 32,
+      "workload_path": "replication_000_seed_101.json"
+    },
+    {
+      "contributive_query_count": 24,
+      "file_sha256": "df855cd02fbf57b69427182c0d35bacec427cf1f48412e48205a4e14814041ef",
+      "noise_classes": [
+        "redundant_contribution",
+        "invalid_aggregation",
+        "invalid_unit",
+        "wrong_context",
+        "wrong_measure",
+        "missing_cube",
+        "invalid_time_window",
+        "insufficient_grain"
+      ],
+      "non_contributive_query_count": 8,
+      "replication_index": 1,
+      "representative_factor_level": 1,
+      "representative_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R001_OBJ0001",
+      "seed": 202,
+      "semantic_workload_digest": "7e88a9b8848f077873d7815c6a94348d273a2baf23d2023939906bcc1ba16c36",
+      "shared_factor_levels": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "workload_length": 32,
+      "workload_path": "replication_001_seed_202.json"
+    },
+    {
+      "contributive_query_count": 24,
+      "file_sha256": "2595eb61f994c9176b5aea3852574991eb98cd1586139d3a1cc2dae6f194cbc0",
+      "noise_classes": [
+        "missing_cube",
+        "redundant_contribution",
+        "wrong_measure",
+        "insufficient_grain",
+        "invalid_time_window",
+        "invalid_unit",
+        "wrong_context",
+        "invalid_aggregation"
+      ],
+      "non_contributive_query_count": 8,
+      "replication_index": 2,
+      "representative_factor_level": 1,
+      "representative_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R002_OBJ0001",
+      "seed": 1198202409,
+      "semantic_workload_digest": "583a2896c0295a07adf962357ddbfa3980a563ae945dfd8ccc437dda8bb9e885",
+      "shared_factor_levels": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "workload_length": 32,
+      "workload_path": "replication_002_seed_1198202409.json"
+    },
+    {
+      "contributive_query_count": 24,
+      "file_sha256": "089af5a442035e7d2cd4372dcd9dbafe9ac1b7ac24d750f5ef46c55c4b8d90fc",
+      "noise_classes": [
+        "redundant_contribution",
+        "missing_cube",
+        "invalid_aggregation",
+        "invalid_unit",
+        "wrong_measure",
+        "insufficient_grain",
+        "invalid_time_window",
+        "wrong_context"
+      ],
+      "non_contributive_query_count": 8,
+      "replication_index": 3,
+      "representative_factor_level": 1,
+      "representative_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R003_OBJ0001",
+      "seed": 796786883,
+      "semantic_workload_digest": "d46ca243fdb160fb07075154cf87985a86c3da55ea4e5c8d4ea292c3194c3570",
+      "shared_factor_levels": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "workload_length": 32,
+      "workload_path": "replication_003_seed_796786883.json"
+    },
+    {
+      "contributive_query_count": 24,
+      "file_sha256": "874a0994a1acc778c0e8f1de2845692e6fb049d57e7291d01e2ab17006a4f537",
+      "noise_classes": [
+        "invalid_unit",
+        "redundant_contribution",
+        "wrong_context",
+        "missing_cube",
+        "invalid_aggregation",
+        "wrong_measure",
+        "insufficient_grain",
+        "invalid_time_window"
+      ],
+      "non_contributive_query_count": 8,
+      "replication_index": 4,
+      "representative_factor_level": 1,
+      "representative_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R004_OBJ0001",
+      "seed": 1126922093,
+      "semantic_workload_digest": "17835fd210620bef15d86b5ca9a15642778b470edb09020543e977d019b875f9",
+      "shared_factor_levels": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "workload_length": 32,
+      "workload_path": "replication_004_seed_1126922093.json"
+    },
+    {
+      "contributive_query_count": 24,
+      "file_sha256": "3297351fc8a80b29d0c5c56ffafd314707b68b2e61d6c60040c96138521ac922",
+      "noise_classes": [
+        "redundant_contribution",
+        "invalid_time_window",
+        "missing_cube",
+        "insufficient_grain",
+        "wrong_context",
+        "invalid_aggregation",
+        "invalid_unit",
+        "wrong_measure"
+      ],
+      "non_contributive_query_count": 8,
+      "replication_index": 5,
+      "representative_factor_level": 1,
+      "representative_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R005_OBJ0001",
+      "seed": 809989256,
+      "semantic_workload_digest": "d3285a6d3ee825cf7ac3962bfa08d2e2e9b1aa28761d7e9fcb2ec477c27b676f",
+      "shared_factor_levels": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "workload_length": 32,
+      "workload_path": "replication_005_seed_809989256.json"
+    },
+    {
+      "contributive_query_count": 24,
+      "file_sha256": "01a0a2627f1365296c30ecb2725463c6add7ef1e3ec67a19ed264a1a63cb9628",
+      "noise_classes": [
+        "redundant_contribution",
+        "invalid_unit",
+        "wrong_context",
+        "insufficient_grain",
+        "invalid_time_window",
+        "missing_cube",
+        "invalid_aggregation",
+        "wrong_measure"
+      ],
+      "non_contributive_query_count": 8,
+      "replication_index": 6,
+      "representative_factor_level": 1,
+      "representative_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R006_OBJ0001",
+      "seed": 618554674,
+      "semantic_workload_digest": "d78a9b234c0f7b7b1e0abb6788478759a1173c9b12694a5c264d1874a943d617",
+      "shared_factor_levels": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "workload_length": 32,
+      "workload_path": "replication_006_seed_618554674.json"
+    },
+    {
+      "contributive_query_count": 24,
+      "file_sha256": "daad98626ec7aaceaae19036caa3134eaa6c5e53433236f03c65e63d61333936",
+      "noise_classes": [
+        "redundant_contribution",
+        "invalid_unit",
+        "wrong_context",
+        "missing_cube",
+        "invalid_time_window",
+        "wrong_measure",
+        "insufficient_grain",
+        "invalid_aggregation"
+      ],
+      "non_contributive_query_count": 8,
+      "replication_index": 7,
+      "representative_factor_level": 1,
+      "representative_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R007_OBJ0001",
+      "seed": 1363159082,
+      "semantic_workload_digest": "57622481931fdbfb00fd637ff5b04f61f995affdefaa6990721f83500d517011",
+      "shared_factor_levels": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "workload_length": 32,
+      "workload_path": "replication_007_seed_1363159082.json"
+    },
+    {
+      "contributive_query_count": 24,
+      "file_sha256": "4a8b13c48cacde26579eafcde247a8306c219db8fa472e9e9d919891a8b9c405",
+      "noise_classes": [
+        "redundant_contribution",
+        "invalid_unit",
+        "missing_cube",
+        "invalid_time_window",
+        "insufficient_grain",
+        "invalid_aggregation",
+        "wrong_measure",
+        "wrong_context"
+      ],
+      "non_contributive_query_count": 8,
+      "replication_index": 8,
+      "representative_factor_level": 1,
+      "representative_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R008_OBJ0001",
+      "seed": 874332939,
+      "semantic_workload_digest": "d2fc65377a88f688bc1c8cedfd740d94819e38aa3b55289cf45b19995f87cb22",
+      "shared_factor_levels": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "workload_length": 32,
+      "workload_path": "replication_008_seed_874332939.json"
+    },
+    {
+      "contributive_query_count": 24,
+      "file_sha256": "60d03722593aedc032793893f61395aa1dc86abb6226f456141eab9ba7d30549",
+      "noise_classes": [
+        "redundant_contribution",
+        "wrong_measure",
+        "invalid_time_window",
+        "invalid_aggregation",
+        "missing_cube",
+        "invalid_unit",
+        "wrong_context",
+        "insufficient_grain"
+      ],
+      "non_contributive_query_count": 8,
+      "replication_index": 9,
+      "representative_factor_level": 1,
+      "representative_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R009_OBJ0001",
+      "seed": 1767972531,
+      "semantic_workload_digest": "05789bdf5ecc1ec3db8d7945c26215fa4e470477567364c722ecf57280819e9f",
+      "shared_factor_levels": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "workload_length": 32,
+      "workload_path": "replication_009_seed_1767972531.json"
+    }
+  ],
+  "factor": "objective_count",
+  "materializer_version": "mcad-sa5-objective-count-stage10-workload-materializer-v2",
+  "noise_class_order": [
+    "wrong_measure",
+    "wrong_context",
+    "insufficient_grain",
+    "invalid_aggregation",
+    "invalid_unit",
+    "invalid_time_window",
+    "missing_cube",
+    "redundant_contribution"
+  ],
+  "non_contributive_query_count_per_workload": 8,
+  "operator_registry_version": "mcad-sa5-objective-count-noise-operators-v1",
+  "schema_version": "mcad-sa5-objective-count-stage10-common-workloads-v2",
+  "structural_generator_version": "mcad-sensitivity-e2.1-objective-count-v2",
+  "workload_count": 10,
+  "workload_length": 32
+}

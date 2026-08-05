@@ -1,0 +1,230 @@
+{
+  "auditor_version": "mcad-sa5-objective-count-stage10-workload-auditor-v2",
+  "failure_count": 0,
+  "failures": [],
+  "schema_version": "mcad-sa5-objective-count-stage10-workload-audit-v2",
+  "stage10_noise_class_counts": {
+    "insufficient_grain": 10,
+    "invalid_aggregation": 10,
+    "invalid_time_window": 10,
+    "invalid_unit": 10,
+    "missing_cube": 10,
+    "redundant_contribution": 10,
+    "wrong_context": 10,
+    "wrong_measure": 10
+  },
+  "status": "PASS",
+  "workload_count": 10,
+  "workload_reports": [
+    {
+      "non_contributive_query_count": 8,
+      "objective_normalized_workload_digest": "ac3b465874216d76aedc93a13afa78704361b7a73406561545384146906629dc",
+      "operator_oracle_mismatch_count": 0,
+      "oracle_contributive_query_count": 24,
+      "realised_noise_class_counts": {
+        "insufficient_grain": 1,
+        "invalid_aggregation": 1,
+        "invalid_time_window": 1,
+        "invalid_unit": 1,
+        "missing_cube": 1,
+        "redundant_contribution": 1,
+        "wrong_context": 1,
+        "wrong_measure": 1
+      },
+      "realised_noise_ratio": 0.25,
+      "replication_index": 0,
+      "seed": 101,
+      "semantic_workload_digest": "4e5f6d1201bae22d7268d6acef59fda9dbc7a7dbc476501ec6505da3c3f32add",
+      "workload_length": 32
+    },
+    {
+      "non_contributive_query_count": 8,
+      "objective_normalized_workload_digest": "3361b228354576d4de982a97c02caecef5cdb83a5dc595e79cc860d9713dc167",
+      "operator_oracle_mismatch_count": 0,
+      "oracle_contributive_query_count": 24,
+      "realised_noise_class_counts": {
+        "insufficient_grain": 1,
+        "invalid_aggregation": 1,
+        "invalid_time_window": 1,
+        "invalid_unit": 1,
+        "missing_cube": 1,
+        "redundant_contribution": 1,
+        "wrong_context": 1,
+        "wrong_measure": 1
+      },
+      "realised_noise_ratio": 0.25,
+      "replication_index": 1,
+      "seed": 202,
+      "semantic_workload_digest": "68ac84040290e6444dc219274c47e5f330d1b123742f33fbba762713f61ee6f0",
+      "workload_length": 32
+    },
+    {
+      "non_contributive_query_count": 8,
+      "objective_normalized_workload_digest": "45c14e7f6cb2de76d11c3f5ae02a626a9ad1bd17a07e3a0dc9fc923478a1a5bf",
+      "operator_oracle_mismatch_count": 0,
+      "oracle_contributive_query_count": 24,
+      "realised_noise_class_counts": {
+        "insufficient_grain": 1,
+        "invalid_aggregation": 1,
+        "invalid_time_window": 1,
+        "invalid_unit": 1,
+        "missing_cube": 1,
+        "redundant_contribution": 1,
+        "wrong_context": 1,
+        "wrong_measure": 1
+      },
+      "realised_noise_ratio": 0.25,
+      "replication_index": 2,
+      "seed": 1198202409,
+      "semantic_workload_digest": "1a3bee67c0d0bca42e2da6b4a9d7d53964adbf1eed440c0be6cac966b6fd0992",
+      "workload_length": 32
+    },
+    {
+      "non_contributive_query_count": 8,
+      "objective_normalized_workload_digest": "708f7d08efa37a89578b6f0d068ee99d22712d8dc08d84cd6849a184d80574d4",
+      "operator_oracle_mismatch_count": 0,
+      "oracle_contributive_query_count": 24,
+      "realised_noise_class_counts": {
+        "insufficient_grain": 1,
+        "invalid_aggregation": 1,
+        "invalid_time_window": 1,
+        "invalid_unit": 1,
+        "missing_cube": 1,
+        "redundant_contribution": 1,
+        "wrong_context": 1,
+        "wrong_measure": 1
+      },
+      "realised_noise_ratio": 0.25,
+      "replication_index": 3,
+      "seed": 796786883,
+      "semantic_workload_digest": "ac1b2d995fa379abd19f843fa3ee179cfcd393a6347ace941bd88302b7b2e834",
+      "workload_length": 32
+    },
+    {
+      "non_contributive_query_count": 8,
+      "objective_normalized_workload_digest": "55e8219554779f6a4df43ffbe3990b360703c6c35ab21dacc555249abd70b87e",
+      "operator_oracle_mismatch_count": 0,
+      "oracle_contributive_query_count": 24,
+      "realised_noise_class_counts": {
+        "insufficient_grain": 1,
+        "invalid_aggregation": 1,
+        "invalid_time_window": 1,
+        "invalid_unit": 1,
+        "missing_cube": 1,
+        "redundant_contribution": 1,
+        "wrong_context": 1,
+        "wrong_measure": 1
+      },
+      "realised_noise_ratio": 0.25,
+      "replication_index": 4,
+      "seed": 1126922093,
+      "semantic_workload_digest": "807f05a0a23a115acb52c7bb8737299efca638f75937188de34e3866251a6590",
+      "workload_length": 32
+    },
+    {
+      "non_contributive_query_count": 8,
+      "objective_normalized_workload_digest": "ce105a51f6d94c27866736d951c2147e8abe311c4e930151b7c3d98667de0b4b",
+      "operator_oracle_mismatch_count": 0,
+      "oracle_contributive_query_count": 24,
+      "realised_noise_class_counts": {
+        "insufficient_grain": 1,
+        "invalid_aggregation": 1,
+        "invalid_time_window": 1,
+        "invalid_unit": 1,
+        "missing_cube": 1,
+        "redundant_contribution": 1,
+        "wrong_context": 1,
+        "wrong_measure": 1
+      },
+      "realised_noise_ratio": 0.25,
+      "replication_index": 5,
+      "seed": 809989256,
+      "semantic_workload_digest": "11a720928e030128fd1aa04b8a9adc361a61e3b69a5d0f0d1283986d369f36b5",
+      "workload_length": 32
+    },
+    {
+      "non_contributive_query_count": 8,
+      "objective_normalized_workload_digest": "1b8f2773d60a3b3a6d690c306886ce4678e82b3eccc39e442bf4fd85b9d38ff8",
+      "operator_oracle_mismatch_count": 0,
+      "oracle_contributive_query_count": 24,
+      "realised_noise_class_counts": {
+        "insufficient_grain": 1,
+        "invalid_aggregation": 1,
+        "invalid_time_window": 1,
+        "invalid_unit": 1,
+        "missing_cube": 1,
+        "redundant_contribution": 1,
+        "wrong_context": 1,
+        "wrong_measure": 1
+      },
+      "realised_noise_ratio": 0.25,
+      "replication_index": 6,
+      "seed": 618554674,
+      "semantic_workload_digest": "02568ba9b19628fd0b471ea03c2063c9f825a6b072eb51b4fb0296d5ddb976f8",
+      "workload_length": 32
+    },
+    {
+      "non_contributive_query_count": 8,
+      "objective_normalized_workload_digest": "c7d1e36ba9323cbe47affa1272a5c48679208d256dd268ede430f6864e956fc9",
+      "operator_oracle_mismatch_count": 0,
+      "oracle_contributive_query_count": 24,
+      "realised_noise_class_counts": {
+        "insufficient_grain": 1,
+        "invalid_aggregation": 1,
+        "invalid_time_window": 1,
+        "invalid_unit": 1,
+        "missing_cube": 1,
+        "redundant_contribution": 1,
+        "wrong_context": 1,
+        "wrong_measure": 1
+      },
+      "realised_noise_ratio": 0.25,
+      "replication_index": 7,
+      "seed": 1363159082,
+      "semantic_workload_digest": "68891e50efc45e2f2e632a9fdabfce75584c76bfba13071dc5d7613dbb23860d",
+      "workload_length": 32
+    },
+    {
+      "non_contributive_query_count": 8,
+      "objective_normalized_workload_digest": "26744473ebb39e086504ac9b33481676698c87c2de1cf3cea233be0c326dd3be",
+      "operator_oracle_mismatch_count": 0,
+      "oracle_contributive_query_count": 24,
+      "realised_noise_class_counts": {
+        "insufficient_grain": 1,
+        "invalid_aggregation": 1,
+        "invalid_time_window": 1,
+        "invalid_unit": 1,
+        "missing_cube": 1,
+        "redundant_contribution": 1,
+        "wrong_context": 1,
+        "wrong_measure": 1
+      },
+      "realised_noise_ratio": 0.25,
+      "replication_index": 8,
+      "seed": 874332939,
+      "semantic_workload_digest": "240b554b0661f52df726b676f59b06cd7c2591831ffeb03185671e2918dd2f44",
+      "workload_length": 32
+    },
+    {
+      "non_contributive_query_count": 8,
+      "objective_normalized_workload_digest": "106f75d44623aa3a9a2064422007926de0e793f33dce12ceb89cff622a809c84",
+      "operator_oracle_mismatch_count": 0,
+      "oracle_contributive_query_count": 24,
+      "realised_noise_class_counts": {
+        "insufficient_grain": 1,
+        "invalid_aggregation": 1,
+        "invalid_time_window": 1,
+        "invalid_unit": 1,
+        "missing_cube": 1,
+        "redundant_contribution": 1,
+        "wrong_context": 1,
+        "wrong_measure": 1
+      },
+      "realised_noise_ratio": 0.25,
+      "replication_index": 9,
+      "seed": 1767972531,
+      "semantic_workload_digest": "54fa9c9ec6bb53ac9fb7d4656fee167da10b11529d1b3d1e40eafe9821699c25",
+      "workload_length": 32
+    }
+  ]
+}
