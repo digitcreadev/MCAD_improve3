@@ -1,0 +1,126 @@
+{
+  "bootstrap_analysis_authorized": false,
+  "continue_on_instance_failure": false,
+  "expected_observation_rows": 15180,
+  "factor": "objective_count",
+  "factor_levels": [
+    1,
+    2,
+    5,
+    10,
+    20,
+    50
+  ],
+  "functional_execution_id": "sa5-objective-count-stage10-rep_009-canonical-v1",
+  "functional_execution_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_009_canonical.json",
+  "functional_execution_spec_sha256": "d2cad39035b6abd5a968d8c26582eea9674592ce5f1be44f09475626fdd3eabc",
+  "functional_result_reexecution_forbidden": true,
+  "functional_run_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_009_canonical",
+  "manuscript_integration_authorized": false,
+  "measured_repetitions_per_factor_level": 2530,
+  "precision_analysis_authorized": false,
+  "replication_index": 9,
+  "schema_version": "mcad-sa5-objective-count-stage10-timing-spec-v1",
+  "scientific_result_interpretation_authorized": false,
+  "seed": 1767972531,
+  "selected_instance_count": 6,
+  "selected_instance_ids": [
+    "level_000001/rep_009_seed_1767972531",
+    "level_000002/rep_009_seed_1767972531",
+    "level_000005/rep_009_seed_1767972531",
+    "level_000010/rep_009_seed_1767972531",
+    "level_000020/rep_009_seed_1767972531",
+    "level_000050/rep_009_seed_1767972531"
+  ],
+  "timing_execution_authorized": true,
+  "timing_execution_performed": false,
+  "timing_output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_009_portfolio_timing_stage10",
+  "timing_runner": {
+    "argument_count": 6,
+    "arguments": [
+      {
+        "keywords": {
+          "type": "Path"
+        },
+        "names": [
+          "execution_spec_path"
+        ]
+      },
+      {
+        "keywords": {
+          "required": true,
+          "type": "Path"
+        },
+        "names": [
+          "--output-dir"
+        ]
+      },
+      {
+        "keywords": {
+          "default": 10,
+          "type": "int"
+        },
+        "names": [
+          "--warmups"
+        ]
+      },
+      {
+        "keywords": {
+          "default": 100,
+          "type": "int"
+        },
+        "names": [
+          "--measurements"
+        ]
+      },
+      {
+        "keywords": {
+          "default": 20260728,
+          "type": "int"
+        },
+        "names": [
+          "--order-seed"
+        ]
+      },
+      {
+        "keywords": {
+          "action": "store_true"
+        },
+        "names": [
+          "--reuse-successful"
+        ]
+      }
+    ],
+    "ast_parse": "PASS",
+    "function_count": 23,
+    "functions": [
+      "build_cells",
+      "build_summary",
+      "canonical_json_bytes",
+      "canonicalize",
+      "capture_input_digests",
+      "cell_id",
+      "counterbalanced_indices",
+      "descriptive_statistics",
+      "evaluate_cell_once",
+      "functional_projection",
+      "main",
+      "parse_integer_attribute",
+      "percentile",
+      "read_json",
+      "run_timing_harness",
+      "sha256_file",
+      "sha256_payload",
+      "source_identity",
+      "stable_session_id",
+      "strip",
+      "validate_existing_bundle",
+      "write_json",
+      "write_observations_csv"
+    ],
+    "path": "backend/harness/sensitivity_execution/run_timing_repetitions.py",
+    "sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595"
+  },
+  "timing_spec_id": "sa5-objective-count-rep_009-portfolio-timing-stage10-v1",
+  "workload_step_count_per_instance": 32
+}
