@@ -1,0 +1,108 @@
+{
+  "campaign_id": "sa4_membership_density_stage10",
+  "canonical_archive": {
+    "path": "archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz",
+    "sha256": "1729d7913e68407f754804c9d23468559e0eeefbf616e8f7ecc6be5fab940ffc",
+    "size_bytes": 9004737
+  },
+  "factor": "membership_density",
+  "freeze_status": "frozen",
+  "frozen_utc": "2026-08-04T16:11:19Z",
+  "immutability": {
+    "canonical_adapter_rematerialization_allowed": false,
+    "canonical_bootstrap_rerun_allowed": false,
+    "canonical_evidence_modification_allowed": false,
+    "canonical_timing_rerun_allowed": false,
+    "independent_external_reproduction_allowed": true
+  },
+  "next_stage": "integrate_membership_density_stage10_results_into_manuscript",
+  "precision_cells": [
+    {
+      "all_cell_targets_met": true,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20510728,
+      "factor": "membership_density",
+      "factor_level": 25,
+      "median_ms": null,
+      "median_relative_half_width": 0.006101422311198159,
+      "median_relative_half_width_target": 0.1,
+      "median_target_met": true,
+      "p95_ms": null,
+      "p95_relative_half_width": 0.023700583596975716,
+      "p95_relative_half_width_target": 0.15,
+      "p95_target_met": true,
+      "raw_analyzer_factor": "constraint_count",
+      "step_index": 0
+    },
+    {
+      "all_cell_targets_met": true,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20760728,
+      "factor": "membership_density",
+      "factor_level": 50,
+      "median_ms": null,
+      "median_relative_half_width": 0.006566516903570908,
+      "median_relative_half_width_target": 0.1,
+      "median_target_met": true,
+      "p95_ms": null,
+      "p95_relative_half_width": 0.01864639393019678,
+      "p95_relative_half_width_target": 0.15,
+      "p95_target_met": true,
+      "raw_analyzer_factor": "constraint_count",
+      "step_index": 0
+    },
+    {
+      "all_cell_targets_met": true,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 21010728,
+      "factor": "membership_density",
+      "factor_level": 75,
+      "median_ms": null,
+      "median_relative_half_width": 0.006595077110573776,
+      "median_relative_half_width_target": 0.1,
+      "median_target_met": true,
+      "p95_ms": null,
+      "p95_relative_half_width": 0.015337323961677085,
+      "p95_relative_half_width_target": 0.15,
+      "p95_target_met": true,
+      "raw_analyzer_factor": "constraint_count",
+      "step_index": 0
+    },
+    {
+      "all_cell_targets_met": true,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 21260728,
+      "factor": "membership_density",
+      "factor_level": 100,
+      "median_ms": null,
+      "median_relative_half_width": 0.006613480513338569,
+      "median_relative_half_width_target": 0.1,
+      "median_target_met": true,
+      "p95_ms": null,
+      "p95_relative_half_width": 0.01984926325121557,
+      "p95_relative_half_width_target": 0.15,
+      "p95_target_met": true,
+      "raw_analyzer_factor": "constraint_count",
+      "step_index": 0
+    }
+  ],
+  "publication_controls": {
+    "global_scientific_freeze": false,
+    "latency_claim_authorized": true,
+    "manuscript_resume_authorized": true,
+    "scientific_freeze": true
+  },
+  "schema_version": "mcad-scientific-freeze-v1",
+  "scientific_decision": {
+    "all_median_targets_met": true,
+    "all_p95_targets_met": true,
+    "all_precision_targets_met": true,
+    "failing_cell_count": 0,
+    "stage10_sufficient": true,
+    "stage20_execution_authorized": false,
+    "stage20_extension_required": false,
+    "successful_bootstrap_execution_count": 1
+  },
+  "source_commit": "39da63c63a3062a79460377280758771d934c9b4",
+  "stage": 10
+}

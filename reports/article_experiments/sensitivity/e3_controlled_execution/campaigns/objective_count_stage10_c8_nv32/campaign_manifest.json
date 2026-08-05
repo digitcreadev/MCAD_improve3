@@ -1,0 +1,36 @@
+{
+  "baseline_constraints_per_objective": 8,
+  "baseline_virtual_nodes_per_objective": 32,
+  "campaign_digest": "25d4ea2a0164ed512b7cf0c74e9d2da16d29c1b7bac2bb107d4817a4e7dc04e5",
+  "campaign_generator_version": "mcad-sensitivity-e2.2-objective-count-v2",
+  "campaign_id": "objective_count_stage10_c8_nv32",
+  "campaign_spec_digest": "eb388d2f89827d42fc0095f54c45846eff316a5a855faa0fdc5a327da4e23eb2",
+  "expected_instance_count": 60,
+  "factor": "objective_count",
+  "level_count": 6,
+  "levels": [
+    1,
+    2,
+    5,
+    10,
+    20,
+    50
+  ],
+  "realised_instance_count": 60,
+  "replication_count": 10,
+  "seeds": [
+    101,
+    202,
+    1198202409,
+    796786883,
+    1126922093,
+    809989256,
+    618554674,
+    1363159082,
+    874332939,
+    1767972531
+  ],
+  "selected_objective_index": 0,
+  "session_support_policy": "union_requirement_sets",
+  "structural_generator_version": "mcad-sensitivity-e2.1-objective-count-v2"
+}

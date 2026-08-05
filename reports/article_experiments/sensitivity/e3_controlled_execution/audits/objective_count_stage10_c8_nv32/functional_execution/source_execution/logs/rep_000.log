@@ -1,0 +1,6 @@
+[OK] E3 controlled execution completed.
+[OK] execution_id=sa5-objective-count-stage10-rep_000-canonical-v1
+[OK] selected_instance_count=6
+[OK] step_count=192
+[OK] output_dir=/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_000_canonical
+[OK] deterministic_execution_digest=a5f37ff6da02793800373d0c1e30454135fdcf41e125d6c9b3487da1ecf526a5

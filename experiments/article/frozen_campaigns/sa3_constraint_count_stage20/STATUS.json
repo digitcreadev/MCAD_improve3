@@ -1,0 +1,15 @@
+{
+  "campaign_id": "sa3_constraint_count_stage20",
+  "freeze_scope": "constraint_count_stage20",
+  "functional_mismatch_count": 0,
+  "global_scientific_freeze": false,
+  "latency_claim_authorized": false,
+  "measurement_observation_count": 20000,
+  "precision_targets_met": true,
+  "repository_persistence_status": "complete",
+  "rerun_required": false,
+  "run_count": 20,
+  "scientific_freeze": true,
+  "scientific_status": "completed_precision_targets_met",
+  "successful_run_count": 20
+}

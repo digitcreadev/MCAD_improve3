@@ -1,0 +1,130 @@
+=== FUNCTIONAL REFERENCES ===
+reference cell=level_000006/rep_003_seed_796786883::step_0001 digest=15337a4dfcdc88b308817cbbe8d04f78664b34f8fe021515779243ba08ee6853
+reference cell=level_000006/rep_003_seed_796786883::step_0002 digest=301e9bded793a411eb7e815465ac15a1e22288a320d9a2402428099c1b47dfea
+reference cell=level_000012/rep_003_seed_796786883::step_0001 digest=851b0412cfd7ce24967676eef5a423ec7687418f1a1273f2bdebff13e5dfcbfd
+reference cell=level_000012/rep_003_seed_796786883::step_0002 digest=8f3e28b9c6c92bb2b4bd0ee6f75372d54ee5e9b8dc045daebc6584b44bf98e0b
+reference cell=level_000024/rep_003_seed_796786883::step_0001 digest=f0f171b61f63d2b5beedca3c25757da51011919ddf081fb0153286020efd5780
+reference cell=level_000024/rep_003_seed_796786883::step_0002 digest=c823106e39ac9641f32e45865bf96b866eb464bdc431ba29cfc2ace57aeb4e44
+
+=== WARMUP ROUNDS ===
+phase=warmup round=1/10 observations=6
+phase=warmup round=2/10 observations=12
+phase=warmup round=3/10 observations=18
+phase=warmup round=4/10 observations=24
+phase=warmup round=5/10 observations=30
+phase=warmup round=6/10 observations=36
+phase=warmup round=7/10 observations=42
+phase=warmup round=8/10 observations=48
+phase=warmup round=9/10 observations=54
+phase=warmup round=10/10 observations=60
+
+=== MEASUREMENT ROUNDS ===
+phase=measurement round=1/100 observations=66
+phase=measurement round=2/100 observations=72
+phase=measurement round=3/100 observations=78
+phase=measurement round=4/100 observations=84
+phase=measurement round=5/100 observations=90
+phase=measurement round=6/100 observations=96
+phase=measurement round=7/100 observations=102
+phase=measurement round=8/100 observations=108
+phase=measurement round=9/100 observations=114
+phase=measurement round=10/100 observations=120
+phase=measurement round=11/100 observations=126
+phase=measurement round=12/100 observations=132
+phase=measurement round=13/100 observations=138
+phase=measurement round=14/100 observations=144
+phase=measurement round=15/100 observations=150
+phase=measurement round=16/100 observations=156
+phase=measurement round=17/100 observations=162
+phase=measurement round=18/100 observations=168
+phase=measurement round=19/100 observations=174
+phase=measurement round=20/100 observations=180
+phase=measurement round=21/100 observations=186
+phase=measurement round=22/100 observations=192
+phase=measurement round=23/100 observations=198
+phase=measurement round=24/100 observations=204
+phase=measurement round=25/100 observations=210
+phase=measurement round=26/100 observations=216
+phase=measurement round=27/100 observations=222
+phase=measurement round=28/100 observations=228
+phase=measurement round=29/100 observations=234
+phase=measurement round=30/100 observations=240
+phase=measurement round=31/100 observations=246
+phase=measurement round=32/100 observations=252
+phase=measurement round=33/100 observations=258
+phase=measurement round=34/100 observations=264
+phase=measurement round=35/100 observations=270
+phase=measurement round=36/100 observations=276
+phase=measurement round=37/100 observations=282
+phase=measurement round=38/100 observations=288
+phase=measurement round=39/100 observations=294
+phase=measurement round=40/100 observations=300
+phase=measurement round=41/100 observations=306
+phase=measurement round=42/100 observations=312
+phase=measurement round=43/100 observations=318
+phase=measurement round=44/100 observations=324
+phase=measurement round=45/100 observations=330
+phase=measurement round=46/100 observations=336
+phase=measurement round=47/100 observations=342
+phase=measurement round=48/100 observations=348
+phase=measurement round=49/100 observations=354
+phase=measurement round=50/100 observations=360
+phase=measurement round=51/100 observations=366
+phase=measurement round=52/100 observations=372
+phase=measurement round=53/100 observations=378
+phase=measurement round=54/100 observations=384
+phase=measurement round=55/100 observations=390
+phase=measurement round=56/100 observations=396
+phase=measurement round=57/100 observations=402
+phase=measurement round=58/100 observations=408
+phase=measurement round=59/100 observations=414
+phase=measurement round=60/100 observations=420
+phase=measurement round=61/100 observations=426
+phase=measurement round=62/100 observations=432
+phase=measurement round=63/100 observations=438
+phase=measurement round=64/100 observations=444
+phase=measurement round=65/100 observations=450
+phase=measurement round=66/100 observations=456
+phase=measurement round=67/100 observations=462
+phase=measurement round=68/100 observations=468
+phase=measurement round=69/100 observations=474
+phase=measurement round=70/100 observations=480
+phase=measurement round=71/100 observations=486
+phase=measurement round=72/100 observations=492
+phase=measurement round=73/100 observations=498
+phase=measurement round=74/100 observations=504
+phase=measurement round=75/100 observations=510
+phase=measurement round=76/100 observations=516
+phase=measurement round=77/100 observations=522
+phase=measurement round=78/100 observations=528
+phase=measurement round=79/100 observations=534
+phase=measurement round=80/100 observations=540
+phase=measurement round=81/100 observations=546
+phase=measurement round=82/100 observations=552
+phase=measurement round=83/100 observations=558
+phase=measurement round=84/100 observations=564
+phase=measurement round=85/100 observations=570
+phase=measurement round=86/100 observations=576
+phase=measurement round=87/100 observations=582
+phase=measurement round=88/100 observations=588
+phase=measurement round=89/100 observations=594
+phase=measurement round=90/100 observations=600
+phase=measurement round=91/100 observations=606
+phase=measurement round=92/100 observations=612
+phase=measurement round=93/100 observations=618
+phase=measurement round=94/100 observations=624
+phase=measurement round=95/100 observations=630
+phase=measurement round=96/100 observations=636
+phase=measurement round=97/100 observations=642
+phase=measurement round=98/100 observations=648
+phase=measurement round=99/100 observations=654
+phase=measurement round=100/100 observations=660
+
+[OK] Reset-safe timing repetitions completed.
+[OK] execution_id=e3-virtual-node-count-stage10-rep_003-strict-common-v1
+[OK] cell_count=6
+[OK] warmup_observation_count=60
+[OK] measurement_observation_count=600
+[OK] fresh_ckg_build_count=666
+[OK] functional_mismatch_count=0
+[OK] all_cells_exactly_balanced=false

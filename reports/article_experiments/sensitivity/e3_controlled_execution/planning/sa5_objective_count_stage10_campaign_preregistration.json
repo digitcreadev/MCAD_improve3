@@ -1,0 +1,400 @@
+{
+  "audit_contract": {
+    "required_duplicate_condition_count": 0,
+    "required_generator_failure_count": 0,
+    "required_instance_count": 60,
+    "required_level_count": 6,
+    "required_missing_instance_count": 0,
+    "required_replication_count": 10,
+    "required_selected_shape_mismatch_count": 0,
+    "required_semantic_mismatch_count": 0,
+    "required_workload_mismatch_count": 0
+  },
+  "authorization": {
+    "bootstrap_execution_authorized": false,
+    "campaign_materialization_authorized_after_preregistration_merge": true,
+    "campaign_materialization_authorized_now": false,
+    "functional_execution_authorized": false,
+    "global_scientific_freeze": false,
+    "latency_claim_authorized": false,
+    "manuscript_integration_authorized": false,
+    "precision_analysis_authorized": false,
+    "preregistration_persistence_authorized": true,
+    "stage20_execution_authorized": false,
+    "timing_execution_authorized": false
+  },
+  "common_workload_contract": {
+    "functional_execution_rule": "Every generated level must execute the same ordered semantic query sequence for its seed.",
+    "noise_distribution": {
+      "insufficient_grain": 0.125,
+      "invalid_aggregation": 0.125,
+      "invalid_time_window": 0.125,
+      "invalid_unit": 0.125,
+      "missing_cube": 0.125,
+      "redundant_contribution": 0.125,
+      "wrong_context": 0.125,
+      "wrong_measure": 0.125
+    },
+    "noise_ratio": 0.25,
+    "objective_binding_rule": "Each level-specific workload is bound to selected_objective_index 0 by deterministic objective-identifier substitution only.",
+    "semantic_equivalence_rule": "After selected-objective identifier normalization, query specifications must be byte-equivalent across levels for a given seed.",
+    "sharing_rule": "For each structural seed, one deterministic canonical workload is shared across all six objective-count levels.",
+    "workload_count_per_replication": 1,
+    "workload_length": 40
+  },
+  "created_utc": "2026-08-04T18:58:27Z",
+  "execution_sequence": [
+    "materialize Stage-10 structures and common workloads",
+    "audit structure, OFAT invariants, references, and workload equivalence",
+    "authorize functional execution in a separate immutable authorization artifact",
+    "execute and audit Stage-10 functional campaign",
+    "preregister timing only after functional completion and workload-cardinality audit"
+  ],
+  "factor": "objective_count",
+  "factor_contract": {
+    "constraints_per_objective": 8,
+    "contribution_density": 0.5,
+    "factor_level_encoding": "integer_total_objective_count",
+    "factor_levels": [
+      1,
+      2,
+      5,
+      10,
+      20,
+      50
+    ],
+    "membership_density": 1.0,
+    "noise_distribution": {
+      "insufficient_grain": 0.125,
+      "invalid_aggregation": 0.125,
+      "invalid_time_window": 0.125,
+      "invalid_unit": 0.125,
+      "missing_cube": 0.125,
+      "redundant_contribution": 0.125,
+      "wrong_context": 0.125,
+      "wrong_measure": 0.125
+    },
+    "noise_ratio": 0.25,
+    "requirement_sets_per_constraint": 1,
+    "selected_objective_binding": "first generated objective",
+    "selected_objective_index": 0,
+    "virtual_nodes_per_objective": 32,
+    "workload_length": 40
+  },
+  "implementation_binding": {
+    "campaign_generator_version": "mcad-sensitivity-e2.2-objective-count-v1",
+    "controlled_family_path": "backend/harness/sensitivity_generator/families/objective_count_family.py",
+    "executor_path": "backend/harness/sensitivity_execution/execute_controlled_family.py",
+    "executor_version": "mcad-sensitivity-e3-v2",
+    "structural_generator_path": "backend/harness/sensitivity_generator/objective_count_generator.py",
+    "structural_generator_version": "mcad-sensitivity-e2.1-objective-count-v1"
+  },
+  "implementation_commit": "a4f7767b2100c997456b55efce2714da6e29254f",
+  "next_stage": "materialize_sa5_objective_count_stage10_structure_and_common_workloads",
+  "ofat_invariants": [
+    "realised objective count equals the registered factor level",
+    "selected objective index remains equal to 0",
+    "selected objective constraint count remains equal to 8",
+    "selected objective virtual-node count remains equal to 32",
+    "selected-objective structural shape digest is invariant across factor levels within each seed",
+    "total constraint count equals factor level multiplied by 8",
+    "total virtual-node count equals factor level multiplied by 32",
+    "membership density remains equal to 1.0",
+    "workload length remains equal to 40",
+    "realised workload noise ratio remains equal to 0.25 within the preregistered tolerance",
+    "campaign and structural generator versions match the objective-count E3 profile"
+  ],
+  "phase": "SA5",
+  "planned_repository_paths": {
+    "audit_root": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/stage10",
+    "campaign_root": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32",
+    "deferred_manuscript_fragment": null,
+    "frozen_campaign": null,
+    "timing_plan": null
+  },
+  "preregistration_id": "sa5_objective_count_stage10_c8_nv32",
+  "replication_contract": {
+    "expected_instance_count": 60,
+    "level_count": 6,
+    "planned_instances_by_level": [
+      {
+        "expected_instance_count": 10,
+        "expected_total_constraint_count": 8,
+        "expected_total_virtual_node_count": 32,
+        "factor_level": 1,
+        "replication_count": 10
+      },
+      {
+        "expected_instance_count": 10,
+        "expected_total_constraint_count": 16,
+        "expected_total_virtual_node_count": 64,
+        "factor_level": 2,
+        "replication_count": 10
+      },
+      {
+        "expected_instance_count": 10,
+        "expected_total_constraint_count": 40,
+        "expected_total_virtual_node_count": 160,
+        "factor_level": 5,
+        "replication_count": 10
+      },
+      {
+        "expected_instance_count": 10,
+        "expected_total_constraint_count": 80,
+        "expected_total_virtual_node_count": 320,
+        "factor_level": 10,
+        "replication_count": 10
+      },
+      {
+        "expected_instance_count": 10,
+        "expected_total_constraint_count": 160,
+        "expected_total_virtual_node_count": 640,
+        "factor_level": 20,
+        "replication_count": 10
+      },
+      {
+        "expected_instance_count": 10,
+        "expected_total_constraint_count": 400,
+        "expected_total_virtual_node_count": 1600,
+        "factor_level": 50,
+        "replication_count": 10
+      }
+    ],
+    "replication_count": 10,
+    "seed_schedule_policy": "reuse the canonical first ten structural seeds already used for the frozen membership-density Stage-10 campaign",
+    "seed_schedule_source_count": 12,
+    "seed_schedule_sources": [
+      {
+        "json_path": "seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/campaign_manifest.json",
+        "source_sha256": "8f70dd9a9ebbe888aa396bfe0b46caa53a04c1d3842b4ba1479b487fcb755aa2"
+      },
+      {
+        "json_path": "seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/campaign_spec.json",
+        "source_sha256": "0dcf91ca6b22e7dc6464662f109d78f387b6b57beb846b80a93c805232c7e50c"
+      },
+      {
+        "json_path": "campaign_contract.structural_seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_canonical_campaign_generation_report.json",
+        "source_sha256": "4ee291b915587d128a57371f429386ed19efb03464102bd9b16f91dea445ae25"
+      },
+      {
+        "json_path": "structural_seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_canonical_campaign_preregistration_report.json",
+        "source_sha256": "38b3b94a9f3a0b5580d3c2bc938551532879f5a2e2cd78dd52e0246e9d7ffb68"
+      },
+      {
+        "json_path": "observation_adapter_contract.output_contract.structural_seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_non_mutating_precision_adapter_preregistration.json",
+        "source_sha256": "4e7041988c388837f5d4d71c07a659a209b479ddf4dd1f1cd7798cbb8aa2695b"
+      },
+      {
+        "json_path": "structural_contract.seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_portfolio_timing_preregistration.json",
+        "source_sha256": "1d019eb8a26d38a7073788b4d54a4254bdad8e5e8fbabc69e0bd2ef0da7c185b"
+      },
+      {
+        "json_path": "structural_contract.seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_timing_preregistration_preflight.json",
+        "source_sha256": "bf6a7c111d31b9e5e8936133e8be715a64c6c7b90e2f628dc9b4651b7cf611f3"
+      },
+      {
+        "json_path": "campaign_contract.structural_seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz!payload/reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_canonical_campaign_generation_report.json",
+        "source_sha256": "4ee291b915587d128a57371f429386ed19efb03464102bd9b16f91dea445ae25"
+      },
+      {
+        "json_path": "structural_seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz!payload/reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_canonical_campaign_preregistration_report.json",
+        "source_sha256": "38b3b94a9f3a0b5580d3c2bc938551532879f5a2e2cd78dd52e0246e9d7ffb68"
+      },
+      {
+        "json_path": "observation_adapter_contract.output_contract.structural_seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz!payload/reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_non_mutating_precision_adapter_preregistration.json",
+        "source_sha256": "4e7041988c388837f5d4d71c07a659a209b479ddf4dd1f1cd7798cbb8aa2695b"
+      },
+      {
+        "json_path": "structural_contract.seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz!payload/reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_portfolio_timing_preregistration.json",
+        "source_sha256": "1d019eb8a26d38a7073788b4d54a4254bdad8e5e8fbabc69e0bd2ef0da7c185b"
+      },
+      {
+        "json_path": "structural_contract.seeds",
+        "seeds": [
+          101,
+          202,
+          1198202409,
+          796786883,
+          1126922093,
+          809989256,
+          618554674,
+          1363159082,
+          874332939,
+          1767972531
+        ],
+        "source": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz!payload/reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_timing_preregistration_preflight.json",
+        "source_sha256": "bf6a7c111d31b9e5e8936133e8be715a64c6c7b90e2f628dc9b4651b7cf611f3"
+      }
+    ],
+    "stage": 10,
+    "structural_seeds": [
+      101,
+      202,
+      1198202409,
+      796786883,
+      1126922093,
+      809989256,
+      618554674,
+      1363159082,
+      874332939,
+      1767972531
+    ]
+  },
+  "schema_version": "mcad-sa5-objective-count-stage10-campaign-preregistration-v1",
+  "scientific_controls": {
+    "bootstrap_execution_performed": false,
+    "canonical_campaign_generated": false,
+    "manuscript_modified": false,
+    "scientific_execution_performed": false,
+    "timing_execution_performed": false
+  },
+  "scientific_question": "Measure the effect of increasing the total number of objectives in the CKG while the selected objective, its per-objective structure, and its workload remain controlled.",
+  "source_branch": "paper/phase3-controlled-execution",
+  "source_commit": "496addef55cc60a3303fa1e62a12392be2296ece",
+  "source_repository": "digitcreadev/MCAD_improve3",
+  "stage": 10,
+  "status": "preregistered_not_materialized"
+}

@@ -1,0 +1,89 @@
+{
+  "campaign_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/formal_campaigns/virtual_node_count_stage10_c4",
+  "campaign_id": "virtual_node_count_stage10_c4",
+  "contract_version": "mcad-e3-virtual-node-count-stage10-replication-plan-v1",
+  "functional_execution_performed": false,
+  "replications": [
+    {
+      "execution_authorized": false,
+      "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_000_strict_common.json",
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_000_strict_common",
+      "replication_index": 0,
+      "seed": 101,
+      "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_000_strict_common.json"
+    },
+    {
+      "execution_authorized": false,
+      "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_001_strict_common.json",
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_001_strict_common",
+      "replication_index": 1,
+      "seed": 202,
+      "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_001_strict_common.json"
+    },
+    {
+      "execution_authorized": false,
+      "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_002_strict_common.json",
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_002_strict_common",
+      "replication_index": 2,
+      "seed": 1198202409,
+      "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_002_strict_common.json"
+    },
+    {
+      "execution_authorized": false,
+      "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_003_strict_common.json",
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_003_strict_common",
+      "replication_index": 3,
+      "seed": 796786883,
+      "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_003_strict_common.json"
+    },
+    {
+      "execution_authorized": false,
+      "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_004_strict_common.json",
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_004_strict_common",
+      "replication_index": 4,
+      "seed": 1126922093,
+      "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_004_strict_common.json"
+    },
+    {
+      "execution_authorized": false,
+      "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_005_strict_common.json",
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_005_strict_common",
+      "replication_index": 5,
+      "seed": 809989256,
+      "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_005_strict_common.json"
+    },
+    {
+      "execution_authorized": false,
+      "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_006_strict_common.json",
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_006_strict_common",
+      "replication_index": 6,
+      "seed": 618554674,
+      "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_006_strict_common.json"
+    },
+    {
+      "execution_authorized": false,
+      "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_007_strict_common.json",
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_007_strict_common",
+      "replication_index": 7,
+      "seed": 1363159082,
+      "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_007_strict_common.json"
+    },
+    {
+      "execution_authorized": false,
+      "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_008_strict_common.json",
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_008_strict_common",
+      "replication_index": 8,
+      "seed": 874332939,
+      "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_008_strict_common.json"
+    },
+    {
+      "execution_authorized": false,
+      "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_009_strict_common.json",
+      "output_dir": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_009_strict_common",
+      "replication_index": 9,
+      "seed": 1767972531,
+      "workload_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_009_strict_common.json"
+    }
+  ],
+  "timing_execution_performed": false
+}

@@ -109,6 +109,7 @@ def clone_objective(objective_id: str) -> Objective:
         id=new_id,
         name=base.name + " (clone)",
         description=base.description,
+        session_support_policy=base.session_support_policy,
         kpis=list(base.kpis),
         constraints=list(base.constraints),
     )

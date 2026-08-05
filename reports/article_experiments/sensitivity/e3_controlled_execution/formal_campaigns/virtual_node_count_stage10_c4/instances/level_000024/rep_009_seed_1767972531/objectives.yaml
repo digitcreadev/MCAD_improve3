@@ -1,0 +1,370 @@
+objectives:
+- id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009
+  name: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009
+  description: Synthetic sensitivity structural objective
+  kpis:
+  - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_KPI0001
+  - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_KPI0002
+  - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_KPI0003
+  - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_KPI0004
+  constraints:
+  - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001
+    kpi_id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_KPI0001
+    description: Synthetic constraint 1
+    weight: 1.0
+    virtual_nodes:
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_01
+        Time.Year: '2013'
+      window_start: '2013-01-01'
+      window_end: '2013-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0002
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_05
+        Time.Year: '2012'
+      window_start: '2012-01-01'
+      window_end: '2012-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0003
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_02
+        Time.Year: '2013'
+      window_start: '2013-01-01'
+      window_end: '2013-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0004
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_03
+        Time.Year: '2012'
+      window_start: '2012-01-01'
+      window_end: '2012-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0005
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_07
+        Time.Year: '2009'
+      window_start: '2009-01-01'
+      window_end: '2009-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0006
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Sales
+      aggregator: SUM
+      unit: USD
+      slicers:
+        Geography.Region: Region_09
+        Time.Year: '2004'
+      window_start: '2004-01-01'
+      window_end: '2004-12-31'
+    requirement_sets:
+    - - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0001
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0002
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0003
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0004
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0005
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0001_NV0006
+  - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002
+    kpi_id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_KPI0002
+    description: Synthetic constraint 2
+    weight: 1.0
+    virtual_nodes:
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_10
+        Time.Year: '2000'
+      window_start: '2000-01-01'
+      window_end: '2000-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0002
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_08
+        Time.Year: '2004'
+      window_start: '2004-01-01'
+      window_end: '2004-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0003
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_10
+        Time.Year: '2005'
+      window_start: '2005-01-01'
+      window_end: '2005-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0004
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_04
+        Time.Year: '2005'
+      window_start: '2005-01-01'
+      window_end: '2005-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0005
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_10
+        Time.Year: '2000'
+      window_start: '2000-01-01'
+      window_end: '2000-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0006
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Cost
+      aggregator: AVG
+      unit: PERCENT
+      slicers:
+        Geography.Region: Region_04
+        Time.Year: '2000'
+      window_start: '2000-01-01'
+      window_end: '2000-12-31'
+    requirement_sets:
+    - - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0001
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0002
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0003
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0004
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0005
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0002_NV0006
+  - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003
+    kpi_id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_KPI0003
+    description: Synthetic constraint 3
+    weight: 1.0
+    virtual_nodes:
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Margin
+      aggregator: MIN
+      unit: COUNT
+      slicers:
+        Geography.Region: Region_02
+        Time.Year: '2005'
+      window_start: '2005-01-01'
+      window_end: '2005-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0002
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Margin
+      aggregator: MIN
+      unit: COUNT
+      slicers:
+        Geography.Region: Region_02
+        Time.Year: '2010'
+      window_start: '2010-01-01'
+      window_end: '2010-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0003
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Margin
+      aggregator: MIN
+      unit: COUNT
+      slicers:
+        Geography.Region: Region_09
+        Time.Year: '2007'
+      window_start: '2007-01-01'
+      window_end: '2007-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0004
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Margin
+      aggregator: MIN
+      unit: COUNT
+      slicers:
+        Geography.Region: Region_01
+        Time.Year: '2013'
+      window_start: '2013-01-01'
+      window_end: '2013-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0005
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Margin
+      aggregator: MIN
+      unit: COUNT
+      slicers:
+        Geography.Region: Region_07
+        Time.Year: '2020'
+      window_start: '2020-01-01'
+      window_end: '2020-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0006
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Margin
+      aggregator: MIN
+      unit: COUNT
+      slicers:
+        Geography.Region: Region_02
+        Time.Year: '2012'
+      window_start: '2012-01-01'
+      window_end: '2012-12-31'
+    requirement_sets:
+    - - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0001
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0002
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0003
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0004
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0005
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0003_NV0006
+  - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004
+    kpi_id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_KPI0004
+    description: Synthetic constraint 4
+    weight: 1.0
+    virtual_nodes:
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0001
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Quantity
+      aggregator: MAX
+      unit: USD
+      slicers:
+        Geography.Region: Region_04
+        Time.Year: '2012'
+      window_start: '2012-01-01'
+      window_end: '2012-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0002
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Quantity
+      aggregator: MAX
+      unit: USD
+      slicers:
+        Geography.Region: Region_05
+        Time.Year: '2018'
+      window_start: '2018-01-01'
+      window_end: '2018-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0003
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Quantity
+      aggregator: MAX
+      unit: USD
+      slicers:
+        Geography.Region: Region_01
+        Time.Year: '2015'
+      window_start: '2015-01-01'
+      window_end: '2015-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0004
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Quantity
+      aggregator: MAX
+      unit: USD
+      slicers:
+        Geography.Region: Region_08
+        Time.Year: '2015'
+      window_start: '2015-01-01'
+      window_end: '2015-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0005
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Quantity
+      aggregator: MAX
+      unit: USD
+      slicers:
+        Geography.Region: Region_04
+        Time.Year: '2003'
+      window_start: '2003-01-01'
+      window_end: '2003-12-31'
+    - id: O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0006
+      fact: SyntheticFact
+      grain:
+      - Time.Month
+      - Geography.Region
+      measure: Quantity
+      aggregator: MAX
+      unit: USD
+      slicers:
+        Geography.Region: Region_03
+        Time.Year: '2013'
+      window_start: '2013-01-01'
+      window_end: '2013-12-31'
+    requirement_sets:
+    - - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0001
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0002
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0003
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0004
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0005
+      - O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R009_C0004_NV0006

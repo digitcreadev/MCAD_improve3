@@ -377,3 +377,54 @@ def test_no_production_evaluation_call() -> None:
 
     for token in forbidden_call_tokens:
         assert token not in source
+
+
+def test_objective_count_dispatch_uses_dedicated_profile(
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "objective_count_dispatch"
+
+    manifest = generate_controlled_family(
+        make_spec(
+            output_dir,
+            factor="objective_count",
+            levels=(1, 2),
+            seeds=(101,),
+            baseline_constraint_count=8,
+            baseline_virtual_node_count=32,
+        )
+    )
+
+    assert manifest.factor == "objective_count"
+    assert manifest.campaign_generator_version == (
+        "mcad-sensitivity-e2.2-objective-count-v2"
+    )
+    assert manifest.structural_generator_version == (
+        "mcad-sensitivity-e2.1-objective-count-v2"
+    )
+
+    rows = read_csv(
+        output_dir / "instances.csv"
+    )
+
+    assert len(rows) == 2
+
+    assert {
+        int(row["realised_objective_count"])
+        for row in rows
+    } == {1, 2}
+
+    for row in rows:
+        level = int(row["factor_level"])
+        assert int(row["selected_objective_constraint_count"]) == 8
+        assert int(row["requested_virtual_node_count"]) == 32
+        assert int(row["realised_virtual_node_count"]) == 32
+        assert int(row["total_constraint_count"]) == 8 * level
+        assert int(row["useful_virtual_node_count"]) == 24 * level
+        assert int(row["irrelevant_virtual_node_count"]) == 8 * level
+        assert int(row["total_virtual_node_count"]) == 32 * level
+        assert int(row["requirement_set_count"]) == 16 * level
+        assert int(row["requirement_membership_link_count"]) == 32 * level
+        assert int(row["maximum_membership_link_count"]) == 64 * level
+        assert float(row["realised_density"]) == 0.5
+        assert row["session_support_policy"] == "union_requirement_sets"

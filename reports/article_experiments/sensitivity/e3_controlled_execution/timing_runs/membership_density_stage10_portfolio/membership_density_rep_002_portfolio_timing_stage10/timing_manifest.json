@@ -1,0 +1,92 @@
+{
+  "all_cells_exactly_balanced": false,
+  "campaign_id": "membership_density_stage10_c4_nv24",
+  "cell_count": 92,
+  "clock": "time.perf_counter_ns",
+  "configuration": {
+    "execution_spec_path": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_002_portfolio_timing_stage10.json",
+    "execution_spec_sha256": "9389f1b472855dfaffbaeff0133be0f6ba07641135c2079c26e2ea30d3a8c246",
+    "measurements": 100,
+    "order_seed": 20260730,
+    "source_identities": {
+      "canonical_executor": {
+        "path": "/workspaces/MCAD_improve3/backend/harness/sensitivity_execution/execute_controlled_family.py",
+        "sha256": "aac9adad0dbabdb90b2ca43e81f9426924343b425156abfc37cf61c096eb4a6c"
+      },
+      "ckg_graph": {
+        "path": "/workspaces/MCAD_improve3/backend/ckg/ckg_updater.py",
+        "sha256": "b37e0552e51f4976e37b99eece30bdf2e94c1dd38c3cc639ad42094424ed33d0"
+      },
+      "timing_harness": {
+        "path": "/workspaces/MCAD_improve3/backend/harness/sensitivity_execution/run_timing_repetitions.py",
+        "sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595"
+      }
+    },
+    "timing_harness_version": "mcad-sensitivity-sa3-timing-v2",
+    "warmups": 10
+  },
+  "configuration_digest": "575e5a9f5ef3f6edbd7d6ec8f9ef98ca86ef28abb74bf2ef5bd3a6f6decb53ed",
+  "cross_repetition_state_reuse": false,
+  "environment": {
+    "machine": "x86_64",
+    "platform": "Linux-6.8.0-1052-azure-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.1 (main, Mar 11 2026, 12:17:56) [GCC 13.3.0]"
+  },
+  "execution_id": "e3-membership-density-rep_002-portfolio-timing-stage10-v1",
+  "fresh_ckg_build_count": 10212,
+  "fresh_state_per_observation": true,
+  "functional_mismatch_count": 0,
+  "input_digests": {
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/campaign_manifest.json": "8f70dd9a9ebbe888aa396bfe0b46caa53a04c1d3842b4ba1479b487fcb755aa2",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/campaign_spec.json": "0dcf91ca6b22e7dc6464662f109d78f387b6b57beb846b80a93c805232c7e50c",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/instances.csv": "501bb5666a90f165ffdc9959c3675ed7d3c146fb1460801a86e26ef7aa4ad636",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/instances/level_000025/rep_002_seed_1198202409/manifest.json": "d16ccc09f1cc28b28344cb5f3486701b5a10eeb16ca4ba66a1b672eb8f09fe66",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/instances/level_000025/rep_002_seed_1198202409/objectives.yaml": "145549f3988ef24dec09dd5c0aba4cb6e404933a81cae07bf15bb935e7e6f790",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/instances/level_000050/rep_002_seed_1198202409/manifest.json": "3a42b9471a99adc8dfe7b6ab9a9b371cececa8d8b9557790f7548139d83156df",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/instances/level_000050/rep_002_seed_1198202409/objectives.yaml": "9e7a55d55efc098b881b11a61314096a0d9347900bdcc5857913d0b5d13d3960",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/instances/level_000075/rep_002_seed_1198202409/manifest.json": "1bd938798b29517aea6b29db3f024aaf8fa61f834442be9a57d581ee2dcdb6dd",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/instances/level_000075/rep_002_seed_1198202409/objectives.yaml": "0a10e726e4aa526b75841bc1bc6ce3eeba24f69582500eff55940a1162c2218b",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/instances/level_000100/rep_002_seed_1198202409/manifest.json": "5f5e5653a549a16b9142eb2faac6b562159e61fc70fb0ed6ceb1735e3a368490",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/planning/formal_campaigns/membership_density_stage10_c4_nv24/instances/level_000100/rep_002_seed_1198202409/objectives.yaml": "ef264cc4bfdd84a428b869c3516c4061b9561bb0889722d556451011a768936a",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/execution_specs/membership_density_rep_002_portfolio_timing_stage10.json": "9389f1b472855dfaffbaeff0133be0f6ba07641135c2079c26e2ea30d3a8c246",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_inputs/membership_density_stage10_portfolio/workloads/membership_density_rep_002_portfolio_timing_stage10.json": "838e22ea061d2ebe2704a323dff4f3d205975895747d1aae3685ae0a8dff376d"
+  },
+  "instance_count": 4,
+  "latency_claim_authorized": false,
+  "measurement_observation_count": 9200,
+  "order_policy": "deterministic shuffled base order with cyclic rotation by round",
+  "outputs": {
+    "functional_references_json": "functional_references.json",
+    "functional_references_sha256": "3be5696288c7cb0278de0c4da487defde1855d5691fd73ffa3525192bb252d1c",
+    "timing_observations_csv": "timing_observations.csv",
+    "timing_observations_sha256": "b69335a1315d8f5796211eaf9b256fb4b4b002a59798ae3d083da32aa8b0fc62",
+    "timing_summary_json": "timing_summary.json",
+    "timing_summary_sha256": "242578560e3fb3536888800ef47b7c00a9a3b31ebe08646f86b884010437030e"
+  },
+  "prefix_replay_preserves_session_state": true,
+  "reference_count": 92,
+  "schema_version": "mcad-sensitivity-sa3-timing-manifest-v1",
+  "scientific_freeze": false,
+  "source_identities": {
+    "canonical_executor": {
+      "path": "/workspaces/MCAD_improve3/backend/harness/sensitivity_execution/execute_controlled_family.py",
+      "sha256": "aac9adad0dbabdb90b2ca43e81f9426924343b425156abfc37cf61c096eb4a6c"
+    },
+    "ckg_graph": {
+      "path": "/workspaces/MCAD_improve3/backend/ckg/ckg_updater.py",
+      "sha256": "b37e0552e51f4976e37b99eece30bdf2e94c1dd38c3cc639ad42094424ed33d0"
+    },
+    "timing_harness": {
+      "path": "/workspaces/MCAD_improve3/backend/harness/sensitivity_execution/run_timing_repetitions.py",
+      "sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595"
+    }
+  },
+  "status": "success",
+  "step_count_per_instance": 23,
+  "timed_scope": "production CKGGraph.evaluate_step target call only",
+  "timing_harness_version": "mcad-sensitivity-sa3-timing-v2",
+  "warmup_observation_count": 920,
+  "warmups_excluded_from_summary": true,
+  "workload_id": "e3-membership-density-rep_002-portfolio-timing-stage10-v1"
+}

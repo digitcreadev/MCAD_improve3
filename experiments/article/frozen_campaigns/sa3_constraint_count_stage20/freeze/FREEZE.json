@@ -1,0 +1,7 @@
+{
+  "freeze_scope": "constraint_count_stage20",
+  "global_scientific_freeze": false,
+  "latency_claim_authorized": false,
+  "precision_targets_met": true,
+  "scientific_freeze": true
+}

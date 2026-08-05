@@ -1,0 +1,219 @@
+{
+  "analysis_outputs": {
+    "analyzer_log_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/analyzer.log",
+    "analyzer_log_sha256": "7b50886723e1d1075bc9fcd681170f0a59b489450ff674b86c29195156fd3b1b",
+    "decision_report_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/stage10_precision_decision_report.json",
+    "decision_report_sha256": "84ffceadaf9f07d89e28e600deb6f5c1f1b892f7350b87aeb57d4924cea4694a",
+    "intervals_csv_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/clustered_precision_intervals.csv",
+    "intervals_csv_sha256": "067ca4e0cc0c013cde5aebb96d2364ef39c91d5bfeba7b6d0a77735d6295282c",
+    "raw_markdown_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/raw_analyzer_report.md",
+    "raw_markdown_sha256": "3373c79d8d4d73be372ca4e8c268217c5db6ef80e555c130930869d645a0837b",
+    "raw_report_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/raw_analyzer_report.json",
+    "raw_report_sha256": "d59681df37f0427f2b74170966922fb50e9959b62556f116209236e2aad9c13e"
+  },
+  "analyzer": {
+    "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+    "preregistered_sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504",
+    "sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504",
+    "sha256_matches_preregistration": true,
+    "stage_contract": {
+      "analysis_stage": "SA3_stage_10_precision_analysis",
+      "extension_key": "extension_to_stage20_required",
+      "extension_next_stage": "SA3_stage_20_generation",
+      "failure_status": "stage10_precision_targets_not_met",
+      "success_next_stage": "SA4_membership_density_design",
+      "success_status": "stage10_precision_targets_met",
+      "sufficient_key": "stage10_sufficient",
+      "timing_status": "stage10_formal_timing_execution_success",
+      "totals_key": "totals"
+    }
+  },
+  "campaign_id": "virtual_node_count_stage10_c4",
+  "created_utc": "2026-08-02T17:56:24Z",
+  "execution_state": {
+    "analyzer_invocation_attempt_count": 2,
+    "bootstrap_execution_count": 1,
+    "functional_execution_rerun_performed": false,
+    "precision_analysis_performed": true,
+    "successful_analyzer_invocation_count": 1,
+    "timing_execution_rerun_performed": false
+  },
+  "factor": "virtual_node_count",
+  "observations": {
+    "cell_count": 60,
+    "column_count": 23,
+    "columns": [
+      "formal_replication_index",
+      "formal_structural_seed",
+      "formal_order_seed",
+      "phase",
+      "phase_round",
+      "order_position",
+      "observation_index",
+      "cell_id",
+      "canonical_instance_id",
+      "factor_level",
+      "replication_index",
+      "seed",
+      "step_position",
+      "step_index",
+      "step_id",
+      "prefix_step_count",
+      "fresh_state",
+      "wall_latency_ns",
+      "wall_latency_ms",
+      "cpu_latency_ns",
+      "cpu_latency_ms",
+      "semantic_digest",
+      "semantic_match"
+    ],
+    "factor_levels": [
+      6,
+      12,
+      24
+    ],
+    "formal_order_seed_column": "formal_order_seed",
+    "formal_replication_column": "formal_replication_index",
+    "formal_structural_seed_column": "formal_structural_seed",
+    "line_ending": "LF",
+    "measurements_per_cluster_and_cell": 100,
+    "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/stage10_measurement_observations.csv",
+    "phase": "measurement",
+    "replication_count": 10,
+    "row_count": 6000,
+    "schema_matches_v2_analyzer": true,
+    "sha256": "b24c4df9e85bfc42a19d89a0e123d74f1318e953452578ab13874a471a8a29d4",
+    "step_indexes": [
+      1,
+      2
+    ],
+    "structural_seed_count": 10
+  },
+  "schema_repair": {
+    "added_columns": [
+      "formal_replication_index",
+      "formal_structural_seed",
+      "formal_order_seed"
+    ],
+    "cell_count": 60,
+    "failed_attempt_log_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/analyzer_failed_schema.log",
+    "failed_attempt_log_sha256": "863d3886541b32b9bd02973cbd31039c035164d71a39eb3bbffe973a1d0edbae",
+    "failed_attempt_reached_bootstrap": false,
+    "measurements_per_cluster_and_cell": 100,
+    "reason": "The immutable v2 analyzer requires formal replication, structural-seed and order-seed columns matching the validated constraint-count aggregate precedent.",
+    "repaired_observations_sha256": "b24c4df9e85bfc42a19d89a0e123d74f1318e953452578ab13874a471a8a29d4",
+    "repaired_utc": "2026-08-02T18:12:32Z",
+    "row_count": 6000,
+    "source_observations_sha256": "2a5254ce62841815a842e98842ed0ed3b19afcf8a4e17c687d57dfa6f6605c61",
+    "status": "pass"
+  },
+  "schema_version": "mcad-virtual-node-count-stage10-precision-input-manifest-v2",
+  "source_timing_csv_files": [
+    {
+      "measurement_row_count": 600,
+      "replication_index": 0,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/virtual_node_count_stage10_c4/rep_000/timing_observations.csv",
+      "source_row_count": 660,
+      "source_sha256": "ef8dd7082dabed553d44f3eceb04de50e7860a46c832a384cd3b4cf369748b09",
+      "structural_seed": 101,
+      "warmup_row_count": 60
+    },
+    {
+      "measurement_row_count": 600,
+      "replication_index": 1,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/virtual_node_count_stage10_c4/rep_001/timing_observations.csv",
+      "source_row_count": 660,
+      "source_sha256": "1ee6e5aaac7d4221c717eec57100c5bd6c07a6ed445dacb896a5b02e67a845d7",
+      "structural_seed": 202,
+      "warmup_row_count": 60
+    },
+    {
+      "measurement_row_count": 600,
+      "replication_index": 2,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/virtual_node_count_stage10_c4/rep_002/timing_observations.csv",
+      "source_row_count": 660,
+      "source_sha256": "515c226024b86f36f22cf18090de4d6fe0a1af4996bceb683b5fe3420fb801e2",
+      "structural_seed": 1198202409,
+      "warmup_row_count": 60
+    },
+    {
+      "measurement_row_count": 600,
+      "replication_index": 3,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/virtual_node_count_stage10_c4/rep_003/timing_observations.csv",
+      "source_row_count": 660,
+      "source_sha256": "26825c3f8c544187ade93f52b07fc756ac01e03a24057ee8dd14597fc1ce76a9",
+      "structural_seed": 796786883,
+      "warmup_row_count": 60
+    },
+    {
+      "measurement_row_count": 600,
+      "replication_index": 4,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/virtual_node_count_stage10_c4/rep_004/timing_observations.csv",
+      "source_row_count": 660,
+      "source_sha256": "bbc9469e33be371838cad2f49b831e0bf333fc2e46026dcd0a9e09576994acd7",
+      "structural_seed": 1126922093,
+      "warmup_row_count": 60
+    },
+    {
+      "measurement_row_count": 600,
+      "replication_index": 5,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/virtual_node_count_stage10_c4/rep_005/timing_observations.csv",
+      "source_row_count": 660,
+      "source_sha256": "9da32c4a070e6ef00d555a971873a3e1524d4f76c74af8df7d6c00bf52213eb6",
+      "structural_seed": 809989256,
+      "warmup_row_count": 60
+    },
+    {
+      "measurement_row_count": 600,
+      "replication_index": 6,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/virtual_node_count_stage10_c4/rep_006/timing_observations.csv",
+      "source_row_count": 660,
+      "source_sha256": "b282310b87484cc43ff74bedf767f631fd8601b5a05f71fb7349162f8a855582",
+      "structural_seed": 618554674,
+      "warmup_row_count": 60
+    },
+    {
+      "measurement_row_count": 600,
+      "replication_index": 7,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/virtual_node_count_stage10_c4/rep_007/timing_observations.csv",
+      "source_row_count": 660,
+      "source_sha256": "6d0217d4591f97d45460552d96f1dd8c0b947946059eda8962f449fab03e8f96",
+      "structural_seed": 1363159082,
+      "warmup_row_count": 60
+    },
+    {
+      "measurement_row_count": 600,
+      "replication_index": 8,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/virtual_node_count_stage10_c4/rep_008/timing_observations.csv",
+      "source_row_count": 660,
+      "source_sha256": "06c2208135abbf6581594d60099650b74231eea12b4d09f1dccd7f534eed1f30",
+      "structural_seed": 874332939,
+      "warmup_row_count": 60
+    },
+    {
+      "measurement_row_count": 600,
+      "replication_index": 9,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/virtual_node_count_stage10_c4/rep_009/timing_observations.csv",
+      "source_row_count": 660,
+      "source_sha256": "d9f9b54730f4f2a5ceb24d1dc7c84c14fa40d6889cd7a04c09d28c0bd627cdf5",
+      "structural_seed": 1767972531,
+      "warmup_row_count": 60
+    }
+  ],
+  "status": "pass",
+  "timing_report_adapter": {
+    "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/analyzer_timing_report_adapter.json",
+    "sha256": "de94d9149cdaa68d96115722cc7aea75afd67069fe22acf37cb908687310788c",
+    "status": "stage10_formal_timing_execution_success",
+    "totals": {
+      "cell_count": 60,
+      "exactly_balanced_run_count": 10,
+      "functional_mismatch_count": 0,
+      "measurement_observation_count": 6000,
+      "run_count": 10,
+      "structural_seed_count": 10,
+      "successful_run_count": 10
+    },
+    "totals_key": "totals"
+  }
+}

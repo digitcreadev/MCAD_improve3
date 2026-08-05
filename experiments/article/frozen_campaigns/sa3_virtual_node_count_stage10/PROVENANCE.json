@@ -1,0 +1,8 @@
+{
+  "campaign_regenerated_during_freeze": false,
+  "canonical_archive": "virtual_node_count_stage10_canonical_20260802T182731Z.tar.gz",
+  "canonical_archive_sha256": "f192aa5a2204c43776f3d8a4cef176ef3233fc101a5e40230557934c0698d072",
+  "canonical_archive_size_bytes": 533353,
+  "packaging_mode": "existing_evidence_exact_snapshot",
+  "source_commit": "4ad3f6aa90fd47107bb767ffeb23e38d995e3120"
+}

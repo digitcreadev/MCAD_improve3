@@ -1,0 +1,22 @@
+{
+  "all_steps_committed": true,
+  "backend_http_api_used": false,
+  "canonical_instance_id": "level_000006/rep_006_seed_618554674",
+  "cross_instance_state_reuse": false,
+  "cumulative_phi_in_range": true,
+  "cumulative_phi_monotone": true,
+  "evaluator_entrypoint_preserved": true,
+  "evaluator_reimplementation": false,
+  "execution_id": "e3-virtual-node-count-stage10-rep_006-strict-common-v1",
+  "fresh_runtime_state": true,
+  "fresh_session": true,
+  "history_entry_count": 2,
+  "objective_id": "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R006",
+  "schema_version": "mcad-sensitivity-e3-instance-audit-v1",
+  "semantic_digest": "65721ac883c09d4122d5c5f83b36fdd82f5506d0ea2ccc2814519be3aed2a282",
+  "session_id": "S_E3_VIRTUAL_NODE_COUNT_STAGE10_REP_006_STRICT_COMMON::level_000006/rep_006_seed_618554674",
+  "source_instance_digest": "f9ad035a672f522eb4229624f2b1a2ca6029c555609783035de80b472bf2f34a",
+  "status": "success",
+  "step_order_preserved": true,
+  "timeline_step_count": 2
+}

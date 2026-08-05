@@ -1,0 +1,7 @@
+{
+  "freeze_scope": "virtual_node_count_stage10",
+  "global_scientific_freeze": false,
+  "latency_claim_authorized": false,
+  "precision_targets_met": true,
+  "scientific_freeze": true
+}

@@ -1,0 +1,181 @@
+{
+  "analysis_contract": {
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20260728,
+    "confidence_level": 0.95,
+    "factor_levels": [
+      25,
+      50,
+      75,
+      100
+    ],
+    "inferential_cell_count": 4,
+    "measurement_observation_count": 92000,
+    "measurements_per_cluster": 2300,
+    "measurements_per_inferential_cell": 23000,
+    "median_relative_half_width_target": 0.1,
+    "p95_relative_half_width_target": 0.15,
+    "structural_seed_count": 10,
+    "synthetic_step_indexes": [
+      0
+    ]
+  },
+  "analysis_execution": {
+    "adapter_rematerialization_performed": false,
+    "authorized_execution_count": 1,
+    "precision_analysis_authorized": true,
+    "precision_analysis_performed": true,
+    "successful_bootstrap_execution_count": 1,
+    "timing_reexecution_performed": false
+  },
+  "cell_results": [
+    {
+      "all_cell_targets_met": true,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20510728,
+      "factor": "membership_density",
+      "factor_level": 25,
+      "median_ms": null,
+      "median_relative_half_width": 0.006101422311198159,
+      "median_relative_half_width_target": 0.1,
+      "median_target_met": true,
+      "p95_ms": null,
+      "p95_relative_half_width": 0.023700583596975716,
+      "p95_relative_half_width_target": 0.15,
+      "p95_target_met": true,
+      "raw_analyzer_factor": "constraint_count",
+      "step_index": 0
+    },
+    {
+      "all_cell_targets_met": true,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20760728,
+      "factor": "membership_density",
+      "factor_level": 50,
+      "median_ms": null,
+      "median_relative_half_width": 0.006566516903570908,
+      "median_relative_half_width_target": 0.1,
+      "median_target_met": true,
+      "p95_ms": null,
+      "p95_relative_half_width": 0.01864639393019678,
+      "p95_relative_half_width_target": 0.15,
+      "p95_target_met": true,
+      "raw_analyzer_factor": "constraint_count",
+      "step_index": 0
+    },
+    {
+      "all_cell_targets_met": true,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 21010728,
+      "factor": "membership_density",
+      "factor_level": 75,
+      "median_ms": null,
+      "median_relative_half_width": 0.006595077110573776,
+      "median_relative_half_width_target": 0.1,
+      "median_target_met": true,
+      "p95_ms": null,
+      "p95_relative_half_width": 0.015337323961677085,
+      "p95_relative_half_width_target": 0.15,
+      "p95_target_met": true,
+      "raw_analyzer_factor": "constraint_count",
+      "step_index": 0
+    },
+    {
+      "all_cell_targets_met": true,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 21260728,
+      "factor": "membership_density",
+      "factor_level": 100,
+      "median_ms": null,
+      "median_relative_half_width": 0.006613480513338569,
+      "median_relative_half_width_target": 0.1,
+      "median_target_met": true,
+      "p95_ms": null,
+      "p95_relative_half_width": 0.01984926325121557,
+      "p95_relative_half_width_target": 0.15,
+      "p95_target_met": true,
+      "raw_analyzer_factor": "constraint_count",
+      "step_index": 0
+    }
+  ],
+  "created_utc": "2026-08-04T15:55:47Z",
+  "factor": "membership_density",
+  "next_stage": "prepare_membership_density_stage10_freeze",
+  "precision_decision": {
+    "all_median_targets_met": true,
+    "all_p95_targets_met": true,
+    "all_precision_targets_met": true,
+    "failing_cell_count": 0,
+    "stage10_sufficient": true,
+    "stage20_execution_authorized": false,
+    "stage20_extension_required": false
+  },
+  "raw_analyzer_interpretation": {
+    "canonical_factor": "membership_density",
+    "raw_factor_label_authoritative": false,
+    "raw_factor_values": [
+      "constraint_count"
+    ],
+    "raw_next_stage_authoritative": false,
+    "raw_report_next_stage": "SA4_membership_density_design",
+    "raw_report_status": "stage10_precision_targets_met"
+  },
+  "schema_version": "mcad-sa4-membership-density-stage10-portfolio-precision-decision-v1",
+  "scientific_controls": {
+    "adapter_rematerialization_performed": false,
+    "functional_execution_rerun_performed": false,
+    "global_scientific_freeze": false,
+    "latency_claim_authorized": false,
+    "manuscript_resume_authorized": false,
+    "precision_analysis_authorized": true,
+    "precision_analysis_performed": true,
+    "scientific_freeze": false,
+    "stage20_execution_authorized": false,
+    "successful_bootstrap_execution_count": 1,
+    "timing_reexecution_performed": false
+  },
+  "source_artifacts": {
+    "authorization": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa4_membership_density_portfolio_precision_analysis_authorization.json",
+      "sha256": "835a22c0f74f18c2da64ed91257fcd58839a85a7c4f6113579b9bba05cd068d1"
+    },
+    "observations": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/stage10_portfolio_measurement_observations.csv",
+      "row_count": 92000,
+      "sha256": "757c8e7684396cf1b5d7a923a4b7935a95b746896fac357c7ef4ea93df36133a",
+      "size_bytes": 55447769
+    },
+    "precision_analyzer": {
+      "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+      "sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504"
+    },
+    "precision_input_manifest": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/precision_input_manifest.json",
+      "sha256": "449d0d54bb10df84327e3d757382e33c78abe9d2c9b3c5f55e3d8d5ee6ac2451"
+    },
+    "raw_analyzer_log": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/analyzer.log",
+      "sha256": "019472284afb9cdca6bd24b0f0b77df85e50a2806a2169d50dc4e2392e8b0f88"
+    },
+    "raw_intervals": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/raw_analyzer_intervals.csv",
+      "row_count": 4,
+      "sha256": "d3824d3b1ace93f907a40b0f643a6eaca9f35ef7ad00be743c3aba7696184ee3"
+    },
+    "raw_report_json": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/raw_analyzer_report.json",
+      "sha256": "a58361d1927c771bd98c6428d013b91d46f1cc731795136c9ca122be9e7a6240"
+    },
+    "raw_report_markdown": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/raw_analyzer_report.md",
+      "sha256": "0f518becd88581cf171e6c3250d5d8a7d5850aeda41d983bb93ac7a8f42a0626"
+    },
+    "timing_report_adapter": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/analyzer_timing_report_adapter.json",
+      "sha256": "0bd99f578b6aca3913536fd8b237f89a9607db369a1fa4ad2243b9ceb295f9c3"
+    }
+  },
+  "source_commit": "c056ea76176f6a06d2a5012ddd37e043ca4324a4",
+  "stage": 10,
+  "status": "pass"
+}

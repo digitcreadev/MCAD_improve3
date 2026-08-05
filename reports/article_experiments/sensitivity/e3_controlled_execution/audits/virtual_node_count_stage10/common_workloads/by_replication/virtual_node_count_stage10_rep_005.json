@@ -1,0 +1,129 @@
+{
+  "common_query_count": 2,
+  "common_query_specs": [
+    {
+      "aggregators": [
+        "SUM"
+      ],
+      "cube": "SyntheticFact",
+      "group_by": [
+        "Geography.Region",
+        "Time.Month"
+      ],
+      "measures": [
+        "Sales"
+      ],
+      "slicers": {
+        "Geography.Region": "Region_04",
+        "Time.Year": "2001"
+      },
+      "time_members": [
+        "2001"
+      ],
+      "units": [
+        "USD"
+      ],
+      "window_end": "2001-12-31",
+      "window_start": "2001-01-01"
+    },
+    {
+      "aggregators": [
+        "SUM"
+      ],
+      "cube": "SyntheticFact",
+      "group_by": [
+        "Geography.Region",
+        "Time.Month"
+      ],
+      "measures": [
+        "Sales"
+      ],
+      "slicers": {
+        "Geography.Region": "Region_07",
+        "Time.Year": "2010"
+      },
+      "time_members": [
+        "2010"
+      ],
+      "units": [
+        "USD"
+      ],
+      "window_end": "2010-12-31",
+      "window_start": "2010-01-01"
+    }
+  ],
+  "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_005_strict_common.json",
+  "factor_levels": [
+    6,
+    12,
+    24
+  ],
+  "full_objective_set_nesting_required": false,
+  "functional_execution_performed": false,
+  "historical_prefix_audit_match": null,
+  "historical_prefix_workload_match": null,
+  "instance_count": 3,
+  "instances": [
+    {
+      "factor_level": 6,
+      "instance_digest": "25f18d6eb89ca86e9efc261c30b2e8d68a3192947db7393ccf6bbdadedbf4a73",
+      "objective_id": "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L6_R005",
+      "realised_constraint_count": 4,
+      "realised_virtual_node_count": 6,
+      "relative_instance_dir": "instances/level_000006/rep_005_seed_809989256",
+      "replication_index": 5,
+      "seed": 809989256
+    },
+    {
+      "factor_level": 12,
+      "instance_digest": "5f3ddc5df1777a0bf836f5f825462178c5c6c64b6fdf3bcac4673a25cfd68c0f",
+      "objective_id": "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L12_R005",
+      "realised_constraint_count": 4,
+      "realised_virtual_node_count": 12,
+      "relative_instance_dir": "instances/level_000012/rep_005_seed_809989256",
+      "replication_index": 5,
+      "seed": 809989256
+    },
+    {
+      "factor_level": 24,
+      "instance_digest": "0f0f9f94dcb311d28e36708c7e379e7a9709274cad1ff10935333eddd450775e",
+      "objective_id": "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R005",
+      "realised_constraint_count": 4,
+      "realised_virtual_node_count": 24,
+      "relative_instance_dir": "instances/level_000024/rep_005_seed_809989256",
+      "replication_index": 5,
+      "seed": 809989256
+    }
+  ],
+  "pairwise_objective_set_nesting": [
+    {
+      "lower_level": 6,
+      "missing_from_upper_count": 2,
+      "nested": false,
+      "upper_level": 12
+    },
+    {
+      "lower_level": 12,
+      "missing_from_upper_count": 8,
+      "nested": false,
+      "upper_level": 24
+    }
+  ],
+  "planned_output_path": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_005_strict_common",
+  "replication_index": 5,
+  "schema_version": "mcad-virtual-node-count-stage10-common-workload-replication-audit-v1",
+  "seed": 809989256,
+  "selected_common_queries_present_in_all_levels": true,
+  "semantic_digest_equality": true,
+  "semantic_query_digests": [
+    "ff781a99b78f83cb8d32c289fb1149ff4a44acfe9bc6fcfb4c9ff49612e37dad",
+    "32a9913306935c37a93a53fc0d5bb826f90a3e8b4797b5b5c1c81a405421bc5c"
+  ],
+  "status": "pass",
+  "timing_execution_performed": false,
+  "workload_path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_005_strict_common.json",
+  "workload_query_digests": [
+    "5b2c09849912226c1d823c46fe604727513702492f17204154fd56267f0e88f8",
+    "7efd742d46d33aa3f22726cce1f8f367cd8d1f9b5e1e8165a2cec4ba60b4ab31"
+  ]
+}

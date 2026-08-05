@@ -1,0 +1,22 @@
+{
+  "all_steps_committed": true,
+  "backend_http_api_used": false,
+  "canonical_instance_id": "level_000002/rep_000_seed_101",
+  "cross_instance_state_reuse": false,
+  "cumulative_phi_in_range": true,
+  "cumulative_phi_monotone": true,
+  "evaluator_entrypoint_preserved": true,
+  "evaluator_reimplementation": false,
+  "execution_id": "sa5-objective-count-stage10-rep_000-canonical-v1",
+  "fresh_runtime_state": true,
+  "fresh_session": true,
+  "history_entry_count": 32,
+  "objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L2_R000_OBJ0001",
+  "schema_version": "mcad-sensitivity-e3-instance-audit-v1",
+  "semantic_digest": "fcea7968002134af8b9c27e040c0d148d6bfb6f8adf272e94b8371cef51abe54",
+  "session_id": "sa5-objective-count-stage10-session-rep-000-seed-101::level_000002/rep_000_seed_101",
+  "source_instance_digest": "6244ef12d4518269c0503f3b9a7a932cd64b256864b05fc5593fafa06d31b1da",
+  "status": "success",
+  "step_order_preserved": true,
+  "timeline_step_count": 32
+}

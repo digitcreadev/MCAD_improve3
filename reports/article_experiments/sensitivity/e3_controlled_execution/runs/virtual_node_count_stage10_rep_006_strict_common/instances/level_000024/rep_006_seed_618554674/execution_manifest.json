@@ -1,0 +1,33 @@
+{
+  "campaign_generator_version": "mcad-sensitivity-e2.2-v1",
+  "campaign_id": "virtual_node_count_stage10_c4",
+  "canonical_instance_id": "level_000024/rep_006_seed_618554674",
+  "commit_entrypoint": "backend.ckg.ckg_updater.CKGGraph.update_from_step",
+  "configuration_digest": "97439e8ba2bbdc3dfd9c354bf5853db5ac5652b7647cdf1c21c2574101fe8b4a",
+  "evaluator_component": "CKGGraph",
+  "evaluator_entrypoint": "backend.ckg.ckg_updater.CKGGraph.evaluate_step",
+  "execution_id": "e3-virtual-node-count-stage10-rep_006-strict-common-v1",
+  "executor_version": "mcad-sensitivity-e3-v2",
+  "factor": "virtual_node_count",
+  "factor_level": 24,
+  "instance_digest": "0351eb9b87f0e9877c067cb37311d77fa72473a9fd29bc00e377bdb2730d281a",
+  "invocation_mode": "local-python",
+  "objective_id": "O_VIRTUAL_NODE_COUNT_STAGE10_C4_VIRTUAL_NODE_COUNT_L24_R006",
+  "relative_instance_dir": "instances/level_000024/rep_006_seed_618554674",
+  "replication_index": 6,
+  "required_outputs": [
+    "execution_manifest.json",
+    "timeline.json",
+    "metrics.json",
+    "audit.json"
+  ],
+  "schema_version": "mcad-sensitivity-e3-instance-execution-v1",
+  "seed": 618554674,
+  "semantic_digest": "4eba786651045117a42f554053d807a8675f741759f0a8fbf85400c487b6a92d",
+  "session_id": "S_E3_VIRTUAL_NODE_COUNT_STAGE10_REP_006_STRICT_COMMON::level_000024/rep_006_seed_618554674",
+  "status": "success",
+  "step_count": 2,
+  "structural_generator_version": "mcad-sensitivity-e2.1-v1",
+  "workload_id": "e3-virtual-node-count-stage10-rep_006-strict-common-v1",
+  "workload_objective_binding": "O_E3_VIRTUAL_NODE_COUNT_STAGE10_REP_006_RUNTIME_BOUND"
+}

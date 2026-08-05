@@ -1,0 +1,33 @@
+{
+  "configuration_digest": "96837f270be49f253441e338ef96955959b1519ffb43adb6037dcf5157cfe136",
+  "generator_version": "mcad-sensitivity-e2.1-objective-count-v2",
+  "graph_edge_count": 48,
+  "graph_node_count": 49,
+  "instance_digest": "fd439029c66b96eaeb57ddd4c4caa561ceb13d918ec6e357dcbb974760496f06",
+  "irrelevant_virtual_node_count": 8,
+  "maximum_membership_link_count": 64,
+  "membership_density": 0.5,
+  "objective_count": 1,
+  "objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R006_OBJ0001",
+  "objective_ids": [
+    "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R006_OBJ0001"
+  ],
+  "realised_constraint_count": 8,
+  "realised_density": 0.5,
+  "realised_objective_count": 1,
+  "realised_virtual_node_count": 32,
+  "requested_constraint_count": 8,
+  "requested_objective_count": 1,
+  "requested_virtual_node_count": 32,
+  "requirement_membership_link_count": 32,
+  "requirement_set_count": 16,
+  "seed": 618554674,
+  "selected_objective_constraint_count": 8,
+  "selected_objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R006_OBJ0001",
+  "selected_objective_index": 0,
+  "selected_objective_shape_digest": "e93a27110c6a00befb6250525c868d7a50fef8c7065d5a0b7c5a6b3af32c0f12",
+  "session_support_policy": "union_requirement_sets",
+  "total_constraint_count": 8,
+  "total_virtual_node_count": 32,
+  "useful_virtual_node_count": 24
+}

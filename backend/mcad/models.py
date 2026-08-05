@@ -46,6 +46,7 @@ class Objective(BaseModel):
     id: str
     name: str
     description: str
+    session_support_policy: Optional[str] = None
     kpis: List[str] = Field(default_factory=list)
     constraints: List[Constraint] = Field(default_factory=list)
 

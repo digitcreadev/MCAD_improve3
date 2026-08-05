@@ -1,0 +1,21 @@
+{
+  "campaign_id": "virtual_node_count_stage10_c4",
+  "ceval_empty_count": 0,
+  "execution_id": "e3-virtual-node-count-stage10-rep_003-strict-common-v1",
+  "factor": "virtual_node_count",
+  "failed_instance_count": 0,
+  "failed_step_count": 0,
+  "instance_count": 3,
+  "mean_auc_phi": 0.25,
+  "mean_evaluator_latency_p50_ms": 0.435012,
+  "mean_evaluator_latency_p95_ms": 0.479658,
+  "mean_evaluator_latency_p99_ms": 0.483627,
+  "mean_phi_final": 0.25,
+  "mean_phi_weighted_final": 0.25,
+  "real_empty_count": 0,
+  "sat_fail_count": 0,
+  "schema_version": "mcad-sensitivity-e3-campaign-metrics-v1",
+  "step_count": 6,
+  "successful_instance_count": 3,
+  "successful_step_count": 6
+}

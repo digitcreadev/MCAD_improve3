@@ -29,6 +29,22 @@ FORBIDDEN_INPUT_FIELDS = {
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
+
+CONTROLLED_NOISE_METADATA_FIELD = "mcad_controlled_noise"
+CONTROLLED_NOISE_OPERATOR_REGISTRY_VERSION = (
+    "mcad-sa5-objective-count-noise-operators-v1"
+)
+CONTROLLED_NOISE_CLASSES = {
+    "wrong_measure",
+    "wrong_context",
+    "insufficient_grain",
+    "invalid_aggregation",
+    "invalid_unit",
+    "invalid_time_window",
+    "missing_cube",
+    "redundant_contribution",
+}
+
 def fail(message: str) -> None:
     raise AssertionError(message)
 
@@ -79,6 +95,44 @@ def reject_forbidden_fields(
         fail(f"{label} contains evaluator output fields: {forbidden}")
 
 
+def controlled_noise_class(
+    query_spec: Mapping[str, Any],
+    label: str,
+) -> str | None:
+    raw = query_spec.get(CONTROLLED_NOISE_METADATA_FIELD)
+    if raw is None:
+        return None
+
+    metadata = require_mapping(
+        raw,
+        f"{label}.{CONTROLLED_NOISE_METADATA_FIELD}",
+    )
+    noise_class = require_non_empty_string(
+        metadata.get("noise_class"),
+        f"{label}.{CONTROLLED_NOISE_METADATA_FIELD}.noise_class",
+    )
+    if noise_class not in CONTROLLED_NOISE_CLASSES:
+        fail(
+            f"{label}.{CONTROLLED_NOISE_METADATA_FIELD}.noise_class "
+            f"is unsupported: {noise_class!r}"
+        )
+    registry_version = require_non_empty_string(
+        metadata.get("operator_registry_version"),
+        (
+            f"{label}.{CONTROLLED_NOISE_METADATA_FIELD}."
+            "operator_registry_version"
+        ),
+    )
+    if registry_version != CONTROLLED_NOISE_OPERATOR_REGISTRY_VERSION:
+        fail(
+            f"{label}.{CONTROLLED_NOISE_METADATA_FIELD}."
+            "operator_registry_version: expected "
+            f"{CONTROLLED_NOISE_OPERATOR_REGISTRY_VERSION!r}, "
+            f"got {registry_version!r}"
+        )
+    return noise_class
+
+
 def validate_query_spec(
     query_spec: Mapping[str, Any],
     *,
@@ -87,11 +141,20 @@ def validate_query_spec(
     label = f"steps[{step_index}].query_spec"
 
     reject_forbidden_fields(query_spec, label)
+    noise_class = controlled_noise_class(query_spec, label)
 
-    require_non_empty_string(
-        query_spec.get("cube"),
-        f"{label}.cube",
-    )
+    cube = query_spec.get("cube")
+    if noise_class == "missing_cube":
+        if cube != "":
+            fail(
+                f"{label}.cube must be empty for controlled "
+                "missing_cube noise"
+            )
+    else:
+        require_non_empty_string(
+            cube,
+            f"{label}.cube",
+        )
     require_string_list(
         query_spec.get("measures"),
         f"{label}.measures",
@@ -136,11 +199,19 @@ def validate_query_spec(
                     f"{label}.{field} must use YYYY-MM-DD format"
                 )
 
-    if (
+    has_reversed_window = (
         "window_start" in query_spec
         and "window_end" in query_spec
         and query_spec["window_start"] > query_spec["window_end"]
-    ):
+    )
+
+    if noise_class == "invalid_time_window":
+        if not has_reversed_window:
+            fail(
+                f"{label} must contain a reversed window for "
+                "controlled invalid_time_window noise"
+            )
+    elif has_reversed_window:
         fail(
             f"{label}.window_start must not be after window_end"
         )

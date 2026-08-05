@@ -1,0 +1,10 @@
+CONTENTS.txt
+MANIFEST.json
+PROVENANCE.json
+README.md
+REPRODUCE.md
+SHA256SUMS
+STATUS.json
+archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz
+archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz.sha256
+freeze/FREEZE.json

@@ -1,0 +1,368 @@
+{
+  "all_new_replications_passed": true,
+  "authorization_commit": "99aab0e013ad3bd5d552865a91959e6101684ead",
+  "authorization_path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/virtual_node_count_stage10_functional_authorization.json",
+  "authorization_sha256": "b0732a9710c0918b58dec82d73516e37024313ce24896fa24c49197bc2bd9435",
+  "authorization_snapshot": {
+    "authorization_basis": {
+      "all_replications_have_two_common_queries": true,
+      "common_workload_audit_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/common_workloads/stage10_common_workload_audit.json",
+      "common_workload_audit_sha256": "d618e9b1efcea10d7050cafec51dac092e3139ac38583fd80cd7b31a5de88aee",
+      "common_workload_preparation_merged": true,
+      "historical_prefix_compatibility_passed": true
+    },
+    "authorization_branch": "paper/execute-virtual-node-count-stage10-functional-20260802T144414Z",
+    "authorization_id": "virtual_node_count_stage10_new_functional_replications_002_009",
+    "authorization_model": "post-preregistration functional gate release",
+    "created_utc": "2026-08-02T14:44:14Z",
+    "execution_entries": [
+      {
+        "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_002_strict_common.json",
+        "execution_spec_sha256": "680c78f69dc30627114d857cc19a892edfa2ae08e50ca1a6451b40f5e7a3b9a0",
+        "expected_step_count": 6,
+        "factor_levels": [
+          6,
+          12,
+          24
+        ],
+        "instance_count": 3,
+        "replication_index": 2,
+        "seed": 1198202409,
+        "steps_per_instance": 2,
+        "workload_path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_002_strict_common.json",
+        "workload_sha256": "7aec37a08088a139424e4a146d930033b6f288435c4291d77763b7d8665ebfc7"
+      },
+      {
+        "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_003_strict_common.json",
+        "execution_spec_sha256": "b66f87501c14ccad308264ed6455975ad1e95e3bee97dff9441a4ab9281563ec",
+        "expected_step_count": 6,
+        "factor_levels": [
+          6,
+          12,
+          24
+        ],
+        "instance_count": 3,
+        "replication_index": 3,
+        "seed": 796786883,
+        "steps_per_instance": 2,
+        "workload_path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_003_strict_common.json",
+        "workload_sha256": "d55948c2d3439bbd3484d3fdc92b5e6947eb7658db903718ec0005ffb584fb55"
+      },
+      {
+        "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_004_strict_common.json",
+        "execution_spec_sha256": "67a5f38aa4f2c972c6b56518a818abf21c4cc81db0e3211a6d5bdd27c7e43fcd",
+        "expected_step_count": 6,
+        "factor_levels": [
+          6,
+          12,
+          24
+        ],
+        "instance_count": 3,
+        "replication_index": 4,
+        "seed": 1126922093,
+        "steps_per_instance": 2,
+        "workload_path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_004_strict_common.json",
+        "workload_sha256": "7b675bffcb184eb7ccd76ff544e80863b7169adbbf5102ca47f3b07d7e1277f3"
+      },
+      {
+        "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_005_strict_common.json",
+        "execution_spec_sha256": "73bc0bd46507a077ef5c66b620c04083bd0ee39208dbc81e282e139136aa172d",
+        "expected_step_count": 6,
+        "factor_levels": [
+          6,
+          12,
+          24
+        ],
+        "instance_count": 3,
+        "replication_index": 5,
+        "seed": 809989256,
+        "steps_per_instance": 2,
+        "workload_path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_005_strict_common.json",
+        "workload_sha256": "1dbb1aeb9be7f0f44aee6e98f762492e85d18f5632533cbcd251661c0ad7c380"
+      },
+      {
+        "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_006_strict_common.json",
+        "execution_spec_sha256": "f643de3f2506602bbc8532b50ed24afc44c7afa97fffe69b9eb4f707c358871c",
+        "expected_step_count": 6,
+        "factor_levels": [
+          6,
+          12,
+          24
+        ],
+        "instance_count": 3,
+        "replication_index": 6,
+        "seed": 618554674,
+        "steps_per_instance": 2,
+        "workload_path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_006_strict_common.json",
+        "workload_sha256": "3e38890da913a8ff250b5b0dd81d903aecf79e289d31fc0ef4028dd4700acf25"
+      },
+      {
+        "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_007_strict_common.json",
+        "execution_spec_sha256": "438d12403f10e0834a3476c02cc8e64ad93faa6e60c9d8a92b6491dc88f414cb",
+        "expected_step_count": 6,
+        "factor_levels": [
+          6,
+          12,
+          24
+        ],
+        "instance_count": 3,
+        "replication_index": 7,
+        "seed": 1363159082,
+        "steps_per_instance": 2,
+        "workload_path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_007_strict_common.json",
+        "workload_sha256": "708a6e33bce9031cc76555bccbbad8c348aceebbc503828c92849a46d894c466"
+      },
+      {
+        "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_008_strict_common.json",
+        "execution_spec_sha256": "a7517f803cdeb6e66c72986b23393944669479f9d81cf64fb89e1c694429f0c4",
+        "expected_step_count": 6,
+        "factor_levels": [
+          6,
+          12,
+          24
+        ],
+        "instance_count": 3,
+        "replication_index": 8,
+        "seed": 874332939,
+        "steps_per_instance": 2,
+        "workload_path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_008_strict_common.json",
+        "workload_sha256": "9223d742b53080a741e9a32bba6980e3e11d2baa539b87b8cd35d7fed64d7e1b"
+      },
+      {
+        "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_009_strict_common.json",
+        "execution_spec_sha256": "a33c1a49bbc08f358800aea16880236e2b5ac6a8a867c4f21ef373f4a6aab092",
+        "expected_step_count": 6,
+        "factor_levels": [
+          6,
+          12,
+          24
+        ],
+        "instance_count": 3,
+        "replication_index": 9,
+        "seed": 1767972531,
+        "steps_per_instance": 2,
+        "workload_path": "reports/article_experiments/sensitivity/e3_controlled_execution/workloads/virtual_node_count_stage10_rep_009_strict_common.json",
+        "workload_sha256": "d2199377393fd498ec19f63d0d611fcc26caa4447786bac0e8c31cdf738c56d8"
+      }
+    ],
+    "historical_prefix": {
+      "functional_step_count": 12,
+      "replications": [
+        0,
+        1
+      ],
+      "rerun_authorized": false,
+      "rerun_required": false,
+      "reuse_required": true
+    },
+    "next_stage": "execute_only_functional_replications_002_to_009",
+    "preregistration_is_not_modified": true,
+    "prohibitions": {
+      "formal_timing_execution_authorized": false,
+      "latency_claim_authorized": false,
+      "replications_000_001_execution_authorized": false,
+      "stage20_execution_authorized": false
+    },
+    "schema_version": "mcad-virtual-node-count-stage10-functional-authorization-v1",
+    "scope": {
+      "authorized_functional_step_count": 48,
+      "authorized_instance_count": 24,
+      "authorized_replications": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "authorized_seeds": [
+        1198202409,
+        796786883,
+        1126922093,
+        809989256,
+        618554674,
+        1363159082,
+        874332939,
+        1767972531
+      ],
+      "campaign_id": "virtual_node_count_stage10_c4",
+      "expected_combined_functional_step_count": 60,
+      "expected_combined_instance_count": 30,
+      "factor": "virtual_node_count"
+    },
+    "source_base_commit": "696b6f83e0ee4a3a61e042680468bb4b28111036",
+    "status": "authorized"
+  },
+  "campaign_id": "virtual_node_count_stage10_c4",
+  "combined_target": {
+    "combined_audit_completed": false,
+    "functional_step_count": 60,
+    "instance_count": 30,
+    "replication_count": 10
+  },
+  "completed_utc": "2026-08-02T14:44:22Z",
+  "executed_functional_step_count": 48,
+  "executed_instance_count": 24,
+  "executed_replication_count": 8,
+  "executed_replications": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "expected_functional_step_count": 48,
+  "expected_instance_count": 24,
+  "factor": "virtual_node_count",
+  "historical_prefix": {
+    "historical_functional_step_count": 12,
+    "replications": [
+      0,
+      1
+    ],
+    "rerun_performed": false,
+    "rerun_required": false,
+    "reuse_required": true
+  },
+  "latency_claim_authorized": false,
+  "next_stage": "reuse_historical_prefix_and_audit_combined_60_functional_steps",
+  "replications": [
+    {
+      "campaign_metrics_sha256": "59c3a30b422bc1de24abd3f286f5e07feb7357bb726a57525deba11b9811c378",
+      "deterministic_execution_digest": "86355da49e861a4fbd66c6548a28d37b5663242d29c83d325187253992a80da4",
+      "execution_id": "e3-virtual-node-count-stage10-rep_002-strict-common-v1",
+      "execution_log_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/functional_execution/logs/virtual_node_count_stage10_rep_002_functional.log",
+      "execution_log_sha256": "f6248faa494f76e8444dbd8fc9921afebde48525df8b88b951807392f258fd30",
+      "execution_manifest_sha256": "7a390413826308e85460295b37cb3aa8c15594b4c07ab5987cb12a10ccee16c3",
+      "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_002_strict_common.json",
+      "execution_spec_sha256": "680c78f69dc30627114d857cc19a892edfa2ae08e50ca1a6451b40f5e7a3b9a0",
+      "instance_results_sha256": "1a258f3646639a26e54b50b7534c905c8923054d56f887fa42db17e3931fbf82",
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_002_strict_common",
+      "replication_index": 2,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "step_count": 6
+    },
+    {
+      "campaign_metrics_sha256": "39ade59ba9f2bf599838eff9e3f9a9474684f21c509d3302539a0f0592e233cb",
+      "deterministic_execution_digest": "1b8281afedc50f8c38871dabb279b6d720a1322f904014a9f314dc678e7e4572",
+      "execution_id": "e3-virtual-node-count-stage10-rep_003-strict-common-v1",
+      "execution_log_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/functional_execution/logs/virtual_node_count_stage10_rep_003_functional.log",
+      "execution_log_sha256": "e874213ccf27d9444d77a3cd625fd4c7e8f8fd1c5abfcb26a803d24866f3d472",
+      "execution_manifest_sha256": "594eeb4e960dc24e5161d567a09ebe615eb25db40b1ed49b6a10804e760303db",
+      "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_003_strict_common.json",
+      "execution_spec_sha256": "b66f87501c14ccad308264ed6455975ad1e95e3bee97dff9441a4ab9281563ec",
+      "instance_results_sha256": "359c178693d3521662b881be3aa6d8b1c14aeda3a97c84ea38af58b7ac5481fd",
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_003_strict_common",
+      "replication_index": 3,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "step_count": 6
+    },
+    {
+      "campaign_metrics_sha256": "1d7238da521859a5129115eda501bf754eb8eae74e1393312d662fdcbbe967de",
+      "deterministic_execution_digest": "b0e835f4d027e497a030034e487b0fa515232483caf54fa68b3ea8f9496fd191",
+      "execution_id": "e3-virtual-node-count-stage10-rep_004-strict-common-v1",
+      "execution_log_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/functional_execution/logs/virtual_node_count_stage10_rep_004_functional.log",
+      "execution_log_sha256": "7f53ff2de1cef46edf4df9e983472921ae1e7bc0b1ac7f12bcd04a0bda9e6134",
+      "execution_manifest_sha256": "bbb4e6bc618e5b2430f459fb6057f7616b0a764b52a3bf2da86cb0da18181c94",
+      "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_004_strict_common.json",
+      "execution_spec_sha256": "67a5f38aa4f2c972c6b56518a818abf21c4cc81db0e3211a6d5bdd27c7e43fcd",
+      "instance_results_sha256": "27033a8dc64425d871bd222b5f8745414f49085f10568b2906005a8842fe0cb2",
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_004_strict_common",
+      "replication_index": 4,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "step_count": 6
+    },
+    {
+      "campaign_metrics_sha256": "911ebac148d4b82bb796686a17236367cb5c39712265c39a780ff884817ccb3e",
+      "deterministic_execution_digest": "235a491e8ff6503616be47c07db09640b0ef195f561924829abee794e8576fca",
+      "execution_id": "e3-virtual-node-count-stage10-rep_005-strict-common-v1",
+      "execution_log_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/functional_execution/logs/virtual_node_count_stage10_rep_005_functional.log",
+      "execution_log_sha256": "fc0d79cd549ac437f8f068b41265fe839ec1f7345d18564dc46f1a1687bbde6a",
+      "execution_manifest_sha256": "bb1e804c20a84da2ffb0be687cc6d8443e124efe67c1538a269a2c5544a3f783",
+      "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_005_strict_common.json",
+      "execution_spec_sha256": "73bc0bd46507a077ef5c66b620c04083bd0ee39208dbc81e282e139136aa172d",
+      "instance_results_sha256": "e0e31aca25e0f18985991f2662470f0d87ffc366b3f959eb9aa639d73a9f2476",
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_005_strict_common",
+      "replication_index": 5,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "step_count": 6
+    },
+    {
+      "campaign_metrics_sha256": "74ff214fe00a1bc1d3cd4537828db53f72d18c6906a525a79419ad122583e3f6",
+      "deterministic_execution_digest": "0b4007419ca537892d18dc479b17f9cddd33d8f6c1b3a1599542beec4aacaa38",
+      "execution_id": "e3-virtual-node-count-stage10-rep_006-strict-common-v1",
+      "execution_log_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/functional_execution/logs/virtual_node_count_stage10_rep_006_functional.log",
+      "execution_log_sha256": "b4f4f39075aa029172c23be6dfa2dda66edcb3f52139a0fe21030c2f39abd890",
+      "execution_manifest_sha256": "f95e34461a9a6d2360283f097ce423ea511bcac706b1eadd5cf31def9b58bb86",
+      "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_006_strict_common.json",
+      "execution_spec_sha256": "f643de3f2506602bbc8532b50ed24afc44c7afa97fffe69b9eb4f707c358871c",
+      "instance_results_sha256": "08e60e30aaad1d42ca9b6688cfd49aa1984352c356ab9645dd1211f6bd7c55fc",
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_006_strict_common",
+      "replication_index": 6,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "step_count": 6
+    },
+    {
+      "campaign_metrics_sha256": "43fb5edd2169b1248facfdad8127cbc4fcf756a7c202c904d6ef94ce467fbacc",
+      "deterministic_execution_digest": "ac2977eb3ffe66d1e69ccec9dd75cfaa62e3692aeff102fdcb4dca4a8c90fe62",
+      "execution_id": "e3-virtual-node-count-stage10-rep_007-strict-common-v1",
+      "execution_log_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/functional_execution/logs/virtual_node_count_stage10_rep_007_functional.log",
+      "execution_log_sha256": "e315c4fcef4475a70dd41e1515d2c1bc116629ffdf83791ac462955f3488a083",
+      "execution_manifest_sha256": "e55d40144ea9c13f99ebdb2d9965d167f25a865377a626c76c07b5049c4c0a3d",
+      "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_007_strict_common.json",
+      "execution_spec_sha256": "438d12403f10e0834a3476c02cc8e64ad93faa6e60c9d8a92b6491dc88f414cb",
+      "instance_results_sha256": "bf1035ffa4014705fae9ab766513e27e18f8c13bb997dc14989b0d0942569cb9",
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_007_strict_common",
+      "replication_index": 7,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "step_count": 6
+    },
+    {
+      "campaign_metrics_sha256": "0b1d2292160c4dd87425cda4621651dc2ebd1bbe95f3a94165481c828f7c9316",
+      "deterministic_execution_digest": "6e3c2a31e0b74af5d2c8ba7f40a4f33b269b5bbb6fcc180ab3ef72f7690803e8",
+      "execution_id": "e3-virtual-node-count-stage10-rep_008-strict-common-v1",
+      "execution_log_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/functional_execution/logs/virtual_node_count_stage10_rep_008_functional.log",
+      "execution_log_sha256": "93dd3d2537aceb9db1b77a4fc6d237999169edba7f05393037ee874b305125ab",
+      "execution_manifest_sha256": "f2c54a1857bf8925980716809acb2ba98a8239009c3b0ce4f3fced8de7c7b741",
+      "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_008_strict_common.json",
+      "execution_spec_sha256": "a7517f803cdeb6e66c72986b23393944669479f9d81cf64fb89e1c694429f0c4",
+      "instance_results_sha256": "9636900e888ab43f6fc09593d37d1f2919670be54ab4d97ecc8aca930652346a",
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_008_strict_common",
+      "replication_index": 8,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "step_count": 6
+    },
+    {
+      "campaign_metrics_sha256": "a7a2af40f0af60a26f838e10ab39aa1e9b42c70da3a02bc392d89f84c37cfc6f",
+      "deterministic_execution_digest": "c8bc36db2bb0cde366531bc0f131e5ee84ff4368f7b50a2b281bd0d70b3f1127",
+      "execution_id": "e3-virtual-node-count-stage10-rep_009-strict-common-v1",
+      "execution_log_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/functional_execution/logs/virtual_node_count_stage10_rep_009_functional.log",
+      "execution_log_sha256": "332f6e48017f3a7b3fb02e14b2d5a3dd0c8d07c84e181a45c8e41d451236efbe",
+      "execution_manifest_sha256": "8165e51e069db3f237aea9daf0bcef4df5e5cea1ba27f825648d4911a17da0d2",
+      "execution_spec_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/virtual_node_count_stage10_rep_009_strict_common.json",
+      "execution_spec_sha256": "a33c1a49bbc08f358800aea16880236e2b5ac6a8a867c4f21ef373f4a6aab092",
+      "instance_results_sha256": "03af45be2f7fe52d132c9fbad940af1563fb2824d08a2f1bdb50b9fe943b24c0",
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/virtual_node_count_stage10_rep_009_strict_common",
+      "replication_index": 9,
+      "selected_instance_count": 3,
+      "status": "pass",
+      "step_count": 6
+    }
+  ],
+  "schema_version": "mcad-virtual-node-count-stage10-new-functional-execution-report-v1",
+  "started_utc": "2026-08-02T14:44:14Z",
+  "status": "pass",
+  "timing_execution_performed": false
+}
