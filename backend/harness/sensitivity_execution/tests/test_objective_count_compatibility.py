@@ -37,8 +37,8 @@ def _generate_campaign(
             factor="objective_count",
             levels=(2,),
             seeds=(101,),
-            baseline_constraint_count=2,
-            baseline_virtual_node_count=6,
+            baseline_constraint_count=8,
+            baseline_virtual_node_count=32,
             output_dir=str(output_dir),
         )
     )
@@ -72,7 +72,7 @@ def test_objective_count_campaign_is_accepted(
     assert instance.factor_level == 2
     assert instance.generator_version == (
         "mcad-sensitivity-e2.1-"
-        "objective-count-v1"
+        "objective-count-v2"
     )
 
     instance_manifest = _read_json(
@@ -91,6 +91,27 @@ def test_objective_count_campaign_is_accepted(
         ]
         == instance.objective_id
     )
+    assert instance_manifest[
+        "selected_objective_constraint_count"
+    ] == 8
+    assert instance_manifest[
+        "requested_virtual_node_count"
+    ] == 32
+    assert instance_manifest[
+        "realised_virtual_node_count"
+    ] == 32
+    assert instance_manifest[
+        "useful_virtual_node_count"
+    ] == 24 * 2
+    assert instance_manifest[
+        "irrelevant_virtual_node_count"
+    ] == 8 * 2
+    assert instance_manifest[
+        "session_support_policy"
+    ] == "union_requirement_sets"
+    assert instance_manifest[
+        "realised_density"
+    ] == 0.5
 
 
 def test_objective_count_cross_profile_is_rejected(
@@ -173,14 +194,14 @@ def test_objective_count_evidence_uses_exact_versions(
         "campaign_generator_version"
     ] == (
         "mcad-sensitivity-e2.2-"
-        "objective-count-v1"
+        "objective-count-v2"
     )
 
     assert evidence[
         "structural_generator_version"
     ] == (
         "mcad-sensitivity-e2.1-"
-        "objective-count-v1"
+        "objective-count-v2"
     )
 
 

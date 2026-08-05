@@ -592,13 +592,13 @@ def generate_controlled_family(
     spec: ControlledFamilySpec,
 ) -> ControlledFamilyManifest:
     if spec.factor == "objective_count":
-        from backend.harness.sensitivity_generator.families.objective_count_family import (
-            ObjectiveCountFamilySpec,
-            generate_objective_count_family,
+        from backend.harness.sensitivity_generator.families.objective_count_family_v2 import (
+            ObjectiveCountV2FamilySpec,
+            generate_objective_count_family_v2,
         )
 
-        return generate_objective_count_family(
-            ObjectiveCountFamilySpec(
+        return generate_objective_count_family_v2(
+            ObjectiveCountV2FamilySpec(
                 campaign_id=spec.campaign_id,
                 levels=spec.levels,
                 seeds=spec.seeds,

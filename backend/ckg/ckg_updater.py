@@ -313,7 +313,12 @@ class CKGGraph:
                     self.add_edge(cnode, nvnode, rel="REQUIRES_NV")
                 if not constraints_cache[cid]["requirement_sets"]:
                     constraints_cache[cid]["requirement_sets"] = [list(constraints_cache[cid]["virtual_nodes"])]
-            self.objectives[oid] = {"id": oid, "kpis": kpis, "constraints": constraints_cache}
+            self.objectives[oid] = {
+                "id": oid,
+                "kpis": kpis,
+                "constraints": constraints_cache,
+                "session_support_policy": obj.get("session_support_policy"),
+            }
 
     def _objective_nvs(self, objective_id: str) -> List[Dict[str, Any]]:
         obj = self.objectives.get(objective_id) or {}
@@ -601,6 +606,13 @@ class CKGGraph:
         obj = self.objectives.get(objective_id) or {}
         cinfo = (obj.get("constraints") or {}).get(constraint_id) or {}
         requirement_sets = [list(req or []) for req in (cinfo.get("requirement_sets") or []) if list(req or [])]
+        policy = obj.get("session_support_policy")
+        if policy == "union_requirement_sets" and requirement_sets:
+            return sorted({
+                str(resource_id)
+                for requirement_set in requirement_sets
+                for resource_id in requirement_set
+            })
         if requirement_sets:
             return list(sorted(requirement_sets, key=lambda r: (len(r), r))[0])
         return list(cinfo.get("virtual_nodes") or [])
@@ -1069,7 +1081,12 @@ class CKGGraph:
             if not cloned["requirement_sets"]:
                 cloned["requirement_sets"] = [list(cloned["virtual_nodes"])]
             cloned_constraints[new_cid] = cloned
-        self.objectives[new_objective_id] = {"id": new_objective_id, "kpis": list(obj.get("kpis") or []), "constraints": cloned_constraints}
+        self.objectives[new_objective_id] = {
+            "id": new_objective_id,
+            "kpis": list(obj.get("kpis") or []),
+            "constraints": cloned_constraints,
+            "session_support_policy": obj.get("session_support_policy"),
+        }
         return new_objective_id
 
     def compact_session_query_nodes(self, session_id: str, keep_last_n_steps: int = 10) -> int:

@@ -36,6 +36,14 @@ SUPPORTED_FACTOR_GENERATOR_PROFILES = {
 }
 
 
+ACTIVE_FACTOR_GENERATOR_PROFILE_OVERRIDES = {
+    "objective_count": (
+        "mcad-sensitivity-e2.2-objective-count-v2",
+        "mcad-sensitivity-e2.1-objective-count-v2",
+    ),
+}
+
+
 def fail(message: str) -> None:
     raise AssertionError(message)
 
@@ -164,6 +172,41 @@ def validate_contract(contract: Mapping[str, Any]) -> None:
                 f"{factor} structural "
                 "generator version"
             ),
+        )
+
+
+    active_overrides = require_mapping(
+        contract.get(
+            "active_factor_generator_profile_overrides"
+        ),
+        "active_factor_generator_profile_overrides",
+    )
+
+    require_equal(
+        set(active_overrides),
+        set(ACTIVE_FACTOR_GENERATOR_PROFILE_OVERRIDES),
+        "active_factor_generator_profile_overrides keys",
+    )
+
+    for factor, expected_versions in (
+        ACTIVE_FACTOR_GENERATOR_PROFILE_OVERRIDES.items()
+    ):
+        profile = require_mapping(
+            active_overrides.get(factor),
+            (
+                "active_factor_generator_profile_overrides."
+                f"{factor}"
+            ),
+        )
+        require_equal(
+            profile.get("campaign_generator_version"),
+            expected_versions[0],
+            f"active {factor} campaign generator version",
+        )
+        require_equal(
+            profile.get("structural_generator_version"),
+            expected_versions[1],
+            f"active {factor} structural generator version",
         )
 
     evaluator = require_mapping(

@@ -27,11 +27,11 @@ MEMBERSHIP_DENSITY_E21_VERSION = (
 )
 
 OBJECTIVE_COUNT_E22_VERSION = (
-    "mcad-sensitivity-e2.2-objective-count-v1"
+    "mcad-sensitivity-e2.2-objective-count-v2"
 )
 
 OBJECTIVE_COUNT_E21_VERSION = (
-    "mcad-sensitivity-e2.1-objective-count-v1"
+    "mcad-sensitivity-e2.1-objective-count-v2"
 )
 
 # Backward-compatible aliases retained for callers that
@@ -53,6 +53,13 @@ SUPPORTED_GENERATOR_VERSION_PAIRS = {
         MEMBERSHIP_DENSITY_E21_VERSION,
     ),
     "objective_count": (
+        "mcad-sensitivity-e2.2-objective-count-v1",
+        "mcad-sensitivity-e2.1-objective-count-v1",
+    ),
+}
+
+ACTIVE_GENERATOR_VERSION_OVERRIDES = {
+    "objective_count": (
         OBJECTIVE_COUNT_E22_VERSION,
         OBJECTIVE_COUNT_E21_VERSION,
     ),
@@ -66,10 +73,11 @@ class E3ExecutionError(RuntimeError):
 def _expected_generator_versions(
     factor: str,
 ) -> tuple[str, str]:
+    if factor in ACTIVE_GENERATOR_VERSION_OVERRIDES:
+        return ACTIVE_GENERATOR_VERSION_OVERRIDES[factor]
+
     try:
-        return SUPPORTED_GENERATOR_VERSION_PAIRS[
-            factor
-        ]
+        return SUPPORTED_GENERATOR_VERSION_PAIRS[factor]
     except KeyError as exc:
         raise E3ExecutionError(
             "Unsupported controlled-experiment factor: "
