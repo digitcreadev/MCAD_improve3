@@ -1,0 +1,155 @@
+{
+  "authorization": {
+    "bootstrap_analysis_authorized": false,
+    "functional_execution_evidence_commit_authorized": true,
+    "manuscript_integration_authorized": false,
+    "precision_analysis_authorized": false,
+    "scientific_result_interpretation_authorized": false,
+    "timing_analysis_authorized": false
+  },
+  "blocker_count": 0,
+  "blockers": [],
+  "canonical_evidence": {
+    "authorization_report_source_sha256": "e21998b445f199253894aa40dbfeb4508c1cd6e64b7002ce1c438bbe05e7cb04",
+    "canonical_run_file_manifest_source_sha256": "10f2795a20c27c7ba2222636eee8d0800709e12f3fe290138bf4e31c29db6bf1",
+    "execution_ledger_source_sha256": "6432e399be10798362a27d00ca55208909c85d9a538de0c53c89b8f7c90d85e0",
+    "execution_log_count": 10,
+    "execution_logs": [
+      {
+        "canonical_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/logs/rep_000.log",
+        "replication_index": 0,
+        "sha256": "4541aec0cecb8c5294961e6b37985b8e46be680ee0f51419e56ad09af16aa19e",
+        "source_path": "/workspaces/sa5_objective_count_stage10_functional_execution_20260805T134741Z/logs/rep_000.log"
+      },
+      {
+        "canonical_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/logs/rep_001.log",
+        "replication_index": 1,
+        "sha256": "d85a6ddf4213bc303f69d696fad95c1188f06eb5b374ac602b027599a312b919",
+        "source_path": "/workspaces/sa5_objective_count_stage10_functional_execution_20260805T134741Z/logs/rep_001.log"
+      },
+      {
+        "canonical_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/logs/rep_002.log",
+        "replication_index": 2,
+        "sha256": "a1da7eda8aa8eb6d6f68ee4a6b12a24d4ea478b391ae1a18ed0c0937c321a233",
+        "source_path": "/workspaces/sa5_objective_count_stage10_functional_execution_20260805T134741Z/logs/rep_002.log"
+      },
+      {
+        "canonical_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/logs/rep_003.log",
+        "replication_index": 3,
+        "sha256": "6d65ddf3963366349a71477a8d783aa39bd617dcece258d23782b6c929bb85eb",
+        "source_path": "/workspaces/sa5_objective_count_stage10_functional_execution_20260805T134741Z/logs/rep_003.log"
+      },
+      {
+        "canonical_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/logs/rep_004.log",
+        "replication_index": 4,
+        "sha256": "a431c36ec69a57c075548199c461875426ec4a8795e5e913b6f9856eb1de1775",
+        "source_path": "/workspaces/sa5_objective_count_stage10_functional_execution_20260805T134741Z/logs/rep_004.log"
+      },
+      {
+        "canonical_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/logs/rep_005.log",
+        "replication_index": 5,
+        "sha256": "ba8619d85afc4c9df0ba727d6f749962bfd209d3ffaa15e7cc9a2a8926eb639f",
+        "source_path": "/workspaces/sa5_objective_count_stage10_functional_execution_20260805T134741Z/logs/rep_005.log"
+      },
+      {
+        "canonical_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/logs/rep_006.log",
+        "replication_index": 6,
+        "sha256": "50aebf98fadcf50008be280440c4ea016bc902222cb410cd0fb98cd22a6f9eff",
+        "source_path": "/workspaces/sa5_objective_count_stage10_functional_execution_20260805T134741Z/logs/rep_006.log"
+      },
+      {
+        "canonical_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/logs/rep_007.log",
+        "replication_index": 7,
+        "sha256": "8f901a961df4176fe86ce15cc3c8907e0eb8d830a7a40106da913e4985ecccbc",
+        "source_path": "/workspaces/sa5_objective_count_stage10_functional_execution_20260805T134741Z/logs/rep_007.log"
+      },
+      {
+        "canonical_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/logs/rep_008.log",
+        "replication_index": 8,
+        "sha256": "59a6beb188a95da47f6b2f8674023e231ad768cbeb9d44f44d70431675f9af51",
+        "source_path": "/workspaces/sa5_objective_count_stage10_functional_execution_20260805T134741Z/logs/rep_008.log"
+      },
+      {
+        "canonical_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/logs/rep_009.log",
+        "replication_index": 9,
+        "sha256": "b9626fdbe22cb39496382b5d67377ca94c533f8756b5259afcf156811ef0c7a1",
+        "source_path": "/workspaces/sa5_objective_count_stage10_functional_execution_20260805T134741Z/logs/rep_009.log"
+      }
+    ],
+    "execution_spec_manifest_path": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_execution_spec_manifest.json",
+    "execution_spec_manifest_sha256": "c217dd50476e3c378afb33d2c68540b18fe9f1e1291bbadd5b71659e35ff061c",
+    "post_execution_audit_source_sha256": "f53ed50765ed41fc253de969a7a5f8858b6627bab774bd3add013d5177872647",
+    "source_artifact_count": 7,
+    "source_artifacts": [
+      {
+        "byte_count": 36022,
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_authorization/sa5_objective_count_stage10_functional_execution_authorization.json",
+        "sha256": "e21998b445f199253894aa40dbfeb4508c1cd6e64b7002ce1c438bbe05e7cb04"
+      },
+      {
+        "byte_count": 920,
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_authorization/sa5_objective_count_stage10_functional_execution_authorization.txt",
+        "sha256": "5defd8ff1c5107d6b257343f8e05336644cfb58f943190d85eff34bcc78ea0a7"
+      },
+      {
+        "byte_count": 11053,
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/sa5_objective_count_stage10_functional_execution_ledger.json",
+        "sha256": "6432e399be10798362a27d00ca55208909c85d9a538de0c53c89b8f7c90d85e0"
+      },
+      {
+        "byte_count": 771,
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_execution/sa5_objective_count_stage10_functional_execution_ledger.txt",
+        "sha256": "3db78e3df9c4bff3c33e88a9845d1ae7c4e2a4d08b243a7bf37c2d1a8739199b"
+      },
+      {
+        "byte_count": 19996,
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_post_execution/sa5_objective_count_stage10_post_functional_execution_audit.json",
+        "sha256": "f53ed50765ed41fc253de969a7a5f8858b6627bab774bd3add013d5177872647"
+      },
+      {
+        "byte_count": 1233,
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_post_execution/sa5_objective_count_stage10_post_functional_execution_audit.txt",
+        "sha256": "5c4e2493d673efadc523552976a887cf55864b0d807fad8ad1b499e5904606cb"
+      },
+      {
+        "byte_count": 64998,
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/source_post_execution/canonical_functional_run_file_manifest.sha256",
+        "sha256": "10f2795a20c27c7ba2222636eee8d0800709e12f3fe290138bf4e31c29db6bf1"
+      }
+    ]
+  },
+  "completion": {
+    "canonical_run_count": 10,
+    "canonical_run_file_count": 280,
+    "canonical_run_total_bytes": 25018782,
+    "execution_spec_count": 10,
+    "explicit_failure_count": 0,
+    "failed_execution_spec_count": 0,
+    "successful_execution_spec_count": 10,
+    "total_instance_count": 60,
+    "total_step_evaluations": 1920,
+    "unique_execution_digest_count": 10,
+    "unique_instance_count": 60
+  },
+  "materialization_complete": true,
+  "repository_scope": {
+    "canonical_evidence_file_count": 18,
+    "canonical_run_file_count": 280,
+    "planning_file_count": 2,
+    "total_materialized_file_count": 300
+  },
+  "schema_version": "mcad-sa5-objective-count-stage10-functional-execution-evidence-manifest-v1",
+  "scientific_controls": {
+    "bootstrap_analysis_performed": false,
+    "canonical_stage10_functional_execution_performed": true,
+    "functional_execution_completion_audited": true,
+    "functional_execution_evidence_committed": false,
+    "functional_execution_evidence_materialized": true,
+    "manuscript_modified": false,
+    "precision_analysis_performed": false,
+    "scientific_result_interpretation_performed": false,
+    "timing_analysis_performed": false
+  },
+  "source_commit": "809ec874ca1bc6d4ad3c37b022d75dced7da5e98",
+  "status": "sa5_objective_count_stage10_functional_execution_evidence_materialized"
+}

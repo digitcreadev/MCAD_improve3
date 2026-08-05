@@ -1,0 +1,21 @@
+{
+  "campaign_id": "objective_count_stage10_c8_nv32",
+  "ceval_empty_count": 42,
+  "execution_id": "sa5-objective-count-stage10-rep_002-canonical-v1",
+  "factor": "objective_count",
+  "failed_instance_count": 0,
+  "failed_step_count": 0,
+  "instance_count": 6,
+  "mean_auc_phi": 0.539062,
+  "mean_evaluator_latency_p50_ms": 0.572301,
+  "mean_evaluator_latency_p95_ms": 0.909896,
+  "mean_evaluator_latency_p99_ms": 1.084695,
+  "mean_phi_final": 1.0,
+  "mean_phi_weighted_final": 1.0,
+  "real_empty_count": 42,
+  "sat_fail_count": 42,
+  "schema_version": "mcad-sensitivity-e3-campaign-metrics-v1",
+  "step_count": 192,
+  "successful_instance_count": 6,
+  "successful_step_count": 192
+}

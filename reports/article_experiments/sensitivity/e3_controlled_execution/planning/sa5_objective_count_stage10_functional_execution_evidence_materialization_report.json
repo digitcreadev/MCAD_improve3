@@ -1,0 +1,55 @@
+{
+  "authorization": {
+    "bootstrap_analysis_authorized": false,
+    "functional_execution_evidence_commit_authorized": true,
+    "manuscript_integration_authorized": false,
+    "precision_analysis_authorized": false,
+    "scientific_result_interpretation_authorized": false,
+    "timing_analysis_authorized": false
+  },
+  "blocker_count": 0,
+  "blockers": [],
+  "completion": {
+    "canonical_run_count": 10,
+    "canonical_run_file_count": 280,
+    "canonical_run_total_bytes": 25018782,
+    "execution_spec_count": 10,
+    "explicit_failure_count": 0,
+    "failed_execution_spec_count": 0,
+    "successful_execution_spec_count": 10,
+    "total_instance_count": 60,
+    "total_step_evaluations": 1920,
+    "unique_execution_digest_count": 10,
+    "unique_instance_count": 60
+  },
+  "evidence_manifest_path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/functional_execution_evidence_manifest.json",
+  "evidence_manifest_sha256": "d2b66ccf52bde34aee15596a898ddf7fa95cb51aad6ce6bd4b0fa14f59e37dbc",
+  "materialization_complete": true,
+  "next_stage": "wait_for_ci_then_merge_sa5_objective_count_stage10_functional_execution_evidence",
+  "repository_scope": {
+    "canonical_evidence_file_count": 18,
+    "canonical_run_file_count": 280,
+    "planning_file_count": 2,
+    "total_materialized_file_count": 300
+  },
+  "schema_version": "mcad-sa5-objective-count-stage10-functional-execution-evidence-materialization-v1",
+  "scientific_controls": {
+    "bootstrap_analysis_performed": false,
+    "canonical_stage10_functional_execution_performed": true,
+    "functional_execution_completion_audited": true,
+    "functional_execution_evidence_committed": false,
+    "functional_execution_evidence_materialized": true,
+    "manuscript_modified": false,
+    "precision_analysis_performed": false,
+    "scientific_result_interpretation_performed": false,
+    "timing_analysis_performed": false
+  },
+  "source_commit": "809ec874ca1bc6d4ad3c37b022d75dced7da5e98",
+  "source_evidence": {
+    "authorization_report_sha256": "e21998b445f199253894aa40dbfeb4508c1cd6e64b7002ce1c438bbe05e7cb04",
+    "canonical_run_file_manifest_sha256": "10f2795a20c27c7ba2222636eee8d0800709e12f3fe290138bf4e31c29db6bf1",
+    "execution_ledger_sha256": "6432e399be10798362a27d00ca55208909c85d9a538de0c53c89b8f7c90d85e0",
+    "post_execution_audit_sha256": "f53ed50765ed41fc253de969a7a5f8858b6627bab774bd3add013d5177872647"
+  },
+  "status": "sa5_objective_count_stage10_functional_execution_evidence_materialized"
+}

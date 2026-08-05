@@ -1,0 +1,23 @@
+SA5 OBJECTIVE-COUNT STAGE-10 FUNCTIONAL EXECUTION AUTHORIZATION
+========================================================================================
+source_commit=809ec874ca1bc6d4ad3c37b022d75dced7da5e98
+execution_spec_count=10
+total_instance_count=60
+expected_total_step_evaluations=1920
+complete_detached_preflight=PASS
+preflight_instance_count=60
+workload_step_execution_performed=false
+evaluator_call_count=0
+preflight_runtime_cleaned=true
+canonical_functional_execution_authorized=true
+timing_execution_authorized=false
+precision_analysis_authorized=false
+bootstrap_analysis_authorized=false
+scientific_result_interpretation_authorized=false
+manuscript_integration_authorized=false
+canonical_stage10_functional_execution_performed=false
+scientific_execution_performed=false
+manuscript_modified=false
+blocker_count=0
+authorization_complete=true
+next_stage=execute_sa5_objective_count_stage10_functional_campaign

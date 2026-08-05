@@ -1,0 +1,51 @@
+{
+  "campaign_id": "objective_count_stage10_c8_nv32",
+  "commit_entrypoint": "backend.ckg.ckg_updater.CKGGraph.update_from_step",
+  "cross_instance_state_reuse": false,
+  "deterministic_execution_digest": "ce1b4a6036586bfed3c4f8e03a6be7ff7012c19271a9246c2cac330c34f51d5a",
+  "e2_inputs_unchanged": true,
+  "evaluator_entrypoint": "backend.ckg.ckg_updater.CKGGraph.evaluate_step",
+  "execution_id": "sa5-objective-count-stage10-rep_009-canonical-v1",
+  "executor_version": "mcad-sensitivity-e3-v2",
+  "factor": "objective_count",
+  "failed_instance_count": 0,
+  "fresh_runtime_state_per_instance": true,
+  "fresh_session_per_instance": true,
+  "input_digests": {
+    "campaign_manifest.json": "a3a6e526589361c0e8adb171fc4af5a3b4576698c8ada606a41ccb65c72bd41e",
+    "campaign_spec.json": "daf4f995e72747127c94da7fdf1e29911d034a81606b56803160982d5ea5aaf7",
+    "instances.csv": "9bb4da570984d241fa0de65e90fe0ebd789e26a4b08b0454460e63a6baa8c77e",
+    "instances/level_000001/rep_009_seed_1767972531/manifest.json": "11f0f2489291162883eb1c79f95bfa3af9a3e9edb0d6399d3b6e37d970872eee",
+    "instances/level_000001/rep_009_seed_1767972531/objectives.yaml": "d1b5a40656359621b7cf72c045c1945eb64e0acac7434f06d444cadd9c3d3b4c",
+    "instances/level_000002/rep_009_seed_1767972531/manifest.json": "157c3a8f69874462a7f4957257f5d044cd330a72180b39e85b7fb877f3f6fc23",
+    "instances/level_000002/rep_009_seed_1767972531/objectives.yaml": "cb274edbd9acea780e15b51af485d67ddfaa2b47198b13334f443b9e66c74e79",
+    "instances/level_000005/rep_009_seed_1767972531/manifest.json": "5ee83e6309510c260d15909e6cc28404b8021ebdcfdf893af8344738a97b0d58",
+    "instances/level_000005/rep_009_seed_1767972531/objectives.yaml": "216a358e494f4b4e06d2af185a9074aa77fb99b736d987e467c6f690156f1358",
+    "instances/level_000010/rep_009_seed_1767972531/manifest.json": "1a6b230f8f68e6ef1cd6bda1b1b65d5d1fcf4c74b17c4307cb302cc0f10afcf7",
+    "instances/level_000010/rep_009_seed_1767972531/objectives.yaml": "187e5dce8e1bd94774563c4a42cf30835d8c47b163536b21de59ab4ea805f9cb",
+    "instances/level_000020/rep_009_seed_1767972531/manifest.json": "200bbbb54e2b170e2f3200e46c7b0c112eec7d7d0e7ac80686c7ab13fd7f0124",
+    "instances/level_000020/rep_009_seed_1767972531/objectives.yaml": "0e23a7b76b4c8b9db529f109f9e85c4ac09bdc583b09818f0520a5cab9d95642",
+    "instances/level_000050/rep_009_seed_1767972531/manifest.json": "a3fd189b7c83e049a9a7602565d92081d1229a40b7de16cfa1151476d3421284",
+    "instances/level_000050/rep_009_seed_1767972531/objectives.yaml": "7337ecf0e6be4c116f902b54c0c597de67107e87cba1a70fa79a39c40ca202fe"
+  },
+  "instance_order": [
+    "level_000001/rep_009_seed_1767972531",
+    "level_000002/rep_009_seed_1767972531",
+    "level_000005/rep_009_seed_1767972531",
+    "level_000010/rep_009_seed_1767972531",
+    "level_000020/rep_009_seed_1767972531",
+    "level_000050/rep_009_seed_1767972531"
+  ],
+  "required_outputs": [
+    "execution_spec.json",
+    "execution_manifest.json",
+    "instance_results.csv",
+    "campaign_metrics.json"
+  ],
+  "schema_version": "mcad-sensitivity-e3-execution-manifest-v1",
+  "selected_instance_count": 6,
+  "status": "success",
+  "successful_instance_count": 6,
+  "workload_id": "sa5-objective-count-stage10-rep-009-seed-1767972531",
+  "workload_objective_binding": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L1_R009_OBJ0001"
+}

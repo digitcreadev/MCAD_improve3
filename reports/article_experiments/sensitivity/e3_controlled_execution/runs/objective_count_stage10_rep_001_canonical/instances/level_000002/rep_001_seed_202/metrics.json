@@ -1,0 +1,18 @@
+{
+  "auc_phi": 0.550781,
+  "canonical_instance_id": "level_000002/rep_001_seed_202",
+  "ceval_empty_count": 7,
+  "evaluator_latency_p50_ms": 0.946839,
+  "evaluator_latency_p95_ms": 1.047497,
+  "evaluator_latency_p99_ms": 1.16415,
+  "execution_id": "sa5-objective-count-stage10-rep_001-canonical-v1",
+  "failed_step_count": 0,
+  "objective_id": "O_OBJECTIVE_COUNT_STAGE10_C8_NV32_OBJECTIVE_COUNT_L2_R001_OBJ0001",
+  "phi_final": 1.0,
+  "phi_weighted_final": 1.0,
+  "real_empty_count": 7,
+  "sat_fail_count": 7,
+  "schema_version": "mcad-sensitivity-e3-metrics-v1",
+  "step_count": 32,
+  "successful_step_count": 32
+}
