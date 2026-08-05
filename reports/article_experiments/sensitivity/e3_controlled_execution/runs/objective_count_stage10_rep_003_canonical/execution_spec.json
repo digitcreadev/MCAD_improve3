@@ -1,0 +1,18 @@
+{
+  "campaign_dir": "../campaigns/objective_count_stage10_c8_nv32",
+  "continue_on_instance_failure": false,
+  "contract_version": "mcad-sensitivity-e3-execution-v1",
+  "execution_id": "sa5-objective-count-stage10-rep_003-canonical-v1",
+  "instance_selection": {
+    "instance_ids": [
+      "instances/level_000001/rep_003_seed_796786883",
+      "instances/level_000002/rep_003_seed_796786883",
+      "instances/level_000005/rep_003_seed_796786883",
+      "instances/level_000010/rep_003_seed_796786883",
+      "instances/level_000020/rep_003_seed_796786883",
+      "instances/level_000050/rep_003_seed_796786883"
+    ]
+  },
+  "output_dir": "../runs/objective_count_stage10_rep_003_canonical",
+  "workload_path": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_003_seed_796786883.json"
+}
