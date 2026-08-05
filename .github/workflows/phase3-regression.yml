@@ -74,6 +74,12 @@ jobs:
             backend/harness/sensitivity_execution/analyze_clustered_timing_precision.py \
             backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py \
             backend/harness/sensitivity_execution/tools/audit_membership_density_common_workload.py \
+            backend/harness/sensitivity_execution/tools/objective_count_noise_operators_v2.py \
+            backend/harness/sensitivity_execution/tools/prepare_objective_count_stage10_common_workloads_v2.py \
+            backend/harness/sensitivity_execution/tools/audit_objective_count_structure_v2.py \
+            backend/harness/sensitivity_execution/tools/audit_objective_count_stage10_common_workloads_v2.py \
+            backend/harness/sensitivity_generator/objective_count_generator_v2.py \
+            backend/harness/sensitivity_generator/families/objective_count_family_v2.py \
             backend/harness/sensitivity_generator/membership_density_generator.py \
             backend/harness/sensitivity_generator/families/membership_density_family.py \
             backend/harness/sensitivity_generator/oracles/membership_density_oracle.py
@@ -98,5 +104,17 @@ jobs:
             backend/harness/sensitivity_generator/tests/test_membership_density_oracle.py \
             backend/harness/sensitivity_execution/tests/test_membership_density_common_workload_auditor.py \
             backend/harness/sensitivity_execution/tests/test_membership_density_compatibility.py \
+            -q \
+            -p no:cacheprovider
+
+      - name: Run targeted SA5 objective-count regression suite
+        run: |
+          python -m pytest \
+            backend/harness/sensitivity_generator/tests/test_objective_count_generator_v2.py \
+            backend/harness/sensitivity_generator/tests/test_objective_count_family_v2.py \
+            backend/harness/sensitivity_execution/tests/test_objective_count_noise_operators_v2.py \
+            backend/harness/sensitivity_execution/tests/test_objective_count_session_support_policy_v2.py \
+            backend/harness/sensitivity_execution/tests/test_objective_count_structure_auditor_v2.py \
+            backend/harness/sensitivity_execution/tests/test_objective_count_stage10_common_workloads_v2.py \
             -q \
             -p no:cacheprovider

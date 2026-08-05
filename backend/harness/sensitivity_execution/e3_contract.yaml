@@ -166,3 +166,7 @@ factor_generator_profiles:
   objective_count:
     campaign_generator_version: mcad-sensitivity-e2.2-objective-count-v1
     structural_generator_version: mcad-sensitivity-e2.1-objective-count-v1
+active_factor_generator_profile_overrides:
+  objective_count:
+    campaign_generator_version: mcad-sensitivity-e2.2-objective-count-v2
+    structural_generator_version: mcad-sensitivity-e2.1-objective-count-v2

@@ -407,3 +407,69 @@ def test_validation_is_deterministic() -> None:
     validate_workload_spec(second)
 
     assert first == second == workload
+
+
+def _controlled_noise_metadata(noise_class: str) -> dict[str, str]:
+    return {
+        "noise_class": noise_class,
+        "operator_registry_version": (
+            "mcad-sa5-objective-count-noise-operators-v1"
+        ),
+    }
+
+
+def test_rejects_empty_cube_without_controlled_noise_metadata() -> None:
+    workload = canonical_workload()
+    workload["steps"][0]["query_spec"]["cube"] = ""
+    with pytest.raises(AssertionError, match="cube must be a non-empty string"):
+        validate_workload_spec(workload)
+
+
+def test_allows_controlled_missing_cube_only_with_matching_metadata() -> None:
+    workload = canonical_workload()
+    query = workload["steps"][0]["query_spec"]
+    query["cube"] = ""
+    query["mcad_controlled_noise"] = _controlled_noise_metadata("missing_cube")
+    validate_workload_spec(workload)
+
+    query["cube"] = "SyntheticFact"
+    with pytest.raises(AssertionError, match="must be empty"):
+        validate_workload_spec(workload)
+
+
+def test_allows_controlled_invalid_time_window_only_when_reversed() -> None:
+    workload = canonical_workload()
+    query = workload["steps"][0]["query_spec"]
+    query["window_start"] = "2018-01-01"
+    query["window_end"] = "2017-12-31"
+    query["mcad_controlled_noise"] = _controlled_noise_metadata(
+        "invalid_time_window"
+    )
+    validate_workload_spec(workload)
+
+    query["window_start"] = "2017-01-01"
+    query["window_end"] = "2017-12-31"
+    with pytest.raises(AssertionError, match="must contain a reversed window"):
+        validate_workload_spec(workload)
+
+
+@pytest.mark.parametrize(
+    "metadata",
+    [
+        {
+            "noise_class": "unknown_noise",
+            "operator_registry_version": (
+                "mcad-sa5-objective-count-noise-operators-v1"
+            ),
+        },
+        {
+            "noise_class": "missing_cube",
+            "operator_registry_version": "unknown-registry",
+        },
+    ],
+)
+def test_rejects_unknown_controlled_noise_declarations(metadata: dict) -> None:
+    workload = canonical_workload()
+    workload["steps"][0]["query_spec"]["mcad_controlled_noise"] = metadata
+    with pytest.raises(AssertionError):
+        validate_workload_spec(workload)

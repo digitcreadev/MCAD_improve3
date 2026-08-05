@@ -6,11 +6,16 @@ from pathlib import Path
 import yaml
 
 from backend.harness.sensitivity_execution.execute_controlled_family import (
+    ACTIVE_GENERATOR_VERSION_OVERRIDES,
     SUPPORTED_GENERATOR_VERSION_PAIRS,
 )
 from backend.harness.sensitivity_generator.families.objective_count_family import (
-    CAMPAIGN_GENERATOR_VERSION,
-    STRUCTURAL_GENERATOR_VERSION,
+    CAMPAIGN_GENERATOR_VERSION as HISTORICAL_CAMPAIGN_GENERATOR_VERSION,
+    STRUCTURAL_GENERATOR_VERSION as HISTORICAL_STRUCTURAL_GENERATOR_VERSION,
+)
+from backend.harness.sensitivity_generator.families.objective_count_family_v2 import (
+    CAMPAIGN_GENERATOR_VERSION as ACTIVE_CAMPAIGN_GENERATOR_VERSION,
+    STRUCTURAL_GENERATOR_VERSION as ACTIVE_STRUCTURAL_GENERATOR_VERSION,
 )
 
 ROOT = Path(__file__).resolve().parents[4]
@@ -28,6 +33,14 @@ PREREGISTRATION_PATH = (
     )
 )
 
+AMENDMENT_002_PATH = PREREGISTRATION_PATH.with_name(
+    "sa5_objective_count_workload_contribution_capacity_amendment.json"
+)
+
+AMENDMENT_003_PATH = PREREGISTRATION_PATH.with_name(
+    "sa5_objective_count_noise_operator_and_redundancy_ordering_amendment.json"
+)
+
 DESIGN_MATRIX_PATH = (
     ROOT
     / "backend"
@@ -37,16 +50,14 @@ DESIGN_MATRIX_PATH = (
 )
 
 
-def load_preregistration() -> dict:
-    value = json.loads(
-        PREREGISTRATION_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
-
+def load_json(path: Path) -> dict:
+    value = json.loads(path.read_text(encoding="utf-8"))
     assert isinstance(value, dict)
-
     return value
+
+
+def load_preregistration() -> dict:
+    return load_json(PREREGISTRATION_PATH)
 
 
 def load_design() -> dict:
@@ -199,37 +210,34 @@ def test_stage10_replication_contract() -> None:
 
 def test_generator_profiles_are_exact() -> None:
     preregistration = load_preregistration()
+    binding = preregistration["implementation_binding"]
 
-    binding = preregistration[
-        "implementation_binding"
-    ]
-
-    assert STRUCTURAL_GENERATOR_VERSION == (
-        "mcad-sensitivity-e2.1-"
-        "objective-count-v1"
+    assert HISTORICAL_STRUCTURAL_GENERATOR_VERSION == (
+        "mcad-sensitivity-e2.1-objective-count-v1"
+    )
+    assert HISTORICAL_CAMPAIGN_GENERATOR_VERSION == (
+        "mcad-sensitivity-e2.2-objective-count-v1"
+    )
+    assert binding["structural_generator_version"] == (
+        HISTORICAL_STRUCTURAL_GENERATOR_VERSION
+    )
+    assert binding["campaign_generator_version"] == (
+        HISTORICAL_CAMPAIGN_GENERATOR_VERSION
     )
 
-    assert CAMPAIGN_GENERATOR_VERSION == (
-        "mcad-sensitivity-e2.2-"
-        "objective-count-v1"
+    assert ACTIVE_STRUCTURAL_GENERATOR_VERSION == (
+        "mcad-sensitivity-e2.1-objective-count-v2"
     )
-
-    assert binding[
-        "structural_generator_version"
-    ] == STRUCTURAL_GENERATOR_VERSION
-
-    assert binding[
-        "campaign_generator_version"
-    ] == CAMPAIGN_GENERATOR_VERSION
-
-    assert (
-        SUPPORTED_GENERATOR_VERSION_PAIRS[
-            "objective_count"
-        ]
-        == (
-            CAMPAIGN_GENERATOR_VERSION,
-            STRUCTURAL_GENERATOR_VERSION,
-        )
+    assert ACTIVE_CAMPAIGN_GENERATOR_VERSION == (
+        "mcad-sensitivity-e2.2-objective-count-v2"
+    )
+    assert SUPPORTED_GENERATOR_VERSION_PAIRS["objective_count"] == (
+        HISTORICAL_CAMPAIGN_GENERATOR_VERSION,
+        HISTORICAL_STRUCTURAL_GENERATOR_VERSION,
+    )
+    assert ACTIVE_GENERATOR_VERSION_OVERRIDES["objective_count"] == (
+        ACTIVE_CAMPAIGN_GENERATOR_VERSION,
+        ACTIVE_STRUCTURAL_GENERATOR_VERSION,
     )
 
 
@@ -351,3 +359,44 @@ def test_preregistration_records_no_execution() -> None:
         "materialize_sa5_objective_count_stage10_"
         "structure_and_common_workloads"
     )
+
+
+def test_effective_amendment_chain_is_authoritative_for_v2() -> None:
+    capacity = load_json(AMENDMENT_002_PATH)
+    operators = load_json(AMENDMENT_003_PATH)
+
+    workload = capacity["revised_workload_contract"]
+    assert workload["workload_length"] == 32
+    assert workload["oracle_contributive_query_count"] == 24
+    assert workload["non_contributive_query_count"] == 8
+    support = capacity["factor_scoped_support_contract"]
+    assert support["support_resources_per_objective"] == 24
+    assert support["objective_count_v2_value"] == "union_requirement_sets"
+
+    operator_contract = operators["noise_operator_contract"]
+    assert len(operator_contract["noise_class_order"]) == 8
+    assert set(operator_contract["operator_definitions"]) == set(
+        operator_contract["noise_class_order"]
+    )
+    assert operators["revised_noise_schedule_contract"][
+        "old_failure_resolved"
+    ] == {
+        "new_redundant_position": 8,
+        "new_source_step_index": 7,
+        "old_redundant_position": 1,
+        "prior_contributive_step_exists": True,
+        "replication_index": 2,
+        "seed": 1198202409,
+    }
+    assert operators["implementation_contract"][
+        "target_structural_generator_version"
+    ] == ACTIVE_STRUCTURAL_GENERATOR_VERSION
+    assert operators["implementation_contract"][
+        "target_campaign_generator_version"
+    ] == ACTIVE_CAMPAIGN_GENERATOR_VERSION
+    assert operators["authorization"][
+        "canonical_campaign_materialization_authorized"
+    ] is False
+    assert operators["authorization"][
+        "functional_execution_authorized"
+    ] is False
