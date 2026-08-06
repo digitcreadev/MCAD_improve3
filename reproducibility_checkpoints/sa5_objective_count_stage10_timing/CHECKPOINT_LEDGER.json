@@ -1,11 +1,32 @@
 {
   "checkpoint_branch": "evidence/sa5-objective-count-stage10-timing-checkpoints-20260806",
-  "completed_replication_count": 0,
+  "completed_replication_count": 1,
   "expected_replication_count": 10,
   "replications": [
     {
+      "directory": "replications/rep_000",
+      "files": {
+        "functional_references.json": {
+          "sha256": "34b9562f87edac3291790eb353c16cb22b7812e352c9f39d24ef6af3894b7ebe",
+          "size_bytes": 2362483
+        },
+        "timing_manifest.json": {
+          "sha256": "3d9744c2fa48c8b7276fc0881a8a8c11fb7ef728ac07eabf5350aa37b1c81fd6",
+          "size_bytes": 7975
+        },
+        "timing_observations.csv": {
+          "sha256": "4b003bbc020e1685bdaf913c15201d9f91d0760b2682f1ce331af9229620b000",
+          "size_bytes": 5124995
+        },
+        "timing_summary.json": {
+          "sha256": "a38980e181117fdc51267707cb39c980b04a6ad2659525cfe85ee44145906ef9",
+          "size_bytes": 771027
+        }
+      },
       "replication": 0,
-      "status": "pending"
+      "status": "checkpointed",
+      "validated_at_utc": "2026-08-06T12:45:46Z",
+      "validation": "replications/rep_000/VALIDATION.json"
     },
     {
       "replication": 1,
@@ -54,5 +75,5 @@
   "source_branch": "paper/phase3-controlled-execution",
   "source_commit": "dec3785432366fb64b68123419ac31f640476313",
   "status": "in_progress",
-  "updated_at_utc": "2026-08-06T12:45:43Z"
+  "updated_at_utc": "2026-08-06T12:45:46Z"
 }

@@ -2,11 +2,11 @@
 
 Source commit: `dec3785432366fb64b68123419ac31f640476313`
 Checkpoint branch: `evidence/sa5-objective-count-stage10-timing-checkpoints-20260806`
-Completed replications: **0/10**
+Completed replications: **1/10**
 
 | Replication | Status |
 |---:|:---|
-| 000 | pending |
+| 000 | checkpointed |
 | 001 | pending |
 | 002 | pending |
 | 003 | pending |
