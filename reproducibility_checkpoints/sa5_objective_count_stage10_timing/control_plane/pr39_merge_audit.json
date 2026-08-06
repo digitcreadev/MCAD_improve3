@@ -1,0 +1,24 @@
+{
+  "amendment_path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa5_objective_count_stage10_timing_contract_amendment.json",
+  "amendment_sha256": "1e0b7e04d82e6c265c11a0e684dbf30db77bbef08c0bf1218b94e3d87c6c510d",
+  "authorization": {
+    "bootstrap_analysis_authorized": false,
+    "manuscript_modification_authorized": false,
+    "precision_analysis_authorized": false,
+    "replication_000_reuse_authorized": true,
+    "replications_001_through_009_execution_authorized": true,
+    "timing_values_interpretation_authorized": false
+  },
+  "corrected_contract": {
+    "rows_per_factor": 3520,
+    "rows_per_replication": 21120,
+    "total_rows": 211200
+  },
+  "first_parent": "26c781aa7a60fdc392a42eca53709731283ae438",
+  "merge_commit": "dec3785432366fb64b68123419ac31f640476313",
+  "merge_tree": "b8acb61757a4c4e90d6c341ea5676a2c2ba8f257",
+  "schema_version": "mcad-sa5-pr39-merge-audit-v1",
+  "second_parent": "e01589e1e42bda41e235daacdd6fe09e30e2c9e5",
+  "spec_count": 10,
+  "status": "merge_validation_pass"
+}

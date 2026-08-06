@@ -1,0 +1,24 @@
+commit dec3785432366fb64b68123419ac31f640476313
+Merge: 26c781a e01589e
+Author: Habib benaouda <habib.benaouda@univ-tiaret.dz>
+Date:   Thu Aug 6 02:26:00 2026 +0200
+
+    Merge pull request #39 from digitcreadev/paper/amend-sa5-objective-count-stage10-timing-contract-20260805T234334Z
+    
+    Amend SA5 Stage-10 timing cell-count contract
+
+ ...ve_count_stage10_timing_contract_amendment.json | 424 +++++++++++++++++++++
+ ...unt_stage10_timing_execution_authorization.json |   6 +-
+ ...ective_count_stage10_timing_setup_manifest.json |  48 +--
+ ...ive_count_rep_000_portfolio_timing_stage10.json |   4 +-
+ ...ive_count_rep_001_portfolio_timing_stage10.json |   4 +-
+ ...ive_count_rep_002_portfolio_timing_stage10.json |   4 +-
+ ...ive_count_rep_003_portfolio_timing_stage10.json |   4 +-
+ ...ive_count_rep_004_portfolio_timing_stage10.json |   4 +-
+ ...ive_count_rep_005_portfolio_timing_stage10.json |   4 +-
+ ...ive_count_rep_006_portfolio_timing_stage10.json |   4 +-
+ ...ive_count_rep_007_portfolio_timing_stage10.json |   4 +-
+ ...ive_count_rep_008_portfolio_timing_stage10.json |   4 +-
+ ...ive_count_rep_009_portfolio_timing_stage10.json |   4 +-
+ 13 files changed, 471 insertions(+), 47 deletions(-)
+ create mode 100644 reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa5_objective_count_stage10_timing_contract_amendment.json

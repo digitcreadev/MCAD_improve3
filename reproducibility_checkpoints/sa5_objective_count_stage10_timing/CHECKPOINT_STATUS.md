@@ -1,0 +1,20 @@
+# SA5 timing checkpoint status
+
+Source commit: `dec3785432366fb64b68123419ac31f640476313`
+Checkpoint branch: `evidence/sa5-objective-count-stage10-timing-checkpoints-20260806`
+Completed replications: **0/10**
+
+| Replication | Status |
+|---:|:---|
+| 000 | pending |
+| 001 | pending |
+| 002 | pending |
+| 003 | pending |
+| 004 | pending |
+| 005 | pending |
+| 006 | pending |
+| 007 | pending |
+| 008 | pending |
+| 009 | pending |
+
+Timing values have not been interpreted by this checkpoint process.

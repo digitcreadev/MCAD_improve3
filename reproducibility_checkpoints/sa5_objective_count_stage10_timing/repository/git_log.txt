@@ -1,0 +1,150 @@
+*   dec3785 (HEAD -> paper/phase3-controlled-execution, origin/paper/phase3-controlled-execution, evidence/sa5-objective-count-stage10-timing-checkpoints-20260806) Merge pull request #39 from digitcreadev/paper/amend-sa5-objective-count-stage10-timing-contract-20260805T234334Z
+|\  
+| * e01589e (origin/paper/amend-sa5-objective-count-stage10-timing-contract-20260805T234334Z, paper/amend-sa5-objective-count-stage10-timing-contract-20260805T234334Z) chore(experiments): amend SA5 timing cell-count contract
+|/  
+* 26c781a Revert "ok"
+* a3b6abc ok
+*   20dfec1 Merge pull request #37 from digitcreadev/paper/prepare-sa5-objective-count-stage10-timing-20260805T153354Z
+|\  
+| * e76f688 chore(experiments): prepare SA5 objective-count Stage-10 timing
+|/  
+*   0c394d4 Merge pull request #36 from digitcreadev/paper/materialize-sa5-objective-count-stage10-functional-evidence-20260805T140248Z
+|\  
+| * 539c928 evidence(experiments): materialize SA5 objective-count functional execution
+|/  
+*   809ec87 Merge pull request #35 from digitcreadev/paper/materialize-sa5-objective-count-stage10-execution-specs-20260805T115406Z
+|\  
+| * 4aeb274 chore(experiments): materialize SA5 objective-count Stage-10 execution specs
+|/  
+*   6c4dac8 Merge pull request #34 from digitcreadev/paper/materialize-sa5-objective-count-stage10-20260805T104339Z
+|\  
+| * c92e90a chore(experiments): materialize SA5 objective-count Stage-10 inputs
+|/  
+*   548df8f Merge pull request #33 from digitcreadev/paper/implement-sa5-objective-count-v2-20260805T100615Z
+|\  
+| * 2b3150b feat(experiments): implement SA5 objective-count v2
+|/  
+*   0674825 Merge pull request #32 from digitcreadev/paper/preregister-sa5-objective-count-noise-operators-20260804T234110Z
+|\  
+| * 24cd22a chore(experiments): preregister SA5 noise operators
+|/  
+*   34012c0 Merge pull request #31 from digitcreadev/paper/preregister-sa5-objective-count-workload-capacity-amendment-20260804T224846Z
+|\  
+| * dead48d chore(experiments): amend SA5 workload capacity
+|/  
+*   ec4f22a Merge pull request #30 from digitcreadev/paper/preregister-sa5-objective-count-materialization-amendment-20260804T203827Z
+|\  
+| * 61a7a7e chore(experiments): amend SA5 materialization contract
+|/  
+*   1685ee8 Merge pull request #29 from digitcreadev/paper/fix-sa5-objective-count-bootstrap-20260804T201003Z
+|\  
+| * 3728942 fix(sensitivity): support multi-objective SA5 bootstrap
+|/  
+*   729b73b Merge pull request #28 from digitcreadev/paper/preregister-sa5-objective-count-stage10-20260804T185827Z
+|\  
+| * 717806c chore(experiments): preregister SA5 objective-count Stage-10
+|/  
+*   496adde Merge pull request #27 from digitcreadev/paper/implement-sa5-objective-count-20260804T184809Z
+|\  
+| * a4f7767 feat(sensitivity): implement SA5 objective-count support
+|/  
+*   ef2baf8 Merge pull request #26 from digitcreadev/paper/preserve-membership-density-stage10-draft-20260804T173227Z
+|\  
+| * 2059446 docs(experiments): preserve deferred membership-density results fragment
+|/  
+*   791dade Merge pull request #24 from digitcreadev/paper/freeze-membership-density-stage10-20260804T161119Z
+|\  
+| * 3d288a5 evidence(experiments): freeze membership-density Stage-10 campaign
+|/  
+*   39da63c Merge pull request #23 from digitcreadev/paper/analyze-membership-density-portfolio-precision-20260804T155547Z
+|\  
+| * 5e364e1 evidence(experiments): analyze membership-density Stage-10 precision
+|/  
+*   c056ea7 Merge pull request #22 from digitcreadev/paper/authorize-membership-density-portfolio-precision-20260804T154127Z
+|\  
+| * 54fc082 chore(experiments): authorize membership-density precision analysis
+|/  
+*   dd17d13 Merge pull request #21 from digitcreadev/paper/materialize-membership-density-precision-adapter-20260804T135930Z
+|\  
+| * 6d4c906 chore(experiments): materialize membership-density precision inputs
+|/  
+*   4f1b8fe Merge pull request #20 from digitcreadev/paper/preregister-membership-density-precision-adapter-20260803T195150Z
+|\  
+| * 6428fa5 chore(experiments): preregister membership-density precision adapter
+|/  
+*   6d244ec Merge pull request #19 from digitcreadev/paper/execute-membership-density-timing-stage10-20260803T111214Z
+|\  
+| * d4213cb evidence(experiments): persist membership-density Stage-10 timing
+|/  
+*   57912c7 Merge pull request #18 from digitcreadev/paper/authorize-membership-density-timing-20260803T110251Z
+|\  
+| * f02755f chore(experiments): authorize membership-density Stage-10 timing
+|/  
+*   ac922e3 Merge pull request #17 from digitcreadev/paper/materialize-membership-density-timing-inputs-20260803T105122Z
+|\  
+| * 1eac65e chore(experiments): materialize membership-density timing inputs
+|/  
+*   5a25d5e Merge pull request #16 from digitcreadev/paper/preregister-membership-density-portfolio-timing-20260802T201747Z
+|\  
+| * 97b3143 chore(experiments): preregister membership-density portfolio timing
+|/  
+*   13be44a Merge pull request #15 from digitcreadev/paper/preregister-membership-density-timing-preflight-20260802T190407Z
+|\  
+| * c2ac9e1 chore(experiments): preflight membership-density timing preregistration
+|/  
+*   bbe66c6 Merge pull request #14 from digitcreadev/paper/freeze-virtual-node-count-stage10-20260802T182731Z
+|\  
+| * 8dacca9 chore(experiments): freeze virtual-node-count Stage-10 campaign
+|/  
+*   4ad3f6a Merge pull request #13 from digitcreadev/paper/analyze-virtual-node-count-stage10-precision-20260802T175624Z
+|\  
+| * d290722 evidence(experiments): analyze virtual-node-count Stage-10 precision
+|/  
+*   f4b270c Merge pull request #12 from digitcreadev/paper/execute-virtual-node-count-stage10-timing-20260802T162601Z
+|\  
+| * 9afdeff evidence(experiments): execute virtual-node-count Stage-10 timing
+|/  
+*   aea4d6f Merge pull request #11 from digitcreadev/paper/prepare-virtual-node-count-stage10-timing-20260802T155232Z
+|\  
+| * 09ff31e chore(experiments): prepare virtual-node-count Stage-10 timing runner
+|/  
+*   f2942f1 Merge pull request #10 from digitcreadev/paper/authorize-virtual-node-count-stage10-timing-20260802T151549Z
+|\  
+| * c4b504e chore(experiments): authorize virtual-node-count Stage-10 timing
+|/  
+*   11ab786 Merge pull request #9 from digitcreadev/paper/audit-virtual-node-count-stage10-functional-20260802T145136Z
+|\  
+| * 644eacd fix(tests): scope Stage-10 preparation assertions
+| * 3d1c6ad evidence(experiments): audit virtual-node-count Stage-10 functional completion
+|/  
+*   46b95f7 Merge pull request #8 from digitcreadev/paper/execute-virtual-node-count-stage10-functional-20260802T144414Z
+|\  
+| * 06bf654 evidence(experiments): execute virtual-node-count Stage-10 functional reps 002-009
+| * 99aab0e chore(experiments): authorize virtual-node-count Stage-10 functional completion
+|/  
+*   696b6f8 Merge pull request #7 from digitcreadev/paper/prepare-virtual-node-count-stage10-workloads-20260802T142314Z
+|\  
+| * c063689 chore(experiments): prepare virtual-node-count Stage-10 workloads
+|/  
+*   622b0d5 Merge pull request #6 from digitcreadev/paper/generate-virtual-node-count-stage10-20260802T115355Z
+|\  
+| * 6c57a69 chore(experiments): generate virtual-node-count Stage-10 structure
+|/  
+*   fc61c08 Merge pull request #5 from digitcreadev/paper/preregister-virtual-node-count-stage10-20260802T100022Z
+|\  
+| * b12546b chore(experiments): preregister virtual-node-count Stage-10
+|/  
+*   6132923 Merge pull request #4 from digitcreadev/paper/freeze-constraint-count-20260801T203621Z
+|\  
+| * 591ac4d chore(experiments): freeze constraint-count Stage-20 campaign
+|/  
+*   f158337 Merge pull request #3 from digitcreadev/recovery/bridge-reconciliation-20260801T175259Z
+|\  
+| * 317a25d chore(experiments): persist recovered frozen campaigns
+| * 7efc3e7 fix(robustness): record campaign seed in metadata
+| * f71143b fix(robustness): align explanations with canonical MCAD policy
+| * efe0601 ci(phase3): migrate JavaScript actions to Node 24
+| * 1deb6a0 ci(phase3): add reproducible E3 and SA4 regression
+|/  
+* 463d0d4 (origin/codespace-fictional-couscous-97pvrrj6rjrx2955p) ok
+* 45841a6 ok

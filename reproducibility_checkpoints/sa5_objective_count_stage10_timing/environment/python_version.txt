@@ -1,0 +1,2 @@
+python_executable=/workspaces/.venvs/mcad-bridge-reconciliation-20260801T180758Z/bin/python
+Python 3.12.1

@@ -1,0 +1,91 @@
+{
+  "completed_replication_file_set_count": 1,
+  "replications": [
+    {
+      "complete_file_set_present": true,
+      "files": {
+        "functional_references.json": {
+          "sha256": "34b9562f87edac3291790eb353c16cb22b7812e352c9f39d24ef6af3894b7ebe",
+          "size_bytes": 2362483
+        },
+        "timing_manifest.json": {
+          "sha256": "3d9744c2fa48c8b7276fc0881a8a8c11fb7ef728ac07eabf5350aa37b1c81fd6",
+          "size_bytes": 7975
+        },
+        "timing_observations.csv": {
+          "sha256": "4b003bbc020e1685bdaf913c15201d9f91d0760b2682f1ce331af9229620b000",
+          "size_bytes": 5124995
+        },
+        "timing_summary.json": {
+          "sha256": "a38980e181117fdc51267707cb39c980b04a6ad2659525cfe85ee44145906ef9",
+          "size_bytes": 771027
+        }
+      },
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_000_portfolio_timing_stage10",
+      "replication": 0
+    },
+    {
+      "complete_file_set_present": false,
+      "files": {},
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_001_portfolio_timing_stage10",
+      "replication": 1
+    },
+    {
+      "complete_file_set_present": false,
+      "files": {},
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_002_portfolio_timing_stage10",
+      "replication": 2
+    },
+    {
+      "complete_file_set_present": false,
+      "files": {},
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_003_portfolio_timing_stage10",
+      "replication": 3
+    },
+    {
+      "complete_file_set_present": false,
+      "files": {},
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_004_portfolio_timing_stage10",
+      "replication": 4
+    },
+    {
+      "complete_file_set_present": false,
+      "files": {},
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_005_portfolio_timing_stage10",
+      "replication": 5
+    },
+    {
+      "complete_file_set_present": false,
+      "files": {},
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_006_portfolio_timing_stage10",
+      "replication": 6
+    },
+    {
+      "complete_file_set_present": false,
+      "files": {},
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_007_portfolio_timing_stage10",
+      "replication": 7
+    },
+    {
+      "complete_file_set_present": false,
+      "files": {},
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_008_portfolio_timing_stage10",
+      "replication": 8
+    },
+    {
+      "complete_file_set_present": false,
+      "files": {},
+      "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_009_portfolio_timing_stage10",
+      "replication": 9
+    }
+  ],
+  "schema_version": "mcad-sa5-objective-count-timing-execution-state-v2",
+  "scientific_controls": {
+    "bootstrap_analysis_performed": false,
+    "manuscript_modified": false,
+    "precision_analysis_performed": false,
+    "timing_values_interpreted": false
+  },
+  "source_commit": "dec3785432366fb64b68123419ac31f640476313",
+  "status": "campaign_in_progress"
+}

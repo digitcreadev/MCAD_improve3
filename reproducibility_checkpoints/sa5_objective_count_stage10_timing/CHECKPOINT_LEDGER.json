@@ -1,0 +1,58 @@
+{
+  "checkpoint_branch": "evidence/sa5-objective-count-stage10-timing-checkpoints-20260806",
+  "completed_replication_count": 0,
+  "expected_replication_count": 10,
+  "replications": [
+    {
+      "replication": 0,
+      "status": "pending"
+    },
+    {
+      "replication": 1,
+      "status": "pending"
+    },
+    {
+      "replication": 2,
+      "status": "pending"
+    },
+    {
+      "replication": 3,
+      "status": "pending"
+    },
+    {
+      "replication": 4,
+      "status": "pending"
+    },
+    {
+      "replication": 5,
+      "status": "pending"
+    },
+    {
+      "replication": 6,
+      "status": "pending"
+    },
+    {
+      "replication": 7,
+      "status": "pending"
+    },
+    {
+      "replication": 8,
+      "status": "pending"
+    },
+    {
+      "replication": 9,
+      "status": "pending"
+    }
+  ],
+  "schema_version": "mcad-sa5-checkpoint-ledger-v1",
+  "scientific_controls": {
+    "bootstrap_analysis_performed": false,
+    "manuscript_modified": false,
+    "precision_analysis_performed": false,
+    "timing_values_interpreted": false
+  },
+  "source_branch": "paper/phase3-controlled-execution",
+  "source_commit": "dec3785432366fb64b68123419ac31f640476313",
+  "status": "in_progress",
+  "updated_at_utc": "2026-08-06T12:45:37Z"
+}

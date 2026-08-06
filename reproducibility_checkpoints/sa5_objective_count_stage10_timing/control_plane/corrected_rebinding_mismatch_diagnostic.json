@@ -1,0 +1,1712 @@
+{
+  "active_timing_runner": false,
+  "aggregate": {
+    "old_to_adapted_candidate_path_rebinding_count": 0,
+    "old_to_adapted_key_set_difference_count": 10,
+    "old_to_adapted_list_length_difference_count": 0,
+    "old_to_adapted_other_scalar_difference_count": 0,
+    "old_to_adapted_type_difference_count": 0,
+    "old_to_new_key_set_difference_count": 0,
+    "old_to_new_other_scalar_difference_count": 20
+  },
+  "next_stage": "construct_corrected_specs_from_verified_mapping_surface",
+  "old_rebinding_manifest": {
+    "path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/execution_path_rebinding_manifest.json",
+    "rebinding_key_hit_count": 135,
+    "rebinding_key_hits": [
+      {
+        "key": "adapted_execution_spec_path",
+        "path": "$.rows[0].adapted_execution_spec_path",
+        "type": "str",
+        "value": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_000_path_rebound.json"
+      },
+      {
+        "key": "adapted_execution_spec_sha256",
+        "path": "$.rows[0].adapted_execution_spec_sha256",
+        "type": "str",
+        "value": "9280ccce48cdf6d3c6c14a40e210f2c16e6a587f71a967e5e7910563ac4e4c18"
+      },
+      {
+        "key": "mapping_count",
+        "path": "$.rows[0].mapping_count",
+        "type": "int",
+        "value": 3
+      },
+      {
+        "key": "mappings",
+        "path": "$.rows[0].mappings",
+        "type": "list",
+        "value": [
+          {
+            "json_path": "campaign_dir",
+            "original": "../campaigns/objective_count_stage10_c8_nv32",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+          },
+          {
+            "json_path": "output_dir",
+            "original": "../runs/objective_count_stage10_rep_000_canonical",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_000_canonical"
+          },
+          {
+            "json_path": "workload_path",
+            "original": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_000_seed_101.json",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_000_seed_101.json"
+          }
+        ]
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[0].mappings[0].json_path",
+        "type": "str",
+        "value": "campaign_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[0].mappings[0].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[0].mappings[1].json_path",
+        "type": "str",
+        "value": "output_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[0].mappings[1].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_000_canonical"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[0].mappings[2].json_path",
+        "type": "str",
+        "value": "workload_path"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[0].mappings[2].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_000_seed_101.json"
+      },
+      {
+        "key": "original_execution_spec_path",
+        "path": "$.rows[0].original_execution_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_000_canonical.json"
+      },
+      {
+        "key": "timing_spec_path",
+        "path": "$.rows[0].timing_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_000_portfolio_timing_stage10.json"
+      },
+      {
+        "key": "validate_adapted_spec",
+        "path": "$.rows[0].validate_adapted_spec",
+        "type": "str",
+        "value": "PASS"
+      },
+      {
+        "key": "adapted_execution_spec_path",
+        "path": "$.rows[1].adapted_execution_spec_path",
+        "type": "str",
+        "value": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_001_path_rebound.json"
+      },
+      {
+        "key": "adapted_execution_spec_sha256",
+        "path": "$.rows[1].adapted_execution_spec_sha256",
+        "type": "str",
+        "value": "f2d5974dd726018560a0addfa2ca4ff11beb397bb9a5384ee629af4388bf395d"
+      },
+      {
+        "key": "mapping_count",
+        "path": "$.rows[1].mapping_count",
+        "type": "int",
+        "value": 3
+      },
+      {
+        "key": "mappings",
+        "path": "$.rows[1].mappings",
+        "type": "list",
+        "value": [
+          {
+            "json_path": "campaign_dir",
+            "original": "../campaigns/objective_count_stage10_c8_nv32",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+          },
+          {
+            "json_path": "output_dir",
+            "original": "../runs/objective_count_stage10_rep_001_canonical",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_001_canonical"
+          },
+          {
+            "json_path": "workload_path",
+            "original": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_001_seed_202.json",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_001_seed_202.json"
+          }
+        ]
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[1].mappings[0].json_path",
+        "type": "str",
+        "value": "campaign_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[1].mappings[0].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[1].mappings[1].json_path",
+        "type": "str",
+        "value": "output_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[1].mappings[1].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_001_canonical"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[1].mappings[2].json_path",
+        "type": "str",
+        "value": "workload_path"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[1].mappings[2].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_001_seed_202.json"
+      },
+      {
+        "key": "original_execution_spec_path",
+        "path": "$.rows[1].original_execution_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_001_canonical.json"
+      },
+      {
+        "key": "timing_spec_path",
+        "path": "$.rows[1].timing_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_001_portfolio_timing_stage10.json"
+      },
+      {
+        "key": "validate_adapted_spec",
+        "path": "$.rows[1].validate_adapted_spec",
+        "type": "str",
+        "value": "PASS"
+      },
+      {
+        "key": "adapted_execution_spec_path",
+        "path": "$.rows[2].adapted_execution_spec_path",
+        "type": "str",
+        "value": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_002_path_rebound.json"
+      },
+      {
+        "key": "adapted_execution_spec_sha256",
+        "path": "$.rows[2].adapted_execution_spec_sha256",
+        "type": "str",
+        "value": "4c1ee4f0874756bef8c376aab7b612462ac3c1d3d164c6c753bd48ccd1a14119"
+      },
+      {
+        "key": "mapping_count",
+        "path": "$.rows[2].mapping_count",
+        "type": "int",
+        "value": 3
+      },
+      {
+        "key": "mappings",
+        "path": "$.rows[2].mappings",
+        "type": "list",
+        "value": [
+          {
+            "json_path": "campaign_dir",
+            "original": "../campaigns/objective_count_stage10_c8_nv32",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+          },
+          {
+            "json_path": "output_dir",
+            "original": "../runs/objective_count_stage10_rep_002_canonical",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_002_canonical"
+          },
+          {
+            "json_path": "workload_path",
+            "original": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_002_seed_1198202409.json",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_002_seed_1198202409.json"
+          }
+        ]
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[2].mappings[0].json_path",
+        "type": "str",
+        "value": "campaign_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[2].mappings[0].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[2].mappings[1].json_path",
+        "type": "str",
+        "value": "output_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[2].mappings[1].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_002_canonical"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[2].mappings[2].json_path",
+        "type": "str",
+        "value": "workload_path"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[2].mappings[2].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_002_seed_1198202409.json"
+      },
+      {
+        "key": "original_execution_spec_path",
+        "path": "$.rows[2].original_execution_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_002_canonical.json"
+      },
+      {
+        "key": "timing_spec_path",
+        "path": "$.rows[2].timing_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_002_portfolio_timing_stage10.json"
+      },
+      {
+        "key": "validate_adapted_spec",
+        "path": "$.rows[2].validate_adapted_spec",
+        "type": "str",
+        "value": "PASS"
+      },
+      {
+        "key": "adapted_execution_spec_path",
+        "path": "$.rows[3].adapted_execution_spec_path",
+        "type": "str",
+        "value": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_003_path_rebound.json"
+      },
+      {
+        "key": "adapted_execution_spec_sha256",
+        "path": "$.rows[3].adapted_execution_spec_sha256",
+        "type": "str",
+        "value": "cf64bf1b9187d314d1042e6690cd06a28b298f6126585a001d29a256eaddcc48"
+      },
+      {
+        "key": "mapping_count",
+        "path": "$.rows[3].mapping_count",
+        "type": "int",
+        "value": 3
+      },
+      {
+        "key": "mappings",
+        "path": "$.rows[3].mappings",
+        "type": "list",
+        "value": [
+          {
+            "json_path": "campaign_dir",
+            "original": "../campaigns/objective_count_stage10_c8_nv32",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+          },
+          {
+            "json_path": "output_dir",
+            "original": "../runs/objective_count_stage10_rep_003_canonical",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_003_canonical"
+          },
+          {
+            "json_path": "workload_path",
+            "original": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_003_seed_796786883.json",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_003_seed_796786883.json"
+          }
+        ]
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[3].mappings[0].json_path",
+        "type": "str",
+        "value": "campaign_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[3].mappings[0].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[3].mappings[1].json_path",
+        "type": "str",
+        "value": "output_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[3].mappings[1].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_003_canonical"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[3].mappings[2].json_path",
+        "type": "str",
+        "value": "workload_path"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[3].mappings[2].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_003_seed_796786883.json"
+      },
+      {
+        "key": "original_execution_spec_path",
+        "path": "$.rows[3].original_execution_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_003_canonical.json"
+      },
+      {
+        "key": "timing_spec_path",
+        "path": "$.rows[3].timing_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_003_portfolio_timing_stage10.json"
+      },
+      {
+        "key": "validate_adapted_spec",
+        "path": "$.rows[3].validate_adapted_spec",
+        "type": "str",
+        "value": "PASS"
+      },
+      {
+        "key": "adapted_execution_spec_path",
+        "path": "$.rows[4].adapted_execution_spec_path",
+        "type": "str",
+        "value": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_004_path_rebound.json"
+      },
+      {
+        "key": "adapted_execution_spec_sha256",
+        "path": "$.rows[4].adapted_execution_spec_sha256",
+        "type": "str",
+        "value": "e74c5705993cb447b5df59f9466cc0429c116e06c3f822bb50702a60afa7d82f"
+      },
+      {
+        "key": "mapping_count",
+        "path": "$.rows[4].mapping_count",
+        "type": "int",
+        "value": 3
+      },
+      {
+        "key": "mappings",
+        "path": "$.rows[4].mappings",
+        "type": "list",
+        "value": [
+          {
+            "json_path": "campaign_dir",
+            "original": "../campaigns/objective_count_stage10_c8_nv32",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+          },
+          {
+            "json_path": "output_dir",
+            "original": "../runs/objective_count_stage10_rep_004_canonical",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_004_canonical"
+          },
+          {
+            "json_path": "workload_path",
+            "original": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_004_seed_1126922093.json",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_004_seed_1126922093.json"
+          }
+        ]
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[4].mappings[0].json_path",
+        "type": "str",
+        "value": "campaign_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[4].mappings[0].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[4].mappings[1].json_path",
+        "type": "str",
+        "value": "output_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[4].mappings[1].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_004_canonical"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[4].mappings[2].json_path",
+        "type": "str",
+        "value": "workload_path"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[4].mappings[2].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_004_seed_1126922093.json"
+      },
+      {
+        "key": "original_execution_spec_path",
+        "path": "$.rows[4].original_execution_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_004_canonical.json"
+      },
+      {
+        "key": "timing_spec_path",
+        "path": "$.rows[4].timing_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_004_portfolio_timing_stage10.json"
+      },
+      {
+        "key": "validate_adapted_spec",
+        "path": "$.rows[4].validate_adapted_spec",
+        "type": "str",
+        "value": "PASS"
+      },
+      {
+        "key": "adapted_execution_spec_path",
+        "path": "$.rows[5].adapted_execution_spec_path",
+        "type": "str",
+        "value": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_005_path_rebound.json"
+      },
+      {
+        "key": "adapted_execution_spec_sha256",
+        "path": "$.rows[5].adapted_execution_spec_sha256",
+        "type": "str",
+        "value": "ca647e80d4e0fbf00dddaec516a09e382818d75d1f0dad1af757028485f77c98"
+      },
+      {
+        "key": "mapping_count",
+        "path": "$.rows[5].mapping_count",
+        "type": "int",
+        "value": 3
+      },
+      {
+        "key": "mappings",
+        "path": "$.rows[5].mappings",
+        "type": "list",
+        "value": [
+          {
+            "json_path": "campaign_dir",
+            "original": "../campaigns/objective_count_stage10_c8_nv32",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+          },
+          {
+            "json_path": "output_dir",
+            "original": "../runs/objective_count_stage10_rep_005_canonical",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_005_canonical"
+          },
+          {
+            "json_path": "workload_path",
+            "original": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_005_seed_809989256.json",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_005_seed_809989256.json"
+          }
+        ]
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[5].mappings[0].json_path",
+        "type": "str",
+        "value": "campaign_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[5].mappings[0].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[5].mappings[1].json_path",
+        "type": "str",
+        "value": "output_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[5].mappings[1].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_005_canonical"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[5].mappings[2].json_path",
+        "type": "str",
+        "value": "workload_path"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[5].mappings[2].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_005_seed_809989256.json"
+      },
+      {
+        "key": "original_execution_spec_path",
+        "path": "$.rows[5].original_execution_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_005_canonical.json"
+      },
+      {
+        "key": "timing_spec_path",
+        "path": "$.rows[5].timing_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_005_portfolio_timing_stage10.json"
+      },
+      {
+        "key": "validate_adapted_spec",
+        "path": "$.rows[5].validate_adapted_spec",
+        "type": "str",
+        "value": "PASS"
+      },
+      {
+        "key": "adapted_execution_spec_path",
+        "path": "$.rows[6].adapted_execution_spec_path",
+        "type": "str",
+        "value": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_006_path_rebound.json"
+      },
+      {
+        "key": "adapted_execution_spec_sha256",
+        "path": "$.rows[6].adapted_execution_spec_sha256",
+        "type": "str",
+        "value": "18a7d37a248dd0b83799b0220d49a7312e917eb66d1b91d15880857f26f3dfc0"
+      },
+      {
+        "key": "mapping_count",
+        "path": "$.rows[6].mapping_count",
+        "type": "int",
+        "value": 3
+      },
+      {
+        "key": "mappings",
+        "path": "$.rows[6].mappings",
+        "type": "list",
+        "value": [
+          {
+            "json_path": "campaign_dir",
+            "original": "../campaigns/objective_count_stage10_c8_nv32",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+          },
+          {
+            "json_path": "output_dir",
+            "original": "../runs/objective_count_stage10_rep_006_canonical",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_006_canonical"
+          },
+          {
+            "json_path": "workload_path",
+            "original": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_006_seed_618554674.json",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_006_seed_618554674.json"
+          }
+        ]
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[6].mappings[0].json_path",
+        "type": "str",
+        "value": "campaign_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[6].mappings[0].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[6].mappings[1].json_path",
+        "type": "str",
+        "value": "output_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[6].mappings[1].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_006_canonical"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[6].mappings[2].json_path",
+        "type": "str",
+        "value": "workload_path"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[6].mappings[2].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_006_seed_618554674.json"
+      },
+      {
+        "key": "original_execution_spec_path",
+        "path": "$.rows[6].original_execution_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_006_canonical.json"
+      },
+      {
+        "key": "timing_spec_path",
+        "path": "$.rows[6].timing_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_006_portfolio_timing_stage10.json"
+      },
+      {
+        "key": "validate_adapted_spec",
+        "path": "$.rows[6].validate_adapted_spec",
+        "type": "str",
+        "value": "PASS"
+      },
+      {
+        "key": "adapted_execution_spec_path",
+        "path": "$.rows[7].adapted_execution_spec_path",
+        "type": "str",
+        "value": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_007_path_rebound.json"
+      },
+      {
+        "key": "adapted_execution_spec_sha256",
+        "path": "$.rows[7].adapted_execution_spec_sha256",
+        "type": "str",
+        "value": "005315575ef57ea923e6c147c9c769846a59074999bd86b2121182e638059c29"
+      },
+      {
+        "key": "mapping_count",
+        "path": "$.rows[7].mapping_count",
+        "type": "int",
+        "value": 3
+      },
+      {
+        "key": "mappings",
+        "path": "$.rows[7].mappings",
+        "type": "list",
+        "value": [
+          {
+            "json_path": "campaign_dir",
+            "original": "../campaigns/objective_count_stage10_c8_nv32",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+          },
+          {
+            "json_path": "output_dir",
+            "original": "../runs/objective_count_stage10_rep_007_canonical",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_007_canonical"
+          },
+          {
+            "json_path": "workload_path",
+            "original": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_007_seed_1363159082.json",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_007_seed_1363159082.json"
+          }
+        ]
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[7].mappings[0].json_path",
+        "type": "str",
+        "value": "campaign_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[7].mappings[0].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[7].mappings[1].json_path",
+        "type": "str",
+        "value": "output_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[7].mappings[1].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_007_canonical"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[7].mappings[2].json_path",
+        "type": "str",
+        "value": "workload_path"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[7].mappings[2].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_007_seed_1363159082.json"
+      },
+      {
+        "key": "original_execution_spec_path",
+        "path": "$.rows[7].original_execution_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_007_canonical.json"
+      },
+      {
+        "key": "timing_spec_path",
+        "path": "$.rows[7].timing_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_007_portfolio_timing_stage10.json"
+      },
+      {
+        "key": "validate_adapted_spec",
+        "path": "$.rows[7].validate_adapted_spec",
+        "type": "str",
+        "value": "PASS"
+      },
+      {
+        "key": "adapted_execution_spec_path",
+        "path": "$.rows[8].adapted_execution_spec_path",
+        "type": "str",
+        "value": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_008_path_rebound.json"
+      },
+      {
+        "key": "adapted_execution_spec_sha256",
+        "path": "$.rows[8].adapted_execution_spec_sha256",
+        "type": "str",
+        "value": "aa79be521b980472f2c938a16cdf3c64b45ecd21d5fe45ebce59b63a4661516f"
+      },
+      {
+        "key": "mapping_count",
+        "path": "$.rows[8].mapping_count",
+        "type": "int",
+        "value": 3
+      },
+      {
+        "key": "mappings",
+        "path": "$.rows[8].mappings",
+        "type": "list",
+        "value": [
+          {
+            "json_path": "campaign_dir",
+            "original": "../campaigns/objective_count_stage10_c8_nv32",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+          },
+          {
+            "json_path": "output_dir",
+            "original": "../runs/objective_count_stage10_rep_008_canonical",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_008_canonical"
+          },
+          {
+            "json_path": "workload_path",
+            "original": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_008_seed_874332939.json",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_008_seed_874332939.json"
+          }
+        ]
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[8].mappings[0].json_path",
+        "type": "str",
+        "value": "campaign_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[8].mappings[0].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[8].mappings[1].json_path",
+        "type": "str",
+        "value": "output_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[8].mappings[1].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_008_canonical"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[8].mappings[2].json_path",
+        "type": "str",
+        "value": "workload_path"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[8].mappings[2].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_008_seed_874332939.json"
+      },
+      {
+        "key": "original_execution_spec_path",
+        "path": "$.rows[8].original_execution_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_008_canonical.json"
+      },
+      {
+        "key": "timing_spec_path",
+        "path": "$.rows[8].timing_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_008_portfolio_timing_stage10.json"
+      },
+      {
+        "key": "validate_adapted_spec",
+        "path": "$.rows[8].validate_adapted_spec",
+        "type": "str",
+        "value": "PASS"
+      },
+      {
+        "key": "adapted_execution_spec_path",
+        "path": "$.rows[9].adapted_execution_spec_path",
+        "type": "str",
+        "value": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_009_path_rebound.json"
+      },
+      {
+        "key": "adapted_execution_spec_sha256",
+        "path": "$.rows[9].adapted_execution_spec_sha256",
+        "type": "str",
+        "value": "29e0c4ec432bb24e96de2d18a0ae5a34bef3033919b45ab0963a9320bd45ed15"
+      },
+      {
+        "key": "mapping_count",
+        "path": "$.rows[9].mapping_count",
+        "type": "int",
+        "value": 3
+      },
+      {
+        "key": "mappings",
+        "path": "$.rows[9].mappings",
+        "type": "list",
+        "value": [
+          {
+            "json_path": "campaign_dir",
+            "original": "../campaigns/objective_count_stage10_c8_nv32",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+          },
+          {
+            "json_path": "output_dir",
+            "original": "../runs/objective_count_stage10_rep_009_canonical",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_009_canonical"
+          },
+          {
+            "json_path": "workload_path",
+            "original": "../campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_009_seed_1767972531.json",
+            "rebound": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_009_seed_1767972531.json"
+          }
+        ]
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[9].mappings[0].json_path",
+        "type": "str",
+        "value": "campaign_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[9].mappings[0].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[9].mappings[1].json_path",
+        "type": "str",
+        "value": "output_dir"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[9].mappings[1].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_009_canonical"
+      },
+      {
+        "key": "json_path",
+        "path": "$.rows[9].mappings[2].json_path",
+        "type": "str",
+        "value": "workload_path"
+      },
+      {
+        "key": "rebound",
+        "path": "$.rows[9].mappings[2].rebound",
+        "type": "str",
+        "value": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_009_seed_1767972531.json"
+      },
+      {
+        "key": "original_execution_spec_path",
+        "path": "$.rows[9].original_execution_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/execution_specs/objective_count_stage10_rep_009_canonical.json"
+      },
+      {
+        "key": "timing_spec_path",
+        "path": "$.rows[9].timing_spec_path",
+        "type": "str",
+        "value": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_009_portfolio_timing_stage10.json"
+      },
+      {
+        "key": "validate_adapted_spec",
+        "path": "$.rows[9].validate_adapted_spec",
+        "type": "str",
+        "value": "PASS"
+      },
+      {
+        "key": "total_mapping_count",
+        "path": "$.total_mapping_count",
+        "type": "int",
+        "value": 30
+      },
+      {
+        "key": "all_adapted_inputs_loadable",
+        "path": "$.validation.all_adapted_inputs_loadable",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "key": "all_adapted_specs_valid",
+        "path": "$.validation.all_adapted_specs_valid",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "key": "all_changes_are_existing_path_rebindings",
+        "path": "$.validation.all_changes_are_existing_path_rebindings",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "key": "arbitrary_minimum_mapping_count_enforced",
+        "path": "$.validation.arbitrary_minimum_mapping_count_enforced",
+        "type": "bool",
+        "value": false
+      }
+    ],
+    "sha256": "f81fe8a44ab037a429dd8ca7af853c2931a9d462348e4b78a4bbe091f76e5eaf",
+    "top_level_keys": [
+      "evaluator_called_during_rebinding",
+      "functional_outputs_modified",
+      "original_specs_modified",
+      "reason",
+      "replication_count",
+      "rows",
+      "schema_version",
+      "source_commit",
+      "status",
+      "timing_execution_performed",
+      "total_mapping_count",
+      "validation"
+    ],
+    "top_level_type": "dict"
+  },
+  "old_source_commit": "26c781aa7a60fdc392a42eca53709731283ae438",
+  "records": [
+    {
+      "new_source_sha256": "15cd31117ad1d80053446a26b63234e2a21182ed083da6336442103466b8b1f0",
+      "old_adapted_path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_000_path_rebound.json",
+      "old_adapted_sha256": "9280ccce48cdf6d3c6c14a40e210f2c16e6a587f71a967e5e7910563ac4e4c18",
+      "old_to_adapted": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [
+          {
+            "only_in_left": [
+              "bootstrap_analysis_authorized",
+              "expected_observation_rows",
+              "factor",
+              "factor_levels",
+              "functional_execution_id",
+              "functional_execution_spec",
+              "functional_execution_spec_sha256",
+              "functional_result_reexecution_forbidden",
+              "functional_run_dir",
+              "manuscript_integration_authorized",
+              "measured_repetitions_per_factor_level",
+              "precision_analysis_authorized",
+              "replication_index",
+              "schema_version",
+              "scientific_result_interpretation_authorized",
+              "seed",
+              "selected_instance_count",
+              "selected_instance_ids",
+              "timing_execution_authorized",
+              "timing_execution_performed",
+              "timing_output_dir",
+              "timing_runner",
+              "timing_spec_id",
+              "workload_step_count_per_instance"
+            ],
+            "only_in_right": [
+              "campaign_dir",
+              "contract_version",
+              "execution_id",
+              "instance_selection",
+              "output_dir",
+              "workload_path"
+            ],
+            "path": "$"
+          }
+        ],
+        "list_length_differences": [],
+        "other_scalar_differences": [],
+        "type_differences": []
+      },
+      "old_to_new": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [],
+        "list_length_differences": [],
+        "other_scalar_differences": [
+          {
+            "left": 15180,
+            "path": "$.expected_observation_rows",
+            "right": 21120
+          },
+          {
+            "left": 2530,
+            "path": "$.measured_repetitions_per_factor_level",
+            "right": 3520
+          }
+        ],
+        "type_differences": []
+      },
+      "replication": 0,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_000_portfolio_timing_stage10.json"
+    },
+    {
+      "new_source_sha256": "e57a098d98e263d05f26cf8034aa01312db0e66d4314118a7aa3f8f282f25eef",
+      "old_adapted_path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_001_path_rebound.json",
+      "old_adapted_sha256": "f2d5974dd726018560a0addfa2ca4ff11beb397bb9a5384ee629af4388bf395d",
+      "old_to_adapted": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [
+          {
+            "only_in_left": [
+              "bootstrap_analysis_authorized",
+              "expected_observation_rows",
+              "factor",
+              "factor_levels",
+              "functional_execution_id",
+              "functional_execution_spec",
+              "functional_execution_spec_sha256",
+              "functional_result_reexecution_forbidden",
+              "functional_run_dir",
+              "manuscript_integration_authorized",
+              "measured_repetitions_per_factor_level",
+              "precision_analysis_authorized",
+              "replication_index",
+              "schema_version",
+              "scientific_result_interpretation_authorized",
+              "seed",
+              "selected_instance_count",
+              "selected_instance_ids",
+              "timing_execution_authorized",
+              "timing_execution_performed",
+              "timing_output_dir",
+              "timing_runner",
+              "timing_spec_id",
+              "workload_step_count_per_instance"
+            ],
+            "only_in_right": [
+              "campaign_dir",
+              "contract_version",
+              "execution_id",
+              "instance_selection",
+              "output_dir",
+              "workload_path"
+            ],
+            "path": "$"
+          }
+        ],
+        "list_length_differences": [],
+        "other_scalar_differences": [],
+        "type_differences": []
+      },
+      "old_to_new": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [],
+        "list_length_differences": [],
+        "other_scalar_differences": [
+          {
+            "left": 15180,
+            "path": "$.expected_observation_rows",
+            "right": 21120
+          },
+          {
+            "left": 2530,
+            "path": "$.measured_repetitions_per_factor_level",
+            "right": 3520
+          }
+        ],
+        "type_differences": []
+      },
+      "replication": 1,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_001_portfolio_timing_stage10.json"
+    },
+    {
+      "new_source_sha256": "b2428d2de1f86ccbb336adb3f6a187017fe28060afca3ee47aa530c4d9ff060b",
+      "old_adapted_path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_002_path_rebound.json",
+      "old_adapted_sha256": "4c1ee4f0874756bef8c376aab7b612462ac3c1d3d164c6c753bd48ccd1a14119",
+      "old_to_adapted": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [
+          {
+            "only_in_left": [
+              "bootstrap_analysis_authorized",
+              "expected_observation_rows",
+              "factor",
+              "factor_levels",
+              "functional_execution_id",
+              "functional_execution_spec",
+              "functional_execution_spec_sha256",
+              "functional_result_reexecution_forbidden",
+              "functional_run_dir",
+              "manuscript_integration_authorized",
+              "measured_repetitions_per_factor_level",
+              "precision_analysis_authorized",
+              "replication_index",
+              "schema_version",
+              "scientific_result_interpretation_authorized",
+              "seed",
+              "selected_instance_count",
+              "selected_instance_ids",
+              "timing_execution_authorized",
+              "timing_execution_performed",
+              "timing_output_dir",
+              "timing_runner",
+              "timing_spec_id",
+              "workload_step_count_per_instance"
+            ],
+            "only_in_right": [
+              "campaign_dir",
+              "contract_version",
+              "execution_id",
+              "instance_selection",
+              "output_dir",
+              "workload_path"
+            ],
+            "path": "$"
+          }
+        ],
+        "list_length_differences": [],
+        "other_scalar_differences": [],
+        "type_differences": []
+      },
+      "old_to_new": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [],
+        "list_length_differences": [],
+        "other_scalar_differences": [
+          {
+            "left": 15180,
+            "path": "$.expected_observation_rows",
+            "right": 21120
+          },
+          {
+            "left": 2530,
+            "path": "$.measured_repetitions_per_factor_level",
+            "right": 3520
+          }
+        ],
+        "type_differences": []
+      },
+      "replication": 2,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_002_portfolio_timing_stage10.json"
+    },
+    {
+      "new_source_sha256": "fa9bd34767f1625d6aa77ba6722063c41974b4085fca91103d0563ccbd6e6d5e",
+      "old_adapted_path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_003_path_rebound.json",
+      "old_adapted_sha256": "cf64bf1b9187d314d1042e6690cd06a28b298f6126585a001d29a256eaddcc48",
+      "old_to_adapted": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [
+          {
+            "only_in_left": [
+              "bootstrap_analysis_authorized",
+              "expected_observation_rows",
+              "factor",
+              "factor_levels",
+              "functional_execution_id",
+              "functional_execution_spec",
+              "functional_execution_spec_sha256",
+              "functional_result_reexecution_forbidden",
+              "functional_run_dir",
+              "manuscript_integration_authorized",
+              "measured_repetitions_per_factor_level",
+              "precision_analysis_authorized",
+              "replication_index",
+              "schema_version",
+              "scientific_result_interpretation_authorized",
+              "seed",
+              "selected_instance_count",
+              "selected_instance_ids",
+              "timing_execution_authorized",
+              "timing_execution_performed",
+              "timing_output_dir",
+              "timing_runner",
+              "timing_spec_id",
+              "workload_step_count_per_instance"
+            ],
+            "only_in_right": [
+              "campaign_dir",
+              "contract_version",
+              "execution_id",
+              "instance_selection",
+              "output_dir",
+              "workload_path"
+            ],
+            "path": "$"
+          }
+        ],
+        "list_length_differences": [],
+        "other_scalar_differences": [],
+        "type_differences": []
+      },
+      "old_to_new": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [],
+        "list_length_differences": [],
+        "other_scalar_differences": [
+          {
+            "left": 15180,
+            "path": "$.expected_observation_rows",
+            "right": 21120
+          },
+          {
+            "left": 2530,
+            "path": "$.measured_repetitions_per_factor_level",
+            "right": 3520
+          }
+        ],
+        "type_differences": []
+      },
+      "replication": 3,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_003_portfolio_timing_stage10.json"
+    },
+    {
+      "new_source_sha256": "a74c13ab2cc3ad244afeb89d755f7804c6377ccd2355d6311c13e624d4b8f47f",
+      "old_adapted_path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_004_path_rebound.json",
+      "old_adapted_sha256": "e74c5705993cb447b5df59f9466cc0429c116e06c3f822bb50702a60afa7d82f",
+      "old_to_adapted": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [
+          {
+            "only_in_left": [
+              "bootstrap_analysis_authorized",
+              "expected_observation_rows",
+              "factor",
+              "factor_levels",
+              "functional_execution_id",
+              "functional_execution_spec",
+              "functional_execution_spec_sha256",
+              "functional_result_reexecution_forbidden",
+              "functional_run_dir",
+              "manuscript_integration_authorized",
+              "measured_repetitions_per_factor_level",
+              "precision_analysis_authorized",
+              "replication_index",
+              "schema_version",
+              "scientific_result_interpretation_authorized",
+              "seed",
+              "selected_instance_count",
+              "selected_instance_ids",
+              "timing_execution_authorized",
+              "timing_execution_performed",
+              "timing_output_dir",
+              "timing_runner",
+              "timing_spec_id",
+              "workload_step_count_per_instance"
+            ],
+            "only_in_right": [
+              "campaign_dir",
+              "contract_version",
+              "execution_id",
+              "instance_selection",
+              "output_dir",
+              "workload_path"
+            ],
+            "path": "$"
+          }
+        ],
+        "list_length_differences": [],
+        "other_scalar_differences": [],
+        "type_differences": []
+      },
+      "old_to_new": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [],
+        "list_length_differences": [],
+        "other_scalar_differences": [
+          {
+            "left": 15180,
+            "path": "$.expected_observation_rows",
+            "right": 21120
+          },
+          {
+            "left": 2530,
+            "path": "$.measured_repetitions_per_factor_level",
+            "right": 3520
+          }
+        ],
+        "type_differences": []
+      },
+      "replication": 4,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_004_portfolio_timing_stage10.json"
+    },
+    {
+      "new_source_sha256": "4773bd028f0426160924e25d27925a853ec2741a7253ae8521166d18169c30e8",
+      "old_adapted_path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_005_path_rebound.json",
+      "old_adapted_sha256": "ca647e80d4e0fbf00dddaec516a09e382818d75d1f0dad1af757028485f77c98",
+      "old_to_adapted": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [
+          {
+            "only_in_left": [
+              "bootstrap_analysis_authorized",
+              "expected_observation_rows",
+              "factor",
+              "factor_levels",
+              "functional_execution_id",
+              "functional_execution_spec",
+              "functional_execution_spec_sha256",
+              "functional_result_reexecution_forbidden",
+              "functional_run_dir",
+              "manuscript_integration_authorized",
+              "measured_repetitions_per_factor_level",
+              "precision_analysis_authorized",
+              "replication_index",
+              "schema_version",
+              "scientific_result_interpretation_authorized",
+              "seed",
+              "selected_instance_count",
+              "selected_instance_ids",
+              "timing_execution_authorized",
+              "timing_execution_performed",
+              "timing_output_dir",
+              "timing_runner",
+              "timing_spec_id",
+              "workload_step_count_per_instance"
+            ],
+            "only_in_right": [
+              "campaign_dir",
+              "contract_version",
+              "execution_id",
+              "instance_selection",
+              "output_dir",
+              "workload_path"
+            ],
+            "path": "$"
+          }
+        ],
+        "list_length_differences": [],
+        "other_scalar_differences": [],
+        "type_differences": []
+      },
+      "old_to_new": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [],
+        "list_length_differences": [],
+        "other_scalar_differences": [
+          {
+            "left": 15180,
+            "path": "$.expected_observation_rows",
+            "right": 21120
+          },
+          {
+            "left": 2530,
+            "path": "$.measured_repetitions_per_factor_level",
+            "right": 3520
+          }
+        ],
+        "type_differences": []
+      },
+      "replication": 5,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_005_portfolio_timing_stage10.json"
+    },
+    {
+      "new_source_sha256": "9e4e83b3369f657a14d8804dd3bd60f11eca8f20cc2e4912c68232f78ff996ba",
+      "old_adapted_path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_006_path_rebound.json",
+      "old_adapted_sha256": "18a7d37a248dd0b83799b0220d49a7312e917eb66d1b91d15880857f26f3dfc0",
+      "old_to_adapted": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [
+          {
+            "only_in_left": [
+              "bootstrap_analysis_authorized",
+              "expected_observation_rows",
+              "factor",
+              "factor_levels",
+              "functional_execution_id",
+              "functional_execution_spec",
+              "functional_execution_spec_sha256",
+              "functional_result_reexecution_forbidden",
+              "functional_run_dir",
+              "manuscript_integration_authorized",
+              "measured_repetitions_per_factor_level",
+              "precision_analysis_authorized",
+              "replication_index",
+              "schema_version",
+              "scientific_result_interpretation_authorized",
+              "seed",
+              "selected_instance_count",
+              "selected_instance_ids",
+              "timing_execution_authorized",
+              "timing_execution_performed",
+              "timing_output_dir",
+              "timing_runner",
+              "timing_spec_id",
+              "workload_step_count_per_instance"
+            ],
+            "only_in_right": [
+              "campaign_dir",
+              "contract_version",
+              "execution_id",
+              "instance_selection",
+              "output_dir",
+              "workload_path"
+            ],
+            "path": "$"
+          }
+        ],
+        "list_length_differences": [],
+        "other_scalar_differences": [],
+        "type_differences": []
+      },
+      "old_to_new": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [],
+        "list_length_differences": [],
+        "other_scalar_differences": [
+          {
+            "left": 15180,
+            "path": "$.expected_observation_rows",
+            "right": 21120
+          },
+          {
+            "left": 2530,
+            "path": "$.measured_repetitions_per_factor_level",
+            "right": 3520
+          }
+        ],
+        "type_differences": []
+      },
+      "replication": 6,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_006_portfolio_timing_stage10.json"
+    },
+    {
+      "new_source_sha256": "5dc2b67429d3e08f525df0472ca7b3ab129b3b0b98618705c6f3a064a137d012",
+      "old_adapted_path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_007_path_rebound.json",
+      "old_adapted_sha256": "005315575ef57ea923e6c147c9c769846a59074999bd86b2121182e638059c29",
+      "old_to_adapted": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [
+          {
+            "only_in_left": [
+              "bootstrap_analysis_authorized",
+              "expected_observation_rows",
+              "factor",
+              "factor_levels",
+              "functional_execution_id",
+              "functional_execution_spec",
+              "functional_execution_spec_sha256",
+              "functional_result_reexecution_forbidden",
+              "functional_run_dir",
+              "manuscript_integration_authorized",
+              "measured_repetitions_per_factor_level",
+              "precision_analysis_authorized",
+              "replication_index",
+              "schema_version",
+              "scientific_result_interpretation_authorized",
+              "seed",
+              "selected_instance_count",
+              "selected_instance_ids",
+              "timing_execution_authorized",
+              "timing_execution_performed",
+              "timing_output_dir",
+              "timing_runner",
+              "timing_spec_id",
+              "workload_step_count_per_instance"
+            ],
+            "only_in_right": [
+              "campaign_dir",
+              "contract_version",
+              "execution_id",
+              "instance_selection",
+              "output_dir",
+              "workload_path"
+            ],
+            "path": "$"
+          }
+        ],
+        "list_length_differences": [],
+        "other_scalar_differences": [],
+        "type_differences": []
+      },
+      "old_to_new": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [],
+        "list_length_differences": [],
+        "other_scalar_differences": [
+          {
+            "left": 15180,
+            "path": "$.expected_observation_rows",
+            "right": 21120
+          },
+          {
+            "left": 2530,
+            "path": "$.measured_repetitions_per_factor_level",
+            "right": 3520
+          }
+        ],
+        "type_differences": []
+      },
+      "replication": 7,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_007_portfolio_timing_stage10.json"
+    },
+    {
+      "new_source_sha256": "c809b5d228a0479816cf6830b953ce060e935bb75e825f232eab20ad3f0786c7",
+      "old_adapted_path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_008_path_rebound.json",
+      "old_adapted_sha256": "aa79be521b980472f2c938a16cdf3c64b45ecd21d5fe45ebce59b63a4661516f",
+      "old_to_adapted": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [
+          {
+            "only_in_left": [
+              "bootstrap_analysis_authorized",
+              "expected_observation_rows",
+              "factor",
+              "factor_levels",
+              "functional_execution_id",
+              "functional_execution_spec",
+              "functional_execution_spec_sha256",
+              "functional_result_reexecution_forbidden",
+              "functional_run_dir",
+              "manuscript_integration_authorized",
+              "measured_repetitions_per_factor_level",
+              "precision_analysis_authorized",
+              "replication_index",
+              "schema_version",
+              "scientific_result_interpretation_authorized",
+              "seed",
+              "selected_instance_count",
+              "selected_instance_ids",
+              "timing_execution_authorized",
+              "timing_execution_performed",
+              "timing_output_dir",
+              "timing_runner",
+              "timing_spec_id",
+              "workload_step_count_per_instance"
+            ],
+            "only_in_right": [
+              "campaign_dir",
+              "contract_version",
+              "execution_id",
+              "instance_selection",
+              "output_dir",
+              "workload_path"
+            ],
+            "path": "$"
+          }
+        ],
+        "list_length_differences": [],
+        "other_scalar_differences": [],
+        "type_differences": []
+      },
+      "old_to_new": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [],
+        "list_length_differences": [],
+        "other_scalar_differences": [
+          {
+            "left": 15180,
+            "path": "$.expected_observation_rows",
+            "right": 21120
+          },
+          {
+            "left": 2530,
+            "path": "$.measured_repetitions_per_factor_level",
+            "right": 3520
+          }
+        ],
+        "type_differences": []
+      },
+      "replication": 8,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_008_portfolio_timing_stage10.json"
+    },
+    {
+      "new_source_sha256": "bf24a234b0d9b1173fc511941499a5fa99039d78c8dd1374ccd79ac1fa0e9e9d",
+      "old_adapted_path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/adapted_execution_specs/objective_count_stage10_rep_009_path_rebound.json",
+      "old_adapted_sha256": "29e0c4ec432bb24e96de2d18a0ae5a34bef3033919b45ab0963a9320bd45ed15",
+      "old_to_adapted": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [
+          {
+            "only_in_left": [
+              "bootstrap_analysis_authorized",
+              "expected_observation_rows",
+              "factor",
+              "factor_levels",
+              "functional_execution_id",
+              "functional_execution_spec",
+              "functional_execution_spec_sha256",
+              "functional_result_reexecution_forbidden",
+              "functional_run_dir",
+              "manuscript_integration_authorized",
+              "measured_repetitions_per_factor_level",
+              "precision_analysis_authorized",
+              "replication_index",
+              "schema_version",
+              "scientific_result_interpretation_authorized",
+              "seed",
+              "selected_instance_count",
+              "selected_instance_ids",
+              "timing_execution_authorized",
+              "timing_execution_performed",
+              "timing_output_dir",
+              "timing_runner",
+              "timing_spec_id",
+              "workload_step_count_per_instance"
+            ],
+            "only_in_right": [
+              "campaign_dir",
+              "contract_version",
+              "execution_id",
+              "instance_selection",
+              "output_dir",
+              "workload_path"
+            ],
+            "path": "$"
+          }
+        ],
+        "list_length_differences": [],
+        "other_scalar_differences": [],
+        "type_differences": []
+      },
+      "old_to_new": {
+        "candidate_path_rebindings": [],
+        "key_set_differences": [],
+        "list_length_differences": [],
+        "other_scalar_differences": [
+          {
+            "left": 15180,
+            "path": "$.expected_observation_rows",
+            "right": 21120
+          },
+          {
+            "left": 2530,
+            "path": "$.measured_repetitions_per_factor_level",
+            "right": 3520
+          }
+        ],
+        "type_differences": []
+      },
+      "replication": 9,
+      "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_009_portfolio_timing_stage10.json"
+    }
+  ],
+  "repository_modified": false,
+  "schema_version": "mcad-sa5-corrected-rebinding-mismatch-diagnostic-v1",
+  "source_commit": "dec3785432366fb64b68123419ac31f640476313",
+  "status": "diagnostic_complete"
+}
