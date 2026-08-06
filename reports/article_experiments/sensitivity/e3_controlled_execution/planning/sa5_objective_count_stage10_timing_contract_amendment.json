@@ -1,0 +1,424 @@
+{
+  "amendment_branch": "paper/amend-sa5-objective-count-stage10-timing-contract-20260805T234334Z",
+  "balance_semantics": {
+    "empirical_sample_count_balance": {
+      "criterion": "Each of the 192 cells has exactly 10 warmup rows and 100 measurement rows.",
+      "replication_000_result": true
+    },
+    "order_exact_full_balance": {
+      "acceptance_required": false,
+      "manifest_field": "all_cells_exactly_balanced",
+      "meaning": "Conjunction of per-entry exact_full_balance flags for positional order balance; it is not a sample-count balance flag.",
+      "replication_000_false_count": 192,
+      "replication_000_true_count": 0
+    },
+    "order_near_balance": {
+      "criterion": "Every order_balance entry has near_balance=true.",
+      "replication_000_result": true
+    }
+  },
+  "base_branch": "paper/phase3-controlled-execution",
+  "corrected_contract": {
+    "arithmetic": {
+      "rows_per_factor": "32 * (10 + 100) = 3520",
+      "rows_per_replication": "6 * 3520 = 21120",
+      "total_rows": "10 * 21120 = 211200"
+    },
+    "cells_per_factor": 32,
+    "factor_level_count": 6,
+    "measurement_rounds": 100,
+    "replication_count": 10,
+    "rounds_per_cell": 110,
+    "rows_per_factor": 3520,
+    "rows_per_replication": 21120,
+    "total_rows": 211200,
+    "warmup_rounds": 10
+  },
+  "created_at_utc": "20260805T234334Z",
+  "detached_pre_amendment_audit": {
+    "path": "/workspaces/sa5_objective_count_stage10_timing_contract_amendment_20260805T234334Z/pre_amendment_structural_audit.json",
+    "sha256": "3277774aae0bac7c4a0b1b34a4d30b65bd079c7214de7bf17c97cbb5ce06983b"
+  },
+  "modified_contract_files": [
+    {
+      "after_sha256": "15cd31117ad1d80053446a26b63234e2a21182ed083da6336442103466b8b1f0",
+      "before_sha256": "eaa99088e59f43cb55e6d3dc4da8cc6a7e76379ce64975e3340060206a42353c",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_000_portfolio_timing_stage10.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    },
+    {
+      "after_sha256": "e57a098d98e263d05f26cf8034aa01312db0e66d4314118a7aa3f8f282f25eef",
+      "before_sha256": "05864865ceeea1d2fc32d027a23df80712f1a845243d5e69ac4cc0be593820eb",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_001_portfolio_timing_stage10.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    },
+    {
+      "after_sha256": "b2428d2de1f86ccbb336adb3f6a187017fe28060afca3ee47aa530c4d9ff060b",
+      "before_sha256": "0e00027d508faddd8429a130cf9182a23479f823b92ae0907ec1e28a3b4b0a73",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_002_portfolio_timing_stage10.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    },
+    {
+      "after_sha256": "fa9bd34767f1625d6aa77ba6722063c41974b4085fca91103d0563ccbd6e6d5e",
+      "before_sha256": "afbc127e6d42a6f608eacac6ccef06a6e723f2b850a3b551b49deb8d5f740778",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_003_portfolio_timing_stage10.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    },
+    {
+      "after_sha256": "a74c13ab2cc3ad244afeb89d755f7804c6377ccd2355d6311c13e624d4b8f47f",
+      "before_sha256": "905c4205485fa1cab57c9b6975d58619ff60415bce81990734b475ef57dde238",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_004_portfolio_timing_stage10.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    },
+    {
+      "after_sha256": "4773bd028f0426160924e25d27925a853ec2741a7253ae8521166d18169c30e8",
+      "before_sha256": "1240631086daeab2a5717eb0ca1ebaec149b0655746645ef95081b7ac004627b",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_005_portfolio_timing_stage10.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    },
+    {
+      "after_sha256": "9e4e83b3369f657a14d8804dd3bd60f11eca8f20cc2e4912c68232f78ff996ba",
+      "before_sha256": "460c3f21ff33707477d4dc95ea60d5407f1acd318b1cb64fbbe6d39cd83aa971",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_006_portfolio_timing_stage10.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    },
+    {
+      "after_sha256": "5dc2b67429d3e08f525df0472ca7b3ab129b3b0b98618705c6f3a064a137d012",
+      "before_sha256": "3c5e4b3e27bb274b2252042c4bb6f1a70e9a7724f91363269c5066303f64d4f3",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_007_portfolio_timing_stage10.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    },
+    {
+      "after_sha256": "c809b5d228a0479816cf6830b953ce060e935bb75e825f232eab20ad3f0786c7",
+      "before_sha256": "1786b3ab7ae3afc2910ef3a9de7b6cda7f30dae93ccf8f631d79c46b2bc203d1",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_008_portfolio_timing_stage10.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    },
+    {
+      "after_sha256": "bf24a234b0d9b1173fc511941499a5fa99039d78c8dd1374ccd79ac1fa0e9e9d",
+      "before_sha256": "9340054e1b14bde010f64465378663e12633b9004ee43e43aeaf7cd8dd9be0a3",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_009_portfolio_timing_stage10.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    },
+    {
+      "after_sha256": "f654e8f1d419465007d739a3f2f652d5ba898299429ec0fd2222c2aa5719e620",
+      "before_sha256": "5e5baad8a32d5c9c8e647d8d2365d68a9e3a286e620fc783373ec577a26cf155",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/objective_count_stage10_timing_setup_manifest.json",
+      "replacements": [
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.measured_repetitions_per_factor_level"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.runs[0].observation_rows_per_factor_level"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.runs[1].observation_rows_per_factor_level"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.runs[2].observation_rows_per_factor_level"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.runs[3].observation_rows_per_factor_level"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.runs[4].observation_rows_per_factor_level"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.runs[5].observation_rows_per_factor_level"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.runs[6].observation_rows_per_factor_level"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.runs[7].observation_rows_per_factor_level"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.runs[8].observation_rows_per_factor_level"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.historical_timing_precedent.runs[9].observation_rows_per_factor_level"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.expected_observation_rows_per_replication"
+        },
+        {
+          "new": 211200,
+          "old": 151800,
+          "path": "$.objective_count_timing_plan.expected_total_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.objective_count_timing_plan.measured_repetitions_per_factor_level"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.timing_specs[0].expected_observation_rows"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.timing_specs[1].expected_observation_rows"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.timing_specs[2].expected_observation_rows"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.timing_specs[3].expected_observation_rows"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.timing_specs[4].expected_observation_rows"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.timing_specs[5].expected_observation_rows"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.timing_specs[6].expected_observation_rows"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.timing_specs[7].expected_observation_rows"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.timing_specs[8].expected_observation_rows"
+        },
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.objective_count_timing_plan.timing_specs[9].expected_observation_rows"
+        }
+      ]
+    },
+    {
+      "after_sha256": "c07d544b6928d52b1a3b8c1b5d2606f87336f300bf010e006e4482f529b8698f",
+      "before_sha256": "bb8805eaaedb3277e25197a1eab2d5b4e484aa66006fc4a4dcf0bff424b47c20",
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa5_objective_count_stage10_timing_execution_authorization.json",
+      "replacements": [
+        {
+          "new": 21120,
+          "old": 15180,
+          "path": "$.expected_observation_rows_per_replication"
+        },
+        {
+          "new": 211200,
+          "old": 151800,
+          "path": "$.expected_total_observation_rows"
+        },
+        {
+          "new": 3520,
+          "old": 2530,
+          "path": "$.measured_repetitions_per_factor_level"
+        }
+      ]
+    }
+  ],
+  "next_stage": "merge_this_amendment_before_resuming_replication_001",
+  "old_contract": {
+    "cells_per_factor": 23,
+    "factor_level_count": 6,
+    "measurement_rounds": 100,
+    "replication_count": 10,
+    "rounds_per_cell": 110,
+    "rows_per_factor": 2530,
+    "rows_per_replication": 15180,
+    "total_rows": 151800,
+    "warmup_rounds": 10
+  },
+  "outcome_blinding": {
+    "allowed_structural_fields": [
+      "cell_id",
+      "phase",
+      "phase_round",
+      "factor_level",
+      "row counts",
+      "order-balance booleans",
+      "functional mismatch count"
+    ],
+    "latency_distributions_inspected": false,
+    "timing_summary_statistics_interpreted": false,
+    "timing_value_columns_accessed": false,
+    "timing_values_interpreted": false
+  },
+  "post_merge_authorization": {
+    "bootstrap_analysis_authorized": false,
+    "manuscript_modification_authorized": false,
+    "precision_analysis_authorized": false,
+    "replication_000_reuse_authorized": true,
+    "replications_001_through_009_execution_authorized": true,
+    "timing_values_interpretation_authorized": false
+  },
+  "replication_000_disposition": {
+    "reason": "The amendment corrects deterministic workload arithmetic and balance terminology only. No timing magnitudes or latency summaries were accessed or interpreted before this amendment.",
+    "retain_in_confirmatory_replication_set": true,
+    "reuse_conditions": [
+      "four-file bundle remains SHA-identical",
+      "manifest status is success",
+      "functional_mismatch_count is zero",
+      "CSV has exactly 21120 structural rows",
+      "all 192 cells have exactly 10 warmups and 100 measurements",
+      "all order_balance entries have near_balance=true"
+    ]
+  },
+  "replication_000_evidence": {
+    "manifest_sha256": "3d9744c2fa48c8b7276fc0881a8a8c11fb7ef728ac07eabf5350aa37b1c81fd6",
+    "observations_sha256": "4b003bbc020e1685bdaf913c15201d9f91d0760b2682f1ce331af9229620b000",
+    "summary_sha256": "a38980e181117fdc51267707cb39c980b04a6ad2659525cfe85ee44145906ef9"
+  },
+  "schema_version": "mcad-sa5-objective-count-stage10-timing-contract-amendment-v1",
+  "source_commit": "26c781aa7a60fdc392a42eca53709731283ae438",
+  "status": "preregistered_pending_merge",
+  "trigger": {
+    "description": "The first completed timing replication exposed a deterministic row-count mismatch between the committed setup contract and the runner's pre-existing 32-cell workload surface.",
+    "discovered_after_replication": 0,
+    "replication_001_started": false,
+    "type": "mechanical_structural_contract_mismatch"
+  }
+}

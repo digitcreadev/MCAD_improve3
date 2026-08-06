@@ -1,7 +1,7 @@
 {
   "bootstrap_analysis_authorized": false,
   "continue_on_instance_failure": false,
-  "expected_observation_rows": 15180,
+  "expected_observation_rows": 21120,
   "factor": "objective_count",
   "factor_levels": [
     1,
@@ -17,7 +17,7 @@
   "functional_result_reexecution_forbidden": true,
   "functional_run_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/runs/objective_count_stage10_rep_005_canonical",
   "manuscript_integration_authorized": false,
-  "measured_repetitions_per_factor_level": 2530,
+  "measured_repetitions_per_factor_level": 3520,
   "precision_analysis_authorized": false,
   "replication_index": 5,
   "schema_version": "mcad-sa5-objective-count-stage10-timing-spec-v1",
