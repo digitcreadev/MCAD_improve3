@@ -1,6 +1,6 @@
 *   dec3785 (HEAD -> paper/phase3-controlled-execution, origin/paper/phase3-controlled-execution) Merge pull request #39 from digitcreadev/paper/amend-sa5-objective-count-stage10-timing-contract-20260805T234334Z
 |\  
-| * e01589e (origin/paper/amend-sa5-objective-count-stage10-timing-contract-20260805T234334Z, paper/amend-sa5-objective-count-stage10-timing-contract-20260805T234334Z) chore(experiments): amend SA5 timing cell-count contract
+| * e01589e (origin/paper/amend-sa5-objective-count-stage10-timing-contract-20260805T234334Z) chore(experiments): amend SA5 timing cell-count contract
 |/  
 * 26c781a Revert "ok"
 * a3b6abc ok

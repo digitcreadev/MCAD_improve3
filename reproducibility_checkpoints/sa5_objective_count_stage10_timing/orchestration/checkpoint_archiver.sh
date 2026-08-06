@@ -647,13 +647,17 @@ checkpoint_replication() {
     return 0
   fi
 
-  set +e
-  validate_replication \
+  local validation_status=0
+
+  if validate_replication \
     "$index" \
     "$source_dir" \
     "$validation_temp"
-  local validation_status=$?
-  set -e
+  then
+    validation_status=0
+  else
+    validation_status=$?
+  fi
 
   if [ "$validation_status" -ne 0 ]; then
     rm -f "$validation_temp"
