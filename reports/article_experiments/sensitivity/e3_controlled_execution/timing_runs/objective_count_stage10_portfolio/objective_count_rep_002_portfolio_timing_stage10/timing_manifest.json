@@ -1,0 +1,96 @@
+{
+  "all_cells_exactly_balanced": false,
+  "campaign_id": "objective_count_stage10_c8_nv32",
+  "cell_count": 192,
+  "clock": "time.perf_counter_ns",
+  "configuration": {
+    "execution_spec_path": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_002_path_rebound.json",
+    "execution_spec_sha256": "4c1ee4f0874756bef8c376aab7b612462ac3c1d3d164c6c753bd48ccd1a14119",
+    "measurements": 100,
+    "order_seed": 20260728,
+    "source_identities": {
+      "canonical_executor": {
+        "path": "/workspaces/MCAD_improve3/backend/harness/sensitivity_execution/execute_controlled_family.py",
+        "sha256": "dde835674506c5167aa4065146d494ab4a932837e392c28e099d09a176b8162d"
+      },
+      "ckg_graph": {
+        "path": "/workspaces/MCAD_improve3/backend/ckg/ckg_updater.py",
+        "sha256": "6faaa8b7dea5b682ac9ea6ecf3cf790ff6d7a4c5c56d105a52c4e7acf2ad739d"
+      },
+      "timing_harness": {
+        "path": "/workspaces/MCAD_improve3/backend/harness/sensitivity_execution/run_timing_repetitions.py",
+        "sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595"
+      }
+    },
+    "timing_harness_version": "mcad-sensitivity-sa3-timing-v2",
+    "warmups": 10
+  },
+  "configuration_digest": "17b9efa82e2c16cc7e6cb9ddfee1608bf261d1a1e1ef72d38a4cba7aa5b68210",
+  "cross_repetition_state_reuse": false,
+  "environment": {
+    "machine": "x86_64",
+    "platform": "Linux-6.8.0-1052-azure-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.1 (main, Mar 11 2026, 12:17:56) [GCC 13.3.0]"
+  },
+  "execution_id": "sa5-objective-count-stage10-rep_002-canonical-v1",
+  "fresh_ckg_build_count": 21312,
+  "fresh_state_per_observation": true,
+  "functional_mismatch_count": 0,
+  "input_digests": {
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/campaign_manifest.json": "a3a6e526589361c0e8adb171fc4af5a3b4576698c8ada606a41ccb65c72bd41e",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/campaign_spec.json": "daf4f995e72747127c94da7fdf1e29911d034a81606b56803160982d5ea5aaf7",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/replication_002_seed_1198202409.json": "6010e175c1f4681e2f093e68c8d2281702bd38e7e6bedba52d94d0066ca75f12",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances.csv": "9bb4da570984d241fa0de65e90fe0ebd789e26a4b08b0454460e63a6baa8c77e",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_002_seed_1198202409/manifest.json": "43e4715b57a88c681e2a368e348b9827c7746bafb2ae467cfa800a6ccf5ee63b",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_002_seed_1198202409/objectives.yaml": "df4be799b8cdbb468c1efbbefbb055fe932f4bd4dbfa56cf3b8dad37ea881bce",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000002/rep_002_seed_1198202409/manifest.json": "111aed8be3b049fafc154cd6cc69e36ddf060357ff3854ded768a959fcfdd7f0",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000002/rep_002_seed_1198202409/objectives.yaml": "1d19a7158336732b5d36623b434348d53bb03da0ea68724c1ad83ece4c683ee5",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000005/rep_002_seed_1198202409/manifest.json": "edc48956e20e95639e2a977dbc7666c4647a5806e1685533c05b163fdd6ee8f4",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000005/rep_002_seed_1198202409/objectives.yaml": "28b0555890bdfda31a4d6e8e4ec92c49e1efccd9b5998fcd91aa8bb78ed3c4fe",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000010/rep_002_seed_1198202409/manifest.json": "53014c771c9aa4982687188afb02d435a7002dda9163360860e459dd7a555a6d",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000010/rep_002_seed_1198202409/objectives.yaml": "cf58554c7ca25714ba74e657fc55760fca2b8091d6ebb1c024e92ef96d5d47a4",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000020/rep_002_seed_1198202409/manifest.json": "009b60cf9c32ce529f3bbd110f0d48040512f86240ed33393c3704e2d8c74394",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000020/rep_002_seed_1198202409/objectives.yaml": "b1ee7980d5d5b11c3e459acc455d2ad7d8f8d35234593a4125ccdced89838408",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000050/rep_002_seed_1198202409/manifest.json": "987ca4bf45df9e03655aec83914c48b32ff1959f54a2acefae35c0efe66ce914",
+    "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000050/rep_002_seed_1198202409/objectives.yaml": "fa4a7f0ce7278d256c77af7db2ade5972e6948ec5ec6288a5d32c62534c2c2ae",
+    "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_002_path_rebound.json": "4c1ee4f0874756bef8c376aab7b612462ac3c1d3d164c6c753bd48ccd1a14119"
+  },
+  "instance_count": 6,
+  "latency_claim_authorized": false,
+  "measurement_observation_count": 19200,
+  "order_policy": "deterministic shuffled base order with cyclic rotation by round",
+  "outputs": {
+    "functional_references_json": "functional_references.json",
+    "functional_references_sha256": "93543ad6b1945506f1bb4e5cae4b0096103d724f23feaa39cbfbea25d931884b",
+    "timing_observations_csv": "timing_observations.csv",
+    "timing_observations_sha256": "fdc03769b52b636ebd2215df317619a0162a5dbe619716f3b78ee898f62c3fe8",
+    "timing_summary_json": "timing_summary.json",
+    "timing_summary_sha256": "d8b52257d1fd1ffe70f5f42f3b9bae94d630b3fde2e99e9c948cba70d03dd603"
+  },
+  "prefix_replay_preserves_session_state": true,
+  "reference_count": 192,
+  "schema_version": "mcad-sensitivity-sa3-timing-manifest-v1",
+  "scientific_freeze": false,
+  "source_identities": {
+    "canonical_executor": {
+      "path": "/workspaces/MCAD_improve3/backend/harness/sensitivity_execution/execute_controlled_family.py",
+      "sha256": "dde835674506c5167aa4065146d494ab4a932837e392c28e099d09a176b8162d"
+    },
+    "ckg_graph": {
+      "path": "/workspaces/MCAD_improve3/backend/ckg/ckg_updater.py",
+      "sha256": "6faaa8b7dea5b682ac9ea6ecf3cf790ff6d7a4c5c56d105a52c4e7acf2ad739d"
+    },
+    "timing_harness": {
+      "path": "/workspaces/MCAD_improve3/backend/harness/sensitivity_execution/run_timing_repetitions.py",
+      "sha256": "6332cc63f8e50ee25df782b3b34b7110c7f5abb4af25bb6fcfd5cde5d18a7595"
+    }
+  },
+  "status": "success",
+  "step_count_per_instance": 32,
+  "timed_scope": "production CKGGraph.evaluate_step target call only",
+  "timing_harness_version": "mcad-sensitivity-sa3-timing-v2",
+  "warmup_observation_count": 1920,
+  "warmups_excluded_from_summary": true,
+  "workload_id": "sa5-objective-count-stage10-rep-002-seed-1198202409"
+}

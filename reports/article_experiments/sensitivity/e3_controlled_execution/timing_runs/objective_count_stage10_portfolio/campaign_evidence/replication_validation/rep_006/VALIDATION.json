@@ -1,0 +1,41 @@
+{
+  "files": {
+    "functional_references.json": {
+      "sha256": "8f38556f900763ec20ce8a80da80598f7ec508421cd29f53e6d8f84f9cd27099",
+      "size_bytes": 2349427
+    },
+    "timing_manifest.json": {
+      "sha256": "6ab4fe6934b2f3aa099ffe51f9458dd6b19f10cdb1dea8f114c023b948e75272",
+      "size_bytes": 8039
+    },
+    "timing_observations.csv": {
+      "sha256": "975191b6c81a0f0920de840a12dc53413e72b18869197f9c2c1af073a6d7565d",
+      "size_bytes": 5505091
+    },
+    "timing_summary.json": {
+      "sha256": "86558dcd73a7487b9b44939d8a8525ad630edc2888bcbfa31d5e3641b074b856",
+      "size_bytes": 772808
+    }
+  },
+  "replication": 6,
+  "schema_version": "mcad-sa5-replication-checkpoint-validation-v1",
+  "scientific_controls": {
+    "bootstrap_analysis_performed": false,
+    "manuscript_modified": false,
+    "precision_analysis_performed": false,
+    "timing_value_columns_accessed": false,
+    "timing_values_interpreted": false
+  },
+  "source_directory": "/workspaces/MCAD_improve3/reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_006_portfolio_timing_stage10",
+  "status": "structural_validation_pass",
+  "structural_contract": {
+    "csv_rows": 21120,
+    "functional_mismatch_count": 0,
+    "measurement_rows": 19200,
+    "order_near_balance_all_true": true,
+    "rows_per_factor": 3520,
+    "unique_cells": 192,
+    "warmup_rows": 1920
+  },
+  "validated_at_utc": "2026-08-07T08:45:58Z"
+}

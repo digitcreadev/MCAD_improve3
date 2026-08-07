@@ -1,0 +1,406 @@
+{
+  "decision": {
+    "reason": "The committed timing specifications and the detached runner execution specifications are distinct schemas. The amendment changed only two planning-contract scalars per replication and did not change runner inputs or paths.",
+    "reuse_old_path_rebound_execution_specs_unchanged": true,
+    "timing_evaluator_called_during_validation": false
+  },
+  "diagnostic": {
+    "old_to_adapted_candidate_path_rebinding_count": 0,
+    "old_to_adapted_key_set_difference_count": 10,
+    "old_to_new_other_scalar_difference_count": 20,
+    "path": "/workspaces/sa5_corrected_rebinding_mismatch_diagnostic_20260806T095439Z/sa5_corrected_rebinding_mismatch_diagnostic.json",
+    "sha256": "762d8c08f90015962cd52d71cbd67fbc7101f02eddba4492dee67315d251508f"
+  },
+  "old_rebinding_manifest": {
+    "path": "/workspaces/sa5_objective_count_stage10_timing_execution_recovery_20260805T161701Z/execution_path_rebinding_manifest.json",
+    "replication_count": 10,
+    "sha256": "f81fe8a44ab037a429dd8ca7af853c2931a9d462348e4b78a4bbe091f76e5eaf",
+    "total_mapping_count": 30
+  },
+  "old_source_commit": "26c781aa7a60fdc392a42eca53709731283ae438",
+  "records": [
+    {
+      "additional_execution_keys": [
+        "continue_on_instance_failure"
+      ],
+      "execution_spec_top_level_keys": [
+        "campaign_dir",
+        "continue_on_instance_failure",
+        "contract_version",
+        "execution_id",
+        "instance_selection",
+        "output_dir",
+        "workload_path"
+      ],
+      "planning_contract_changes_from_old_base": [
+        {
+          "kind": "scalar",
+          "left": 15180,
+          "path": [
+            "expected_observation_rows"
+          ],
+          "right": 21120
+        },
+        {
+          "kind": "scalar",
+          "left": 2530,
+          "path": [
+            "measured_repetitions_per_factor_level"
+          ],
+          "right": 3520
+        }
+      ],
+      "planning_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_000_portfolio_timing_stage10.json",
+      "planning_spec_sha256": "15cd31117ad1d80053446a26b63234e2a21182ed083da6336442103466b8b1f0",
+      "replication": 0,
+      "required_execution_keys_present": true,
+      "reused_execution_spec": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_000_path_rebound.json",
+      "reused_execution_spec_sha256": "9280ccce48cdf6d3c6c14a40e210f2c16e6a587f71a967e5e7910563ac4e4c18"
+    },
+    {
+      "additional_execution_keys": [
+        "continue_on_instance_failure"
+      ],
+      "execution_spec_top_level_keys": [
+        "campaign_dir",
+        "continue_on_instance_failure",
+        "contract_version",
+        "execution_id",
+        "instance_selection",
+        "output_dir",
+        "workload_path"
+      ],
+      "planning_contract_changes_from_old_base": [
+        {
+          "kind": "scalar",
+          "left": 15180,
+          "path": [
+            "expected_observation_rows"
+          ],
+          "right": 21120
+        },
+        {
+          "kind": "scalar",
+          "left": 2530,
+          "path": [
+            "measured_repetitions_per_factor_level"
+          ],
+          "right": 3520
+        }
+      ],
+      "planning_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_001_portfolio_timing_stage10.json",
+      "planning_spec_sha256": "e57a098d98e263d05f26cf8034aa01312db0e66d4314118a7aa3f8f282f25eef",
+      "replication": 1,
+      "required_execution_keys_present": true,
+      "reused_execution_spec": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_001_path_rebound.json",
+      "reused_execution_spec_sha256": "f2d5974dd726018560a0addfa2ca4ff11beb397bb9a5384ee629af4388bf395d"
+    },
+    {
+      "additional_execution_keys": [
+        "continue_on_instance_failure"
+      ],
+      "execution_spec_top_level_keys": [
+        "campaign_dir",
+        "continue_on_instance_failure",
+        "contract_version",
+        "execution_id",
+        "instance_selection",
+        "output_dir",
+        "workload_path"
+      ],
+      "planning_contract_changes_from_old_base": [
+        {
+          "kind": "scalar",
+          "left": 15180,
+          "path": [
+            "expected_observation_rows"
+          ],
+          "right": 21120
+        },
+        {
+          "kind": "scalar",
+          "left": 2530,
+          "path": [
+            "measured_repetitions_per_factor_level"
+          ],
+          "right": 3520
+        }
+      ],
+      "planning_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_002_portfolio_timing_stage10.json",
+      "planning_spec_sha256": "b2428d2de1f86ccbb336adb3f6a187017fe28060afca3ee47aa530c4d9ff060b",
+      "replication": 2,
+      "required_execution_keys_present": true,
+      "reused_execution_spec": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_002_path_rebound.json",
+      "reused_execution_spec_sha256": "4c1ee4f0874756bef8c376aab7b612462ac3c1d3d164c6c753bd48ccd1a14119"
+    },
+    {
+      "additional_execution_keys": [
+        "continue_on_instance_failure"
+      ],
+      "execution_spec_top_level_keys": [
+        "campaign_dir",
+        "continue_on_instance_failure",
+        "contract_version",
+        "execution_id",
+        "instance_selection",
+        "output_dir",
+        "workload_path"
+      ],
+      "planning_contract_changes_from_old_base": [
+        {
+          "kind": "scalar",
+          "left": 15180,
+          "path": [
+            "expected_observation_rows"
+          ],
+          "right": 21120
+        },
+        {
+          "kind": "scalar",
+          "left": 2530,
+          "path": [
+            "measured_repetitions_per_factor_level"
+          ],
+          "right": 3520
+        }
+      ],
+      "planning_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_003_portfolio_timing_stage10.json",
+      "planning_spec_sha256": "fa9bd34767f1625d6aa77ba6722063c41974b4085fca91103d0563ccbd6e6d5e",
+      "replication": 3,
+      "required_execution_keys_present": true,
+      "reused_execution_spec": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_003_path_rebound.json",
+      "reused_execution_spec_sha256": "cf64bf1b9187d314d1042e6690cd06a28b298f6126585a001d29a256eaddcc48"
+    },
+    {
+      "additional_execution_keys": [
+        "continue_on_instance_failure"
+      ],
+      "execution_spec_top_level_keys": [
+        "campaign_dir",
+        "continue_on_instance_failure",
+        "contract_version",
+        "execution_id",
+        "instance_selection",
+        "output_dir",
+        "workload_path"
+      ],
+      "planning_contract_changes_from_old_base": [
+        {
+          "kind": "scalar",
+          "left": 15180,
+          "path": [
+            "expected_observation_rows"
+          ],
+          "right": 21120
+        },
+        {
+          "kind": "scalar",
+          "left": 2530,
+          "path": [
+            "measured_repetitions_per_factor_level"
+          ],
+          "right": 3520
+        }
+      ],
+      "planning_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_004_portfolio_timing_stage10.json",
+      "planning_spec_sha256": "a74c13ab2cc3ad244afeb89d755f7804c6377ccd2355d6311c13e624d4b8f47f",
+      "replication": 4,
+      "required_execution_keys_present": true,
+      "reused_execution_spec": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_004_path_rebound.json",
+      "reused_execution_spec_sha256": "e74c5705993cb447b5df59f9466cc0429c116e06c3f822bb50702a60afa7d82f"
+    },
+    {
+      "additional_execution_keys": [
+        "continue_on_instance_failure"
+      ],
+      "execution_spec_top_level_keys": [
+        "campaign_dir",
+        "continue_on_instance_failure",
+        "contract_version",
+        "execution_id",
+        "instance_selection",
+        "output_dir",
+        "workload_path"
+      ],
+      "planning_contract_changes_from_old_base": [
+        {
+          "kind": "scalar",
+          "left": 15180,
+          "path": [
+            "expected_observation_rows"
+          ],
+          "right": 21120
+        },
+        {
+          "kind": "scalar",
+          "left": 2530,
+          "path": [
+            "measured_repetitions_per_factor_level"
+          ],
+          "right": 3520
+        }
+      ],
+      "planning_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_005_portfolio_timing_stage10.json",
+      "planning_spec_sha256": "4773bd028f0426160924e25d27925a853ec2741a7253ae8521166d18169c30e8",
+      "replication": 5,
+      "required_execution_keys_present": true,
+      "reused_execution_spec": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_005_path_rebound.json",
+      "reused_execution_spec_sha256": "ca647e80d4e0fbf00dddaec516a09e382818d75d1f0dad1af757028485f77c98"
+    },
+    {
+      "additional_execution_keys": [
+        "continue_on_instance_failure"
+      ],
+      "execution_spec_top_level_keys": [
+        "campaign_dir",
+        "continue_on_instance_failure",
+        "contract_version",
+        "execution_id",
+        "instance_selection",
+        "output_dir",
+        "workload_path"
+      ],
+      "planning_contract_changes_from_old_base": [
+        {
+          "kind": "scalar",
+          "left": 15180,
+          "path": [
+            "expected_observation_rows"
+          ],
+          "right": 21120
+        },
+        {
+          "kind": "scalar",
+          "left": 2530,
+          "path": [
+            "measured_repetitions_per_factor_level"
+          ],
+          "right": 3520
+        }
+      ],
+      "planning_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_006_portfolio_timing_stage10.json",
+      "planning_spec_sha256": "9e4e83b3369f657a14d8804dd3bd60f11eca8f20cc2e4912c68232f78ff996ba",
+      "replication": 6,
+      "required_execution_keys_present": true,
+      "reused_execution_spec": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_006_path_rebound.json",
+      "reused_execution_spec_sha256": "18a7d37a248dd0b83799b0220d49a7312e917eb66d1b91d15880857f26f3dfc0"
+    },
+    {
+      "additional_execution_keys": [
+        "continue_on_instance_failure"
+      ],
+      "execution_spec_top_level_keys": [
+        "campaign_dir",
+        "continue_on_instance_failure",
+        "contract_version",
+        "execution_id",
+        "instance_selection",
+        "output_dir",
+        "workload_path"
+      ],
+      "planning_contract_changes_from_old_base": [
+        {
+          "kind": "scalar",
+          "left": 15180,
+          "path": [
+            "expected_observation_rows"
+          ],
+          "right": 21120
+        },
+        {
+          "kind": "scalar",
+          "left": 2530,
+          "path": [
+            "measured_repetitions_per_factor_level"
+          ],
+          "right": 3520
+        }
+      ],
+      "planning_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_007_portfolio_timing_stage10.json",
+      "planning_spec_sha256": "5dc2b67429d3e08f525df0472ca7b3ab129b3b0b98618705c6f3a064a137d012",
+      "replication": 7,
+      "required_execution_keys_present": true,
+      "reused_execution_spec": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_007_path_rebound.json",
+      "reused_execution_spec_sha256": "005315575ef57ea923e6c147c9c769846a59074999bd86b2121182e638059c29"
+    },
+    {
+      "additional_execution_keys": [
+        "continue_on_instance_failure"
+      ],
+      "execution_spec_top_level_keys": [
+        "campaign_dir",
+        "continue_on_instance_failure",
+        "contract_version",
+        "execution_id",
+        "instance_selection",
+        "output_dir",
+        "workload_path"
+      ],
+      "planning_contract_changes_from_old_base": [
+        {
+          "kind": "scalar",
+          "left": 15180,
+          "path": [
+            "expected_observation_rows"
+          ],
+          "right": 21120
+        },
+        {
+          "kind": "scalar",
+          "left": 2530,
+          "path": [
+            "measured_repetitions_per_factor_level"
+          ],
+          "right": 3520
+        }
+      ],
+      "planning_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_008_portfolio_timing_stage10.json",
+      "planning_spec_sha256": "c809b5d228a0479816cf6830b953ce060e935bb75e825f232eab20ad3f0786c7",
+      "replication": 8,
+      "required_execution_keys_present": true,
+      "reused_execution_spec": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_008_path_rebound.json",
+      "reused_execution_spec_sha256": "aa79be521b980472f2c938a16cdf3c64b45ecd21d5fe45ebce59b63a4661516f"
+    },
+    {
+      "additional_execution_keys": [
+        "continue_on_instance_failure"
+      ],
+      "execution_spec_top_level_keys": [
+        "campaign_dir",
+        "continue_on_instance_failure",
+        "contract_version",
+        "execution_id",
+        "instance_selection",
+        "output_dir",
+        "workload_path"
+      ],
+      "planning_contract_changes_from_old_base": [
+        {
+          "kind": "scalar",
+          "left": 15180,
+          "path": [
+            "expected_observation_rows"
+          ],
+          "right": 21120
+        },
+        {
+          "kind": "scalar",
+          "left": 2530,
+          "path": [
+            "measured_repetitions_per_factor_level"
+          ],
+          "right": 3520
+        }
+      ],
+      "planning_spec": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_setup/objective_count_stage10_portfolio/specs/objective_count_rep_009_portfolio_timing_stage10.json",
+      "planning_spec_sha256": "bf24a234b0d9b1173fc511941499a5fa99039d78c8dd1374ccd79ac1fa0e9e9d",
+      "replication": 9,
+      "required_execution_keys_present": true,
+      "reused_execution_spec": "/workspaces/sa5_objective_count_stage10_timing_after_amendment_dec3785_v2/reused_execution_specs/objective_count_stage10_rep_009_path_rebound.json",
+      "reused_execution_spec_sha256": "29e0c4ec432bb24e96de2d18a0ae5a34bef3033919b45ab0963a9320bd45ed15"
+    }
+  ],
+  "schema_version": "mcad-sa5-reused-execution-spec-provenance-v1",
+  "source_commit": "dec3785432366fb64b68123419ac31f640476313",
+  "status": "validation_pass"
+}

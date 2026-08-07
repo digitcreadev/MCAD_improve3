@@ -1,0 +1,21 @@
+{
+  "all_checkpoint_sha256_verified": true,
+  "all_replications_checkpointed": true,
+  "canonical_core_file_count": 40,
+  "checkpoint_head": "8a7f7b3371a85ddec285e2146bcb54bc8ff0c40d",
+  "next_stage": "wait_for_ci_then_merge_sa5_objective_count_stage10_timing_evidence",
+  "replication_count": 10,
+  "rows_per_replication": 21120,
+  "schema_version": "mcad-sa5-objective-count-stage10-timing-evidence-persistence-v1",
+  "scientific_controls": {
+    "bootstrap_analysis_performed": false,
+    "manuscript_modified": false,
+    "precision_analysis_performed": false,
+    "scientific_freeze_performed": false,
+    "timing_values_accessed_for_analysis": false,
+    "timing_values_interpreted": false
+  },
+  "source_commit": "dec3785432366fb64b68123419ac31f640476313",
+  "status": "timing_evidence_persistence_ready",
+  "total_structural_rows": 211200
+}
