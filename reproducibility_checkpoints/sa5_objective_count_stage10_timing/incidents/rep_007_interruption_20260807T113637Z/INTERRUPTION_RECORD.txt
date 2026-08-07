@@ -1,0 +1,12 @@
+schema_version=mcad-sa5-interrupted-replication-v1
+recorded_at_utc=2026-08-07T11:36:39Z
+source_branch=paper/phase3-controlled-execution
+source_head=dec3785432366fb64b68123419ac31f640476313
+checkpoint_head=7f7c881e0259a15d090bc89774c026810a4760f3
+replication=007
+checkpoint_status=pending
+interruption_reason=terminal_or_codespace_process_restart
+timing_values_interpreted=false
+precision_analysis_performed=false
+bootstrap_analysis_performed=false
+manuscript_modified=false

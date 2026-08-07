@@ -1,0 +1,10 @@
+incident_type=interrupted_timing_replication
+replication=007
+scientific_result_status=discarded_incomplete_execution
+canonical_output_reused=false
+rerun_authorized=true
+timing_values_accessed=false
+timing_values_interpreted=false
+precision_analysis_performed=false
+bootstrap_analysis_performed=false
+manuscript_modified=false
