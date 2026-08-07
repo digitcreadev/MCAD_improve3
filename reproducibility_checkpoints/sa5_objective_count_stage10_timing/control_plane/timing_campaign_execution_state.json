@@ -1,5 +1,5 @@
 {
-  "completed_replication_file_set_count": 7,
+  "completed_replication_file_set_count": 8,
   "replications": [
     {
       "complete_file_set_present": true,
@@ -163,8 +163,25 @@
       "replication": 6
     },
     {
-      "complete_file_set_present": false,
-      "files": {},
+      "complete_file_set_present": true,
+      "files": {
+        "functional_references.json": {
+          "sha256": "20fa4d4424a4f1cbfdefa5413c6bf789e8e32435ff968e22573ddaf76f3f6a24",
+          "size_bytes": 2357314
+        },
+        "timing_manifest.json": {
+          "sha256": "3c89758954e8f53669fcab4bf75f21d7b0e2855d38c597b8548d3c8265505c75",
+          "size_bytes": 8053
+        },
+        "timing_observations.csv": {
+          "sha256": "c9e5c55e009814ee42c75e8f06b38e384e3010ea66c16a86105a201e969ecaea",
+          "size_bytes": 5568599
+        },
+        "timing_summary.json": {
+          "sha256": "b1c193d902ab64cd5687dbad7ce5651b7f656194b27c2869091c38ed5bf7d264",
+          "size_bytes": 772070
+        }
+      },
       "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_007_portfolio_timing_stage10",
       "replication": 7
     },
