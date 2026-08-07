@@ -2,7 +2,7 @@
 
 Source commit: `dec3785432366fb64b68123419ac31f640476313`
 Checkpoint branch: `evidence/sa5-objective-count-stage10-timing-checkpoints-20260806`
-Completed replications: **8/10**
+Completed replications: **9/10**
 
 | Replication | Status |
 |---:|:---|
@@ -14,7 +14,7 @@ Completed replications: **8/10**
 | 005 | checkpointed |
 | 006 | checkpointed |
 | 007 | checkpointed |
-| 008 | pending |
+| 008 | checkpointed |
 | 009 | pending |
 
 Timing values have not been interpreted by this checkpoint process.
