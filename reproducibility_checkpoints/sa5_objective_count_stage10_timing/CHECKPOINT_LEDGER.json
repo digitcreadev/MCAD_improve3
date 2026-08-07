@@ -1,6 +1,6 @@
 {
   "checkpoint_branch": "evidence/sa5-objective-count-stage10-timing-checkpoints-20260806",
-  "completed_replication_count": 6,
+  "completed_replication_count": 7,
   "expected_replication_count": 10,
   "replications": [
     {
@@ -154,8 +154,29 @@
       "validation": "replications/rep_005/VALIDATION.json"
     },
     {
+      "directory": "replications/rep_006",
+      "files": {
+        "functional_references.json": {
+          "sha256": "8f38556f900763ec20ce8a80da80598f7ec508421cd29f53e6d8f84f9cd27099",
+          "size_bytes": 2349427
+        },
+        "timing_manifest.json": {
+          "sha256": "6ab4fe6934b2f3aa099ffe51f9458dd6b19f10cdb1dea8f114c023b948e75272",
+          "size_bytes": 8039
+        },
+        "timing_observations.csv": {
+          "sha256": "975191b6c81a0f0920de840a12dc53413e72b18869197f9c2c1af073a6d7565d",
+          "size_bytes": 5505091
+        },
+        "timing_summary.json": {
+          "sha256": "86558dcd73a7487b9b44939d8a8525ad630edc2888bcbfa31d5e3641b074b856",
+          "size_bytes": 772808
+        }
+      },
       "replication": 6,
-      "status": "pending"
+      "status": "checkpointed",
+      "validated_at_utc": "2026-08-07T08:45:58Z",
+      "validation": "replications/rep_006/VALIDATION.json"
     },
     {
       "replication": 7,
@@ -180,5 +201,5 @@
   "source_branch": "paper/phase3-controlled-execution",
   "source_commit": "dec3785432366fb64b68123419ac31f640476313",
   "status": "in_progress",
-  "updated_at_utc": "2026-08-07T05:49:31Z"
+  "updated_at_utc": "2026-08-07T08:45:58Z"
 }

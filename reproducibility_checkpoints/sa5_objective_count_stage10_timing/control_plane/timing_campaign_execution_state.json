@@ -1,5 +1,5 @@
 {
-  "completed_replication_file_set_count": 5,
+  "completed_replication_file_set_count": 7,
   "replications": [
     {
       "complete_file_set_present": true,
@@ -117,14 +117,48 @@
       "replication": 4
     },
     {
-      "complete_file_set_present": false,
-      "files": {},
+      "complete_file_set_present": true,
+      "files": {
+        "functional_references.json": {
+          "sha256": "26896bdac7f13e797a8a3d4a1669cc7b3988bb74bbefb4d9e02b801ca59e8139",
+          "size_bytes": 2354335
+        },
+        "timing_manifest.json": {
+          "sha256": "48d82f1fb95e9af9334257c055ada3e8158bafc9bf3dbbe876f0b2a8ee900cd5",
+          "size_bytes": 8039
+        },
+        "timing_observations.csv": {
+          "sha256": "980c7992aae2db6d5db5b457a7339d24d684eddba6a397c5e96780e356ded5e3",
+          "size_bytes": 5505063
+        },
+        "timing_summary.json": {
+          "sha256": "d8d3d3ca3f55041e6c1a614abbc190d7299279286861fcdc4cdce50f9f2e3c90",
+          "size_bytes": 772849
+        }
+      },
       "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_005_portfolio_timing_stage10",
       "replication": 5
     },
     {
-      "complete_file_set_present": false,
-      "files": {},
+      "complete_file_set_present": true,
+      "files": {
+        "functional_references.json": {
+          "sha256": "8f38556f900763ec20ce8a80da80598f7ec508421cd29f53e6d8f84f9cd27099",
+          "size_bytes": 2349427
+        },
+        "timing_manifest.json": {
+          "sha256": "6ab4fe6934b2f3aa099ffe51f9458dd6b19f10cdb1dea8f114c023b948e75272",
+          "size_bytes": 8039
+        },
+        "timing_observations.csv": {
+          "sha256": "975191b6c81a0f0920de840a12dc53413e72b18869197f9c2c1af073a6d7565d",
+          "size_bytes": 5505091
+        },
+        "timing_summary.json": {
+          "sha256": "86558dcd73a7487b9b44939d8a8525ad630edc2888bcbfa31d5e3641b074b856",
+          "size_bytes": 772808
+        }
+      },
       "output_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/timing_runs/objective_count_stage10_portfolio/objective_count_rep_006_portfolio_timing_stage10",
       "replication": 6
     },
