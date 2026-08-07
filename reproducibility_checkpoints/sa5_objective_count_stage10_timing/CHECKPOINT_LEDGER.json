@@ -1,6 +1,6 @@
 {
   "checkpoint_branch": "evidence/sa5-objective-count-stage10-timing-checkpoints-20260806",
-  "completed_replication_count": 9,
+  "completed_replication_count": 10,
   "expected_replication_count": 10,
   "replications": [
     {
@@ -229,8 +229,29 @@
       "validation": "replications/rep_008/VALIDATION.json"
     },
     {
+      "directory": "replications/rep_009",
+      "files": {
+        "functional_references.json": {
+          "sha256": "de500f8aa57de15532a28616e5fc5d3849f5c499ba7aa179bf4940dab8477474",
+          "size_bytes": 2350042
+        },
+        "timing_manifest.json": {
+          "sha256": "3d5086d6999e62e3fdb56580d83305e7ebe564d6a5d17b2b6430416623a63854",
+          "size_bytes": 8053
+        },
+        "timing_observations.csv": {
+          "sha256": "6650d0b979ce0376f55dc41a217edc417abab6d68466bb3a8e9a68af0ca0f790",
+          "size_bytes": 5568606
+        },
+        "timing_summary.json": {
+          "sha256": "0974ad0b100f929b4a61c4509a6cf56848483b90716626977e0ba11d92f45481",
+          "size_bytes": 773022
+        }
+      },
       "replication": 9,
-      "status": "pending"
+      "status": "checkpointed",
+      "validated_at_utc": "2026-08-07T22:00:37Z",
+      "validation": "replications/rep_009/VALIDATION.json"
     }
   ],
   "schema_version": "mcad-sa5-checkpoint-ledger-v1",
@@ -242,6 +263,6 @@
   },
   "source_branch": "paper/phase3-controlled-execution",
   "source_commit": "dec3785432366fb64b68123419ac31f640476313",
-  "status": "in_progress",
-  "updated_at_utc": "2026-08-07T18:43:05Z"
+  "status": "complete",
+  "updated_at_utc": "2026-08-07T22:00:37Z"
 }
