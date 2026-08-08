@@ -1,0 +1,106 @@
+{
+  "analyzer": {
+    "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2_factor_compatible.py",
+    "sha256": "841d3f59f7195c262befc8a32602eae68d8a28538631c8c21dd7af8c1c00923f",
+    "unchanged": true
+  },
+  "analyzer_timing_report_adapter": {
+    "adapter_status": "stage10_formal_timing_execution_success",
+    "all_other_json_content_semantically_identical": true,
+    "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/analyzer_timing_report_adapter.json",
+    "sha256": "f08286dcd65a26c83a5701c39efe7f6bda81afebcb1346932f6a6cd401cdaa54",
+    "source_path": "reports/article_experiments/sensitivity/e3_controlled_execution/precision_inputs/objective_count_stage10/objective_count_stage10_precision_timing_report.json",
+    "source_sha256": "59a7ff5a46bd63adead42879f35fd26faa896e062c95359d110092a1307f2f75",
+    "source_status": "precision_input_materialization_ready",
+    "timing_measurements_changed": false,
+    "transformation": "replace top-level status only"
+  },
+  "authorization": {
+    "explicit_operator_confirmation_still_required": true,
+    "recovery_execution_effective_after_merge": true,
+    "recovery_execution_effective_before_merge": false
+  },
+  "created_at_utc": "2026-08-08T13:06:57Z",
+  "factor": "objective_count",
+  "failed_attempt": {
+    "actual_status": "precision_input_materialization_ready",
+    "analyzer_exit_status": 1,
+    "analyzer_invocation_count": 1,
+    "analyzer_log": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/analyzer.log",
+      "sha256": "60d3f5c0f2215d1c4639ad5b1c30c1895666465cdfd81922b5bde8444bfeab7b"
+    },
+    "bootstrap_execution_started": false,
+    "classification": "pre_measurement_pre_bootstrap",
+    "execution_start_marker": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/CANONICAL_EXECUTION_STARTED.json",
+      "sha256": "eb53445fc212cf719a1ecdf6d0540faf27d0643dc736221506b6e0d0440bd60e"
+    },
+    "expected_status": "stage10_formal_timing_execution_success",
+    "failure_class": "analyzer_timing_report_metadata_status_mismatch",
+    "measurement_observations_read": false,
+    "precision_analysis_completed": false,
+    "precision_results_observed": false,
+    "raw_intervals_created": false,
+    "raw_report_json_created": false,
+    "raw_report_md_created": false,
+    "timing_magnitudes_interpreted": false
+  },
+  "frozen_scientific_inputs": {
+    "observations": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/precision_inputs/objective_count_stage10/objective_count_stage10_measurement_observations.csv",
+      "sha256": "c4e76b6d119f7eebc0a18fc0eb065e9e45da8a625705e6be3d9d0a984615f9c1",
+      "unchanged": true
+    },
+    "source_timing_report": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/precision_inputs/objective_count_stage10/objective_count_stage10_precision_timing_report.json",
+      "sha256": "59a7ff5a46bd63adead42879f35fd26faa896e062c95359d110092a1307f2f75",
+      "unchanged": true
+    }
+  },
+  "next_stage": "merge_recovery_preregistration_before_one_recovery_invocation",
+  "prior_authorization": {
+    "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa5_objective_count_stage10_precision_analysis_authorization.json",
+    "scientific_parameters_remain_in_force": true,
+    "sha256": "1f0af210f43a46196a7d159911328c8ffdc57de5b2d0f4e762a75e6c79ec59c8"
+  },
+  "recovery_execution_contract": {
+    "analyzer_factor_argument": "objective_count",
+    "analyzer_must_remain_byte_identical": true,
+    "bootstrap_changes_authorized": false,
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20260728,
+    "confidence_level": 0.95,
+    "gate_rule": "Every canonical level-step cell must meet both precision targets.",
+    "input_measurement_changes_authorized": false,
+    "measurements_per_seed_and_cell": 100,
+    "median_relative_half_width_target": 0.1,
+    "observations_must_use_original_frozen_bytes": true,
+    "p95_relative_half_width_target": 0.15,
+    "recovery_invocation_limit": 1,
+    "statistical_algorithm_changes_authorized": false,
+    "structural_seed_cluster_count": 10,
+    "threshold_changes_authorized": false,
+    "timing_report_argument_must_use_adapter": true
+  },
+  "required_sequence": [
+    "persist failed pre-analysis attempt and adapter",
+    "merge this recovery preregistration",
+    "obtain explicit operator confirmation",
+    "execute exactly one recovery invocation",
+    "apply only the preregistered Boolean precision gate",
+    "persist and freeze or preregister extension"
+  ],
+  "schema_version": "mcad-sa5-objective-count-stage10-precision-preanalysis-recovery-v1",
+  "scientific_controls": {
+    "manuscript_modified": false,
+    "precision_results_observed": false,
+    "scientific_freeze": false,
+    "successful_bootstrap_execution_count": 0,
+    "successful_precision_analysis_count": 0,
+    "timing_magnitudes_interpreted": false
+  },
+  "source_commit": "3a2b6a7eaa60dca3454b2c7a02e841035137431f",
+  "stage": 10,
+  "status": "recovery_preregistered_before_recovery_execution"
+}
