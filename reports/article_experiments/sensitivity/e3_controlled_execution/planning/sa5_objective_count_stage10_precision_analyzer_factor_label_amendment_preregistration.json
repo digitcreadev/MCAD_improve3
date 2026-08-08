@@ -1,0 +1,151 @@
+{
+  "authorization": {
+    "analyzer_patch_authorized_before_amendment_merge": false,
+    "bootstrap_analysis_authorized": false,
+    "manuscript_integration_authorized": false,
+    "precision_analysis_authorized": false,
+    "scientific_freeze_authorized": false,
+    "scientific_result_interpretation_authorized": false
+  },
+  "created_at_utc": "2026-08-08T11:01:55Z",
+  "current_analyzer": {
+    "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+    "sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504"
+  },
+  "factor": "objective_count",
+  "materialized_precision_inputs": {
+    "compatibility_audit": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/precision_inputs/objective_count_stage10/ANALYZER_COMPATIBILITY.json",
+      "sha256": "1ae4f1a650664174436d33d25ebcb2b27fda9aa8cce13e8afc84fd80c498dc59"
+    },
+    "materialization": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/precision_inputs/objective_count_stage10/MATERIALIZATION.json",
+      "sha256": "fb5df97518dac008284a68f32bec9c542c2a5d7764a1a8a41b585e636866566b"
+    },
+    "observations": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/precision_inputs/objective_count_stage10/objective_count_stage10_measurement_observations.csv",
+      "sha256": "c4e76b6d119f7eebc0a18fc0eb065e9e45da8a625705e6be3d9d0a984615f9c1"
+    },
+    "timing_report": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/precision_inputs/objective_count_stage10/objective_count_stage10_precision_timing_report.json",
+      "sha256": "59a7ff5a46bd63adead42879f35fd26faa896e062c95359d110092a1307f2f75"
+    }
+  },
+  "next_stage": "merge_factor_label_amendment_preregistration_before_analyzer_patch",
+  "original_precision_preregistration": {
+    "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa5_objective_count_stage10_precision_adapter_preregistration.json",
+    "sha256": "6dd322ce43923edf577ea3b392682b8947f21bce99b170690cfaa0f098112682",
+    "status": "remains_in_force_except_analyzer_source_identity"
+  },
+  "preregistered_patch_contract": {
+    "analyze_precision_change": {
+      "add_keyword_only_parameter": "factor",
+      "default": "constraint_count",
+      "parameter_type": "str",
+      "rationale": "Preserve historical direct-call behaviour while allowing explicit factor metadata."
+    },
+    "call_site_change": {
+      "pass": "factor=args.factor"
+    },
+    "cell_result_change": {
+      "after": "\"factor\": factor",
+      "before": "\"factor\": \"constraint_count\""
+    },
+    "cli_change": {
+      "add_argument": "--factor",
+      "default": "constraint_count",
+      "sa5_required_explicit_value": "objective_count",
+      "type": "str"
+    },
+    "forbidden_changes": [
+      "measurement parsing",
+      "measurement filtering",
+      "replication grouping",
+      "structural seed grouping",
+      "expected replication set",
+      "expected level set",
+      "expected step set",
+      "measurements per cluster",
+      "bootstrap resampling unit",
+      "within-cluster retention rule",
+      "bootstrap repetition count",
+      "bootstrap seed",
+      "per-cell bootstrap seed formula",
+      "confidence level",
+      "median precision target",
+      "p95 precision target",
+      "median calculation",
+      "p95 calculation",
+      "interval calculation",
+      "relative half-width calculation",
+      "target decision rule",
+      "stage sufficiency decision rule",
+      "extension decision rule",
+      "timing values",
+      "materialized precision inputs"
+    ],
+    "historical_backward_compatibility": {
+      "default_factor_remains": "constraint_count",
+      "existing_callers_without_factor_argument": "must retain current metadata behaviour"
+    }
+  },
+  "regression_contract": {
+    "required_tests": [
+      "existing precision analyzer regression suite must continue to pass",
+      "direct analyze_precision call without factor must emit constraint_count metadata",
+      "direct analyze_precision call with factor=objective_count must emit objective_count metadata",
+      "CLI must accept --factor objective_count",
+      "factor-label patch must not require reading the canonical SA5 timing observations"
+    ],
+    "scientific_equivalence_rule": "The patch is metadata-only. No scientific calculation or decision path may change."
+  },
+  "required_sequence": [
+    "merge this amendment preregistration",
+    "materialize only the preregistered analyzer metadata patch",
+    "run code regression tests without SA5 precision analysis",
+    "merge analyzer compatibility patch",
+    "record patched analyzer SHA",
+    "explicitly authorize SA5 precision analysis",
+    "merge precision-analysis authorization",
+    "only then execute SA5 precision/bootstrap analysis"
+  ],
+  "schema_version": "mcad-sa5-objective-count-stage10-precision-analyzer-factor-label-amendment-preregistration-v1",
+  "scientific_controls": {
+    "bootstrap_analysis_performed": false,
+    "manuscript_modified": false,
+    "precision_analysis_performed": false,
+    "scientific_freeze_performed": false,
+    "scientific_result_interpretation_performed": false,
+    "timing_values_interpreted": false,
+    "timing_values_read": false
+  },
+  "source_commit": "002c25ef21b5f096d68f9673934604cf5b18821a",
+  "stage": 10,
+  "static_diagnosis": {
+    "analyze_precision_factor_parameter_present": false,
+    "defect_class": "output_metadata_label_only",
+    "factor_cli_argument_present": false,
+    "hardcoded_constraint_count_occurrence_count": 1,
+    "hardcoded_occurrence_function": "analyze_precision",
+    "hardcoded_occurrence_line": 864,
+    "scientific_algorithm_defect_detected": false
+  },
+  "status": "preregistered_before_analyzer_compatibility_patch",
+  "supersession_contract": {
+    "new_analyzer_sha": "must be recorded only after the preregistered patch is materialized",
+    "not_superseded": [
+      "structural seed cluster count",
+      "measurements per seed and cell",
+      "bootstrap repetitions",
+      "bootstrap seed",
+      "confidence level",
+      "median relative half-width target",
+      "p95 relative half-width target",
+      "all-cell precision gate",
+      "materialized input bytes"
+    ],
+    "superseded_after_patch_merge": [
+      "original analyzer source SHA only"
+    ]
+  }
+}
