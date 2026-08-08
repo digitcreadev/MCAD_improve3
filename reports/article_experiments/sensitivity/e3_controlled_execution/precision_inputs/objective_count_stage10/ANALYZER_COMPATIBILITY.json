@@ -1,0 +1,16 @@
+{
+  "analyzer_path": "/workspaces/MCAD_improve3/backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+  "analyzer_sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504",
+  "bootstrap_analysis_performed": false,
+  "hardcoded_cell_result_factor_label_detected": true,
+  "hardcoded_label": "constraint_count",
+  "hardcoded_occurrence_count": 1,
+  "input_schema_compatible": true,
+  "precision_analysis_authorized": false,
+  "precision_analysis_performed": false,
+  "required_factor": "objective_count",
+  "required_resolution_before_analysis": true,
+  "schema_version": "mcad-sa5-objective-count-precision-analyzer-compatibility-v1",
+  "status": "input_materialization_compatible_analysis_authorization_blocked_pending_factor_label_resolution",
+  "timing_values_inspected": false
+}
