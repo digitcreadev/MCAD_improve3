@@ -1,0 +1,57 @@
+{
+  "analyzer_execution_order": {
+    "legacy_totals_guard_before_read_measurements": true,
+    "read_measurements_before_analyze_precision": true
+  },
+  "controls": {
+    "bootstrap_executed": false,
+    "latency_statistics_computed": false,
+    "manuscript_modified": false,
+    "precision_analysis_executed": false,
+    "scientific_freeze": false,
+    "timing_magnitudes_interpreted": false,
+    "wall_latency_value_accessed": false
+  },
+  "created_at_utc": "2026-08-08T14:18:13Z",
+  "factor": "objective_count",
+  "failed_analyzer_invocation_count": 2,
+  "failed_invocations": {
+    "initial": "pre_measurement_pre_bootstrap",
+    "recovery_001": "pre_measurement_pre_bootstrap"
+  },
+  "legacy_alias_semantics": {
+    "cell_count": 1920,
+    "exactly_balanced_run_count": {
+      "meaning": "legacy analyzer compatibility alias for exact sample-count balanced runs",
+      "not_equivalent_to": "timing-manifest positional all_cells_exactly_balanced flag",
+      "value": 10
+    },
+    "functional_mismatch_count": 0,
+    "run_count": 10,
+    "successful_run_count": 10
+  },
+  "observations_structural_contract": {
+    "cluster_cell_count": 1920,
+    "exact_sample_count_balance_all_runs": true,
+    "factor_levels": [
+      1,
+      2,
+      5,
+      10,
+      20,
+      50
+    ],
+    "measurements_per_cluster_cell": 100,
+    "row_count": 192000,
+    "step_count": 32,
+    "structural_replication_count": 10,
+    "structural_seed_count": 10
+  },
+  "precision_results_observed": false,
+  "schema_version": "mcad-sa5-objective-count-stage10-precision-recovery2-compatibility-audit-v1",
+  "source_commit": "356969bc7177ad120bfee406afda90e35bdf62ea",
+  "stage": 10,
+  "status": "recovery2_compatibility_audit_pass",
+  "successful_bootstrap_execution_count": 0,
+  "successful_precision_analysis_count": 0
+}
