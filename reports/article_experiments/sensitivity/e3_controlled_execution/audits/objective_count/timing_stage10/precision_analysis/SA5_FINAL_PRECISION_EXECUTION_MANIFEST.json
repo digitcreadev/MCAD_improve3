@@ -1,0 +1,65 @@
+{
+  "analyzer_exit_status": 0,
+  "canonical_head": "f2015e13265ef6d6befd69e7a90f5a4690cd6fd9",
+  "completed_at_utc": "2026-08-08T17:43:19Z",
+  "controls": {
+    "absolute_timing_magnitudes_interpreted": false,
+    "additional_analyzer_rerun_authorized": false,
+    "manuscript_modified": false,
+    "precision_statistics_computed": true,
+    "scientific_freeze": false
+  },
+  "execution_evidence": {
+    "analyzer_log": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/sa5_final_precision_analyzer.log",
+      "sha256": "8793dc291a0a9206f75aaa6289e02a5cc0ee0c4b07ee426b953e618d1c5a02ee"
+    },
+    "intervals_csv": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/sa5_final_precision_intervals.csv",
+      "sha256": "1e70e0ce8e5cef513190c55131da2cec2b56dbfbfdb5e01d24ded45c7f9f3f72"
+    },
+    "report_json": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/sa5_final_precision_report.json",
+      "sha256": "7086ff5a3c1a0a294a3f4acfbceeaadb93954cf638a48ac4bcae540e6d10b696"
+    },
+    "report_md": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/sa5_final_precision_report.md",
+      "sha256": "bd125809d03aa134c1de24412c252444e81f261d8a7fc0fef88c5d4a3453c9cf"
+    },
+    "start_marker": {
+      "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/SA5_FINAL_PRECISION_EXECUTION_STARTED.json",
+      "sha256": "f7c3e7c55bd27f280c8bf477d0a90293712f3c49fc65dc1e0a8a192cdb3ce0ec"
+    }
+  },
+  "final_execution_invocation_count": 1,
+  "gate_extraction": {
+    "all_cells_boolean_fields": {
+      "all_cell_targets_met": false,
+      "median_target_met": false,
+      "p95_target_met": false
+    },
+    "extension_required": true,
+    "source": "top_level:all_precision_targets_met",
+    "stage10_sufficient": false,
+    "top_level_booleans": {
+      "all_median_targets_met": false,
+      "all_p95_targets_met": false,
+      "all_precision_targets_met": false,
+      "extension_to_stage20_required": true,
+      "latency_claim_authorized": false,
+      "scientific_freeze": false,
+      "stage10_sufficient": false
+    }
+  },
+  "input": {
+    "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/sa5_final_lossless_measurement_observations.csv",
+    "row_count": 192000,
+    "sha256": "0097985c90cbaa26fa77301a2a88ecfb89d3eefbae75357a87f7996e8cb77aca"
+  },
+  "next_stage": "persist_then_follow_preregistered_stage_extension_path",
+  "rerun_forbidden": true,
+  "schema_version": "mcad-sa5-objective-count-stage10-final-precision-execution-manifest-v1",
+  "status": "final_precision_execution_complete",
+  "successful_canonical_bootstrap_execution_count": 1,
+  "successful_precision_analysis_count": 1
+}
