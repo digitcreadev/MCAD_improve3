@@ -1,0 +1,66 @@
+{
+  "archive": {
+    "chunk_count": 1,
+    "chunks": [
+      {
+        "filename": "sa5_stage20_runtime_recovery.tar.gz.part000",
+        "sha256": "77108d696272d2a9ccca91ce165cc43609036e2298c12dc1f2dd824bdf8d333d",
+        "size_bytes": 3599666
+      }
+    ],
+    "sha256": "77108d696272d2a9ccca91ce165cc43609036e2298c12dc1f2dd824bdf8d333d",
+    "size_bytes": 3599666
+  },
+  "canonical_branch": "paper/phase3-controlled-execution",
+  "canonical_head": "fd7d87e5658b63c0753a9686b43ec2e5e2d17344",
+  "checkpoint_branch": "checkpoint/sa5-stage20-recovery-20260808T224049Z",
+  "codespace_restart": {
+    "post_restart_controller_process_present": false,
+    "post_restart_precision_process_present": false,
+    "post_restart_timing_process_present": false,
+    "prior_active_timing_replication": 11,
+    "prior_timing_replication_completed_before_restart": 10
+  },
+  "created_at_utc": "2026-08-08T22:41:05Z",
+  "next_stage": "verify_remote_checkpoint_then_migrate_before_resuming_timing_rep011",
+  "repository": "digitcreadev/MCAD_improve3",
+  "restore_rule": {
+    "archive_destination_repository_root": "/workspaces/MCAD_improve3",
+    "controller_destination": "/workspaces/execute_sa5_stage20_once_v3.py",
+    "do_not_resume_if_precision_start_marker_exists": true,
+    "resume_only_with_exact_sa5_virtualenv": true,
+    "resume_uses_timing_reuse_successful": true
+  },
+  "runtime_paths": {
+    "stage20_precision_area": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage20/precision_analysis",
+    "stage20_work": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e"
+  },
+  "schema_version": "mcad-sa5-objective-count-stage20-recovery-checkpoint-v1",
+  "scientific_state": {
+    "maximum_protocol_stage": 30,
+    "stage10_prefix_rerun_forbidden": true,
+    "stage20_functional_done_count": 10,
+    "stage20_functional_done_replications": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "stage20_precision_analysis_performed": false,
+    "stage20_precision_rerun_consumed": false,
+    "stage20_precision_started": false,
+    "stage20_timing_done_count": 1,
+    "stage20_timing_done_replications": [
+      10
+    ],
+    "stage20_timing_rep011_done": false,
+    "stage30_execution_authorized": false
+  },
+  "status": "stage20_recovery_checkpoint_after_codespace_restart"
+}
