@@ -1,0 +1,81 @@
+{
+  "canonical_head": "ef775a08b4b90270be83c7a141d80f9804622ffb",
+  "controls": {
+    "analyzer_modified": false,
+    "canonical_bootstrap_executed": false,
+    "canonical_precision_analysis_executed": false,
+    "canonical_timing_sources_modified": false,
+    "frozen_reduced_observations_modified": false,
+    "scientific_result_observed": false,
+    "timing_report_adapter_v2_modified": false
+  },
+  "created_at_utc": "2026-08-08T17:25:50Z",
+  "lossless_adapter": {
+    "latency_values_changed": false,
+    "materializer_path": "backend/harness/sensitivity_execution/tools/materialize_objective_count_precision_lossless_inputs_v2.py",
+    "materializer_sha256": "689a5b1d47bcb96b8eae20b3cd9371c8b199f43b8710c38febce982bf1f07e9b",
+    "measurement_row_count": 192000,
+    "projection_identity_with_frozen_reduced_observations": true,
+    "temporary_adapter_sha256": "0097985c90cbaa26fa77301a2a88ecfb89d3eefbae75357a87f7996e8cb77aca",
+    "timing_magnitudes_interpreted": false
+  },
+  "prior_scientific_analyzer_invocations": {
+    "count": 3,
+    "precision_results_observed": false,
+    "successful_canonical_bootstrap_execution_count": 0,
+    "successful_precision_analysis_count": 0
+  },
+  "root_cause": {
+    "aliases_added": {
+      "formal_replication_index": "replication_index",
+      "formal_structural_seed": "seed"
+    },
+    "canonical_timing_header": [
+      "phase",
+      "phase_round",
+      "order_position",
+      "observation_index",
+      "cell_id",
+      "canonical_instance_id",
+      "factor_level",
+      "replication_index",
+      "seed",
+      "step_position",
+      "step_index",
+      "step_id",
+      "prefix_step_count",
+      "fresh_state",
+      "wall_latency_ns",
+      "wall_latency_ms",
+      "cpu_latency_ns",
+      "cpu_latency_ms",
+      "semantic_digest",
+      "semantic_match"
+    ],
+    "classification": "lossy_precision_input_projection_removed_analyzer_provenance_fields",
+    "missing_provenance_fields_recovered_from_canonical_sources": [
+      "phase",
+      "fresh_state",
+      "semantic_match"
+    ],
+    "reduced_observations_header": [
+      "factor_level",
+      "formal_replication_index",
+      "formal_structural_seed",
+      "step_index",
+      "wall_latency_ms"
+    ]
+  },
+  "schema_version": "mcad-sa5-objective-count-stage10-final-lossless-compatibility-preflight-v1",
+  "status": "pass",
+  "synthetic_full_pipeline_smoke": {
+    "bootstrap_repetitions": 1000,
+    "canonical_bootstrap_repetitions": 10000,
+    "cell_result_count": 192,
+    "real_latency_values_used": false,
+    "real_structural_and_provenance_fields_used": true,
+    "scientific_evidence": false,
+    "status": "pass",
+    "synthetic_latency_ms": "1.0"
+  }
+}
