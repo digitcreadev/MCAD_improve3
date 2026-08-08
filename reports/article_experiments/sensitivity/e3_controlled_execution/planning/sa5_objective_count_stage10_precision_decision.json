@@ -1,0 +1,32 @@
+{
+  "canonical_head_at_execution": "f2015e13265ef6d6befd69e7a90f5a4690cd6fd9",
+  "controls": {
+    "bootstrap_parameters_changed": false,
+    "manuscript_modified": false,
+    "scientific_freeze": false,
+    "stage10_rerun_forbidden": true,
+    "thresholds_changed": false
+  },
+  "created_at_utc": "2026-08-08T17:53:02Z",
+  "gate": {
+    "all_median_targets_met": false,
+    "all_p95_targets_met": false,
+    "all_precision_targets_met": false,
+    "extension_to_stage20_required": true,
+    "stage10_sufficient": false
+  },
+  "next_stage": "preregister_and_prepare_stage20_extension_without_rerunning_stage10",
+  "schema_version": "mcad-sa5-objective-count-stage10-precision-decision-v1",
+  "scientific_execution": {
+    "analyzer_exit_status": 0,
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20260728,
+    "canonical_cell_count": 192,
+    "confidence_level": 0.95,
+    "median_target": 0.1,
+    "p95_target": 0.15,
+    "successful_canonical_bootstrap_execution_count": 1,
+    "successful_precision_analysis_count": 1
+  },
+  "status": "stage10_precision_insufficient_extension_required"
+}
