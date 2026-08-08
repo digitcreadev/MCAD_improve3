@@ -793,6 +793,7 @@ def analyze_precision(
     confidence_level: float,
     median_target: float,
     p95_target: float,
+    factor: str = "constraint_count",
 ) -> dict[str, Any]:
     grouped, seed_by_replication = (
         validate_and_group(
@@ -861,7 +862,7 @@ def analyze_precision(
 
         cell_results.append(
             {
-                "factor": "constraint_count",
+                "factor": factor,
                 "factor_level": level,
                 "step_index": step,
                 "structural_seed_count": (
@@ -1081,6 +1082,11 @@ def main(
     )
 
     parser.add_argument(
+        "--factor",
+        default="constraint_count",
+    )
+
+    parser.add_argument(
         "--stage-size",
         type=int,
         choices=(10, 20, 30),
@@ -1275,6 +1281,7 @@ def main(
 
         analysis = analyze_precision(
             rows,
+            factor=args.factor,
             expected_cluster_count=(
                 args.stage_size
             ),

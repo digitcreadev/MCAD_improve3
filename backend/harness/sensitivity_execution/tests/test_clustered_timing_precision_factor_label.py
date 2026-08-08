@@ -7,7 +7,7 @@ from contextlib import redirect_stdout
 from unittest.mock import patch
 
 from backend.harness.sensitivity_execution import (
-    analyze_clustered_timing_precision_v2 as target,
+    analyze_clustered_timing_precision_v2_factor_compatible as target,
 )
 
 
