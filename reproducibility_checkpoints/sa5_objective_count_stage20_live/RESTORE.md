@@ -1,8 +1,8 @@
 # SA5 objective_count Stage-20 live checkpoint
 
-Checkpoint sequence: 1
+Checkpoint sequence: 2
 
-Reason: interrupted_rep_011_preserved_before_resume
+Reason: timing_rep_011_validated_complete
 
 Canonical commit:
 
@@ -13,13 +13,13 @@ fd7d87e5658b63c0753a9686b43ec2e5e2d17344
 Completed Stage-20 timing replications:
 
 ```
-10
+10,11
 ```
 
 Archive SHA-256:
 
 ```
-eb40a3fbbb8b2912e0378ae9a3f30eb7346ddac9559f36badf14aaf0dbaa6ae0
+002289c13fb124aad093a1ce3f5106794d3d5a9a62ff84c0c2ed214d1ab69085
 ```
 
 Reconstruct with:
@@ -28,7 +28,7 @@ Reconstruct with:
 cat chunks/sa5_stage20_runtime_latest.tar.gz.part* \
   > /tmp/sa5_stage20_runtime_latest.tar.gz
 
-echo "eb40a3fbbb8b2912e0378ae9a3f30eb7346ddac9559f36badf14aaf0dbaa6ae0  /tmp/sa5_stage20_runtime_latest.tar.gz" \
+echo "002289c13fb124aad093a1ce3f5106794d3d5a9a62ff84c0c2ed214d1ab69085  /tmp/sa5_stage20_runtime_latest.tar.gz" \
   | sha256sum -c -
 
 tar -xzf /tmp/sa5_stage20_runtime_latest.tar.gz \
