@@ -1,0 +1,18 @@
+{
+  "name": "congenial-sniffle-xr9vwwr547r729p46",
+  "owner": "benaoimen",
+  "billable_owner": "benaoimen",
+  "repository": "digitcreadev/MCAD_improve3",
+  "machine": {
+    "name": "basicLinux32gb",
+    "display_name": "2 cores, 8 GB RAM, 32 GB storage",
+    "operating_system": "linux",
+    "storage_in_bytes": 34359738368,
+    "memory_in_bytes": 8589934592,
+    "cpus": 2,
+    "prebuild_availability": null
+  },
+  "location": "UkSouth",
+  "idle_timeout_minutes": 240,
+  "state": "Available"
+}
