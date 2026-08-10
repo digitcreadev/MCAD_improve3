@@ -1,0 +1,19 @@
+{
+  "bootstrap_repetitions": 10000,
+  "bootstrap_seed": 20260728,
+  "canonical_head": "fd7d87e5658b63c0753a9686b43ec2e5e2d17344",
+  "combined_input_sha256": "7f7665d3ec870b8d22e51eb69bea9432eb6c2255eb30b077e9df3092dae7713c",
+  "confidence_level": 0.95,
+  "median_target": 0.1,
+  "operator_confirmation": "oui, j’autorise l’exécution Stage-20 SA5",
+  "operator_confirmation_received": true,
+  "p95_target": 0.15,
+  "schema_version": "mcad-sa5-objective-count-stage20-precision-start-v1",
+  "stage20_measurement_row_count": 384000,
+  "stage20_precision_invocation_limit": 1,
+  "stage20_precision_rerun_authorized": false,
+  "stage20_structural_seed_count": 20,
+  "started_at_utc": "2026-08-10T15:38:02Z",
+  "status": "stage20_precision_execution_started",
+  "timing_adapter_sha256": "9a5409d8feba89127e652afaddad282d07d52a7e080c262f0bfb84f657e78ab0"
+}
