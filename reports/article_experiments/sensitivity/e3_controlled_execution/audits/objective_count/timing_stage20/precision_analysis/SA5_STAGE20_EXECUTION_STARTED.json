@@ -1,0 +1,36 @@
+{
+  "canonical_branch": "paper/phase3-controlled-execution",
+  "canonical_head": "fd7d87e5658b63c0753a9686b43ec2e5e2d17344",
+  "operator_confirmation": "oui, j’autorise l’exécution Stage-20 SA5",
+  "operator_confirmation_received": true,
+  "schema_version": "mcad-sa5-objective-count-stage20-execution-start-v1",
+  "stage10_prefix_rerun_forbidden": true,
+  "stage20_new_replications": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "stage20_new_seeds": [
+    630497049,
+    1826704550,
+    668799093,
+    1989792316,
+    625293714,
+    578407288,
+    1347026516,
+    1457944287,
+    134577186,
+    1985010596
+  ],
+  "stage20_precision_started": false,
+  "stage20_rerun_on_precision_failure_authorized": false,
+  "started_at_utc": "2026-08-08T18:50:54Z",
+  "status": "stage20_suffix_execution_started"
+}

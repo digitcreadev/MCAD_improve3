@@ -1,0 +1,156 @@
+{
+  "canonical_head": "fd7d87e5658b63c0753a9686b43ec2e5e2d17344",
+  "combined_lossless_input": {
+    "measurement_row_count": 384000,
+    "path": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/stage20_combined_measurement_observations.csv",
+    "persist_large_combined_input_in_git": false,
+    "sha256": "7f7665d3ec870b8d22e51eb69bea9432eb6c2255eb30b077e9df3092dae7713c"
+  },
+  "created_at_utc": "2026-08-10T15:44:06Z",
+  "functional_replications": [
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/functional_rep_010.json",
+      "done_marker_sha256": "912f39c7f2c7d8538467fb6db46f0b6fa55487d75a3cfdfedf05005fab204565",
+      "replication_index": 10
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/functional_rep_011.json",
+      "done_marker_sha256": "fc4f9cddf4bca5c43ee8130ef89a3d0b4b7e36318e1c44023c71e21e5e43736f",
+      "replication_index": 11
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/functional_rep_012.json",
+      "done_marker_sha256": "7d954534ffe8c9090d30bd403212c776ef97e81ea199b9a2c7827fdb28c35138",
+      "replication_index": 12
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/functional_rep_013.json",
+      "done_marker_sha256": "f5c2f0d30b7c0aff086f9751c4ce780bc08f216eb54461b6691c379f46dfcfa1",
+      "replication_index": 13
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/functional_rep_014.json",
+      "done_marker_sha256": "20ac8c33e0489f66dbff1a8d06ef6267afd21e8e1954e747529f53b424ea8c60",
+      "replication_index": 14
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/functional_rep_015.json",
+      "done_marker_sha256": "340a0e0e818511539ff0bf8770175e42c0a5891b1c37a24a3dd2bd536c56fc29",
+      "replication_index": 15
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/functional_rep_016.json",
+      "done_marker_sha256": "e9c6a5d853832790f7ab605f5f9743a0f322841d54e334b3c91f425e38c92ba4",
+      "replication_index": 16
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/functional_rep_017.json",
+      "done_marker_sha256": "b5a105c2ebec0f10ce1823e19145783deecd591ef7dc1d268bcfaabcdbecdea2",
+      "replication_index": 17
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/functional_rep_018.json",
+      "done_marker_sha256": "32291c9d25f6dbd34a1ca4563d651a85db092bf0e7610bb906cb580f00eb8fb6",
+      "replication_index": 18
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/functional_rep_019.json",
+      "done_marker_sha256": "ddc13254f49e5085dfec209a141f2b5d27550924230a588e1138ef0d4aaa8f74",
+      "replication_index": 19
+    }
+  ],
+  "schema_version": "mcad-sa5-objective-count-stage20-suffix-evidence-manifest-v1",
+  "stage10_prefix_reused_without_rerun": true,
+  "stage20_new_replications": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "stage20_new_seeds": [
+    630497049,
+    1826704550,
+    668799093,
+    1989792316,
+    625293714,
+    578407288,
+    1347026516,
+    1457944287,
+    134577186,
+    1985010596
+  ],
+  "status": "stage20_suffix_execution_complete",
+  "timing_adapter": {
+    "path": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/stage20_precision_timing_report_adapter.json",
+    "sha256": "9a5409d8feba89127e652afaddad282d07d52a7e080c262f0bfb84f657e78ab0"
+  },
+  "timing_replications": [
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/timing_rep_010.json",
+      "done_marker_sha256": "931d62ef7cb06fbaae6900854287edae3ece6a9035e8b74392140fb100ab0b8b",
+      "replication_index": 10,
+      "timing_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/timing_runs/objective_count_rep_010_portfolio_timing_stage20"
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/timing_rep_011.json",
+      "done_marker_sha256": "28d789fca5a45334555e328fdeafb01a42cde677a03b7be21c1a901dd3b0b02c",
+      "replication_index": 11,
+      "timing_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/timing_runs/objective_count_rep_011_portfolio_timing_stage20"
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/timing_rep_012.json",
+      "done_marker_sha256": "f84d172c76c9c57f15e8ad4e0e5fb7cd7a1442f64ba51c3f6989a8ac53fa8f87",
+      "replication_index": 12,
+      "timing_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/timing_runs/objective_count_rep_012_portfolio_timing_stage20"
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/timing_rep_013.json",
+      "done_marker_sha256": "3cd02e213492662fc4948098b675c0875b0e04a75bcdfba1879e074607966af8",
+      "replication_index": 13,
+      "timing_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/timing_runs/objective_count_rep_013_portfolio_timing_stage20"
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/timing_rep_014.json",
+      "done_marker_sha256": "f3ab5cea327726b4f07803a839c3bbb900afd4395847de0bc4e38010483e0c88",
+      "replication_index": 14,
+      "timing_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/timing_runs/objective_count_rep_014_portfolio_timing_stage20"
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/timing_rep_015.json",
+      "done_marker_sha256": "168c9c733b26053f42f173f07d7c8df87375afe61bbda4a15e7c7375564ee0a4",
+      "replication_index": 15,
+      "timing_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/timing_runs/objective_count_rep_015_portfolio_timing_stage20"
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/timing_rep_016.json",
+      "done_marker_sha256": "af128bf553b410060dd6d9a2274089b99ca6325264df9a1d6a11e1e4b60e12b8",
+      "replication_index": 16,
+      "timing_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/timing_runs/objective_count_rep_016_portfolio_timing_stage20"
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/timing_rep_017.json",
+      "done_marker_sha256": "6f3659583ffdb84729cb831253337adacab8a702ac5f69e65494131c39366a09",
+      "replication_index": 17,
+      "timing_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/timing_runs/objective_count_rep_017_portfolio_timing_stage20"
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/timing_rep_018.json",
+      "done_marker_sha256": "9c28a608afdd6343d7767b6e6632957b11feb18729ff7134522fb7d109cc641f",
+      "replication_index": 18,
+      "timing_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/timing_runs/objective_count_rep_018_portfolio_timing_stage20"
+    },
+    {
+      "done_marker": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/done/timing_rep_019.json",
+      "done_marker_sha256": "6cb75fa2d669787e0ea235ea88a727ae580c1c80b15dbbbea31e575219036330",
+      "replication_index": 19,
+      "timing_dir": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e/timing_runs/objective_count_rep_019_portfolio_timing_stage20"
+    }
+  ],
+  "work_root": "reports/article_experiments/sensitivity/e3_controlled_execution/stage20_work/objective_count_stage20_fd7d87e"
+}

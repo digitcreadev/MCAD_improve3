@@ -1,0 +1,40 @@
+{
+  "bootstrap_repetitions": 10000,
+  "canonical_head": "fd7d87e5658b63c0753a9686b43ec2e5e2d17344",
+  "completed_at_utc": "2026-08-10T15:44:06Z",
+  "evidence": {
+    "analyzer_log_sha256": "3a31b34bc003f7b531b0c53c5560087aa6f2bf500129c9f9aa896187a044492e",
+    "combined_input_sha256": "7f7665d3ec870b8d22e51eb69bea9432eb6c2255eb30b077e9df3092dae7713c",
+    "execution_start_marker_sha256": "519b774ad5dd64889f5bb8465b0747c062ec7636bb48a3b4f582ef4f19ab7335",
+    "intervals_sha256": "9230c7c7b34959a4bcc4a2a82a9af28fb4e50ca3289d7426ef95cb0c9952b8af",
+    "precision_start_marker_sha256": "f3588a3ad58a0667a5706f2ce621ee6928100abfc8bf9306439dd0fb0bbb0a9b",
+    "report_json_sha256": "02400fb4d89ca750290459f99b7672cca4c355a0751e2fcb62e5668536b6d2a4",
+    "report_md_sha256": "637ab6771d82738f76502c52745900f5fa6fc8e61cd51de6eb776f8c28c29f2d",
+    "suffix_manifest_sha256": "498a0b0ad84e94c29232a3fa9b655086e374350992c6717ed01a681cb8d0af00",
+    "timing_adapter_sha256": "9a5409d8feba89127e652afaddad282d07d52a7e080c262f0bfb84f657e78ab0"
+  },
+  "maximum_protocol_stage": 30,
+  "next_stage": "persist_then_preregister_stage30_once",
+  "operator_confirmation": "oui, j’autorise l’exécution Stage-20 SA5",
+  "rerun_forbidden": true,
+  "result": {
+    "all_median_targets_met": false,
+    "all_p95_targets_met": false,
+    "all_precision_targets_met": false,
+    "extension_to_stage30_required": true,
+    "stage20_sufficient": false,
+    "status": "stage20_precision_targets_not_met"
+  },
+  "schema_version": "mcad-sa5-objective-count-stage20-execution-manifest-v1",
+  "scientific_freeze": false,
+  "stage10_prefix_reused_without_rerun": true,
+  "stage20_combined_measurement_row_count": 384000,
+  "stage20_combined_structural_seed_count": 20,
+  "stage20_precision_analyzer_invocation_count": 1,
+  "stage20_suffix_functional_replication_count": 10,
+  "stage20_suffix_timing_replication_count": 10,
+  "stage30_execution_authorized": false,
+  "status": "stage20_precision_execution_complete",
+  "successful_stage20_canonical_bootstrap_execution_count": 1,
+  "successful_stage20_precision_analysis_count": 1
+}
