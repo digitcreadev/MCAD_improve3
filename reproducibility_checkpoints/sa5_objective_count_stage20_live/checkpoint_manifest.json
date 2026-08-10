@@ -4,18 +4,18 @@
     "chunks": [
       {
         "filename": "sa5_stage20_runtime_latest.tar.gz.part000",
-        "sha256": "8466a01253f2fda0edb1a8022cde0656a021c2debefefe2b8c1c1f077e9965dc",
-        "size_bytes": 11258035
+        "sha256": "4b70813780398b35d9641ebacf7cdd5ab8743f4ccc0259f3efd637e96ad59345",
+        "size_bytes": 12791652
       }
     ],
-    "sha256": "8466a01253f2fda0edb1a8022cde0656a021c2debefefe2b8c1c1f077e9965dc",
-    "size_bytes": 11258035
+    "sha256": "4b70813780398b35d9641ebacf7cdd5ab8743f4ccc0259f3efd637e96ad59345",
+    "size_bytes": 12791652
   },
   "canonical_head": "fd7d87e5658b63c0753a9686b43ec2e5e2d17344",
   "checkpoint_branch": "checkpoint/sa5-stage20-recovery-20260808T224049Z",
-  "checkpoint_reason": "timing_rep_015_validated_complete",
-  "checkpoint_sequence": 8,
-  "created_at_utc": "2026-08-10T01:13:23Z",
+  "checkpoint_reason": "timing_rep_016_validated_complete",
+  "checkpoint_sequence": 9,
+  "created_at_utc": "2026-08-10T04:02:00Z",
   "resume_policy": {
     "precision_must_not_be_rerun_after_precision_start_marker": true,
     "quarantine_incomplete_timing_output_before_resume": true,
@@ -40,19 +40,20 @@
       18,
       19
     ],
-    "latest_completed_timing_replication": 15,
+    "latest_completed_timing_replication": 16,
     "maximum_protocol_stage": 30,
     "precision_analysis_performed": false,
     "precision_started": false,
     "stage30_execution_authorized": false,
-    "timing_completed_count": 6,
+    "timing_completed_count": 7,
     "timing_replications_complete": [
       10,
       11,
       12,
       13,
       14,
-      15
+      15,
+      16
     ]
   },
   "status": "stage20_live_checkpoint_verified_locally"
