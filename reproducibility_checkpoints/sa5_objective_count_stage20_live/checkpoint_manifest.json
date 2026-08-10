@@ -4,18 +4,18 @@
     "chunks": [
       {
         "filename": "sa5_stage20_runtime_latest.tar.gz.part000",
-        "sha256": "b95c6009ee132aaf325dec205f2eb4dd3b9eb73b5f0dc269289a5fc1c99ad6cd",
-        "size_bytes": 14328125
+        "sha256": "5d9ea683d09143cb5eb9e6cee537a31f208cc0769918d4310b80a538fc7e5903",
+        "size_bytes": 14337965
       }
     ],
-    "sha256": "b95c6009ee132aaf325dec205f2eb4dd3b9eb73b5f0dc269289a5fc1c99ad6cd",
-    "size_bytes": 14328125
+    "sha256": "5d9ea683d09143cb5eb9e6cee537a31f208cc0769918d4310b80a538fc7e5903",
+    "size_bytes": 14337965
   },
   "canonical_head": "fd7d87e5658b63c0753a9686b43ec2e5e2d17344",
   "checkpoint_branch": "checkpoint/sa5-stage20-recovery-20260808T224049Z",
-  "checkpoint_reason": "timing_rep_017_validated_complete",
-  "checkpoint_sequence": 10,
-  "created_at_utc": "2026-08-10T06:50:13Z",
+  "checkpoint_reason": "interrupted_rep_018_preserved_before_resume",
+  "checkpoint_sequence": 11,
+  "created_at_utc": "2026-08-10T08:21:41Z",
   "resume_policy": {
     "precision_must_not_be_rerun_after_precision_start_marker": true,
     "quarantine_incomplete_timing_output_before_resume": true,
