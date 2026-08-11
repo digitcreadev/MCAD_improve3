@@ -4,19 +4,19 @@
     "chunks": [
       {
         "filename": "sa5_stage30_runtime_latest.tar.gz.part000",
-        "sha256": "a5eadddb17a4bc6884ee294ad6d6f6c24694c65580a6f4272ae44c1c51fce523",
-        "size_bytes": 7290966
+        "sha256": "df0bb9d52a2a9af61c232d01261573e0250a788e5a28db98b278e1b8eea1e067",
+        "size_bytes": 7299118
       }
     ],
-    "sha256": "a5eadddb17a4bc6884ee294ad6d6f6c24694c65580a6f4272ae44c1c51fce523",
-    "size_bytes": 7290966
+    "sha256": "df0bb9d52a2a9af61c232d01261573e0250a788e5a28db98b278e1b8eea1e067",
+    "size_bytes": 7299118
   },
   "canonical_head": "ff89d89339e1d5fa4fdffd1ee95d16037550bbec",
   "checkpoint_branch": "checkpoint/sa5-stage30-recovery-20260810T192658Z",
-  "checkpoint_reason": "timing_rep_022_validated_complete",
-  "checkpoint_sequence": 3,
+  "checkpoint_reason": "interrupted_rep_023_preserved_before_resume",
+  "checkpoint_sequence": 4,
   "controller_sha256": "b6a3b845578d9e6b6a0f64fb2bed7b8d71f6ae8f721c0bc4882700337c4fe439",
-  "created_at_utc": "2026-08-11T06:01:24Z",
+  "created_at_utc": "2026-08-11T09:37:35Z",
   "operator_confirmation_received": true,
   "resume_policy": {
     "precision_must_not_start_until_all_10_suffix_timings_are_remotely_checkpointed": true,
