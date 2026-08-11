@@ -4,19 +4,19 @@
     "chunks": [
       {
         "filename": "sa5_stage30_runtime_latest.tar.gz.part000",
-        "sha256": "af224afb032c512f321cf0d3d9e9b1c3221ed85b1319f09b100efac2ca6a2cef",
-        "size_bytes": 5756368
+        "sha256": "a5eadddb17a4bc6884ee294ad6d6f6c24694c65580a6f4272ae44c1c51fce523",
+        "size_bytes": 7290966
       }
     ],
-    "sha256": "af224afb032c512f321cf0d3d9e9b1c3221ed85b1319f09b100efac2ca6a2cef",
-    "size_bytes": 5756368
+    "sha256": "a5eadddb17a4bc6884ee294ad6d6f6c24694c65580a6f4272ae44c1c51fce523",
+    "size_bytes": 7290966
   },
   "canonical_head": "ff89d89339e1d5fa4fdffd1ee95d16037550bbec",
   "checkpoint_branch": "checkpoint/sa5-stage30-recovery-20260810T192658Z",
-  "checkpoint_reason": "timing_rep_021_validated_complete",
-  "checkpoint_sequence": 2,
+  "checkpoint_reason": "timing_rep_022_validated_complete",
+  "checkpoint_sequence": 3,
   "controller_sha256": "b6a3b845578d9e6b6a0f64fb2bed7b8d71f6ae8f721c0bc4882700337c4fe439",
-  "created_at_utc": "2026-08-11T03:09:41Z",
+  "created_at_utc": "2026-08-11T06:01:24Z",
   "operator_confirmation_received": true,
   "resume_policy": {
     "precision_must_not_start_until_all_10_suffix_timings_are_remotely_checkpointed": true,
@@ -26,7 +26,7 @@
   },
   "schema_version": "mcad-sa5-objective-count-stage30-live-checkpoint-v1",
   "scientific_state": {
-    "latest_completed_stage30_timing_replication": 21,
+    "latest_completed_stage30_timing_replication": 22,
     "maximum_protocol_stage": 30,
     "stage20_prefix_replications_reused": [
       0,
@@ -52,10 +52,11 @@
     ],
     "stage30_precision_analysis_performed": false,
     "stage30_precision_started": false,
-    "stage30_timing_completed_count": 2,
+    "stage30_timing_completed_count": 3,
     "stage30_timing_replications_complete": [
       20,
-      21
+      21,
+      22
     ],
     "stage_beyond_30_authorized": false
   },
