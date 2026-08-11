@@ -1,0 +1,62 @@
+{
+  "archive": {
+    "chunk_count": 1,
+    "chunks": [
+      {
+        "filename": "sa5_stage30_runtime_latest.tar.gz.part000",
+        "sha256": "b8b6eab0b5ae8ea65d57e7900d252f3a2e79d661cdd9afe0772592afe7e1dbeb",
+        "size_bytes": 4220325
+      }
+    ],
+    "sha256": "b8b6eab0b5ae8ea65d57e7900d252f3a2e79d661cdd9afe0772592afe7e1dbeb",
+    "size_bytes": 4220325
+  },
+  "canonical_head": "ff89d89339e1d5fa4fdffd1ee95d16037550bbec",
+  "checkpoint_branch": "checkpoint/sa5-stage30-recovery-20260810T192658Z",
+  "checkpoint_reason": "timing_rep_020_validated_complete",
+  "checkpoint_sequence": 1,
+  "controller_sha256": "b6a3b845578d9e6b6a0f64fb2bed7b8d71f6ae8f721c0bc4882700337c4fe439",
+  "created_at_utc": "2026-08-10T22:56:18Z",
+  "operator_confirmation_received": true,
+  "resume_policy": {
+    "precision_must_not_start_until_all_10_suffix_timings_are_remotely_checkpointed": true,
+    "quarantine_incomplete_timing_output_before_resume": true,
+    "reuse_completed_functional_replications": true,
+    "reuse_completed_timing_replications": true
+  },
+  "schema_version": "mcad-sa5-objective-count-stage30-live-checkpoint-v1",
+  "scientific_state": {
+    "latest_completed_stage30_timing_replication": 20,
+    "maximum_protocol_stage": 30,
+    "stage20_prefix_replications_reused": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "stage30_precision_analysis_performed": false,
+    "stage30_precision_started": false,
+    "stage30_timing_completed_count": 1,
+    "stage30_timing_replications_complete": [
+      20
+    ],
+    "stage_beyond_30_authorized": false
+  },
+  "status": "stage30_live_checkpoint_verified_locally"
+}
