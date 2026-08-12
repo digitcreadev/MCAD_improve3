@@ -13,10 +13,10 @@
   },
   "canonical_head": "ff89d89339e1d5fa4fdffd1ee95d16037550bbec",
   "checkpoint_branch": "checkpoint/sa5-stage30-recovery-20260810T192658Z",
-  "checkpoint_reason": "timing_rep_028_validated_complete",
-  "checkpoint_sequence": 10,
+  "checkpoint_reason": "controller_failure_before_rep_029_completion",
+  "checkpoint_sequence": 11,
   "controller_sha256": "b6a3b845578d9e6b6a0f64fb2bed7b8d71f6ae8f721c0bc4882700337c4fe439",
-  "created_at_utc": "2026-08-12T16:52:45Z",
+  "created_at_utc": "2026-08-12T21:36:46Z",
   "operator_confirmation_received": true,
   "resume_policy": {
     "precision_must_not_start_until_all_10_suffix_timings_are_remotely_checkpointed": true,
