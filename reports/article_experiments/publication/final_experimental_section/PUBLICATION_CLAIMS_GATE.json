@@ -1,0 +1,33 @@
+{
+  "forbidden_claims": [
+    "Q1-Q6 as six independent observations",
+    "Q1-Q6 as usability or HCI evidence",
+    "absolute timing as backend latency",
+    "universal backend invariance",
+    "universal superiority",
+    "industrial robustness beyond tested scope",
+    "human/expert precision-recall-F1-kappa without canonical annotations",
+    "mixing physical execution with replay evidence",
+    "additional objective_count timing after terminal Stage-30",
+    "additional objective_count bootstrap after terminal Stage-30",
+    "Stage-40"
+  ],
+  "generated_at_utc": "2026-08-13T09:59:46.083250+00:00",
+  "objective_count_terminal_contract": {
+    "cell_count": 192,
+    "failing_cell_count": 17,
+    "observation_count": 576000,
+    "rerun_forbidden": true,
+    "stage": 30,
+    "stage30_sufficient": false,
+    "stage40_authorized": false,
+    "status": "stage30_precision_targets_not_met",
+    "structural_seed_count": 30
+  },
+  "publication_ready": true,
+  "required_wording": {
+    "q1_q6": "trace instrumentée end-to-end canonique Q1–Q6",
+    "timing": "latence de décision sémantique"
+  },
+  "schema": "MCAD_PUBLICATION_CLAIMS_GATE_v1"
+}
