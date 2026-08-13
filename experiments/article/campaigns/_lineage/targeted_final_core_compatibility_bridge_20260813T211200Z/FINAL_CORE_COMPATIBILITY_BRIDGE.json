@@ -1,0 +1,185 @@
+{
+  "schema_version": "mcad-targeted-final-core-compatibility-bridge-v1",
+  "audit_mode": "READ_ONLY_STATIC_COMPATIBILITY",
+  "scientific_execution_performed": false,
+  "experiment_rerun_performed": false,
+  "statistical_execution_performed": false,
+  "physical_backend_execution_performed": false,
+  "timing_execution_performed": false,
+  "source_repository_head": "c5b0841aa453271e0f61d14282cc7a18cd91f6d8",
+  "aug5_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+  "aug5_parent": "0674825017698f25562d43400ff4e72cb6484e2f",
+  "critical_ckg_methods_equal_pre_post_aug5": {
+    "sat": true,
+    "real": true,
+    "ceval": true,
+    "phi": true
+  },
+  "historical_constraint_support_logic_preserved_as_subsequence": true,
+  "may_marker_hits": {
+    "session_support_policy": [],
+    "union_requirement_sets": []
+  },
+  "physical_marker_hits": {
+    "session_support_policy": [],
+    "union_requirement_sets": []
+  },
+  "robustness_archive_marker_hits": {
+    "session_support_policy": [],
+    "union_requirement_sets": []
+  },
+  "runner_analysis": [
+    {
+      "runner": "run_baselines_and_ablations.py",
+      "old_sha256": "533e28d16d4a07c26cc894b6437ef6d0e5fbca144377dc37cd4edadbd517fb6c",
+      "current_sha256": "c648a335b7cd55aa9463025694e25d59d24b11df680357323f56268e30332c46",
+      "byte_identical": false,
+      "common_function_count": 17,
+      "changed_common_functions": [
+        "play_policy_on_scenario",
+        "summarize_by_policy"
+      ],
+      "removed_functions": [],
+      "added_functions": [],
+      "policy_decision_contract_functions_equal": true
+    },
+    {
+      "runner": "run_scalability_benchmark.py",
+      "old_sha256": "3561ff002574e19510da850a8e72adb26de735f8855f167a8c2dfb599416413e",
+      "current_sha256": "3561ff002574e19510da850a8e72adb26de735f8855f167a8c2dfb599416413e",
+      "byte_identical": true,
+      "common_function_count": 15,
+      "changed_common_functions": [],
+      "removed_functions": [],
+      "added_functions": [],
+      "policy_decision_contract_functions_equal": null
+    },
+    {
+      "runner": "run_evidence_usefulness_benchmark.py",
+      "old_sha256": "7f51b55cd8808c15ee1193bf7132541c75d5d6f3f5027bee2b74a30afc39c8ee",
+      "current_sha256": "1e9a0ebf3e60e3d7547641a00f09a0a20f50a89dac18d6921cab33dcdedd55f2",
+      "byte_identical": false,
+      "common_function_count": 5,
+      "changed_common_functions": [],
+      "removed_functions": [],
+      "added_functions": [],
+      "policy_decision_contract_functions_equal": null
+    },
+    {
+      "runner": "run_statistical_analysis.py",
+      "old_sha256": "ad76e2494df5983895bdebada20da0eaf89677f5fa59da56a868def22aa25663",
+      "current_sha256": "a5c2721bad2ae026431f0e7badfdada94894dc403fc86dcab89836dececd0e75",
+      "byte_identical": false,
+      "common_function_count": 17,
+      "changed_common_functions": [
+        "parse_args"
+      ],
+      "removed_functions": [],
+      "added_functions": [],
+      "policy_decision_contract_functions_equal": null
+    }
+  ],
+  "evidence_algorithm_functions_equal": true,
+  "phase7_mentions_robustness_campaign": true,
+  "phase7_as_is_adopted": false,
+  "physical_decision_semantic_static_bridge": "PASS",
+  "robustness_freeze": {
+    "scientific_freeze": true,
+    "latency_claim_authorized": false,
+    "regenerated_during_reconciliation": false
+  },
+  "final_adoption_chain": [
+    {
+      "id": "ui_q1_q6",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "role": "detailed end-to-end mechanism",
+      "reason": "Physical package predates opt-in objective-count policy but does not activate it; critical SAT/Real/Ceval/Phi methods are unchanged across the tracked Aug-5 extension."
+    },
+    {
+      "id": "campaign_a_foodmart",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "role": "physical depth",
+      "reason": "Unique 1000-session depth evidence; package does not activate new support policy."
+    },
+    {
+      "id": "campaign_b_multidataset",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "role": "multi-dataset/adaptor breadth",
+      "reason": "Unique physical breadth evidence; package does not activate new support policy."
+    },
+    {
+      "id": "campaign_c_backend_portability",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "role": "paired backend portability",
+      "reason": "Unique paired backend evidence; decision-semantic bridge passes, performance comparison remains unauthorized."
+    },
+    {
+      "id": "policy_benchmark",
+      "final_status": "SECONDARY_OR_SUPPLEMENT_COMPATIBILITY_PASS",
+      "role": "nominal offline baseline comparison",
+      "reason": "Historical/current policy-decision contract functions are AST-identical; newer frozen robustness remains the primary comparative source."
+    },
+    {
+      "id": "ablations",
+      "final_status": "SUPPLEMENT_ONLY_MAIN_ABLATIONS_FROM_ROBUSTNESS",
+      "role": "historical causal confirmation",
+      "reason": "Decision contract is compatible, but later frozen robustness provides the main adopted ablation evidence."
+    },
+    {
+      "id": "robustness",
+      "final_status": "ADOPT_MAIN_FROZEN_NON_TEMPORAL",
+      "role": "primary baselines + ablations + robustness + system explainability",
+      "reason": "Canonical frozen campaign; no regeneration during reconciliation; latency unauthorized."
+    },
+    {
+      "id": "scalability_ckg",
+      "final_status": "ADOPT_MAIN_STRUCTURAL_COMPATIBILITY_PASS",
+      "role": "structural CKG scalability",
+      "reason": "Historical scalability runner is byte-identical to current; May inputs do not activate new support policy; May timing remains excluded."
+    },
+    {
+      "id": "evidence_usefulness",
+      "final_status": "OPTIONAL_SECONDARY_COMPATIBILITY_PASS",
+      "role": "controlled evidence reuse/bootstrap",
+      "reason": "Historical algorithm functions are unchanged; file-level differences are non-algorithmic."
+    },
+    {
+      "id": "phase7_statistics",
+      "final_status": "EXCLUDE_AS_IS_REDERIVE_ONLY_IF_REQUIRED",
+      "role": "historical derived statistics",
+      "reason": "Historical derived layer predates the final robustness freeze; it must not be attached to the final adopted evidence chain as-is."
+    },
+    {
+      "id": "human_validation",
+      "final_status": "EXCLUDE_NO_REAL_EXPERT_ANNOTATIONS",
+      "role": "none",
+      "reason": "Simulated expert annotations only."
+    },
+    {
+      "id": "sensitivity_constraint_count",
+      "final_status": "ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY",
+      "role": "semantic decision sensitivity",
+      "reason": "Intermediate/replayed outputs are provenance only."
+    },
+    {
+      "id": "sensitivity_virtual_node_count",
+      "final_status": "ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY",
+      "role": "semantic decision sensitivity",
+      "reason": "Intermediate/replayed outputs are provenance only."
+    },
+    {
+      "id": "sensitivity_membership_density",
+      "final_status": "ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY",
+      "role": "semantic decision sensitivity",
+      "reason": "Intermediate/replayed outputs are provenance only."
+    },
+    {
+      "id": "sensitivity_objective_count",
+      "final_status": "ADOPT_TERMINAL_STAGE30_ONLY",
+      "role": "terminal semantic decision precision limit",
+      "reason": "Use terminal current-core Stage-30 evidence only; no rerun, no additional bootstrap, no Stage-40."
+    }
+  ],
+  "overall_gate": "PASS_FINAL_ADOPTION_CHAIN_READY",
+  "next": "PERSIST_FINAL_ADOPTION_CHAIN_AND_BUILD_PUBLICATION_V3"
+}

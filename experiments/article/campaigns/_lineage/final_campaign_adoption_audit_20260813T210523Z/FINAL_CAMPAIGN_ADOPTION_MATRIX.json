@@ -1,0 +1,357 @@
+{
+  "schema_version": "mcad-final-campaign-adoption-audit-v1",
+  "audit_mode": "READ_ONLY_STATIC_LINEAGE_AUDIT",
+  "scientific_execution_performed": false,
+  "experiment_rerun_performed": false,
+  "statistical_execution_performed": false,
+  "physical_backend_execution_performed": false,
+  "principle": "Archive qualification is necessary but not sufficient for final manuscript adoption.",
+  "selection_rules": [
+    "Use one final scientific source per research question; do not count version replays as independent experiments.",
+    "Prefer latest canonical/frozen compatible evidence over older replayed outputs.",
+    "If MCAD core semantics changed after a campaign, require a static or deterministic decision-contract compatibility bridge; otherwise exclude or downgrade.",
+    "Do not reuse derived statistics when their input campaigns are superseded by later canonical/frozen runs.",
+    "Keep physical evidence, offline controlled evidence, structural scalability, evidence reuse, and semantic timing/sensitivity as distinct proof classes.",
+    "Exclude simulated human validation, historical May timing as final performance evidence, and legacy proxy figures."
+  ],
+  "observations": {
+    "repository_head": "c5b0841aa453271e0f61d14282cc7a18cd91f6d8",
+    "core": {
+      "backend/mcad/engine.py": {
+        "sha256": "e8dff06a6c612ed3d1d679f3fe70075bee9589525a1a2222e13b0a640758ddb0",
+        "history": [
+          "b0d6da897aed64a913c434896437d3906ac82c25|2026-07-23T23:09:31Z|ok"
+        ]
+      },
+      "backend/ckg/ckg_updater.py": {
+        "sha256": "6faaa8b7dea5b682ac9ea6ecf3cf790ff6d7a4c5c56d105a52c4e7acf2ad739d",
+        "history": [
+          "2b3150b83108fe50e6f6db7841b9fa5076693628|2026-08-05T10:06:40Z|feat(experiments): implement SA5 objective-count v2",
+          "b0d6da897aed64a913c434896437d3906ac82c25|2026-07-23T23:09:31Z|ok"
+        ]
+      }
+    },
+    "aug5_ckg_updater_change": {
+      "commit_exists": true,
+      "adds_session_support_policy": true,
+      "adds_union_requirement_sets": true,
+      "retains_requirement_sets_fallback_text": true
+    },
+    "historical_may_session_support_policy_hits": [],
+    "historical_may_union_requirement_sets_hits": [],
+    "runner_bridge": [
+      {
+        "runner": "run_baselines_and_ablations.py",
+        "recovered_exists": true,
+        "current_exists": true,
+        "recovered_sha256": "533e28d16d4a07c26cc894b6437ef6d0e5fbca144377dc37cd4edadbd517fb6c",
+        "current_sha256": "c648a335b7cd55aa9463025694e25d59d24b11df680357323f56268e30332c46",
+        "byte_identical": false,
+        "diff_line_count": 60,
+        "diff_excerpt": [
+          "--- recovered/run_baselines_and_ablations.py\n",
+          "+++ current/run_baselines_and_ablations.py\n",
+          "@@ -265,5 +265,9 @@\n",
+          "         'latency_p99_ms': round(percentile(latency_all, 0.99), 6),",
+          "         'latency_cold_p50_ms': round(percentile(latency_cold, 0.50), 6),",
+          "-        'latency_warm_p50_ms': round(percentile(latency_warm, 0.50), 6),",
+          "+        'latency_warm_p50_ms': (",
+          "+            round(percentile(latency_warm, 0.50), 6)",
+          "+            if latency_warm",
+          "+            else ''",
+          "+        ),",
+          "     }",
+          "     return session_row, step_rows",
+          "@@ -302,6 +306,30 @@\n",
+          "             'mean_phi_final': round(mean(col('phi_final')), 6),",
+          "             'mean_auc_phi': round(mean(col('auc_phi')), 6),",
+          "-            'mean_time_to_0_8': round(mean(col('time_to_0_8')), 6) if col('time_to_0_8') else '',",
+          "-            'mean_time_to_0_9': round(mean(col('time_to_0_9')), 6) if col('time_to_0_9') else '',",
+          "+            'reach_rate_0_8': round(",
+          "+                sum(",
+          "+                    1",
+          "+                    for row in rows",
+          "+                    if row.get('time_to_0_8') not in ('', None)",
+          "+                ) / len(rows),",
+          "+                6,",
+          "+            ) if rows else 0.0,",
+          "+            'reach_rate_0_9': round(",
+          "+                sum(",
+          "+                    1",
+          "+                    for row in rows",
+          "+                    if row.get('time_to_0_9') not in ('', None)",
+          "+                ) / len(rows),",
+          "+                6,",
+          "+            ) if rows else 0.0,",
+          "+            'mean_time_to_0_8': (",
+          "+                round(mean(col('time_to_0_8')), 6)",
+          "+                if col('time_to_0_8')",
+          "+                else ''",
+          "+            ),",
+          "+            'mean_time_to_0_9': (",
+          "+                round(mean(col('time_to_0_9')), 6)",
+          "+                if col('time_to_0_9')",
+          "+                else ''",
+          "+            ),",
+          "             'mean_false_allow_rate': round(mean(col('false_allow_rate')), 6),",
+          "             'mean_false_block_rate': round(mean(col('false_block_rate')), 6),",
+          "@@ -314,5 +342,12 @@\n",
+          "             'latency_p99_ms': round(percentile(col('latency_p99_ms'), 0.99), 6),",
+          "             'latency_cold_p50_ms': round(percentile(col('latency_cold_p50_ms'), 0.50), 6),",
+          "-            'latency_warm_p50_ms': round(percentile(col('latency_warm_p50_ms'), 0.50), 6),",
+          "+            'latency_warm_p50_ms': (",
+          "+                round(",
+          "+                    percentile(col('latency_warm_p50_ms'), 0.50),",
+          "+                    6,",
+          "+                )",
+          "+                if col('latency_warm_p50_ms')",
+          "+                else ''",
+          "+            ),",
+          "         })",
+          "     return sorted(out, key=lambda r: r['policy'])"
+        ]
+      },
+      {
+        "runner": "run_scalability_benchmark.py",
+        "recovered_exists": true,
+        "current_exists": true,
+        "recovered_sha256": "3561ff002574e19510da850a8e72adb26de735f8855f167a8c2dfb599416413e",
+        "current_sha256": "3561ff002574e19510da850a8e72adb26de735f8855f167a8c2dfb599416413e",
+        "byte_identical": true,
+        "diff_line_count": 0,
+        "diff_excerpt": []
+      },
+      {
+        "runner": "run_evidence_usefulness_benchmark.py",
+        "recovered_exists": true,
+        "current_exists": true,
+        "recovered_sha256": "7f51b55cd8808c15ee1193bf7132541c75d5d6f3f5027bee2b74a30afc39c8ee",
+        "current_sha256": "1e9a0ebf3e60e3d7547641a00f09a0a20f50a89dac18d6921cab33dcdedd55f2",
+        "byte_identical": false,
+        "diff_line_count": 32,
+        "diff_excerpt": [
+          "--- recovered/run_evidence_usefulness_benchmark.py\n",
+          "+++ current/run_evidence_usefulness_benchmark.py\n",
+          "@@ -4,13 +4,7 @@\n",
+          " import json",
+          " import os",
+          "-import sys",
+          " from pathlib import Path",
+          " from statistics import mean",
+          " from typing import Any, Dict, List",
+          "-",
+          "-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))",
+          "-REPO_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))",
+          "-if REPO_ROOT not in sys.path:",
+          "-    sys.path.insert(0, REPO_ROOT)",
+          " ",
+          " import matplotlib",
+          "@@ -18,5 +12,5 @@\n",
+          " import matplotlib.pyplot as plt",
+          " ",
+          "-from backend.mcad.engine import (",
+          "+from mcad.engine import (",
+          "     bootstrap_session_from_persisted_evidence,",
+          "     evaluate_with_objective_and_session,",
+          "@@ -25,6 +19,6 @@\n",
+          "     reset_runtime_state,",
+          " )",
+          "-from backend.mcad.models import EvaluateWithObjectiveAndSessionRequest",
+          "-from backend.mcad.session_store import SESSION_STORE",
+          "+from mcad.models import EvaluateWithObjectiveAndSessionRequest",
+          "+from mcad.session_store import SESSION_STORE",
+          " ",
+          " "
+        ]
+      },
+      {
+        "runner": "run_statistical_analysis.py",
+        "recovered_exists": true,
+        "current_exists": true,
+        "recovered_sha256": "ad76e2494df5983895bdebada20da0eaf89677f5fa59da56a868def22aa25663",
+        "current_sha256": "a5c2721bad2ae026431f0e7badfdada94894dc403fc86dcab89836dececd0e75",
+        "byte_identical": false,
+        "diff_line_count": 11,
+        "diff_excerpt": [
+          "--- recovered/run_statistical_analysis.py\n",
+          "+++ current/run_statistical_analysis.py\n",
+          "@@ -252,6 +252,6 @@\n",
+          "     p = argparse.ArgumentParser(description='Run Phase 7 statistical analysis on MCAD benchmark outputs.')",
+          "     p.add_argument('--run-root', default='', help='Optional run root containing multidataset/ robustness/ evidence/ folders.')",
+          "-    p.add_argument('--multidataset-session-csv', default='results_multidataset_benchmark/aggregate_policy_session_metrics.csv')",
+          "-    p.add_argument('--robustness-session-csv', default='results_robustness_benchmark/robustness_policy_session_metrics.csv')",
+          "+    p.add_argument('--multidataset-session-csv', default='results_phase7_stats/multidataset/aggregate_policy_session_metrics.csv')",
+          "+    p.add_argument('--robustness-session-csv', default='results_robustness_final/robustness_policy_session_metrics.csv')",
+          "     p.add_argument('--evidence-report-json', default='results_phase6_evidence/evidence_usefulness_report.json')",
+          "     p.add_argument('--evidence-bootstrap-json', default='results_phase6_evidence/bootstrap_benefit_summary.json')"
+        ]
+      }
+    ],
+    "robustness_status": {
+      "campaign_id": "robustness_non_temporal",
+      "freeze_scope": "robustness_non_temporal",
+      "global_scientific_freeze": false,
+      "latency_claim_authorized": false,
+      "repository_persistence_status": "complete",
+      "scientific_freeze": true,
+      "scientific_status": "completed_frozen"
+    },
+    "robustness_provenance": {
+      "bridge_source_commit": "185290880a75d6df17c03aad6abbb44ca3818bf0",
+      "campaign_regenerated_during_reconciliation": false,
+      "canonical_archive_sha256": "181ad92da7e7153869e453e1c76ecfc7b021713684c5842e33f4e3273b3119d2",
+      "reconciled_commit": "7efc3e74a0f416adc7e0d07cc732e796cf5cc2f0"
+    },
+    "phase7_final_chain_risk": {
+      "source_is_may_historical": true,
+      "mentions_robustness_campaign": true,
+      "n_sessions_450_present": true,
+      "postdates_final_robustness_freeze": false,
+      "predates_final_robustness_freeze": true
+    },
+    "sensitivity_source_map_exists": true,
+    "physical_packages_present": {
+      "ui_q1_q6": true,
+      "campaign_a_foodmart": true,
+      "campaign_b_multidataset": true,
+      "campaign_c_backend_portability": true
+    }
+  },
+  "adoption_matrix": [
+    {
+      "id": "ui_q1_q6",
+      "class": "physical",
+      "archive_status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "version_risk": "LOW_TO_MEDIUM",
+      "redundancy": "NONE",
+      "final_recommendation": "ADOPT_MAIN_AFTER_DECISION_CONTRACT_BRIDGE",
+      "reason": "Unique detailed end-to-end trace; bridge current-core decision semantics to historical physical evidence."
+    },
+    {
+      "id": "campaign_a_foodmart",
+      "class": "physical",
+      "archive_status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "version_risk": "MEDIUM",
+      "redundancy": "LOW",
+      "final_recommendation": "ADOPT_MAIN_AFTER_STATIC_VERSION_BRIDGE",
+      "reason": "Unique depth evidence (1000 sessions/physical contract); no equivalent later depth campaign."
+    },
+    {
+      "id": "campaign_b_multidataset",
+      "class": "physical",
+      "archive_status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "version_risk": "MEDIUM",
+      "redundancy": "LOW",
+      "final_recommendation": "ADOPT_MAIN_AFTER_DECISION_CONTRACT_BRIDGE",
+      "reason": "Unique multi-dataset/adaptor evidence."
+    },
+    {
+      "id": "campaign_c_backend_portability",
+      "class": "physical",
+      "archive_status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "version_risk": "MEDIUM",
+      "redundancy": "LOW",
+      "final_recommendation": "ADOPT_MAIN_AFTER_DECISION_CONTRACT_BRIDGE",
+      "reason": "Unique paired backend portability evidence; not a performance comparison."
+    },
+    {
+      "id": "policy_benchmark",
+      "class": "offline_controlled",
+      "archive_status": "AUTHORIZED_WITH_SCOPE_LIMIT_NON_TEMPORAL",
+      "version_risk": "MEDIUM",
+      "redundancy": "MEDIUM_WITH_ROBUSTNESS",
+      "final_recommendation": "SECONDARY_OR_SUPPLEMENT_AFTER_STATIC_COMPATIBILITY",
+      "reason": "Useful nominal workload comparison, but newer frozen robustness supplies stronger baseline comparison."
+    },
+    {
+      "id": "ablations",
+      "class": "offline_controlled",
+      "archive_status": "AUTHORIZED_WITH_SCOPE_LIMIT_NON_TEMPORAL",
+      "version_risk": "MEDIUM",
+      "redundancy": "HIGH_WITH_FROZEN_ROBUSTNESS",
+      "final_recommendation": "SUPPLEMENT_ONLY; MAIN_ABLATIONS_FROM_ROBUSTNESS",
+      "reason": "Later frozen robustness includes ablations under the accepted robustness protocol."
+    },
+    {
+      "id": "robustness",
+      "class": "offline_controlled",
+      "archive_status": "FROZEN_PRIMARY",
+      "version_risk": "LOW",
+      "redundancy": "NONE",
+      "final_recommendation": "ADOPT_MAIN_FROZEN_NON_TEMPORAL",
+      "reason": "Canonical scientific freeze; reconciliation did not regenerate campaign; latency claim explicitly unauthorized."
+    },
+    {
+      "id": "scalability_ckg",
+      "class": "offline_controlled",
+      "archive_status": "AUTHORIZED_STRUCTURAL_ONLY_TIMING_RESTRICTED",
+      "version_risk": "LOW_TO_MEDIUM",
+      "redundancy": "NONE_WITH_SENSITIVITY_IF_STRUCTURE_ONLY",
+      "final_recommendation": "ADOPT_MAIN_STRUCTURAL_IF_STATIC_COMPATIBILITY_PASS",
+      "reason": "Unique structural CKG growth evidence; historical timing remains excluded."
+    },
+    {
+      "id": "evidence_usefulness",
+      "class": "offline_controlled",
+      "archive_status": "AUTHORIZED_WITH_SCOPE_LIMIT_CONTROLLED_PHASE6",
+      "version_risk": "MEDIUM",
+      "redundancy": "LOW",
+      "final_recommendation": "OPTIONAL_SECONDARY_IF_STATIC_COMPATIBILITY_PASS",
+      "reason": "Unique evidence-reuse mechanism but small controlled scope; not indispensable to the central MCAD claim."
+    },
+    {
+      "id": "phase7_statistics",
+      "class": "statistics",
+      "archive_status": "AUTHORIZED_DERIVED_STATISTICS_WITH_SCOPE_LIMIT",
+      "version_risk": "HIGH_FOR_FINAL_CHAIN",
+      "redundancy": "DERIVED_LAYER",
+      "final_recommendation": "EXCLUDE_AS_IS_FROM_FINAL_MAIN; REDERIVE_ONLY_IF_NEEDED",
+      "reason": "Historical May derived layer predates the final July robustness freeze and must not be presented as statistics of the final adopted evidence chain."
+    },
+    {
+      "id": "human_validation",
+      "class": "validation",
+      "archive_status": "EXCLUDED_NO_REAL_EXPERT_ANNOTATIONS",
+      "version_risk": "NOT_APPLICABLE",
+      "redundancy": "NOT_APPLICABLE",
+      "final_recommendation": "EXCLUDE",
+      "reason": "Only simulated expert annotations; no canonical real-expert provenance."
+    },
+    {
+      "id": "sensitivity_constraint_count",
+      "class": "sensitivity",
+      "archive_status": "CURRENT_CANONICAL_REFERENCE",
+      "version_risk": "LOW_CANONICAL_SOURCE_MAP",
+      "redundancy": "INTERMEDIATE_STAGES_SUPERSEDED",
+      "final_recommendation": "ADOPT_MAIN_FINAL_CANONICAL_ONLY",
+      "reason": "Use only final source-map-selected canonical Stage-20 source; older/intermediate attempts are archival."
+    },
+    {
+      "id": "sensitivity_virtual_node_count",
+      "class": "sensitivity",
+      "archive_status": "CURRENT_CANONICAL_REFERENCE",
+      "version_risk": "LOW_CANONICAL_SOURCE_MAP",
+      "redundancy": "INTERMEDIATE_STAGES_SUPERSEDED",
+      "final_recommendation": "ADOPT_MAIN_FINAL_CANONICAL_ONLY",
+      "reason": "Use only final source-map-selected Stage-10 precision decision."
+    },
+    {
+      "id": "sensitivity_membership_density",
+      "class": "sensitivity",
+      "archive_status": "CURRENT_CANONICAL_REFERENCE",
+      "version_risk": "LOW_CANONICAL_SOURCE_MAP",
+      "redundancy": "INTERMEDIATE_STAGES_SUPERSEDED",
+      "final_recommendation": "ADOPT_MAIN_FINAL_CANONICAL_ONLY",
+      "reason": "Use only final source-map-selected canonical Stage-10 source."
+    },
+    {
+      "id": "sensitivity_objective_count",
+      "class": "sensitivity",
+      "archive_status": "CURRENT_CANONICAL_TERMINAL_REFERENCE",
+      "version_risk": "LOW_TERMINAL",
+      "redundancy": "ALL_PRE_STAGE30_OUTPUTS_NON_FINAL",
+      "final_recommendation": "ADOPT_MAIN_TERMINAL_STAGE30_ONLY",
+      "reason": "Final current-core objective-count v2 terminal evidence; no rerun, no additional bootstrap, no Stage-40."
+    }
+  ]
+}

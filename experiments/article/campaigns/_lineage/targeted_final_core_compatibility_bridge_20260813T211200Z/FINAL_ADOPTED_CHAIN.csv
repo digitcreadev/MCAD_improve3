@@ -1,0 +1,16 @@
+id,final_status,role,reason
+ui_q1_q6,ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS,detailed end-to-end mechanism,Physical package predates opt-in objective-count policy but does not activate it; critical SAT/Real/Ceval/Phi methods are unchanged across the tracked Aug-5 extension.
+campaign_a_foodmart,ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS,physical depth,Unique 1000-session depth evidence; package does not activate new support policy.
+campaign_b_multidataset,ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS,multi-dataset/adaptor breadth,Unique physical breadth evidence; package does not activate new support policy.
+campaign_c_backend_portability,ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS,paired backend portability,"Unique paired backend evidence; decision-semantic bridge passes, performance comparison remains unauthorized."
+policy_benchmark,SECONDARY_OR_SUPPLEMENT_COMPATIBILITY_PASS,nominal offline baseline comparison,Historical/current policy-decision contract functions are AST-identical; newer frozen robustness remains the primary comparative source.
+ablations,SUPPLEMENT_ONLY_MAIN_ABLATIONS_FROM_ROBUSTNESS,historical causal confirmation,"Decision contract is compatible, but later frozen robustness provides the main adopted ablation evidence."
+robustness,ADOPT_MAIN_FROZEN_NON_TEMPORAL,primary baselines + ablations + robustness + system explainability,Canonical frozen campaign; no regeneration during reconciliation; latency unauthorized.
+scalability_ckg,ADOPT_MAIN_STRUCTURAL_COMPATIBILITY_PASS,structural CKG scalability,Historical scalability runner is byte-identical to current; May inputs do not activate new support policy; May timing remains excluded.
+evidence_usefulness,OPTIONAL_SECONDARY_COMPATIBILITY_PASS,controlled evidence reuse/bootstrap,Historical algorithm functions are unchanged; file-level differences are non-algorithmic.
+phase7_statistics,EXCLUDE_AS_IS_REDERIVE_ONLY_IF_REQUIRED,historical derived statistics,Historical derived layer predates the final robustness freeze; it must not be attached to the final adopted evidence chain as-is.
+human_validation,EXCLUDE_NO_REAL_EXPERT_ANNOTATIONS,none,Simulated expert annotations only.
+sensitivity_constraint_count,ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY,semantic decision sensitivity,Intermediate/replayed outputs are provenance only.
+sensitivity_virtual_node_count,ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY,semantic decision sensitivity,Intermediate/replayed outputs are provenance only.
+sensitivity_membership_density,ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY,semantic decision sensitivity,Intermediate/replayed outputs are provenance only.
+sensitivity_objective_count,ADOPT_TERMINAL_STAGE30_ONLY,terminal semantic decision precision limit,"Use terminal current-core Stage-30 evidence only; no rerun, no additional bootstrap, no Stage-40."

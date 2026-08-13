@@ -1,0 +1,104 @@
+{
+  "schema_version": "mcad-final-publication-adoption-v1",
+  "overall_gate": "PASS_FINAL_ADOPTION_CHAIN_READY",
+  "archive_qualification_is_final_adoption": false,
+  "scientific_execution_performed": false,
+  "experiment_rerun_performed": false,
+  "statistical_execution_performed": false,
+  "physical_backend_execution_performed": false,
+  "historical_may_timing_publication_authorized": false,
+  "phase7_may_as_is_adopted": false,
+  "human_validation_claims_authorized": false,
+  "final_adoption_chain": [
+    {
+      "id": "ui_q1_q6",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "role": "detailed end-to-end mechanism",
+      "reason": "Physical package predates opt-in objective-count policy but does not activate it; critical SAT/Real/Ceval/Phi methods are unchanged across the tracked Aug-5 extension."
+    },
+    {
+      "id": "campaign_a_foodmart",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "role": "physical depth",
+      "reason": "Unique 1000-session depth evidence; package does not activate new support policy."
+    },
+    {
+      "id": "campaign_b_multidataset",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "role": "multi-dataset/adaptor breadth",
+      "reason": "Unique physical breadth evidence; package does not activate new support policy."
+    },
+    {
+      "id": "campaign_c_backend_portability",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "role": "paired backend portability",
+      "reason": "Unique paired backend evidence; decision-semantic bridge passes, performance comparison remains unauthorized."
+    },
+    {
+      "id": "policy_benchmark",
+      "final_status": "SECONDARY_OR_SUPPLEMENT_COMPATIBILITY_PASS",
+      "role": "nominal offline baseline comparison",
+      "reason": "Historical/current policy-decision contract functions are AST-identical; newer frozen robustness remains the primary comparative source."
+    },
+    {
+      "id": "ablations",
+      "final_status": "SUPPLEMENT_ONLY_MAIN_ABLATIONS_FROM_ROBUSTNESS",
+      "role": "historical causal confirmation",
+      "reason": "Decision contract is compatible, but later frozen robustness provides the main adopted ablation evidence."
+    },
+    {
+      "id": "robustness",
+      "final_status": "ADOPT_MAIN_FROZEN_NON_TEMPORAL",
+      "role": "primary baselines + ablations + robustness + system explainability",
+      "reason": "Canonical frozen campaign; no regeneration during reconciliation; latency unauthorized."
+    },
+    {
+      "id": "scalability_ckg",
+      "final_status": "ADOPT_MAIN_STRUCTURAL_COMPATIBILITY_PASS",
+      "role": "structural CKG scalability",
+      "reason": "Historical scalability runner is byte-identical to current; May inputs do not activate new support policy; May timing remains excluded."
+    },
+    {
+      "id": "evidence_usefulness",
+      "final_status": "OPTIONAL_SECONDARY_COMPATIBILITY_PASS",
+      "role": "controlled evidence reuse/bootstrap",
+      "reason": "Historical algorithm functions are unchanged; file-level differences are non-algorithmic."
+    },
+    {
+      "id": "phase7_statistics",
+      "final_status": "EXCLUDE_AS_IS_REDERIVE_ONLY_IF_REQUIRED",
+      "role": "historical derived statistics",
+      "reason": "Historical derived layer predates the final robustness freeze; it must not be attached to the final adopted evidence chain as-is."
+    },
+    {
+      "id": "human_validation",
+      "final_status": "EXCLUDE_NO_REAL_EXPERT_ANNOTATIONS",
+      "role": "none",
+      "reason": "Simulated expert annotations only."
+    },
+    {
+      "id": "sensitivity_constraint_count",
+      "final_status": "ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY",
+      "role": "semantic decision sensitivity",
+      "reason": "Intermediate/replayed outputs are provenance only."
+    },
+    {
+      "id": "sensitivity_virtual_node_count",
+      "final_status": "ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY",
+      "role": "semantic decision sensitivity",
+      "reason": "Intermediate/replayed outputs are provenance only."
+    },
+    {
+      "id": "sensitivity_membership_density",
+      "final_status": "ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY",
+      "role": "semantic decision sensitivity",
+      "reason": "Intermediate/replayed outputs are provenance only."
+    },
+    {
+      "id": "sensitivity_objective_count",
+      "final_status": "ADOPT_TERMINAL_STAGE30_ONLY",
+      "role": "terminal semantic decision precision limit",
+      "reason": "Use terminal current-core Stage-30 evidence only; no rerun, no additional bootstrap, no Stage-40."
+    }
+  ]
+}
