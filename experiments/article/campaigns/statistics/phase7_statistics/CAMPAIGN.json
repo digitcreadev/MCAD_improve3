@@ -1,7 +1,19 @@
 {
   "id": "phase7_statistics",
   "class": "statistics",
-  "status": "RECOVERED_DERIVED_STATISTICS",
+  "status": "AUTHORIZED_DERIVED_STATISTICS_WITH_SCOPE_LIMIT",
   "payload": "_recovered_sources/offline_202605/recovered_runs/*/modern/stats",
-  "current_repo_candidates_resolved": []
+  "current_repo_candidates_resolved": [],
+  "qualification": {
+    "audit_path": "experiments/article/campaigns/_lineage/offline_202605_cross_run_qualification_20260813T184508Z/qualification.json",
+    "qualification_gate": "PASS",
+    "authorized_claim_scope": [
+      "derived statistics over the qualified recovered offline suite"
+    ],
+    "restricted_claim_scope": [
+      "statistics presented as physical BI execution evidence",
+      "global MCAD superiority beyond the tested controlled workload"
+    ],
+    "historical_may_timing_publication_authorized": false
+  }
 }

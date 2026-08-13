@@ -9,7 +9,7 @@
   "runs": [
     {
       "run_id": "rebuild_article_20260522_105550",
-      "qualification": "RECOVERED_PRIMARY_PRE_MANIFEST_AUXILIARY",
+      "qualification": "RECOVERED_PRIMARY_PRE_MANIFEST_AUXILIARY_CORROBORATED",
       "primary_output_bundle_complete": true,
       "publication_anchor_candidate": false,
       "reproducibility_files": {
@@ -29,7 +29,7 @@
     },
     {
       "run_id": "rebuild_article_20260523_093647",
-      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_PENDING_QUALIFICATION",
+      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_SCOPE_BOUNDED_QUALIFIED",
       "primary_output_bundle_complete": true,
       "publication_anchor_candidate": true,
       "reproducibility_files": {
@@ -49,7 +49,7 @@
     },
     {
       "run_id": "rebuild_article_20260523_095106",
-      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_PENDING_QUALIFICATION",
+      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_SCOPE_BOUNDED_QUALIFIED",
       "primary_output_bundle_complete": true,
       "publication_anchor_candidate": true,
       "reproducibility_files": {
@@ -69,7 +69,7 @@
     },
     {
       "run_id": "rebuild_article_20260523_100706",
-      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_PENDING_QUALIFICATION",
+      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_SCOPE_BOUNDED_QUALIFIED",
       "primary_output_bundle_complete": true,
       "publication_anchor_candidate": true,
       "reproducibility_files": {
@@ -89,7 +89,7 @@
     },
     {
       "run_id": "rebuild_article_20260523_102308",
-      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_PENDING_QUALIFICATION",
+      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_SCOPE_BOUNDED_QUALIFIED",
       "primary_output_bundle_complete": true,
       "publication_anchor_candidate": true,
       "reproducibility_files": {
@@ -109,7 +109,7 @@
     },
     {
       "run_id": "rebuild_article_20260523_104418",
-      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_PENDING_QUALIFICATION",
+      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_SCOPE_BOUNDED_QUALIFIED",
       "primary_output_bundle_complete": true,
       "publication_anchor_candidate": true,
       "reproducibility_files": {
@@ -128,6 +128,17 @@
       }
     }
   ],
-  "publication_decision": "PENDING_CROSS_RUN_SCIENTIFIC_QUALIFICATION",
-  "note": "All six recovered runs contain the required primary offline outputs. The earliest run predates the later campaign manifest/reproducibility envelope and is therefore retained as auxiliary replication evidence, not as a publication anchor candidate."
+  "publication_decision": "QUALIFIED_SCOPE_BOUNDED_OFFLINE_202605",
+  "note": "All six recovered runs contain the required primary offline outputs. The earliest run predates the later campaign manifest/reproducibility envelope and is therefore retained as auxiliary replication evidence, not as a publication anchor candidate.",
+  "cross_run_qualification": {
+    "status": "PASS",
+    "audit_path": "experiments/article/campaigns/_lineage/offline_202605_cross_run_qualification_20260813T184508Z/qualification.json",
+    "manifest_backed_run_count": 5,
+    "pre_manifest_auxiliary_run_count": 1,
+    "input_checksum_registry_unique_count": 1,
+    "non_temporal_and_structural_stability": "PASS",
+    "historical_may_timing_publication_authorized": false,
+    "single_publication_anchor_selected": false,
+    "selection_note": "The five manifest-backed runs remain equivalent qualified candidates; no single run is silently promoted as the sole publication anchor."
+  }
 }

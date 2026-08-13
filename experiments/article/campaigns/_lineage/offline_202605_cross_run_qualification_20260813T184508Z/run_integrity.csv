@@ -1,0 +1,7 @@
+run_id,role,primary_bundle_complete,manifest_present,manifest_status,manifest_branch,manifest_commit,manifest_created_at
+rebuild_article_20260522_105550,PRE_MANIFEST_AUXILIARY,True,False,,,,
+rebuild_article_20260523_093647,MANIFEST_BACKED_CANDIDATE,True,True,completed,exp/adventureworks-next,a0e5dc59523914d1762d1f5d2834193eec1399c8,2026-05-23T09:39:27+00:00
+rebuild_article_20260523_095106,MANIFEST_BACKED_CANDIDATE,True,True,completed,exp/adventureworks-next,073f5a17f99d33b27c24f6cf7802bc4a33f35808,2026-05-23T09:53:44+00:00
+rebuild_article_20260523_100706,MANIFEST_BACKED_CANDIDATE,True,True,completed,exp/adventureworks-next,073f5a17f99d33b27c24f6cf7802bc4a33f35808,2026-05-23T10:10:05+00:00
+rebuild_article_20260523_102308,MANIFEST_BACKED_CANDIDATE,True,True,completed,exp/adventureworks-next,43348093ad81b0ad9852f50d0294906ba1b226d4,2026-05-23T10:26:04+00:00
+rebuild_article_20260523_104418,MANIFEST_BACKED_CANDIDATE,True,True,completed,exp/adventureworks-next,37d04439f13f085583ca625f2b5a8353055b8af0,2026-05-23T10:47:14+00:00

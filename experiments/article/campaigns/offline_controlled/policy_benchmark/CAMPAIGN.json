@@ -1,7 +1,23 @@
 {
   "id": "policy_benchmark",
   "class": "offline_controlled",
-  "status": "RECOVERED_HISTORICAL_PRIMARY",
+  "status": "AUTHORIZED_WITH_SCOPE_LIMIT_NON_TEMPORAL",
   "payload": "_recovered_sources/offline_202605/recovered_runs/*/modern/policy_benchmark",
-  "current_repo_candidates_resolved": []
+  "current_repo_candidates_resolved": [],
+  "qualification": {
+    "audit_path": "experiments/article/campaigns/_lineage/offline_202605_cross_run_qualification_20260813T184508Z/qualification.json",
+    "qualification_gate": "PASS",
+    "authorized_claim_scope": [
+      "controlled offline comparison of decision policies",
+      "non-temporal coverage/contribution outcomes",
+      "false-ALLOW/false-BLOCK and non-contributing-execution outcomes"
+    ],
+    "restricted_claim_scope": [
+      "physical BI execution claims",
+      "backend performance claims",
+      "historical May latency as a final performance result",
+      "universal superiority claims"
+    ],
+    "historical_may_timing_publication_authorized": false
+  }
 }

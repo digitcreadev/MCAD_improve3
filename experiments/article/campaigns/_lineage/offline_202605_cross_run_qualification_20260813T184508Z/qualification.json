@@ -1,0 +1,703 @@
+{
+  "schema_version": "mcad-offline-202605-cross-run-qualification-v1",
+  "audit_mode": "READ_ONLY_QUALIFICATION",
+  "scientific_execution_performed": false,
+  "experiment_rerun_performed": false,
+  "statistical_execution_performed": false,
+  "repository_mutation_performed": false,
+  "scope": {
+    "historical_suite": "offline_202605",
+    "total_recovered_runs": 6,
+    "manifest_backed_candidate_runs": 5,
+    "pre_manifest_auxiliary_runs": 1,
+    "independent_experiment_count_interpretation": "The six rebuilds are repeated historical rebuild executions of one offline evaluation suite, not six independent campaigns."
+  },
+  "manifest_commits": {
+    "rebuild_article_20260523_093647": "a0e5dc59523914d1762d1f5d2834193eec1399c8",
+    "rebuild_article_20260523_095106": "073f5a17f99d33b27c24f6cf7802bc4a33f35808",
+    "rebuild_article_20260523_100706": "073f5a17f99d33b27c24f6cf7802bc4a33f35808",
+    "rebuild_article_20260523_102308": "43348093ad81b0ad9852f50d0294906ba1b226d4",
+    "rebuild_article_20260523_104418": "37d04439f13f085583ca625f2b5a8353055b8af0"
+  },
+  "input_checksum_registry": {
+    "unique_registry_hash_count": 1,
+    "sha256_by_run": {
+      "rebuild_article_20260523_093647": "9453e1d0c1f077abe55de7d0831314e5a5eadf133319f3130197e5fb04e28c89",
+      "rebuild_article_20260523_095106": "9453e1d0c1f077abe55de7d0831314e5a5eadf133319f3130197e5fb04e28c89",
+      "rebuild_article_20260523_100706": "9453e1d0c1f077abe55de7d0831314e5a5eadf133319f3130197e5fb04e28c89",
+      "rebuild_article_20260523_102308": "9453e1d0c1f077abe55de7d0831314e5a5eadf133319f3130197e5fb04e28c89",
+      "rebuild_article_20260523_104418": "9453e1d0c1f077abe55de7d0831314e5a5eadf133319f3130197e5fb04e28c89"
+    }
+  },
+  "checksum_subset_integrity": [
+    {
+      "run_id": "rebuild_article_20260523_093647",
+      "checksum_registry_entry_count": 214,
+      "copied_checksum_covered_file_count": 73,
+      "copied_checksum_match_count": 73,
+      "copied_checksum_mismatch_count": 0,
+      "self_referential_checksum_registry_excluded": true
+    },
+    {
+      "run_id": "rebuild_article_20260523_095106",
+      "checksum_registry_entry_count": 213,
+      "copied_checksum_covered_file_count": 73,
+      "copied_checksum_match_count": 73,
+      "copied_checksum_mismatch_count": 0,
+      "self_referential_checksum_registry_excluded": true
+    },
+    {
+      "run_id": "rebuild_article_20260523_100706",
+      "checksum_registry_entry_count": 214,
+      "copied_checksum_covered_file_count": 73,
+      "copied_checksum_match_count": 73,
+      "copied_checksum_mismatch_count": 0,
+      "self_referential_checksum_registry_excluded": true
+    },
+    {
+      "run_id": "rebuild_article_20260523_102308",
+      "checksum_registry_entry_count": 214,
+      "copied_checksum_covered_file_count": 73,
+      "copied_checksum_match_count": 73,
+      "copied_checksum_mismatch_count": 0,
+      "self_referential_checksum_registry_excluded": true
+    },
+    {
+      "run_id": "rebuild_article_20260523_104418",
+      "checksum_registry_entry_count": 214,
+      "copied_checksum_covered_file_count": 73,
+      "copied_checksum_match_count": 73,
+      "copied_checksum_mismatch_count": 0,
+      "self_referential_checksum_registry_excluded": true
+    }
+  ],
+  "stability": [
+    {
+      "family": "policy_benchmark_summary_non_temporal",
+      "source_relpath": "modern/policy_benchmark/policy_summary.csv",
+      "manifest_backed_run_count": 5,
+      "manifest_canonical_unique_hash_count": 1,
+      "all_six_canonical_unique_hash_count": 1,
+      "canonical_sha256": "f9b8e1fb62aa6c482d8ecbc9030d2e961f86d070f25e6bac5f2f9eb548ab5095",
+      "cross_run_non_temporal_or_structural_stability": "PASS"
+    },
+    {
+      "family": "policy_benchmark_session_non_temporal",
+      "source_relpath": "modern/policy_benchmark/policy_session_metrics.csv",
+      "manifest_backed_run_count": 5,
+      "manifest_canonical_unique_hash_count": 1,
+      "all_six_canonical_unique_hash_count": 1,
+      "canonical_sha256": "a45c2b35cb5ee69f48413a46c5019db385969ef6007c9281431d1d09c534ccde",
+      "cross_run_non_temporal_or_structural_stability": "PASS"
+    },
+    {
+      "family": "policy_benchmark_step_non_temporal",
+      "source_relpath": "modern/policy_benchmark/policy_step_metrics.csv",
+      "manifest_backed_run_count": 5,
+      "manifest_canonical_unique_hash_count": 1,
+      "all_six_canonical_unique_hash_count": 1,
+      "canonical_sha256": "636ad828b544aa2d5d7fc40dee410b7c00de5d19295b18985b2b05f0cb2787b6",
+      "cross_run_non_temporal_or_structural_stability": "PASS"
+    },
+    {
+      "family": "scalability_catalog_structural",
+      "source_relpath": "modern/scalability/catalog_scalability.csv",
+      "manifest_backed_run_count": 5,
+      "manifest_canonical_unique_hash_count": 1,
+      "all_six_canonical_unique_hash_count": 1,
+      "canonical_sha256": "40e9f230231073fb569cec74fc6ac2d2c6c0aa9f96318f8d8208e86513c5d3d8",
+      "cross_run_non_temporal_or_structural_stability": "PASS"
+    },
+    {
+      "family": "scalability_growth_structural",
+      "source_relpath": "modern/scalability/growth_control.csv",
+      "manifest_backed_run_count": 5,
+      "manifest_canonical_unique_hash_count": 1,
+      "all_six_canonical_unique_hash_count": 1,
+      "canonical_sha256": "2824ed95d2ee8b02b4bb670f005887562068fd6c7be70bcdb972fb62c29c07e8",
+      "cross_run_non_temporal_or_structural_stability": "PASS"
+    },
+    {
+      "family": "evidence_usefulness_non_timestamp",
+      "source_relpath": "modern/evidence/evidence_usefulness_report.json",
+      "manifest_backed_run_count": 5,
+      "manifest_canonical_unique_hash_count": 1,
+      "all_six_canonical_unique_hash_count": 1,
+      "canonical_sha256": "7f96f9ca72aa167589a19dda416fb014c273a3abc9089c2da6be1c4c0a1a6c6c",
+      "cross_run_non_temporal_or_structural_stability": "PASS"
+    },
+    {
+      "family": "evidence_bootstrap_benefit",
+      "source_relpath": "modern/evidence/bootstrap_benefit_summary.json",
+      "manifest_backed_run_count": 5,
+      "manifest_canonical_unique_hash_count": 1,
+      "all_six_canonical_unique_hash_count": 1,
+      "canonical_sha256": "594a8e30478fff264a08a176193a595b7b58700ccfe105549abfc00a83ef3205",
+      "cross_run_non_temporal_or_structural_stability": "PASS"
+    },
+    {
+      "family": "phase7_pairwise_statistics",
+      "source_relpath": "modern/stats/pairwise_policy_statistics.csv",
+      "manifest_backed_run_count": 5,
+      "manifest_canonical_unique_hash_count": 1,
+      "all_six_canonical_unique_hash_count": 1,
+      "canonical_sha256": "44bde626559cc058c0986d3f39736623563316e044a615a60c79f39c558e1614",
+      "cross_run_non_temporal_or_structural_stability": "PASS"
+    },
+    {
+      "family": "phase7_policy_confidence_intervals",
+      "source_relpath": "modern/stats/policy_confidence_intervals.csv",
+      "manifest_backed_run_count": 5,
+      "manifest_canonical_unique_hash_count": 1,
+      "all_six_canonical_unique_hash_count": 1,
+      "canonical_sha256": "bdcf9e908f4eff9d6bf8d76b1e767b3ee1975e64fe9161e2069dddbc78881958",
+      "cross_run_non_temporal_or_structural_stability": "PASS"
+    },
+    {
+      "family": "phase7_statistical_summary",
+      "source_relpath": "modern/stats/phase7_statistical_summary.json",
+      "manifest_backed_run_count": 5,
+      "manifest_canonical_unique_hash_count": 1,
+      "all_six_canonical_unique_hash_count": 1,
+      "canonical_sha256": "12a6b906742f14c395ef1df98e064e7ea21f2516ee273dbc253cb898fc67b722",
+      "cross_run_non_temporal_or_structural_stability": "PASS"
+    }
+  ],
+  "timing_policy": {
+    "historical_may_timing_publication_authorized": false,
+    "reason": "Timing fields vary across rebuilds and the May suite is not the later controlled sensitivity/timing campaign.",
+    "policy_mcad_manifest_run_descriptors": [
+      {
+        "run_id": "rebuild_article_20260523_093647",
+        "mcad_latency_p50_ms": 0.20845,
+        "mcad_latency_p95_ms": 0.371437,
+        "mcad_latency_p50_ms_five_run_min": 0.20665,
+        "mcad_latency_p50_ms_five_run_max": 0.2478,
+        "mcad_latency_p50_ms_five_run_cv": 0.08441776091473355,
+        "mcad_latency_p95_ms_five_run_min": 0.371437,
+        "mcad_latency_p95_ms_five_run_max": 0.621491,
+        "mcad_latency_p95_ms_five_run_cv": 0.20248638527383114
+      },
+      {
+        "run_id": "rebuild_article_20260523_095106",
+        "mcad_latency_p50_ms": 0.20665,
+        "mcad_latency_p95_ms": 0.391812,
+        "mcad_latency_p50_ms_five_run_min": 0.20665,
+        "mcad_latency_p50_ms_five_run_max": 0.2478,
+        "mcad_latency_p50_ms_five_run_cv": 0.08441776091473355,
+        "mcad_latency_p95_ms_five_run_min": 0.371437,
+        "mcad_latency_p95_ms_five_run_max": 0.621491,
+        "mcad_latency_p95_ms_five_run_cv": 0.20248638527383114
+      },
+      {
+        "run_id": "rebuild_article_20260523_100706",
+        "mcad_latency_p50_ms": 0.24735,
+        "mcad_latency_p95_ms": 0.621491,
+        "mcad_latency_p50_ms_five_run_min": 0.20665,
+        "mcad_latency_p50_ms_five_run_max": 0.2478,
+        "mcad_latency_p50_ms_five_run_cv": 0.08441776091473355,
+        "mcad_latency_p95_ms_five_run_min": 0.371437,
+        "mcad_latency_p95_ms_five_run_max": 0.621491,
+        "mcad_latency_p95_ms_five_run_cv": 0.20248638527383114
+      },
+      {
+        "run_id": "rebuild_article_20260523_102308",
+        "mcad_latency_p50_ms": 0.2471,
+        "mcad_latency_p95_ms": 0.562642,
+        "mcad_latency_p50_ms_five_run_min": 0.20665,
+        "mcad_latency_p50_ms_five_run_max": 0.2478,
+        "mcad_latency_p50_ms_five_run_cv": 0.08441776091473355,
+        "mcad_latency_p95_ms_five_run_min": 0.371437,
+        "mcad_latency_p95_ms_five_run_max": 0.621491,
+        "mcad_latency_p95_ms_five_run_cv": 0.20248638527383114
+      },
+      {
+        "run_id": "rebuild_article_20260523_104418",
+        "mcad_latency_p50_ms": 0.2478,
+        "mcad_latency_p95_ms": 0.572238,
+        "mcad_latency_p50_ms_five_run_min": 0.20665,
+        "mcad_latency_p50_ms_five_run_max": 0.2478,
+        "mcad_latency_p50_ms_five_run_cv": 0.08441776091473355,
+        "mcad_latency_p95_ms_five_run_min": 0.371437,
+        "mcad_latency_p95_ms_five_run_max": 0.621491,
+        "mcad_latency_p95_ms_five_run_cv": 0.20248638527383114
+      }
+    ],
+    "scalability_scale40_manifest_run_descriptors": [
+      {
+        "run_id": "rebuild_article_20260523_093647",
+        "scale40_p50_eval_ms": 1.549064,
+        "scale40_p95_eval_ms": 2.864236,
+        "scale40_snapshot_ms": 334.331601
+      },
+      {
+        "run_id": "rebuild_article_20260523_095106",
+        "scale40_p50_eval_ms": 1.580361,
+        "scale40_p95_eval_ms": 4.176775,
+        "scale40_snapshot_ms": 349.505275
+      },
+      {
+        "run_id": "rebuild_article_20260523_100706",
+        "scale40_p50_eval_ms": 1.855764,
+        "scale40_p95_eval_ms": 3.518854,
+        "scale40_snapshot_ms": 363.490718
+      },
+      {
+        "run_id": "rebuild_article_20260523_102308",
+        "scale40_p50_eval_ms": 1.859573,
+        "scale40_p95_eval_ms": 3.594842,
+        "scale40_snapshot_ms": 351.960872
+      },
+      {
+        "run_id": "rebuild_article_20260523_104418",
+        "scale40_p50_eval_ms": 1.61928,
+        "scale40_p95_eval_ms": 3.250328,
+        "scale40_snapshot_ms": 358.130254
+      }
+    ]
+  },
+  "runner_lineage": [
+    {
+      "runner": "run_baselines_and_ablations.py",
+      "recovered_sha256": "533e28d16d4a07c26cc894b6437ef6d0e5fbca144377dc37cd4edadbd517fb6c",
+      "current_path": "backend/harness/run_baselines_and_ablations.py",
+      "current_exists": true,
+      "current_sha256": "c648a335b7cd55aa9463025694e25d59d24b11df680357323f56268e30332c46",
+      "byte_identical_to_current": false
+    },
+    {
+      "runner": "run_scalability_benchmark.py",
+      "recovered_sha256": "3561ff002574e19510da850a8e72adb26de735f8855f167a8c2dfb599416413e",
+      "current_path": "backend/harness/run_scalability_benchmark.py",
+      "current_exists": true,
+      "current_sha256": "3561ff002574e19510da850a8e72adb26de735f8855f167a8c2dfb599416413e",
+      "byte_identical_to_current": true
+    },
+    {
+      "runner": "run_evidence_usefulness_benchmark.py",
+      "recovered_sha256": "7f51b55cd8808c15ee1193bf7132541c75d5d6f3f5027bee2b74a30afc39c8ee",
+      "current_path": "backend/harness/run_evidence_usefulness_benchmark.py",
+      "current_exists": true,
+      "current_sha256": "1e9a0ebf3e60e3d7547641a00f09a0a20f50a89dac18d6921cab33dcdedd55f2",
+      "byte_identical_to_current": false
+    },
+    {
+      "runner": "run_statistical_analysis.py",
+      "recovered_sha256": "ad76e2494df5983895bdebada20da0eaf89677f5fa59da56a868def22aa25663",
+      "current_path": "backend/harness/run_statistical_analysis.py",
+      "current_exists": true,
+      "current_sha256": "a5c2721bad2ae026431f0e7badfdada94894dc403fc86dcab89836dececd0e75",
+      "byte_identical_to_current": false
+    }
+  ],
+  "representative_source_for_descriptor_only": "rebuild_article_20260523_104418",
+  "representative_non_temporal_policy_summary": {
+    "ablation_ceval_any_intersection": {
+      "n_sessions": 500,
+      "mean_phi_final": 0.333333,
+      "mean_auc_phi": 0.211111,
+      "mean_false_allow_rate": 0.1,
+      "mean_false_block_rate": 0.0,
+      "mean_non_contrib_exec_rate": 0.1
+    },
+    "ablation_no_real": {
+      "n_sessions": 500,
+      "mean_phi_final": 0.333333,
+      "mean_auc_phi": 0.211111,
+      "mean_false_allow_rate": 0.1,
+      "mean_false_block_rate": 0.0,
+      "mean_non_contrib_exec_rate": 0.1
+    },
+    "ablation_no_sat": {
+      "n_sessions": 500,
+      "mean_phi_final": 0.333333,
+      "mean_auc_phi": 0.211111,
+      "mean_false_allow_rate": 0.0,
+      "mean_false_block_rate": 0.0,
+      "mean_non_contrib_exec_rate": 0.0
+    },
+    "baseline_measure_overlap": {
+      "n_sessions": 500,
+      "mean_phi_final": 0.333333,
+      "mean_auc_phi": 0.211111,
+      "mean_false_allow_rate": 0.566667,
+      "mean_false_block_rate": 0.0,
+      "mean_non_contrib_exec_rate": 0.566667
+    },
+    "baseline_naive": {
+      "n_sessions": 500,
+      "mean_phi_final": 0.333333,
+      "mean_auc_phi": 0.211111,
+      "mean_false_allow_rate": 0.666667,
+      "mean_false_block_rate": 0.0,
+      "mean_non_contrib_exec_rate": 0.666667
+    },
+    "baseline_random_matched": {
+      "n_sessions": 500,
+      "mean_phi_final": 0.190667,
+      "mean_auc_phi": 0.121333,
+      "mean_false_allow_rate": 0.400667,
+      "mean_false_block_rate": 0.142667,
+      "mean_non_contrib_exec_rate": 0.427667
+    },
+    "mcad": {
+      "n_sessions": 500,
+      "mean_phi_final": 0.333333,
+      "mean_auc_phi": 0.211111,
+      "mean_false_allow_rate": 0.0,
+      "mean_false_block_rate": 0.0,
+      "mean_non_contrib_exec_rate": 0.0
+    }
+  },
+  "representative_scalability_structural_rows": [
+    {
+      "scale_factor": 1,
+      "n_objectives": 3,
+      "n_constraints": 8,
+      "n_virtual_nodes": 10,
+      "n_nodes": 55,
+      "n_edges": 66,
+      "snapshot_bytes": 43501
+    },
+    {
+      "scale_factor": 5,
+      "n_objectives": 11,
+      "n_constraints": 32,
+      "n_virtual_nodes": 42,
+      "n_nodes": 223,
+      "n_edges": 306,
+      "snapshot_bytes": 207117
+    },
+    {
+      "scale_factor": 10,
+      "n_objectives": 21,
+      "n_constraints": 62,
+      "n_virtual_nodes": 82,
+      "n_nodes": 433,
+      "n_edges": 606,
+      "snapshot_bytes": 412597
+    },
+    {
+      "scale_factor": 20,
+      "n_objectives": 41,
+      "n_constraints": 122,
+      "n_virtual_nodes": 162,
+      "n_nodes": 853,
+      "n_edges": 1206,
+      "snapshot_bytes": 822597
+    },
+    {
+      "scale_factor": 40,
+      "n_objectives": 81,
+      "n_constraints": 242,
+      "n_virtual_nodes": 322,
+      "n_nodes": 1693,
+      "n_edges": 2406,
+      "snapshot_bytes": 1642597
+    }
+  ],
+  "representative_evidence_usefulness": {
+    "n_records": 12,
+    "useful_evidence_ratio": 1.0,
+    "mean_realized_nv_count": 1.333333,
+    "mean_retained_nv_count": 1.333333,
+    "mean_retained_ratio": 1.0,
+    "mean_calculable_constraint_count": 1.666667,
+    "mean_requirement_link_count": 1.333333,
+    "execution_excerpt_coverage_ratio": 1.0,
+    "mean_execution_excerpt_items": 14.666667,
+    "mean_usefulness_score": 1.0,
+    "objective_bootstrap_coverage": {
+      "OAW_BIKES_EUROPE": 1.0,
+      "OHF_NORD": 1.0
+    },
+    "objective_bootstrap_constraints": {
+      "OAW_BIKES_EUROPE": [
+        "aw_c1",
+        "aw_c2",
+        "aw_c3"
+      ],
+      "OHF_NORD": [
+        "c1",
+        "c2",
+        "c3"
+      ]
+    },
+    "per_record": [
+      {
+        "evidence_id": "EV_SEED_OHF_NORD_t001_3de8bd19b0",
+        "objective_id": "OHF_NORD",
+        "session_id": "SEED_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 12,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_SEED_OHF_NORD_t002_528f4e135b",
+        "objective_id": "OHF_NORD",
+        "session_id": "SEED_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 2,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 7,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_BOOT_OHF_NORD_t001_55394ccca1",
+        "objective_id": "OHF_NORD",
+        "session_id": "FOLLOWUP_BOOT_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 2,
+        "retained_nv_count": 2,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 2,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 24,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OHF_NORD_t001_04a21a79dc",
+        "objective_id": "OHF_NORD",
+        "session_id": "FOLLOWUP_NOBOOT_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 12,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OHF_NORD_t002_9385906214",
+        "objective_id": "OHF_NORD",
+        "session_id": "FOLLOWUP_NOBOOT_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 2,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 7,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OHF_NORD_t003_ded308eef7",
+        "objective_id": "OHF_NORD",
+        "session_id": "FOLLOWUP_NOBOOT_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 2,
+        "retained_nv_count": 2,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 3,
+        "requirement_link_count": 2,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 24,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_SEED_OAW_BIKES_EUROPE_t001_5280f9001c",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "SEED_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 12,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_SEED_OAW_BIKES_EUROPE_t002_44d1e28c22",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "SEED_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 2,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 9,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_BOOT_OAW_BIKES_EUROPE_t001_6e6e1f0886",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "FOLLOWUP_BOOT_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 2,
+        "retained_nv_count": 2,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 2,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 24,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE_t001_d6ec76deb9",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 12,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE_t002_c1791aad8b",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 2,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 9,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE_t003_bb8e576af8",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 2,
+        "retained_nv_count": 2,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 3,
+        "requirement_link_count": 2,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 24,
+        "usefulness_score": 1.0
+      }
+    ]
+  },
+  "representative_bootstrap_benefit": [
+    {
+      "objective_id": "OHF_NORD",
+      "mode": "no_bootstrap",
+      "steps_to_full": 3,
+      "auc_phi": 0.666667,
+      "final_phi": 1.0,
+      "bootstrap_phi": 0.0
+    },
+    {
+      "objective_id": "OHF_NORD",
+      "mode": "bootstrap",
+      "steps_to_full": 1,
+      "auc_phi": 1.0,
+      "final_phi": 1.0,
+      "bootstrap_phi": 0.666667
+    },
+    {
+      "objective_id": "OAW_BIKES_EUROPE",
+      "mode": "no_bootstrap",
+      "steps_to_full": 3,
+      "auc_phi": 0.666667,
+      "final_phi": 1.0,
+      "bootstrap_phi": 0.0
+    },
+    {
+      "objective_id": "OAW_BIKES_EUROPE",
+      "mode": "bootstrap",
+      "steps_to_full": 1,
+      "auc_phi": 1.0,
+      "final_phi": 1.0,
+      "bootstrap_phi": 0.666667
+    }
+  ],
+  "candidate_publication_qualification": {
+    "policy_benchmark": {
+      "candidate_status": "AUTHORIZED_WITH_SCOPE_LIMIT_NON_TEMPORAL",
+      "authorized": [
+        "controlled offline comparison of decision policies",
+        "non-temporal coverage/contribution outcomes",
+        "false-ALLOW/false-BLOCK and non-contributing-execution outcomes"
+      ],
+      "restricted": [
+        "physical BI execution claims",
+        "backend performance claims",
+        "historical May latency as a final performance result",
+        "universal superiority claims"
+      ]
+    },
+    "ablations": {
+      "candidate_status": "AUTHORIZED_WITH_SCOPE_LIMIT_NON_TEMPORAL",
+      "authorized": [
+        "controlled offline functional/causal ablation outcomes"
+      ],
+      "restricted": [
+        "treating May standalone ablations as the later robustness freeze",
+        "physical execution claims",
+        "historical May latency as a final performance result"
+      ],
+      "later_evidence_note": "A later canonical robustness freeze also contains baselines and ablations; its robustness-protocol scope remains distinct."
+    },
+    "scalability_ckg": {
+      "candidate_status": "AUTHORIZED_STRUCTURAL_ONLY_TIMING_RESTRICTED",
+      "authorized": [
+        "structural CKG scaling over the tested synthetic catalog scales",
+        "node/edge/virtual-node/objective/constraint counts",
+        "snapshot-size and growth/compaction structural behavior"
+      ],
+      "restricted": [
+        "industrial scalability",
+        "backend scalability",
+        "historical May timing as a final latency-performance result"
+      ]
+    },
+    "evidence_usefulness": {
+      "candidate_status": "AUTHORIZED_WITH_SCOPE_LIMIT_CONTROLLED_PHASE6",
+      "authorized": [
+        "controlled evidence-retention/bootstrap behavior in the recovered Phase-6 scenarios"
+      ],
+      "restricted": [
+        "human usefulness claims",
+        "user-study claims",
+        "general real-world effectiveness claims"
+      ]
+    },
+    "phase7_statistics": {
+      "candidate_status": "AUTHORIZED_DERIVED_STATISTICS_WITH_SCOPE_LIMIT",
+      "authorized": [
+        "derived statistics over the qualified recovered offline suite"
+      ],
+      "restricted": [
+        "statistics presented as physical BI execution evidence",
+        "global MCAD superiority beyond the tested controlled workload"
+      ]
+    },
+    "human_validation": {
+      "candidate_status": "EXCLUDED_NO_REAL_EXPERT_ANNOTATIONS",
+      "authorized": [],
+      "restricted": [
+        "human/expert precision, recall, F1",
+        "inter-annotator agreement",
+        "human validation claims"
+      ]
+    }
+  },
+  "overall_gate": "PASS_PENDING_REPOSITORY_PERSISTENCE_OF_QUALIFICATION"
+}

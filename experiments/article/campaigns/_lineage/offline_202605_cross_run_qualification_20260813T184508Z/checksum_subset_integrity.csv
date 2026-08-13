@@ -1,0 +1,6 @@
+run_id,checksum_registry_entry_count,copied_checksum_covered_file_count,copied_checksum_match_count,copied_checksum_mismatch_count,self_referential_checksum_registry_excluded
+rebuild_article_20260523_093647,214,73,73,0,True
+rebuild_article_20260523_095106,213,73,73,0,True
+rebuild_article_20260523_100706,214,73,73,0,True
+rebuild_article_20260523_102308,214,73,73,0,True
+rebuild_article_20260523_104418,214,73,73,0,True

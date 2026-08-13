@@ -25,3 +25,21 @@ A/B/C, Q1-Q6, robustness and sensitivity campaigns are distinct later evidence f
 
 Historical article artifacts are preserved for genealogy and presentation design,
 but final numerical claims must resolve to qualified primary or frozen evidence.
+
+## Offline 202605 cross-run qualification
+
+The recovered May offline suite has passed a read-only cross-run qualification
+audit preserved under `_lineage/offline_202605_cross_run_qualification_20260813T184508Z/`.
+
+The six historical `rebuild_article_*` directories are repeated rebuild
+executions of one offline evaluation suite, not six independent campaigns.
+Five runs are manifest-backed and one earlier run is retained as corroborating
+pre-manifest evidence.
+
+Scope-bounded publication authorization is now recorded for non-temporal
+policy/ablation outcomes, structural CKG scalability, the controlled Phase-6
+evidence-usefulness benchmark, and Phase-7 derived statistics.
+
+Historical May timing is not authorized as final publication performance
+evidence. Simulated `sim_expert_*` outputs remain excluded from human/expert
+validation claims.
