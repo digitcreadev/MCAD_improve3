@@ -1,0 +1,37 @@
+{
+  "canonical_head_at_execution": "ff89d89339e1d5fa4fdffd1ee95d16037550bbec",
+  "controls": {
+    "additional_bootstrap_authorized": false,
+    "additional_timing_authorized": false,
+    "bootstrap_parameter_changes_authorized": false,
+    "manuscript_modified": false,
+    "stage30_rerun_forbidden": true,
+    "stage40_authorized": false,
+    "threshold_changes_authorized": false
+  },
+  "created_at_utc": "2026-08-13T02:25:36Z",
+  "gate": {
+    "all_median_targets_met": false,
+    "all_p95_targets_met": false,
+    "all_precision_targets_met": false,
+    "post_stage30_review_required": true,
+    "stage30_sufficient": false
+  },
+  "next_stage": "document_stage30_precision_limit_and_close_sa5_objective_count",
+  "persistence_branch": "paper/persist-sa5-stage30-final-precision-20260813T021634Z",
+  "schema_version": "mcad-sa5-objective-count-stage30-precision-decision-v1",
+  "scientific_execution": {
+    "analyzer_exit_status": 0,
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20260728,
+    "canonical_cell_count": 192,
+    "confidence_level": 0.95,
+    "measurement_observation_count": 576000,
+    "median_target": 0.1,
+    "p95_target": 0.15,
+    "structural_seed_cluster_count": 30,
+    "successful_canonical_bootstrap_execution_count": 1,
+    "successful_precision_analysis_count": 1
+  },
+  "status": "stage30_precision_targets_not_met_terminal_precision_limit"
+}

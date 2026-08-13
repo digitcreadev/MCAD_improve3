@@ -1,0 +1,18 @@
+{
+  "all_median_targets_met": false,
+  "all_p95_targets_met": false,
+  "all_precision_targets_met": false,
+  "analyzer_exit_status": 0,
+  "canonical_cell_result_count": 192,
+  "canonical_interval_row_count": 192,
+  "errors": [],
+  "launch_exception": null,
+  "post_stage30_review_required": true,
+  "report_status": "stage30_precision_targets_not_met",
+  "rerun_authorized": false,
+  "schema_version": "mcad-sa5-stage30-final-precision-validation-v1",
+  "stage30_sufficient": false,
+  "stage40_authorized": false,
+  "validated_at_utc": "2026-08-13T02:25:36Z",
+  "validation_pass": true
+}

@@ -1,0 +1,35 @@
+{
+  "canonical_head": "ff89d89339e1d5fa4fdffd1ee95d16037550bbec",
+  "combined_totals": {
+    "cell_count": 5760,
+    "exactly_balanced_run_count": 30,
+    "functional_mismatch_count": 0,
+    "measurement_observation_count": 576000,
+    "run_count": 30,
+    "structural_seed_count": 30,
+    "successful_run_count": 30
+  },
+  "compatibility_alias_semantics": {
+    "exactly_balanced_run_count": "sample_count_balance_only_not_positional_order_balance"
+  },
+  "created_at_utc": "2026-08-13T01:38:19Z",
+  "factor": "objective_count",
+  "measurement_values_modified": false,
+  "schema_version": "mcad-sa5-objective-count-stage30-precision-timing-adapter-v1",
+  "stage20_prefix_reused_without_rerun": true,
+  "stage30_suffix_replications": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "stage_size": 30,
+  "status": "stage30_formal_timing_execution_success",
+  "timing_magnitudes_interpreted": false
+}

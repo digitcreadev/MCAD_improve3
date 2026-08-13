@@ -1,0 +1,17 @@
+{
+  "analyzer_exit_status": 0,
+  "analyzer_log": {
+    "exists": true,
+    "path": "/workspaces/sa5_stage30_final_precision_persist_20260813T021634Z/reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage30/precision_analysis/sa5_stage30_precision_analyzer.log",
+    "sha256": "b4890f774d5d20985d8bc70c43dae346e6543f7d9dfd2b6101c68a233ff1e83b",
+    "size_bytes": 23634
+  },
+  "completed_at_utc": "2026-08-13T02:25:36Z",
+  "invocation_attempted": true,
+  "invocation_count": 1,
+  "launch_exception": null,
+  "rerun_authorized": false,
+  "schema_version": "mcad-sa5-stage30-final-precision-analyzer-exit-v1",
+  "stage40_authorized": false,
+  "start_marker_sha256": "5192588ae9a0d81a570f28bf321581b7ac4700b3beac11d77aef8e4ea60d7b20"
+}
