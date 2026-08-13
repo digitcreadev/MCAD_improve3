@@ -1,0 +1,5 @@
+factor,publication_class,terminal_campaign_stage,status_or_decision
+constraint_count,frozen_canonical_campaign,20,"{'path': 'experiments/article/frozen_campaigns/sa3_constraint_count_stage20/STATUS.json', 'sha256': 'f545609c6980794fa2710ddf185738300c3bc876cd67dcf8159e828af719f569', 'size_bytes': 491}"
+membership_density,precision_decision_pass,10,pass
+objective_count,terminal_precision_limit,30,stage30_precision_targets_not_met
+virtual_node_count,precision_target_met,10,pass

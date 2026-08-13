@@ -1,0 +1,10 @@
+{
+  "source_head": "57360f079fdd780f12887b5dbf9717e16b1bc4c6",
+  "experimental_start_marker": "\\section{Validation expérimentale et analyse de performance}",
+  "discussion_start_marker": "\\section{Discussion, limites et perspectives}",
+  "original_experimental_span_chars": 10372,
+  "replacement": "\\input{article_update/paper_artifacts_final/sections/section_experimentale_finale_v3.tex}",
+  "sec_exp_label_present": true,
+  "sec_experiments_label_present": false,
+  "stale_forbidden_claim_count": 0
+}

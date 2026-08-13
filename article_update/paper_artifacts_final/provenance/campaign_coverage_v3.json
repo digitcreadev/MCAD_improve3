@@ -1,0 +1,128 @@
+{
+  "campaign_count": 15,
+  "all_campaigns_accounted_for": true,
+  "placements": {
+    "ui_q1_q6": "MAIN",
+    "campaign_a_foodmart": "MAIN",
+    "campaign_b_multidataset": "MAIN",
+    "campaign_c_backend_portability": "MAIN",
+    "robustness": "MAIN",
+    "scalability_ckg": "MAIN",
+    "sensitivity_constraint_count": "MAIN",
+    "sensitivity_virtual_node_count": "MAIN",
+    "sensitivity_membership_density": "MAIN",
+    "sensitivity_objective_count": "MAIN",
+    "evidence_usefulness": "MAIN_SECONDARY_COMPACT",
+    "policy_benchmark": "SUPPLEMENTARY",
+    "ablations": "SUPPLEMENTARY_HISTORICAL_ONLY",
+    "phase7_statistics": "EXCLUDED_AS_IS",
+    "human_validation": "EXCLUDED"
+  },
+  "rows": [
+    {
+      "campaign_id": "ablations",
+      "archive_status": "AUTHORIZED_WITH_SCOPE_LIMIT_NON_TEMPORAL",
+      "final_status": "SUPPLEMENT_ONLY_MAIN_ABLATIONS_FROM_ROBUSTNESS",
+      "article_placement": "SUPPLEMENTARY_HISTORICAL_ONLY",
+      "role": "historical causal confirmation"
+    },
+    {
+      "campaign_id": "campaign_a_foodmart",
+      "archive_status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "article_placement": "MAIN",
+      "role": "physical depth"
+    },
+    {
+      "campaign_id": "campaign_b_multidataset",
+      "archive_status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "article_placement": "MAIN",
+      "role": "multi-dataset/adaptor breadth"
+    },
+    {
+      "campaign_id": "campaign_c_backend_portability",
+      "archive_status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "article_placement": "MAIN",
+      "role": "paired backend portability"
+    },
+    {
+      "campaign_id": "evidence_usefulness",
+      "archive_status": "AUTHORIZED_WITH_SCOPE_LIMIT_CONTROLLED_PHASE6",
+      "final_status": "OPTIONAL_SECONDARY_COMPATIBILITY_PASS",
+      "article_placement": "MAIN_SECONDARY_COMPACT",
+      "role": "controlled evidence reuse/bootstrap"
+    },
+    {
+      "campaign_id": "human_validation",
+      "archive_status": "EXCLUDED_NO_REAL_EXPERT_ANNOTATIONS",
+      "final_status": "EXCLUDE_NO_REAL_EXPERT_ANNOTATIONS",
+      "article_placement": "EXCLUDED",
+      "role": "none"
+    },
+    {
+      "campaign_id": "phase7_statistics",
+      "archive_status": "AUTHORIZED_DERIVED_STATISTICS_WITH_SCOPE_LIMIT",
+      "final_status": "EXCLUDE_AS_IS_REDERIVE_ONLY_IF_REQUIRED",
+      "article_placement": "EXCLUDED_AS_IS",
+      "role": "historical derived statistics"
+    },
+    {
+      "campaign_id": "policy_benchmark",
+      "archive_status": "AUTHORIZED_WITH_SCOPE_LIMIT_NON_TEMPORAL",
+      "final_status": "SECONDARY_OR_SUPPLEMENT_COMPATIBILITY_PASS",
+      "article_placement": "SUPPLEMENTARY",
+      "role": "nominal offline baseline comparison"
+    },
+    {
+      "campaign_id": "robustness",
+      "archive_status": "FROZEN_PRIMARY",
+      "final_status": "ADOPT_MAIN_FROZEN_NON_TEMPORAL",
+      "article_placement": "MAIN",
+      "role": "primary baselines + ablations + robustness + system explainability"
+    },
+    {
+      "campaign_id": "scalability_ckg",
+      "archive_status": "AUTHORIZED_STRUCTURAL_ONLY_TIMING_RESTRICTED",
+      "final_status": "ADOPT_MAIN_STRUCTURAL_COMPATIBILITY_PASS",
+      "article_placement": "MAIN",
+      "role": "structural CKG scalability"
+    },
+    {
+      "campaign_id": "sensitivity_constraint_count",
+      "archive_status": "CURRENT_CANONICAL_REFERENCE",
+      "final_status": "ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY",
+      "article_placement": "MAIN",
+      "role": "semantic decision sensitivity"
+    },
+    {
+      "campaign_id": "sensitivity_membership_density",
+      "archive_status": "CURRENT_CANONICAL_REFERENCE",
+      "final_status": "ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY",
+      "article_placement": "MAIN",
+      "role": "semantic decision sensitivity"
+    },
+    {
+      "campaign_id": "sensitivity_objective_count",
+      "archive_status": "CURRENT_CANONICAL_TERMINAL_REFERENCE",
+      "final_status": "ADOPT_TERMINAL_STAGE30_ONLY",
+      "article_placement": "MAIN",
+      "role": "terminal semantic decision precision limit"
+    },
+    {
+      "campaign_id": "sensitivity_virtual_node_count",
+      "archive_status": "CURRENT_CANONICAL_REFERENCE",
+      "final_status": "ADOPT_FINAL_CANONICAL_SOURCE_MAP_ONLY",
+      "article_placement": "MAIN",
+      "role": "semantic decision sensitivity"
+    },
+    {
+      "campaign_id": "ui_q1_q6",
+      "archive_status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "final_status": "ADOPT_MAIN_STATIC_CORE_BRIDGE_PASS",
+      "article_placement": "MAIN",
+      "role": "detailed end-to-end mechanism"
+    }
+  ]
+}

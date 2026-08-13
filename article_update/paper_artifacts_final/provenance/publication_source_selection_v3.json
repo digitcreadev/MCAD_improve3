@@ -1,0 +1,88 @@
+{
+  "schema_version": "mcad-final-publication-source-selection-v3",
+  "generated_at_utc": "2026-08-13T21:37:53Z",
+  "source_repository_head": "57360f079fdd780f12887b5dbf9717e16b1bc4c6",
+  "main_chain": [
+    "ui_q1_q6",
+    "campaign_a_foodmart",
+    "campaign_b_multidataset",
+    "campaign_c_backend_portability",
+    "robustness",
+    "scalability_ckg",
+    "sensitivity_constraint_count",
+    "sensitivity_virtual_node_count",
+    "sensitivity_membership_density",
+    "sensitivity_objective_count"
+  ],
+  "secondary_chain": [
+    "policy_benchmark",
+    "evidence_usefulness"
+  ],
+  "supplement_only": [
+    "ablations"
+  ],
+  "excluded_as_is": [
+    "phase7_statistics",
+    "human_validation",
+    "historical_may_timing",
+    "legacy_proxy_figures",
+    "intermediate_sensitivity_replays"
+  ],
+  "phase7_may_as_is_adopted": false,
+  "historical_may_timing_publication_authorized": false,
+  "human_validation_claims_authorized": false,
+  "files": [
+    {
+      "path": "experiments/article/campaigns/_recovered_sources/physical_202607/ui_q1_q6/derived/q1_q6_canonical_trace.csv",
+      "sha256": "4f9a2af863ecd17757837729b5cc294f067330b6ab98f8c1c608798ffeb9c44d"
+    },
+    {
+      "path": "experiments/article/campaigns/_recovered_sources/physical_202607/campaign_a_foodmart/campaign_a_1000_summary.json",
+      "sha256": "9e73c44a19de74ce73346b8c5c9f7ae6a87588c24a38c0810dabfd6b7acb8198"
+    },
+    {
+      "path": "experiments/article/campaigns/_recovered_sources/physical_202607/campaign_b_multidataset/campaign_b_controlled_minimal_v3_summary.csv",
+      "sha256": "be7ff87e7280328206c0a0b5dc3322366ad22c91bfb27e8df92ef9f659dc7c49"
+    },
+    {
+      "path": "experiments/article/campaigns/_recovered_sources/physical_202607/campaign_c_backend_portability/campaign_c_backend_portability_summary.csv",
+      "sha256": "2ca63fa95f4cd573434d49c935a8af5c05669f616cef63f88403302682644e88"
+    },
+    {
+      "path": "experiments/article/campaigns/_recovered_sources/robustness_20260731/archive/mcad_robustness_canonical_20260731T223533Z.tar.gz",
+      "sha256": "181ad92da7e7153869e453e1c76ecfc7b021713684c5842e33f4e3273b3119d2"
+    },
+    {
+      "path": "experiments/article/campaigns/_recovered_sources/offline_202605/recovered_runs/rebuild_article_20260523_095106/modern/scalability/catalog_scalability.csv",
+      "sha256": "5274527ac37750554e1fafd9d2431f86111240f05b1e1c1df17877c0c40b82a9"
+    },
+    {
+      "path": "experiments/article/campaigns/_recovered_sources/offline_202605/recovered_runs/rebuild_article_20260523_095106/modern/policy_benchmark/policy_summary.csv",
+      "sha256": "114931caf902a27aebd44790479e7099dd7859a144cf0ba150acad9de15fd127"
+    },
+    {
+      "path": "experiments/article/campaigns/_recovered_sources/offline_202605/recovered_runs/rebuild_article_20260523_095106/modern/evidence/evidence_usefulness_report.json",
+      "sha256": "6d327714c353bf76d8e44aa477cd95d1df72f29d1fd07ccd6c66c365b61560c8"
+    },
+    {
+      "path": "experiments/article/campaigns/_recovered_sources/offline_202605/recovered_runs/rebuild_article_20260523_095106/modern/evidence/bootstrap_benefit_summary.json",
+      "sha256": "1d25ba62200b3f67e1a60b6238d226ddee0e03f85bfc223c440902b422392cd9"
+    },
+    {
+      "path": "reports/article_experiments/publication/final_sensitivity_sources/final_sensitivity_publication_source_map.json",
+      "sha256": "2ab268bdd8ce1d84745d97f1d7cf8f1260d2190f9714658838034cad614b3a39"
+    },
+    {
+      "path": "article_update/generated_sections/section_experimentale_finale.tex",
+      "sha256": "d11049bc10d710165bcb8ecee8a36f245bfb6f17f49a7885c455641dcdf1fbe8"
+    },
+    {
+      "path": "MCAD_audited_real_main_fr.tex",
+      "sha256": "3a26ee4d8e9172933167c692a9a1e03a376098f63ab27eded9bfe8d89c97c20b"
+    },
+    {
+      "path": "experiments/article/campaigns/_lineage/FINAL_PUBLICATION_ADOPTION.json",
+      "sha256": "4aefa5c2b33c3931c5374cf4a0501e91769b3a3112b21b178e0d508d3c63c539"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\centering
+\caption{Benchmark nominal secondaire, métriques non temporelles uniquement.}
+\label{tab:v3-secondary-policy}
+\small
+\begin{tabular}{p{0.22\textwidth}p{0.08\textwidth}p{0.09\textwidth}p{0.09\textwidth}p{0.11\textwidth}p{0.11\textwidth}p{0.15\textwidth}}
+\hline
+Politique & Sessions & Phi final & AUC & False ALLOW & False BLOCK & Exec. non contributive \\
+\hline
+mcad & 500 & 0.333333 & 0.211111 & 0.0 & 0.0 & 0.0 \\
+baseline\_naive & 500 & 0.333333 & 0.211111 & 0.666667 & 0.0 & 0.666667 \\
+baseline\_measure\_overlap & 500 & 0.333333 & 0.211111 & 0.566667 & 0.0 & 0.566667 \\
+baseline\_random\_matched & 500 & 0.190667 & 0.121333 & 0.400667 & 0.142667 & 0.427667 \\
+\hline
+\end{tabular}
+\end{table*}

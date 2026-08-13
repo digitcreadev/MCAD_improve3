@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "campaign_kind": "foodmart_campaign_a_1000_ckg_first",
+  "run_count": 10,
+  "executed_session_count": 1000,
+  "executed_query_count": 7960,
+  "strict_match_count": 5346,
+  "session_context_match_count": 7960,
+  "allow_count": 2266,
+  "block_count": 5694,
+  "allow_business_physical_execution_count": 2266,
+  "block_business_physical_execution_count": 0,
+  "blocked_before_business_execution_count": 5694,
+  "canonical_gate_contract_ok_count": 7960,
+  "canonical_gate_contract_violation_count": 0,
+  "http_error_count": 0,
+  "mismatch_count": 0,
+  "source_runs": [
+    "reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260701T114015Z",
+    "reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260701T135832Z",
+    "reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260701T160245Z",
+    "reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260701T233822Z",
+    "reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T013346Z",
+    "reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T034020Z",
+    "reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T090435Z",
+    "reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T131643Z",
+    "reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T162613Z",
+    "reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T203824Z"
+  ],
+  "strict_match_rate": 0.6716080402010051,
+  "session_context_match_rate": 1.0,
+  "decision_reason_counts": {
+    "ALLOW_NEW_TOTAL": 2266,
+    "BLOCK_EMPTY_SUBSPACE": 576,
+    "BLOCK_GRAIN_MISMATCH": 770,
+    "BLOCK_MEASURE_NOT_TARGETED": 110,
+    "BLOCK_OUT_OF_OBJECTIVE_SCOPE": 300,
+    "BLOCK_REDUNDANT_DPHI_ZERO": 3372,
+    "BLOCK_SLICER_MISMATCH": 566
+  }
+}

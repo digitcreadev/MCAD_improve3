@@ -1,0 +1,9 @@
+claim_id,proof_class,claim,article_placement,authority
+V3-01,physical,Q1–Q6 + A/B/C,MAIN,canonical physical evidence
+V3-02,robustness,baselines + ablations + explainability,MAIN,frozen non-temporal robustness
+V3-03,scalability,CKG structure only,MAIN,qualified structural scalability; no May timing
+V3-04,evidence_usefulness,controlled evidence reuse,MAIN_SECONDARY_COMPACT,qualified Phase-6 evidence
+V3-05,sensitivity,constraint/VN/density/objective,MAIN,final canonical source-map only
+V3-06,policy_benchmark,nominal comparison,SUPPLEMENTARY,non-temporal only
+V3-07,phase7_statistics,historical derived statistics,EXCLUDED_AS_IS,rederive only if later required
+V3-08,human_validation,simulated annotations,EXCLUDED,no real expert provenance

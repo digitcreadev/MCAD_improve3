@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{Robustesse contrôlée : synthèse non temporelle des politiques adoptées.}
+\label{tab:v3-robustness-main}
+\small
+\begin{tabular}{p{0.23\textwidth}p{0.09\textwidth}p{0.10\textwidth}p{0.11\textwidth}p{0.11\textwidth}p{0.16\textwidth}}
+\hline
+Politique & Sessions & Phi final & False ALLOW & False BLOCK & Exec. non contributive \\
+\hline
+mcad & 240 & 0.5 & 0.0 & 0.0 & 0.0 \\
+baseline\_naive & 240 & 0.5 & 0.752083 & 0.0 & 0.752083 \\
+baseline\_measure\_overlap & 240 & 0.5 & 0.660417 & 0.0 & 0.73125 \\
+baseline\_random\_matched & 240 & 0.119444 & 0.211597 & 0.185833 & 0.650556 \\
+ablation\_no\_sat & 240 & 0.5 & 0.041667 & 0.0 & 0.125 \\
+ablation\_no\_real & 240 & 0.5 & 0.08125 & 0.0 & 0.1875 \\
+ablation\_ceval\_any\_intersection & 240 & 0.5 & 0.08125 & 0.0 & 0.1875 \\
+\hline
+\end{tabular}
+\end{table*}

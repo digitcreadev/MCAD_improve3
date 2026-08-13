@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "publication_build": "V3_FINISHED_FROM_FAILED_CANDIDATE",
+  "campaign_family_count": 15,
+  "all_campaigns_accounted_for": true,
+  "sensitivity_factor_count": 4,
+  "evidence_usefulness_accounted_for": true,
+  "phase7_may_as_is_adopted": false,
+  "historical_may_timing_publication_authorized": false,
+  "human_validation_claims_authorized": false,
+  "scientific_execution_performed": false,
+  "experiment_rerun_performed": false,
+  "statistical_execution_performed": false,
+  "integration_strategy": "verified_section_boundary_replacement",
+  "main_section": "sections/section_experimentale_finale_v3.tex",
+  "integrated_manuscript": "manuscript/MCAD_audited_real_main_fr_v3.tex",
+  "next": "VISUAL_CLAIM_AUDIT_THEN_PERSIST_PUBLICATION_V3"
+}

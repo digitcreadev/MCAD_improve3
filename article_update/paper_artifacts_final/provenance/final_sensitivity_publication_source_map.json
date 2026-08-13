@@ -1,0 +1,138 @@
+{
+  "canonical_repository_head": "fa0012fcd8f58f6150aafb40a45ffa6a1717c4d9",
+  "generated_at_utc": "2026-08-13T09:37:33.171538+00:00",
+  "post_hoc_analysis_performed": false,
+  "publication_controls": {
+    "no_new_scientific_execution_required": true,
+    "objective_count_rerun_forbidden": true,
+    "source_map_ready_for_manuscript_integration": true,
+    "stage40_authorized": false
+  },
+  "schema": "MCAD_FINAL_SENSITIVITY_PUBLICATION_SOURCE_MAP_v1",
+  "scientific_execution_performed": false,
+  "sources": {
+    "constraint_count": {
+      "freeze": {
+        "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/freeze/FREEZE.json",
+        "sha256": "3d53b5d9d0c326357571ff147b1a3b5dd3b920b1d96fb2cfcfd3326283085db5",
+        "size_bytes": 185
+      },
+      "freeze_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+      "manifest": {
+        "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/MANIFEST.json",
+        "sha256": "b7c8dc8b3e77df66b88e2ad13b183d7536e3a087705b3a69bc0034824e9d3dd5",
+        "size_bytes": 1479
+      },
+      "provenance": {
+        "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/PROVENANCE.json",
+        "sha256": "ee8ce595cb959ea3d46b1babc493e8d386af65def19994b4963588faf032f782",
+        "size_bytes": 395
+      },
+      "publication_class": "frozen_canonical_campaign",
+      "sha_registry": {
+        "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/SHA256SUMS",
+        "sha256": "ca440053144c6dfa0264a1ba3792db98b6f2d2b5a3558e513df18fe714931003",
+        "size_bytes": 832
+      },
+      "status": {
+        "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/STATUS.json",
+        "sha256": "f545609c6980794fa2710ddf185738300c3bc876cd67dcf8159e828af719f569",
+        "size_bytes": 491
+      },
+      "terminal_campaign_stage": 20
+    },
+    "membership_density": {
+      "decision": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/stage10_portfolio_precision_decision_report.json",
+        "sha256": "92a9307a89e92c5e849b0e058f5e0a3c89633f6f8cd39f98ec9a2b9392cc88a4",
+        "size_bytes": 7205
+      },
+      "decision_status": "pass",
+      "frozen_campaign_manifest": {
+        "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/MANIFEST.json",
+        "sha256": "42d5ca78a5eed2d88cef57eb0fe16ddd5fdc3d55d49722b6a85e4a8858529645",
+        "size_bytes": 1568
+      },
+      "next_stage": "prepare_membership_density_stage10_freeze",
+      "precision_input_manifest": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/membership_density/timing_stage10/precision_analysis/precision_input_manifest.json",
+        "sha256": "449d0d54bb10df84327e3d757382e33c78abe9d2c9b3c5f55e3d8d5ee6ac2451",
+        "size_bytes": 10456
+      },
+      "publication_class": "precision_decision_pass",
+      "terminal_campaign_stage": 10
+    },
+    "objective_count": {
+      "canonical_cell_count": 192,
+      "decision": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/planning/sa5_objective_count_stage30_precision_decision.json",
+        "sha256": "d2d219e2df4369673d0237cfaeed82bbaef8bf819966b574e8d757d94820d48b",
+        "size_bytes": 1388
+      },
+      "execution_manifest": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage30/precision_analysis/SA5_STAGE30_PRECISION_EXECUTION_MANIFEST.json",
+        "sha256": "ec4e8652bb94ba7234e1e88296cdf9cf22903e34ff4058112e0a10eb8310d814",
+        "size_bytes": 4962
+      },
+      "failing_cell_count": 17,
+      "final_sha_registry": {
+        "path": "reproducibility_checkpoints/sa5_objective_count_stage30_final_precision/FINAL_ARTIFACT_SHA256SUMS",
+        "sha256": "f073291b2fffd75e0d759589f7f9ab3c95c1d0e062b8a7de97624d458e13604e",
+        "size_bytes": 4290
+      },
+      "intervals": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage30/precision_analysis/sa5_stage30_precision_intervals.csv",
+        "sha256": "6c8b8d6e869c9f4a77dd169d7b8522c291e2cc3bb755002e3a516468148624fb",
+        "size_bytes": 47602
+      },
+      "m5d_build_manifest": {
+        "path": "reproducibility_checkpoints/sa5_objective_count_stage30_final_precision/M5D_BUILD_MANIFEST.json",
+        "sha256": "428f79e2ab2ec407648a94d3501743f42752593be29bababdf1066a2dfd44935",
+        "size_bytes": 23274
+      },
+      "measurement_observation_count": 576000,
+      "publication_class": "terminal_precision_limit",
+      "report": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage30/precision_analysis/sa5_stage30_precision_report.json",
+        "sha256": "37418aff764c2661696da159f47d36919ab1de8a6d2cb3bfa35053e30e192156",
+        "size_bytes": 197263
+      },
+      "rerun_forbidden": true,
+      "stage30_sufficient": false,
+      "stage40_authorized": false,
+      "status": "stage30_precision_targets_not_met",
+      "structural_seed_count": 30,
+      "successful_canonical_bootstrap_execution_count": 1,
+      "successful_precision_analysis_count": 1,
+      "terminal_campaign_stage": 30,
+      "verdict": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage30/precision_analysis/SA5_STAGE30_FINAL_VERDICT.json",
+        "sha256": "299cd7564738be9a0b09e0f51ce362c9298e4defb4b937b6ae537510899d46c0",
+        "size_bytes": 517
+      }
+    },
+    "virtual_node_count": {
+      "all_precision_targets_met": true,
+      "decision": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/stage10_precision_decision_report.json",
+        "sha256": "84ffceadaf9f07d89e28e600deb6f5c1f1b892f7350b87aeb57d4924cea4694a",
+        "size_bytes": 3335
+      },
+      "decision_status": "pass",
+      "extension_required": false,
+      "frozen_campaign_manifest": {
+        "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/MANIFEST.json",
+        "sha256": "addc5d271fc6363000e3b74d9c760f69e5f2eb078e86f3eaa5b66f37c08bafd0",
+        "size_bytes": 1483
+      },
+      "precision_input_manifest": {
+        "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/precision_input_manifest.json",
+        "sha256": "14b7ea5b150a8025b6da024792460610c4058c32c4c815164efc544941dcdbbc",
+        "size_bytes": 10089
+      },
+      "publication_class": "precision_target_met",
+      "stage10_sufficient": true,
+      "terminal_campaign_stage": 10
+    }
+  }
+}

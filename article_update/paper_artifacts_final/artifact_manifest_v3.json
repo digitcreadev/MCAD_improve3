@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "publication_build": "V3_FINISHED_FROM_FAILED_CANDIDATE",
+  "campaign_family_count": 15,
+  "all_campaigns_accounted_for": true,
+  "sensitivity_factor_count": 4,
+  "evidence_usefulness_accounted_for": true,
+  "phase7_may_as_is_adopted": false,
+  "historical_may_timing_publication_authorized": false,
+  "human_validation_claims_authorized": false,
+  "scientific_execution_performed": false,
+  "experiment_rerun_performed": false,
+  "statistical_execution_performed": false,
+  "integration_strategy": "verified_section_boundary_replacement",
+  "main_section": "sections/section_experimentale_finale_v3.tex",
+  "integrated_manuscript": "manuscript/MCAD_audited_real_main_fr_v3.tex",
+  "next": "VISUAL_CLAIM_AUDIT_THEN_PERSIST_PUBLICATION_V3",
+  "generated_at_utc": "2026-08-13T22:09:34Z",
+  "all_15_campaigns_explicitly_classified": true,
+  "final_sensitivity_sources": {
+    "constraint_count": {
+      "publication_class": "frozen_canonical_campaign",
+      "terminal_campaign_stage": 20
+    },
+    "membership_density": {
+      "publication_class": "precision_decision_pass",
+      "terminal_campaign_stage": 10
+    },
+    "objective_count": {
+      "publication_class": "terminal_precision_limit",
+      "terminal_campaign_stage": 30
+    },
+    "virtual_node_count": {
+      "publication_class": "precision_target_met",
+      "terminal_campaign_stage": 10
+    }
+  }
+}
