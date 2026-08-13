@@ -1,0 +1,32 @@
+{
+  "artifacts": {
+    "claims_gate": {
+      "path": "reports/article_experiments/publication/final_experimental_section/PUBLICATION_CLAIMS_GATE.json",
+      "sha256": "f4716929d010eb8df10ff044ce316db612f20c7e916ea55b472ff0494cbb4049"
+    },
+    "experimental_summary_table_tex": {
+      "path": "article_update/generated_tables_abc/table_experimental_summary_final.tex",
+      "sha256": "2a5c9897dcba0dc638f8a76c87c6125df90ec7d32dca0da7560d92e8bcc34d7d"
+    },
+    "section_tex": {
+      "path": "article_update/generated_sections/section_experimentale_finale.tex",
+      "sha256": "d11049bc10d710165bcb8ecee8a36f245bfb6f17f49a7885c455641dcdf1fbe8"
+    },
+    "sensitivity_table_tex": {
+      "path": "article_update/generated_tables_abc/table_sensitivity_final.tex",
+      "sha256": "a89565ce7caf890144c822340f50db4d422db222b3e07a057fd812e17f880dbc"
+    }
+  },
+  "generated_at_utc": "2026-08-13T09:59:46.083414+00:00",
+  "new_numeric_result_computed": false,
+  "objective_count_rerun_forbidden": true,
+  "post_hoc_analysis_performed": false,
+  "schema": "MCAD_FINAL_EXPERIMENTAL_SECTION_MANIFEST_v1",
+  "scientific_execution_performed": false,
+  "source_map": {
+    "path": "reports/article_experiments/publication/final_sensitivity_sources/final_sensitivity_publication_source_map.json",
+    "sha256": "2ab268bdd8ce1d84745d97f1d7cf8f1260d2190f9714658838034cad614b3a39"
+  },
+  "stage40_authorized": false,
+  "status": "FINAL_EXPERIMENTAL_SECTION_READY_FOR_PR"
+}
