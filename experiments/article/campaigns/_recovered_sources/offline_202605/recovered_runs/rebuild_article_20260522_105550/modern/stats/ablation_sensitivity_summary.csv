@@ -1,0 +1,10 @@
+ablation,metric,mcad_advantage_mean,ci_low,ci_high,dominance_rate
+ablation_no_sat,false_allow_rate,0.041667,0.032639,0.050695,0.625
+ablation_no_sat,auc_phi,0.0,0.0,0.0,0.5
+ablation_no_sat,false_block_rate,0.0,0.0,0.0,0.5
+ablation_no_real,false_allow_rate,0.08125,0.070417,0.092292,0.75
+ablation_no_real,auc_phi,0.0,0.0,0.0,0.5
+ablation_no_real,false_block_rate,0.0,0.0,0.0,0.5
+ablation_ceval_any_intersection,false_allow_rate,0.08125,0.070417,0.092292,0.75
+ablation_ceval_any_intersection,auc_phi,0.0,0.0,0.0,0.5
+ablation_ceval_any_intersection,false_block_rate,0.0,0.0,0.0,0.5

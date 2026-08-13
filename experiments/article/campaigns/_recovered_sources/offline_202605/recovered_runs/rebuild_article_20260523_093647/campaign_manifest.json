@@ -1,0 +1,22 @@
+{
+  "run_dir": "campaign_runs/rebuild_article_20260523_093647",
+  "branch": "exp/adventureworks-next",
+  "git_commit": "a0e5dc59523914d1762d1f5d2834193eec1399c8",
+  "created_at": "2026-05-23T09:39:27+00:00",
+  "pipeline": "MCAD article reproducibility pipeline",
+  "status": "completed",
+  "major_blocks": [
+    "policy_benchmark",
+    "robustness",
+    "scalability",
+    "multidataset",
+    "evidence_usefulness",
+    "statistical_analysis",
+    "human_validation",
+    "governance",
+    "hardening",
+    "legacy_results",
+    "legacy_results_1000",
+    "paper_artifacts"
+  ]
+}

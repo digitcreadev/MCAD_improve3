@@ -1,0 +1,121 @@
+{
+  "ok": true,
+  "kind": "campaign_c_backend_portability_manifest",
+  "created_utc": "2026-07-06T08:38:42.980861+00:00",
+  "run_dir": "reports/article_experiments/campaign_c_backend_portability_20260706T081904Z",
+  "objective_id": "O_AW_EUROPE_BIKES_2013_MONTH_REGION_SALES_QUANTITY",
+  "dataset": "AdventureWorksDW",
+  "comparison": "SQL Server Direct vs XMLA/eMondrian",
+  "sql_direct": {
+    "label": "sql_direct",
+    "scenario_id": "demo_adventureworks_europe_bikes_2013_sql_direct_q1_q6",
+    "objective_id": "O_AW_EUROPE_BIKES_2013_MONTH_REGION_SALES_QUANTITY",
+    "dw_id": "adventureworks_sql_direct",
+    "query_count": 6,
+    "allow_count": 2,
+    "block_count": 4,
+    "physical_allow_count": 2,
+    "blocked_without_execution_count": 4,
+    "all_decisions_expected": true,
+    "decision_sequence": [
+      "ALLOW",
+      "ALLOW",
+      "BLOCK",
+      "BLOCK",
+      "BLOCK",
+      "BLOCK"
+    ],
+    "expected_sequence": [
+      "ALLOW",
+      "ALLOW",
+      "BLOCK",
+      "BLOCK",
+      "BLOCK",
+      "BLOCK"
+    ],
+    "reason_sequence": [
+      "ALLOW_NEW_TOTAL",
+      "ALLOW_NEW_TOTAL",
+      "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "BLOCK_GRAIN_MISMATCH",
+      "BLOCK_REDUNDANT_DPHI_ZERO"
+    ],
+    "query_ids": [
+      "AW_Q1_ALLOW_SALES_MONTH_REGION",
+      "AW_Q2_ALLOW_QUANTITY_MONTH_REGION",
+      "AW_Q3_BLOCK_OUT_OF_OBJECTIVE_TERRITORY",
+      "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_PRODUCT",
+      "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+      "AW_Q6_BLOCK_REDUNDANT_SALES"
+    ],
+    "ckg_events": 2
+  },
+  "xmla": {
+    "label": "xmla",
+    "scenario_id": "demo_adventureworks_europe_bikes_2013_xmla_q1_q6",
+    "objective_id": "O_AW_EUROPE_BIKES_2013_MONTH_REGION_SALES_QUANTITY",
+    "dw_id": "adventureworks_xmla",
+    "query_count": 6,
+    "allow_count": 2,
+    "block_count": 4,
+    "physical_allow_count": 2,
+    "blocked_without_execution_count": 4,
+    "all_decisions_expected": true,
+    "decision_sequence": [
+      "ALLOW",
+      "ALLOW",
+      "BLOCK",
+      "BLOCK",
+      "BLOCK",
+      "BLOCK"
+    ],
+    "expected_sequence": [
+      "ALLOW",
+      "ALLOW",
+      "BLOCK",
+      "BLOCK",
+      "BLOCK",
+      "BLOCK"
+    ],
+    "reason_sequence": [
+      "ALLOW_NEW_TOTAL",
+      "ALLOW_NEW_TOTAL",
+      "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "BLOCK_GRAIN_MISMATCH",
+      "BLOCK_REDUNDANT_DPHI_ZERO"
+    ],
+    "query_ids": [
+      "AW_Q1_ALLOW_SALES_MONTH_REGION",
+      "AW_Q2_ALLOW_QUANTITY_MONTH_REGION",
+      "AW_Q3_BLOCK_OUT_OF_OBJECTIVE_TERRITORY",
+      "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_PRODUCT",
+      "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+      "AW_Q6_BLOCK_REDUNDANT_SALES"
+    ],
+    "ckg_events": 2
+  },
+  "portability_checks": {
+    "same_query_ids": true,
+    "same_expected_sequence": true,
+    "same_decision_sequence": true,
+    "same_reason_sequence": true,
+    "same_allow_block_counts": true,
+    "same_physical_execution_policy": true,
+    "isolated_ckg_updates": true
+  },
+  "totals": {
+    "subruns": 2,
+    "query_count": 12,
+    "allow_count": 4,
+    "block_count": 8,
+    "physical_allow_count": 4,
+    "blocked_without_execution_count": 8
+  },
+  "locked_snapshots": {
+    "campaign_a_locked_events": 2266,
+    "campaign_b_locked_events": 7
+  },
+  "interpretation": "Controlled Campaign C validates backend portability: for the same AdventureWorksDW objective and the same analytical query sequence, MCAD returns the same ALLOW/BLOCK decisions under SQL Server Direct and XMLA/eMondrian. ALLOW queries are physically executed in both paths, BLOCK queries are stopped before physical execution, and each isolated backend run creates exactly two useful CKG events."
+}

@@ -1,0 +1,2142 @@
+{
+  "version": "mcad.session_report.v1",
+  "is_authoritative": true,
+  "generator": "deterministic_formal_session_reporter",
+  "session_id": "S_0001",
+  "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "generated_at": "2026-07-17T19:05:40.166316+00:00",
+  "scope": {
+    "scenario_instance_ids": [],
+    "scenario_ids": []
+  },
+  "objective_constraints": [
+    {
+      "constraint_id": "aw_real_c1_sales_amount",
+      "virtual_node_id": "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES",
+      "measure": "SalesAmount",
+      "grain": [
+        "Date.Month",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "label": "SalesAmount for Bikes in Europe at Month x SalesTerritoryRegion grain.",
+      "fact": "FactInternetSales",
+      "aggregator": "SUM",
+      "unit": "CURRENCY"
+    },
+    {
+      "constraint_id": "aw_real_c2_total_product_cost",
+      "virtual_node_id": "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST",
+      "measure": "TotalProductCost",
+      "grain": [
+        "Date.Month",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "label": "TotalProductCost for Bikes in Europe at Month x SalesTerritoryRegion grain.",
+      "fact": "FactInternetSales",
+      "aggregator": "SUM",
+      "unit": "CURRENCY"
+    },
+    {
+      "constraint_id": "aw_real_c3_gross_margin",
+      "virtual_node_id": "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN",
+      "measure": "GrossMargin",
+      "grain": [
+        "Date.Month",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "label": "GrossMargin = SalesAmount - TotalProductCost for Bikes in Europe at Month x SalesTerritoryRegion grain.",
+      "fact": "FactInternetSales",
+      "aggregator": "SUM",
+      "unit": "CURRENCY"
+    }
+  ],
+  "summary": {
+    "total_queries": 6,
+    "allow_count": 3,
+    "block_count": 3,
+    "reason_code_distribution": {
+      "ALLOW_NEW_TOTAL": 3,
+      "BLOCK_OUT_OF_OBJECTIVE_SCOPE": 1,
+      "BLOCK_GRAIN_MISMATCH": 1,
+      "BLOCK_REDUNDANT_DPHI_ZERO": 1
+    },
+    "total_constraints": 3,
+    "covered_constraints": [
+      "aw_real_c1_sales_amount",
+      "aw_real_c2_total_product_cost",
+      "aw_real_c3_gross_margin"
+    ],
+    "remaining_constraints": [],
+    "completion_rate": 1,
+    "phi_t": 1,
+    "execution_evidence_summary": {
+      "contract_version": "mcad.execution_evidence_archive.v1",
+      "evidence_rows": 6,
+      "physical_execution_count": 3,
+      "mcad_blocked_count": 3,
+      "xmla_execution_count": 0,
+      "direct_bi_execution_count": 3,
+      "digest_count": 3,
+      "execution_paths": {
+        "sqlserver_direct": 3,
+        "not_executed": 3
+      },
+      "adapters": {
+        "adventureworks_direct": 3,
+        "none": 3
+      }
+    }
+  },
+  "rows": [
+    {
+      "step_index": 1,
+      "decision": "ALLOW",
+      "reason_code": "ALLOW_NEW_TOTAL",
+      "reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+      "scenario": {
+        "scenario_instance_id": "SSI_001",
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+        "scenario_name": "AdventureWorksDW Sales/Margin Territory validation",
+        "scenario_source": "catalog",
+        "scenario_query_index": 0,
+        "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+        "execution_mode": "scenario"
+      },
+      "formal_sat": true,
+      "passed_sat_clauses": [
+        "grain_ok",
+        "agg_ok",
+        "unit_ok",
+        "slc_ok",
+        "time_ok",
+        "nvac_ok"
+      ],
+      "failed_sat_clauses": [],
+      "nvac_ok": true,
+      "nvac_method": "hybrid_probe",
+      "nvac_estimated_cells": 3,
+      "probe_attempted": true,
+      "measures": [
+        "SalesAmount"
+      ],
+      "grain": [
+        "Date.Calendar",
+        "Date.Month",
+        "Measures.SalesAmount",
+        "Sales Territory.Sales Territory",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "ceval": [
+        "aw_real_c1_sales_amount"
+      ],
+      "realized_virtual_nodes": [
+        "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+      ],
+      "phi": 0.3333333333333333,
+      "phi_leq_t": 0.3333333333333333,
+      "delta_phi_t": 0.3333333333333333,
+      "eval_ms": 2208,
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+      "formal_summary_fr": "Ceval(QP,O) contient 1 contrainte(s) calculable(s) : aw_real_c1_sales_amount. Décision ALLOW : Δφ=0.3333333333333333 indique un gain marginal positif pour la session.",
+      "execution_evidence": {
+        "archive_recorded_at_ms": 1784313195951,
+        "contract_version": "mcad.execution_evidence.v1",
+        "execution": {
+          "adapter_family": "sqlserver_direct",
+          "adapter_id": "adventureworks_direct",
+          "attempted": true,
+          "backend_type": "sqlserver_direct",
+          "catalog": null,
+          "columns_count": 7,
+          "cube": "Sales",
+          "demo_materialized": false,
+          "elapsed_ms": 49,
+          "error": null,
+          "execution_path": "sqlserver_direct",
+          "fallback_used": false,
+          "forwarded_to": null,
+          "logical_query_language": "mdx",
+          "physical_execution": true,
+          "physical_query_language": "sqlserver_tsql",
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": 9275,
+          "response_digest": "50ab82f87826fcad",
+          "result_digest": "50ab82f87826fcad",
+          "row_count": 36,
+          "selected_dw_id": "adventureworks_sql_direct",
+          "status": "EXECUTED",
+          "status_code": 200,
+          "xmla_response_type": null
+        },
+        "formal_metrics": {
+          "ceval": 0.3333333333333333,
+          "delta_phi": 0.3333333333333333,
+          "phi": 0.3333333333333333,
+          "real": 0.3333333333333333,
+          "sat": 1,
+          "threshold": 0.6
+        },
+        "generated_at_ms": 1784313195951,
+        "graph_update_summary": {
+          "covered_constraints": [
+            "c_sales"
+          ],
+          "delta_phi": 0.3333333333333333,
+          "grain": [
+            "Date.Calendar",
+            "Date.Month",
+            "Measures.SalesAmount",
+            "Sales Territory.Sales Territory",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "measures": [
+            "SalesAmount"
+          ],
+          "partially_covered_constraints": [],
+          "realized_virtual_nodes": [
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+          ],
+          "slicers": {
+            "Date.Calendar Year": "2013",
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe"
+          }
+        },
+        "mcad_gate": {
+          "allowed_by_mcad": true,
+          "decision": "ALLOW",
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "eval_elapsed_ms": 2224,
+          "fail_closed": false,
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "session_id": "S_0001",
+          "step_index": 1
+        },
+        "query": {
+          "execution_mode": "scenario",
+          "query_digest": "2529fe2c3e67e832",
+          "query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+          "query_type": "mdx",
+          "scenario_instance_id": "SSI_001",
+          "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+          "scenario_query_index": 0,
+          "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+        },
+        "report_fields": {
+          "adapter_id": "adventureworks_direct",
+          "blocked_before_execution": false,
+          "ceval": 0.3333333333333333,
+          "columns_count": 7,
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "delta_phi": 0.3333333333333333,
+          "elapsed_ms": 49,
+          "execution_attempted": true,
+          "execution_path": "sqlserver_direct",
+          "execution_status": "EXECUTED",
+          "mcad_allowed": true,
+          "mcad_decision": "ALLOW",
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "phi": 0.3333333333333333,
+          "physical_execution": true,
+          "query_digest": "2529fe2c3e67e832",
+          "query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+          "real": 0.3333333333333333,
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": 9275,
+          "response_digest": "50ab82f87826fcad",
+          "result_digest": "50ab82f87826fcad",
+          "row_count": 36,
+          "sat": 1,
+          "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+          "selected_dw_id": "adventureworks_sql_direct",
+          "session_id": "S_0001",
+          "status_code": 200,
+          "step_index": 1,
+          "threshold": 0.6,
+          "xmla_response_type": null
+        },
+        "sat_clauses": {
+          "agg_ok": true,
+          "grain_ok": true,
+          "nvac_ok": true,
+          "slc_ok": true,
+          "time_ok": true,
+          "unit_ok": true
+        }
+      },
+      "execution_evidence_contract": "mcad.execution_evidence.v1",
+      "execution_status": "EXECUTED",
+      "execution_path": "sqlserver_direct",
+      "adapter_id": "adventureworks_direct",
+      "selected_dw_id": "adventureworks_sql_direct",
+      "requested_dw_id": "adventureworks_sql_direct",
+      "physical_execution": true,
+      "blocked_before_execution": false,
+      "execution_attempted": true,
+      "status_code": 200,
+      "elapsed_ms": 49,
+      "response_bytes": 9275,
+      "response_digest": "50ab82f87826fcad",
+      "result_digest": "50ab82f87826fcad",
+      "row_count": 36,
+      "columns_count": 7,
+      "mcad_allowed": true,
+      "mcad_decision": "ALLOW",
+      "decision_reason_code": "ALLOW_NEW_TOTAL",
+      "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "session_id": "S_0001",
+      "query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+      "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+      "query_digest": "2529fe2c3e67e832",
+      "sat": 1,
+      "real": 0.3333333333333333,
+      "delta_phi": 0.3333333333333333,
+      "threshold": 0.6
+    },
+    {
+      "step_index": 2,
+      "decision": "ALLOW",
+      "reason_code": "ALLOW_NEW_TOTAL",
+      "reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+      "scenario": {
+        "scenario_instance_id": "SSI_001",
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+        "scenario_name": "AdventureWorksDW Sales/Margin Territory validation",
+        "scenario_source": "catalog",
+        "scenario_query_index": 1,
+        "scenario_query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+        "execution_mode": "scenario"
+      },
+      "formal_sat": true,
+      "passed_sat_clauses": [
+        "grain_ok",
+        "agg_ok",
+        "unit_ok",
+        "slc_ok",
+        "time_ok",
+        "nvac_ok"
+      ],
+      "failed_sat_clauses": [],
+      "nvac_ok": true,
+      "nvac_method": "hybrid_probe",
+      "nvac_estimated_cells": 3,
+      "probe_attempted": true,
+      "measures": [
+        "TotalProductCost"
+      ],
+      "grain": [
+        "Date.Calendar",
+        "Date.Month",
+        "Measures.TotalProductCost",
+        "Sales Territory.Sales Territory",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "ceval": [
+        "aw_real_c2_total_product_cost"
+      ],
+      "realized_virtual_nodes": [
+        "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST"
+      ],
+      "phi": 0.6666666666666666,
+      "phi_leq_t": 0.6666666666666666,
+      "delta_phi_t": 0.3333333333333333,
+      "eval_ms": 44,
+      "mdx": "SELECT {[Measures].[TotalProductCost]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+      "formal_summary_fr": "Ceval(QP,O) contient 1 contrainte(s) calculable(s) : aw_real_c2_total_product_cost. Décision ALLOW : Δφ=0.3333333333333333 indique un gain marginal positif pour la session.",
+      "execution_evidence": {
+        "archive_recorded_at_ms": 1784313199092,
+        "contract_version": "mcad.execution_evidence.v1",
+        "execution": {
+          "adapter_family": "sqlserver_direct",
+          "adapter_id": "adventureworks_direct",
+          "attempted": true,
+          "backend_type": "sqlserver_direct",
+          "catalog": null,
+          "columns_count": 7,
+          "cube": "Sales",
+          "demo_materialized": false,
+          "elapsed_ms": 49,
+          "error": null,
+          "execution_path": "sqlserver_direct",
+          "fallback_used": false,
+          "forwarded_to": null,
+          "logical_query_language": "mdx",
+          "physical_execution": true,
+          "physical_query_language": "sqlserver_tsql",
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": 9455,
+          "response_digest": "f3012474ae5c4255",
+          "result_digest": "f3012474ae5c4255",
+          "row_count": 36,
+          "selected_dw_id": "adventureworks_sql_direct",
+          "status": "EXECUTED",
+          "status_code": 200,
+          "xmla_response_type": null
+        },
+        "formal_metrics": {
+          "ceval": 0.3333333333333333,
+          "delta_phi": 0.3333333333333333,
+          "phi": 0.6666666666666666,
+          "real": 0.3333333333333333,
+          "sat": 1,
+          "threshold": 0.6
+        },
+        "generated_at_ms": 1784313199092,
+        "graph_update_summary": {
+          "covered_constraints": [
+            "aw_real_c2_total_product_cost"
+          ],
+          "delta_phi": 0.3333333333333333,
+          "grain": [
+            "Date.Calendar",
+            "Date.Month",
+            "Measures.TotalProductCost",
+            "Sales Territory.Sales Territory",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "measures": [
+            "TotalProductCost"
+          ],
+          "partially_covered_constraints": [],
+          "realized_virtual_nodes": [
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST"
+          ],
+          "slicers": {
+            "Date.Calendar Year": "2013",
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe"
+          }
+        },
+        "mcad_gate": {
+          "allowed_by_mcad": true,
+          "decision": "ALLOW",
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "eval_elapsed_ms": 52,
+          "fail_closed": false,
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "session_id": "S_0001",
+          "step_index": 2
+        },
+        "query": {
+          "execution_mode": "scenario",
+          "query_digest": "bb4aa4327e2c7569",
+          "query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+          "query_type": "mdx",
+          "scenario_instance_id": "SSI_001",
+          "scenario_query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+          "scenario_query_index": 1,
+          "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+        },
+        "report_fields": {
+          "adapter_id": "adventureworks_direct",
+          "blocked_before_execution": false,
+          "ceval": 0.3333333333333333,
+          "columns_count": 7,
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "delta_phi": 0.3333333333333333,
+          "elapsed_ms": 49,
+          "execution_attempted": true,
+          "execution_path": "sqlserver_direct",
+          "execution_status": "EXECUTED",
+          "mcad_allowed": true,
+          "mcad_decision": "ALLOW",
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "phi": 0.6666666666666666,
+          "physical_execution": true,
+          "query_digest": "bb4aa4327e2c7569",
+          "query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+          "real": 0.3333333333333333,
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": 9455,
+          "response_digest": "f3012474ae5c4255",
+          "result_digest": "f3012474ae5c4255",
+          "row_count": 36,
+          "sat": 1,
+          "scenario_query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+          "selected_dw_id": "adventureworks_sql_direct",
+          "session_id": "S_0001",
+          "status_code": 200,
+          "step_index": 2,
+          "threshold": 0.6,
+          "xmla_response_type": null
+        },
+        "sat_clauses": {
+          "agg_ok": true,
+          "grain_ok": true,
+          "nvac_ok": true,
+          "slc_ok": true,
+          "time_ok": true,
+          "unit_ok": true
+        }
+      },
+      "execution_evidence_contract": "mcad.execution_evidence.v1",
+      "execution_status": "EXECUTED",
+      "execution_path": "sqlserver_direct",
+      "adapter_id": "adventureworks_direct",
+      "selected_dw_id": "adventureworks_sql_direct",
+      "requested_dw_id": "adventureworks_sql_direct",
+      "physical_execution": true,
+      "blocked_before_execution": false,
+      "execution_attempted": true,
+      "status_code": 200,
+      "elapsed_ms": 49,
+      "response_bytes": 9455,
+      "response_digest": "f3012474ae5c4255",
+      "result_digest": "f3012474ae5c4255",
+      "row_count": 36,
+      "columns_count": 7,
+      "mcad_allowed": true,
+      "mcad_decision": "ALLOW",
+      "decision_reason_code": "ALLOW_NEW_TOTAL",
+      "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "session_id": "S_0001",
+      "query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+      "scenario_query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+      "query_digest": "bb4aa4327e2c7569",
+      "sat": 1,
+      "real": 0.3333333333333333,
+      "delta_phi": 0.3333333333333333,
+      "threshold": 0.6
+    },
+    {
+      "step_index": 3,
+      "decision": "ALLOW",
+      "reason_code": "ALLOW_NEW_TOTAL",
+      "reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+      "scenario": {
+        "scenario_instance_id": "SSI_001",
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+        "scenario_name": "AdventureWorksDW Sales/Margin Territory validation",
+        "scenario_source": "catalog",
+        "scenario_query_index": 2,
+        "scenario_query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+        "execution_mode": "scenario"
+      },
+      "formal_sat": true,
+      "passed_sat_clauses": [
+        "grain_ok",
+        "agg_ok",
+        "unit_ok",
+        "slc_ok",
+        "time_ok",
+        "nvac_ok"
+      ],
+      "failed_sat_clauses": [],
+      "nvac_ok": true,
+      "nvac_method": "hybrid_probe",
+      "nvac_estimated_cells": 3,
+      "probe_attempted": true,
+      "measures": [
+        "GrossMargin"
+      ],
+      "grain": [
+        "Date.Calendar",
+        "Date.Month",
+        "Measures.GrossMargin",
+        "Sales Territory.Sales Territory",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "ceval": [
+        "aw_real_c3_gross_margin"
+      ],
+      "realized_virtual_nodes": [
+        "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN"
+      ],
+      "phi": 1,
+      "phi_leq_t": 1,
+      "delta_phi_t": 0.3333333333333333,
+      "eval_ms": 44,
+      "mdx": "SELECT {[Measures].[GrossMargin]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+      "formal_summary_fr": "Ceval(QP,O) contient 1 contrainte(s) calculable(s) : aw_real_c3_gross_margin. Décision ALLOW : Δφ=0.3333333333333333 indique un gain marginal positif pour la session.",
+      "execution_evidence": {
+        "archive_recorded_at_ms": 1784313202372,
+        "contract_version": "mcad.execution_evidence.v1",
+        "execution": {
+          "adapter_family": "sqlserver_direct",
+          "adapter_id": "adventureworks_direct",
+          "attempted": true,
+          "backend_type": "sqlserver_direct",
+          "catalog": null,
+          "columns_count": 7,
+          "cube": "Sales",
+          "demo_materialized": false,
+          "elapsed_ms": 50,
+          "error": null,
+          "execution_path": "sqlserver_direct",
+          "fallback_used": false,
+          "forwarded_to": null,
+          "logical_query_language": "mdx",
+          "physical_execution": true,
+          "physical_query_language": "sqlserver_tsql",
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": 9266,
+          "response_digest": "8a4cc85806217b90",
+          "result_digest": "8a4cc85806217b90",
+          "row_count": 36,
+          "selected_dw_id": "adventureworks_sql_direct",
+          "status": "EXECUTED",
+          "status_code": 200,
+          "xmla_response_type": null
+        },
+        "formal_metrics": {
+          "ceval": 0.3333333333333333,
+          "delta_phi": 0.3333333333333333,
+          "phi": 1,
+          "real": 0.3333333333333333,
+          "sat": 1,
+          "threshold": 0.6
+        },
+        "generated_at_ms": 1784313202372,
+        "graph_update_summary": {
+          "covered_constraints": [
+            "c_profit"
+          ],
+          "delta_phi": 0.3333333333333333,
+          "grain": [
+            "Date.Calendar",
+            "Date.Month",
+            "Measures.GrossMargin",
+            "Sales Territory.Sales Territory",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "measures": [
+            "GrossMargin"
+          ],
+          "partially_covered_constraints": [],
+          "realized_virtual_nodes": [
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN"
+          ],
+          "slicers": {
+            "Date.Calendar Year": "2013",
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe"
+          }
+        },
+        "mcad_gate": {
+          "allowed_by_mcad": true,
+          "decision": "ALLOW",
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "eval_elapsed_ms": 53,
+          "fail_closed": false,
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "session_id": "S_0001",
+          "step_index": 3
+        },
+        "query": {
+          "execution_mode": "scenario",
+          "query_digest": "d5a4308e228fa4bd",
+          "query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+          "query_type": "mdx",
+          "scenario_instance_id": "SSI_001",
+          "scenario_query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+          "scenario_query_index": 2,
+          "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+        },
+        "report_fields": {
+          "adapter_id": "adventureworks_direct",
+          "blocked_before_execution": false,
+          "ceval": 0.3333333333333333,
+          "columns_count": 7,
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "delta_phi": 0.3333333333333333,
+          "elapsed_ms": 50,
+          "execution_attempted": true,
+          "execution_path": "sqlserver_direct",
+          "execution_status": "EXECUTED",
+          "mcad_allowed": true,
+          "mcad_decision": "ALLOW",
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "phi": 1,
+          "physical_execution": true,
+          "query_digest": "d5a4308e228fa4bd",
+          "query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+          "real": 0.3333333333333333,
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": 9266,
+          "response_digest": "8a4cc85806217b90",
+          "result_digest": "8a4cc85806217b90",
+          "row_count": 36,
+          "sat": 1,
+          "scenario_query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+          "selected_dw_id": "adventureworks_sql_direct",
+          "session_id": "S_0001",
+          "status_code": 200,
+          "step_index": 3,
+          "threshold": 0.6,
+          "xmla_response_type": null
+        },
+        "sat_clauses": {
+          "agg_ok": true,
+          "grain_ok": true,
+          "nvac_ok": true,
+          "slc_ok": true,
+          "time_ok": true,
+          "unit_ok": true
+        }
+      },
+      "execution_evidence_contract": "mcad.execution_evidence.v1",
+      "execution_status": "EXECUTED",
+      "execution_path": "sqlserver_direct",
+      "adapter_id": "adventureworks_direct",
+      "selected_dw_id": "adventureworks_sql_direct",
+      "requested_dw_id": "adventureworks_sql_direct",
+      "physical_execution": true,
+      "blocked_before_execution": false,
+      "execution_attempted": true,
+      "status_code": 200,
+      "elapsed_ms": 50,
+      "response_bytes": 9266,
+      "response_digest": "8a4cc85806217b90",
+      "result_digest": "8a4cc85806217b90",
+      "row_count": 36,
+      "columns_count": 7,
+      "mcad_allowed": true,
+      "mcad_decision": "ALLOW",
+      "decision_reason_code": "ALLOW_NEW_TOTAL",
+      "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "session_id": "S_0001",
+      "query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+      "scenario_query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+      "query_digest": "d5a4308e228fa4bd",
+      "sat": 1,
+      "real": 0.3333333333333333,
+      "delta_phi": 0.3333333333333333,
+      "threshold": 0.6
+    },
+    {
+      "step_index": 4,
+      "decision": "BLOCK",
+      "reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "reason": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+      "scenario": {
+        "scenario_instance_id": "SSI_001",
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+        "scenario_name": "AdventureWorksDW Sales/Margin Territory validation",
+        "scenario_source": "catalog",
+        "scenario_query_index": 3,
+        "scenario_query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+        "execution_mode": "scenario"
+      },
+      "formal_sat": true,
+      "passed_sat_clauses": [
+        "grain_ok",
+        "agg_ok",
+        "unit_ok",
+        "slc_ok",
+        "time_ok",
+        "nvac_ok"
+      ],
+      "failed_sat_clauses": [],
+      "nvac_ok": true,
+      "nvac_method": "hybrid_probe",
+      "nvac_estimated_cells": 3,
+      "probe_attempted": true,
+      "measures": [
+        "SalesAmount"
+      ],
+      "grain": [
+        "Date.Calendar",
+        "Date.Month",
+        "Measures.SalesAmount",
+        "Sales Territory.Sales Territory",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Accessories",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "ceval": [],
+      "realized_virtual_nodes": [],
+      "phi": 0,
+      "phi_leq_t": 1,
+      "delta_phi_t": 0,
+      "eval_ms": 81,
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Accessories], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+      "formal_summary_fr": "Ceval(QP,O)=∅ : aucune contrainte de l’objectif actif ne devient calculable par cette requête. Décision BLOCK : le QP est valide mais son contexte est hors périmètre de l’objectif actif, donc Ceval(QP,O)=∅.",
+      "execution_evidence": {
+        "archive_recorded_at_ms": 1784313205582,
+        "contract_version": "mcad.execution_evidence.v1",
+        "execution": {
+          "adapter_family": null,
+          "adapter_id": null,
+          "attempted": false,
+          "backend_type": null,
+          "catalog": null,
+          "columns_count": null,
+          "cube": null,
+          "demo_materialized": false,
+          "elapsed_ms": null,
+          "error": null,
+          "execution_path": null,
+          "fallback_used": false,
+          "forwarded_to": null,
+          "logical_query_language": "mdx",
+          "physical_execution": false,
+          "physical_query_language": null,
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": null,
+          "response_digest": null,
+          "result_digest": null,
+          "row_count": null,
+          "selected_dw_id": "adventureworks_sql_direct",
+          "status": "MCAD_BLOCKED",
+          "status_code": null,
+          "xmla_response_type": null
+        },
+        "formal_metrics": {
+          "ceval": 0,
+          "delta_phi": 0,
+          "phi": 0,
+          "real": 0,
+          "sat": 1,
+          "threshold": 0.6
+        },
+        "generated_at_ms": 1784313205582,
+        "graph_update_summary": {
+          "covered_constraints": [
+            "aw_real_c2_total_product_cost",
+            "c_profit",
+            "c_sales"
+          ],
+          "delta_phi": 0,
+          "grain": [
+            "Date.Calendar",
+            "Date.Month",
+            "Measures.SalesAmount",
+            "Sales Territory.Sales Territory",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "measures": [
+            "SalesAmount"
+          ],
+          "partially_covered_constraints": [],
+          "realized_virtual_nodes": [
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST",
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN",
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+          ],
+          "slicers": {
+            "Date.Calendar Year": "2013",
+            "Product.Product Category": "Accessories",
+            "Sales Territory.Sales Territory Group": "Europe"
+          }
+        },
+        "mcad_gate": {
+          "allowed_by_mcad": false,
+          "decision": "BLOCK",
+          "decision_reason": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+          "decision_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+          "eval_elapsed_ms": 97,
+          "fail_closed": true,
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "session_id": "S_0001",
+          "step_index": 4
+        },
+        "query": {
+          "execution_mode": "scenario",
+          "query_digest": "ef766d4bc33e4201",
+          "query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+          "query_type": "mdx",
+          "scenario_instance_id": "SSI_001",
+          "scenario_query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+          "scenario_query_index": 3,
+          "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+        },
+        "report_fields": {
+          "adapter_id": null,
+          "blocked_before_execution": true,
+          "ceval": 0,
+          "columns_count": null,
+          "decision_reason": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+          "decision_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+          "delta_phi": 0,
+          "elapsed_ms": null,
+          "execution_attempted": false,
+          "execution_path": null,
+          "execution_status": "MCAD_BLOCKED",
+          "mcad_allowed": false,
+          "mcad_decision": "BLOCK",
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "phi": 0,
+          "physical_execution": false,
+          "query_digest": "ef766d4bc33e4201",
+          "query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+          "real": 0,
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": null,
+          "response_digest": null,
+          "result_digest": null,
+          "row_count": null,
+          "sat": 1,
+          "scenario_query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+          "selected_dw_id": "adventureworks_sql_direct",
+          "session_id": "S_0001",
+          "status_code": null,
+          "step_index": 4,
+          "threshold": 0.6,
+          "xmla_response_type": null
+        },
+        "sat_clauses": {
+          "agg_ok": true,
+          "grain_ok": true,
+          "nvac_ok": true,
+          "slc_ok": true,
+          "time_ok": true,
+          "unit_ok": true
+        }
+      },
+      "execution_evidence_contract": "mcad.execution_evidence.v1",
+      "execution_status": "MCAD_BLOCKED",
+      "selected_dw_id": "adventureworks_sql_direct",
+      "requested_dw_id": "adventureworks_sql_direct",
+      "physical_execution": false,
+      "blocked_before_execution": true,
+      "execution_attempted": false,
+      "mcad_allowed": false,
+      "mcad_decision": "BLOCK",
+      "decision_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "decision_reason": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "session_id": "S_0001",
+      "query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+      "scenario_query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+      "query_digest": "ef766d4bc33e4201",
+      "sat": 1,
+      "real": 0,
+      "delta_phi": 0,
+      "threshold": 0.6
+    },
+    {
+      "step_index": 5,
+      "decision": "BLOCK",
+      "reason_code": "BLOCK_GRAIN_MISMATCH",
+      "reason": "Formal SAT clause failed: grain_ok",
+      "scenario": {
+        "scenario_instance_id": "SSI_001",
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+        "scenario_name": "AdventureWorksDW Sales/Margin Territory validation",
+        "scenario_source": "catalog",
+        "scenario_query_index": 4,
+        "scenario_query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+        "execution_mode": "scenario"
+      },
+      "formal_sat": false,
+      "passed_sat_clauses": [
+        "agg_ok",
+        "unit_ok",
+        "slc_ok",
+        "time_ok",
+        "nvac_ok"
+      ],
+      "failed_sat_clauses": [
+        "grain_ok"
+      ],
+      "nvac_ok": true,
+      "nvac_method": "hybrid_probe",
+      "nvac_estimated_cells": 3,
+      "probe_attempted": true,
+      "measures": [
+        "SalesAmount"
+      ],
+      "grain": [
+        "Date.Calendar",
+        "Date.Calendar Year",
+        "Measures.SalesAmount",
+        "Sales Territory.Sales Territory",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "ceval": [],
+      "realized_virtual_nodes": [],
+      "phi": 0,
+      "phi_leq_t": 1,
+      "delta_phi_t": 0,
+      "eval_ms": 44,
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Calendar Year].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+      "formal_summary_fr": "nvac_ok(QP)=true : méthode=hybrid_probe, estimated_cells=3, probe_attempted=True. Comme SAT(QP)=false, MCAD bloque la requête avant toute contribution décisionnelle.",
+      "execution_evidence": {
+        "archive_recorded_at_ms": 1784313208950,
+        "contract_version": "mcad.execution_evidence.v1",
+        "execution": {
+          "adapter_family": null,
+          "adapter_id": null,
+          "attempted": false,
+          "backend_type": null,
+          "catalog": null,
+          "columns_count": null,
+          "cube": null,
+          "demo_materialized": false,
+          "elapsed_ms": null,
+          "error": null,
+          "execution_path": null,
+          "fallback_used": false,
+          "forwarded_to": null,
+          "logical_query_language": "mdx",
+          "physical_execution": false,
+          "physical_query_language": null,
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": null,
+          "response_digest": null,
+          "result_digest": null,
+          "row_count": null,
+          "selected_dw_id": "adventureworks_sql_direct",
+          "status": "MCAD_BLOCKED",
+          "status_code": null,
+          "xmla_response_type": null
+        },
+        "formal_metrics": {
+          "ceval": 0,
+          "delta_phi": 0,
+          "phi": 1,
+          "real": 0,
+          "sat": 0,
+          "threshold": 0.6
+        },
+        "generated_at_ms": 1784313208950,
+        "graph_update_summary": {
+          "covered_constraints": [
+            "aw_real_c2_total_product_cost",
+            "c_profit",
+            "c_sales"
+          ],
+          "delta_phi": 0,
+          "grain": [
+            "Date.Calendar",
+            "Date.Calendar Year",
+            "Measures.SalesAmount",
+            "Sales Territory.Sales Territory",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "measures": [
+            "SalesAmount"
+          ],
+          "partially_covered_constraints": [],
+          "realized_virtual_nodes": [
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST",
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN",
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+          ],
+          "slicers": {
+            "Date.Calendar Year": "2013",
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe"
+          }
+        },
+        "mcad_gate": {
+          "allowed_by_mcad": false,
+          "decision": "BLOCK",
+          "decision_reason": "Formal SAT clause failed: grain_ok",
+          "decision_reason_code": "BLOCK_GRAIN_MISMATCH",
+          "eval_elapsed_ms": 57,
+          "fail_closed": true,
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "session_id": "S_0001",
+          "step_index": 5
+        },
+        "query": {
+          "execution_mode": "scenario",
+          "query_digest": "e318564798e0d3a6",
+          "query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+          "query_type": "mdx",
+          "scenario_instance_id": "SSI_001",
+          "scenario_query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+          "scenario_query_index": 4,
+          "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+        },
+        "report_fields": {
+          "adapter_id": null,
+          "blocked_before_execution": true,
+          "ceval": 0,
+          "columns_count": null,
+          "decision_reason": "Formal SAT clause failed: grain_ok",
+          "decision_reason_code": "BLOCK_GRAIN_MISMATCH",
+          "delta_phi": 0,
+          "elapsed_ms": null,
+          "execution_attempted": false,
+          "execution_path": null,
+          "execution_status": "MCAD_BLOCKED",
+          "mcad_allowed": false,
+          "mcad_decision": "BLOCK",
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "phi": 1,
+          "physical_execution": false,
+          "query_digest": "e318564798e0d3a6",
+          "query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+          "real": 0,
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": null,
+          "response_digest": null,
+          "result_digest": null,
+          "row_count": null,
+          "sat": 0,
+          "scenario_query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+          "selected_dw_id": "adventureworks_sql_direct",
+          "session_id": "S_0001",
+          "status_code": null,
+          "step_index": 5,
+          "threshold": 0.6,
+          "xmla_response_type": null
+        },
+        "sat_clauses": {
+          "agg_ok": true,
+          "grain_ok": false,
+          "nvac_ok": true,
+          "slc_ok": true,
+          "time_ok": true,
+          "unit_ok": true
+        }
+      },
+      "execution_evidence_contract": "mcad.execution_evidence.v1",
+      "execution_status": "MCAD_BLOCKED",
+      "selected_dw_id": "adventureworks_sql_direct",
+      "requested_dw_id": "adventureworks_sql_direct",
+      "physical_execution": false,
+      "blocked_before_execution": true,
+      "execution_attempted": false,
+      "mcad_allowed": false,
+      "mcad_decision": "BLOCK",
+      "decision_reason_code": "BLOCK_GRAIN_MISMATCH",
+      "decision_reason": "Formal SAT clause failed: grain_ok",
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "session_id": "S_0001",
+      "query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+      "scenario_query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+      "query_digest": "e318564798e0d3a6",
+      "sat": 0,
+      "real": 0,
+      "delta_phi": 0,
+      "threshold": 0.6
+    },
+    {
+      "step_index": 6,
+      "decision": "BLOCK",
+      "reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+      "reason": "Contract-driven redundancy: matched constraint(s) already covered in the current session.",
+      "scenario": {
+        "scenario_instance_id": "SSI_001",
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6",
+        "scenario_name": "AdventureWorksDW Sales/Margin Territory validation",
+        "scenario_source": "catalog",
+        "scenario_query_index": 5,
+        "scenario_query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+        "execution_mode": "scenario"
+      },
+      "formal_sat": true,
+      "passed_sat_clauses": [
+        "grain_ok",
+        "agg_ok",
+        "unit_ok",
+        "slc_ok",
+        "time_ok",
+        "nvac_ok"
+      ],
+      "failed_sat_clauses": [],
+      "nvac_ok": true,
+      "nvac_method": "hybrid_probe",
+      "nvac_estimated_cells": 3,
+      "probe_attempted": true,
+      "measures": [
+        "SalesAmount"
+      ],
+      "grain": [
+        "Date.Calendar",
+        "Date.Month",
+        "Measures.SalesAmount",
+        "Sales Territory.Sales Territory",
+        "Sales Territory.Sales Territory Region"
+      ],
+      "slicers": {
+        "Product.Product Category": "Bikes",
+        "Sales Territory.Sales Territory Group": "Europe",
+        "Date.Calendar Year": "2013"
+      },
+      "ceval": [],
+      "realized_virtual_nodes": [],
+      "phi": 0,
+      "phi_leq_t": 1,
+      "delta_phi_t": 0,
+      "eval_ms": 3,
+      "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS, CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes], [Sales Territory].[Sales Territory Group].[Europe], [Date].[Calendar Year].[2013])",
+      "formal_summary_fr": "Ceval(QP,O)=∅ : aucune contrainte de l’objectif actif ne devient calculable par cette requête. Décision BLOCK : la requête est redondante, les contraintes correspondantes ont déjà été couvertes dans la session, donc Δφ=0.",
+      "execution_evidence": {
+        "archive_recorded_at_ms": 1784313212465,
+        "contract_version": "mcad.execution_evidence.v1",
+        "execution": {
+          "adapter_family": null,
+          "adapter_id": null,
+          "attempted": false,
+          "backend_type": null,
+          "catalog": null,
+          "columns_count": null,
+          "cube": null,
+          "demo_materialized": false,
+          "elapsed_ms": null,
+          "error": null,
+          "execution_path": null,
+          "fallback_used": false,
+          "forwarded_to": null,
+          "logical_query_language": "mdx",
+          "physical_execution": false,
+          "physical_query_language": null,
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": null,
+          "response_digest": null,
+          "result_digest": null,
+          "row_count": null,
+          "selected_dw_id": "adventureworks_sql_direct",
+          "status": "MCAD_BLOCKED",
+          "status_code": null,
+          "xmla_response_type": null
+        },
+        "formal_metrics": {
+          "ceval": 0,
+          "delta_phi": 0,
+          "phi": 1,
+          "real": 0,
+          "sat": 1,
+          "threshold": 0.6
+        },
+        "generated_at_ms": 1784313212465,
+        "graph_update_summary": {
+          "covered_constraints": [
+            "aw_real_c2_total_product_cost",
+            "c_profit",
+            "c_sales"
+          ],
+          "delta_phi": 0,
+          "grain": [
+            "Date.Calendar",
+            "Date.Month",
+            "Measures.SalesAmount",
+            "Sales Territory.Sales Territory",
+            "Sales Territory.Sales Territory Region"
+          ],
+          "measures": [
+            "SalesAmount"
+          ],
+          "partially_covered_constraints": [],
+          "realized_virtual_nodes": [
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST",
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN",
+            "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+          ],
+          "slicers": {
+            "Date.Calendar Year": "2013",
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe"
+          }
+        },
+        "mcad_gate": {
+          "allowed_by_mcad": false,
+          "decision": "BLOCK",
+          "decision_reason": "Contract-driven redundancy: matched constraint(s) already covered in the current session.",
+          "decision_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+          "eval_elapsed_ms": 18,
+          "fail_closed": true,
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "session_id": "S_0001",
+          "step_index": 6
+        },
+        "query": {
+          "execution_mode": "scenario",
+          "query_digest": "2529fe2c3e67e832",
+          "query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+          "query_type": "mdx",
+          "scenario_instance_id": "SSI_001",
+          "scenario_query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+          "scenario_query_index": 5,
+          "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+        },
+        "report_fields": {
+          "adapter_id": null,
+          "blocked_before_execution": true,
+          "ceval": 0,
+          "columns_count": null,
+          "decision_reason": "Contract-driven redundancy: matched constraint(s) already covered in the current session.",
+          "decision_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+          "delta_phi": 0,
+          "elapsed_ms": null,
+          "execution_attempted": false,
+          "execution_path": null,
+          "execution_status": "MCAD_BLOCKED",
+          "mcad_allowed": false,
+          "mcad_decision": "BLOCK",
+          "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+          "phi": 1,
+          "physical_execution": false,
+          "query_digest": "2529fe2c3e67e832",
+          "query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+          "real": 0,
+          "requested_dw_id": "adventureworks_sql_direct",
+          "response_bytes": null,
+          "response_digest": null,
+          "result_digest": null,
+          "row_count": null,
+          "sat": 1,
+          "scenario_query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+          "selected_dw_id": "adventureworks_sql_direct",
+          "session_id": "S_0001",
+          "status_code": null,
+          "step_index": 6,
+          "threshold": 0.6,
+          "xmla_response_type": null
+        },
+        "sat_clauses": {
+          "agg_ok": true,
+          "grain_ok": true,
+          "nvac_ok": true,
+          "slc_ok": true,
+          "time_ok": true,
+          "unit_ok": true
+        }
+      },
+      "execution_evidence_contract": "mcad.execution_evidence.v1",
+      "execution_status": "MCAD_BLOCKED",
+      "selected_dw_id": "adventureworks_sql_direct",
+      "requested_dw_id": "adventureworks_sql_direct",
+      "physical_execution": false,
+      "blocked_before_execution": true,
+      "execution_attempted": false,
+      "mcad_allowed": false,
+      "mcad_decision": "BLOCK",
+      "decision_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+      "decision_reason": "Contract-driven redundancy: matched constraint(s) already covered in the current session.",
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "session_id": "S_0001",
+      "query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+      "scenario_query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+      "query_digest": "2529fe2c3e67e832",
+      "sat": 1,
+      "real": 0,
+      "delta_phi": 0,
+      "threshold": 0.6
+    }
+  ],
+  "execution_evidence_items": [
+    {
+      "archive_recorded_at_ms": 1784313195951,
+      "contract_version": "mcad.execution_evidence.v1",
+      "execution": {
+        "adapter_family": "sqlserver_direct",
+        "adapter_id": "adventureworks_direct",
+        "attempted": true,
+        "backend_type": "sqlserver_direct",
+        "catalog": null,
+        "columns_count": 7,
+        "cube": "Sales",
+        "demo_materialized": false,
+        "elapsed_ms": 49,
+        "error": null,
+        "execution_path": "sqlserver_direct",
+        "fallback_used": false,
+        "forwarded_to": null,
+        "logical_query_language": "mdx",
+        "physical_execution": true,
+        "physical_query_language": "sqlserver_tsql",
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": 9275,
+        "response_digest": "50ab82f87826fcad",
+        "result_digest": "50ab82f87826fcad",
+        "row_count": 36,
+        "selected_dw_id": "adventureworks_sql_direct",
+        "status": "EXECUTED",
+        "status_code": 200,
+        "xmla_response_type": null
+      },
+      "formal_metrics": {
+        "ceval": 0.3333333333333333,
+        "delta_phi": 0.3333333333333333,
+        "phi": 0.3333333333333333,
+        "real": 0.3333333333333333,
+        "sat": 1,
+        "threshold": 0.6
+      },
+      "generated_at_ms": 1784313195951,
+      "graph_update_summary": {
+        "covered_constraints": [
+          "c_sales"
+        ],
+        "delta_phi": 0.3333333333333333,
+        "grain": [
+          "Date.Calendar",
+          "Date.Month",
+          "Measures.SalesAmount",
+          "Sales Territory.Sales Territory",
+          "Sales Territory.Sales Territory Region"
+        ],
+        "measures": [
+          "SalesAmount"
+        ],
+        "partially_covered_constraints": [],
+        "realized_virtual_nodes": [
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+        ],
+        "slicers": {
+          "Date.Calendar Year": "2013",
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe"
+        }
+      },
+      "mcad_gate": {
+        "allowed_by_mcad": true,
+        "decision": "ALLOW",
+        "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+        "decision_reason_code": "ALLOW_NEW_TOTAL",
+        "eval_elapsed_ms": 2224,
+        "fail_closed": false,
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "session_id": "S_0001",
+        "step_index": 1
+      },
+      "query": {
+        "execution_mode": "scenario",
+        "query_digest": "2529fe2c3e67e832",
+        "query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+        "query_type": "mdx",
+        "scenario_instance_id": "SSI_001",
+        "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+        "scenario_query_index": 0,
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+      },
+      "report_fields": {
+        "adapter_id": "adventureworks_direct",
+        "blocked_before_execution": false,
+        "ceval": 0.3333333333333333,
+        "columns_count": 7,
+        "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+        "decision_reason_code": "ALLOW_NEW_TOTAL",
+        "delta_phi": 0.3333333333333333,
+        "elapsed_ms": 49,
+        "execution_attempted": true,
+        "execution_path": "sqlserver_direct",
+        "execution_status": "EXECUTED",
+        "mcad_allowed": true,
+        "mcad_decision": "ALLOW",
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "phi": 0.3333333333333333,
+        "physical_execution": true,
+        "query_digest": "2529fe2c3e67e832",
+        "query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+        "real": 0.3333333333333333,
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": 9275,
+        "response_digest": "50ab82f87826fcad",
+        "result_digest": "50ab82f87826fcad",
+        "row_count": 36,
+        "sat": 1,
+        "scenario_query_id": "AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY",
+        "selected_dw_id": "adventureworks_sql_direct",
+        "session_id": "S_0001",
+        "status_code": 200,
+        "step_index": 1,
+        "threshold": 0.6,
+        "xmla_response_type": null
+      },
+      "sat_clauses": {
+        "agg_ok": true,
+        "grain_ok": true,
+        "nvac_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "unit_ok": true
+      }
+    },
+    {
+      "archive_recorded_at_ms": 1784313199092,
+      "contract_version": "mcad.execution_evidence.v1",
+      "execution": {
+        "adapter_family": "sqlserver_direct",
+        "adapter_id": "adventureworks_direct",
+        "attempted": true,
+        "backend_type": "sqlserver_direct",
+        "catalog": null,
+        "columns_count": 7,
+        "cube": "Sales",
+        "demo_materialized": false,
+        "elapsed_ms": 49,
+        "error": null,
+        "execution_path": "sqlserver_direct",
+        "fallback_used": false,
+        "forwarded_to": null,
+        "logical_query_language": "mdx",
+        "physical_execution": true,
+        "physical_query_language": "sqlserver_tsql",
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": 9455,
+        "response_digest": "f3012474ae5c4255",
+        "result_digest": "f3012474ae5c4255",
+        "row_count": 36,
+        "selected_dw_id": "adventureworks_sql_direct",
+        "status": "EXECUTED",
+        "status_code": 200,
+        "xmla_response_type": null
+      },
+      "formal_metrics": {
+        "ceval": 0.3333333333333333,
+        "delta_phi": 0.3333333333333333,
+        "phi": 0.6666666666666666,
+        "real": 0.3333333333333333,
+        "sat": 1,
+        "threshold": 0.6
+      },
+      "generated_at_ms": 1784313199092,
+      "graph_update_summary": {
+        "covered_constraints": [
+          "aw_real_c2_total_product_cost"
+        ],
+        "delta_phi": 0.3333333333333333,
+        "grain": [
+          "Date.Calendar",
+          "Date.Month",
+          "Measures.TotalProductCost",
+          "Sales Territory.Sales Territory",
+          "Sales Territory.Sales Territory Region"
+        ],
+        "measures": [
+          "TotalProductCost"
+        ],
+        "partially_covered_constraints": [],
+        "realized_virtual_nodes": [
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST"
+        ],
+        "slicers": {
+          "Date.Calendar Year": "2013",
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe"
+        }
+      },
+      "mcad_gate": {
+        "allowed_by_mcad": true,
+        "decision": "ALLOW",
+        "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+        "decision_reason_code": "ALLOW_NEW_TOTAL",
+        "eval_elapsed_ms": 52,
+        "fail_closed": false,
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "session_id": "S_0001",
+        "step_index": 2
+      },
+      "query": {
+        "execution_mode": "scenario",
+        "query_digest": "bb4aa4327e2c7569",
+        "query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+        "query_type": "mdx",
+        "scenario_instance_id": "SSI_001",
+        "scenario_query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+        "scenario_query_index": 1,
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+      },
+      "report_fields": {
+        "adapter_id": "adventureworks_direct",
+        "blocked_before_execution": false,
+        "ceval": 0.3333333333333333,
+        "columns_count": 7,
+        "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+        "decision_reason_code": "ALLOW_NEW_TOTAL",
+        "delta_phi": 0.3333333333333333,
+        "elapsed_ms": 49,
+        "execution_attempted": true,
+        "execution_path": "sqlserver_direct",
+        "execution_status": "EXECUTED",
+        "mcad_allowed": true,
+        "mcad_decision": "ALLOW",
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "phi": 0.6666666666666666,
+        "physical_execution": true,
+        "query_digest": "bb4aa4327e2c7569",
+        "query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+        "real": 0.3333333333333333,
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": 9455,
+        "response_digest": "f3012474ae5c4255",
+        "result_digest": "f3012474ae5c4255",
+        "row_count": 36,
+        "sat": 1,
+        "scenario_query_id": "AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY",
+        "selected_dw_id": "adventureworks_sql_direct",
+        "session_id": "S_0001",
+        "status_code": 200,
+        "step_index": 2,
+        "threshold": 0.6,
+        "xmla_response_type": null
+      },
+      "sat_clauses": {
+        "agg_ok": true,
+        "grain_ok": true,
+        "nvac_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "unit_ok": true
+      }
+    },
+    {
+      "archive_recorded_at_ms": 1784313202372,
+      "contract_version": "mcad.execution_evidence.v1",
+      "execution": {
+        "adapter_family": "sqlserver_direct",
+        "adapter_id": "adventureworks_direct",
+        "attempted": true,
+        "backend_type": "sqlserver_direct",
+        "catalog": null,
+        "columns_count": 7,
+        "cube": "Sales",
+        "demo_materialized": false,
+        "elapsed_ms": 50,
+        "error": null,
+        "execution_path": "sqlserver_direct",
+        "fallback_used": false,
+        "forwarded_to": null,
+        "logical_query_language": "mdx",
+        "physical_execution": true,
+        "physical_query_language": "sqlserver_tsql",
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": 9266,
+        "response_digest": "8a4cc85806217b90",
+        "result_digest": "8a4cc85806217b90",
+        "row_count": 36,
+        "selected_dw_id": "adventureworks_sql_direct",
+        "status": "EXECUTED",
+        "status_code": 200,
+        "xmla_response_type": null
+      },
+      "formal_metrics": {
+        "ceval": 0.3333333333333333,
+        "delta_phi": 0.3333333333333333,
+        "phi": 1,
+        "real": 0.3333333333333333,
+        "sat": 1,
+        "threshold": 0.6
+      },
+      "generated_at_ms": 1784313202372,
+      "graph_update_summary": {
+        "covered_constraints": [
+          "c_profit"
+        ],
+        "delta_phi": 0.3333333333333333,
+        "grain": [
+          "Date.Calendar",
+          "Date.Month",
+          "Measures.GrossMargin",
+          "Sales Territory.Sales Territory",
+          "Sales Territory.Sales Territory Region"
+        ],
+        "measures": [
+          "GrossMargin"
+        ],
+        "partially_covered_constraints": [],
+        "realized_virtual_nodes": [
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN"
+        ],
+        "slicers": {
+          "Date.Calendar Year": "2013",
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe"
+        }
+      },
+      "mcad_gate": {
+        "allowed_by_mcad": true,
+        "decision": "ALLOW",
+        "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+        "decision_reason_code": "ALLOW_NEW_TOTAL",
+        "eval_elapsed_ms": 53,
+        "fail_closed": false,
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "session_id": "S_0001",
+        "step_index": 3
+      },
+      "query": {
+        "execution_mode": "scenario",
+        "query_digest": "d5a4308e228fa4bd",
+        "query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+        "query_type": "mdx",
+        "scenario_instance_id": "SSI_001",
+        "scenario_query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+        "scenario_query_index": 2,
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+      },
+      "report_fields": {
+        "adapter_id": "adventureworks_direct",
+        "blocked_before_execution": false,
+        "ceval": 0.3333333333333333,
+        "columns_count": 7,
+        "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+        "decision_reason_code": "ALLOW_NEW_TOTAL",
+        "delta_phi": 0.3333333333333333,
+        "elapsed_ms": 50,
+        "execution_attempted": true,
+        "execution_path": "sqlserver_direct",
+        "execution_status": "EXECUTED",
+        "mcad_allowed": true,
+        "mcad_decision": "ALLOW",
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "phi": 1,
+        "physical_execution": true,
+        "query_digest": "d5a4308e228fa4bd",
+        "query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+        "real": 0.3333333333333333,
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": 9266,
+        "response_digest": "8a4cc85806217b90",
+        "result_digest": "8a4cc85806217b90",
+        "row_count": 36,
+        "sat": 1,
+        "scenario_query_id": "AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY",
+        "selected_dw_id": "adventureworks_sql_direct",
+        "session_id": "S_0001",
+        "status_code": 200,
+        "step_index": 3,
+        "threshold": 0.6,
+        "xmla_response_type": null
+      },
+      "sat_clauses": {
+        "agg_ok": true,
+        "grain_ok": true,
+        "nvac_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "unit_ok": true
+      }
+    },
+    {
+      "archive_recorded_at_ms": 1784313205582,
+      "contract_version": "mcad.execution_evidence.v1",
+      "execution": {
+        "adapter_family": null,
+        "adapter_id": null,
+        "attempted": false,
+        "backend_type": null,
+        "catalog": null,
+        "columns_count": null,
+        "cube": null,
+        "demo_materialized": false,
+        "elapsed_ms": null,
+        "error": null,
+        "execution_path": null,
+        "fallback_used": false,
+        "forwarded_to": null,
+        "logical_query_language": "mdx",
+        "physical_execution": false,
+        "physical_query_language": null,
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": null,
+        "response_digest": null,
+        "result_digest": null,
+        "row_count": null,
+        "selected_dw_id": "adventureworks_sql_direct",
+        "status": "MCAD_BLOCKED",
+        "status_code": null,
+        "xmla_response_type": null
+      },
+      "formal_metrics": {
+        "ceval": 0,
+        "delta_phi": 0,
+        "phi": 0,
+        "real": 0,
+        "sat": 1,
+        "threshold": 0.6
+      },
+      "generated_at_ms": 1784313205582,
+      "graph_update_summary": {
+        "covered_constraints": [
+          "aw_real_c2_total_product_cost",
+          "c_profit",
+          "c_sales"
+        ],
+        "delta_phi": 0,
+        "grain": [
+          "Date.Calendar",
+          "Date.Month",
+          "Measures.SalesAmount",
+          "Sales Territory.Sales Territory",
+          "Sales Territory.Sales Territory Region"
+        ],
+        "measures": [
+          "SalesAmount"
+        ],
+        "partially_covered_constraints": [],
+        "realized_virtual_nodes": [
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST",
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN",
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+        ],
+        "slicers": {
+          "Date.Calendar Year": "2013",
+          "Product.Product Category": "Accessories",
+          "Sales Territory.Sales Territory Group": "Europe"
+        }
+      },
+      "mcad_gate": {
+        "allowed_by_mcad": false,
+        "decision": "BLOCK",
+        "decision_reason": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+        "decision_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+        "eval_elapsed_ms": 97,
+        "fail_closed": true,
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "session_id": "S_0001",
+        "step_index": 4
+      },
+      "query": {
+        "execution_mode": "scenario",
+        "query_digest": "ef766d4bc33e4201",
+        "query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+        "query_type": "mdx",
+        "scenario_instance_id": "SSI_001",
+        "scenario_query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+        "scenario_query_index": 3,
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+      },
+      "report_fields": {
+        "adapter_id": null,
+        "blocked_before_execution": true,
+        "ceval": 0,
+        "columns_count": null,
+        "decision_reason": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+        "decision_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+        "delta_phi": 0,
+        "elapsed_ms": null,
+        "execution_attempted": false,
+        "execution_path": null,
+        "execution_status": "MCAD_BLOCKED",
+        "mcad_allowed": false,
+        "mcad_decision": "BLOCK",
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "phi": 0,
+        "physical_execution": false,
+        "query_digest": "ef766d4bc33e4201",
+        "query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+        "real": 0,
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": null,
+        "response_digest": null,
+        "result_digest": null,
+        "row_count": null,
+        "sat": 1,
+        "scenario_query_id": "AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY",
+        "selected_dw_id": "adventureworks_sql_direct",
+        "session_id": "S_0001",
+        "status_code": null,
+        "step_index": 4,
+        "threshold": 0.6,
+        "xmla_response_type": null
+      },
+      "sat_clauses": {
+        "agg_ok": true,
+        "grain_ok": true,
+        "nvac_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "unit_ok": true
+      }
+    },
+    {
+      "archive_recorded_at_ms": 1784313208950,
+      "contract_version": "mcad.execution_evidence.v1",
+      "execution": {
+        "adapter_family": null,
+        "adapter_id": null,
+        "attempted": false,
+        "backend_type": null,
+        "catalog": null,
+        "columns_count": null,
+        "cube": null,
+        "demo_materialized": false,
+        "elapsed_ms": null,
+        "error": null,
+        "execution_path": null,
+        "fallback_used": false,
+        "forwarded_to": null,
+        "logical_query_language": "mdx",
+        "physical_execution": false,
+        "physical_query_language": null,
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": null,
+        "response_digest": null,
+        "result_digest": null,
+        "row_count": null,
+        "selected_dw_id": "adventureworks_sql_direct",
+        "status": "MCAD_BLOCKED",
+        "status_code": null,
+        "xmla_response_type": null
+      },
+      "formal_metrics": {
+        "ceval": 0,
+        "delta_phi": 0,
+        "phi": 1,
+        "real": 0,
+        "sat": 0,
+        "threshold": 0.6
+      },
+      "generated_at_ms": 1784313208950,
+      "graph_update_summary": {
+        "covered_constraints": [
+          "aw_real_c2_total_product_cost",
+          "c_profit",
+          "c_sales"
+        ],
+        "delta_phi": 0,
+        "grain": [
+          "Date.Calendar",
+          "Date.Calendar Year",
+          "Measures.SalesAmount",
+          "Sales Territory.Sales Territory",
+          "Sales Territory.Sales Territory Region"
+        ],
+        "measures": [
+          "SalesAmount"
+        ],
+        "partially_covered_constraints": [],
+        "realized_virtual_nodes": [
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST",
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN",
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+        ],
+        "slicers": {
+          "Date.Calendar Year": "2013",
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe"
+        }
+      },
+      "mcad_gate": {
+        "allowed_by_mcad": false,
+        "decision": "BLOCK",
+        "decision_reason": "Formal SAT clause failed: grain_ok",
+        "decision_reason_code": "BLOCK_GRAIN_MISMATCH",
+        "eval_elapsed_ms": 57,
+        "fail_closed": true,
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "session_id": "S_0001",
+        "step_index": 5
+      },
+      "query": {
+        "execution_mode": "scenario",
+        "query_digest": "e318564798e0d3a6",
+        "query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+        "query_type": "mdx",
+        "scenario_instance_id": "SSI_001",
+        "scenario_query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+        "scenario_query_index": 4,
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+      },
+      "report_fields": {
+        "adapter_id": null,
+        "blocked_before_execution": true,
+        "ceval": 0,
+        "columns_count": null,
+        "decision_reason": "Formal SAT clause failed: grain_ok",
+        "decision_reason_code": "BLOCK_GRAIN_MISMATCH",
+        "delta_phi": 0,
+        "elapsed_ms": null,
+        "execution_attempted": false,
+        "execution_path": null,
+        "execution_status": "MCAD_BLOCKED",
+        "mcad_allowed": false,
+        "mcad_decision": "BLOCK",
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "phi": 1,
+        "physical_execution": false,
+        "query_digest": "e318564798e0d3a6",
+        "query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+        "real": 0,
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": null,
+        "response_digest": null,
+        "result_digest": null,
+        "row_count": null,
+        "sat": 0,
+        "scenario_query_id": "AW_Q5_BLOCK_BAD_GRAIN_YEAR",
+        "selected_dw_id": "adventureworks_sql_direct",
+        "session_id": "S_0001",
+        "status_code": null,
+        "step_index": 5,
+        "threshold": 0.6,
+        "xmla_response_type": null
+      },
+      "sat_clauses": {
+        "agg_ok": true,
+        "grain_ok": false,
+        "nvac_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "unit_ok": true
+      }
+    },
+    {
+      "archive_recorded_at_ms": 1784313212465,
+      "contract_version": "mcad.execution_evidence.v1",
+      "execution": {
+        "adapter_family": null,
+        "adapter_id": null,
+        "attempted": false,
+        "backend_type": null,
+        "catalog": null,
+        "columns_count": null,
+        "cube": null,
+        "demo_materialized": false,
+        "elapsed_ms": null,
+        "error": null,
+        "execution_path": null,
+        "fallback_used": false,
+        "forwarded_to": null,
+        "logical_query_language": "mdx",
+        "physical_execution": false,
+        "physical_query_language": null,
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": null,
+        "response_digest": null,
+        "result_digest": null,
+        "row_count": null,
+        "selected_dw_id": "adventureworks_sql_direct",
+        "status": "MCAD_BLOCKED",
+        "status_code": null,
+        "xmla_response_type": null
+      },
+      "formal_metrics": {
+        "ceval": 0,
+        "delta_phi": 0,
+        "phi": 1,
+        "real": 0,
+        "sat": 1,
+        "threshold": 0.6
+      },
+      "generated_at_ms": 1784313212465,
+      "graph_update_summary": {
+        "covered_constraints": [
+          "aw_real_c2_total_product_cost",
+          "c_profit",
+          "c_sales"
+        ],
+        "delta_phi": 0,
+        "grain": [
+          "Date.Calendar",
+          "Date.Month",
+          "Measures.SalesAmount",
+          "Sales Territory.Sales Territory",
+          "Sales Territory.Sales Territory Region"
+        ],
+        "measures": [
+          "SalesAmount"
+        ],
+        "partially_covered_constraints": [],
+        "realized_virtual_nodes": [
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_COST",
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_MARGIN",
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+        ],
+        "slicers": {
+          "Date.Calendar Year": "2013",
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe"
+        }
+      },
+      "mcad_gate": {
+        "allowed_by_mcad": false,
+        "decision": "BLOCK",
+        "decision_reason": "Contract-driven redundancy: matched constraint(s) already covered in the current session.",
+        "decision_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+        "eval_elapsed_ms": 18,
+        "fail_closed": true,
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "session_id": "S_0001",
+        "step_index": 6
+      },
+      "query": {
+        "execution_mode": "scenario",
+        "query_digest": "2529fe2c3e67e832",
+        "query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+        "query_type": "mdx",
+        "scenario_instance_id": "SSI_001",
+        "scenario_query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+        "scenario_query_index": 5,
+        "source_scenario_id": "adventureworks_sales_margin_territory_q1_q6"
+      },
+      "report_fields": {
+        "adapter_id": null,
+        "blocked_before_execution": true,
+        "ceval": 0,
+        "columns_count": null,
+        "decision_reason": "Contract-driven redundancy: matched constraint(s) already covered in the current session.",
+        "decision_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+        "delta_phi": 0,
+        "elapsed_ms": null,
+        "execution_attempted": false,
+        "execution_path": null,
+        "execution_status": "MCAD_BLOCKED",
+        "mcad_allowed": false,
+        "mcad_decision": "BLOCK",
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "phi": 1,
+        "physical_execution": false,
+        "query_digest": "2529fe2c3e67e832",
+        "query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+        "real": 0,
+        "requested_dw_id": "adventureworks_sql_direct",
+        "response_bytes": null,
+        "response_digest": null,
+        "result_digest": null,
+        "row_count": null,
+        "sat": 1,
+        "scenario_query_id": "AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT",
+        "selected_dw_id": "adventureworks_sql_direct",
+        "session_id": "S_0001",
+        "status_code": null,
+        "step_index": 6,
+        "threshold": 0.6,
+        "xmla_response_type": null
+      },
+      "sat_clauses": {
+        "agg_ok": true,
+        "grain_ok": true,
+        "nvac_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "unit_ok": true
+      }
+    }
+  ],
+  "contract_version": "mcad.session_report.v1"
+}

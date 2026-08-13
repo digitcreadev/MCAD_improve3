@@ -1,0 +1,19 @@
+{
+  "id": "sensitivity_membership_density",
+  "class": "sensitivity",
+  "status": "CURRENT_CANONICAL_REFERENCE",
+  "current_repo_candidates": [
+    "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution",
+    "experiments/article/frozen_campaigns/sa4_membership_density_stage10"
+  ],
+  "current_repo_candidates_resolved": [
+    {
+      "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution",
+      "exists": true
+    },
+    {
+      "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10",
+      "exists": true
+    }
+  ]
+}

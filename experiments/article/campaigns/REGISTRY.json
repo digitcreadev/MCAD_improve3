@@ -1,0 +1,133 @@
+{
+  "schema_version": "mcad-cross-version-campaign-hub-v1",
+  "generated_at_utc": "2026-08-13T16:39:01Z",
+  "installation_mode": "non_destructive_hub",
+  "scientific_execution_performed": false,
+  "campaigns": [
+    {
+      "id": "ui_q1_q6",
+      "class": "physical",
+      "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "payload": "_recovered_sources/physical_202607/ui_q1_q6",
+      "current_repo_candidates": [
+        "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z"
+      ]
+    },
+    {
+      "id": "campaign_a_foodmart",
+      "class": "physical",
+      "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "payload": "_recovered_sources/physical_202607/campaign_a_foodmart",
+      "current_repo_candidates": [
+        "experiments/article/real_execution"
+      ]
+    },
+    {
+      "id": "campaign_b_multidataset",
+      "class": "physical",
+      "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "payload": "_recovered_sources/physical_202607/campaign_b_multidataset",
+      "current_repo_candidates": [
+        "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/ckg_runtimes/locked/B_multidataset_controlled_minimal_v3"
+      ]
+    },
+    {
+      "id": "campaign_c_backend_portability",
+      "class": "physical",
+      "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+      "payload": "_recovered_sources/physical_202607/campaign_c_backend_portability",
+      "current_repo_candidates": [
+        "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/ckg_runtimes/locked/C_backend_portability_adventureworks_sql_vs_xmla"
+      ]
+    },
+    {
+      "id": "policy_benchmark",
+      "class": "offline_controlled",
+      "status": "RECOVERED_HISTORICAL_PRIMARY",
+      "payload": "_recovered_sources/offline_202605/recovered_runs/*/modern/policy_benchmark"
+    },
+    {
+      "id": "ablations",
+      "class": "offline_controlled",
+      "status": "RECOVERED_HISTORICAL_PRIMARY_PLUS_LATER_ROBUSTNESS_FREEZE",
+      "payload": "_recovered_sources/offline_202605/recovered_runs/*/modern/policy_benchmark",
+      "current_repo_candidates": [
+        "experiments/article/frozen_campaigns/robustness_non_temporal"
+      ]
+    },
+    {
+      "id": "robustness",
+      "class": "offline_controlled",
+      "status": "FROZEN_PRIMARY",
+      "payload": "_recovered_sources/robustness_20260731",
+      "current_repo_candidates": [
+        "experiments/article/frozen_campaigns/robustness_non_temporal"
+      ]
+    },
+    {
+      "id": "scalability_ckg",
+      "class": "offline_controlled",
+      "status": "RECOVERED_HISTORICAL_PRIMARY",
+      "payload": "_recovered_sources/offline_202605/recovered_runs/*/modern/scalability"
+    },
+    {
+      "id": "evidence_usefulness",
+      "class": "offline_controlled",
+      "status": "RECOVERED_HISTORICAL_PRIMARY",
+      "payload": "_recovered_sources/offline_202605/recovered_runs/*/modern/evidence"
+    },
+    {
+      "id": "phase7_statistics",
+      "class": "statistics",
+      "status": "RECOVERED_DERIVED_STATISTICS",
+      "payload": "_recovered_sources/offline_202605/recovered_runs/*/modern/stats"
+    },
+    {
+      "id": "human_validation",
+      "class": "validation",
+      "status": "EXCLUDED_NO_REAL_EXPERT_ANNOTATIONS",
+      "payload": "_recovered_sources/offline_202605/simulated_human_validation_EXCLUDED"
+    },
+    {
+      "id": "sensitivity_constraint_count",
+      "class": "sensitivity",
+      "status": "CURRENT_CANONICAL_REFERENCE",
+      "current_repo_candidates": [
+        "experiments/article/frozen_campaigns/sa3_constraint_count_stage20"
+      ]
+    },
+    {
+      "id": "sensitivity_virtual_node_count",
+      "class": "sensitivity",
+      "status": "CURRENT_CANONICAL_REFERENCE",
+      "current_repo_candidates": [
+        "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10"
+      ]
+    },
+    {
+      "id": "sensitivity_membership_density",
+      "class": "sensitivity",
+      "status": "CURRENT_CANONICAL_REFERENCE",
+      "current_repo_candidates": [
+        "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution",
+        "experiments/article/frozen_campaigns/sa4_membership_density_stage10"
+      ]
+    },
+    {
+      "id": "sensitivity_objective_count",
+      "class": "sensitivity",
+      "status": "CURRENT_CANONICAL_TERMINAL_REFERENCE",
+      "current_repo_candidates": [
+        "reports/article_experiments/sensitivity",
+        "reports/article_experiments/publication/final_sensitivity_sources/final_sensitivity_publication_source_map.json"
+      ]
+    }
+  ],
+  "lineage_contracts": {
+    "experimental_timeline": "experiments/article/campaigns/_lineage/EXPERIMENTAL_TIMELINE.json",
+    "article_artifact_lineage": "experiments/article/campaigns/_lineage/ARTICLE_ARTIFACT_LINEAGE.json",
+    "artifact_authority_policy": "experiments/article/campaigns/_lineage/ARTIFACT_AUTHORITY_POLICY.md",
+    "recovered_run_qualification": "experiments/article/campaigns/_lineage/RECOVERED_RUN_QUALIFICATION.json"
+  },
+  "publication_authority_policy": "primary_or_frozen_evidence_precedes_historical_article_artifacts"
+}

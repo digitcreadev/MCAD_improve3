@@ -1,0 +1,133 @@
+{
+  "schema_version": "mcad-recovered-run-qualification-v1",
+  "scientific_execution_performed": false,
+  "experiment_rerun_performed": false,
+  "statistical_execution_performed": false,
+  "recovered_run_count": 6,
+  "pre_manifest_auxiliary_count": 1,
+  "manifest_backed_candidate_count": 5,
+  "runs": [
+    {
+      "run_id": "rebuild_article_20260522_105550",
+      "qualification": "RECOVERED_PRIMARY_PRE_MANIFEST_AUXILIARY",
+      "primary_output_bundle_complete": true,
+      "publication_anchor_candidate": false,
+      "reproducibility_files": {
+        "campaign_manifest.json": false,
+        "reproducibility_environment.txt": false,
+        "reproducibility_checksums.sha256": false,
+        "reproducibility_input_checksums.sha256": false,
+        "artifact_index.txt": false,
+        "error_scan.txt": false
+      },
+      "manifest": {
+        "branch": null,
+        "git_commit": null,
+        "created_at": null,
+        "status": null
+      }
+    },
+    {
+      "run_id": "rebuild_article_20260523_093647",
+      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_PENDING_QUALIFICATION",
+      "primary_output_bundle_complete": true,
+      "publication_anchor_candidate": true,
+      "reproducibility_files": {
+        "campaign_manifest.json": true,
+        "reproducibility_environment.txt": true,
+        "reproducibility_checksums.sha256": true,
+        "reproducibility_input_checksums.sha256": true,
+        "artifact_index.txt": true,
+        "error_scan.txt": true
+      },
+      "manifest": {
+        "branch": "exp/adventureworks-next",
+        "git_commit": "a0e5dc59523914d1762d1f5d2834193eec1399c8",
+        "created_at": "2026-05-23T09:39:27+00:00",
+        "status": "completed"
+      }
+    },
+    {
+      "run_id": "rebuild_article_20260523_095106",
+      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_PENDING_QUALIFICATION",
+      "primary_output_bundle_complete": true,
+      "publication_anchor_candidate": true,
+      "reproducibility_files": {
+        "campaign_manifest.json": true,
+        "reproducibility_environment.txt": true,
+        "reproducibility_checksums.sha256": true,
+        "reproducibility_input_checksums.sha256": true,
+        "artifact_index.txt": true,
+        "error_scan.txt": true
+      },
+      "manifest": {
+        "branch": "exp/adventureworks-next",
+        "git_commit": "073f5a17f99d33b27c24f6cf7802bc4a33f35808",
+        "created_at": "2026-05-23T09:53:44+00:00",
+        "status": "completed"
+      }
+    },
+    {
+      "run_id": "rebuild_article_20260523_100706",
+      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_PENDING_QUALIFICATION",
+      "primary_output_bundle_complete": true,
+      "publication_anchor_candidate": true,
+      "reproducibility_files": {
+        "campaign_manifest.json": true,
+        "reproducibility_environment.txt": true,
+        "reproducibility_checksums.sha256": true,
+        "reproducibility_input_checksums.sha256": true,
+        "artifact_index.txt": true,
+        "error_scan.txt": true
+      },
+      "manifest": {
+        "branch": "exp/adventureworks-next",
+        "git_commit": "073f5a17f99d33b27c24f6cf7802bc4a33f35808",
+        "created_at": "2026-05-23T10:10:05+00:00",
+        "status": "completed"
+      }
+    },
+    {
+      "run_id": "rebuild_article_20260523_102308",
+      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_PENDING_QUALIFICATION",
+      "primary_output_bundle_complete": true,
+      "publication_anchor_candidate": true,
+      "reproducibility_files": {
+        "campaign_manifest.json": true,
+        "reproducibility_environment.txt": true,
+        "reproducibility_checksums.sha256": true,
+        "reproducibility_input_checksums.sha256": true,
+        "artifact_index.txt": true,
+        "error_scan.txt": true
+      },
+      "manifest": {
+        "branch": "exp/adventureworks-next",
+        "git_commit": "43348093ad81b0ad9852f50d0294906ba1b226d4",
+        "created_at": "2026-05-23T10:26:04+00:00",
+        "status": "completed"
+      }
+    },
+    {
+      "run_id": "rebuild_article_20260523_104418",
+      "qualification": "RECOVERED_PRIMARY_WITH_MANIFEST_PENDING_QUALIFICATION",
+      "primary_output_bundle_complete": true,
+      "publication_anchor_candidate": true,
+      "reproducibility_files": {
+        "campaign_manifest.json": true,
+        "reproducibility_environment.txt": true,
+        "reproducibility_checksums.sha256": true,
+        "reproducibility_input_checksums.sha256": true,
+        "artifact_index.txt": true,
+        "error_scan.txt": true
+      },
+      "manifest": {
+        "branch": "exp/adventureworks-next",
+        "git_commit": "37d04439f13f085583ca625f2b5a8353055b8af0",
+        "created_at": "2026-05-23T10:47:14+00:00",
+        "status": "completed"
+      }
+    }
+  ],
+  "publication_decision": "PENDING_CROSS_RUN_SCIENTIFIC_QUALIFICATION",
+  "note": "All six recovered runs contain the required primary offline outputs. The earliest run predates the later campaign manifest/reproducibility envelope and is therefore retained as auxiliary replication evidence, not as a publication anchor candidate."
+}

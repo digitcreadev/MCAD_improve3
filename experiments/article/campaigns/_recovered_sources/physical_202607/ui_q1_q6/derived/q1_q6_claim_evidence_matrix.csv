@@ -1,0 +1,9 @@
+claim,evidence,scope
+Context and objective represented in a CKG,Initial Objective Details / Governance screenshots; formal objective ID and constraints in reports,Prototype-level visual and exported evidence
+Incremental strategic calculability,"Q1-Q3: phi_leq_t 1/3, 2/3, 1; delta_phi_t 1/3 each",Strong for this controlled session
+Only useful ALLOW queries add new coverage,Q1-Q3 add one new constraint each; Q4-Q6 delta_phi_t=0,Strong for this session
+ALLOW queries reach the physical backend,"Q1-Q3 physical_execution=true, sqlserver_direct, adventureworks_direct, 36 rows",Strong physical evidence
+BLOCK queries do not reach the backend,Q4-Q6 physical_execution=false and blocked_before_execution=true,Strong non-execution evidence
+Symbolic query-level explanations,ALLOW_NEW_TOTAL; BLOCK_OUT_OF_OBJECTIVE_SCOPE; BLOCK_GRAIN_MISMATCH; BLOCK_REDUNDANT_DPHI_ZERO,Strong system explainability evidence
+Session reaches full objective coverage,"Final phi=1, completion_rate=1, remaining_constraints=[]",Strong for this objective/session
+Reports are auditable and exportable,Authoritative JSON/CSV/Markdown formal and experimental reports plus governance report,Strong artifact-level evidence

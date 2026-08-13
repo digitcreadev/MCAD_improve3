@@ -1,0 +1,15 @@
+{
+  "id": "ui_q1_q6",
+  "class": "physical",
+  "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+  "payload": "_recovered_sources/physical_202607/ui_q1_q6",
+  "current_repo_candidates": [
+    "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z"
+  ],
+  "current_repo_candidates_resolved": [
+    {
+      "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z",
+      "exists": true
+    }
+  ]
+}

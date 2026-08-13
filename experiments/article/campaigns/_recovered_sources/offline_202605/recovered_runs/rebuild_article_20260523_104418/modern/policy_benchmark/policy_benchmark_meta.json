@@ -1,0 +1,6 @@
+{
+  "objective_id": "OHF_NORD",
+  "n_scenarios": 10,
+  "repeats": 50,
+  "matched_random_allow_prob": 0.5555555555555556
+}

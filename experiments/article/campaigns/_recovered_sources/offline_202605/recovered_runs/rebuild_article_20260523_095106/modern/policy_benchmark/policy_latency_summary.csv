@@ -1,0 +1,8 @@
+policy;latency_p50_ms;latency_p95_ms;latency_p99_ms;latency_cold_p50_ms;latency_warm_p50_ms
+ablation_ceval_any_intersection;0.20405;0.39368;0.680902;0.20405;0.0
+ablation_no_real;0.21455;0.42038;0.703575;0.2144;0.0
+ablation_no_sat;0.25905;0.467811;0.692342;0.2676;0.0
+baseline_measure_overlap;0.0129;0.02149;0.030387;0.0136;0.0
+baseline_naive;0.0009;0.0013;0.001779;0.001;0.0
+baseline_random_matched;0.0025;0.0041;0.006935;0.0028;0.0
+mcad;0.20665;0.391812;0.669298;0.20665;0.0

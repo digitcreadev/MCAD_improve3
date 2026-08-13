@@ -1,0 +1,7 @@
+{
+  "id": "phase7_statistics",
+  "class": "statistics",
+  "status": "RECOVERED_DERIVED_STATISTICS",
+  "payload": "_recovered_sources/offline_202605/recovered_runs/*/modern/stats",
+  "current_repo_candidates_resolved": []
+}

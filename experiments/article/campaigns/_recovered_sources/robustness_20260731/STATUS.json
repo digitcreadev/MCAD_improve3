@@ -1,0 +1,9 @@
+{
+  "campaign_id": "robustness_non_temporal",
+  "freeze_scope": "robustness_non_temporal",
+  "global_scientific_freeze": false,
+  "latency_claim_authorized": false,
+  "repository_persistence_status": "complete",
+  "scientific_freeze": true,
+  "scientific_status": "completed_frozen"
+}

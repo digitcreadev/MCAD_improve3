@@ -1,0 +1,93 @@
+{
+  "schema_version": "mcad-experimental-timeline-v1",
+  "scientific_execution_performed": false,
+  "scope_rule": {
+    "offline_rebuild_run_count_6": "The six rebuild_article runs concern only the recovered May-2026 offline evaluation suite; they are not the complete MCAD experimental campaign.",
+    "later_campaigns": "Physical UI/A/B/C evidence, robustness and sensitivity campaigns belong to later July-August evidence families."
+  },
+  "events": [
+    {
+      "period": "2026-05-22/2026-05-23",
+      "event_id": "offline_rebuild_suite",
+      "class": "offline_controlled",
+      "evidence_families": [
+        "policy_benchmark",
+        "ablations",
+        "scalability_ckg",
+        "evidence_usefulness",
+        "phase7_statistics"
+      ],
+      "run_count": 6,
+      "status": "RECOVERED_HISTORICAL_PRIMARY_PENDING_QUALIFICATION"
+    },
+    {
+      "period": "2026-07",
+      "event_id": "campaign_a_foodmart",
+      "class": "physical",
+      "evidence_families": [
+        "campaign_a_foodmart"
+      ],
+      "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL"
+    },
+    {
+      "period": "2026-07",
+      "event_id": "campaign_b_multidataset",
+      "class": "physical",
+      "evidence_families": [
+        "campaign_b_multidataset"
+      ],
+      "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL"
+    },
+    {
+      "period": "2026-07",
+      "event_id": "campaign_c_backend_portability",
+      "class": "physical",
+      "evidence_families": [
+        "campaign_c_backend_portability"
+      ],
+      "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL"
+    },
+    {
+      "period": "2026-07-11/2026-07-20",
+      "event_id": "ui_q1_q6",
+      "class": "physical",
+      "evidence_families": [
+        "ui_q1_q6"
+      ],
+      "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL"
+    },
+    {
+      "period": "2026-07-31",
+      "event_id": "robustness_non_temporal",
+      "class": "offline_controlled",
+      "evidence_families": [
+        "robustness",
+        "ablations"
+      ],
+      "status": "FROZEN_PRIMARY"
+    },
+    {
+      "period": "2026-07/2026-08",
+      "event_id": "sensitivity_program",
+      "class": "controlled_sensitivity",
+      "evidence_families": [
+        "sensitivity_constraint_count",
+        "sensitivity_virtual_node_count",
+        "sensitivity_membership_density",
+        "sensitivity_objective_count"
+      ],
+      "status": "CURRENT_CANONICAL_AND_TERMINAL_REFERENCES"
+    },
+    {
+      "period": "2026-08-13",
+      "event_id": "objective_count_terminal_stage30",
+      "class": "controlled_sensitivity",
+      "evidence_families": [
+        "sensitivity_objective_count"
+      ],
+      "status": "CURRENT_CANONICAL_TERMINAL_REFERENCE",
+      "rerun_authorized": false,
+      "stage40_authorized": false
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "campaign_a_foodmart",
+  "class": "physical",
+  "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+  "payload": "_recovered_sources/physical_202607/campaign_a_foodmart",
+  "current_repo_candidates": [
+    "experiments/article/real_execution"
+  ],
+  "current_repo_candidates_resolved": [
+    {
+      "path": "experiments/article/real_execution",
+      "exists": true
+    }
+  ]
+}

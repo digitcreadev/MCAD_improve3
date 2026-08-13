@@ -1,0 +1,1827 @@
+{
+  "nodes": [
+    {
+      "id": "objective::OHF_NORD",
+      "type": "objective",
+      "name": "Health Food Nord 1998",
+      "description": "Objectif stratégique illustratif aligné sur l'article MCAD : suivre la marge, les ruptures et la croissance du chiffre d'affaires pour la catégorie Health Food en région Nord en 1998, avec comparaison à 1997 pour la croissance."
+    },
+    {
+      "id": "kpi::KPI_MARGIN_RATE",
+      "type": "kpi"
+    },
+    {
+      "id": "kpi::KPI_STOCKOUT_RATE",
+      "type": "kpi"
+    },
+    {
+      "id": "kpi::KPI_CA_GROWTH",
+      "type": "kpi"
+    },
+    {
+      "id": "constraint::c1",
+      "type": "constraint",
+      "kpi_id": "KPI_MARGIN_RATE",
+      "description": "Marge% Health Food / Nord / 1998 supérieure ou égale à 18%.",
+      "weight": 1.0
+    },
+    {
+      "id": "nv::NV_MARGIN_HF_NORTH_1998_MONTH",
+      "type": "virtual_node",
+      "constraint_id": "c1",
+      "objective_id": "OHF_NORD",
+      "fact": "Sales",
+      "fact_canon": "sales",
+      "grain": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "measure": "Margin%",
+      "measure_canon": "margin%",
+      "aggregator": "AVG",
+      "aggregator_canon": "avg",
+      "unit": "PERCENT",
+      "unit_canon": "percent",
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31"
+    },
+    {
+      "id": "constraint::c2",
+      "type": "constraint",
+      "kpi_id": "KPI_STOCKOUT_RATE",
+      "description": "Taux de rupture Health Food / Nord / 1998 inférieur ou égal à 3%.",
+      "weight": 1.0
+    },
+    {
+      "id": "nv::NV_STOCKOUT_HF_NORTH_1998_STORE",
+      "type": "virtual_node",
+      "constraint_id": "c2",
+      "objective_id": "OHF_NORD",
+      "fact": "Sales",
+      "fact_canon": "sales",
+      "grain": [
+        "Store.Store",
+        "Product.Category"
+      ],
+      "measure": "StockoutRate",
+      "measure_canon": "stockoutrate",
+      "aggregator": "AVG",
+      "aggregator_canon": "avg",
+      "unit": "PERCENT",
+      "unit_canon": "percent",
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31"
+    },
+    {
+      "id": "constraint::c3",
+      "type": "constraint",
+      "kpi_id": "KPI_CA_GROWTH",
+      "description": "Croissance du chiffre d'affaires Health Food / Nord entre 1997 et 1998 supérieure ou égale à 5%.",
+      "weight": 1.0
+    },
+    {
+      "id": "nv::NV_CA_HF_NORTH_1997_MONTH",
+      "type": "virtual_node",
+      "constraint_id": "c3",
+      "objective_id": "OHF_NORD",
+      "fact": "Sales",
+      "fact_canon": "sales",
+      "grain": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "measure": "Store Sales",
+      "measure_canon": "store sales",
+      "aggregator": "SUM",
+      "aggregator_canon": "sum",
+      "unit": "CURRENCY",
+      "unit_canon": "currency",
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1997"
+      },
+      "window_start": "1997-01-01",
+      "window_end": "1997-12-31"
+    },
+    {
+      "id": "nv::NV_CA_HF_NORTH_1998_MONTH",
+      "type": "virtual_node",
+      "constraint_id": "c3",
+      "objective_id": "OHF_NORD",
+      "fact": "Sales",
+      "fact_canon": "sales",
+      "grain": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "measure": "Store Sales",
+      "measure_canon": "store sales",
+      "aggregator": "SUM",
+      "aggregator_canon": "sum",
+      "unit": "CURRENCY",
+      "unit_canon": "currency",
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31"
+    },
+    {
+      "id": "objective::OAW_BIKES_EUROPE",
+      "type": "objective",
+      "name": "AdventureWorks Bikes Europe 2013",
+      "description": "Second objectif inter-dataset pour l'évaluation MCAD : suivre la marge, les retours et la croissance des ventes pour la catégorie Bikes en Europe sur AdventureWorks, avec comparaison 2012-2013 pour la croissance."
+    },
+    {
+      "id": "kpi::KPI_AW_MARGIN_RATE",
+      "type": "kpi"
+    },
+    {
+      "id": "kpi::KPI_AW_RETURN_RATE",
+      "type": "kpi"
+    },
+    {
+      "id": "kpi::KPI_AW_SALES_GROWTH",
+      "type": "kpi"
+    },
+    {
+      "id": "constraint::aw_c1",
+      "type": "constraint",
+      "kpi_id": "KPI_AW_MARGIN_RATE",
+      "description": "Marge% Bikes / Europe / 2013 supérieure ou égale à 20%.",
+      "weight": 1.0
+    },
+    {
+      "id": "nv::NV_AW_MARGIN_BIKES_EUROPE_2013_MONTH",
+      "type": "virtual_node",
+      "constraint_id": "aw_c1",
+      "objective_id": "OAW_BIKES_EUROPE",
+      "fact": "Adventure Works Sales",
+      "fact_canon": "adventure works sales",
+      "grain": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "measure": "Gross Margin%",
+      "measure_canon": "gross margin%",
+      "aggregator": "AVG",
+      "aggregator_canon": "avg",
+      "unit": "PERCENT",
+      "unit_canon": "percent",
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31"
+    },
+    {
+      "id": "constraint::aw_c2",
+      "type": "constraint",
+      "kpi_id": "KPI_AW_RETURN_RATE",
+      "description": "Taux de retour Bikes / Europe / 2013 inférieur ou égal à 2%.",
+      "weight": 1.0
+    },
+    {
+      "id": "nv::NV_AW_RETURN_BIKES_EUROPE_2013_RESELLER",
+      "type": "virtual_node",
+      "constraint_id": "aw_c2",
+      "objective_id": "OAW_BIKES_EUROPE",
+      "fact": "Adventure Works Sales",
+      "fact_canon": "adventure works sales",
+      "grain": [
+        "Reseller.Reseller",
+        "Product.Category"
+      ],
+      "measure": "ReturnRate",
+      "measure_canon": "returnrate",
+      "aggregator": "AVG",
+      "aggregator_canon": "avg",
+      "unit": "PERCENT",
+      "unit_canon": "percent",
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31"
+    },
+    {
+      "id": "constraint::aw_c3",
+      "type": "constraint",
+      "kpi_id": "KPI_AW_SALES_GROWTH",
+      "description": "Croissance des ventes Bikes / Europe entre 2012 et 2013 supérieure ou égale à 8%.",
+      "weight": 1.0
+    },
+    {
+      "id": "nv::NV_AW_SALES_BIKES_EUROPE_2012_MONTH",
+      "type": "virtual_node",
+      "constraint_id": "aw_c3",
+      "objective_id": "OAW_BIKES_EUROPE",
+      "fact": "Adventure Works Sales",
+      "fact_canon": "adventure works sales",
+      "grain": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "measure": "Sales Amount",
+      "measure_canon": "sales amount",
+      "aggregator": "SUM",
+      "aggregator_canon": "sum",
+      "unit": "CURRENCY",
+      "unit_canon": "currency",
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2012"
+      },
+      "window_start": "2012-01-01",
+      "window_end": "2012-12-31"
+    },
+    {
+      "id": "nv::NV_AW_SALES_BIKES_EUROPE_2013_MONTH",
+      "type": "virtual_node",
+      "constraint_id": "aw_c3",
+      "objective_id": "OAW_BIKES_EUROPE",
+      "fact": "Adventure Works Sales",
+      "fact_canon": "adventure works sales",
+      "grain": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "measure": "Sales Amount",
+      "measure_canon": "sales amount",
+      "aggregator": "SUM",
+      "aggregator_canon": "sum",
+      "unit": "CURRENCY",
+      "unit_canon": "currency",
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31"
+    },
+    {
+      "id": "objective::O_REAL_BEER_WA_MONTH",
+      "type": "objective",
+      "name": "BI real Beer and Wine WA monthly",
+      "description": "Objectif temporaire de test pour le mode BI réel, aligné sur le cube Mondrian effectivement exposé dans Pivot4J. Il sert à vérifier qu'une requête mensuelle Store Sales / Profit sur Beer and Wine dans l'état WA est reconnue comme contributive, alors que les variantes CA, autres catégories, autres mesures ou grains plus grossiers sont bloquées."
+    },
+    {
+      "id": "kpi::KPI_REAL_STORE_SALES",
+      "type": "kpi"
+    },
+    {
+      "id": "kpi::KPI_REAL_PROFIT",
+      "type": "kpi"
+    },
+    {
+      "id": "constraint::real_c1",
+      "type": "constraint",
+      "kpi_id": "KPI_REAL_STORE_SALES",
+      "description": "Store Sales pour Beer and Wine / WA au grain mensuel.",
+      "weight": 1.0
+    },
+    {
+      "id": "nv::NV_REAL_BEER_WA_MONTH_SALES",
+      "type": "virtual_node",
+      "constraint_id": "real_c1",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "fact": "Sales",
+      "fact_canon": "sales",
+      "grain": [
+        "Time.Month",
+        "Product.Product Category",
+        "Store.Store State"
+      ],
+      "measure": "Store Sales",
+      "measure_canon": "store sales",
+      "aggregator": "SUM",
+      "aggregator_canon": "sum",
+      "unit": "CURRENCY",
+      "unit_canon": "currency",
+      "slicers": {
+        "Product.Product Category": "Beer and Wine",
+        "Store.Store State": "WA"
+      },
+      "window_start": null,
+      "window_end": null
+    },
+    {
+      "id": "constraint::real_c2",
+      "type": "constraint",
+      "kpi_id": "KPI_REAL_PROFIT",
+      "description": "Profit pour Beer and Wine / WA au grain mensuel.",
+      "weight": 1.0
+    },
+    {
+      "id": "nv::NV_REAL_BEER_WA_MONTH_PROFIT",
+      "type": "virtual_node",
+      "constraint_id": "real_c2",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "fact": "Sales",
+      "fact_canon": "sales",
+      "grain": [
+        "Time.Month",
+        "Product.Product Category",
+        "Store.Store State"
+      ],
+      "measure": "Profit",
+      "measure_canon": "profit",
+      "aggregator": "SUM",
+      "aggregator_canon": "sum",
+      "unit": "CURRENCY",
+      "unit_canon": "currency",
+      "slicers": {
+        "Product.Product Category": "Beer and Wine",
+        "Store.Store State": "WA"
+      },
+      "window_start": null,
+      "window_end": null
+    },
+    {
+      "id": "qp::scale1::sess000::t001",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 1,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "Margin%"
+      ],
+      "measures_canon": [
+        "margin%"
+      ],
+      "group_by": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "session::scale1::sess000",
+      "type": "session"
+    },
+    {
+      "id": "qp::scale1::sess000::t002",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 2,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "StockoutRate"
+      ],
+      "measures_canon": [
+        "stockoutrate"
+      ],
+      "group_by": [
+        "Store.Store",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess000::t003",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 3,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "Store Sales"
+      ],
+      "measures_canon": [
+        "store sales"
+      ],
+      "group_by": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North"
+      },
+      "analytics": [],
+      "aggregators": [
+        "SUM"
+      ],
+      "aggregators_canon": [
+        "sum"
+      ],
+      "units": [
+        "CURRENCY"
+      ],
+      "units_canon": [
+        "currency"
+      ],
+      "window_start": "1997-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [
+        "1997",
+        "1998"
+      ],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess000::t004",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 4,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "Margin%"
+      ],
+      "measures_canon": [
+        "margin%"
+      ],
+      "group_by": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess000::t005",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 5,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "StockoutRate"
+      ],
+      "measures_canon": [
+        "stockoutrate"
+      ],
+      "group_by": [
+        "Store.Store",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess000::t006",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 6,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "Store Sales"
+      ],
+      "measures_canon": [
+        "store sales"
+      ],
+      "group_by": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North"
+      },
+      "analytics": [],
+      "aggregators": [
+        "SUM"
+      ],
+      "aggregators_canon": [
+        "sum"
+      ],
+      "units": [
+        "CURRENCY"
+      ],
+      "units_canon": [
+        "currency"
+      ],
+      "window_start": "1997-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [
+        "1997",
+        "1998"
+      ],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess000::t007",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 7,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "Margin%"
+      ],
+      "measures_canon": [
+        "margin%"
+      ],
+      "group_by": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess000::t008",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 8,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "StockoutRate"
+      ],
+      "measures_canon": [
+        "stockoutrate"
+      ],
+      "group_by": [
+        "Store.Store",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess000::t009",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 9,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "Store Sales"
+      ],
+      "measures_canon": [
+        "store sales"
+      ],
+      "group_by": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North"
+      },
+      "analytics": [],
+      "aggregators": [
+        "SUM"
+      ],
+      "aggregators_canon": [
+        "sum"
+      ],
+      "units": [
+        "CURRENCY"
+      ],
+      "units_canon": [
+        "currency"
+      ],
+      "window_start": "1997-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [
+        "1997",
+        "1998"
+      ],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess000::t010",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 10,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "Margin%"
+      ],
+      "measures_canon": [
+        "margin%"
+      ],
+      "group_by": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess000::t011",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 11,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "StockoutRate"
+      ],
+      "measures_canon": [
+        "stockoutrate"
+      ],
+      "group_by": [
+        "Store.Store",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North",
+        "Time.Year": "1998"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "1998-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess000::t012",
+      "type": "query_plan",
+      "session_id": "scale1::sess000",
+      "step_idx": 12,
+      "objective_id": "OHF_NORD",
+      "cube": "Sales",
+      "cube_canon": "sales",
+      "measures": [
+        "Store Sales"
+      ],
+      "measures_canon": [
+        "store sales"
+      ],
+      "group_by": [
+        "Time.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Health Food",
+        "Store.Region": "North"
+      },
+      "analytics": [],
+      "aggregators": [
+        "SUM"
+      ],
+      "aggregators_canon": [
+        "sum"
+      ],
+      "units": [
+        "CURRENCY"
+      ],
+      "units_canon": [
+        "currency"
+      ],
+      "window_start": "1997-01-01",
+      "window_end": "1998-12-31",
+      "time_members": [
+        "1997",
+        "1998"
+      ],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t001",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 1,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "Gross Margin%"
+      ],
+      "measures_canon": [
+        "gross margin%"
+      ],
+      "group_by": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "session::scale1::sess001",
+      "type": "session"
+    },
+    {
+      "id": "qp::scale1::sess001::t002",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 2,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "ReturnRate"
+      ],
+      "measures_canon": [
+        "returnrate"
+      ],
+      "group_by": [
+        "Reseller.Reseller",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t003",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 3,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "Sales Amount"
+      ],
+      "measures_canon": [
+        "sales amount"
+      ],
+      "group_by": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe"
+      },
+      "analytics": [],
+      "aggregators": [
+        "SUM"
+      ],
+      "aggregators_canon": [
+        "sum"
+      ],
+      "units": [
+        "CURRENCY"
+      ],
+      "units_canon": [
+        "currency"
+      ],
+      "window_start": "2012-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [
+        "2012",
+        "2013"
+      ],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t004",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 4,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "Gross Margin%"
+      ],
+      "measures_canon": [
+        "gross margin%"
+      ],
+      "group_by": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t005",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 5,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "ReturnRate"
+      ],
+      "measures_canon": [
+        "returnrate"
+      ],
+      "group_by": [
+        "Reseller.Reseller",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t006",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 6,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "Sales Amount"
+      ],
+      "measures_canon": [
+        "sales amount"
+      ],
+      "group_by": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe"
+      },
+      "analytics": [],
+      "aggregators": [
+        "SUM"
+      ],
+      "aggregators_canon": [
+        "sum"
+      ],
+      "units": [
+        "CURRENCY"
+      ],
+      "units_canon": [
+        "currency"
+      ],
+      "window_start": "2012-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [
+        "2012",
+        "2013"
+      ],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t007",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 7,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "Gross Margin%"
+      ],
+      "measures_canon": [
+        "gross margin%"
+      ],
+      "group_by": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t008",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 8,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "ReturnRate"
+      ],
+      "measures_canon": [
+        "returnrate"
+      ],
+      "group_by": [
+        "Reseller.Reseller",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t009",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 9,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "Sales Amount"
+      ],
+      "measures_canon": [
+        "sales amount"
+      ],
+      "group_by": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe"
+      },
+      "analytics": [],
+      "aggregators": [
+        "SUM"
+      ],
+      "aggregators_canon": [
+        "sum"
+      ],
+      "units": [
+        "CURRENCY"
+      ],
+      "units_canon": [
+        "currency"
+      ],
+      "window_start": "2012-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [
+        "2012",
+        "2013"
+      ],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t010",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 10,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "Gross Margin%"
+      ],
+      "measures_canon": [
+        "gross margin%"
+      ],
+      "group_by": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t011",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 11,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "ReturnRate"
+      ],
+      "measures_canon": [
+        "returnrate"
+      ],
+      "group_by": [
+        "Reseller.Reseller",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe",
+        "Date.Year": "2013"
+      },
+      "analytics": [],
+      "aggregators": [
+        "AVG"
+      ],
+      "aggregators_canon": [
+        "avg"
+      ],
+      "units": [
+        "PERCENT"
+      ],
+      "units_canon": [
+        "percent"
+      ],
+      "window_start": "2013-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [],
+      "language": "canonical"
+    },
+    {
+      "id": "qp::scale1::sess001::t012",
+      "type": "query_plan",
+      "session_id": "scale1::sess001",
+      "step_idx": 12,
+      "objective_id": "OAW_BIKES_EUROPE",
+      "cube": "Adventure Works Sales",
+      "cube_canon": "adventure works sales",
+      "measures": [
+        "Sales Amount"
+      ],
+      "measures_canon": [
+        "sales amount"
+      ],
+      "group_by": [
+        "Date.Month",
+        "Product.Category"
+      ],
+      "slicers": {
+        "Product.Category": "Bikes",
+        "SalesTerritory.Region": "Europe"
+      },
+      "analytics": [],
+      "aggregators": [
+        "SUM"
+      ],
+      "aggregators_canon": [
+        "sum"
+      ],
+      "units": [
+        "CURRENCY"
+      ],
+      "units_canon": [
+        "currency"
+      ],
+      "window_start": "2012-01-01",
+      "window_end": "2013-12-31",
+      "time_members": [
+        "2012",
+        "2013"
+      ],
+      "language": "canonical"
+    }
+  ],
+  "edges": [
+    {
+      "src": "objective::OHF_NORD",
+      "dst": "kpi::KPI_MARGIN_RATE",
+      "weight": 1.0,
+      "rel": "HAS_KPI"
+    },
+    {
+      "src": "objective::OHF_NORD",
+      "dst": "kpi::KPI_STOCKOUT_RATE",
+      "weight": 1.0,
+      "rel": "HAS_KPI"
+    },
+    {
+      "src": "objective::OHF_NORD",
+      "dst": "kpi::KPI_CA_GROWTH",
+      "weight": 1.0,
+      "rel": "HAS_KPI"
+    },
+    {
+      "src": "objective::OHF_NORD",
+      "dst": "constraint::c1",
+      "weight": 1.0,
+      "rel": "HAS_CONSTRAINT"
+    },
+    {
+      "src": "objective::OHF_NORD",
+      "dst": "constraint::c2",
+      "weight": 1.0,
+      "rel": "HAS_CONSTRAINT"
+    },
+    {
+      "src": "objective::OHF_NORD",
+      "dst": "constraint::c3",
+      "weight": 1.0,
+      "rel": "HAS_CONSTRAINT"
+    },
+    {
+      "src": "constraint::c1",
+      "dst": "nv::NV_MARGIN_HF_NORTH_1998_MONTH",
+      "weight": 1.0,
+      "rel": "REQUIRES_NV"
+    },
+    {
+      "src": "constraint::c2",
+      "dst": "nv::NV_STOCKOUT_HF_NORTH_1998_STORE",
+      "weight": 1.0,
+      "rel": "REQUIRES_NV"
+    },
+    {
+      "src": "constraint::c3",
+      "dst": "nv::NV_CA_HF_NORTH_1997_MONTH",
+      "weight": 1.0,
+      "rel": "REQUIRES_NV"
+    },
+    {
+      "src": "constraint::c3",
+      "dst": "nv::NV_CA_HF_NORTH_1998_MONTH",
+      "weight": 1.0,
+      "rel": "REQUIRES_NV"
+    },
+    {
+      "src": "objective::OAW_BIKES_EUROPE",
+      "dst": "kpi::KPI_AW_MARGIN_RATE",
+      "weight": 1.0,
+      "rel": "HAS_KPI"
+    },
+    {
+      "src": "objective::OAW_BIKES_EUROPE",
+      "dst": "kpi::KPI_AW_RETURN_RATE",
+      "weight": 1.0,
+      "rel": "HAS_KPI"
+    },
+    {
+      "src": "objective::OAW_BIKES_EUROPE",
+      "dst": "kpi::KPI_AW_SALES_GROWTH",
+      "weight": 1.0,
+      "rel": "HAS_KPI"
+    },
+    {
+      "src": "objective::OAW_BIKES_EUROPE",
+      "dst": "constraint::aw_c1",
+      "weight": 1.0,
+      "rel": "HAS_CONSTRAINT"
+    },
+    {
+      "src": "objective::OAW_BIKES_EUROPE",
+      "dst": "constraint::aw_c2",
+      "weight": 1.0,
+      "rel": "HAS_CONSTRAINT"
+    },
+    {
+      "src": "objective::OAW_BIKES_EUROPE",
+      "dst": "constraint::aw_c3",
+      "weight": 1.0,
+      "rel": "HAS_CONSTRAINT"
+    },
+    {
+      "src": "constraint::aw_c1",
+      "dst": "nv::NV_AW_MARGIN_BIKES_EUROPE_2013_MONTH",
+      "weight": 1.0,
+      "rel": "REQUIRES_NV"
+    },
+    {
+      "src": "constraint::aw_c2",
+      "dst": "nv::NV_AW_RETURN_BIKES_EUROPE_2013_RESELLER",
+      "weight": 1.0,
+      "rel": "REQUIRES_NV"
+    },
+    {
+      "src": "constraint::aw_c3",
+      "dst": "nv::NV_AW_SALES_BIKES_EUROPE_2012_MONTH",
+      "weight": 1.0,
+      "rel": "REQUIRES_NV"
+    },
+    {
+      "src": "constraint::aw_c3",
+      "dst": "nv::NV_AW_SALES_BIKES_EUROPE_2013_MONTH",
+      "weight": 1.0,
+      "rel": "REQUIRES_NV"
+    },
+    {
+      "src": "objective::O_REAL_BEER_WA_MONTH",
+      "dst": "kpi::KPI_REAL_STORE_SALES",
+      "weight": 1.0,
+      "rel": "HAS_KPI"
+    },
+    {
+      "src": "objective::O_REAL_BEER_WA_MONTH",
+      "dst": "kpi::KPI_REAL_PROFIT",
+      "weight": 1.0,
+      "rel": "HAS_KPI"
+    },
+    {
+      "src": "objective::O_REAL_BEER_WA_MONTH",
+      "dst": "constraint::real_c1",
+      "weight": 1.0,
+      "rel": "HAS_CONSTRAINT"
+    },
+    {
+      "src": "objective::O_REAL_BEER_WA_MONTH",
+      "dst": "constraint::real_c2",
+      "weight": 1.0,
+      "rel": "HAS_CONSTRAINT"
+    },
+    {
+      "src": "constraint::real_c1",
+      "dst": "nv::NV_REAL_BEER_WA_MONTH_SALES",
+      "weight": 1.0,
+      "rel": "REQUIRES_NV"
+    },
+    {
+      "src": "constraint::real_c2",
+      "dst": "nv::NV_REAL_BEER_WA_MONTH_PROFIT",
+      "weight": 1.0,
+      "rel": "REQUIRES_NV"
+    },
+    {
+      "src": "qp::scale1::sess000::t001",
+      "dst": "nv::NV_MARGIN_HF_NORTH_1998_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "session::scale1::sess000",
+      "dst": "objective::OHF_NORD",
+      "weight": 12.0,
+      "rel": "EVALUATES"
+    },
+    {
+      "src": "session::scale1::sess000",
+      "dst": "constraint::c1",
+      "weight": 1.0,
+      "rel": "COVERS",
+      "t": 1
+    },
+    {
+      "src": "session::scale1::sess000",
+      "dst": "constraint::c2",
+      "weight": 1.0,
+      "rel": "COVERS",
+      "t": 2
+    },
+    {
+      "src": "session::scale1::sess000",
+      "dst": "constraint::c3",
+      "weight": 1.0,
+      "rel": "COVERS",
+      "t": 3
+    },
+    {
+      "src": "qp::scale1::sess000::t002",
+      "dst": "nv::NV_STOCKOUT_HF_NORTH_1998_STORE",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t003",
+      "dst": "nv::NV_CA_HF_NORTH_1997_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t003",
+      "dst": "nv::NV_CA_HF_NORTH_1998_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t004",
+      "dst": "nv::NV_MARGIN_HF_NORTH_1998_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t005",
+      "dst": "nv::NV_STOCKOUT_HF_NORTH_1998_STORE",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t006",
+      "dst": "nv::NV_CA_HF_NORTH_1997_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t006",
+      "dst": "nv::NV_CA_HF_NORTH_1998_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t007",
+      "dst": "nv::NV_MARGIN_HF_NORTH_1998_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t008",
+      "dst": "nv::NV_STOCKOUT_HF_NORTH_1998_STORE",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t009",
+      "dst": "nv::NV_CA_HF_NORTH_1997_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t009",
+      "dst": "nv::NV_CA_HF_NORTH_1998_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t010",
+      "dst": "nv::NV_MARGIN_HF_NORTH_1998_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t011",
+      "dst": "nv::NV_STOCKOUT_HF_NORTH_1998_STORE",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t012",
+      "dst": "nv::NV_CA_HF_NORTH_1997_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess000::t012",
+      "dst": "nv::NV_CA_HF_NORTH_1998_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t001",
+      "dst": "nv::NV_AW_MARGIN_BIKES_EUROPE_2013_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "session::scale1::sess001",
+      "dst": "objective::OAW_BIKES_EUROPE",
+      "weight": 12.0,
+      "rel": "EVALUATES"
+    },
+    {
+      "src": "session::scale1::sess001",
+      "dst": "constraint::aw_c1",
+      "weight": 1.0,
+      "rel": "COVERS",
+      "t": 1
+    },
+    {
+      "src": "session::scale1::sess001",
+      "dst": "constraint::aw_c2",
+      "weight": 1.0,
+      "rel": "COVERS",
+      "t": 2
+    },
+    {
+      "src": "session::scale1::sess001",
+      "dst": "constraint::aw_c3",
+      "weight": 1.0,
+      "rel": "COVERS",
+      "t": 3
+    },
+    {
+      "src": "qp::scale1::sess001::t002",
+      "dst": "nv::NV_AW_RETURN_BIKES_EUROPE_2013_RESELLER",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t003",
+      "dst": "nv::NV_AW_SALES_BIKES_EUROPE_2012_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t003",
+      "dst": "nv::NV_AW_SALES_BIKES_EUROPE_2013_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t004",
+      "dst": "nv::NV_AW_MARGIN_BIKES_EUROPE_2013_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t005",
+      "dst": "nv::NV_AW_RETURN_BIKES_EUROPE_2013_RESELLER",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t006",
+      "dst": "nv::NV_AW_SALES_BIKES_EUROPE_2012_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t006",
+      "dst": "nv::NV_AW_SALES_BIKES_EUROPE_2013_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t007",
+      "dst": "nv::NV_AW_MARGIN_BIKES_EUROPE_2013_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t008",
+      "dst": "nv::NV_AW_RETURN_BIKES_EUROPE_2013_RESELLER",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t009",
+      "dst": "nv::NV_AW_SALES_BIKES_EUROPE_2012_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t009",
+      "dst": "nv::NV_AW_SALES_BIKES_EUROPE_2013_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t010",
+      "dst": "nv::NV_AW_MARGIN_BIKES_EUROPE_2013_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t011",
+      "dst": "nv::NV_AW_RETURN_BIKES_EUROPE_2013_RESELLER",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t012",
+      "dst": "nv::NV_AW_SALES_BIKES_EUROPE_2012_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    },
+    {
+      "src": "qp::scale1::sess001::t012",
+      "dst": "nv::NV_AW_SALES_BIKES_EUROPE_2013_MONTH",
+      "weight": 1.0,
+      "rel": "REALIZES"
+    }
+  ],
+  "history": [],
+  "session_coverage": {
+    "scale1::sess000": {
+      "OHF_NORD": [
+        "c1",
+        "c2",
+        "c3"
+      ]
+    },
+    "scale1::sess001": {
+      "OAW_BIKES_EUROPE": [
+        "aw_c1",
+        "aw_c2",
+        "aw_c3"
+      ]
+    }
+  },
+  "session_weighted_coverage": {
+    "scale1::sess000": {
+      "OHF_NORD": 1.0
+    },
+    "scale1::sess001": {
+      "OAW_BIKES_EUROPE": 1.0
+    }
+  },
+  "session_resource_coverage": {
+    "scale1::sess000": {
+      "OHF_NORD": {
+        "c1": [
+          "NV_MARGIN_HF_NORTH_1998_MONTH"
+        ],
+        "c2": [
+          "NV_STOCKOUT_HF_NORTH_1998_STORE"
+        ],
+        "c3": [
+          "NV_CA_HF_NORTH_1997_MONTH",
+          "NV_CA_HF_NORTH_1998_MONTH"
+        ]
+      }
+    },
+    "scale1::sess001": {
+      "OAW_BIKES_EUROPE": {
+        "aw_c1": [
+          "NV_AW_MARGIN_BIKES_EUROPE_2013_MONTH"
+        ],
+        "aw_c2": [
+          "NV_AW_RETURN_BIKES_EUROPE_2013_RESELLER"
+        ],
+        "aw_c3": [
+          "NV_AW_SALES_BIKES_EUROPE_2012_MONTH",
+          "NV_AW_SALES_BIKES_EUROPE_2013_MONTH"
+        ]
+      }
+    }
+  }
+}

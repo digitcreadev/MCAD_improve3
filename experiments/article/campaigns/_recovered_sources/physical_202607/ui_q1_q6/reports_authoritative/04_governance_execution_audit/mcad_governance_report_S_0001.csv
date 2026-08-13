@@ -1,0 +1,7 @@
+"step_index","query_id","decision","reason_code","formal_sat","local_phi","cumulative_phi_leq_t","delta_phi","physical_execution","execution_status","execution_path","adapter_id","row_count"
+"1","AW_Q1_ALLOW_SALES_AMOUNT_MONTH_TERRITORY","ALLOW","ALLOW_NEW_TOTAL","true","0.3333333333333333","0.3333333333333333","0.3333333333333333","true","EXECUTED","sqlserver_direct","adventureworks_direct","36"
+"2","AW_Q2_ALLOW_TOTAL_PRODUCT_COST_MONTH_TERRITORY","ALLOW","ALLOW_NEW_TOTAL","true","0.6666666666666666","0.6666666666666666","0.3333333333333333","true","EXECUTED","sqlserver_direct","adventureworks_direct","36"
+"3","AW_Q3_ALLOW_GROSS_MARGIN_MONTH_TERRITORY","ALLOW","ALLOW_NEW_TOTAL","true","1","1","0.3333333333333333","true","EXECUTED","sqlserver_direct","adventureworks_direct","36"
+"4","AW_Q4_BLOCK_OUT_OF_OBJECTIVE_CATEGORY","BLOCK","BLOCK_OUT_OF_OBJECTIVE_SCOPE","true","0","1","0","false","MCAD_BLOCKED","","",""
+"5","AW_Q5_BLOCK_BAD_GRAIN_YEAR","BLOCK","BLOCK_GRAIN_MISMATCH","false","1","1","0","false","MCAD_BLOCKED","","",""
+"6","AW_Q6_BLOCK_REDUNDANT_SALES_AMOUNT","BLOCK","BLOCK_REDUNDANT_DPHI_ZERO","true","1","1","0","false","MCAD_BLOCKED","","",""

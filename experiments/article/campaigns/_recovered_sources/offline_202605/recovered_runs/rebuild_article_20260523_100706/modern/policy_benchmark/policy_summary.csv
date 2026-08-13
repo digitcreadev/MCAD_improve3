@@ -1,0 +1,8 @@
+policy;n_sessions;mean_phi_final;mean_auc_phi;mean_time_to_0_8;mean_time_to_0_9;mean_false_allow_rate;mean_false_block_rate;mean_non_contrib_exec_rate;mean_sat_fail_rate;mean_real_empty_rate;mean_ceval_empty_rate;latency_p50_ms;latency_p95_ms;latency_p99_ms;latency_cold_p50_ms;latency_warm_p50_ms
+ablation_ceval_any_intersection;500;0.333333;0.211111;3.0;3.0;0.1;0.0;0.1;0.566667;0.0;0.0;0.2125;0.61596;0.86882;0.2125;0.0
+ablation_no_real;500;0.333333;0.211111;3.0;3.0;0.1;0.0;0.1;0.566667;0.0;0.1;0.25355;0.641944;0.700944;0.2829;0.0
+ablation_no_sat;500;0.333333;0.211111;3.0;3.0;0.0;0.0;0.0;0.566667;0.0;0.1;0.2686;0.639114;0.759919;0.2782;0.0
+baseline_measure_overlap;500;0.333333;0.211111;3.0;3.0;0.566667;0.0;0.566667;0.0;0.0;0.0;0.0131;0.023204;0.029203;0.0141;0.0
+baseline_naive;500;0.333333;0.211111;3.0;3.0;0.666667;0.0;0.666667;0.0;0.0;0.0;0.0009;0.0015;0.0019;0.001;0.0
+baseline_random_matched;500;0.190667;0.121333;3.0;3.0;0.400667;0.142667;0.427667;0.0;0.0;0.0;0.0027;0.0045;0.006106;0.0031;0.0
+mcad;500;0.333333;0.211111;3.0;3.0;0.0;0.0;0.0;0.566667;0.0;0.1;0.24735;0.621491;0.696226;0.2753;0.0

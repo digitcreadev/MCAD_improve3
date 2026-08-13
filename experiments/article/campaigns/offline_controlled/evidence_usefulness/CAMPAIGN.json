@@ -1,0 +1,7 @@
+{
+  "id": "evidence_usefulness",
+  "class": "offline_controlled",
+  "status": "RECOVERED_HISTORICAL_PRIMARY",
+  "payload": "_recovered_sources/offline_202605/recovered_runs/*/modern/evidence",
+  "current_repo_candidates_resolved": []
+}

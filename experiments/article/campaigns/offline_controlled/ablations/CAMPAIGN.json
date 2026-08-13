@@ -1,0 +1,15 @@
+{
+  "id": "ablations",
+  "class": "offline_controlled",
+  "status": "RECOVERED_HISTORICAL_PRIMARY_PLUS_LATER_ROBUSTNESS_FREEZE",
+  "payload": "_recovered_sources/offline_202605/recovered_runs/*/modern/policy_benchmark",
+  "current_repo_candidates": [
+    "experiments/article/frozen_campaigns/robustness_non_temporal"
+  ],
+  "current_repo_candidates_resolved": [
+    {
+      "path": "experiments/article/frozen_campaigns/robustness_non_temporal",
+      "exists": true
+    }
+  ]
+}

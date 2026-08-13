@@ -1,0 +1,7 @@
+{
+  "n_reference_items": 30,
+  "n_annotators": 3,
+  "allow_cohen_kappa": 0.864865,
+  "ceval_exact_match": 0.933333,
+  "ceval_avg_jaccard": 0.933333
+}

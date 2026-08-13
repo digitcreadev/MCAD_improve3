@@ -1,0 +1,15 @@
+{
+  "id": "campaign_b_multidataset",
+  "class": "physical",
+  "status": "RECOVERED_CANONICAL_PACKAGE_HISTORICAL",
+  "payload": "_recovered_sources/physical_202607/campaign_b_multidataset",
+  "current_repo_candidates": [
+    "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/ckg_runtimes/locked/B_multidataset_controlled_minimal_v3"
+  ],
+  "current_repo_candidates_resolved": [
+    {
+      "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/ckg_runtimes/locked/B_multidataset_controlled_minimal_v3",
+      "exists": true
+    }
+  ]
+}

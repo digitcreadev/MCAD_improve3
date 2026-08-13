@@ -1,0 +1,15 @@
+{
+  "id": "robustness",
+  "class": "offline_controlled",
+  "status": "FROZEN_PRIMARY",
+  "payload": "_recovered_sources/robustness_20260731",
+  "current_repo_candidates": [
+    "experiments/article/frozen_campaigns/robustness_non_temporal"
+  ],
+  "current_repo_candidates_resolved": [
+    {
+      "path": "experiments/article/frozen_campaigns/robustness_non_temporal",
+      "exists": true
+    }
+  ]
+}

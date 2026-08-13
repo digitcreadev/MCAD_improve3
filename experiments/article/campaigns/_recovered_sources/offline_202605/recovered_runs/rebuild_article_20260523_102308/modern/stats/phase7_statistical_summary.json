@@ -1,0 +1,659 @@
+{
+  "run_root": "",
+  "policy_confidence_intervals": {
+    "ablation_ceval_any_intersection": {
+      "n_sessions": 450,
+      "phi_final_mean": 0.296296,
+      "phi_final_ci_low": 0.255556,
+      "phi_final_ci_high": 0.336296,
+      "auc_phi_mean": 0.191358,
+      "auc_phi_ci_low": 0.164198,
+      "auc_phi_ci_high": 0.218025,
+      "false_allow_rate_mean": 0.111111,
+      "false_allow_rate_ci_low": 0.082222,
+      "false_allow_rate_ci_high": 0.142222,
+      "non_contrib_exec_rate_mean": 0.111111,
+      "non_contrib_exec_rate_ci_low": 0.082222,
+      "non_contrib_exec_rate_ci_high": 0.142222
+    },
+    "ablation_no_real": {
+      "n_sessions": 450,
+      "phi_final_mean": 0.296296,
+      "phi_final_ci_low": 0.255556,
+      "phi_final_ci_high": 0.336296,
+      "auc_phi_mean": 0.191358,
+      "auc_phi_ci_low": 0.164198,
+      "auc_phi_ci_high": 0.218025,
+      "false_allow_rate_mean": 0.111111,
+      "false_allow_rate_ci_low": 0.082222,
+      "false_allow_rate_ci_high": 0.142222,
+      "non_contrib_exec_rate_mean": 0.111111,
+      "non_contrib_exec_rate_ci_low": 0.082222,
+      "non_contrib_exec_rate_ci_high": 0.142222
+    },
+    "ablation_no_sat": {
+      "n_sessions": 450,
+      "phi_final_mean": 0.296296,
+      "phi_final_ci_low": 0.255556,
+      "phi_final_ci_high": 0.336296,
+      "auc_phi_mean": 0.191358,
+      "auc_phi_ci_low": 0.164198,
+      "auc_phi_ci_high": 0.218025,
+      "false_allow_rate_mean": 0.0,
+      "false_allow_rate_ci_low": 0.0,
+      "false_allow_rate_ci_high": 0.0,
+      "non_contrib_exec_rate_mean": 0.0,
+      "non_contrib_exec_rate_ci_low": 0.0,
+      "non_contrib_exec_rate_ci_high": 0.0
+    },
+    "baseline_measure_overlap": {
+      "n_sessions": 450,
+      "phi_final_mean": 0.296296,
+      "phi_final_ci_low": 0.255556,
+      "phi_final_ci_high": 0.336296,
+      "auc_phi_mean": 0.191358,
+      "auc_phi_ci_low": 0.164198,
+      "auc_phi_ci_high": 0.218025,
+      "false_allow_rate_mean": 0.592593,
+      "false_allow_rate_ci_low": 0.548889,
+      "false_allow_rate_ci_high": 0.637037,
+      "non_contrib_exec_rate_mean": 0.592593,
+      "non_contrib_exec_rate_ci_low": 0.548889,
+      "non_contrib_exec_rate_ci_high": 0.637037
+    },
+    "baseline_naive": {
+      "n_sessions": 450,
+      "phi_final_mean": 0.296296,
+      "phi_final_ci_low": 0.255556,
+      "phi_final_ci_high": 0.336296,
+      "auc_phi_mean": 0.191358,
+      "auc_phi_ci_low": 0.164198,
+      "auc_phi_ci_high": 0.218025,
+      "false_allow_rate_mean": 0.703704,
+      "false_allow_rate_ci_low": 0.663704,
+      "false_allow_rate_ci_high": 0.744444,
+      "non_contrib_exec_rate_mean": 0.703704,
+      "non_contrib_exec_rate_ci_low": 0.663704,
+      "non_contrib_exec_rate_ci_high": 0.744444
+    },
+    "baseline_random_matched": {
+      "n_sessions": 450,
+      "phi_final_mean": 0.180741,
+      "phi_final_ci_low": 0.153333,
+      "phi_final_ci_high": 0.20963,
+      "auc_phi_mean": 0.116543,
+      "auc_phi_ci_low": 0.097284,
+      "auc_phi_ci_high": 0.136296,
+      "false_allow_rate_mean": 0.411111,
+      "false_allow_rate_ci_low": 0.366667,
+      "false_allow_rate_ci_high": 0.457037,
+      "non_contrib_exec_rate_mean": 0.424444,
+      "non_contrib_exec_rate_ci_low": 0.37963,
+      "non_contrib_exec_rate_ci_high": 0.470741
+    },
+    "mcad": {
+      "n_sessions": 450,
+      "phi_final_mean": 0.296296,
+      "phi_final_ci_low": 0.255556,
+      "phi_final_ci_high": 0.336296,
+      "auc_phi_mean": 0.191358,
+      "auc_phi_ci_low": 0.164198,
+      "auc_phi_ci_high": 0.218025,
+      "false_allow_rate_mean": 0.0,
+      "false_allow_rate_ci_low": 0.0,
+      "false_allow_rate_ci_high": 0.0,
+      "non_contrib_exec_rate_mean": 0.0,
+      "non_contrib_exec_rate_ci_low": 0.0,
+      "non_contrib_exec_rate_ci_high": 0.0
+    }
+  },
+  "pairwise_highlights": [
+    {
+      "comparator": "baseline_naive",
+      "metric": "phi_final",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "baseline_naive",
+      "metric": "auc_phi",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "baseline_naive",
+      "metric": "false_allow_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.703704,
+      "ci_low": 0.663704,
+      "ci_high": 0.744444,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.861111
+    },
+    {
+      "comparator": "baseline_naive",
+      "metric": "non_contrib_exec_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.703704,
+      "ci_low": 0.663704,
+      "ci_high": 0.744444,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.861111
+    },
+    {
+      "comparator": "baseline_measure_overlap",
+      "metric": "phi_final",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "baseline_measure_overlap",
+      "metric": "auc_phi",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "baseline_measure_overlap",
+      "metric": "false_allow_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.592593,
+      "ci_low": 0.548889,
+      "ci_high": 0.637037,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.805556
+    },
+    {
+      "comparator": "baseline_measure_overlap",
+      "metric": "non_contrib_exec_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.592593,
+      "ci_low": 0.548889,
+      "ci_high": 0.637037,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.805556
+    },
+    {
+      "comparator": "baseline_random_matched",
+      "metric": "phi_final",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.115556,
+      "ci_low": 0.094815,
+      "ci_high": 0.137037,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.617778
+    },
+    {
+      "comparator": "baseline_random_matched",
+      "metric": "auc_phi",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.074815,
+      "ci_low": 0.060741,
+      "ci_high": 0.089136,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.617778
+    },
+    {
+      "comparator": "baseline_random_matched",
+      "metric": "false_allow_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.411111,
+      "ci_low": 0.366667,
+      "ci_high": 0.457037,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.717778
+    },
+    {
+      "comparator": "baseline_random_matched",
+      "metric": "non_contrib_exec_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.424444,
+      "ci_low": 0.37963,
+      "ci_high": 0.470741,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.717778
+    },
+    {
+      "comparator": "ablation_no_sat",
+      "metric": "phi_final",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "ablation_no_sat",
+      "metric": "auc_phi",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "ablation_no_sat",
+      "metric": "false_allow_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "ablation_no_sat",
+      "metric": "non_contrib_exec_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "ablation_no_real",
+      "metric": "phi_final",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "ablation_no_real",
+      "metric": "auc_phi",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "ablation_no_real",
+      "metric": "false_allow_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.111111,
+      "ci_low": 0.082222,
+      "ci_high": 0.142222,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.555556
+    },
+    {
+      "comparator": "ablation_no_real",
+      "metric": "non_contrib_exec_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.111111,
+      "ci_low": 0.082222,
+      "ci_high": 0.142222,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.555556
+    },
+    {
+      "comparator": "ablation_ceval_any_intersection",
+      "metric": "phi_final",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "ablation_ceval_any_intersection",
+      "metric": "auc_phi",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p_value_sign_flip": 1.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "comparator": "ablation_ceval_any_intersection",
+      "metric": "false_allow_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.111111,
+      "ci_low": 0.082222,
+      "ci_high": 0.142222,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.555556
+    },
+    {
+      "comparator": "ablation_ceval_any_intersection",
+      "metric": "non_contrib_exec_rate",
+      "n_pairs": 450,
+      "mcad_advantage_mean": 0.111111,
+      "ci_low": 0.082222,
+      "ci_high": 0.142222,
+      "p_value_sign_flip": 0.0002,
+      "dominance_rate": 0.555556
+    }
+  ],
+  "ablation_sensitivity": [
+    {
+      "ablation": "ablation_no_sat",
+      "metric": "false_allow_rate",
+      "mcad_advantage_mean": 0.041667,
+      "ci_low": 0.032639,
+      "ci_high": 0.050695,
+      "dominance_rate": 0.625
+    },
+    {
+      "ablation": "ablation_no_sat",
+      "metric": "auc_phi",
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "ablation": "ablation_no_sat",
+      "metric": "false_block_rate",
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "ablation": "ablation_no_real",
+      "metric": "false_allow_rate",
+      "mcad_advantage_mean": 0.08125,
+      "ci_low": 0.070417,
+      "ci_high": 0.092292,
+      "dominance_rate": 0.75
+    },
+    {
+      "ablation": "ablation_no_real",
+      "metric": "auc_phi",
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "ablation": "ablation_no_real",
+      "metric": "false_block_rate",
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "ablation": "ablation_ceval_any_intersection",
+      "metric": "false_allow_rate",
+      "mcad_advantage_mean": 0.08125,
+      "ci_low": 0.070417,
+      "ci_high": 0.092292,
+      "dominance_rate": 0.75
+    },
+    {
+      "ablation": "ablation_ceval_any_intersection",
+      "metric": "auc_phi",
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "dominance_rate": 0.5
+    },
+    {
+      "ablation": "ablation_ceval_any_intersection",
+      "metric": "false_block_rate",
+      "mcad_advantage_mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "dominance_rate": 0.5
+    }
+  ],
+  "evidence_usefulness_report": {
+    "generated_at": "2026-05-23T10:25:48.489954Z",
+    "n_records": 12,
+    "useful_evidence_ratio": 1.0,
+    "mean_realized_nv_count": 1.333333,
+    "mean_retained_nv_count": 1.333333,
+    "mean_retained_ratio": 1.0,
+    "mean_calculable_constraint_count": 1.666667,
+    "mean_requirement_link_count": 1.333333,
+    "execution_excerpt_coverage_ratio": 1.0,
+    "mean_execution_excerpt_items": 14.666667,
+    "mean_usefulness_score": 1.0,
+    "objective_bootstrap_coverage": {
+      "OAW_BIKES_EUROPE": 1.0,
+      "OHF_NORD": 1.0
+    },
+    "objective_bootstrap_constraints": {
+      "OAW_BIKES_EUROPE": [
+        "aw_c1",
+        "aw_c2",
+        "aw_c3"
+      ],
+      "OHF_NORD": [
+        "c1",
+        "c2",
+        "c3"
+      ]
+    },
+    "per_record": [
+      {
+        "evidence_id": "EV_SEED_OHF_NORD_t001_3de8bd19b0",
+        "objective_id": "OHF_NORD",
+        "session_id": "SEED_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 12,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_SEED_OHF_NORD_t002_528f4e135b",
+        "objective_id": "OHF_NORD",
+        "session_id": "SEED_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 2,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 7,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_BOOT_OHF_NORD_t001_55394ccca1",
+        "objective_id": "OHF_NORD",
+        "session_id": "FOLLOWUP_BOOT_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 2,
+        "retained_nv_count": 2,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 2,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 24,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OHF_NORD_t001_04a21a79dc",
+        "objective_id": "OHF_NORD",
+        "session_id": "FOLLOWUP_NOBOOT_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 12,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OHF_NORD_t002_9385906214",
+        "objective_id": "OHF_NORD",
+        "session_id": "FOLLOWUP_NOBOOT_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 2,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 7,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OHF_NORD_t003_ded308eef7",
+        "objective_id": "OHF_NORD",
+        "session_id": "FOLLOWUP_NOBOOT_OHF_NORD",
+        "status": "active",
+        "realized_nv_count": 2,
+        "retained_nv_count": 2,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 3,
+        "requirement_link_count": 2,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 24,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_SEED_OAW_BIKES_EUROPE_t001_5280f9001c",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "SEED_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 12,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_SEED_OAW_BIKES_EUROPE_t002_44d1e28c22",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "SEED_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 2,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 9,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_BOOT_OAW_BIKES_EUROPE_t001_6e6e1f0886",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "FOLLOWUP_BOOT_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 2,
+        "retained_nv_count": 2,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 2,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 24,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE_t001_d6ec76deb9",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 1,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 12,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE_t002_c1791aad8b",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 1,
+        "retained_nv_count": 1,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 2,
+        "requirement_link_count": 1,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 9,
+        "usefulness_score": 1.0
+      },
+      {
+        "evidence_id": "EV_FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE_t003_bb8e576af8",
+        "objective_id": "OAW_BIKES_EUROPE",
+        "session_id": "FOLLOWUP_NOBOOT_OAW_BIKES_EUROPE",
+        "status": "active",
+        "realized_nv_count": 2,
+        "retained_nv_count": 2,
+        "retained_ratio": 1.0,
+        "calculable_constraint_count": 3,
+        "requirement_link_count": 2,
+        "execution_excerpt_present": true,
+        "execution_excerpt_items": 24,
+        "usefulness_score": 1.0
+      }
+    ]
+  },
+  "evidence_bootstrap_summary": [
+    {
+      "objective_id": "OHF_NORD",
+      "mode": "no_bootstrap",
+      "steps_to_full": 3,
+      "auc_phi": 0.666667,
+      "final_phi": 1.0,
+      "bootstrap_phi": 0.0
+    },
+    {
+      "objective_id": "OHF_NORD",
+      "mode": "bootstrap",
+      "steps_to_full": 1,
+      "auc_phi": 1.0,
+      "final_phi": 1.0,
+      "bootstrap_phi": 0.666667
+    },
+    {
+      "objective_id": "OAW_BIKES_EUROPE",
+      "mode": "no_bootstrap",
+      "steps_to_full": 3,
+      "auc_phi": 0.666667,
+      "final_phi": 1.0,
+      "bootstrap_phi": 0.0
+    },
+    {
+      "objective_id": "OAW_BIKES_EUROPE",
+      "mode": "bootstrap",
+      "steps_to_full": 1,
+      "auc_phi": 1.0,
+      "final_phi": 1.0,
+      "bootstrap_phi": 0.666667
+    }
+  ]
+}

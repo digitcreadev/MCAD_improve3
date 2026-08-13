@@ -1,0 +1,4956 @@
+{
+  "ok": true,
+  "scenario_id": "foodmart_q1_q6",
+  "objective_id": "O_REAL_BEER_WA_MONTH",
+  "dw_id": "foodmart",
+  "session_id": "S_0004",
+  "summary": [
+    {
+      "step": 1,
+      "query_id": "Q1_ALLOW_USEFUL",
+      "expected_decision": "ALLOW",
+      "decision": "ALLOW",
+      "ok_vs_expected": true,
+      "reason": "ALLOW_NEW_TOTAL",
+      "physical_execution": true,
+      "execution_attempted": true,
+      "execution_status": "EXECUTED",
+      "adapter_id": "xmla_mondrian",
+      "execution_path": "xmla_mondrian",
+      "row_count": 12,
+      "execution_error": null,
+      "http_status": 200
+    },
+    {
+      "step": 2,
+      "query_id": "Q2_ALLOW_COMPLEMENTARY",
+      "expected_decision": "ALLOW",
+      "decision": "ALLOW",
+      "ok_vs_expected": true,
+      "reason": "ALLOW_NEW_TOTAL",
+      "physical_execution": true,
+      "execution_attempted": true,
+      "execution_status": "EXECUTED",
+      "adapter_id": "xmla_mondrian",
+      "execution_path": "xmla_mondrian",
+      "row_count": 12,
+      "execution_error": null,
+      "http_status": 200
+    },
+    {
+      "step": 3,
+      "query_id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+      "expected_decision": "BLOCK",
+      "decision": "BLOCK",
+      "ok_vs_expected": true,
+      "reason": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+      "physical_execution": false,
+      "execution_attempted": false,
+      "execution_status": "MCAD_BLOCKED",
+      "adapter_id": null,
+      "execution_path": null,
+      "row_count": null,
+      "execution_error": null,
+      "http_status": 200
+    },
+    {
+      "step": 4,
+      "query_id": "Q4_BLOCK_REDUNDANT",
+      "expected_decision": "BLOCK",
+      "decision": "BLOCK",
+      "ok_vs_expected": true,
+      "reason": "BLOCK_REDUNDANT_DPHI_ZERO",
+      "physical_execution": false,
+      "execution_attempted": false,
+      "execution_status": "MCAD_BLOCKED",
+      "adapter_id": null,
+      "execution_path": null,
+      "row_count": null,
+      "execution_error": null,
+      "http_status": 200
+    },
+    {
+      "step": 5,
+      "query_id": "Q5_BLOCK_NON_TARGET_MEASURE",
+      "expected_decision": "BLOCK",
+      "decision": "BLOCK",
+      "ok_vs_expected": true,
+      "reason": "BLOCK_MEASURE_NOT_TARGETED",
+      "physical_execution": false,
+      "execution_attempted": false,
+      "execution_status": "MCAD_BLOCKED",
+      "adapter_id": null,
+      "execution_path": null,
+      "row_count": null,
+      "execution_error": null,
+      "http_status": 200
+    },
+    {
+      "step": 6,
+      "query_id": "Q6_BLOCK_BAD_GRAIN",
+      "expected_decision": "BLOCK",
+      "decision": "BLOCK",
+      "ok_vs_expected": true,
+      "reason": "BLOCK_GRAIN_MISMATCH",
+      "physical_execution": false,
+      "execution_attempted": false,
+      "execution_status": "MCAD_BLOCKED",
+      "adapter_id": null,
+      "execution_path": null,
+      "row_count": null,
+      "execution_error": null,
+      "http_status": 200
+    }
+  ],
+  "session_response": {
+    "ok": true,
+    "active": {
+      "session_id": "S_0004",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart"
+    },
+    "session": {
+      "session_id": "S_0004",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "status": "open",
+      "step_index": 0,
+      "phi_leq_t": 0.0,
+      "history_length": 0
+    }
+  },
+  "current_response": {
+    "ok": true,
+    "active": {
+      "session_id": "S_0004",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart"
+    },
+    "last_decision": {},
+    "execution_evidence": {}
+  },
+  "scenario_response": {
+    "ok": true,
+    "scenario": {
+      "id": "foodmart_q1_q6",
+      "name": "FoodMart Q1-Q6 validation",
+      "description": "Six FoodMart MDX queries validating ALLOW/BLOCK behavior for O_REAL_BEER_WA_MONTH.",
+      "objective_id": "O_REAL_BEER_WA_MONTH",
+      "dw_id": "foodmart",
+      "dataset": "foodmart",
+      "queries": [
+        {
+          "id": "Q1_ALLOW_USEFUL",
+          "label": "Q1 — ALLOW utile",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart",
+          "query_type": "mdx",
+          "expected_decision": "ALLOW",
+          "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+          "query_id": "Q1_ALLOW_USEFUL",
+          "dataset": "foodmart"
+        },
+        {
+          "id": "Q2_ALLOW_COMPLEMENTARY",
+          "label": "Q2 — ALLOW complémentaire",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart",
+          "query_type": "mdx",
+          "expected_decision": "ALLOW",
+          "mdx": "SELECT {[Measures].[Profit]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+          "query_id": "Q2_ALLOW_COMPLEMENTARY",
+          "dataset": "foodmart"
+        },
+        {
+          "id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+          "label": "Q3 — BLOCK hors objectif",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart",
+          "query_type": "mdx",
+          "expected_decision": "BLOCK",
+          "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[CA])",
+          "query_id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+          "dataset": "foodmart"
+        },
+        {
+          "id": "Q4_BLOCK_REDUNDANT",
+          "label": "Q4 — BLOCK redondant",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart",
+          "query_type": "mdx",
+          "expected_decision": "BLOCK",
+          "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+          "query_id": "Q4_BLOCK_REDUNDANT",
+          "dataset": "foodmart"
+        },
+        {
+          "id": "Q5_BLOCK_NON_TARGET_MEASURE",
+          "label": "Q5 — BLOCK mesure non ciblée",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart",
+          "query_type": "mdx",
+          "expected_decision": "BLOCK",
+          "mdx": "SELECT {[Measures].[Unit Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+          "query_id": "Q5_BLOCK_NON_TARGET_MEASURE",
+          "dataset": "foodmart"
+        },
+        {
+          "id": "Q6_BLOCK_BAD_GRAIN",
+          "label": "Q6 — BLOCK grain non conforme",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart",
+          "query_type": "mdx",
+          "expected_decision": "BLOCK",
+          "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Year].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+          "query_id": "Q6_BLOCK_BAD_GRAIN",
+          "dataset": "foodmart"
+        }
+      ],
+      "compatibility": {
+        "compatible": true,
+        "scenario_id": "foodmart_q1_q6",
+        "scenario_objective_id": "O_REAL_BEER_WA_MONTH",
+        "active_objective_id": "O_REAL_BEER_WA_MONTH",
+        "scenario_dw_id": "foodmart",
+        "selected_dw_id": "foodmart",
+        "scenario_dataset": "foodmart",
+        "selected_dataset": "foodmart",
+        "errors": [],
+        "warnings": [],
+        "reason_codes": []
+      },
+      "compatible": true,
+      "compatibility_errors": [],
+      "compatibility_warnings": []
+    },
+    "items": [
+      {
+        "id": "Q1_ALLOW_USEFUL",
+        "label": "Q1 — ALLOW utile",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "ALLOW",
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_id": "Q1_ALLOW_USEFUL",
+        "dataset": "foodmart"
+      },
+      {
+        "id": "Q2_ALLOW_COMPLEMENTARY",
+        "label": "Q2 — ALLOW complémentaire",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "ALLOW",
+        "mdx": "SELECT {[Measures].[Profit]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_id": "Q2_ALLOW_COMPLEMENTARY",
+        "dataset": "foodmart"
+      },
+      {
+        "id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+        "label": "Q3 — BLOCK hors objectif",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "BLOCK",
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[CA])",
+        "query_id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+        "dataset": "foodmart"
+      },
+      {
+        "id": "Q4_BLOCK_REDUNDANT",
+        "label": "Q4 — BLOCK redondant",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "BLOCK",
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_id": "Q4_BLOCK_REDUNDANT",
+        "dataset": "foodmart"
+      },
+      {
+        "id": "Q5_BLOCK_NON_TARGET_MEASURE",
+        "label": "Q5 — BLOCK mesure non ciblée",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "BLOCK",
+        "mdx": "SELECT {[Measures].[Unit Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_id": "Q5_BLOCK_NON_TARGET_MEASURE",
+        "dataset": "foodmart"
+      },
+      {
+        "id": "Q6_BLOCK_BAD_GRAIN",
+        "label": "Q6 — BLOCK grain non conforme",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "BLOCK",
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Year].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_id": "Q6_BLOCK_BAD_GRAIN",
+        "dataset": "foodmart"
+      }
+    ],
+    "compatibility": {
+      "compatible": true,
+      "scenario_id": "foodmart_q1_q6",
+      "scenario_objective_id": "O_REAL_BEER_WA_MONTH",
+      "active_objective_id": "O_REAL_BEER_WA_MONTH",
+      "scenario_dw_id": "foodmart",
+      "selected_dw_id": "foodmart",
+      "scenario_dataset": "foodmart",
+      "selected_dataset": "foodmart",
+      "errors": [],
+      "warnings": [],
+      "reason_codes": []
+    }
+  },
+  "results": [
+    {
+      "query": {
+        "id": "Q1_ALLOW_USEFUL",
+        "label": "Q1 — ALLOW utile",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "ALLOW",
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_id": "Q1_ALLOW_USEFUL",
+        "dataset": "foodmart"
+      },
+      "payload": {
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_type": "mdx",
+        "query_id": "Q1_ALLOW_USEFUL",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "session_id": "S_0004",
+        "source_scenario_id": "foodmart_q1_q6",
+        "scenario_id": "foodmart_q1_q6",
+        "scenario_name": "FoodMart Q1-Q6 validation",
+        "scenario_source": "campaign_b_controlled_minimal",
+        "scenario_query_index": 0,
+        "scenario_query_id": "Q1_ALLOW_USEFUL",
+        "expected_decision": "ALLOW",
+        "allow_fallback": false
+      },
+      "response": {
+        "ok": true,
+        "mode": "hybrid_bi_gateway",
+        "gateway": "mcad.execution_gateway.v2.hybrid",
+        "execution_source_enforced": true,
+        "allow_fallback": false,
+        "query_id": "Q1_ALLOW_USEFUL",
+        "dw_id": "foodmart",
+        "adapter_id": "xmla_mondrian",
+        "execution_path": "xmla_mondrian",
+        "decision": {
+          "decision": "ALLOW",
+          "phi": 0.5,
+          "threshold": 0.6,
+          "sat": 1.0,
+          "real": 0.5,
+          "ceval": 0.5,
+          "explain": "ENGINE=real mode=formal_contributive_session_marginal+contract_contributive formal_sat=True legacy_engine_sat=True phi=0.500 theta=0.600 Ceval=1/2 RealNV=1/2 phi_leq_t=0.500 dphi=0.500 => ALLOW",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "is_redundant": false,
+          "has_marginal_gain": true,
+          "details": {
+            "engine": "evaluate_with_objective_and_session(payload)",
+            "decision_policy": "formal_contributive_session_marginal+contract_contributive",
+            "decision_reason_code": "ALLOW_NEW_TOTAL",
+            "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+            "is_redundant": false,
+            "has_marginal_gain": true,
+            "gained_resource_ids_count": 1,
+            "threshold_used_for_ranking": 0.6,
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 1,
+            "phi_weighted": 0.5,
+            "phi_leq_t": 0.5,
+            "delta_phi_t": 0.5,
+            "real_node_ids": [
+              "NV_REAL_BEER_WA_MONTH_SALES"
+            ],
+            "calculable_constraints": [
+              "c_sales"
+            ],
+            "calculable_constraints_total": [
+              "c_sales"
+            ],
+            "calculable_constraints_partial": [],
+            "newly_contributed_constraints_total": [
+              "c_sales"
+            ],
+            "newly_contributed_constraints_partial": [],
+            "gained_resource_ids": [
+              "NV_FM_BEER_WA_MONTH_STORE_SALES"
+            ],
+            "covered_constraints": [
+              "c_sales"
+            ],
+            "realized_virtual_nodes": [
+              "NV_FM_BEER_WA_MONTH_STORE_SALES"
+            ],
+            "observed_resources": [
+              "Store Sales"
+            ],
+            "graph_update": {
+              "contract_version": "mcad.graph_update.v1",
+              "decision": "ALLOW",
+              "objective_id": "O_REAL_BEER_WA_MONTH",
+              "session_id": "S_0004",
+              "step_index": 1,
+              "covered_constraints": [
+                "c_sales"
+              ],
+              "realized_virtual_nodes": [
+                "NV_FM_BEER_WA_MONTH_STORE_SALES"
+              ],
+              "observed_resources": [
+                "Store Sales"
+              ],
+              "sat_checks": {
+                "grain_ok": true,
+                "agg_ok": true,
+                "unit_ok": true,
+                "slc_ok": true,
+                "time_ok": true,
+                "nvac_ok": true
+              },
+              "nvac_evidence": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "scenario": {
+              "source_scenario_id": "foodmart_q1_q6",
+              "scenario_name": "FoodMart Q1-Q6 validation",
+              "scenario_source": "campaign_b_controlled_minimal",
+              "scenario_query_index": 0,
+              "scenario_query_id": "Q1_ALLOW_USEFUL"
+            },
+            "formal_sat": true,
+            "formal_sat_source": "formal_sat_eval.checks",
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "sat_evidence": {
+              "grain_ok": {
+                "recognized_grain": [
+                  "Measures.Store Sales",
+                  "Time.Month"
+                ],
+                "compatible_constraints": [
+                  "c_sales"
+                ]
+              },
+              "agg_ok": {
+                "aggregators": [
+                  "implicit cube aggregator"
+                ],
+                "reason": "no forbidden aggregation detected"
+              },
+              "unit_ok": {
+                "method": "no explicit unit conflict in QP",
+                "checked_units": {}
+              },
+              "slc_ok": {
+                "recognized_slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "errors": [],
+                "member_dictionary": "FoodMart"
+              },
+              "time_ok": {
+                "time_grains": [
+                  "Time.Month"
+                ],
+                "window": {
+                  "start": null,
+                  "end": null
+                },
+                "reason": "time level/window coherent"
+              },
+              "nvac_ok": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "nvac_ok": true,
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "legacy_engine_sat_debug": true,
+            "legacy_engine_clauses_debug": [
+              {
+                "name": "measures_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "cube_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "objective_known",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "slc_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "time_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "grain_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "agg_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "unit_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "nvac_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "has_realizable_nodes",
+                "ok": true,
+                "details": {
+                  "real_node_ids": "['NV_REAL_BEER_WA_MONTH_SALES']"
+                }
+              },
+              {
+                "name": "has_contributive_constraints",
+                "ok": true,
+                "details": {
+                  "calculable_constraints_total": "['real_c1']",
+                  "calculable_constraints_partial": "[]"
+                }
+              }
+            ],
+            "query_spec": {
+              "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+              "cube": "Sales",
+              "measures": [
+                "Store Sales"
+              ],
+              "group_by": [
+                "Measures.Store Sales",
+                "Time.Month"
+              ],
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "analytics": [],
+              "axes": [
+                {
+                  "axis": "COLUMNS",
+                  "expression": "{[Measures].[Store Sales]}"
+                },
+                {
+                  "axis": "ROWS",
+                  "expression": ", [Time].[Month].Members"
+                }
+              ],
+              "time_members": [],
+              "window_start": null,
+              "window_end": null,
+              "calculated_members": [],
+              "named_sets": [],
+              "language": "mdx",
+              "fingerprint": "2ca04c491bfaed4f",
+              "dw_id": "foodmart",
+              "dataset": null
+            },
+            "eval_ms": 21
+          },
+          "graph_update": {
+            "contract_version": "mcad.graph_update.v1",
+            "decision": "ALLOW",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 1,
+            "covered_constraints": [
+              "c_sales"
+            ],
+            "realized_virtual_nodes": [
+              "N_c_sales"
+            ],
+            "observed_resources": [
+              "Store Sales"
+            ],
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Measures.Store Sales",
+              "Time.Month"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            },
+            "time_window": {
+              "start": null,
+              "end": null
+            },
+            "mdx_features": {
+              "measures": [
+                "Store Sales"
+              ],
+              "grain": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.WA"
+              ],
+              "slicers": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.WA"
+              ]
+            },
+            "blocked_reasons": [],
+            "redundant": false,
+            "delta_phi": 0.5,
+            "partially_covered_constraints": [],
+            "required_constraints": [
+              "c_sales",
+              "c_profit"
+            ],
+            "cumulative_covered_constraints": [
+              "c_sales"
+            ],
+            "cumulative_partially_covered_constraints": [],
+            "pending_constraints": [
+              "c_profit"
+            ],
+            "cumulative_realized_virtual_nodes": [
+              "N_c_sales"
+            ],
+            "objective_state": "partial",
+            "session_phi": 0.5
+          }
+        },
+        "execution_evidence": {
+          "contract_version": "mcad.execution_evidence.v1",
+          "generated_at_ms": 1783275728979,
+          "query": {
+            "query_id": "Q1_ALLOW_USEFUL",
+            "query_type": "mdx",
+            "query_digest": "2ca04c491bfaed4f",
+            "execution_mode": null,
+            "scenario_instance_id": null,
+            "source_scenario_id": "foodmart_q1_q6",
+            "scenario_query_index": 0,
+            "scenario_query_id": "Q1_ALLOW_USEFUL"
+          },
+          "mcad_gate": {
+            "allowed_by_mcad": true,
+            "decision": "ALLOW",
+            "decision_reason_code": "ALLOW_NEW_TOTAL",
+            "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+            "session_id": "S_0004",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "step_index": 1,
+            "eval_elapsed_ms": 7302,
+            "fail_closed": false
+          },
+          "formal_metrics": {
+            "sat": 1.0,
+            "real": 0.5,
+            "ceval": 0.5,
+            "phi": 0.5,
+            "delta_phi": 0.5,
+            "threshold": 0.6
+          },
+          "sat_clauses": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "execution": {
+            "attempted": true,
+            "physical_execution": true,
+            "status": "EXECUTED",
+            "requested_dw_id": "foodmart",
+            "selected_dw_id": "foodmart",
+            "adapter_id": "xmla_mondrian",
+            "adapter_family": "xmla_mondrian",
+            "backend_type": "xmla_mondrian",
+            "execution_path": "xmla_mondrian",
+            "logical_query_language": "mdx",
+            "physical_query_language": "xmla_mdx",
+            "catalog": "FoodMart",
+            "cube": "Sales",
+            "forwarded_to": "http://emondrian-foodmart:8080/emondrian/xmla",
+            "xmla_response_type": "ExecuteResponse",
+            "status_code": 200,
+            "elapsed_ms": 1853,
+            "response_bytes": 14846,
+            "response_digest": "9cf71168c175340e",
+            "result_digest": "9cf71168c175340e",
+            "row_count": 12,
+            "columns_count": 4,
+            "fallback_used": false,
+            "demo_materialized": true,
+            "error": null
+          },
+          "graph_update_summary": {
+            "covered_constraints": [
+              "c_sales"
+            ],
+            "partially_covered_constraints": [],
+            "realized_virtual_nodes": [
+              "N_c_sales"
+            ],
+            "delta_phi": 0.5,
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Measures.Store Sales",
+              "Time.Month"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            }
+          }
+        },
+        "graph_update": {
+          "contract_version": "mcad.graph_update.v1",
+          "decision": "ALLOW",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "session_id": "S_0004",
+          "step_index": 1,
+          "covered_constraints": [
+            "c_sales"
+          ],
+          "realized_virtual_nodes": [
+            "N_c_sales"
+          ],
+          "observed_resources": [
+            "Store Sales"
+          ],
+          "sat_checks": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "nvac_evidence": {
+            "method": "combination_nonempty_index",
+            "known_empty": false,
+            "estimated_cells": 12,
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            },
+            "probe_attempted": false,
+            "rule": "known_nonempty_combination_accepts_directly"
+          },
+          "measures": [
+            "Store Sales"
+          ],
+          "grain": [
+            "Measures.Store Sales",
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "WA"
+          },
+          "time_window": {
+            "start": null,
+            "end": null
+          },
+          "mdx_features": {
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.WA"
+            ],
+            "slicers": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.WA"
+            ]
+          },
+          "blocked_reasons": [],
+          "redundant": false,
+          "delta_phi": 0.5,
+          "partially_covered_constraints": [],
+          "required_constraints": [
+            "c_sales",
+            "c_profit"
+          ],
+          "cumulative_covered_constraints": [
+            "c_sales"
+          ],
+          "cumulative_partially_covered_constraints": [],
+          "pending_constraints": [
+            "c_profit"
+          ],
+          "cumulative_realized_virtual_nodes": [
+            "N_c_sales"
+          ],
+          "objective_state": "partial",
+          "session_phi": 0.5
+        },
+        "direct_result": {
+          "kind": "dataset",
+          "axis_count": 3,
+          "tuple_count": 26,
+          "cell_count": 24,
+          "axis_samples": [
+            {
+              "name": "Axis0",
+              "tuple_count": 1,
+              "sample_tuples": [
+                [
+                  "Store Sales"
+                ]
+              ]
+            },
+            {
+              "name": "Axis1",
+              "tuple_count": 24,
+              "sample_tuples": [
+                [
+                  "1"
+                ],
+                [
+                  "2"
+                ],
+                [
+                  "3"
+                ],
+                [
+                  "4"
+                ],
+                [
+                  "5"
+                ],
+                [
+                  "6"
+                ],
+                [
+                  "7"
+                ],
+                [
+                  "8"
+                ]
+              ]
+            },
+            {
+              "name": "SlicerAxis",
+              "tuple_count": 1,
+              "sample_tuples": [
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            }
+          ],
+          "preview_cells": [
+            {
+              "ordinal": "0",
+              "value": "399.78",
+              "formatted": "399.78",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "1"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "1",
+              "value": "443.82",
+              "formatted": "443.82",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "2"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "2",
+              "value": "631.04",
+              "formatted": "631.04",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "3"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "3",
+              "value": "658.81",
+              "formatted": "658.81",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "4"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "4",
+              "value": "509.7",
+              "formatted": "509.70",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "5"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "5",
+              "value": "574.73",
+              "formatted": "574.73",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "6"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "6",
+              "value": "582.73",
+              "formatted": "582.73",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "7"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "7",
+              "value": "491.31",
+              "formatted": "491.31",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "8"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "8",
+              "value": "458.41",
+              "formatted": "458.41",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "1"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "9",
+              "value": "528.91",
+              "formatted": "528.91",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "2"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "10",
+              "value": "653.82",
+              "formatted": "653.82",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "3"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "11",
+              "value": "624.33",
+              "formatted": "624.33",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "4"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "12",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "5"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "13",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "6"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "14",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "7"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "15",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "8"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "16",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "1"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "17",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "2"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "18",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "3"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "19",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "4"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "20",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "5"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "21",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "6"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "22",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "7"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "23",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Store Sales"
+                ],
+                [
+                  "8"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            }
+          ],
+          "preview_cell_count": 24,
+          "response_bytes": 14846,
+          "ok": true,
+          "physical_execution": true,
+          "execution_mode": "real",
+          "adapter_family": "xmla_mondrian",
+          "adapter_id": "xmla_mondrian",
+          "dw_id": "foodmart",
+          "dataset": "FoodMart",
+          "logical_query_language": "mdx",
+          "physical_query_language": "xmla_mdx",
+          "catalog": "FoodMart",
+          "cube": "Sales",
+          "xmla_url": "http://emondrian-foodmart:8080/emondrian/xmla",
+          "forwarded_to": "http://emondrian-foodmart:8080/emondrian/xmla",
+          "execution_source_enforced": true,
+          "status_code": 200,
+          "elapsed_ms": 1853,
+          "response_digest": "9cf71168c175340e",
+          "result_digest": "9cf71168c175340e",
+          "xmla_response_type": "ExecuteResponse",
+          "xmla_valid_response": true,
+          "xmla_has_fault": false,
+          "xmla_fault_excerpt": null,
+          "query_language": "mdx",
+          "grain": "Month",
+          "measures": [
+            "Store Sales"
+          ],
+          "columns": [
+            "Month",
+            "Store Sales",
+            "Product Category",
+            "Store State"
+          ],
+          "rows": [
+            {
+              "Month": "Jan 1998",
+              "Store Sales": 4210,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Feb 1998",
+              "Store Sales": 4380,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Mar 1998",
+              "Store Sales": 4525,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Apr 1998",
+              "Store Sales": 4670,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "May 1998",
+              "Store Sales": 4895,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Jun 1998",
+              "Store Sales": 5010,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Jul 1998",
+              "Store Sales": 4960,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Aug 1998",
+              "Store Sales": 5125,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Sep 1998",
+              "Store Sales": 5280,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Oct 1998",
+              "Store Sales": 5415,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Nov 1998",
+              "Store Sales": 5570,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Dec 1998",
+              "Store Sales": 5740,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            }
+          ],
+          "row_count": 12,
+          "demo_materialized": true,
+          "visualization_ready": true,
+          "backend_type": "xmla_mondrian",
+          "requested_dw_id": "foodmart",
+          "selected_dw_id": "foodmart",
+          "execution_path": "xmla_mondrian",
+          "execution_evidence": {
+            "contract_version": "mcad.execution_evidence.v1",
+            "generated_at_ms": 1783275728979,
+            "query": {
+              "query_id": "Q1_ALLOW_USEFUL",
+              "query_type": "mdx",
+              "query_digest": "2ca04c491bfaed4f",
+              "execution_mode": null,
+              "scenario_instance_id": null,
+              "source_scenario_id": "foodmart_q1_q6",
+              "scenario_query_index": 0,
+              "scenario_query_id": "Q1_ALLOW_USEFUL"
+            },
+            "mcad_gate": {
+              "allowed_by_mcad": true,
+              "decision": "ALLOW",
+              "decision_reason_code": "ALLOW_NEW_TOTAL",
+              "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+              "session_id": "S_0004",
+              "objective_id": "O_REAL_BEER_WA_MONTH",
+              "step_index": 1,
+              "eval_elapsed_ms": 7302,
+              "fail_closed": false
+            },
+            "formal_metrics": {
+              "sat": 1.0,
+              "real": 0.5,
+              "ceval": 0.5,
+              "phi": 0.5,
+              "delta_phi": 0.5,
+              "threshold": 0.6
+            },
+            "sat_clauses": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "execution": {
+              "attempted": true,
+              "physical_execution": true,
+              "status": "EXECUTED",
+              "requested_dw_id": "foodmart",
+              "selected_dw_id": "foodmart",
+              "adapter_id": "xmla_mondrian",
+              "adapter_family": "xmla_mondrian",
+              "backend_type": "xmla_mondrian",
+              "execution_path": "xmla_mondrian",
+              "logical_query_language": "mdx",
+              "physical_query_language": "xmla_mdx",
+              "catalog": "FoodMart",
+              "cube": "Sales",
+              "forwarded_to": "http://emondrian-foodmart:8080/emondrian/xmla",
+              "xmla_response_type": "ExecuteResponse",
+              "status_code": 200,
+              "elapsed_ms": 1853,
+              "response_bytes": 14846,
+              "response_digest": "9cf71168c175340e",
+              "result_digest": "9cf71168c175340e",
+              "row_count": 12,
+              "columns_count": 4,
+              "fallback_used": false,
+              "demo_materialized": true,
+              "error": null
+            },
+            "graph_update_summary": {
+              "covered_constraints": [
+                "c_sales"
+              ],
+              "partially_covered_constraints": [],
+              "realized_virtual_nodes": [
+                "N_c_sales"
+              ],
+              "delta_phi": 0.5,
+              "measures": [
+                "Store Sales"
+              ],
+              "grain": [
+                "Measures.Store Sales",
+                "Time.Month"
+              ],
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              }
+            }
+          },
+          "evidence_contract": "mcad.execution_evidence.v1"
+        },
+        "active": {
+          "session_id": "S_0004",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart"
+        }
+      }
+    },
+    {
+      "query": {
+        "id": "Q2_ALLOW_COMPLEMENTARY",
+        "label": "Q2 — ALLOW complémentaire",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "ALLOW",
+        "mdx": "SELECT {[Measures].[Profit]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_id": "Q2_ALLOW_COMPLEMENTARY",
+        "dataset": "foodmart"
+      },
+      "payload": {
+        "mdx": "SELECT {[Measures].[Profit]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_type": "mdx",
+        "query_id": "Q2_ALLOW_COMPLEMENTARY",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "session_id": "S_0004",
+        "source_scenario_id": "foodmart_q1_q6",
+        "scenario_id": "foodmart_q1_q6",
+        "scenario_name": "FoodMart Q1-Q6 validation",
+        "scenario_source": "campaign_b_controlled_minimal",
+        "scenario_query_index": 1,
+        "scenario_query_id": "Q2_ALLOW_COMPLEMENTARY",
+        "expected_decision": "ALLOW",
+        "allow_fallback": false
+      },
+      "response": {
+        "ok": true,
+        "mode": "hybrid_bi_gateway",
+        "gateway": "mcad.execution_gateway.v2.hybrid",
+        "execution_source_enforced": true,
+        "allow_fallback": false,
+        "query_id": "Q2_ALLOW_COMPLEMENTARY",
+        "dw_id": "foodmart",
+        "adapter_id": "xmla_mondrian",
+        "execution_path": "xmla_mondrian",
+        "decision": {
+          "decision": "ALLOW",
+          "phi": 1.0,
+          "threshold": 0.6,
+          "sat": 1.0,
+          "real": 0.5,
+          "ceval": 0.5,
+          "explain": "ENGINE=real mode=formal_contributive_session_marginal+contract_contributive formal_sat=True legacy_engine_sat=True phi=1.000 theta=0.600 Ceval=2/2 RealNV=1/2 phi_leq_t=1.000 dphi=0.500 => ALLOW",
+          "decision_reason_code": "ALLOW_NEW_TOTAL",
+          "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+          "is_redundant": false,
+          "has_marginal_gain": true,
+          "details": {
+            "engine": "evaluate_with_objective_and_session(payload)",
+            "decision_policy": "formal_contributive_session_marginal+contract_contributive",
+            "decision_reason_code": "ALLOW_NEW_TOTAL",
+            "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+            "is_redundant": false,
+            "has_marginal_gain": true,
+            "gained_resource_ids_count": 1,
+            "threshold_used_for_ranking": 0.6,
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 2,
+            "phi_weighted": 1.0,
+            "phi_leq_t": 1.0,
+            "delta_phi_t": 0.5,
+            "real_node_ids": [
+              "NV_REAL_BEER_WA_MONTH_PROFIT"
+            ],
+            "calculable_constraints": [
+              "c_profit"
+            ],
+            "calculable_constraints_total": [
+              "c_profit"
+            ],
+            "calculable_constraints_partial": [],
+            "newly_contributed_constraints_total": [
+              "c_profit"
+            ],
+            "newly_contributed_constraints_partial": [],
+            "gained_resource_ids": [
+              "NV_FM_BEER_WA_MONTH_PROFIT"
+            ],
+            "covered_constraints": [
+              "c_profit"
+            ],
+            "realized_virtual_nodes": [
+              "NV_FM_BEER_WA_MONTH_PROFIT"
+            ],
+            "observed_resources": [
+              "Profit"
+            ],
+            "graph_update": {
+              "contract_version": "mcad.graph_update.v1",
+              "decision": "ALLOW",
+              "objective_id": "O_REAL_BEER_WA_MONTH",
+              "session_id": "S_0004",
+              "step_index": 2,
+              "covered_constraints": [
+                "c_profit"
+              ],
+              "realized_virtual_nodes": [
+                "NV_FM_BEER_WA_MONTH_PROFIT"
+              ],
+              "observed_resources": [
+                "Profit"
+              ],
+              "sat_checks": {
+                "grain_ok": true,
+                "agg_ok": true,
+                "unit_ok": true,
+                "slc_ok": true,
+                "time_ok": true,
+                "nvac_ok": true
+              },
+              "nvac_evidence": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "scenario": {
+              "source_scenario_id": "foodmart_q1_q6",
+              "scenario_name": "FoodMart Q1-Q6 validation",
+              "scenario_source": "campaign_b_controlled_minimal",
+              "scenario_query_index": 1,
+              "scenario_query_id": "Q2_ALLOW_COMPLEMENTARY"
+            },
+            "formal_sat": true,
+            "formal_sat_source": "formal_sat_eval.checks",
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "sat_evidence": {
+              "grain_ok": {
+                "recognized_grain": [
+                  "Measures.Profit",
+                  "Time.Month"
+                ],
+                "compatible_constraints": [
+                  "c_profit"
+                ]
+              },
+              "agg_ok": {
+                "aggregators": [
+                  "implicit cube aggregator"
+                ],
+                "reason": "no forbidden aggregation detected"
+              },
+              "unit_ok": {
+                "method": "no explicit unit conflict in QP",
+                "checked_units": {}
+              },
+              "slc_ok": {
+                "recognized_slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "errors": [],
+                "member_dictionary": "FoodMart"
+              },
+              "time_ok": {
+                "time_grains": [
+                  "Time.Month"
+                ],
+                "window": {
+                  "start": null,
+                  "end": null
+                },
+                "reason": "time level/window coherent"
+              },
+              "nvac_ok": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "nvac_ok": true,
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "legacy_engine_sat_debug": true,
+            "legacy_engine_clauses_debug": [
+              {
+                "name": "measures_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "cube_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "objective_known",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "slc_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "time_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "grain_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "agg_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "unit_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "nvac_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "has_realizable_nodes",
+                "ok": true,
+                "details": {
+                  "real_node_ids": "['NV_REAL_BEER_WA_MONTH_PROFIT']"
+                }
+              },
+              {
+                "name": "has_contributive_constraints",
+                "ok": true,
+                "details": {
+                  "calculable_constraints_total": "['real_c1', 'real_c2']",
+                  "calculable_constraints_partial": "[]"
+                }
+              }
+            ],
+            "query_spec": {
+              "mdx": "SELECT {[Measures].[Profit]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+              "cube": "Sales",
+              "measures": [
+                "Profit"
+              ],
+              "group_by": [
+                "Measures.Profit",
+                "Time.Month"
+              ],
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "analytics": [],
+              "axes": [
+                {
+                  "axis": "COLUMNS",
+                  "expression": "{[Measures].[Profit]}"
+                },
+                {
+                  "axis": "ROWS",
+                  "expression": ", [Time].[Month].Members"
+                }
+              ],
+              "time_members": [],
+              "window_start": null,
+              "window_end": null,
+              "calculated_members": [],
+              "named_sets": [],
+              "language": "mdx",
+              "fingerprint": "73a10b57576f8dbe",
+              "dw_id": "foodmart",
+              "dataset": null
+            },
+            "eval_ms": 27
+          },
+          "graph_update": {
+            "contract_version": "mcad.graph_update.v1",
+            "decision": "ALLOW",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 2,
+            "covered_constraints": [
+              "c_profit"
+            ],
+            "realized_virtual_nodes": [
+              "N_c_profit"
+            ],
+            "observed_resources": [
+              "Profit"
+            ],
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "measures": [
+              "Profit"
+            ],
+            "grain": [
+              "Measures.Profit",
+              "Time.Month"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            },
+            "time_window": {
+              "start": null,
+              "end": null
+            },
+            "mdx_features": {
+              "measures": [
+                "Profit"
+              ],
+              "grain": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.WA"
+              ],
+              "slicers": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.WA"
+              ]
+            },
+            "blocked_reasons": [],
+            "redundant": false,
+            "delta_phi": 0.5,
+            "partially_covered_constraints": [],
+            "required_constraints": [
+              "c_sales",
+              "c_profit"
+            ],
+            "cumulative_covered_constraints": [
+              "c_profit",
+              "c_sales"
+            ],
+            "cumulative_partially_covered_constraints": [],
+            "pending_constraints": [],
+            "cumulative_realized_virtual_nodes": [
+              "N_c_profit",
+              "N_c_sales"
+            ],
+            "objective_state": "covered",
+            "session_phi": 1.0
+          }
+        },
+        "execution_evidence": {
+          "contract_version": "mcad.execution_evidence.v1",
+          "generated_at_ms": 1783275738186,
+          "query": {
+            "query_id": "Q2_ALLOW_COMPLEMENTARY",
+            "query_type": "mdx",
+            "query_digest": "73a10b57576f8dbe",
+            "execution_mode": null,
+            "scenario_instance_id": null,
+            "source_scenario_id": "foodmart_q1_q6",
+            "scenario_query_index": 1,
+            "scenario_query_id": "Q2_ALLOW_COMPLEMENTARY"
+          },
+          "mcad_gate": {
+            "allowed_by_mcad": true,
+            "decision": "ALLOW",
+            "decision_reason_code": "ALLOW_NEW_TOTAL",
+            "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+            "session_id": "S_0004",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "step_index": 2,
+            "eval_elapsed_ms": 8025,
+            "fail_closed": false
+          },
+          "formal_metrics": {
+            "sat": 1.0,
+            "real": 0.5,
+            "ceval": 0.5,
+            "phi": 1.0,
+            "delta_phi": 0.5,
+            "threshold": 0.6
+          },
+          "sat_clauses": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "execution": {
+            "attempted": true,
+            "physical_execution": true,
+            "status": "EXECUTED",
+            "requested_dw_id": "foodmart",
+            "selected_dw_id": "foodmart",
+            "adapter_id": "xmla_mondrian",
+            "adapter_family": "xmla_mondrian",
+            "backend_type": "xmla_mondrian",
+            "execution_path": "xmla_mondrian",
+            "logical_query_language": "mdx",
+            "physical_query_language": "xmla_mdx",
+            "catalog": "FoodMart",
+            "cube": "Sales",
+            "forwarded_to": "http://emondrian-foodmart:8080/emondrian/xmla",
+            "xmla_response_type": "ExecuteResponse",
+            "status_code": 200,
+            "elapsed_ms": 1138,
+            "response_bytes": 14962,
+            "response_digest": "27dc274d0e5d4074",
+            "result_digest": "27dc274d0e5d4074",
+            "row_count": 12,
+            "columns_count": 4,
+            "fallback_used": false,
+            "demo_materialized": true,
+            "error": null
+          },
+          "graph_update_summary": {
+            "covered_constraints": [
+              "c_profit"
+            ],
+            "partially_covered_constraints": [],
+            "realized_virtual_nodes": [
+              "N_c_profit"
+            ],
+            "delta_phi": 0.5,
+            "measures": [
+              "Profit"
+            ],
+            "grain": [
+              "Measures.Profit",
+              "Time.Month"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            }
+          }
+        },
+        "graph_update": {
+          "contract_version": "mcad.graph_update.v1",
+          "decision": "ALLOW",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "session_id": "S_0004",
+          "step_index": 2,
+          "covered_constraints": [
+            "c_profit"
+          ],
+          "realized_virtual_nodes": [
+            "N_c_profit"
+          ],
+          "observed_resources": [
+            "Profit"
+          ],
+          "sat_checks": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "nvac_evidence": {
+            "method": "combination_nonempty_index",
+            "known_empty": false,
+            "estimated_cells": 12,
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            },
+            "probe_attempted": false,
+            "rule": "known_nonempty_combination_accepts_directly"
+          },
+          "measures": [
+            "Profit"
+          ],
+          "grain": [
+            "Measures.Profit",
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "WA"
+          },
+          "time_window": {
+            "start": null,
+            "end": null
+          },
+          "mdx_features": {
+            "measures": [
+              "Profit"
+            ],
+            "grain": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.WA"
+            ],
+            "slicers": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.WA"
+            ]
+          },
+          "blocked_reasons": [],
+          "redundant": false,
+          "delta_phi": 0.5,
+          "partially_covered_constraints": [],
+          "required_constraints": [
+            "c_sales",
+            "c_profit"
+          ],
+          "cumulative_covered_constraints": [
+            "c_profit",
+            "c_sales"
+          ],
+          "cumulative_partially_covered_constraints": [],
+          "pending_constraints": [],
+          "cumulative_realized_virtual_nodes": [
+            "N_c_profit",
+            "N_c_sales"
+          ],
+          "objective_state": "covered",
+          "session_phi": 1.0
+        },
+        "direct_result": {
+          "kind": "dataset",
+          "axis_count": 3,
+          "tuple_count": 26,
+          "cell_count": 24,
+          "axis_samples": [
+            {
+              "name": "Axis0",
+              "tuple_count": 1,
+              "sample_tuples": [
+                [
+                  "Profit"
+                ]
+              ]
+            },
+            {
+              "name": "Axis1",
+              "tuple_count": 24,
+              "sample_tuples": [
+                [
+                  "1"
+                ],
+                [
+                  "2"
+                ],
+                [
+                  "3"
+                ],
+                [
+                  "4"
+                ],
+                [
+                  "5"
+                ],
+                [
+                  "6"
+                ],
+                [
+                  "7"
+                ],
+                [
+                  "8"
+                ]
+              ]
+            },
+            {
+              "name": "SlicerAxis",
+              "tuple_count": 1,
+              "sample_tuples": [
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            }
+          ],
+          "preview_cells": [
+            {
+              "ordinal": "0",
+              "value": "244.91079999999997",
+              "formatted": "$244.91",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "1"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "1",
+              "value": "269.55269999999996",
+              "formatted": "$269.55",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "2"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "2",
+              "value": "381.63899999999995",
+              "formatted": "$381.64",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "3"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "3",
+              "value": "392.054",
+              "formatted": "$392.05",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "4"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "4",
+              "value": "310.5701",
+              "formatted": "$310.57",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "5"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "5",
+              "value": "349.39880000000005",
+              "formatted": "$349.40",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "6"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "6",
+              "value": "353.86740000000003",
+              "formatted": "$353.87",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "7"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "7",
+              "value": "294.2602",
+              "formatted": "$294.26",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "8"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "8",
+              "value": "272.56620000000004",
+              "formatted": "$272.57",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "1"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "9",
+              "value": "316.00289999999995",
+              "formatted": "$316.00",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "2"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "10",
+              "value": "395.34870000000006",
+              "formatted": "$395.35",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "3"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "11",
+              "value": "373.79460000000006",
+              "formatted": "$373.79",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "4"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "12",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "5"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "13",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "6"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "14",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "7"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "15",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "8"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "16",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "1"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "17",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "2"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "18",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "3"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "19",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "4"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "20",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "5"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "21",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "6"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "22",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "7"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            },
+            {
+              "ordinal": "23",
+              "value": "",
+              "formatted": "",
+              "axis_context": [
+                [
+                  "Profit"
+                ],
+                [
+                  "8"
+                ],
+                [
+                  "Beer and Wine",
+                  "WA"
+                ]
+              ]
+            }
+          ],
+          "preview_cell_count": 24,
+          "response_bytes": 14962,
+          "ok": true,
+          "physical_execution": true,
+          "execution_mode": "real",
+          "adapter_family": "xmla_mondrian",
+          "adapter_id": "xmla_mondrian",
+          "dw_id": "foodmart",
+          "dataset": "FoodMart",
+          "logical_query_language": "mdx",
+          "physical_query_language": "xmla_mdx",
+          "catalog": "FoodMart",
+          "cube": "Sales",
+          "xmla_url": "http://emondrian-foodmart:8080/emondrian/xmla",
+          "forwarded_to": "http://emondrian-foodmart:8080/emondrian/xmla",
+          "execution_source_enforced": true,
+          "status_code": 200,
+          "elapsed_ms": 1138,
+          "response_digest": "27dc274d0e5d4074",
+          "result_digest": "27dc274d0e5d4074",
+          "xmla_response_type": "ExecuteResponse",
+          "xmla_valid_response": true,
+          "xmla_has_fault": false,
+          "xmla_fault_excerpt": null,
+          "query_language": "mdx",
+          "grain": "Month",
+          "measures": [
+            "Profit"
+          ],
+          "columns": [
+            "Month",
+            "Profit",
+            "Product Category",
+            "Store State"
+          ],
+          "rows": [
+            {
+              "Month": "Jan 1998",
+              "Profit": 842,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Feb 1998",
+              "Profit": 876,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Mar 1998",
+              "Profit": 910,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Apr 1998",
+              "Profit": 934,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "May 1998",
+              "Profit": 981,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Jun 1998",
+              "Profit": 1004,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Jul 1998",
+              "Profit": 992,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Aug 1998",
+              "Profit": 1028,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Sep 1998",
+              "Profit": 1056,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Oct 1998",
+              "Profit": 1083,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Nov 1998",
+              "Profit": 1114,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            },
+            {
+              "Month": "Dec 1998",
+              "Profit": 1148,
+              "Product Category": "Beer and Wine",
+              "Store State": "WA"
+            }
+          ],
+          "row_count": 12,
+          "demo_materialized": true,
+          "visualization_ready": true,
+          "backend_type": "xmla_mondrian",
+          "requested_dw_id": "foodmart",
+          "selected_dw_id": "foodmart",
+          "execution_path": "xmla_mondrian",
+          "execution_evidence": {
+            "contract_version": "mcad.execution_evidence.v1",
+            "generated_at_ms": 1783275738186,
+            "query": {
+              "query_id": "Q2_ALLOW_COMPLEMENTARY",
+              "query_type": "mdx",
+              "query_digest": "73a10b57576f8dbe",
+              "execution_mode": null,
+              "scenario_instance_id": null,
+              "source_scenario_id": "foodmart_q1_q6",
+              "scenario_query_index": 1,
+              "scenario_query_id": "Q2_ALLOW_COMPLEMENTARY"
+            },
+            "mcad_gate": {
+              "allowed_by_mcad": true,
+              "decision": "ALLOW",
+              "decision_reason_code": "ALLOW_NEW_TOTAL",
+              "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+              "session_id": "S_0004",
+              "objective_id": "O_REAL_BEER_WA_MONTH",
+              "step_index": 2,
+              "eval_elapsed_ms": 8025,
+              "fail_closed": false
+            },
+            "formal_metrics": {
+              "sat": 1.0,
+              "real": 0.5,
+              "ceval": 0.5,
+              "phi": 1.0,
+              "delta_phi": 0.5,
+              "threshold": 0.6
+            },
+            "sat_clauses": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "execution": {
+              "attempted": true,
+              "physical_execution": true,
+              "status": "EXECUTED",
+              "requested_dw_id": "foodmart",
+              "selected_dw_id": "foodmart",
+              "adapter_id": "xmla_mondrian",
+              "adapter_family": "xmla_mondrian",
+              "backend_type": "xmla_mondrian",
+              "execution_path": "xmla_mondrian",
+              "logical_query_language": "mdx",
+              "physical_query_language": "xmla_mdx",
+              "catalog": "FoodMart",
+              "cube": "Sales",
+              "forwarded_to": "http://emondrian-foodmart:8080/emondrian/xmla",
+              "xmla_response_type": "ExecuteResponse",
+              "status_code": 200,
+              "elapsed_ms": 1138,
+              "response_bytes": 14962,
+              "response_digest": "27dc274d0e5d4074",
+              "result_digest": "27dc274d0e5d4074",
+              "row_count": 12,
+              "columns_count": 4,
+              "fallback_used": false,
+              "demo_materialized": true,
+              "error": null
+            },
+            "graph_update_summary": {
+              "covered_constraints": [
+                "c_profit"
+              ],
+              "partially_covered_constraints": [],
+              "realized_virtual_nodes": [
+                "N_c_profit"
+              ],
+              "delta_phi": 0.5,
+              "measures": [
+                "Profit"
+              ],
+              "grain": [
+                "Measures.Profit",
+                "Time.Month"
+              ],
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              }
+            }
+          },
+          "evidence_contract": "mcad.execution_evidence.v1"
+        },
+        "active": {
+          "session_id": "S_0004",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart"
+        }
+      }
+    },
+    {
+      "query": {
+        "id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+        "label": "Q3 — BLOCK hors objectif",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "BLOCK",
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[CA])",
+        "query_id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+        "dataset": "foodmart"
+      },
+      "payload": {
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[CA])",
+        "query_type": "mdx",
+        "query_id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "session_id": "S_0004",
+        "source_scenario_id": "foodmart_q1_q6",
+        "scenario_id": "foodmart_q1_q6",
+        "scenario_name": "FoodMart Q1-Q6 validation",
+        "scenario_source": "campaign_b_controlled_minimal",
+        "scenario_query_index": 2,
+        "scenario_query_id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+        "expected_decision": "BLOCK",
+        "allow_fallback": false
+      },
+      "response": {
+        "ok": true,
+        "mode": "hybrid_bi_gateway",
+        "gateway": "mcad.execution_gateway.v2.hybrid",
+        "execution_source_enforced": true,
+        "allow_fallback": false,
+        "query_id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+        "dw_id": "foodmart",
+        "adapter_id": null,
+        "execution_path": null,
+        "decision": {
+          "decision": "BLOCK",
+          "phi": 0.0,
+          "threshold": 0.6,
+          "sat": 1.0,
+          "real": 0.0,
+          "ceval": 0.0,
+          "explain": "ENGINE=real mode=formal_contributive_session_marginal formal_sat=True legacy_engine_sat=False phi=0.000 theta=0.600 Ceval=0/2 RealNV=0/2 phi_leq_t=1.000 dphi=0.000 => BLOCK",
+          "decision_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+          "decision_reason": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+          "is_redundant": false,
+          "has_marginal_gain": false,
+          "details": {
+            "engine": "evaluate_with_objective_and_session(payload)",
+            "decision_policy": "formal_contributive_session_marginal",
+            "decision_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+            "decision_reason": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+            "is_redundant": false,
+            "has_marginal_gain": false,
+            "gained_resource_ids_count": 0,
+            "threshold_used_for_ranking": 0.6,
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 3,
+            "phi_weighted": 0.0,
+            "phi_leq_t": 1.0,
+            "delta_phi_t": 0.0,
+            "real_node_ids": [],
+            "calculable_constraints": [],
+            "calculable_constraints_total": [],
+            "calculable_constraints_partial": [],
+            "newly_contributed_constraints_total": [],
+            "newly_contributed_constraints_partial": [],
+            "gained_resource_ids": [],
+            "covered_constraints": [],
+            "realized_virtual_nodes": [],
+            "observed_resources": [
+              "Store Sales"
+            ],
+            "graph_update": {
+              "contract_version": "mcad.graph_update.v1",
+              "decision": "BLOCK",
+              "objective_id": "O_REAL_BEER_WA_MONTH",
+              "session_id": "S_0004",
+              "step_index": 3,
+              "covered_constraints": [],
+              "realized_virtual_nodes": [],
+              "observed_resources": [
+                "Store Sales"
+              ],
+              "sat_checks": {
+                "grain_ok": true,
+                "agg_ok": true,
+                "unit_ok": true,
+                "slc_ok": true,
+                "time_ok": true,
+                "nvac_ok": true
+              },
+              "nvac_evidence": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "CA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "scenario": {
+              "source_scenario_id": "foodmart_q1_q6",
+              "scenario_name": "FoodMart Q1-Q6 validation",
+              "scenario_source": "campaign_b_controlled_minimal",
+              "scenario_query_index": 2,
+              "scenario_query_id": "Q3_BLOCK_OUT_OF_OBJECTIVE"
+            },
+            "formal_sat": true,
+            "formal_sat_source": "formal_sat_eval.checks",
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "sat_evidence": {
+              "grain_ok": {
+                "recognized_grain": [
+                  "Measures.Store Sales",
+                  "Time.Month"
+                ],
+                "compatible_constraints": [
+                  "c_sales"
+                ]
+              },
+              "agg_ok": {
+                "aggregators": [
+                  "implicit cube aggregator"
+                ],
+                "reason": "no forbidden aggregation detected"
+              },
+              "unit_ok": {
+                "method": "no explicit unit conflict in QP",
+                "checked_units": {}
+              },
+              "slc_ok": {
+                "recognized_slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "CA"
+                },
+                "errors": [],
+                "member_dictionary": "FoodMart"
+              },
+              "time_ok": {
+                "time_grains": [
+                  "Time.Month"
+                ],
+                "window": {
+                  "start": null,
+                  "end": null
+                },
+                "reason": "time level/window coherent"
+              },
+              "nvac_ok": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "CA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "nvac_ok": true,
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "CA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "legacy_engine_sat_debug": false,
+            "legacy_engine_clauses_debug": [
+              {
+                "name": "measures_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "cube_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "objective_known",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "slc_ok",
+                "ok": false,
+                "details": {
+                  "conflicts": "['no objective-compatible slicer pattern']"
+                }
+              },
+              {
+                "name": "time_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "grain_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "agg_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "unit_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "nvac_ok",
+                "ok": false,
+                "details": {
+                  "reason": "no potentially realizable virtual node for this objective"
+                }
+              }
+            ],
+            "query_spec": {
+              "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[CA])",
+              "cube": "Sales",
+              "measures": [
+                "Store Sales"
+              ],
+              "group_by": [
+                "Measures.Store Sales",
+                "Time.Month"
+              ],
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "CA"
+              },
+              "analytics": [],
+              "axes": [
+                {
+                  "axis": "COLUMNS",
+                  "expression": "{[Measures].[Store Sales]}"
+                },
+                {
+                  "axis": "ROWS",
+                  "expression": ", [Time].[Month].Members"
+                }
+              ],
+              "time_members": [],
+              "window_start": null,
+              "window_end": null,
+              "calculated_members": [],
+              "named_sets": [],
+              "language": "mdx",
+              "fingerprint": "dcc960ebf1e1213a",
+              "dw_id": "foodmart",
+              "dataset": null
+            },
+            "eval_ms": 14
+          },
+          "graph_update": {
+            "contract_version": "mcad.graph_update.v1",
+            "decision": "BLOCK",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 3,
+            "covered_constraints": [],
+            "realized_virtual_nodes": [],
+            "observed_resources": [
+              "Store Sales"
+            ],
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "CA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Measures.Store Sales",
+              "Time.Month"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "CA"
+            },
+            "time_window": {
+              "start": null,
+              "end": null
+            },
+            "mdx_features": {
+              "measures": [
+                "Store Sales"
+              ],
+              "grain": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.CA"
+              ],
+              "slicers": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.CA"
+              ]
+            },
+            "blocked_reasons": [
+              "redundant / Δφ = 0"
+            ],
+            "redundant": true,
+            "delta_phi": 0.0,
+            "partially_covered_constraints": [],
+            "required_constraints": [
+              "c_sales",
+              "c_profit"
+            ],
+            "cumulative_covered_constraints": [
+              "c_profit",
+              "c_sales"
+            ],
+            "cumulative_partially_covered_constraints": [],
+            "pending_constraints": [],
+            "cumulative_realized_virtual_nodes": [
+              "N_c_profit",
+              "N_c_sales"
+            ],
+            "objective_state": "covered",
+            "session_phi": 1.0
+          }
+        },
+        "execution_evidence": {
+          "contract_version": "mcad.execution_evidence.v1",
+          "generated_at_ms": 1783275746111,
+          "query": {
+            "query_id": "Q3_BLOCK_OUT_OF_OBJECTIVE",
+            "query_type": "mdx",
+            "query_digest": "dcc960ebf1e1213a",
+            "execution_mode": null,
+            "scenario_instance_id": null,
+            "source_scenario_id": "foodmart_q1_q6",
+            "scenario_query_index": 2,
+            "scenario_query_id": "Q3_BLOCK_OUT_OF_OBJECTIVE"
+          },
+          "mcad_gate": {
+            "allowed_by_mcad": false,
+            "decision": "BLOCK",
+            "decision_reason_code": "BLOCK_OUT_OF_OBJECTIVE_SCOPE",
+            "decision_reason": "Query conflicts with objective scope constraints (context/slicer/time incompatibility).",
+            "session_id": "S_0004",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "step_index": 3,
+            "eval_elapsed_ms": 7913,
+            "fail_closed": true
+          },
+          "formal_metrics": {
+            "sat": 1.0,
+            "real": 0.0,
+            "ceval": 0.0,
+            "phi": 0.0,
+            "delta_phi": 0.0,
+            "threshold": 0.6
+          },
+          "sat_clauses": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "execution": {
+            "attempted": false,
+            "physical_execution": false,
+            "status": "MCAD_BLOCKED",
+            "requested_dw_id": "foodmart",
+            "selected_dw_id": "foodmart",
+            "adapter_id": null,
+            "adapter_family": null,
+            "backend_type": null,
+            "execution_path": null,
+            "logical_query_language": "mdx",
+            "physical_query_language": null,
+            "catalog": null,
+            "cube": null,
+            "forwarded_to": null,
+            "xmla_response_type": null,
+            "status_code": null,
+            "elapsed_ms": null,
+            "response_bytes": null,
+            "response_digest": null,
+            "result_digest": null,
+            "row_count": null,
+            "columns_count": null,
+            "fallback_used": false,
+            "demo_materialized": false,
+            "error": null
+          },
+          "graph_update_summary": {
+            "covered_constraints": [
+              "c_profit",
+              "c_sales"
+            ],
+            "partially_covered_constraints": [],
+            "realized_virtual_nodes": [
+              "N_c_profit",
+              "N_c_sales"
+            ],
+            "delta_phi": 0.0,
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Measures.Store Sales",
+              "Time.Month"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "CA"
+            }
+          }
+        },
+        "graph_update": {
+          "contract_version": "mcad.graph_update.v1",
+          "decision": "BLOCK",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "session_id": "S_0004",
+          "step_index": 3,
+          "covered_constraints": [],
+          "realized_virtual_nodes": [],
+          "observed_resources": [
+            "Store Sales"
+          ],
+          "sat_checks": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "nvac_evidence": {
+            "method": "combination_nonempty_index",
+            "known_empty": false,
+            "estimated_cells": 12,
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "CA"
+            },
+            "probe_attempted": false,
+            "rule": "known_nonempty_combination_accepts_directly"
+          },
+          "measures": [
+            "Store Sales"
+          ],
+          "grain": [
+            "Measures.Store Sales",
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "CA"
+          },
+          "time_window": {
+            "start": null,
+            "end": null
+          },
+          "mdx_features": {
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.CA"
+            ],
+            "slicers": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.CA"
+            ]
+          },
+          "blocked_reasons": [
+            "redundant / Δφ = 0"
+          ],
+          "redundant": true,
+          "delta_phi": 0.0,
+          "partially_covered_constraints": [],
+          "required_constraints": [
+            "c_sales",
+            "c_profit"
+          ],
+          "cumulative_covered_constraints": [
+            "c_profit",
+            "c_sales"
+          ],
+          "cumulative_partially_covered_constraints": [],
+          "pending_constraints": [],
+          "cumulative_realized_virtual_nodes": [
+            "N_c_profit",
+            "N_c_sales"
+          ],
+          "objective_state": "covered",
+          "session_phi": 1.0
+        },
+        "direct_result": null,
+        "active": {
+          "session_id": "S_0004",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart"
+        }
+      }
+    },
+    {
+      "query": {
+        "id": "Q4_BLOCK_REDUNDANT",
+        "label": "Q4 — BLOCK redondant",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "BLOCK",
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_id": "Q4_BLOCK_REDUNDANT",
+        "dataset": "foodmart"
+      },
+      "payload": {
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_type": "mdx",
+        "query_id": "Q4_BLOCK_REDUNDANT",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "session_id": "S_0004",
+        "source_scenario_id": "foodmart_q1_q6",
+        "scenario_id": "foodmart_q1_q6",
+        "scenario_name": "FoodMart Q1-Q6 validation",
+        "scenario_source": "campaign_b_controlled_minimal",
+        "scenario_query_index": 3,
+        "scenario_query_id": "Q4_BLOCK_REDUNDANT",
+        "expected_decision": "BLOCK",
+        "allow_fallback": false
+      },
+      "response": {
+        "ok": true,
+        "mode": "hybrid_bi_gateway",
+        "gateway": "mcad.execution_gateway.v2.hybrid",
+        "execution_source_enforced": true,
+        "allow_fallback": false,
+        "query_id": "Q4_BLOCK_REDUNDANT",
+        "dw_id": "foodmart",
+        "adapter_id": null,
+        "execution_path": null,
+        "decision": {
+          "decision": "BLOCK",
+          "phi": 1.0,
+          "threshold": 0.6,
+          "sat": 1.0,
+          "real": 0.5,
+          "ceval": 1.0,
+          "explain": "ENGINE=real mode=formal_contributive_session_marginal+contract_redundant formal_sat=True legacy_engine_sat=True phi=1.000 theta=0.600 Ceval=2/2 RealNV=1/2 phi_leq_t=1.000 dphi=0.000 => BLOCK",
+          "decision_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+          "decision_reason": "Contract-driven redundancy: matched constraint(s) already covered in the current session.",
+          "is_redundant": true,
+          "has_marginal_gain": false,
+          "details": {
+            "engine": "evaluate_with_objective_and_session(payload)",
+            "decision_policy": "formal_contributive_session_marginal+contract_redundant",
+            "decision_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+            "decision_reason": "Contract-driven redundancy: matched constraint(s) already covered in the current session.",
+            "is_redundant": true,
+            "has_marginal_gain": false,
+            "gained_resource_ids_count": 0,
+            "threshold_used_for_ranking": 0.6,
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 4,
+            "phi_weighted": 1.0,
+            "phi_leq_t": 1.0,
+            "delta_phi_t": 0.0,
+            "real_node_ids": [
+              "NV_REAL_BEER_WA_MONTH_SALES"
+            ],
+            "calculable_constraints": [],
+            "calculable_constraints_total": [],
+            "calculable_constraints_partial": [],
+            "newly_contributed_constraints_total": [],
+            "newly_contributed_constraints_partial": [],
+            "gained_resource_ids": [],
+            "covered_constraints": [],
+            "realized_virtual_nodes": [],
+            "observed_resources": [
+              "Store Sales"
+            ],
+            "graph_update": {
+              "contract_version": "mcad.graph_update.v1",
+              "decision": "BLOCK",
+              "objective_id": "O_REAL_BEER_WA_MONTH",
+              "session_id": "S_0004",
+              "step_index": 4,
+              "covered_constraints": [],
+              "realized_virtual_nodes": [],
+              "observed_resources": [
+                "Store Sales"
+              ],
+              "sat_checks": {
+                "grain_ok": true,
+                "agg_ok": true,
+                "unit_ok": true,
+                "slc_ok": true,
+                "time_ok": true,
+                "nvac_ok": true
+              },
+              "nvac_evidence": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "scenario": {
+              "source_scenario_id": "foodmart_q1_q6",
+              "scenario_name": "FoodMart Q1-Q6 validation",
+              "scenario_source": "campaign_b_controlled_minimal",
+              "scenario_query_index": 3,
+              "scenario_query_id": "Q4_BLOCK_REDUNDANT"
+            },
+            "formal_sat": true,
+            "formal_sat_source": "formal_sat_eval.checks",
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "sat_evidence": {
+              "grain_ok": {
+                "recognized_grain": [
+                  "Measures.Store Sales",
+                  "Time.Month"
+                ],
+                "compatible_constraints": [
+                  "c_sales"
+                ]
+              },
+              "agg_ok": {
+                "aggregators": [
+                  "implicit cube aggregator"
+                ],
+                "reason": "no forbidden aggregation detected"
+              },
+              "unit_ok": {
+                "method": "no explicit unit conflict in QP",
+                "checked_units": {}
+              },
+              "slc_ok": {
+                "recognized_slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "errors": [],
+                "member_dictionary": "FoodMart"
+              },
+              "time_ok": {
+                "time_grains": [
+                  "Time.Month"
+                ],
+                "window": {
+                  "start": null,
+                  "end": null
+                },
+                "reason": "time level/window coherent"
+              },
+              "nvac_ok": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "nvac_ok": true,
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "legacy_engine_sat_debug": true,
+            "legacy_engine_clauses_debug": [
+              {
+                "name": "measures_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "cube_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "objective_known",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "slc_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "time_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "grain_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "agg_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "unit_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "nvac_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "has_realizable_nodes",
+                "ok": true,
+                "details": {
+                  "real_node_ids": "['NV_REAL_BEER_WA_MONTH_SALES']"
+                }
+              },
+              {
+                "name": "has_contributive_constraints",
+                "ok": true,
+                "details": {
+                  "calculable_constraints_total": "['real_c1', 'real_c2']",
+                  "calculable_constraints_partial": "[]"
+                }
+              }
+            ],
+            "query_spec": {
+              "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+              "cube": "Sales",
+              "measures": [
+                "Store Sales"
+              ],
+              "group_by": [
+                "Measures.Store Sales",
+                "Time.Month"
+              ],
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "analytics": [],
+              "axes": [
+                {
+                  "axis": "COLUMNS",
+                  "expression": "{[Measures].[Store Sales]}"
+                },
+                {
+                  "axis": "ROWS",
+                  "expression": ", [Time].[Month].Members"
+                }
+              ],
+              "time_members": [],
+              "window_start": null,
+              "window_end": null,
+              "calculated_members": [],
+              "named_sets": [],
+              "language": "mdx",
+              "fingerprint": "2ca04c491bfaed4f",
+              "dw_id": "foodmart",
+              "dataset": null
+            },
+            "eval_ms": 18
+          },
+          "graph_update": {
+            "contract_version": "mcad.graph_update.v1",
+            "decision": "BLOCK",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 4,
+            "covered_constraints": [],
+            "realized_virtual_nodes": [],
+            "observed_resources": [
+              "Store Sales"
+            ],
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Measures.Store Sales",
+              "Time.Month"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            },
+            "time_window": {
+              "start": null,
+              "end": null
+            },
+            "mdx_features": {
+              "measures": [
+                "Store Sales"
+              ],
+              "grain": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.WA"
+              ],
+              "slicers": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.WA"
+              ]
+            },
+            "blocked_reasons": [
+              "redundant / Δφ = 0"
+            ],
+            "redundant": true,
+            "delta_phi": 0.0,
+            "partially_covered_constraints": [],
+            "required_constraints": [
+              "c_sales",
+              "c_profit"
+            ],
+            "cumulative_covered_constraints": [
+              "c_profit",
+              "c_sales"
+            ],
+            "cumulative_partially_covered_constraints": [],
+            "pending_constraints": [],
+            "cumulative_realized_virtual_nodes": [
+              "N_c_profit",
+              "N_c_sales"
+            ],
+            "objective_state": "covered",
+            "session_phi": 1.0
+          }
+        },
+        "execution_evidence": {
+          "contract_version": "mcad.execution_evidence.v1",
+          "generated_at_ms": 1783275753873,
+          "query": {
+            "query_id": "Q4_BLOCK_REDUNDANT",
+            "query_type": "mdx",
+            "query_digest": "2ca04c491bfaed4f",
+            "execution_mode": null,
+            "scenario_instance_id": null,
+            "source_scenario_id": "foodmart_q1_q6",
+            "scenario_query_index": 3,
+            "scenario_query_id": "Q4_BLOCK_REDUNDANT"
+          },
+          "mcad_gate": {
+            "allowed_by_mcad": false,
+            "decision": "BLOCK",
+            "decision_reason_code": "BLOCK_REDUNDANT_DPHI_ZERO",
+            "decision_reason": "Contract-driven redundancy: matched constraint(s) already covered in the current session.",
+            "session_id": "S_0004",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "step_index": 4,
+            "eval_elapsed_ms": 7751,
+            "fail_closed": true
+          },
+          "formal_metrics": {
+            "sat": 1.0,
+            "real": 0.5,
+            "ceval": 1.0,
+            "phi": 1.0,
+            "delta_phi": 0.0,
+            "threshold": 0.6
+          },
+          "sat_clauses": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "execution": {
+            "attempted": false,
+            "physical_execution": false,
+            "status": "MCAD_BLOCKED",
+            "requested_dw_id": "foodmart",
+            "selected_dw_id": "foodmart",
+            "adapter_id": null,
+            "adapter_family": null,
+            "backend_type": null,
+            "execution_path": null,
+            "logical_query_language": "mdx",
+            "physical_query_language": null,
+            "catalog": null,
+            "cube": null,
+            "forwarded_to": null,
+            "xmla_response_type": null,
+            "status_code": null,
+            "elapsed_ms": null,
+            "response_bytes": null,
+            "response_digest": null,
+            "result_digest": null,
+            "row_count": null,
+            "columns_count": null,
+            "fallback_used": false,
+            "demo_materialized": false,
+            "error": null
+          },
+          "graph_update_summary": {
+            "covered_constraints": [
+              "c_profit",
+              "c_sales"
+            ],
+            "partially_covered_constraints": [],
+            "realized_virtual_nodes": [
+              "N_c_profit",
+              "N_c_sales"
+            ],
+            "delta_phi": 0.0,
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Measures.Store Sales",
+              "Time.Month"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            }
+          }
+        },
+        "graph_update": {
+          "contract_version": "mcad.graph_update.v1",
+          "decision": "BLOCK",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "session_id": "S_0004",
+          "step_index": 4,
+          "covered_constraints": [],
+          "realized_virtual_nodes": [],
+          "observed_resources": [
+            "Store Sales"
+          ],
+          "sat_checks": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "nvac_evidence": {
+            "method": "combination_nonempty_index",
+            "known_empty": false,
+            "estimated_cells": 12,
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            },
+            "probe_attempted": false,
+            "rule": "known_nonempty_combination_accepts_directly"
+          },
+          "measures": [
+            "Store Sales"
+          ],
+          "grain": [
+            "Measures.Store Sales",
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "WA"
+          },
+          "time_window": {
+            "start": null,
+            "end": null
+          },
+          "mdx_features": {
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.WA"
+            ],
+            "slicers": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.WA"
+            ]
+          },
+          "blocked_reasons": [
+            "redundant / Δφ = 0"
+          ],
+          "redundant": true,
+          "delta_phi": 0.0,
+          "partially_covered_constraints": [],
+          "required_constraints": [
+            "c_sales",
+            "c_profit"
+          ],
+          "cumulative_covered_constraints": [
+            "c_profit",
+            "c_sales"
+          ],
+          "cumulative_partially_covered_constraints": [],
+          "pending_constraints": [],
+          "cumulative_realized_virtual_nodes": [
+            "N_c_profit",
+            "N_c_sales"
+          ],
+          "objective_state": "covered",
+          "session_phi": 1.0
+        },
+        "direct_result": null,
+        "active": {
+          "session_id": "S_0004",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart"
+        }
+      }
+    },
+    {
+      "query": {
+        "id": "Q5_BLOCK_NON_TARGET_MEASURE",
+        "label": "Q5 — BLOCK mesure non ciblée",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "BLOCK",
+        "mdx": "SELECT {[Measures].[Unit Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_id": "Q5_BLOCK_NON_TARGET_MEASURE",
+        "dataset": "foodmart"
+      },
+      "payload": {
+        "mdx": "SELECT {[Measures].[Unit Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_type": "mdx",
+        "query_id": "Q5_BLOCK_NON_TARGET_MEASURE",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "session_id": "S_0004",
+        "source_scenario_id": "foodmart_q1_q6",
+        "scenario_id": "foodmart_q1_q6",
+        "scenario_name": "FoodMart Q1-Q6 validation",
+        "scenario_source": "campaign_b_controlled_minimal",
+        "scenario_query_index": 4,
+        "scenario_query_id": "Q5_BLOCK_NON_TARGET_MEASURE",
+        "expected_decision": "BLOCK",
+        "allow_fallback": false
+      },
+      "response": {
+        "ok": true,
+        "mode": "hybrid_bi_gateway",
+        "gateway": "mcad.execution_gateway.v2.hybrid",
+        "execution_source_enforced": true,
+        "allow_fallback": false,
+        "query_id": "Q5_BLOCK_NON_TARGET_MEASURE",
+        "dw_id": "foodmart",
+        "adapter_id": null,
+        "execution_path": null,
+        "decision": {
+          "decision": "BLOCK",
+          "phi": 0.0,
+          "threshold": 0.6,
+          "sat": 1.0,
+          "real": 0.0,
+          "ceval": 0.0,
+          "explain": "ENGINE=real mode=formal_contributive_session_marginal formal_sat=True legacy_engine_sat=False phi=0.000 theta=0.600 Ceval=0/2 RealNV=0/2 phi_leq_t=1.000 dphi=0.000 => BLOCK",
+          "decision_reason_code": "BLOCK_MEASURE_NOT_TARGETED",
+          "decision_reason": "Query uses resources/measures that are not targeted by the active objective.",
+          "is_redundant": false,
+          "has_marginal_gain": false,
+          "details": {
+            "engine": "evaluate_with_objective_and_session(payload)",
+            "decision_policy": "formal_contributive_session_marginal",
+            "decision_reason_code": "BLOCK_MEASURE_NOT_TARGETED",
+            "decision_reason": "Query uses resources/measures that are not targeted by the active objective.",
+            "is_redundant": false,
+            "has_marginal_gain": false,
+            "gained_resource_ids_count": 0,
+            "threshold_used_for_ranking": 0.6,
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 5,
+            "phi_weighted": 0.0,
+            "phi_leq_t": 1.0,
+            "delta_phi_t": 0.0,
+            "real_node_ids": [],
+            "calculable_constraints": [],
+            "calculable_constraints_total": [],
+            "calculable_constraints_partial": [],
+            "newly_contributed_constraints_total": [],
+            "newly_contributed_constraints_partial": [],
+            "gained_resource_ids": [],
+            "covered_constraints": [],
+            "realized_virtual_nodes": [],
+            "observed_resources": [
+              "Unit Sales"
+            ],
+            "graph_update": {
+              "contract_version": "mcad.graph_update.v1",
+              "decision": "BLOCK",
+              "objective_id": "O_REAL_BEER_WA_MONTH",
+              "session_id": "S_0004",
+              "step_index": 5,
+              "covered_constraints": [],
+              "realized_virtual_nodes": [],
+              "observed_resources": [
+                "Unit Sales"
+              ],
+              "sat_checks": {
+                "grain_ok": true,
+                "agg_ok": true,
+                "unit_ok": true,
+                "slc_ok": true,
+                "time_ok": true,
+                "nvac_ok": true
+              },
+              "nvac_evidence": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "scenario": {
+              "source_scenario_id": "foodmart_q1_q6",
+              "scenario_name": "FoodMart Q1-Q6 validation",
+              "scenario_source": "campaign_b_controlled_minimal",
+              "scenario_query_index": 4,
+              "scenario_query_id": "Q5_BLOCK_NON_TARGET_MEASURE"
+            },
+            "formal_sat": true,
+            "formal_sat_source": "formal_sat_eval.checks",
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "sat_evidence": {
+              "grain_ok": {
+                "recognized_grain": [
+                  "Measures.Unit Sales",
+                  "Time.Month"
+                ],
+                "reason": "no measure-compatible objective constraint; grain is syntactically recognized"
+              },
+              "agg_ok": {
+                "aggregators": [
+                  "implicit cube aggregator"
+                ],
+                "reason": "no forbidden aggregation detected"
+              },
+              "unit_ok": {
+                "method": "no explicit unit conflict in QP",
+                "checked_units": {}
+              },
+              "slc_ok": {
+                "recognized_slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "errors": [],
+                "member_dictionary": "FoodMart"
+              },
+              "time_ok": {
+                "time_grains": [
+                  "Time.Month"
+                ],
+                "window": {
+                  "start": null,
+                  "end": null
+                },
+                "reason": "time level/window coherent"
+              },
+              "nvac_ok": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "nvac_ok": true,
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "legacy_engine_sat_debug": false,
+            "legacy_engine_clauses_debug": [
+              {
+                "name": "measures_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "cube_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "objective_known",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "slc_ok",
+                "ok": false,
+                "details": {
+                  "conflicts": "['no objective-compatible slicer pattern']"
+                }
+              },
+              {
+                "name": "time_ok",
+                "ok": false,
+                "details": {
+                  "window_start": "",
+                  "window_end": ""
+                }
+              },
+              {
+                "name": "grain_ok",
+                "ok": false,
+                "details": {
+                  "group_by": "['Measures.Unit Sales', 'Time.Month']"
+                }
+              },
+              {
+                "name": "agg_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "unit_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "nvac_ok",
+                "ok": false,
+                "details": {
+                  "reason": "no potentially realizable virtual node for this objective"
+                }
+              }
+            ],
+            "query_spec": {
+              "mdx": "SELECT {[Measures].[Unit Sales]} ON COLUMNS, [Time].[Month].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+              "cube": "Sales",
+              "measures": [
+                "Unit Sales"
+              ],
+              "group_by": [
+                "Measures.Unit Sales",
+                "Time.Month"
+              ],
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "analytics": [],
+              "axes": [
+                {
+                  "axis": "COLUMNS",
+                  "expression": "{[Measures].[Unit Sales]}"
+                },
+                {
+                  "axis": "ROWS",
+                  "expression": ", [Time].[Month].Members"
+                }
+              ],
+              "time_members": [],
+              "window_start": null,
+              "window_end": null,
+              "calculated_members": [],
+              "named_sets": [],
+              "language": "mdx",
+              "fingerprint": "d3e33f3f187e09ac",
+              "dw_id": "foodmart",
+              "dataset": null
+            },
+            "eval_ms": 33
+          },
+          "graph_update": {
+            "contract_version": "mcad.graph_update.v1",
+            "decision": "BLOCK",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 5,
+            "covered_constraints": [],
+            "realized_virtual_nodes": [],
+            "observed_resources": [
+              "Unit Sales"
+            ],
+            "sat_checks": {
+              "grain_ok": true,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "measures": [
+              "Unit Sales"
+            ],
+            "grain": [
+              "Measures.Unit Sales",
+              "Time.Month"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            },
+            "time_window": {
+              "start": null,
+              "end": null
+            },
+            "mdx_features": {
+              "measures": [
+                "Unit Sales"
+              ],
+              "grain": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.WA"
+              ],
+              "slicers": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.WA"
+              ]
+            },
+            "blocked_reasons": [
+              "redundant / Δφ = 0"
+            ],
+            "redundant": true,
+            "delta_phi": 0.0,
+            "partially_covered_constraints": [],
+            "required_constraints": [
+              "c_sales",
+              "c_profit"
+            ],
+            "cumulative_covered_constraints": [
+              "c_profit",
+              "c_sales"
+            ],
+            "cumulative_partially_covered_constraints": [],
+            "pending_constraints": [],
+            "cumulative_realized_virtual_nodes": [
+              "N_c_profit",
+              "N_c_sales"
+            ],
+            "objective_state": "covered",
+            "session_phi": 1.0
+          }
+        },
+        "execution_evidence": {
+          "contract_version": "mcad.execution_evidence.v1",
+          "generated_at_ms": 1783275761801,
+          "query": {
+            "query_id": "Q5_BLOCK_NON_TARGET_MEASURE",
+            "query_type": "mdx",
+            "query_digest": "d3e33f3f187e09ac",
+            "execution_mode": null,
+            "scenario_instance_id": null,
+            "source_scenario_id": "foodmart_q1_q6",
+            "scenario_query_index": 4,
+            "scenario_query_id": "Q5_BLOCK_NON_TARGET_MEASURE"
+          },
+          "mcad_gate": {
+            "allowed_by_mcad": false,
+            "decision": "BLOCK",
+            "decision_reason_code": "BLOCK_MEASURE_NOT_TARGETED",
+            "decision_reason": "Query uses resources/measures that are not targeted by the active objective.",
+            "session_id": "S_0004",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "step_index": 5,
+            "eval_elapsed_ms": 7911,
+            "fail_closed": true
+          },
+          "formal_metrics": {
+            "sat": 1.0,
+            "real": 0.0,
+            "ceval": 0.0,
+            "phi": 0.0,
+            "delta_phi": 0.0,
+            "threshold": 0.6
+          },
+          "sat_clauses": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "execution": {
+            "attempted": false,
+            "physical_execution": false,
+            "status": "MCAD_BLOCKED",
+            "requested_dw_id": "foodmart",
+            "selected_dw_id": "foodmart",
+            "adapter_id": null,
+            "adapter_family": null,
+            "backend_type": null,
+            "execution_path": null,
+            "logical_query_language": "mdx",
+            "physical_query_language": null,
+            "catalog": null,
+            "cube": null,
+            "forwarded_to": null,
+            "xmla_response_type": null,
+            "status_code": null,
+            "elapsed_ms": null,
+            "response_bytes": null,
+            "response_digest": null,
+            "result_digest": null,
+            "row_count": null,
+            "columns_count": null,
+            "fallback_used": false,
+            "demo_materialized": false,
+            "error": null
+          },
+          "graph_update_summary": {
+            "covered_constraints": [
+              "c_profit",
+              "c_sales"
+            ],
+            "partially_covered_constraints": [],
+            "realized_virtual_nodes": [
+              "N_c_profit",
+              "N_c_sales"
+            ],
+            "delta_phi": 0.0,
+            "measures": [
+              "Unit Sales"
+            ],
+            "grain": [
+              "Measures.Unit Sales",
+              "Time.Month"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            }
+          }
+        },
+        "graph_update": {
+          "contract_version": "mcad.graph_update.v1",
+          "decision": "BLOCK",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "session_id": "S_0004",
+          "step_index": 5,
+          "covered_constraints": [],
+          "realized_virtual_nodes": [],
+          "observed_resources": [
+            "Unit Sales"
+          ],
+          "sat_checks": {
+            "grain_ok": true,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "nvac_evidence": {
+            "method": "combination_nonempty_index",
+            "known_empty": false,
+            "estimated_cells": 12,
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            },
+            "probe_attempted": false,
+            "rule": "known_nonempty_combination_accepts_directly"
+          },
+          "measures": [
+            "Unit Sales"
+          ],
+          "grain": [
+            "Measures.Unit Sales",
+            "Time.Month"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "WA"
+          },
+          "time_window": {
+            "start": null,
+            "end": null
+          },
+          "mdx_features": {
+            "measures": [
+              "Unit Sales"
+            ],
+            "grain": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.WA"
+            ],
+            "slicers": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.WA"
+            ]
+          },
+          "blocked_reasons": [
+            "redundant / Δφ = 0"
+          ],
+          "redundant": true,
+          "delta_phi": 0.0,
+          "partially_covered_constraints": [],
+          "required_constraints": [
+            "c_sales",
+            "c_profit"
+          ],
+          "cumulative_covered_constraints": [
+            "c_profit",
+            "c_sales"
+          ],
+          "cumulative_partially_covered_constraints": [],
+          "pending_constraints": [],
+          "cumulative_realized_virtual_nodes": [
+            "N_c_profit",
+            "N_c_sales"
+          ],
+          "objective_state": "covered",
+          "session_phi": 1.0
+        },
+        "direct_result": null,
+        "active": {
+          "session_id": "S_0004",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart"
+        }
+      }
+    },
+    {
+      "query": {
+        "id": "Q6_BLOCK_BAD_GRAIN",
+        "label": "Q6 — BLOCK grain non conforme",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "query_type": "mdx",
+        "expected_decision": "BLOCK",
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Year].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_id": "Q6_BLOCK_BAD_GRAIN",
+        "dataset": "foodmart"
+      },
+      "payload": {
+        "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Year].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+        "query_type": "mdx",
+        "query_id": "Q6_BLOCK_BAD_GRAIN",
+        "objective_id": "O_REAL_BEER_WA_MONTH",
+        "dw_id": "foodmart",
+        "session_id": "S_0004",
+        "source_scenario_id": "foodmart_q1_q6",
+        "scenario_id": "foodmart_q1_q6",
+        "scenario_name": "FoodMart Q1-Q6 validation",
+        "scenario_source": "campaign_b_controlled_minimal",
+        "scenario_query_index": 5,
+        "scenario_query_id": "Q6_BLOCK_BAD_GRAIN",
+        "expected_decision": "BLOCK",
+        "allow_fallback": false
+      },
+      "response": {
+        "ok": true,
+        "mode": "hybrid_bi_gateway",
+        "gateway": "mcad.execution_gateway.v2.hybrid",
+        "execution_source_enforced": true,
+        "allow_fallback": false,
+        "query_id": "Q6_BLOCK_BAD_GRAIN",
+        "dw_id": "foodmart",
+        "adapter_id": null,
+        "execution_path": null,
+        "decision": {
+          "decision": "BLOCK",
+          "phi": 1.0,
+          "threshold": 0.6,
+          "sat": 0.0,
+          "real": 0.0,
+          "ceval": 0.0,
+          "explain": "ENGINE=real mode=formal_contributive_session_marginal+formal_sat_gate formal_sat=False legacy_engine_sat=False phi=1.000 theta=0.600 Ceval=0/2 RealNV=0/2 phi_leq_t=1.000 dphi=0.000 => BLOCK",
+          "decision_reason_code": "BLOCK_GRAIN_MISMATCH",
+          "decision_reason": "Formal SAT clause failed: grain_ok",
+          "is_redundant": false,
+          "has_marginal_gain": false,
+          "details": {
+            "engine": "evaluate_with_objective_and_session(payload)",
+            "decision_policy": "formal_contributive_session_marginal+formal_sat_gate",
+            "decision_reason_code": "BLOCK_GRAIN_MISMATCH",
+            "decision_reason": "Formal SAT clause failed: grain_ok",
+            "is_redundant": false,
+            "has_marginal_gain": false,
+            "gained_resource_ids_count": 0,
+            "threshold_used_for_ranking": 0.6,
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 6,
+            "phi_weighted": 0.0,
+            "phi_leq_t": 1.0,
+            "delta_phi_t": 0.0,
+            "real_node_ids": [],
+            "calculable_constraints": [],
+            "calculable_constraints_total": [],
+            "calculable_constraints_partial": [],
+            "newly_contributed_constraints_total": [],
+            "newly_contributed_constraints_partial": [],
+            "gained_resource_ids": [],
+            "covered_constraints": [],
+            "realized_virtual_nodes": [],
+            "observed_resources": [
+              "Store Sales"
+            ],
+            "graph_update": {
+              "contract_version": "mcad.graph_update.v1",
+              "decision": "BLOCK",
+              "objective_id": "O_REAL_BEER_WA_MONTH",
+              "session_id": "S_0004",
+              "step_index": 6,
+              "covered_constraints": [],
+              "realized_virtual_nodes": [],
+              "observed_resources": [
+                "Store Sales"
+              ],
+              "sat_checks": {
+                "grain_ok": false,
+                "agg_ok": true,
+                "unit_ok": true,
+                "slc_ok": true,
+                "time_ok": true,
+                "nvac_ok": true
+              },
+              "nvac_evidence": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "scenario": {
+              "source_scenario_id": "foodmart_q1_q6",
+              "scenario_name": "FoodMart Q1-Q6 validation",
+              "scenario_source": "campaign_b_controlled_minimal",
+              "scenario_query_index": 5,
+              "scenario_query_id": "Q6_BLOCK_BAD_GRAIN"
+            },
+            "formal_sat": false,
+            "formal_sat_source": "formal_sat_eval.checks",
+            "sat_checks": {
+              "grain_ok": false,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "sat_evidence": {
+              "grain_ok": {
+                "recognized_grain": [
+                  "Measures.Store Sales",
+                  "Time.Year"
+                ],
+                "compatible_constraints": []
+              },
+              "agg_ok": {
+                "aggregators": [
+                  "implicit cube aggregator"
+                ],
+                "reason": "no forbidden aggregation detected"
+              },
+              "unit_ok": {
+                "method": "no explicit unit conflict in QP",
+                "checked_units": {}
+              },
+              "slc_ok": {
+                "recognized_slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "errors": [],
+                "member_dictionary": "FoodMart"
+              },
+              "time_ok": {
+                "time_grains": [
+                  "Time.Year"
+                ],
+                "window": {
+                  "start": null,
+                  "end": null
+                },
+                "reason": "time level/window coherent"
+              },
+              "nvac_ok": {
+                "method": "combination_nonempty_index",
+                "known_empty": false,
+                "estimated_cells": 12,
+                "slicers": {
+                  "Product.Product Category": "Beer and Wine",
+                  "Store.Store State": "WA"
+                },
+                "probe_attempted": false,
+                "rule": "known_nonempty_combination_accepts_directly"
+              }
+            },
+            "nvac_ok": true,
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "legacy_engine_sat_debug": false,
+            "legacy_engine_clauses_debug": [
+              {
+                "name": "measures_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "cube_present",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "objective_known",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "slc_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "time_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "grain_ok",
+                "ok": false,
+                "details": {
+                  "group_by": "['Measures.Store Sales', 'Time.Year']"
+                }
+              },
+              {
+                "name": "agg_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "unit_ok",
+                "ok": true,
+                "details": {}
+              },
+              {
+                "name": "nvac_ok",
+                "ok": true,
+                "details": {}
+              }
+            ],
+            "query_spec": {
+              "mdx": "SELECT {[Measures].[Store Sales]} ON COLUMNS, [Time].[Year].Members ON ROWS FROM [Sales] WHERE ([Product].[Product Category].[Beer and Wine], [Store].[Store State].[WA])",
+              "cube": "Sales",
+              "measures": [
+                "Store Sales"
+              ],
+              "group_by": [
+                "Measures.Store Sales",
+                "Time.Year"
+              ],
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "analytics": [],
+              "axes": [
+                {
+                  "axis": "COLUMNS",
+                  "expression": "{[Measures].[Store Sales]}"
+                },
+                {
+                  "axis": "ROWS",
+                  "expression": ", [Time].[Year].Members"
+                }
+              ],
+              "time_members": [],
+              "window_start": null,
+              "window_end": null,
+              "calculated_members": [],
+              "named_sets": [],
+              "language": "mdx",
+              "fingerprint": "33cf5f057d815765",
+              "dw_id": "foodmart",
+              "dataset": null
+            },
+            "eval_ms": 14
+          },
+          "graph_update": {
+            "contract_version": "mcad.graph_update.v1",
+            "decision": "BLOCK",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "session_id": "S_0004",
+            "step_index": 6,
+            "covered_constraints": [],
+            "realized_virtual_nodes": [],
+            "observed_resources": [
+              "Store Sales"
+            ],
+            "sat_checks": {
+              "grain_ok": false,
+              "agg_ok": true,
+              "unit_ok": true,
+              "slc_ok": true,
+              "time_ok": true,
+              "nvac_ok": true
+            },
+            "nvac_evidence": {
+              "method": "combination_nonempty_index",
+              "known_empty": false,
+              "estimated_cells": 12,
+              "slicers": {
+                "Product.Product Category": "Beer and Wine",
+                "Store.Store State": "WA"
+              },
+              "probe_attempted": false,
+              "rule": "known_nonempty_combination_accepts_directly"
+            },
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Measures.Store Sales",
+              "Time.Year"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            },
+            "time_window": {
+              "start": null,
+              "end": null
+            },
+            "mdx_features": {
+              "measures": [
+                "Store Sales"
+              ],
+              "grain": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.WA"
+              ],
+              "slicers": [
+                "Product.Product Category.Beer and Wine",
+                "Store.Store State.WA"
+              ]
+            },
+            "blocked_reasons": [
+              "redundant / Δφ = 0"
+            ],
+            "redundant": true,
+            "delta_phi": 0.0,
+            "partially_covered_constraints": [],
+            "required_constraints": [
+              "c_sales",
+              "c_profit"
+            ],
+            "cumulative_covered_constraints": [
+              "c_profit",
+              "c_sales"
+            ],
+            "cumulative_partially_covered_constraints": [],
+            "pending_constraints": [],
+            "cumulative_realized_virtual_nodes": [
+              "N_c_profit",
+              "N_c_sales"
+            ],
+            "objective_state": "covered",
+            "session_phi": 1.0
+          }
+        },
+        "execution_evidence": {
+          "contract_version": "mcad.execution_evidence.v1",
+          "generated_at_ms": 1783275769676,
+          "query": {
+            "query_id": "Q6_BLOCK_BAD_GRAIN",
+            "query_type": "mdx",
+            "query_digest": "33cf5f057d815765",
+            "execution_mode": null,
+            "scenario_instance_id": null,
+            "source_scenario_id": "foodmart_q1_q6",
+            "scenario_query_index": 5,
+            "scenario_query_id": "Q6_BLOCK_BAD_GRAIN"
+          },
+          "mcad_gate": {
+            "allowed_by_mcad": false,
+            "decision": "BLOCK",
+            "decision_reason_code": "BLOCK_GRAIN_MISMATCH",
+            "decision_reason": "Formal SAT clause failed: grain_ok",
+            "session_id": "S_0004",
+            "objective_id": "O_REAL_BEER_WA_MONTH",
+            "step_index": 6,
+            "eval_elapsed_ms": 7859,
+            "fail_closed": true
+          },
+          "formal_metrics": {
+            "sat": 0.0,
+            "real": 0.0,
+            "ceval": 0.0,
+            "phi": 1.0,
+            "delta_phi": 0.0,
+            "threshold": 0.6
+          },
+          "sat_clauses": {
+            "grain_ok": false,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "execution": {
+            "attempted": false,
+            "physical_execution": false,
+            "status": "MCAD_BLOCKED",
+            "requested_dw_id": "foodmart",
+            "selected_dw_id": "foodmart",
+            "adapter_id": null,
+            "adapter_family": null,
+            "backend_type": null,
+            "execution_path": null,
+            "logical_query_language": "mdx",
+            "physical_query_language": null,
+            "catalog": null,
+            "cube": null,
+            "forwarded_to": null,
+            "xmla_response_type": null,
+            "status_code": null,
+            "elapsed_ms": null,
+            "response_bytes": null,
+            "response_digest": null,
+            "result_digest": null,
+            "row_count": null,
+            "columns_count": null,
+            "fallback_used": false,
+            "demo_materialized": false,
+            "error": null
+          },
+          "graph_update_summary": {
+            "covered_constraints": [
+              "c_profit",
+              "c_sales"
+            ],
+            "partially_covered_constraints": [],
+            "realized_virtual_nodes": [
+              "N_c_profit",
+              "N_c_sales"
+            ],
+            "delta_phi": 0.0,
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Measures.Store Sales",
+              "Time.Year"
+            ],
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            }
+          }
+        },
+        "graph_update": {
+          "contract_version": "mcad.graph_update.v1",
+          "decision": "BLOCK",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "session_id": "S_0004",
+          "step_index": 6,
+          "covered_constraints": [],
+          "realized_virtual_nodes": [],
+          "observed_resources": [
+            "Store Sales"
+          ],
+          "sat_checks": {
+            "grain_ok": false,
+            "agg_ok": true,
+            "unit_ok": true,
+            "slc_ok": true,
+            "time_ok": true,
+            "nvac_ok": true
+          },
+          "nvac_evidence": {
+            "method": "combination_nonempty_index",
+            "known_empty": false,
+            "estimated_cells": 12,
+            "slicers": {
+              "Product.Product Category": "Beer and Wine",
+              "Store.Store State": "WA"
+            },
+            "probe_attempted": false,
+            "rule": "known_nonempty_combination_accepts_directly"
+          },
+          "measures": [
+            "Store Sales"
+          ],
+          "grain": [
+            "Measures.Store Sales",
+            "Time.Year"
+          ],
+          "slicers": {
+            "Product.Product Category": "Beer and Wine",
+            "Store.Store State": "WA"
+          },
+          "time_window": {
+            "start": null,
+            "end": null
+          },
+          "mdx_features": {
+            "measures": [
+              "Store Sales"
+            ],
+            "grain": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.WA"
+            ],
+            "slicers": [
+              "Product.Product Category.Beer and Wine",
+              "Store.Store State.WA"
+            ]
+          },
+          "blocked_reasons": [
+            "redundant / Δφ = 0"
+          ],
+          "redundant": true,
+          "delta_phi": 0.0,
+          "partially_covered_constraints": [],
+          "required_constraints": [
+            "c_sales",
+            "c_profit"
+          ],
+          "cumulative_covered_constraints": [
+            "c_profit",
+            "c_sales"
+          ],
+          "cumulative_partially_covered_constraints": [],
+          "pending_constraints": [],
+          "cumulative_realized_virtual_nodes": [
+            "N_c_profit",
+            "N_c_sales"
+          ],
+          "objective_state": "covered",
+          "session_phi": 1.0
+        },
+        "direct_result": null,
+        "active": {
+          "session_id": "S_0004",
+          "objective_id": "O_REAL_BEER_WA_MONTH",
+          "dw_id": "foodmart"
+        }
+      }
+    }
+  ]
+}

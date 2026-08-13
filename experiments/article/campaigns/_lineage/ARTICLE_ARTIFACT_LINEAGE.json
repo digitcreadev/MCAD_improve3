@@ -1,0 +1,109 @@
+{
+  "schema_version": "mcad-article-artifact-lineage-v1",
+  "scientific_execution_performed": false,
+  "authority_statuses": [
+    "SOURCE_BACKED",
+    "REGENERATE_FROM_PRIMARY",
+    "HISTORICAL_EDITORIAL_REFERENCE",
+    "PROXY_EXCLUDED",
+    "HUMAN_VALIDATION_EXCLUDED",
+    "SUPERSEDED"
+  ],
+  "artifact_families": [
+    {
+      "artifact_id": "offline_rebuild_article_runs_202605",
+      "historical_location": "campaign_runs/rebuild_article_*",
+      "current_hub_location": "experiments/article/campaigns/_recovered_sources/offline_202605/recovered_runs/",
+      "artifact_role": "historical_primary_experimental_output",
+      "authority_status": "SOURCE_BACKED",
+      "publication_rule": "Use only after cross-run scientific qualification; do not treat all six runs as six independent campaigns."
+    },
+    {
+      "artifact_id": "abc_paper_artifacts_20260707",
+      "historical_location": "reports/article_experiments/article_abc_20260707T111743Z/paper_artifacts/",
+      "artifact_role": "historical_article_artifact_package",
+      "authority_status": "HISTORICAL_EDITORIAL_REFERENCE",
+      "publication_rule": "Use for historical publication design; numeric claims must resolve to A/B/C primary evidence."
+    },
+    {
+      "artifact_id": "legacy_article_artifact_generator",
+      "historical_location": "experiments/article/artifacts/",
+      "artifact_role": "historical_generation_pipeline",
+      "authority_status": "HISTORICAL_EDITORIAL_REFERENCE",
+      "publication_rule": "Do not execute as the final publication pipeline without source qualification."
+    },
+    {
+      "artifact_id": "legacy_article_update_layer",
+      "historical_location": "article_update/",
+      "artifact_role": "historical_article_figures_tables_and_data",
+      "authority_status": "HISTORICAL_EDITORIAL_REFERENCE",
+      "publication_rule": "Use for editorial lineage; it is not the numerical authority for the final union."
+    },
+    {
+      "artifact_id": "q1_q6_canonical_package",
+      "historical_location": "reports/article_experiments/ui_q1_q6_canonical_20260718/",
+      "current_hub_location": "experiments/article/campaigns/_recovered_sources/physical_202607/ui_q1_q6/",
+      "artifact_role": "canonical_primary_plus_publication_candidates",
+      "authority_status": "SOURCE_BACKED",
+      "publication_rule": "Authoritative numeric reports and governance evidence precede derived tables and screenshots."
+    },
+    {
+      "artifact_id": "campaign_a_locked_package",
+      "historical_location": "reports/article_experiments/ckg_runtimes/locked/A_foodmart_1000_final/",
+      "artifact_role": "physical_primary_evidence",
+      "authority_status": "SOURCE_BACKED",
+      "publication_rule": "Regenerate final publication artifacts from locked/canonical evidence."
+    },
+    {
+      "artifact_id": "campaign_b_locked_package",
+      "historical_location": "reports/article_experiments/ckg_runtimes/locked/B_multidataset_controlled_minimal_v3/",
+      "artifact_role": "physical_primary_evidence",
+      "authority_status": "SOURCE_BACKED",
+      "publication_rule": "Use only for the tested multi-dataset physical contract."
+    },
+    {
+      "artifact_id": "campaign_c_locked_package",
+      "historical_location": "reports/article_experiments/ckg_runtimes/locked/C_backend_portability_adventureworks_sql_vs_xmla/",
+      "artifact_role": "physical_primary_evidence",
+      "authority_status": "SOURCE_BACKED",
+      "publication_rule": "Use for the controlled AdventureWorks SQL-vs-XMLA paired scenario only."
+    },
+    {
+      "artifact_id": "robustness_canonical_freeze_20260731",
+      "current_hub_location": "experiments/article/campaigns/_recovered_sources/robustness_20260731/",
+      "artifact_role": "canonical_frozen_primary_evidence",
+      "authority_status": "SOURCE_BACKED",
+      "publication_rule": "Baselines and ablations contained here retain robustness-protocol scope."
+    },
+    {
+      "artifact_id": "legacy_scalability_proxy_figures",
+      "historical_location": "historical article figures including scalability_latency_vs_nvs.png",
+      "artifact_role": "legacy_proxy_or_noncanonical_representation",
+      "authority_status": "PROXY_EXCLUDED",
+      "publication_rule": "Regenerate from qualified primary structural-scalability outputs."
+    },
+    {
+      "artifact_id": "legacy_evidence_usefulness_proxy_figures",
+      "historical_location": "historical article figures including evidence_usefulness_summary.png and evidence_bootstrap_steps_to_full.png",
+      "artifact_role": "legacy_proxy_or_semantically_misaligned_representation",
+      "authority_status": "PROXY_EXCLUDED",
+      "publication_rule": "Regenerate from qualified Phase-6 primary outputs."
+    },
+    {
+      "artifact_id": "historical_human_validation_outputs",
+      "historical_location": "historical sim_expert_* annotation/results packages",
+      "current_hub_location": "experiments/article/campaigns/_recovered_sources/offline_202605/simulated_human_validation_EXCLUDED/",
+      "artifact_role": "simulated_validation_history",
+      "authority_status": "HUMAN_VALIDATION_EXCLUDED",
+      "publication_rule": "No human/expert agreement, precision, recall or F1 claim is authorized."
+    },
+    {
+      "artifact_id": "current_fast2_experimental_section",
+      "historical_location": "article_update/generated_sections/section_experimentale_finale.tex",
+      "artifact_role": "current_integrated_partial_experimental_section",
+      "authority_status": "SUPERSEDED",
+      "publication_rule": "Retain as checkpoint; the future full-union section must be generated separately."
+    }
+  ],
+  "final_publication_rule": "Final manuscript artifacts must derive from qualified primary/frozen evidence through normalized publication data; historical figures/tables never override primary evidence."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "sensitivity_objective_count",
+  "class": "sensitivity",
+  "status": "CURRENT_CANONICAL_TERMINAL_REFERENCE",
+  "current_repo_candidates": [
+    "reports/article_experiments/sensitivity",
+    "reports/article_experiments/publication/final_sensitivity_sources/final_sensitivity_publication_source_map.json"
+  ],
+  "current_repo_candidates_resolved": [
+    {
+      "path": "reports/article_experiments/sensitivity",
+      "exists": true
+    },
+    {
+      "path": "reports/article_experiments/publication/final_sensitivity_sources/final_sensitivity_publication_source_map.json",
+      "exists": true
+    }
+  ]
+}
