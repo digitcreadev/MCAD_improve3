@@ -1,0 +1,14 @@
+{
+  "all_precision_targets_met": false,
+  "analyzer_exit_status": 0,
+  "completed_at_utc": "2026-08-13T02:25:36Z",
+  "next_stage": "document_stage30_precision_limit_and_close_sa5_objective_count",
+  "rerun_forbidden": true,
+  "schema_version": "mcad-sa5-stage30-final-precision-complete-v1",
+  "stage30_sufficient": false,
+  "stage40_authorized": false,
+  "status": "stage30_final_precision_execution_complete",
+  "successful_canonical_bootstrap_execution_count": 1,
+  "successful_precision_analysis_count": 1,
+  "validation_pass": true
+}

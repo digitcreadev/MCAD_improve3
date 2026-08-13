@@ -1,0 +1,14 @@
+{
+  "additional_bootstrap_authorized": false,
+  "additional_replications_authorized": false,
+  "all_precision_targets_met": false,
+  "created_at_utc": "2026-08-13T02:25:36Z",
+  "next_stage": "document_stage30_precision_limit_and_close_sa5_objective_count",
+  "post_stage30_review_required": true,
+  "rerun_forbidden": true,
+  "schema_version": "mcad-sa5-stage30-final-verdict-v1",
+  "stage30_sufficient": false,
+  "stage40_authorized": false,
+  "status": "stage30_precision_targets_not_met",
+  "terminal_stage": 30
+}
