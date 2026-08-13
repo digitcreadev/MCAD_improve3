@@ -1,0 +1,2692 @@
+{
+  "schema_version": "mcad-publication-registry-v1",
+  "generated_at_utc": "2026-08-13T12:52:07Z",
+  "generation_mode": "metadata_discovery_and_publication_source_resolution",
+  "scientific_execution_performed": false,
+  "experiment_rerun_performed": false,
+  "git": {
+    "base_commit": "4214bd3a072179b0aba921535b28d31167c7f052",
+    "branch": "paper/publication-artifact-pipeline-20260813T124125Z",
+    "tree": "eb39577680ae7f5cb0ba1b8ade42ce4f93bd5e45",
+    "origin": "https://github.com/digitcreadev/MCAD_improve3"
+  },
+  "methodology": {
+    "lifecycle": [
+      "audit",
+      "validation",
+      "freeze",
+      "archive",
+      "article_integration"
+    ],
+    "publication_flow": [
+      "canonical_campaigns",
+      "normalized_data",
+      "statistics",
+      "figures_tables_claims",
+      "manuscript_pdf"
+    ],
+    "evidence_classes_must_remain_separate": true
+  },
+  "campaigns": [
+    {
+      "campaign_id": "ui_q1_q6",
+      "label": "UI / trace canonique Q1-Q6",
+      "scientific_question": "Le chemin MCAD peut-il être observé de bout en bout, de la requête à la décision physique et à l'évolution du CKG ?",
+      "evidence_class": "physical_end_to_end",
+      "optional": false,
+      "source_resolution_status": "DISCOVERED_REQUIRES_CANONICAL_SELECTION",
+      "authoritative_control_files": [],
+      "runner_candidates": [
+        {
+          "path": "bi-stack/mcad-proxy/execution/adapters/adventureworks_direct_adapter.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 11817,
+          "sha256": "2309899218411ae9513c2f0e03d7a08dd948a7e048f96393a58fd71660548cb2"
+        },
+        {
+          "path": "bi-stack/scripts/apply_adventureworks_backend_formal_sat_dataset_fix.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 11862,
+          "sha256": "bf70be1acc69019ff3773330a3df8f71e29c9196def79727300dc5b1b72eeaac"
+        },
+        {
+          "path": "bi-stack/scripts/apply_adventureworks_contract_sat_alignment_fix.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 7497,
+          "sha256": "ceb171a81f8cb58a4fbfc7494785f5866983f0da0172d6996625895adc5b06a4"
+        },
+        {
+          "path": "bi-stack/scripts/apply_adventureworks_dataset_aware_slicer_fix.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 8214,
+          "sha256": "153192b3e55e1a458d256b0e0e7d65dabb3ae5f622127103bc41eed32a38cae7"
+        },
+        {
+          "path": "bi-stack/scripts/apply_adventureworks_nvac_probe_wiring_fix.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 11913,
+          "sha256": "d30195304cddcb3e7059fbc7dfd8b0779b467f938ab150f87d526ba39320c2f5"
+        },
+        {
+          "path": "bi-stack/scripts/check_adventureworks_backend_formal_sat_dataset_fix.sh",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 2015,
+          "sha256": "c47855f435cbd83b0d461c50381bd57afaa54a1066eefd11da41eaf595173883"
+        },
+        {
+          "path": "bi-stack/scripts/check_adventureworks_contract_sat_alignment_fix.sh",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 1887,
+          "sha256": "f3caec7bed9e167c93bf3bf78644f9f911371177e41ec6f984f9274735c3c3af"
+        },
+        {
+          "path": "bi-stack/scripts/check_adventureworks_dataset_aware_slicer_fix.sh",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 1786,
+          "sha256": "affa53034e2a2a2467b57d6c6b95198e0ed7cdf57420bb6584aba05be06b7c58"
+        },
+        {
+          "path": "bi-stack/scripts/check_adventureworks_evidence_validation_pack.sh",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 3125,
+          "sha256": "9df09e066f6e252027bfe5f89245fce1187aa291cc4cfbedd95e302182c0c642"
+        },
+        {
+          "path": "bi-stack/scripts/check_adventureworks_import_validation_fix.sh",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 3469,
+          "sha256": "cdf7e7446e83f0f4b84391e80e699d5d8030d264d7a72a362df82a255059404e"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "bi-stack/direct-scenarios/adventureworks_sales_margin_territory_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 3896,
+          "sha256": "165c3ea5b7e98b37a3a1b25215837cead4a39750173dd950f85cb6c469ca7c33"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/demo_adventureworks_europe_bikes_2013_sql_direct_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 4082,
+          "sha256": "2afc717d81e9d60cddf03c5e498f4a8588056b572b49b51f5e9121ba7224a044"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/demo_adventureworks_europe_bikes_2013_xmla_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 4058,
+          "sha256": "5de0e60995afe5550404c4d464283ce88706226b00202dc50fe33cd89e87bb11"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/demo_adventureworks_north_america_accessories_2013_sql_direct_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 4199,
+          "sha256": "38a12dca7990eb1a81ded8ad3904ee81a7ebdea1813bbdedc742cf2c35249ce1"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/demo_adventureworks_north_america_accessories_2013_xmla_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 4175,
+          "sha256": "6c1913de0c159f3763694f0449a49ac52f151b7c38320fe61498ac264403e279"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/demo_steelwheels_apac_vintage_cars_2004_sql_direct_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 3282,
+          "sha256": "4e7abea7d27b7f8631f81f420ee6c7ff140cc04b12993ec94c92b7e33a6f8b6a"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/demo_steelwheels_apac_vintage_cars_2004_xmla_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 3260,
+          "sha256": "5e8c7c936a1ed0652219d60e8e865ed358fcb02ef12f05ad7cb22bc49aa34c3f"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/demo_steelwheels_na_motorcycles_2004_sql_direct_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 3251,
+          "sha256": "a7716e9de2e9551a02e4e0591ae0971a93d9d9b83d9f58bbbdb25f3e799b2f75"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/demo_steelwheels_na_motorcycles_2004_xmla_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 3229,
+          "sha256": "c477cb33b78a1dbaa6cae283d4f40456fe3b119a6abfc5a5fced60063fd62e01"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/foodmart_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 2389,
+          "sha256": "8e4a5c3547159659d3b70a040059cc505a4608db5064d1845589f571f8f05767"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/foodmart_q1_q6_importable.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 2774,
+          "sha256": "2ecc48afb062f74f6b046e67a3343bb0766ad6fba32359ce2025fcbdbcccaaf8"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/steelwheels_emea_classic_cars_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 2885,
+          "sha256": "69f7ed33edec6c111a2a0e3201d6c625777b85e14b8d19337bd2b356c9e162dc"
+        },
+        {
+          "path": "bi-stack/direct-scenarios/steelwheels_xmla_emea_classic_cars_q1_q6.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 3160,
+          "sha256": "d36981edd8515060a452432e624cd42825095ebc696d8335ca23345d3bce81ec"
+        },
+        {
+          "path": "bi-stack/reports/q1_q6_direct_check.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 16671,
+          "sha256": "468f4214be6811b6aa6f1cf7fa9eab34fc4306a97593bda58168f2b0f88694e4"
+        },
+        {
+          "path": "bi-stack/reports/steelwheels_q1_q6_mcad_execute_check.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 204813,
+          "sha256": "530bbc7fbb89fc28d897dc4f9d189939acdeaaf0f96abb3661116c31e52e2426"
+        },
+        {
+          "path": "bi-stack/reports/steelwheels_xmla_q1_q6_mcad_execute_check.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 195517,
+          "sha256": "72ccdbde379a4875c339fb08b60c7eb98c41472220dcee36af8ba8168e96f608"
+        },
+        {
+          "path": "bi-stack/scripts/run_q1_q6_direct_check.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 3612,
+          "sha256": "0e3902504fb8f1849d23aeb54cc6d03109f7c23d0b3ac80e64ec096cbd595862"
+        },
+        {
+          "path": "bi-stack/scripts/run_steelwheels_xmla_q1_q6_validation.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 7161,
+          "sha256": "035d7191f68a2872e98227f6b9efa00f7d867bc9768cbe1cbb8e4178b6f09b8f"
+        }
+      ]
+    },
+    {
+      "campaign_id": "campaign_a_foodmart_depth",
+      "label": "Campagne A — profondeur expérimentale FoodMart",
+      "scientific_question": "Le contrat MCAD reste-t-il stable sur un volume conséquent de sessions et de décisions ?",
+      "evidence_class": "physical_consolidated",
+      "optional": false,
+      "source_resolution_status": "CANONICAL_ANCHOR_IDENTIFIED",
+      "authoritative_control_files": [
+        {
+          "path": "experiments/article/real_execution/foodmart_campaign_a_library/manifest.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 920,
+          "size_bytes": 3582,
+          "sha256": "925388936cae30ca1009bf7417ea5225197af5f67ec7c17623b0e59d2afe40d0",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep"
+          }
+        },
+        {
+          "path": "experiments/article/real_execution/foodmart_campaign_a_library_runtime_feasible/manifest.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 920,
+          "size_bytes": 1311,
+          "sha256": "5e49bc85aeecd28430212ac89dc8f26a59e9ac20fa3fd98de6131e769613c29d",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        }
+      ],
+      "runner_candidates": [
+        {
+          "path": "experiments/article/real_execution/audit_foodmart_campaign_a_smoke_gate_contract.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 540,
+          "size_bytes": 7072,
+          "sha256": "038333ca153b9a3b20383d4daeb1bb1126ea7b6af57481846576ab7cb4386f84"
+        },
+        {
+          "path": "experiments/article/real_execution/audit_foodmart_campaign_a_smoke_gate_contract_canonical.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 540,
+          "size_bytes": 9946,
+          "sha256": "5fd97c18ec6010c416b533aa2000015b367ecd5ed76ee21f6e67b13245e1c991"
+        },
+        {
+          "path": "experiments/article/real_execution/resume_foodmart_campaign_a_1000_ckg_first.sh",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 4124,
+          "sha256": "543b1c0cc7e81124872c2eb4e27028e0aac1d9285ff2e8e566c9aadcc2811ac1"
+        },
+        {
+          "path": "experiments/article/real_execution/run_foodmart_campaign_a_1000_ckg_first.sh",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 6997,
+          "sha256": "56afb55c4d5d10ba659f6ad0c4adc30ccee21174420adf5423514470598477ad"
+        },
+        {
+          "path": "experiments/article/real_execution/summarize_foodmart_campaign_a_1000_from_manifest.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 3348,
+          "sha256": "d4d3e2ec9fe9300674f6f1ad1cafd33377a92e326f550ec9092ec843fa9a875a"
+        },
+        {
+          "path": "experiments/article/real_execution/build_foodmart_campaign_a_runtime_feasible_library.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 8036,
+          "sha256": "89f014268bbac45ee59df06befc9ac502eaf31a4741109e39e2ed3a39b01c60a"
+        },
+        {
+          "path": "experiments/article/real_execution/freeze_foodmart_campaign_a_batch_100_milestone.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 4001,
+          "sha256": "1ee937134defa2376b508bd4066cbb9e5c6ce6edff8037646d0f2405cd79f148"
+        },
+        {
+          "path": "experiments/article/real_execution/freeze_foodmart_campaign_a_smoke_milestone.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 12809,
+          "sha256": "550b20e488670905224b363cbdd25c2cb9431a8d62fd73c84bcf635ff867c10d"
+        },
+        {
+          "path": "experiments/article/real_execution/generate_foodmart_campaign_a_library.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 18884,
+          "sha256": "b19d034dfe14063de8e823efed796428ee74838b8cb063eeb44491110862bc39"
+        },
+        {
+          "path": "experiments/article/real_execution/harden_foodmart_campaign_a_library_uniqueness.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 15361,
+          "sha256": "9662452347d440a75c3389d3a707bff7193a6e3694fa169bb15cd5aec86786b8"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "experiments/article/real_execution/foodmart_campaign_a_library/manifest.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 920,
+          "size_bytes": 3582,
+          "sha256": "925388936cae30ca1009bf7417ea5225197af5f67ec7c17623b0e59d2afe40d0",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep"
+          }
+        },
+        {
+          "path": "experiments/article/real_execution/foodmart_campaign_a_library_runtime_feasible/manifest.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 920,
+          "size_bytes": 1311,
+          "sha256": "5e49bc85aeecd28430212ac89dc8f26a59e9ac20fa3fd98de6131e769613c29d",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_1000_ckg_first_20260701T114014Z/campaign_a_1000_preliminary_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 720,
+          "size_bytes": 2048,
+          "sha256": "9e73c44a19de74ce73346b8c5c9f7ae6a87588c24a38c0810dabfd6b7acb8198"
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260701T114015Z/campaign_a_batch_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 1194,
+          "sha256": "83fdfff2a1af778c7d30fa16597eeea9fe068ec3ac0af6a71fce457a918014f9",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260701T135832Z/campaign_a_batch_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 1196,
+          "sha256": "663a345ebd7ddd4d2414cb15b3c23e896902b1820b82c46993c69f187cf880ed",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260701T160245Z/campaign_a_batch_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 1196,
+          "sha256": "dc3193cb0528a5213b169259fb31005b716d22fe7b700179f943112c16ca8374",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260701T233822Z/campaign_a_batch_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 1196,
+          "sha256": "c236a3888ee48b27ea7993557f2512639a6c804a066c81f033d2514673925813",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T013346Z/campaign_a_batch_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 1196,
+          "sha256": "1b16cb13d198e4ffd89323314519fd88a1b2c1ba842a611eb39008e4baefb96a",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T034020Z/campaign_a_batch_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 1196,
+          "sha256": "3f10dc19e5174eb8fb6b8b13ae7254882d11f269d0f2ef1ad3ec226be99b5885",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T090435Z/campaign_a_batch_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 1196,
+          "sha256": "63786267d2b30b293f95f9cf648acc15aca52f60da01719530294e8d2acb6349",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T131643Z/campaign_a_batch_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 1196,
+          "sha256": "bfa176fb79c3ac0eaea76a88bbfc5a25308e7300ef03792a4858cdb8a9c1e5fb",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T162613Z/campaign_a_batch_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 1196,
+          "sha256": "d93d26f8ef744b92ae2ab09fdd7b69933bd7d95e589b82da1d9fb04c43da11da",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/foodmart_campaign_a_batches/foodmart_campaign_a_batch_100_20260702T203824Z/campaign_a_batch_summary.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 1196,
+          "sha256": "f8060dab3b19c90a372192d75886c0a087972987830aa3391b925a8c800ddcdc",
+          "declared_fields": {
+            "campaign_id": "A_foodmart_deep_runtime_feasible"
+          }
+        },
+        {
+          "path": "experiments/article/real_execution/audit_foodmart_campaign_a_smoke_gate_contract.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 540,
+          "size_bytes": 7072,
+          "sha256": "038333ca153b9a3b20383d4daeb1bb1126ea7b6af57481846576ab7cb4386f84"
+        },
+        {
+          "path": "experiments/article/real_execution/audit_foodmart_campaign_a_smoke_gate_contract_canonical.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 540,
+          "size_bytes": 9946,
+          "sha256": "5fd97c18ec6010c416b533aa2000015b367ecd5ed76ee21f6e67b13245e1c991"
+        },
+        {
+          "path": "experiments/article/real_execution/foodmart_campaign_a_library/audit/foodmart_campaign_a_library_audit.json",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 540,
+          "size_bytes": 286,
+          "sha256": "6d77092729254aa19d17782b4ef1d31c6d6664720bf868264d07792e11cd477b"
+        },
+        {
+          "path": "experiments/article/real_execution/resume_foodmart_campaign_a_1000_ckg_first.sh",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 4124,
+          "sha256": "543b1c0cc7e81124872c2eb4e27028e0aac1d9285ff2e8e566c9aadcc2811ac1"
+        },
+        {
+          "path": "experiments/article/real_execution/run_foodmart_campaign_a_1000_ckg_first.sh",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 6997,
+          "sha256": "56afb55c4d5d10ba659f6ad0c4adc30ccee21174420adf5423514470598477ad"
+        },
+        {
+          "path": "experiments/article/real_execution/summarize_foodmart_campaign_a_1000_from_manifest.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 3348,
+          "sha256": "d4d3e2ec9fe9300674f6f1ad1cafd33377a92e326f550ec9092ec843fa9a875a"
+        },
+        {
+          "path": "experiments/article/real_execution/build_foodmart_campaign_a_runtime_feasible_library.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 8036,
+          "sha256": "89f014268bbac45ee59df06befc9ac502eaf31a4741109e39e2ed3a39b01c60a"
+        }
+      ]
+    },
+    {
+      "campaign_id": "campaign_b_multidataset_physical",
+      "label": "Campagne B — validation physique multi-dataset",
+      "scientific_question": "Le contrat ALLOW/BLOCK reste-t-il opérationnel sur plusieurs datasets, modèles sémantiques et chemins physiques ?",
+      "evidence_class": "physical_multidataset",
+      "optional": false,
+      "source_resolution_status": "CANONICAL_ANCHOR_IDENTIFIED",
+      "authoritative_control_files": [
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/ckg_runtimes/locked/B_multidataset_controlled_minimal_v3/campaign_b_controlled_minimal_v3_summary.md",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 2060,
+          "size_bytes": 944,
+          "sha256": "9fdbd1ad581ec1d9b25e088cadf8d5054b3eb76c7f46db9bd1c4554b58825d78"
+        }
+      ],
+      "runner_candidates": [
+        {
+          "path": "experiments/article/real_execution/audit_campaign_b_objective_scenario_alignment.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 540,
+          "size_bytes": 9877,
+          "sha256": "f492cb4f67a52f083b8f29c7ccb2df16ebaa1ea00ea6060daf1f409ce69945ca"
+        },
+        {
+          "path": "backend/harness/run_multidataset_policy_benchmark.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 10270,
+          "sha256": "1f541d4de15542a7df3ea326727ff3481ec98e2ab11375e065c476274fa215db"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/ckg_runtimes/locked/B_multidataset_controlled_minimal_v3/campaign_b_controlled_minimal_v3_summary.md",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 2060,
+          "size_bytes": 944,
+          "sha256": "9fdbd1ad581ec1d9b25e088cadf8d5054b3eb76c7f46db9bd1c4554b58825d78"
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/campaign_b_controlled_minimal_v3_20260705T182113Z/campaign_b_controlled_minimal_v3_summary.md",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 600,
+          "size_bytes": 944,
+          "sha256": "9fdbd1ad581ec1d9b25e088cadf8d5054b3eb76c7f46db9bd1c4554b58825d78"
+        },
+        {
+          "path": "experiments/article/real_execution/audit_campaign_b_objective_scenario_alignment.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 540,
+          "size_bytes": 9877,
+          "sha256": "f492cb4f67a52f083b8f29c7ccb2df16ebaa1ea00ea6060daf1f409ce69945ca"
+        },
+        {
+          "path": "backend/harness/run_multidataset_policy_benchmark.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 10270,
+          "sha256": "1f541d4de15542a7df3ea326727ff3481ec98e2ab11375e065c476274fa215db"
+        }
+      ]
+    },
+    {
+      "campaign_id": "campaign_c_backend_portability",
+      "label": "Campagne C — portabilité backend contrôlée",
+      "scientific_question": "À dataset, objectif, workload et séquence constants, les décisions restent-elles stables lorsque seul le backend change ?",
+      "evidence_class": "physical_paired_backend",
+      "optional": false,
+      "source_resolution_status": "CANONICAL_ANCHOR_IDENTIFIED",
+      "authoritative_control_files": [
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/ckg_runtimes/locked/C_backend_portability_adventureworks_sql_vs_xmla/campaign_c_backend_portability_summary.md",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 2060,
+          "size_bytes": 1225,
+          "sha256": "dbcb79f6880570f1769ae9cc641346282a6fe539eeff5b5014a7dda103a666b0"
+        }
+      ],
+      "runner_candidates": [],
+      "top_source_candidates": [
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/ckg_runtimes/locked/C_backend_portability_adventureworks_sql_vs_xmla/campaign_c_backend_portability_summary.md",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 2060,
+          "size_bytes": 1225,
+          "sha256": "dbcb79f6880570f1769ae9cc641346282a6fe539eeff5b5014a7dda103a666b0"
+        },
+        {
+          "path": "exports/MCAD_UI_REAL_EVIDENCE_20260711T115817Z/reports/article_experiments/campaign_c_backend_portability_20260706T081904Z/campaign_c_backend_portability_summary.md",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 840,
+          "size_bytes": 1225,
+          "sha256": "dbcb79f6880570f1769ae9cc641346282a6fe539eeff5b5014a7dda103a666b0"
+        }
+      ]
+    },
+    {
+      "campaign_id": "baselines",
+      "label": "Baselines contrôlées",
+      "scientific_question": "Comment MCAD se compare-t-il à des politiques plus simples sur les exécutions inutiles et la couverture ?",
+      "evidence_class": "controlled_replay",
+      "optional": false,
+      "source_resolution_status": "DISCOVERED_REQUIRES_CANONICAL_SELECTION",
+      "authoritative_control_files": [
+        {
+          "path": "bi-stack/baseline_evidence/README.txt",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 248,
+          "sha256": "67ff060146aa432789a6c02f818ab8981fb0c22c5bdb6a7647026c4407dc9499"
+        },
+        {
+          "path": "bi-stack/bi-stack/baseline_evidence/README.txt",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 160,
+          "sha256": "43fd3cbd4f53a536312b9fcaea791a5f80ab4e5026fe580d3099c2129d65a72f"
+        },
+        {
+          "path": "bi-stack/docs/BASELINE_STATUS.md",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 208,
+          "sha256": "1fdeacb1d4ba20eaa6155d0bd48eac39b0955b6252169fd49388f282ff4e4115"
+        }
+      ],
+      "runner_candidates": [
+        {
+          "path": "backend/harness/run_baselines_and_ablations.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 21057,
+          "sha256": "c648a335b7cd55aa9463025694e25d59d24b11df680357323f56268e30332c46"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "backend/harness/run_baselines_and_ablations.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 21057,
+          "sha256": "c648a335b7cd55aa9463025694e25d59d24b11df680357323f56268e30332c46"
+        },
+        {
+          "path": "bi-stack/baseline_evidence/README.txt",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 248,
+          "sha256": "67ff060146aa432789a6c02f818ab8981fb0c22c5bdb6a7647026c4407dc9499"
+        },
+        {
+          "path": "bi-stack/bi-stack/baseline_evidence/README.txt",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 160,
+          "sha256": "43fd3cbd4f53a536312b9fcaea791a5f80ab4e5026fe580d3099c2129d65a72f"
+        },
+        {
+          "path": "bi-stack/docs/BASELINE_STATUS.md",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 208,
+          "sha256": "1fdeacb1d4ba20eaa6155d0bd48eac39b0955b6252169fd49388f282ff4e4115"
+        }
+      ]
+    },
+    {
+      "campaign_id": "ablations_sat_real_ceval",
+      "label": "Ablations SAT / Real / Ceval",
+      "scientific_question": "SAT, Real et Ceval ont-ils chacun une contribution observable au comportement du système ?",
+      "evidence_class": "controlled_ablation",
+      "optional": false,
+      "source_resolution_status": "DISCOVERED_REQUIRES_CANONICAL_SELECTION",
+      "authoritative_control_files": [],
+      "runner_candidates": [
+        {
+          "path": "backend/harness/run_baselines_and_ablations.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 21057,
+          "sha256": "c648a335b7cd55aa9463025694e25d59d24b11df680357323f56268e30332c46"
+        },
+        {
+          "path": "backend/harness/tests/test_policy_ablation_discrimination.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 2494,
+          "sha256": "17ea0994c4dd8782de4633f32e8a2b980611c0b59fcbf560617e9de80cb5185b"
+        },
+        {
+          "path": "backend/harness/tools/find_sat_ablation_witness.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 11022,
+          "sha256": "3acebd2dcdd13d27b13d5da5c802501c161bb0346ab785cbccccdc5acca0c7dc"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "backend/harness/run_baselines_and_ablations.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 21057,
+          "sha256": "c648a335b7cd55aa9463025694e25d59d24b11df680357323f56268e30332c46"
+        },
+        {
+          "path": "backend/harness/tests/test_policy_ablation_discrimination.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 2494,
+          "sha256": "17ea0994c4dd8782de4633f32e8a2b980611c0b59fcbf560617e9de80cb5185b"
+        },
+        {
+          "path": "backend/harness/tools/find_sat_ablation_witness.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 11022,
+          "sha256": "3acebd2dcdd13d27b13d5da5c802501c161bb0346ab785cbccccdc5acca0c7dc"
+        }
+      ]
+    },
+    {
+      "campaign_id": "robustness",
+      "label": "Robustesse",
+      "scientific_question": "MCAD conserve-t-il un comportement sûr et explicable face à des perturbations et cas difficiles ?",
+      "evidence_class": "controlled_robustness",
+      "optional": false,
+      "source_resolution_status": "CANONICAL_ANCHOR_IDENTIFIED",
+      "authoritative_control_files": [
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2240,
+          "size_bytes": 2077,
+          "sha256": "22c240712082b4b69d5522fafe265704d56014b0d942a7ed5caad14792a17d53",
+          "declared_fields": {
+            "campaign_id": "robustness_non_temporal"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/STATUS.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2200,
+          "size_bytes": 285,
+          "sha256": "0761ec994608444b58a31e44d7be8aef3b3f33158cba3bfe488038a57f77d113",
+          "declared_fields": {
+            "campaign_id": "robustness_non_temporal"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/PROVENANCE.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2160,
+          "size_bytes": 293,
+          "sha256": "cc8a83517a88ca3787186916162ebc444387ee44e2016ad1b923540c72fdeac2"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/SHA256SUMS",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2120,
+          "size_bytes": 1218,
+          "sha256": "ac4e90df755b619edc32909d0cf8a0918844bcf941281e50aec6994bf34d0abf"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/README.md",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 194,
+          "sha256": "fa53be6bfd17ad4ffd2f61bb5505d562157456419f57bab8426db391cd865253"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/REPRODUCE.md",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 256,
+          "sha256": "624f97f8bc45227d247911d7c021ddfb3eb15b3748ae305e3e69ec690b111acf"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/freeze/mcad_robustness_canonical_20260731T223533Z_FREEZE.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 1022,
+          "sha256": "0e56edc654cd32f406be0b535dff23d6214a1c83374ee60345afdc56acb7fd93"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/freeze/mcad_robustness_canonical_20260731T223533Z_FREEZE.md",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 526,
+          "sha256": "df6dd1b45d531c035d3b48af80dc5cdcb0dfd46d5cb7f563e040214f4635aa4f"
+        }
+      ],
+      "runner_candidates": [
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/scripts/run_robustness_canonical_v3.sh",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 32801,
+          "sha256": "75c8102779cf230d1cf3ae89537f2ce42f3b5e6685c9bb3a19381b7378b7785b"
+        },
+        {
+          "path": "backend/harness/run_robustness_benchmark.py",
+          "exists": true,
+          "git_last_commit": "7efc3e74a0f416adc7e0d07cc732e796cf5cc2f0",
+          "score": 240,
+          "size_bytes": 24121,
+          "sha256": "0de9266b7485286208e6830e1e60748997664b4e2b9f8810e7901eae6d0198b2"
+        },
+        {
+          "path": "backend/harness/tests/test_robustness_explainability_equivalence.py",
+          "exists": true,
+          "git_last_commit": "f71143ba0d9f53f2987d079083190c4d51f674d4",
+          "score": 240,
+          "size_bytes": 6454,
+          "sha256": "a714ddc7f95b3135dac053c3e60abc50a977060cd4425437f0650cc2e387dbc3"
+        },
+        {
+          "path": "backend/harness/tests/test_robustness_meta_provenance.py",
+          "exists": true,
+          "git_last_commit": "7efc3e74a0f416adc7e0d07cc732e796cf5cc2f0",
+          "score": 240,
+          "size_bytes": 1392,
+          "sha256": "fc448a76aed5ce2653b5dbacb14a43f27a8b294068df05be36647fa218c2c181"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2240,
+          "size_bytes": 2077,
+          "sha256": "22c240712082b4b69d5522fafe265704d56014b0d942a7ed5caad14792a17d53",
+          "declared_fields": {
+            "campaign_id": "robustness_non_temporal"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/STATUS.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2200,
+          "size_bytes": 285,
+          "sha256": "0761ec994608444b58a31e44d7be8aef3b3f33158cba3bfe488038a57f77d113",
+          "declared_fields": {
+            "campaign_id": "robustness_non_temporal"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/PROVENANCE.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2160,
+          "size_bytes": 293,
+          "sha256": "cc8a83517a88ca3787186916162ebc444387ee44e2016ad1b923540c72fdeac2"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/SHA256SUMS",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2120,
+          "size_bytes": 1218,
+          "sha256": "ac4e90df755b619edc32909d0cf8a0918844bcf941281e50aec6994bf34d0abf"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/CONTENTS.txt",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 4480,
+          "sha256": "d44a1b6f7831effca0501328cbee444ab5b67be3257e1c8fc13545015c684eb6"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/README.md",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 194,
+          "sha256": "fa53be6bfd17ad4ffd2f61bb5505d562157456419f57bab8426db391cd865253"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/REPRODUCE.md",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 256,
+          "sha256": "624f97f8bc45227d247911d7c021ddfb3eb15b3748ae305e3e69ec690b111acf"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/archive/mcad_robustness_canonical_20260731T223533Z.tar.gz",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 670407,
+          "sha256": "181ad92da7e7153869e453e1c76ecfc7b021713684c5842e33f4e3273b3119d2"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/archive/mcad_robustness_canonical_20260731T223533Z.tar.gz.sha256",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 116,
+          "sha256": "6a581e221231eefcf0fe59c279d6af160edba8e46d177205a8d7116e2948c2e7"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/freeze/mcad_robustness_canonical_20260731T223533Z_FREEZE.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 1022,
+          "sha256": "0e56edc654cd32f406be0b535dff23d6214a1c83374ee60345afdc56acb7fd93"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/freeze/mcad_robustness_canonical_20260731T223533Z_FREEZE.md",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 526,
+          "sha256": "df6dd1b45d531c035d3b48af80dc5cdcb0dfd46d5cb7f563e040214f4635aa4f"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/freeze/mcad_robustness_canonical_20260731T223533Z_FREEZE.sha256",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 240,
+          "sha256": "e1c40fb4e5277b413d7facb84795a2e1ba794af918aa2607394736dbd857adaf"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/robustness_non_temporal/scripts/run_robustness_canonical_v3.sh",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 32801,
+          "sha256": "75c8102779cf230d1cf3ae89537f2ce42f3b5e6685c9bb3a19381b7378b7785b"
+        },
+        {
+          "path": "backend/harness/run_robustness_benchmark.py",
+          "exists": true,
+          "git_last_commit": "7efc3e74a0f416adc7e0d07cc732e796cf5cc2f0",
+          "score": 240,
+          "size_bytes": 24121,
+          "sha256": "0de9266b7485286208e6830e1e60748997664b4e2b9f8810e7901eae6d0198b2"
+        },
+        {
+          "path": "backend/harness/scenarios_robustness_adventureworks.yaml",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 13518,
+          "sha256": "7a77d2d93cf4226bc7a87fa74709ce60cd30233d70eab4c650c283927a4f4abe"
+        },
+        {
+          "path": "backend/harness/scenarios_robustness_foodmart.yaml",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 12827,
+          "sha256": "430f47e8f3b413307d0316fda450756756f5e4d06a1a124a42317d77100df4c1"
+        },
+        {
+          "path": "backend/harness/tests/test_robustness_explainability_equivalence.py",
+          "exists": true,
+          "git_last_commit": "f71143ba0d9f53f2987d079083190c4d51f674d4",
+          "score": 240,
+          "size_bytes": 6454,
+          "sha256": "a714ddc7f95b3135dac053c3e60abc50a977060cd4425437f0650cc2e387dbc3"
+        },
+        {
+          "path": "backend/harness/tests/test_robustness_meta_provenance.py",
+          "exists": true,
+          "git_last_commit": "7efc3e74a0f416adc7e0d07cc732e796cf5cc2f0",
+          "score": 240,
+          "size_bytes": 1392,
+          "sha256": "fc448a76aed5ce2653b5dbacb14a43f27a8b294068df05be36647fa218c2c181"
+        }
+      ]
+    },
+    {
+      "campaign_id": "scalability_ckg",
+      "label": "Scalabilité structurelle du CKG",
+      "scientific_question": "Comment évoluent le coût de décision et l'état du CKG lorsque sa taille et son historique augmentent ?",
+      "evidence_class": "controlled_scalability",
+      "optional": false,
+      "source_resolution_status": "DISCOVERED_REQUIRES_CANONICAL_SELECTION",
+      "authoritative_control_files": [],
+      "runner_candidates": [
+        {
+          "path": "backend/harness/run_scalability_benchmark.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 16444,
+          "sha256": "3561ff002574e19510da850a8e72adb26de735f8855f167a8c2dfb599416413e"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "backend/harness/run_scalability_benchmark.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 16444,
+          "sha256": "3561ff002574e19510da850a8e72adb26de735f8855f167a8c2dfb599416413e"
+        }
+      ]
+    },
+    {
+      "campaign_id": "evidence_usefulness",
+      "label": "Evidence usefulness",
+      "scientific_question": "L'evidence utile conservée après une session améliore-t-elle une session ultérieure ?",
+      "evidence_class": "controlled_treatment_control",
+      "optional": false,
+      "source_resolution_status": "DISCOVERED_REQUIRES_CANONICAL_SELECTION",
+      "authoritative_control_files": [],
+      "runner_candidates": [
+        {
+          "path": "backend/harness/run_evidence_usefulness_benchmark.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 9380,
+          "sha256": "1e9a0ebf3e60e3d7547641a00f09a0a20f50a89dac18d6921cab33dcdedd55f2"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "backend/harness/run_evidence_usefulness_benchmark.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 240,
+          "size_bytes": 9380,
+          "sha256": "1e9a0ebf3e60e3d7547641a00f09a0a20f50a89dac18d6921cab33dcdedd55f2"
+        }
+      ]
+    },
+    {
+      "campaign_id": "sensitivity_constraint_count",
+      "label": "Sensibilité — constraint_count",
+      "scientific_question": "Quel est l'effet du nombre de contraintes sur le comportement et le coût de décision sémantique de MCAD ?",
+      "evidence_class": "controlled_sensitivity_timing",
+      "optional": false,
+      "source_resolution_status": "CANONICAL_ANCHOR_IDENTIFIED",
+      "authoritative_control_files": [
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/freeze/FREEZE.json",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 2340,
+          "size_bytes": 185,
+          "sha256": "3d53b5d9d0c326357571ff147b1a3b5dd3b920b1d96fb2cfcfd3326283085db5"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 2240,
+          "size_bytes": 1479,
+          "sha256": "b7c8dc8b3e77df66b88e2ad13b183d7536e3a087705b3a69bc0034824e9d3dd5",
+          "declared_fields": {
+            "campaign_id": "sa3_constraint_count_stage20"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/STATUS.json",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 2200,
+          "size_bytes": 491,
+          "sha256": "f545609c6980794fa2710ddf185738300c3bc876cd67dcf8159e828af719f569",
+          "declared_fields": {
+            "campaign_id": "sa3_constraint_count_stage20"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/PROVENANCE.json",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 2160,
+          "size_bytes": 395,
+          "sha256": "ee8ce595cb959ea3d46b1babc493e8d386af65def19994b4963588faf032f782"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/SHA256SUMS",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 2120,
+          "size_bytes": 832,
+          "sha256": "ca440053144c6dfa0264a1ba3792db98b6f2d2b5a3558e513df18fe714931003"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/README.md",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 1440,
+          "size_bytes": 336,
+          "sha256": "91572c53516377b2ae800b5d1dbaf7e7272c836a6d1af1f844f5e31d871de648"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/REPRODUCE.md",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 1440,
+          "size_bytes": 369,
+          "sha256": "4d646f82be1b60965a0672561abe2ad18986115d59a36c9670d13b370e581ec1"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/constraint_count/campaign_manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 643,
+          "sha256": "f28a9bfb7914dc33f3af3cb2bfb78b50211eae647c4bb9dfdaadaaf1faa9f5b3",
+          "declared_fields": {
+            "campaign_id": "e22_freeze_constraint_count",
+            "factor": "constraint_count",
+            "replication_count": 2
+          }
+        }
+      ],
+      "runner_candidates": [
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_constraint_count_common_workload.py",
+          "exists": true,
+          "git_last_commit": "930092e1d083ec7d767160c0e986bf47cde66d0c",
+          "score": 660,
+          "size_bytes": 14769,
+          "sha256": "4827dd1e83691bd9edc22309023cb49ed81ee8a4ce419cfccd90ee2a4c345cde"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tests/test_membership_density_common_workload_auditor.py",
+          "exists": true,
+          "git_last_commit": "36fe29d42c8ca53e79e5fa2a8dc35df6e1860c48",
+          "score": 540,
+          "size_bytes": 12934,
+          "sha256": "a36f452ebebe1a8f68072de7822a4a107cedea3a4c4b8a1a20692cc9fc852d0f"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tests/test_objective_count_structure_auditor_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 540,
+          "size_bytes": 1204,
+          "sha256": "aec33a7e254a5e55a56c7962429f10f60c5fc23f009cc83d5742d39541087341"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_membership_density_common_workload.py",
+          "exists": true,
+          "git_last_commit": "36fe29d42c8ca53e79e5fa2a8dc35df6e1860c48",
+          "score": 540,
+          "size_bytes": 35256,
+          "sha256": "230a66723499f704e5e7b6d0757e05cf6f4442750b5659277d8838425074c2c7"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_objective_count_stage10_common_workloads_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 540,
+          "size_bytes": 8964,
+          "sha256": "b8aa28b16f78df5a5ba4acc71807818b39282925bea8f0f798fd24a82892b616"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_objective_count_structure_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 540,
+          "size_bytes": 6625,
+          "sha256": "63c1e7674b2861b7e3dbfcd9009e31cd2676f27d5d90eb5b27de30de6ead1e4e"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_virtual_node_count_stage10_functional_completion.py",
+          "exists": true,
+          "git_last_commit": "3d1c6ad370f6b8612a46b362e54d2683e59187f4",
+          "score": 540,
+          "size_bytes": 17475,
+          "sha256": "018caf45140e211a1fa745d63fd0c8b48c656fc2afa0f022ce412d1d93378d8c"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision.py",
+          "exists": true,
+          "git_last_commit": "d3773dc4444b32186c74a9d42e06dea589304e9d",
+          "score": 240,
+          "size_bytes": 31865,
+          "sha256": "a42c98ec88ac996bdf3e06f7d58ab1e0bc20d76a8910dd3790e47e124bb5d977"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+          "exists": true,
+          "git_last_commit": "eb59ab0522532403f66392e1d0079e3fc56f764e",
+          "score": 240,
+          "size_bytes": 39862,
+          "sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2_factor_compatible.py",
+          "exists": true,
+          "git_last_commit": "2d5f13667a8328b16dc2e38410c0c095bd7b038f",
+          "score": 240,
+          "size_bytes": 40008,
+          "sha256": "841d3f59f7195c262befc8a32602eae68d8a28538631c8c21dd7af8c1c00923f"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/freeze/FREEZE.json",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 2340,
+          "size_bytes": 185,
+          "sha256": "3d53b5d9d0c326357571ff147b1a3b5dd3b920b1d96fb2cfcfd3326283085db5"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 2240,
+          "size_bytes": 1479,
+          "sha256": "b7c8dc8b3e77df66b88e2ad13b183d7536e3a087705b3a69bc0034824e9d3dd5",
+          "declared_fields": {
+            "campaign_id": "sa3_constraint_count_stage20"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/STATUS.json",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 2200,
+          "size_bytes": 491,
+          "sha256": "f545609c6980794fa2710ddf185738300c3bc876cd67dcf8159e828af719f569",
+          "declared_fields": {
+            "campaign_id": "sa3_constraint_count_stage20"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/PROVENANCE.json",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 2160,
+          "size_bytes": 395,
+          "sha256": "ee8ce595cb959ea3d46b1babc493e8d386af65def19994b4963588faf032f782"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/SHA256SUMS",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 2120,
+          "size_bytes": 832,
+          "sha256": "ca440053144c6dfa0264a1ba3792db98b6f2d2b5a3558e513df18fe714931003"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/CONTENTS.txt",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 1440,
+          "size_bytes": 344055,
+          "sha256": "c5794b3f840c1488a43465c945a0cce967fd71a6f0d0f14ed97ea9b5bffd1ad9"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/README.md",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 1440,
+          "size_bytes": 336,
+          "sha256": "91572c53516377b2ae800b5d1dbaf7e7272c836a6d1af1f844f5e31d871de648"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/REPRODUCE.md",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 1440,
+          "size_bytes": 369,
+          "sha256": "4d646f82be1b60965a0672561abe2ad18986115d59a36c9670d13b370e581ec1"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/archive/constraint_count_stage20_canonical_20260801T203621Z.tar.gz",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 1440,
+          "size_bytes": 2303801,
+          "sha256": "7805d817dc355b4ef7720b8f63ba5eb605c5bf2c58d10f824214f8d3428eff00"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_constraint_count_stage20/archive/constraint_count_stage20_canonical_20260801T203621Z.tar.gz.sha256",
+          "exists": true,
+          "git_last_commit": "591ac4dbb272478a3c5a17fecc2c9d07397c77ef",
+          "score": 1440,
+          "size_bytes": 125,
+          "sha256": "92847028c6575eb3b5fcb6aca1cae8680098d6a3d839a26f30137421020979ad"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/constraint_count/campaign_manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 643,
+          "sha256": "f28a9bfb7914dc33f3af3cb2bfb78b50211eae647c4bb9dfdaadaaf1faa9f5b3",
+          "declared_fields": {
+            "campaign_id": "e22_freeze_constraint_count",
+            "factor": "constraint_count",
+            "replication_count": 2
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/constraint_count/instances/level_000002/rep_000_seed_101/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 626,
+          "sha256": "fc5954713d4ef24d52c338f42985c45d05ea8c17b5e6f3f44a84e522d547d2fb"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/constraint_count/instances/level_000002/rep_001_seed_202/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 626,
+          "sha256": "99a6c98acb67f37679ddd6e7b4b0eb61dfa832c55294827d621db5e2350205f2"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/constraint_count/instances/level_000004/rep_000_seed_101/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 626,
+          "sha256": "e09c47e3ea0a1f4d696b69e3a06258c3f07ee48c4ee195aebee3f804faf09170"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/constraint_count/instances/level_000004/rep_001_seed_202/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 626,
+          "sha256": "0cb22525b13073d3be9e444cd9318eb4053be96b4f98a4cb315605c9bedfd20a"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/constraint_count/instances/level_000008/rep_000_seed_101/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 626,
+          "sha256": "6745db895437202fdb8acfb496b5b7e20069c6b1c4206f4b4c4446897404e4cb"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/constraint_count/instances/level_000008/rep_001_seed_202/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 626,
+          "sha256": "f5dfc8afe438c8d1e7cae46e729676c45811069349e627a9434b5edb98d40e9e"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_constraint_count_common_workload.py",
+          "exists": true,
+          "git_last_commit": "930092e1d083ec7d767160c0e986bf47cde66d0c",
+          "score": 540,
+          "size_bytes": 14769,
+          "sha256": "4827dd1e83691bd9edc22309023cb49ed81ee8a4ce419cfccd90ee2a4c345cde"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/prepare_constraint_count_replication_runs.py",
+          "exists": true,
+          "git_last_commit": "930092e1d083ec7d767160c0e986bf47cde66d0c",
+          "score": 120,
+          "size_bytes": 15165,
+          "sha256": "e8ec3df68ce2b3221ef05eceaf7819d5f33857cdf2b2ab9a49381ce8aef6ff26"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/constraint_count/campaign_spec.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 120,
+          "size_bytes": 444,
+          "sha256": "6eea8f1ee676bfa218b36ad0e57a878cc608cc31c3224c6bac541aba610f88b5",
+          "declared_fields": {
+            "campaign_id": "e22_freeze_constraint_count",
+            "factor": "constraint_count"
+          }
+        }
+      ]
+    },
+    {
+      "campaign_id": "sensitivity_virtual_node_count",
+      "label": "Sensibilité — virtual_node_count",
+      "scientific_question": "Quel est l'effet du nombre de nœuds virtuels sur le comportement et le coût de décision sémantique de MCAD ?",
+      "evidence_class": "controlled_sensitivity_timing",
+      "optional": false,
+      "source_resolution_status": "CANONICAL_ANCHOR_IDENTIFIED",
+      "authoritative_control_files": [
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/freeze/FREEZE.json",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 2340,
+          "size_bytes": 187,
+          "sha256": "132ee3a1461e0c94431b8b0eb87a93c2068360c1f2b89fc35cfdf00d10a651a5"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 2240,
+          "size_bytes": 1483,
+          "sha256": "addc5d271fc6363000e3b74d9c760f69e5f2eb078e86f3eaa5b66f37c08bafd0",
+          "declared_fields": {
+            "campaign_id": "sa3_virtual_node_count_stage10"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/STATUS.json",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 2200,
+          "size_bytes": 494,
+          "sha256": "3f73c21b2e138d185660477e12a797307303f32f657ae842bee1de1451472210",
+          "declared_fields": {
+            "campaign_id": "sa3_virtual_node_count_stage10"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/PROVENANCE.json",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 2160,
+          "size_bytes": 396,
+          "sha256": "0a6c3db96f005ba1d229000d6369a65e2ef2bf06f0e945677c24ea3bec4143b5"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/SHA256SUMS",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 2120,
+          "size_bytes": 836,
+          "sha256": "72559d4729955c2d7abd5d09c8a002298b5f024009a8ae72c5633cb27a4d4624"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/README.md",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 1440,
+          "size_bytes": 444,
+          "sha256": "017d7793f663dd550f91301dc492d68751c129150c594b226b64bd929f61db8e"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/REPRODUCE.md",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 1440,
+          "size_bytes": 483,
+          "sha256": "ad4597c16282129737a5b3f55e516ff7ec1fbf7514237af71459641431a3affb"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/campaign_manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 649,
+          "sha256": "220fa2f892e3d7ecd5aa6f6a9462008f6d89eef8fe1a880e851823dac98dee6c",
+          "declared_fields": {
+            "campaign_id": "e22_freeze_virtual_node_count",
+            "factor": "virtual_node_count",
+            "replication_count": 2
+          }
+        }
+      ],
+      "runner_candidates": [
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_virtual_node_count_stage10_functional_completion.py",
+          "exists": true,
+          "git_last_commit": "3d1c6ad370f6b8612a46b362e54d2683e59187f4",
+          "score": 660,
+          "size_bytes": 17475,
+          "sha256": "018caf45140e211a1fa745d63fd0c8b48c656fc2afa0f022ce412d1d93378d8c"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tests/test_membership_density_common_workload_auditor.py",
+          "exists": true,
+          "git_last_commit": "36fe29d42c8ca53e79e5fa2a8dc35df6e1860c48",
+          "score": 540,
+          "size_bytes": 12934,
+          "sha256": "a36f452ebebe1a8f68072de7822a4a107cedea3a4c4b8a1a20692cc9fc852d0f"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tests/test_objective_count_structure_auditor_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 540,
+          "size_bytes": 1204,
+          "sha256": "aec33a7e254a5e55a56c7962429f10f60c5fc23f009cc83d5742d39541087341"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_constraint_count_common_workload.py",
+          "exists": true,
+          "git_last_commit": "930092e1d083ec7d767160c0e986bf47cde66d0c",
+          "score": 540,
+          "size_bytes": 14769,
+          "sha256": "4827dd1e83691bd9edc22309023cb49ed81ee8a4ce419cfccd90ee2a4c345cde"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_membership_density_common_workload.py",
+          "exists": true,
+          "git_last_commit": "36fe29d42c8ca53e79e5fa2a8dc35df6e1860c48",
+          "score": 540,
+          "size_bytes": 35256,
+          "sha256": "230a66723499f704e5e7b6d0757e05cf6f4442750b5659277d8838425074c2c7"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_objective_count_stage10_common_workloads_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 540,
+          "size_bytes": 8964,
+          "sha256": "b8aa28b16f78df5a5ba4acc71807818b39282925bea8f0f798fd24a82892b616"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_objective_count_structure_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 540,
+          "size_bytes": 6625,
+          "sha256": "63c1e7674b2861b7e3dbfcd9009e31cd2676f27d5d90eb5b27de30de6ead1e4e"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision.py",
+          "exists": true,
+          "git_last_commit": "d3773dc4444b32186c74a9d42e06dea589304e9d",
+          "score": 240,
+          "size_bytes": 31865,
+          "sha256": "a42c98ec88ac996bdf3e06f7d58ab1e0bc20d76a8910dd3790e47e124bb5d977"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+          "exists": true,
+          "git_last_commit": "eb59ab0522532403f66392e1d0079e3fc56f764e",
+          "score": 240,
+          "size_bytes": 39862,
+          "sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2_factor_compatible.py",
+          "exists": true,
+          "git_last_commit": "2d5f13667a8328b16dc2e38410c0c095bd7b038f",
+          "score": 240,
+          "size_bytes": 40008,
+          "sha256": "841d3f59f7195c262befc8a32602eae68d8a28538631c8c21dd7af8c1c00923f"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/freeze/FREEZE.json",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 2340,
+          "size_bytes": 187,
+          "sha256": "132ee3a1461e0c94431b8b0eb87a93c2068360c1f2b89fc35cfdf00d10a651a5"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 2240,
+          "size_bytes": 1483,
+          "sha256": "addc5d271fc6363000e3b74d9c760f69e5f2eb078e86f3eaa5b66f37c08bafd0",
+          "declared_fields": {
+            "campaign_id": "sa3_virtual_node_count_stage10"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/STATUS.json",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 2200,
+          "size_bytes": 494,
+          "sha256": "3f73c21b2e138d185660477e12a797307303f32f657ae842bee1de1451472210",
+          "declared_fields": {
+            "campaign_id": "sa3_virtual_node_count_stage10"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/PROVENANCE.json",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 2160,
+          "size_bytes": 396,
+          "sha256": "0a6c3db96f005ba1d229000d6369a65e2ef2bf06f0e945677c24ea3bec4143b5"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/SHA256SUMS",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 2120,
+          "size_bytes": 836,
+          "sha256": "72559d4729955c2d7abd5d09c8a002298b5f024009a8ae72c5633cb27a4d4624"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/CONTENTS.txt",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 1440,
+          "size_bytes": 87553,
+          "sha256": "93c0d60f3a2c2059c649046f67fb2596943805704217774dc3bba671b26dbede"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/README.md",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 1440,
+          "size_bytes": 444,
+          "sha256": "017d7793f663dd550f91301dc492d68751c129150c594b226b64bd929f61db8e"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/REPRODUCE.md",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 1440,
+          "size_bytes": 483,
+          "sha256": "ad4597c16282129737a5b3f55e516ff7ec1fbf7514237af71459641431a3affb"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/archive/virtual_node_count_stage10_canonical_20260802T182731Z.tar.gz",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 1440,
+          "size_bytes": 533353,
+          "sha256": "f192aa5a2204c43776f3d8a4cef176ef3233fc101a5e40230557934c0698d072"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa3_virtual_node_count_stage10/archive/virtual_node_count_stage10_canonical_20260802T182731Z.tar.gz.sha256",
+          "exists": true,
+          "git_last_commit": "8dacca96d9f58aac5237b6251699e8d877776a63",
+          "score": 1440,
+          "size_bytes": 127,
+          "sha256": "78335ceec0f8740adc432fd886f3187a7f554d081195f867424c163af9bcfa2f"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/campaign_manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 649,
+          "sha256": "220fa2f892e3d7ecd5aa6f6a9462008f6d89eef8fe1a880e851823dac98dee6c",
+          "declared_fields": {
+            "campaign_id": "e22_freeze_virtual_node_count",
+            "factor": "virtual_node_count",
+            "replication_count": 2
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/instances/level_000006/rep_000_seed_101/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 627,
+          "sha256": "ca108be9860c085a3774c5915e3cf193d749fc481362baa3fb16733c94cd3a6d"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/instances/level_000006/rep_001_seed_202/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 627,
+          "sha256": "7a8bd06a944058baee2a45462c2643188c95651fd20ea586acb656013cfaf3ac"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/instances/level_000012/rep_000_seed_101/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 631,
+          "sha256": "6c64a39dd85fdd1c6a84400a66b535a873356e9ae672f326e1f0ee38e9685844"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/instances/level_000012/rep_001_seed_202/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 631,
+          "sha256": "a3c5ba570f9cc0645bf42f1df17595ce7c0f0a40dd00e4ec0c76dd0684ebd02c"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/instances/level_000024/rep_000_seed_101/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 631,
+          "sha256": "703df7fe170c1bedec1e247e34a186e6832895b763e64647e1222ba6e4f8bbb5"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e2_2_controlled_families/campaigns/virtual_node_count/instances/level_000024/rep_001_seed_202/manifest.json",
+          "exists": true,
+          "git_last_commit": "a7af6e60f34c6627054377e4dfc6f04cff75747e",
+          "score": 920,
+          "size_bytes": 631,
+          "sha256": "83bec539212d885694e922274098b67bfa58d6994b536024cdd88e9b72cb3a77"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/virtual_node_count_stage10/precision_analysis/precision_input_manifest.json",
+          "exists": true,
+          "git_last_commit": "d290722446bda78fe2128ce56e40d625e3fdb709",
+          "score": 920,
+          "size_bytes": 10089,
+          "sha256": "14b7ea5b150a8025b6da024792460610c4058c32c4c815164efc544941dcdbbc",
+          "declared_fields": {
+            "status": "pass",
+            "campaign_id": "virtual_node_count_stage10_c4",
+            "factor": "virtual_node_count"
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/formal_campaigns/virtual_node_count_stage10_c4/campaign_manifest.json",
+          "exists": true,
+          "git_last_commit": "6c57a6998b5b5f589fc43c10e8cfff130258e39d",
+          "score": 920,
+          "size_bytes": 776,
+          "sha256": "90872fc400bdd01fef6b3892d8772ba924ab6441f0d4a5424912cf4a73613294",
+          "declared_fields": {
+            "campaign_id": "virtual_node_count_stage10_c4",
+            "factor": "virtual_node_count",
+            "replication_count": 10
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/formal_campaigns/virtual_node_count_stage10_c4/instances/level_000006/rep_000_seed_101/manifest.json",
+          "exists": true,
+          "git_last_commit": "6c57a6998b5b5f589fc43c10e8cfff130258e39d",
+          "score": 920,
+          "size_bytes": 627,
+          "sha256": "68d980145021573bed1e566aaa8baf7d38ccbe4a8ddd4a408000e12581505919"
+        }
+      ]
+    },
+    {
+      "campaign_id": "sensitivity_membership_density",
+      "label": "Sensibilité — membership_density",
+      "scientific_question": "Quel est l'effet de la densité d'appartenance exigences↔nœuds virtuels sur MCAD ?",
+      "evidence_class": "controlled_sensitivity_timing",
+      "optional": false,
+      "source_resolution_status": "CANONICAL_ANCHOR_IDENTIFIED",
+      "authoritative_control_files": [
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/freeze/FREEZE.json",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 2340,
+          "size_bytes": 3701,
+          "sha256": "c7676bf7eb60e100c6b0416434b7438a2fd32e519789cb6a42d2119d98b29a98",
+          "declared_fields": {
+            "next_stage": "integrate_membership_density_stage10_results_into_manuscript",
+            "campaign_id": "sa4_membership_density_stage10",
+            "factor": "membership_density"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2240,
+          "size_bytes": 1494,
+          "sha256": "fb40d92e54c6f8d52e4c6ea0a6f7e2f19e834a1841cd684af26efd924d95cbf6",
+          "declared_fields": {
+            "campaign_id": "sa4_membership_density_controlled_execution"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 2240,
+          "size_bytes": 1568,
+          "sha256": "42d5ca78a5eed2d88cef57eb0fe16ddd5fdc3d55d49722b6a85e4a8858529645",
+          "declared_fields": {
+            "campaign_id": "sa4_membership_density_stage10"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/STATUS.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2200,
+          "size_bytes": 455,
+          "sha256": "2adc02dfd1c32a435f8ad0d9932d206747773f97d3f1849954cd7527e401babb",
+          "declared_fields": {
+            "campaign_id": "sa4_membership_density_controlled_execution"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/STATUS.json",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 2200,
+          "size_bytes": 873,
+          "sha256": "361abc3215348e03fc295c0dcd8759de90ddcce8e8af49bce05091d3226b03da",
+          "declared_fields": {
+            "status": "completed_precision_targets_met",
+            "next_stage": "integrate_membership_density_stage10_results_into_manuscript",
+            "stage10_sufficient": true,
+            "all_precision_targets_met": true,
+            "campaign_id": "sa4_membership_density_stage10",
+            "factor": "membership_density",
+            "failing_cell_count": 0
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/PROVENANCE.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2160,
+          "size_bytes": 443,
+          "sha256": "5a9554336ab29937ea6ff67f095394c96a104de565d81b644d376c17208a8423"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/PROVENANCE.json",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 2160,
+          "size_bytes": 2622,
+          "sha256": "584e780c4c3c6fb79e7376d2a02873b24f16b370776c1ad8ccd5aacc24967b9b",
+          "declared_fields": {
+            "campaign_id": "sa4_membership_density_stage10"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/SHA256SUMS",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2120,
+          "size_bytes": 833,
+          "sha256": "2c6c8679c0faff3c3df0e20f5e35e109dfff15f5f06a4a353358cba0e69910b8"
+        }
+      ],
+      "runner_candidates": [
+        {
+          "path": "backend/harness/sensitivity_execution/tests/test_membership_density_common_workload_auditor.py",
+          "exists": true,
+          "git_last_commit": "36fe29d42c8ca53e79e5fa2a8dc35df6e1860c48",
+          "score": 660,
+          "size_bytes": 12934,
+          "sha256": "a36f452ebebe1a8f68072de7822a4a107cedea3a4c4b8a1a20692cc9fc852d0f"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_membership_density_common_workload.py",
+          "exists": true,
+          "git_last_commit": "36fe29d42c8ca53e79e5fa2a8dc35df6e1860c48",
+          "score": 660,
+          "size_bytes": 35256,
+          "sha256": "230a66723499f704e5e7b6d0757e05cf6f4442750b5659277d8838425074c2c7"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tests/test_objective_count_structure_auditor_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 540,
+          "size_bytes": 1204,
+          "sha256": "aec33a7e254a5e55a56c7962429f10f60c5fc23f009cc83d5742d39541087341"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_constraint_count_common_workload.py",
+          "exists": true,
+          "git_last_commit": "930092e1d083ec7d767160c0e986bf47cde66d0c",
+          "score": 540,
+          "size_bytes": 14769,
+          "sha256": "4827dd1e83691bd9edc22309023cb49ed81ee8a4ce419cfccd90ee2a4c345cde"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_objective_count_stage10_common_workloads_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 540,
+          "size_bytes": 8964,
+          "sha256": "b8aa28b16f78df5a5ba4acc71807818b39282925bea8f0f798fd24a82892b616"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_objective_count_structure_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 540,
+          "size_bytes": 6625,
+          "sha256": "63c1e7674b2861b7e3dbfcd9009e31cd2676f27d5d90eb5b27de30de6ead1e4e"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_virtual_node_count_stage10_functional_completion.py",
+          "exists": true,
+          "git_last_commit": "3d1c6ad370f6b8612a46b362e54d2683e59187f4",
+          "score": 540,
+          "size_bytes": 17475,
+          "sha256": "018caf45140e211a1fa745d63fd0c8b48c656fc2afa0f022ce412d1d93378d8c"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision.py",
+          "exists": true,
+          "git_last_commit": "d3773dc4444b32186c74a9d42e06dea589304e9d",
+          "score": 240,
+          "size_bytes": 31865,
+          "sha256": "a42c98ec88ac996bdf3e06f7d58ab1e0bc20d76a8910dd3790e47e124bb5d977"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+          "exists": true,
+          "git_last_commit": "eb59ab0522532403f66392e1d0079e3fc56f764e",
+          "score": 240,
+          "size_bytes": 39862,
+          "sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2_factor_compatible.py",
+          "exists": true,
+          "git_last_commit": "2d5f13667a8328b16dc2e38410c0c095bd7b038f",
+          "score": 240,
+          "size_bytes": 40008,
+          "sha256": "841d3f59f7195c262befc8a32602eae68d8a28538631c8c21dd7af8c1c00923f"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/freeze/FREEZE.json",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 2340,
+          "size_bytes": 3701,
+          "sha256": "c7676bf7eb60e100c6b0416434b7438a2fd32e519789cb6a42d2119d98b29a98",
+          "declared_fields": {
+            "next_stage": "integrate_membership_density_stage10_results_into_manuscript",
+            "campaign_id": "sa4_membership_density_stage10",
+            "factor": "membership_density"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2240,
+          "size_bytes": 1494,
+          "sha256": "fb40d92e54c6f8d52e4c6ea0a6f7e2f19e834a1841cd684af26efd924d95cbf6",
+          "declared_fields": {
+            "campaign_id": "sa4_membership_density_controlled_execution"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 2240,
+          "size_bytes": 1568,
+          "sha256": "42d5ca78a5eed2d88cef57eb0fe16ddd5fdc3d55d49722b6a85e4a8858529645",
+          "declared_fields": {
+            "campaign_id": "sa4_membership_density_stage10"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/STATUS.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2200,
+          "size_bytes": 455,
+          "sha256": "2adc02dfd1c32a435f8ad0d9932d206747773f97d3f1849954cd7527e401babb",
+          "declared_fields": {
+            "campaign_id": "sa4_membership_density_controlled_execution"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/STATUS.json",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 2200,
+          "size_bytes": 873,
+          "sha256": "361abc3215348e03fc295c0dcd8759de90ddcce8e8af49bce05091d3226b03da",
+          "declared_fields": {
+            "status": "completed_precision_targets_met",
+            "next_stage": "integrate_membership_density_stage10_results_into_manuscript",
+            "stage10_sufficient": true,
+            "all_precision_targets_met": true,
+            "campaign_id": "sa4_membership_density_stage10",
+            "factor": "membership_density",
+            "failing_cell_count": 0
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/PROVENANCE.json",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2160,
+          "size_bytes": 443,
+          "sha256": "5a9554336ab29937ea6ff67f095394c96a104de565d81b644d376c17208a8423"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/PROVENANCE.json",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 2160,
+          "size_bytes": 2622,
+          "sha256": "584e780c4c3c6fb79e7376d2a02873b24f16b370776c1ad8ccd5aacc24967b9b",
+          "declared_fields": {
+            "campaign_id": "sa4_membership_density_stage10"
+          }
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/SHA256SUMS",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 2120,
+          "size_bytes": 833,
+          "sha256": "2c6c8679c0faff3c3df0e20f5e35e109dfff15f5f06a4a353358cba0e69910b8"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/SHA256SUMS",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 2120,
+          "size_bytes": 836,
+          "sha256": "44d4a2d4abdcb2780ac987e987d19c0f5b4bd623a5a750ff1e1bac268b9c648b"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/CONTENTS.txt",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 65342,
+          "sha256": "0d4f2f31f53f1f937640f748257710adbb65e615f341ff2c3086918a26d7798a"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/README.md",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 292,
+          "sha256": "d822da8410b9109900ccb3200ceb447d3f400a4fc3b8f1134670e1bf420a5bd7"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/REPRODUCE.md",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 407,
+          "sha256": "90388a9ef714445c721c04372e86388dd49a894f7dd4ed319df7816e3bc74200"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/archive/SA4_EXACT_RECOVERY_20260801T105252Z.tar.gz",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 381419,
+          "sha256": "6282dac7f04b5d788e6e83590a6fce65ad299cb5f2af999d2cd1c3dfbdebf53d"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/archive/SA4_EXACT_RECOVERY_20260801T105252Z.tar.gz.sha256",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 109,
+          "sha256": "97449b8c07e512f114e30848319a1cdf8b6e43d08ccac008b687f0214458f317"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_controlled_execution/source/SA4_EXACT_RECOVERY_20260801T105252Z_INFO.txt",
+          "exists": true,
+          "git_last_commit": "317a25dd3a3ac9b7c1da6481f260b1f71fae6a32",
+          "score": 1440,
+          "size_bytes": 1563,
+          "sha256": "8957715dea23f0538504acc3b080a2f0e42debd8ecdef16fffe3b3ea8d6b3bd5"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/CONTENTS.txt",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 1440,
+          "size_bytes": 253,
+          "sha256": "6718b1af199ed26183e941b542870c82c820f917f48e89892cd49d7b03832ab6"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/README.md",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 1440,
+          "size_bytes": 1058,
+          "sha256": "7dc16d16ca4d6e9f940fc441e58da278eacdfc2297aa90961a20cc1c6d525c94"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/REPRODUCE.md",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 1440,
+          "size_bytes": 2043,
+          "sha256": "a659b056756745dfb356f747ef88413ef8893ded00056b13ece599f51e28b27a"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 1440,
+          "size_bytes": 9004737,
+          "sha256": "1729d7913e68407f754804c9d23468559e0eeefbf616e8f7ecc6be5fab940ffc"
+        },
+        {
+          "path": "experiments/article/frozen_campaigns/sa4_membership_density_stage10/archive/membership_density_stage10_canonical_20260804T161119Z.tar.gz.sha256",
+          "exists": true,
+          "git_last_commit": "3d288a5560d32b5985b77416c6f32a1a45584050",
+          "score": 1440,
+          "size_bytes": 127,
+          "sha256": "5bc1417ac2318851ebde1edbca7753d0c99d4129a6baedd22a5cb20793dc5bec"
+        }
+      ]
+    },
+    {
+      "campaign_id": "sensitivity_objective_count",
+      "label": "Sensibilité — objective_count",
+      "scientific_question": "Quel est l'effet du nombre d'objectifs sur le coût de décision sémantique et sa précision d'estimation ?",
+      "evidence_class": "controlled_sensitivity_timing",
+      "optional": false,
+      "source_resolution_status": "CANONICAL_ANCHOR_IDENTIFIED",
+      "authoritative_control_files": [
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage30/precision_analysis/SA5_STAGE30_FINAL_VERDICT.json",
+          "exists": true,
+          "git_last_commit": "146ff1f5373d9e08309d2abe547f8d0d94f494d9",
+          "score": 1070,
+          "size_bytes": 517,
+          "sha256": "299cd7564738be9a0b09e0f51ce362c9298e4defb4b937b6ae537510899d46c0",
+          "declared_fields": {
+            "status": "stage30_precision_targets_not_met",
+            "next_stage": "document_stage30_precision_limit_and_close_sa5_objective_count",
+            "rerun_forbidden": true,
+            "stage40_authorized": false,
+            "stage30_sufficient": false,
+            "all_precision_targets_met": false
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/SA5_FINAL_PRECISION_EXECUTION_MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "902656a91fbc3bfd70cb69e17c9ad05ca49c772b",
+          "score": 920,
+          "size_bytes": 3110,
+          "sha256": "385a427a292a7425cca1b85169165ff62e7bb5c6ab39ad11cb146607901e7286",
+          "declared_fields": {
+            "status": "final_precision_execution_complete",
+            "next_stage": "persist_then_follow_preregistered_stage_extension_path",
+            "rerun_forbidden": true
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage20/precision_analysis/SA5_STAGE20_EXECUTION_MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "5f7701b7ad5677e01a0757f49a3a129f2b40f024",
+          "score": 920,
+          "size_bytes": 2107,
+          "sha256": "1bd2dfddf4e89f02eee9ace07c4a4936d6e9fe580311b2915568d394922cf9ab",
+          "declared_fields": {
+            "status": "stage20_precision_execution_complete",
+            "next_stage": "persist_then_preregister_stage30_once",
+            "rerun_forbidden": true
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage20/precision_analysis/SA5_STAGE20_SUFFIX_EVIDENCE_MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "5f7701b7ad5677e01a0757f49a3a129f2b40f024",
+          "score": 920,
+          "size_bytes": 9345,
+          "sha256": "498a0b0ad84e94c29232a3fa9b655086e374350992c6717ed01a681cb8d0af00",
+          "declared_fields": {
+            "status": "stage20_suffix_execution_complete"
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage30/precision_analysis/SA5_STAGE30_PRECISION_EXECUTION_MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "146ff1f5373d9e08309d2abe547f8d0d94f494d9",
+          "score": 920,
+          "size_bytes": 4962,
+          "sha256": "ec4e8652bb94ba7234e1e88296cdf9cf22903e34ff4058112e0a10eb8310d814",
+          "declared_fields": {
+            "status": "stage30_precision_execution_complete",
+            "next_stage": "document_stage30_precision_limit_and_close_sa5_objective_count",
+            "rerun_forbidden": true,
+            "stage40_authorized": false
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/functional_execution_evidence_manifest.json",
+          "exists": true,
+          "git_last_commit": "539c928a118ffcf45bfedc7a98a5cac9aee5e1de",
+          "score": 920,
+          "size_bytes": 9501,
+          "sha256": "d2b66ccf52bde34aee15596a898ddf7fa95cb51aad6ce6bd4b0fa14f59e37dbc",
+          "declared_fields": {
+            "status": "sa5_objective_count_stage10_functional_execution_evidence_materialized"
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/campaign_manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 934,
+          "sha256": "a3a6e526589361c0e8adb171fc4af5a3b4576698c8ada606a41ccb65c72bd41e",
+          "declared_fields": {
+            "campaign_id": "objective_count_stage10_c8_nv32",
+            "factor": "objective_count",
+            "replication_count": 10
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/common_workloads_manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 10251,
+          "sha256": "9f912e71ed0ea247c20ab2cb8c3ead8a7204891761e07808bb1123bc5f0a0717",
+          "declared_fields": {
+            "campaign_id": "objective_count_stage10_c8_nv32",
+            "factor": "objective_count"
+          }
+        }
+      ],
+      "runner_candidates": [
+        {
+          "path": "backend/harness/sensitivity_execution/tests/test_objective_count_structure_auditor_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 660,
+          "size_bytes": 1204,
+          "sha256": "aec33a7e254a5e55a56c7962429f10f60c5fc23f009cc83d5742d39541087341"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_objective_count_stage10_common_workloads_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 660,
+          "size_bytes": 8964,
+          "sha256": "b8aa28b16f78df5a5ba4acc71807818b39282925bea8f0f798fd24a82892b616"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_objective_count_structure_v2.py",
+          "exists": true,
+          "git_last_commit": "2b3150b83108fe50e6f6db7841b9fa5076693628",
+          "score": 660,
+          "size_bytes": 6625,
+          "sha256": "63c1e7674b2861b7e3dbfcd9009e31cd2676f27d5d90eb5b27de30de6ead1e4e"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tests/test_membership_density_common_workload_auditor.py",
+          "exists": true,
+          "git_last_commit": "36fe29d42c8ca53e79e5fa2a8dc35df6e1860c48",
+          "score": 540,
+          "size_bytes": 12934,
+          "sha256": "a36f452ebebe1a8f68072de7822a4a107cedea3a4c4b8a1a20692cc9fc852d0f"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_constraint_count_common_workload.py",
+          "exists": true,
+          "git_last_commit": "930092e1d083ec7d767160c0e986bf47cde66d0c",
+          "score": 540,
+          "size_bytes": 14769,
+          "sha256": "4827dd1e83691bd9edc22309023cb49ed81ee8a4ce419cfccd90ee2a4c345cde"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_membership_density_common_workload.py",
+          "exists": true,
+          "git_last_commit": "36fe29d42c8ca53e79e5fa2a8dc35df6e1860c48",
+          "score": 540,
+          "size_bytes": 35256,
+          "sha256": "230a66723499f704e5e7b6d0757e05cf6f4442750b5659277d8838425074c2c7"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/tools/audit_virtual_node_count_stage10_functional_completion.py",
+          "exists": true,
+          "git_last_commit": "3d1c6ad370f6b8612a46b362e54d2683e59187f4",
+          "score": 540,
+          "size_bytes": 17475,
+          "sha256": "018caf45140e211a1fa745d63fd0c8b48c656fc2afa0f022ce412d1d93378d8c"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision.py",
+          "exists": true,
+          "git_last_commit": "d3773dc4444b32186c74a9d42e06dea589304e9d",
+          "score": 240,
+          "size_bytes": 31865,
+          "sha256": "a42c98ec88ac996bdf3e06f7d58ab1e0bc20d76a8910dd3790e47e124bb5d977"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2.py",
+          "exists": true,
+          "git_last_commit": "eb59ab0522532403f66392e1d0079e3fc56f764e",
+          "score": 240,
+          "size_bytes": 39862,
+          "sha256": "8e1e58cf4eb85d8b4c6b3b8c9a9f5bca69e871d6b15a1098da2f8fcc3f50a504"
+        },
+        {
+          "path": "backend/harness/sensitivity_execution/analyze_clustered_timing_precision_v2_factor_compatible.py",
+          "exists": true,
+          "git_last_commit": "2d5f13667a8328b16dc2e38410c0c095bd7b038f",
+          "score": 240,
+          "size_bytes": 40008,
+          "sha256": "841d3f59f7195c262befc8a32602eae68d8a28538631c8c21dd7af8c1c00923f"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage30/precision_analysis/SA5_STAGE30_FINAL_VERDICT.json",
+          "exists": true,
+          "git_last_commit": "146ff1f5373d9e08309d2abe547f8d0d94f494d9",
+          "score": 1070,
+          "size_bytes": 517,
+          "sha256": "299cd7564738be9a0b09e0f51ce362c9298e4defb4b937b6ae537510899d46c0",
+          "declared_fields": {
+            "status": "stage30_precision_targets_not_met",
+            "next_stage": "document_stage30_precision_limit_and_close_sa5_objective_count",
+            "rerun_forbidden": true,
+            "stage40_authorized": false,
+            "stage30_sufficient": false,
+            "all_precision_targets_met": false
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage10/precision_analysis/SA5_FINAL_PRECISION_EXECUTION_MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "902656a91fbc3bfd70cb69e17c9ad05ca49c772b",
+          "score": 920,
+          "size_bytes": 3110,
+          "sha256": "385a427a292a7425cca1b85169165ff62e7bb5c6ab39ad11cb146607901e7286",
+          "declared_fields": {
+            "status": "final_precision_execution_complete",
+            "next_stage": "persist_then_follow_preregistered_stage_extension_path",
+            "rerun_forbidden": true
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage20/precision_analysis/SA5_STAGE20_EXECUTION_MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "5f7701b7ad5677e01a0757f49a3a129f2b40f024",
+          "score": 920,
+          "size_bytes": 2107,
+          "sha256": "1bd2dfddf4e89f02eee9ace07c4a4936d6e9fe580311b2915568d394922cf9ab",
+          "declared_fields": {
+            "status": "stage20_precision_execution_complete",
+            "next_stage": "persist_then_preregister_stage30_once",
+            "rerun_forbidden": true
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage20/precision_analysis/SA5_STAGE20_SUFFIX_EVIDENCE_MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "5f7701b7ad5677e01a0757f49a3a129f2b40f024",
+          "score": 920,
+          "size_bytes": 9345,
+          "sha256": "498a0b0ad84e94c29232a3fa9b655086e374350992c6717ed01a681cb8d0af00",
+          "declared_fields": {
+            "status": "stage20_suffix_execution_complete"
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count/timing_stage30/precision_analysis/SA5_STAGE30_PRECISION_EXECUTION_MANIFEST.json",
+          "exists": true,
+          "git_last_commit": "146ff1f5373d9e08309d2abe547f8d0d94f494d9",
+          "score": 920,
+          "size_bytes": 4962,
+          "sha256": "ec4e8652bb94ba7234e1e88296cdf9cf22903e34ff4058112e0a10eb8310d814",
+          "declared_fields": {
+            "status": "stage30_precision_execution_complete",
+            "next_stage": "document_stage30_precision_limit_and_close_sa5_objective_count",
+            "rerun_forbidden": true,
+            "stage40_authorized": false
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/audits/objective_count_stage10_c8_nv32/functional_execution/functional_execution_evidence_manifest.json",
+          "exists": true,
+          "git_last_commit": "539c928a118ffcf45bfedc7a98a5cac9aee5e1de",
+          "score": 920,
+          "size_bytes": 9501,
+          "sha256": "d2b66ccf52bde34aee15596a898ddf7fa95cb51aad6ce6bd4b0fa14f59e37dbc",
+          "declared_fields": {
+            "status": "sa5_objective_count_stage10_functional_execution_evidence_materialized"
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/campaign_manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 934,
+          "sha256": "a3a6e526589361c0e8adb171fc4af5a3b4576698c8ada606a41ccb65c72bd41e",
+          "declared_fields": {
+            "campaign_id": "objective_count_stage10_c8_nv32",
+            "factor": "objective_count",
+            "replication_count": 10
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/common_workloads/common_workloads_manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 10251,
+          "sha256": "9f912e71ed0ea247c20ab2cb8c3ead8a7204891761e07808bb1123bc5f0a0717",
+          "declared_fields": {
+            "campaign_id": "objective_count_stage10_c8_nv32",
+            "factor": "objective_count"
+          }
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_000_seed_101/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1379,
+          "sha256": "d45cbccd3d0148d92ac18f9f56058c719a1e138621c72f50d9e9c5e2da737ee5"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_001_seed_202/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1379,
+          "sha256": "ab2b0a4ff57fe03d234bed76fb58debfe40b94b3aa98bd3a5d72194da2d24036"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_002_seed_1198202409/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1386,
+          "sha256": "43e4715b57a88c681e2a368e348b9827c7746bafb2ae467cfa800a6ccf5ee63b"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_003_seed_796786883/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1385,
+          "sha256": "c96f570ac9035f916f50d2ee0a461034aa024354b839f96648afce5dde5dd203"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_004_seed_1126922093/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1386,
+          "sha256": "48d6264459733e83692d572a38616a2e519c274ab8714eb75a125c5549f11ad4"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_005_seed_809989256/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1385,
+          "sha256": "7f8f70cbcb914c01822117b4e092916344c47d6741189807b3f7d9547fa93850"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_006_seed_618554674/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1385,
+          "sha256": "391e2411903de702a2894d8b457708eb3bc725253b6d895987d6966a2c3620f4"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_007_seed_1363159082/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1386,
+          "sha256": "2b2e43932ed6f595d8ecf882fc0ce9a0762383e7b52ad7c42c4a128d9a8d4735"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_008_seed_874332939/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1385,
+          "sha256": "0af016607f3be25dec76bd276972414faaf3678a27cc36b3cb29650855743e83"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000001/rep_009_seed_1767972531/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1386,
+          "sha256": "11f0f2489291162883eb1c79f95bfa3af9a3e9edb0d6399d3b6e37d970872eee"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000002/rep_000_seed_101/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1455,
+          "sha256": "d943c982106649059b6d16c720590fafcccb8b5848c2ca0ae4c49e5425e3ff2c"
+        },
+        {
+          "path": "reports/article_experiments/sensitivity/e3_controlled_execution/campaigns/objective_count_stage10_c8_nv32/instances/level_000002/rep_001_seed_202/manifest.json",
+          "exists": true,
+          "git_last_commit": "c92e90afcfb81e31c372f829a87a69d78eb9817f",
+          "score": 920,
+          "size_bytes": 1455,
+          "sha256": "28c11452d818c1422609dd35188f826298e2825f971a8a9c22267d00632cb052"
+        }
+      ]
+    },
+    {
+      "campaign_id": "human_validation",
+      "label": "Validation humaine / experts",
+      "scientific_question": "Les jugements MCAD concordent-ils avec des annotations humaines dont la provenance est traçable ?",
+      "evidence_class": "optional_human_validation",
+      "optional": true,
+      "source_resolution_status": "DISCOVERED_REQUIRES_CANONICAL_SELECTION",
+      "authoritative_control_files": [],
+      "runner_candidates": [
+        {
+          "path": "backend/harness/generate_expert_annotation_pack.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 7616,
+          "sha256": "997656b023a72109d0b5a8ec1712ba5d3ea9ad9f979a311d891efa1d89f68064"
+        },
+        {
+          "path": "backend/harness/score_human_validation.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 12960,
+          "sha256": "a2b60aef7f083e5db21830d165400dbfde99d9c89ebbdea1cf583576650ba7ad"
+        }
+      ],
+      "top_source_candidates": [
+        {
+          "path": "backend/harness/generate_expert_annotation_pack.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 7616,
+          "sha256": "997656b023a72109d0b5a8ec1712ba5d3ea9ad9f979a311d891efa1d89f68064"
+        },
+        {
+          "path": "backend/harness/score_human_validation.py",
+          "exists": true,
+          "git_last_commit": "b0d6da897aed64a913c434896437d3906ac82c25",
+          "score": 120,
+          "size_bytes": 12960,
+          "sha256": "a2b60aef7f083e5db21830d165400dbfde99d9c89ebbdea1cf583576650ba7ad"
+        }
+      ]
+    }
+  ],
+  "imported_existing_publication_maps": [
+    {
+      "path": "reports/article_experiments/publication/final_sensitivity_sources/final_sensitivity_publication_source_map.json",
+      "exists": true,
+      "git_last_commit": "3563de41d97a8c1460ba6bb5dfe0b03202e2c5d1",
+      "size_bytes": 6871,
+      "sha256": "2ab268bdd8ce1d84745d97f1d7cf8f1260d2190f9714658838034cad614b3a39"
+    },
+    {
+      "path": "reports/article_experiments/publication/final_experimental_section/FINAL_EXPERIMENTAL_SECTION_MANIFEST.json",
+      "exists": true,
+      "git_last_commit": "1ba62e2b0e563f004127c8b58c16d26e3a8a95d9",
+      "size_bytes": 1465,
+      "sha256": "4689229ddf9d09ed1321dd3db6e3d42979116633ba356b342590d9ca913a62bd",
+      "declared_fields": {
+        "status": "FINAL_EXPERIMENTAL_SECTION_READY_FOR_PR",
+        "stage40_authorized": false
+      }
+    },
+    {
+      "path": "reports/article_experiments/publication/final_experimental_section/PUBLICATION_CLAIMS_GATE.json",
+      "exists": true,
+      "git_last_commit": "1ba62e2b0e563f004127c8b58c16d26e3a8a95d9",
+      "size_bytes": 1157,
+      "sha256": "f4716929d010eb8df10ff044ce316db612f20c7e916ea55b472ff0494cbb4049"
+    }
+  ],
+  "derived_stages": [
+    "normalization",
+    "final_statistics",
+    "article_ready_figures",
+    "article_ready_tables",
+    "claim_evidence_matrix",
+    "generated_latex_sections",
+    "final_manuscript_pdf"
+  ]
+}
