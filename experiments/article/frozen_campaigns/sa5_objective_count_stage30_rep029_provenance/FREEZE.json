@@ -1,0 +1,10 @@
+{
+  "freeze_scope": "stage30_timing_rep029_provenance_only",
+  "rep029_provenance_frozen": true,
+  "stage30_timing_complete": true,
+  "final_precision_frozen": false,
+  "final_scientific_freeze": false,
+  "source_checkpoint_head": "d4f21adc54738e7dfc2ec7a5ab188360927a226f",
+  "source_archive_sha256": "933bc25d4e1227c654d4b4985e095a40b7bca96c8e9e32f89379142c7daf618c",
+  "stage40_authorized": false
+}

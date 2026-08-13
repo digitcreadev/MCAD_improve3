@@ -1,0 +1,14 @@
+{
+  "completed_at_utc": "2026-08-13T00:52:41Z",
+  "functional_mismatch_count": 0,
+  "functional_references_sha256": "cb666afaefe3ef2018c8444f0b313601424cbab4ae662c15ae825554440f3d93",
+  "log_sha256": "f42f4e54102f6a4c14f14e84e547dda3ff2a54c20f6cab0a503feb82efdb5c48",
+  "manifest_sha256": "a15a94f407cc743d867949187533423d3512375c26ee7a1eba85ad5f950f72da",
+  "measurement_row_count": 19200,
+  "observations_sha256": "2c7138d507037025c4aba3176e105587680177f20826331c397135259f70c75d",
+  "replication_index": 29,
+  "seed": 1430030072,
+  "status": "timing_replication_complete",
+  "summary_sha256": "57cf73b919f0f33d6e80aad8e25d499d730905f476931008152e872ec557c878",
+  "warmup_row_count": 1920
+}

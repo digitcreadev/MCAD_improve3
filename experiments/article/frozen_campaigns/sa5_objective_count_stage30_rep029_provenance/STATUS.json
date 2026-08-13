@@ -1,0 +1,10 @@
+{
+  "status": "STAGE30_TIMING_COMPLETE__REP029_PROVENANCE_FROZEN__FINAL_PRECISION_PENDING",
+  "stage30_timing_complete": true,
+  "rep029_provenance_frozen": true,
+  "stage30_precision_started": false,
+  "stage30_precision_analysis_performed": false,
+  "precision_targets_met": null,
+  "final_sa5_verdict": "PENDING_FINAL_STAGE30_PRECISION",
+  "stage40_authorized": false
+}

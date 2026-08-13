@@ -1,0 +1,105 @@
+{
+  "schema": "mcad.sa5.objective_count.stage30.rep029.provenance.v3",
+  "generated_at_utc": "2026-08-13T01:25:53.159538+00:00",
+  "canonical_branch": "paper/phase3-controlled-execution",
+  "canonical_head": "ff89d89339e1d5fa4fdffd1ee95d16037550bbec",
+  "checkpoint_branch": "checkpoint/sa5-stage30-recovery-20260810T192658Z",
+  "checkpoint_head": "d4f21adc54738e7dfc2ec7a5ab188360927a226f",
+  "checkpoint_parent": "6ad82c0939dc039fd1015585706aae4f10e877c3",
+  "checkpoint_tree": "5b070975ba88265cab4247c44042bd76d437d0ab",
+  "checkpoint_archive_sha256": "933bc25d4e1227c654d4b4985e095a40b7bca96c8e9e32f89379142c7daf618c",
+  "replication_index": 29,
+  "seed": 1430030072,
+  "timing_shape": {
+    "cell_count": 192,
+    "warmups_per_cell": 10,
+    "measurements_per_cell": 100,
+    "warmup_rows": 1920,
+    "measurement_rows": 19200,
+    "total_observation_rows": 21120
+  },
+  "functional_mismatch_count": 0,
+  "stage30_timing_replications_complete": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "stage20_rerun_performed": false,
+  "stage30_precision_started": false,
+  "stage30_precision_analysis_performed": false,
+  "precision_targets_met": null,
+  "stage40_authorized": false,
+  "source_paths_in_reconstructed_archive": {
+    "functional_references.json": "/workspaces/m5b_v2_sa5_rep029_20260813T012236Z/archive_extracted/reports/article_experiments/sensitivity/e3_controlled_execution/stage30_work/objective_count_stage30_ff89d89/timing_runs/objective_count_rep_029_portfolio_timing_stage30/functional_references.json",
+    "timing_manifest.json": "/workspaces/m5b_v2_sa5_rep029_20260813T012236Z/archive_extracted/reports/article_experiments/sensitivity/e3_controlled_execution/stage30_work/objective_count_stage30_ff89d89/timing_runs/objective_count_rep_029_portfolio_timing_stage30/timing_manifest.json",
+    "timing_observations.csv": "/workspaces/m5b_v2_sa5_rep029_20260813T012236Z/archive_extracted/reports/article_experiments/sensitivity/e3_controlled_execution/stage30_work/objective_count_stage30_ff89d89/timing_runs/objective_count_rep_029_portfolio_timing_stage30/timing_observations.csv",
+    "timing_summary.json": "/workspaces/m5b_v2_sa5_rep029_20260813T012236Z/archive_extracted/reports/article_experiments/sensitivity/e3_controlled_execution/stage30_work/objective_count_stage30_ff89d89/timing_runs/objective_count_rep_029_portfolio_timing_stage30/timing_summary.json",
+    "timing_rep_029.json": "/workspaces/m5b_v2_sa5_rep029_20260813T012236Z/archive_extracted/reports/article_experiments/sensitivity/e3_controlled_execution/stage30_work/objective_count_stage30_ff89d89/done/timing_rep_029.json"
+  },
+  "selection_method": "SHA256 identity from fully reconstructed checkpoint archive",
+  "scientific_execution_performed_by_m5b_v2r": false,
+  "files": [
+    {
+      "path": "checkpoint_metadata/archive_file_list.txt",
+      "sha256": "5eacb7403839822a8fd9098faa59837c2ef5d300a5120926e8468cfe627d45a2",
+      "size_bytes": 260772
+    },
+    {
+      "path": "checkpoint_metadata/checkpoint_manifest.json",
+      "sha256": "1c46b06fedd5f0b23afb4a7d333f0b1898dba6c58560cb6378e2d259dfa1d8f0",
+      "size_bytes": 1876
+    },
+    {
+      "path": "checkpoint_metadata/chunks.sha256",
+      "sha256": "7d51efc095ae30626e96c2025caf4bc8835852c3afe22d07f37bbdef2314971f",
+      "size_bytes": 164
+    },
+    {
+      "path": "checkpoint_metadata/reconstructed_archive.sha256",
+      "sha256": "f2f79c7ddf85d1a084a189c3280ac62e1b012402c2cf8bdba08fc35f0b6769bd",
+      "size_bytes": 100
+    },
+    {
+      "path": "checkpoint_metadata/stage30_precision_area_files.sha256",
+      "sha256": "926851b3d59aa41c39f6e9efa1166368a9768bbfed4e050088bb3d841f1cbac9",
+      "size_bytes": 248
+    },
+    {
+      "path": "checkpoint_metadata/stage30_work_files.sha256",
+      "sha256": "26ad0d644d632faaebdb49e127104b8be66da973dc444cbbb72bd3d97850a83f",
+      "size_bytes": 221128
+    },
+    {
+      "path": "rep029/functional_references.json",
+      "sha256": "cb666afaefe3ef2018c8444f0b313601424cbab4ae662c15ae825554440f3d93",
+      "size_bytes": 2359243
+    },
+    {
+      "path": "rep029/timing_manifest.json",
+      "sha256": "a15a94f407cc743d867949187533423d3512375c26ee7a1eba85ad5f950f72da",
+      "size_bytes": 8459
+    },
+    {
+      "path": "rep029/timing_observations.csv",
+      "sha256": "2c7138d507037025c4aba3176e105587680177f20826331c397135259f70c75d",
+      "size_bytes": 5589055
+    },
+    {
+      "path": "rep029/timing_rep_029.json",
+      "sha256": "3784f75e0a3ebb4e9f7b2fba6d4d118d7339b1ac58e0569a699f752c6ee78496",
+      "size_bytes": 693
+    },
+    {
+      "path": "rep029/timing_summary.json",
+      "sha256": "57cf73b919f0f33d6e80aad8e25d499d730905f476931008152e872ec557c878",
+      "size_bytes": 772382
+    }
+  ]
+}
