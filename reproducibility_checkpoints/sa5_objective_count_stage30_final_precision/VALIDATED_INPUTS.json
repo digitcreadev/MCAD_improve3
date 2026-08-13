@@ -1,0 +1,52 @@
+{
+  "canonical_head": "ff89d89339e1d5fa4fdffd1ee95d16037550bbec",
+  "created_at_utc": "2026-08-13T02:16:46Z",
+  "inputs": {
+    "m5d_manifest": {
+      "execution_path": "/workspaces/m5d_sa5_stage30_final_precision_build_20260813T013804Z/M5D_BUILD_MANIFEST.json",
+      "sha256": "428f79e2ab2ec407648a94d3501743f42752593be29bababdf1066a2dfd44935"
+    },
+    "stage20_reconstructed": {
+      "execution_path": "/workspaces/m5d_sa5_stage30_final_precision_build_20260813T013804Z/stage20_combined_measurement_observations_reconstructed.csv",
+      "measurement_rows": 384000,
+      "sha256": "7f7665d3ec870b8d22e51eb69bea9432eb6c2255eb30b077e9df3092dae7713c",
+      "size_bytes": 104711232
+    },
+    "stage30_combined": {
+      "execution_path": "/workspaces/m5d_sa5_stage30_final_precision_build_20260813T013804Z/stage30_combined_measurement_observations.csv",
+      "measurement_rows": 576000,
+      "sha256": "6542c6c014b99a2a6db08ca1bb54e41c0712643f5e342f3d51ed6826eca49ae5",
+      "size_bytes": 157833649,
+      "structural_seed_count": 30
+    },
+    "timing_adapter": {
+      "execution_path": "/workspaces/m5d_sa5_stage30_final_precision_build_20260813T013804Z/stage30_precision_timing_report_adapter.json",
+      "sha256": "1f5dcfbea210c9ac9d7c3b94492e81640421e5b2fdd32ca3e0030938f53de312"
+    }
+  },
+  "lossless_repository_materialization": {
+    "archive_sha256": "458d97b5c825d0eca664a58ff35f07f518e3968d333ae436e720bf8f36ce11f5",
+    "archive_size_bytes": 63836197,
+    "chunk_count": 2,
+    "chunk_size_limit_bytes": 47185920,
+    "chunks": [
+      {
+        "filename": "sa5_stage30_validated_inputs.tar.gz.part000",
+        "sha256": "60606c63c3f86d1a412dabb75b415b4442cc40d298769f54ae6580dd37a47186",
+        "size_bytes": 47185920
+      },
+      {
+        "filename": "sa5_stage30_validated_inputs.tar.gz.part001",
+        "sha256": "2b01dfe0f3f95a9e9ee5f57041a624ca3694c5a293fa8f4121e5257b1636f42f",
+        "size_bytes": 16650277
+      }
+    ],
+    "exact_bytes_recoverable_from_chunks": true,
+    "raw_large_csv_committed_directly": false
+  },
+  "m5d_build_root": "/workspaces/m5d_sa5_stage30_final_precision_build_20260813T013804Z",
+  "precision_analysis_performed": false,
+  "schema_version": "mcad-sa5-stage30-final-precision-validated-inputs-v1",
+  "scientific_values_modified": false,
+  "status": "validated_and_materialized_before_unique_precision_execution"
+}
