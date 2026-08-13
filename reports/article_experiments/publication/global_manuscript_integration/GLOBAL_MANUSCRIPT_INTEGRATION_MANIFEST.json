@@ -1,0 +1,26 @@
+{
+  "base_canonical_head": "fbdde2832316f5238119e0c75ec723bdb7dfeb36",
+  "canonical_manuscript_root": "MCAD_audited_real_main_fr.tex",
+  "controls": {
+    "experimental_cycle_closed": true,
+    "new_campaign_performed": false,
+    "new_experimental_execution_performed": false,
+    "new_statistical_execution_performed": false,
+    "objective_count_rerun_forbidden": true,
+    "stage40_authorized": false
+  },
+  "experimental_section": {
+    "byte_identity_preserved": true,
+    "dependency_reachability_verified": true,
+    "input_path_from_manuscript_root": "article_update/generated_sections/section_experimentale_finale",
+    "integration_strategy": "insert_before_discussion_conclusion_or_bibliography",
+    "mutated_manuscript_file": "MCAD_audited_real_main_fr.tex",
+    "path": "article_update/generated_sections/section_experimentale_finale.tex",
+    "sha256": "d11049bc10d710165bcb8ecee8a36f245bfb6f17f49a7885c455641dcdf1fbe8"
+  },
+  "frozen_sensitivity_source_map_sha256": "2ab268bdd8ce1d84745d97f1d7cf8f1260d2190f9714658838034cad614b3a39",
+  "generated_at_utc": "2026-08-13T10:27:43.496654+00:00",
+  "integration_branch": "paper/integrate-global-manuscript-20260813T102742Z",
+  "schema": "MCAD_GLOBAL_MANUSCRIPT_INTEGRATION_v1",
+  "status": "GLOBAL_MANUSCRIPT_EXPERIMENTAL_SECTION_INTEGRATED"
+}
