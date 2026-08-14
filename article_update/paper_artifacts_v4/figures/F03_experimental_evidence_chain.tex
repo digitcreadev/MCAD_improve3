@@ -1,0 +1,22 @@
+\begin{tikzpicture}[
+node distance=4mm and 4mm,
+every node/.style={font=\scriptsize,align=center},
+box/.style={draw,rounded corners=1mm,minimum width=21mm,minimum height=9mm,inner sep=2pt},
+>=Stealth
+]
+\node[box] (q) {Q1--Q6\\trace E2E};
+\node[box,right=of q] (abc) {A/B/C\\preuve physique};
+\node[box,right=of abc] (rob) {Robustesse\\+ ablations};
+\node[box,right=of rob] (sc) {Scalabilité\\structurelle};
+\node[box,below=of abc] (ev) {Evidence\\usefulness};
+\node[box,below=of rob] (sens) {Sensibilités\\4 facteurs};
+\node[box,below=of sc] (pub) {Publication\\claims bornés};
+\draw[->] (q)--(abc);
+\draw[->] (abc)--(rob);
+\draw[->] (rob)--(sc);
+\draw[->] (abc)--(ev);
+\draw[->] (rob)--(sens);
+\draw[->] (sc)--(pub);
+\draw[->] (ev)--(pub);
+\draw[->] (sens)--(pub);
+\end{tikzpicture}

@@ -1,0 +1,28 @@
+\begin{table*}[!t]
+\centering
+\caption{Caractérisation descriptive de la latence sémantique à partir des observations canoniques existantes.}
+\label{tab:v4-semantic-latency}
+\scriptsize
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Facteur & Niveau & $n$ & p50 (ms) & p95 (ms) & p99 (ms) & p99/p50 \\
+\midrule
+constraint\_count & 2 & 4000 & 0.6660 & 1.2822 & 1.4606 & 2.193 \\
+constraint\_count & 4 & 4000 & 0.5081 & 0.9555 & 1.2348 & 2.430 \\
+constraint\_count & 8 & 4000 & 0.4464 & 0.8285 & 0.9108 & 2.040 \\
+constraint\_count & 12 & 4000 & 0.4650 & 0.8795 & 1.0596 & 2.279 \\
+constraint\_count & 16 & 4000 & 0.4689 & 0.8837 & 1.0428 & 2.224 \\
+\addlinespace
+virtual\_node\_count & 6 & 2000 & 0.3366 & 0.5929 & 0.6488 & 1.928 \\
+virtual\_node\_count & 12 & 2000 & 0.3917 & 0.7084 & 0.8679 & 2.216 \\
+virtual\_node\_count & 24 & 2000 & 0.5223 & 0.9624 & 1.1464 & 2.195 \\
+\addlinespace
+membership\_density & 25 & 23000 & 0.4561 & 0.8975 & 1.0850 & 2.379 \\
+membership\_density & 50 & 23000 & 0.4595 & 0.9074 & 1.1040 & 2.403 \\
+membership\_density & 75 & 23000 & 0.4628 & 0.9108 & 1.1155 & 2.410 \\
+membership\_density & 100 & 23000 & 0.4652 & 0.9169 & 1.1378 & 2.446 \\
+\addlinespace
+\bottomrule
+\end{tabular}
+\normalsize
+\end{table*}

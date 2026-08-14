@@ -1,0 +1,8 @@
+id,severity,location,issue,action
+CIT01,HIGH,"Abstract, novelty sentence",Absolute novelty statement.,Use bounded literature-review conclusion and tie to Section II.
+CIT02,MEDIUM,Section II positioning table,Categorical Non may imply exhaustive absence.,Use non central / non ciblé / partiel where appropriate.
+CIT03,HIGH,Section II XAI paragraph,Kostopoulos metadata incorrect in earlier V2.,Correct authors and journal metadata.
+CIT04,HIGH,Section II KG-OLAP paragraph,Schuetz KG-OLAP authors/issue/pages incorrect.,Use verified 2021 Semantic Web metadata.
+CIT05,HIGH,Section II descriptive analytics KG paragraph,Staudinger metadata incomplete/incorrect.,"Include Thomas Neuböck, DECISION 52(3), 285-306, DOI."
+CIT06,MEDIUM,Section IV CKG relations,Generic sources were attached to MCAD-specific relation names.,Separate literature motivation from MCAD vocabulary.
+CIT07,MEDIUM,Query-language portability,Conceptual canonicalization conflated with implemented extraction support.,"Keep principle in IV, implementation in V, empirical scope in VII."

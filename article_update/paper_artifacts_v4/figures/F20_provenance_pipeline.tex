@@ -1,0 +1,17 @@
+\begin{tikzpicture}[
+node distance=4mm,
+every node/.style={font=\scriptsize,align=center},
+box/.style={draw,rounded corners=1mm,minimum width=18mm,minimum height=8mm,inner sep=2pt},
+>=Stealth
+]
+\node[box] (a) {Audit};
+\node[box,right=of a] (v) {Validation};
+\node[box,right=of v] (f) {Freeze};
+\node[box,right=of f] (ar) {Archive};
+\node[box,right=of ar] (p) {Publication};
+\draw[->] (a)--(v);
+\draw[->] (v)--(f);
+\draw[->] (f)--(ar);
+\draw[->] (ar)--(p);
+\node[below=5mm of f,font=\scriptsize,align=center] {manifeste + provenance + SHA-256\\source-map + claim-evidence map};
+\end{tikzpicture}

@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+\begin{axis}[ybar,
+bar width=7pt,
+width=\linewidth,
+height=0.58\linewidth,
+title={Evidence reuse : AUC de couverture},
+ylabel={AUC},
+xtick={0,1},
+xticklabels={{OAW\_BIKES\_EUROPE},{OHF\_NORD}},
+x tick label style={rotate=20,anchor=east,font=\scriptsize},
+grid=major,
+legend style={font=\scriptsize,at={(0.5,-0.28)},anchor=north,legend columns=2},
+ymin=0,
+ymax=1.08]
+\addplot+ coordinates {(0,0.666667) (1,0.666667)};
+\addlegendentry{sans bootstrap}
+\addplot+ coordinates {(0,1.0) (1,1.0)};
+\addlegendentry{avec évidence}
+\end{axis}
+\end{tikzpicture}

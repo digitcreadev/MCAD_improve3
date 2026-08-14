@@ -1,0 +1,18 @@
+\begin{tikzpicture}[
+node distance=6mm,
+every node/.style={font=\scriptsize,align=center},
+box/.style={draw,rounded corners=1mm,minimum width=35mm,minimum height=9mm,inner sep=3pt},
+>=Stealth
+]
+\node[box] (ui) {Analyste / interface BI\\objectifs, requêtes, résultats};
+\node[box,below=of ui] (mcad) {Couche MCAD\\QP $\rightarrow$ SAT $\rightarrow$ Real $\rightarrow$ $C_{\mathrm{eval}}$ $\rightarrow$ $\Delta\varphi$};
+\node[box,below left=8mm and 12mm of mcad] (backend) {Backends analytiques\\SQL Direct / XMLA--Mondrian};
+\node[box,below right=8mm and 12mm of mcad] (ckg) {CKG + objectifs\\contraintes, NV, évidence};
+\node[box,below=of mcad] (audit) {Contrat de décision + audit\\provenance / replay};
+\draw[->] (ui)--node[right]{requête}(mcad);
+\draw[->] (mcad)--node[left]{ALLOW}(backend);
+\draw[->] (backend)--node[below left]{résultats}(mcad);
+\draw[<->] (mcad)--(ckg);
+\draw[->] (mcad)--(audit);
+\draw[->] (mcad)--node[right]{décision + explication}(ui);
+\end{tikzpicture}

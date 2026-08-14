@@ -1,0 +1,7 @@
+key,status,correct_metadata,verification_source,verification_locator
+KostopoulosXAIDSS2024,VERIFIED_PRIMARY,"Georgios Kostopoulos; Gregory Davrazos; Sotiris Kotsiantis. Electronics 13(14), 2842 (2024). DOI 10.3390/electronics13142842.",MDPI / version of record,https://doi.org/10.3390/electronics13142842
+SchuetzSerafiniBozzato2021,VERIFIED_PRIMARY,"Christoph G. Schuetz; Loris Bozzato; Bernd Neumayr; Michael Schrefl; Luciano Serafini. Semantic Web 12(4), 649-683 (2021). DOI 10.3233/SW-200419.",JKU research portal / publisher DOI,https://doi.org/10.3233/SW-200419
+StaudingerSchuetzSchrefl2025,VERIFIED_PRIMARY,"Simon Staudinger; Christoph G. Schuetz; Michael Schrefl; Thomas Neuböck. DECISION 52(3), 285-306 (2025). DOI 10.1007/s40622-025-00432-4.",Springer Nature / version of record,https://doi.org/10.1007/s40622-025-00432-4
+W3CSHACL2017,KEY_AND_STANDARD_DATE_NORMALIZED,"W3C, Shapes Constraint Language (SHACL), W3C Recommendation, 20 July 2017.",W3C,https://www.w3.org/TR/shacl/
+W3CPROVO2013,KEY_AND_STANDARD_DATE_NORMALIZED,"W3C, PROV-O: The PROV Ontology, W3C Recommendation, 30 April 2013.",W3C,https://www.w3.org/TR/prov-o/
+FarihaMeliou2019,KEY_PROPAGATION_FROM_PRIOR_VERIFIED_PACKAGE,"A. Fariha and A. Meliou, Example-driven query intent discovery: abductive reasoning using semantic similarity, PVLDB 12(11), 1262-1275 (2019).",prior P9/P10 bibliography package,repository/library prior qualification

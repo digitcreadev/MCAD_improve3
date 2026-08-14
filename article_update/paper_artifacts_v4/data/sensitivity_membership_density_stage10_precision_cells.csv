@@ -1,0 +1,5 @@
+factor,factor_level,step_index,median_relative_half_width,p95_relative_half_width,median_relative_half_width_target,p95_relative_half_width_target,median_target_met,p95_target_met,all_cell_targets_met
+membership_density,25,0,0.006101422311198159,0.023700583596975716,0.1,0.15,True,True,True
+membership_density,50,0,0.006566516903570908,0.01864639393019678,0.1,0.15,True,True,True
+membership_density,75,0,0.006595077110573776,0.015337323961677085,0.1,0.15,True,True,True
+membership_density,100,0,0.006613480513338569,0.01984926325121557,0.1,0.15,True,True,True

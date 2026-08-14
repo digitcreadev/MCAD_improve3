@@ -1,0 +1,24 @@
+figure_id,file,title,source,placement,authority
+F01,figures/F01_conceptual_chain.tex,Chaîne conceptuelle MCAD,formal manuscript + prototype contract,MAIN,CONCEPTUAL
+F02,figures/F02_architecture_mcad.tex,Architecture du prototype MCAD,prototype architecture + physical campaigns,MAIN,SYSTEM
+F03,figures/F03_experimental_evidence_chain.tex,Chaîne de preuve expérimentale,FINAL_PUBLICATION_ADOPTION,MAIN,PROVENANCE
+F04,figures/F04_q1_q6_coverage.tex,Couverture cumulative Q1–Q6,data/q1_q6_canonical_trace.csv,MAIN,PRIMARY_PHYSICAL
+F05,figures/F05_q1_q6_gate_execution.tex,ALLOW/BLOCK et exécution Q1–Q6,data/q1_q6_canonical_trace.csv,MAIN,PRIMARY_PHYSICAL
+F06,figures/F06_campaign_a_decisions.tex,Campagne A ALLOW/BLOCK,data/campaign_a_1000_summary.json,MAIN,PRIMARY_PHYSICAL
+F07,figures/F07_campaign_a_reasons.tex,Campagne A codes de décision,data/campaign_a_1000_summary.json,SUPPLEMENT,PRIMARY_PHYSICAL
+F08,figures/F08_campaign_b_multidataset.tex,Campagne B multi-dataset,data/campaign_b_summary.csv,MAIN,PRIMARY_PHYSICAL
+F09,figures/F09_campaign_c_backend_parity.tex,Campagne C portabilité backend,data/campaign_c_summary.csv,MAIN,PRIMARY_PHYSICAL
+F10,figures/F10_robustness_false_allow.tex,False ALLOW du freeze de robustesse,data/robustness_by_scenario_type.csv,MAIN,FROZEN_PRIMARY_NON_TEMPORAL
+F11,figures/F11_robustness_explainability.tex,Explicabilité système,data/robustness_explainability_summary.csv,MAIN,FROZEN_PRIMARY_NON_TEMPORAL
+F12,figures/F12_scalability_structural.tex,Croissance structurelle du CKG,data/scalability_catalog_structural.csv,MAIN,STRUCTURAL_ONLY
+F13,figures/F13_evidence_steps_to_full.tex,Réutilisation d'évidence : étapes vers couverture,data/evidence_bootstrap_secondary.json,MAIN,QUALIFIED_SECONDARY
+F14,figures/F14_evidence_auc.tex,Réutilisation d'évidence : AUC,data/evidence_bootstrap_secondary.json,SUPPLEMENT,QUALIFIED_SECONDARY
+F15,figures/F15_sensitivity_constraint_precision.tex,Sensibilité constraint count : précision Stage-20,data/sensitivity_constraint_count_stage20_intervals.csv,SUPPLEMENT,PRECISION_DIAGNOSTIC_ONLY
+F16,figures/F16_sensitivity_virtual_node_precision.tex,Sensibilité virtual-node count : précision Stage-10,data/sensitivity_virtual_node_count_stage10_intervals.csv,SUPPLEMENT,PRECISION_DIAGNOSTIC_ONLY
+F17,figures/F17_sensitivity_membership_density_precision.tex,Membership density : précision,data/sensitivity_membership_density_stage10_precision_cells.csv,SUPPLEMENT,PRECISION_DIAGNOSTIC_ONLY
+F18,figures/F18_objective_count_precision_cell_map.tex,Objective count Stage-30 : 17/192 cellules hors cible,data/sensitivity_objective_count_stage30_intervals.csv,MAIN,TERMINAL_PRECISION_LIMIT
+F19,figures/F19_sensitivity_failure_rates.tex,Synthèse précision des quatre sensibilités,four canonical sensitivity sources,MAIN,FINAL_SENSITIVITY_SOURCE_MAP
+F20,figures/F20_provenance_pipeline.tex,Pipeline de provenance,campaign manifests + adoption + source map,SUPPLEMENT,PROVENANCE
+F21,figures/F21_latency_constraint_count.tex,Latence sémantique — nombre de contraintes,data/semantic_latency_quantiles_p50_p95_p99.csv,MAIN,DESCRIPTIVE_EXISTING_CANONICAL_MEASUREMENTS
+F22,figures/F22_latency_virtual_node_count.tex,Latence sémantique — nœuds virtuels,data/semantic_latency_quantiles_p50_p95_p99.csv,MAIN,DESCRIPTIVE_EXISTING_CANONICAL_MEASUREMENTS
+F23,figures/F23_latency_membership_density.tex,Latence sémantique — densité d'appartenance,data/semantic_latency_quantiles_p50_p95_p99.csv,MAIN,DESCRIPTIVE_EXISTING_CANONICAL_MEASUREMENTS

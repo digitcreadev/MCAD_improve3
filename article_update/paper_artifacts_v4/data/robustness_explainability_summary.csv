@@ -1,0 +1,5 @@
+scenario_type;n_steps;n_blocked;n_explainable_blocks;mean_missing_requirements_when_blocked;dominant_block_reason;explainable_block_rate
+adversarial_sat;12;10;10;4.0;measures_present;1.0
+adversarial_semantic;10;8;8;3.75;slc_ok;1.0
+noisy_borderline;8;6;6;4.0;grain_ok;1.0
+stress_long;16;10;10;3.8;grain_ok;1.0

@@ -1,0 +1,8 @@
+policy,n_sessions,mean_phi_final,mean_auc_phi,mean_false_allow_rate,mean_false_block_rate,mean_non_contrib_exec_rate
+ablation_ceval_any_intersection,500,0.333333,0.211111,0.1,0.0,0.1
+ablation_no_real,500,0.333333,0.211111,0.1,0.0,0.1
+ablation_no_sat,500,0.333333,0.211111,0.0,0.0,0.0
+baseline_measure_overlap,500,0.333333,0.211111,0.566667,0.0,0.566667
+baseline_naive,500,0.333333,0.211111,0.666667,0.0,0.666667
+baseline_random_matched,500,0.190667,0.121333,0.400667,0.142667,0.427667
+mcad,500,0.333333,0.211111,0.0,0.0,0.0

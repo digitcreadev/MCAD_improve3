@@ -1,0 +1,189 @@
+{
+  "figure_count": 23,
+  "figures": [
+    {
+      "figure_id": "F01",
+      "file": "figures/F01_conceptual_chain.tex",
+      "title": "Chaîne conceptuelle MCAD",
+      "source": "formal manuscript + prototype contract",
+      "placement": "MAIN",
+      "authority": "CONCEPTUAL"
+    },
+    {
+      "figure_id": "F02",
+      "file": "figures/F02_architecture_mcad.tex",
+      "title": "Architecture du prototype MCAD",
+      "source": "prototype architecture + physical campaigns",
+      "placement": "MAIN",
+      "authority": "SYSTEM"
+    },
+    {
+      "figure_id": "F03",
+      "file": "figures/F03_experimental_evidence_chain.tex",
+      "title": "Chaîne de preuve expérimentale",
+      "source": "FINAL_PUBLICATION_ADOPTION",
+      "placement": "MAIN",
+      "authority": "PROVENANCE"
+    },
+    {
+      "figure_id": "F04",
+      "file": "figures/F04_q1_q6_coverage.tex",
+      "title": "Couverture cumulative Q1–Q6",
+      "source": "data/q1_q6_canonical_trace.csv",
+      "placement": "MAIN",
+      "authority": "PRIMARY_PHYSICAL"
+    },
+    {
+      "figure_id": "F05",
+      "file": "figures/F05_q1_q6_gate_execution.tex",
+      "title": "ALLOW/BLOCK et exécution Q1–Q6",
+      "source": "data/q1_q6_canonical_trace.csv",
+      "placement": "MAIN",
+      "authority": "PRIMARY_PHYSICAL"
+    },
+    {
+      "figure_id": "F06",
+      "file": "figures/F06_campaign_a_decisions.tex",
+      "title": "Campagne A ALLOW/BLOCK",
+      "source": "data/campaign_a_1000_summary.json",
+      "placement": "MAIN",
+      "authority": "PRIMARY_PHYSICAL"
+    },
+    {
+      "figure_id": "F07",
+      "file": "figures/F07_campaign_a_reasons.tex",
+      "title": "Campagne A codes de décision",
+      "source": "data/campaign_a_1000_summary.json",
+      "placement": "SUPPLEMENT",
+      "authority": "PRIMARY_PHYSICAL"
+    },
+    {
+      "figure_id": "F08",
+      "file": "figures/F08_campaign_b_multidataset.tex",
+      "title": "Campagne B multi-dataset",
+      "source": "data/campaign_b_summary.csv",
+      "placement": "MAIN",
+      "authority": "PRIMARY_PHYSICAL"
+    },
+    {
+      "figure_id": "F09",
+      "file": "figures/F09_campaign_c_backend_parity.tex",
+      "title": "Campagne C portabilité backend",
+      "source": "data/campaign_c_summary.csv",
+      "placement": "MAIN",
+      "authority": "PRIMARY_PHYSICAL"
+    },
+    {
+      "figure_id": "F10",
+      "file": "figures/F10_robustness_false_allow.tex",
+      "title": "False ALLOW du freeze de robustesse",
+      "source": "data/robustness_by_scenario_type.csv",
+      "placement": "MAIN",
+      "authority": "FROZEN_PRIMARY_NON_TEMPORAL"
+    },
+    {
+      "figure_id": "F11",
+      "file": "figures/F11_robustness_explainability.tex",
+      "title": "Explicabilité système",
+      "source": "data/robustness_explainability_summary.csv",
+      "placement": "MAIN",
+      "authority": "FROZEN_PRIMARY_NON_TEMPORAL"
+    },
+    {
+      "figure_id": "F12",
+      "file": "figures/F12_scalability_structural.tex",
+      "title": "Croissance structurelle du CKG",
+      "source": "data/scalability_catalog_structural.csv",
+      "placement": "MAIN",
+      "authority": "STRUCTURAL_ONLY"
+    },
+    {
+      "figure_id": "F13",
+      "file": "figures/F13_evidence_steps_to_full.tex",
+      "title": "Réutilisation d'évidence : étapes vers couverture",
+      "source": "data/evidence_bootstrap_secondary.json",
+      "placement": "MAIN",
+      "authority": "QUALIFIED_SECONDARY"
+    },
+    {
+      "figure_id": "F14",
+      "file": "figures/F14_evidence_auc.tex",
+      "title": "Réutilisation d'évidence : AUC",
+      "source": "data/evidence_bootstrap_secondary.json",
+      "placement": "SUPPLEMENT",
+      "authority": "QUALIFIED_SECONDARY"
+    },
+    {
+      "figure_id": "F15",
+      "file": "figures/F15_sensitivity_constraint_precision.tex",
+      "title": "Sensibilité constraint count : précision Stage-20",
+      "source": "data/sensitivity_constraint_count_stage20_intervals.csv",
+      "placement": "SUPPLEMENT",
+      "authority": "PRECISION_DIAGNOSTIC_ONLY"
+    },
+    {
+      "figure_id": "F16",
+      "file": "figures/F16_sensitivity_virtual_node_precision.tex",
+      "title": "Sensibilité virtual-node count : précision Stage-10",
+      "source": "data/sensitivity_virtual_node_count_stage10_intervals.csv",
+      "placement": "SUPPLEMENT",
+      "authority": "PRECISION_DIAGNOSTIC_ONLY"
+    },
+    {
+      "figure_id": "F17",
+      "file": "figures/F17_sensitivity_membership_density_precision.tex",
+      "title": "Membership density : précision",
+      "source": "data/sensitivity_membership_density_stage10_precision_cells.csv",
+      "placement": "SUPPLEMENT",
+      "authority": "PRECISION_DIAGNOSTIC_ONLY"
+    },
+    {
+      "figure_id": "F18",
+      "file": "figures/F18_objective_count_precision_cell_map.tex",
+      "title": "Objective count Stage-30 : 17/192 cellules hors cible",
+      "source": "data/sensitivity_objective_count_stage30_intervals.csv",
+      "placement": "MAIN",
+      "authority": "TERMINAL_PRECISION_LIMIT"
+    },
+    {
+      "figure_id": "F19",
+      "file": "figures/F19_sensitivity_failure_rates.tex",
+      "title": "Synthèse précision des quatre sensibilités",
+      "source": "four canonical sensitivity sources",
+      "placement": "MAIN",
+      "authority": "FINAL_SENSITIVITY_SOURCE_MAP"
+    },
+    {
+      "figure_id": "F20",
+      "file": "figures/F20_provenance_pipeline.tex",
+      "title": "Pipeline de provenance",
+      "source": "campaign manifests + adoption + source map",
+      "placement": "SUPPLEMENT",
+      "authority": "PROVENANCE"
+    },
+    {
+      "figure_id": "F21",
+      "file": "figures/F21_latency_constraint_count.tex",
+      "title": "Latence sémantique — nombre de contraintes",
+      "source": "data/semantic_latency_quantiles_p50_p95_p99.csv",
+      "placement": "MAIN",
+      "authority": "DESCRIPTIVE_EXISTING_CANONICAL_MEASUREMENTS"
+    },
+    {
+      "figure_id": "F22",
+      "file": "figures/F22_latency_virtual_node_count.tex",
+      "title": "Latence sémantique — nœuds virtuels",
+      "source": "data/semantic_latency_quantiles_p50_p95_p99.csv",
+      "placement": "MAIN",
+      "authority": "DESCRIPTIVE_EXISTING_CANONICAL_MEASUREMENTS"
+    },
+    {
+      "figure_id": "F23",
+      "file": "figures/F23_latency_membership_density.tex",
+      "title": "Latence sémantique — densité d'appartenance",
+      "source": "data/semantic_latency_quantiles_p50_p95_p99.csv",
+      "placement": "MAIN",
+      "authority": "DESCRIPTIVE_EXISTING_CANONICAL_MEASUREMENTS"
+    }
+  ]
+}

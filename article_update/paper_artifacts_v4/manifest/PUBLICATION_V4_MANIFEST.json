@@ -1,0 +1,42 @@
+{
+  "schema_version": "mcad-publication-artifacts-v4",
+  "generated_at_utc": "2026-08-14T00:21:06Z",
+  "source_head": "922815488832ecf20d6f31008da044bd3e1c02b0",
+  "scientific_execution_performed": false,
+  "experiment_rerun_performed": false,
+  "statistical_execution_performed": false,
+  "bootstrap_execution_performed": false,
+  "backend_execution_performed": false,
+  "publication_transformation_only": true,
+  "figure_count": 23,
+  "bibliography_propagation_applied": true,
+  "performance_quantile_characterization": {
+    "enabled": true,
+    "quantiles": [
+      "p50",
+      "p95",
+      "p99"
+    ],
+    "source": "existing canonical observations only",
+    "new_timing_execution": false,
+    "new_bootstrap_execution": false,
+    "p99_inferential_precision_claim": false,
+    "objective_count_absolute_timing_included": false
+  },
+  "campaign_family_count": 15,
+  "sensitivity_factor_count": 4,
+  "evidence_usefulness_accounted_for": true,
+  "phase7_may_as_is_adopted": false,
+  "historical_may_timing_publication_authorized": false,
+  "human_validation_claims_authorized": false,
+  "objective_count_terminal": {
+    "stage": 30,
+    "cell_count": 192,
+    "failing_cell_count": 17,
+    "rerun_forbidden": true,
+    "stage40_authorized": false
+  },
+  "manuscript": "manuscript/MCAD_audited_real_main_fr_v4.tex",
+  "experimental_section": "sections/section_experimentale_finale_v4.tex",
+  "supplement": "supplement/section_experimental_supplement_v4.tex"
+}
