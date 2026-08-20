@@ -1,0 +1,8 @@
+=== NH-R2 preflight ===
+Python 3.12.1
+git version 2.53.0
+parent_r1_sha256=b12034c9658a23ad2cb588237bb462148478f6e32d42e9494019611367eecdfb
+r1_freeze_sha256=68538940e73d6ee8b9927f142d80abce3a8e097b6595c32ea14fbb88fb43937a
+parent_reference_model_sha256=df568b444201c4dd5ee291680aa4e4e037bb0e715ee7878f52fb197bda75f024
+local_reference_model_sha256=df568b444201c4dd5ee291680aa4e4e037bb0e715ee7878f52fb197bda75f024
+preflight=PASS

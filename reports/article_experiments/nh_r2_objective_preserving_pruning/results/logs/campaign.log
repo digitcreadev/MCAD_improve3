@@ -1,0 +1,28 @@
+{
+  "candidate_policy_decisions": 86400,
+  "candidates_per_session": 24,
+  "false_prunes_immediate_or_deferred": 0,
+  "gate": "PASS",
+  "inadmissible_counterfactual_rows": 2880,
+  "next_station": "MCAD-NH-R3 End-to-End Resource Avoidance & Time-to-Objective Benchmark",
+  "objective_preservation_failures": 0,
+  "objective_preservation_sessions": 1200,
+  "resource_claims": "NOT_PROMOTED_AT_R2",
+  "safe_action_counts": {
+    "EXECUTE": 5132,
+    "EXECUTE_FAIL_OPEN": 1292,
+    "PRUNE": 19496,
+    "REJECT_INADMISSIBLE": 2880
+  },
+  "safe_class_counts": {
+    "DEFERRED_SUPPORT_CONTRIBUTOR": 1975,
+    "DISTRACTOR_DISPENSABLE": 11146,
+    "IMMEDIATE_CONTRIBUTOR": 3424,
+    "INADMISSIBLE": 2880,
+    "REDUNDANT_DISPENSABLE": 9375
+  },
+  "safe_policy_candidates": 28800,
+  "safe_pruned_replay_pairs": 19496,
+  "sessions": 1200,
+  "strict_immediate_completion_loss_sessions": 256
+}
