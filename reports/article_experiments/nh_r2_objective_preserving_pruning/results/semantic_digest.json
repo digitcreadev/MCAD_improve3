@@ -1,0 +1,18 @@
+{
+  "components_sha256": {
+    "gate_results.json": "2112dee68e533360bdfd211dbeb39ebed08ffc08c354c3f31dd795897c6d4f66",
+    "r3_backend_binding_template.csv": "114c6cea45b35872be6093d78b13d80948633ccb993330788796a720038629c2",
+    "replay_manifest_inadmissible.csv": "c4e44ea83c0e76af9a27417ecd2a42585f14db1b03ba5fe1d8eb74f7f3bab602",
+    "replay_manifest_safe_pruned.csv": "f197af496f07986103ab26f473b32a3ffb86312aa456d42743719a89f5569997",
+    "session_summary.csv": "8b8cd57a3ce01a6d02bbdfc2170e6e916f8b58fea5e85ba8c4bb20c64b2103b8",
+    "stratum_summary.csv": "6ae39f0d18227b3ee6f05f792e17921e0e17f1c76893279635774d0c6656af5b"
+  },
+  "decision_semantic_projection_sha256": "2bd33b92d17bfb4d2a9066fec27c832a5ab0d7f3794e308d418a58a060a3ee0f",
+  "excluded_as_environment_dependent": [
+    "gate_latency_ns",
+    "gate_cpu_ns",
+    "environment.json",
+    "logs/*"
+  ],
+  "schema_id": "MCAD-NH-R2-SEMANTIC-DIGEST-1"
+}

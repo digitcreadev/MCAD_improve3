@@ -1,0 +1,7 @@
+run_started_utc=2026-08-20T15:07:33Z
+repo_root=/workspaces/MCAD_improve3
+branch=paper/nh-r2-objective-preserving-pruning-20260820T150458Z
+head=4214bd3a072179b0aba921535b28d31167c7f052
+status_before<<EOF
+## paper/nh-r2-objective-preserving-pruning-20260820T150458Z
+EOF

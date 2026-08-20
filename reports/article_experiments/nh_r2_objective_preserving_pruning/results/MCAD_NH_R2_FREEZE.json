@@ -1,0 +1,16 @@
+{
+  "candidate_policy_decisions": 86400,
+  "config_sha256": "21ce35f33d2dbebebe602c7f307e7fc2da2ecac99e6d380e457f8df80f6a107e",
+  "false_prunes_immediate_or_deferred": 0,
+  "freeze_id": "MCAD-NH-R2-OBJECTIVE-PRESERVING-PRUNING-CAMPAIGN-FREEZE-1",
+  "gate": "PASS",
+  "next_station": "MCAD-NH-R3 End-to-End Resource Avoidance & Time-to-Objective Benchmark",
+  "objective_preservation_failures": 0,
+  "parent_r1_freeze_sha256": "68538940e73d6ee8b9927f142d80abce3a8e097b6595c32ea14fbb88fb43937a",
+  "parent_r1_sha256": "b12034c9658a23ad2cb588237bb462148478f6e32d42e9494019611367eecdfb",
+  "resource_claims": "NOT_PROMOTED_AT_R2",
+  "safe_pruned_replay_pairs": 19496,
+  "semantic_digest_sha256": "0ddb625598790bef5b3046201680c7b2f540d335dfb8cd276ff52b34be47b4b8",
+  "sessions": 1200,
+  "strict_immediate_completion_loss_sessions": 256
+}

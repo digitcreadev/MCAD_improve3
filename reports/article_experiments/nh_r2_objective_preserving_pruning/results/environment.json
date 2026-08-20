@@ -1,0 +1,38 @@
+{
+  "config": {
+    "candidates_per_session": 24,
+    "master_seed": 20260820,
+    "policies": [
+      "PERMISSIVE",
+      "SAFE_PRUNING",
+      "STRICT_IMMEDIATE"
+    ],
+    "primary_gate": "phi_final_SAFE == phi_final_PERMISSIVE AND false_prunes(IMMEDIATE|DEFERRED)==0",
+    "replicates_per_stratum": 60,
+    "resource_claims": "FORBIDDEN_UNTIL_NH_R3_PAIRED_BACKEND_REPLAY",
+    "schema_id": "MCAD-NH-R2-CAMPAIGN-CONFIG-1",
+    "semantic_contract_invalid_rate": 0.05,
+    "sequence_patterns": [
+      "ORDERED",
+      "OUT_OF_ORDER",
+      "OVERLAP",
+      "DISTRACTOR_HEAVY",
+      "MIXED_SAT"
+    ],
+    "support_topologies": [
+      "SINGLE",
+      "MULTI2",
+      "ALTERNATIVE",
+      "OVERLAP"
+    ]
+  },
+  "git": {
+    "branch": "paper/nh-r2-objective-preserving-pruning-20260820T150458Z",
+    "head": "4214bd3a072179b0aba921535b28d31167c7f052",
+    "status": "## paper/nh-r2-objective-preserving-pruning-20260820T150458Z"
+  },
+  "machine": "x86_64",
+  "platform": "Linux-6.8.0-1052-azure-x86_64-with-glibc2.39",
+  "python": "3.12.1 (main, Mar 11 2026, 12:17:56) [GCC 13.3.0]",
+  "started_utc": "2026-08-20T15:07:35Z"
+}
