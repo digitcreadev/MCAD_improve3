@@ -1,0 +1,103 @@
+{
+  "arms": [
+    {
+      "id": "UNGATED_EXECUTE_ADMISSIBLE",
+      "purpose": "practical break-even baseline; no safe-pruning gate"
+    },
+    {
+      "id": "PERMISSIVE_GATED",
+      "purpose": "same semantic gate/probes as treatment but executes all admissible full queries"
+    },
+    {
+      "id": "SAFE_PRUNING",
+      "purpose": "same gate/probes; suppresses only R1-proven safe-prunable full queries"
+    }
+  ],
+  "binding_kind": "deterministic_workload_embedding_v1",
+  "binding_rule": "Binding depends only on frozen query_id/evidence_atoms/archetype and never on measured resource outcomes.",
+  "cache_policy": {
+    "no_effect_based_reruns": true,
+    "primary": "warm/stable backend after fixed warm-up; randomized arm order within paired blocks",
+    "secondary": "cold-start sensitivity via controlled container restart only after primary protocol is fixed"
+  },
+  "claim_status": "NO_RESOURCE_CLAIMS_BEFORE_MEASURED_PILOT_AND_CONFIRMATORY_RUN",
+  "inadmissible_handling": "SAT_FALSE is rejected identically in PERMISSIVE_GATED and SAFE_PRUNING and is reported separately from strategic pruning.",
+  "measurement": {
+    "net_benefit_rule": "All gate work, including any backend/NVAC probe, is counted as treatment overhead. A resource-saving claim requires treatment total cost < comparator total cost.",
+    "objective_rule": "SAFE_PRUNING and PERMISSIVE_GATED must preserve identical frozen objective-completion semantics; R3 does not re-label semantic outcomes.",
+    "primary_metrics": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ns",
+      "sqlserver_cgroup_cpu_usage_usec_delta",
+      "sqlserver_cgroup_io_rbytes_delta",
+      "sqlserver_cgroup_io_wbytes_delta",
+      "response_bytes",
+      "time_to_objective_ms"
+    ],
+    "secondary_metrics": [
+      "sqlserver_statistics_io_logical_reads_if_available",
+      "sqlserver_statistics_time_cpu_ms_if_available",
+      "sqlserver_statistics_time_elapsed_ms_if_available",
+      "memory_current_samples_and_memory_time_if_feasible",
+      "emondrian_cgroup_cpu_and_io_deltas_for_secondary_path"
+    ]
+  },
+  "parent_r2_commit": "21ae791c850c019f07554e006ce9db82e1ac8769",
+  "parent_r2_freeze_sha256": "5c1b7e930e92ab11835e3d3cfba7af2a50e9ade281be2e29b04f7f11792bdb1e",
+  "parent_r2_results_zip_sha256": "ffc5ddd93c9428715757c36bd987a87282cbe15e83a0e1557658fbda6c218bcb",
+  "parent_r2_semantic_digest": "0ddb625598790bef5b3046201680c7b2f540d335dfb8cd276ff52b34be47b4b8",
+  "primary_backend": {
+    "adapter": "adventureworks_direct",
+    "database": "AdventureWorksDW2022",
+    "dataset": "AdventureWorksDW",
+    "role": "primary_resource_attribution",
+    "warehouse_id": "adventureworks_sql_direct"
+  },
+  "sampling": {
+    "calibration_val": "2 lexicographically first sessions per stratum; expected 40 sessions; no effect-size tuning",
+    "confirmatory_test": "all frozen test sessions; expected 300 sessions",
+    "pilot_dev": "1 lexicographically first session per (topology,pattern) stratum; expected 20 sessions; instrumentation only",
+    "quota_fallback": "If external quota/runtime prevents full test execution, use first 6 test sessions per stratum (120 total), declare resource-constrained confirmatory subset, and do not select based on observed effects."
+  },
+  "secondary_backend": {
+    "adapter": "xmla_mondrian",
+    "dataset": "AdventureWorksDW",
+    "role": "secondary_end_to_end_confirmation",
+    "warehouse_id": "adventureworks_xmla"
+  },
+  "stage": "R3-A_BACKEND_BINDING_AND_MEASUREMENT_PROTOCOL_FREEZE",
+  "station": "MCAD-NH-R3",
+  "template_map": {
+    "ATOM": [
+      "AW_ATOM_SALES",
+      "AW_ATOM_COST",
+      "AW_ATOM_MARGIN"
+    ],
+    "DIST": [
+      "AW_DISTRACTOR_ACCESSORIES_SALES"
+    ],
+    "DST": [
+      "AW_DISTRACTOR_ACCESSORIES_SALES"
+    ],
+    "INAD": [
+      "AW_BAD_GRAIN_YEAR"
+    ],
+    "MIX": [
+      "AW_MIX_ACCESSORIES_SALES_COST"
+    ],
+    "PAIR": [
+      "AW_PAIR_SALES_COST"
+    ],
+    "REPEAT": [
+      "AW_ATOM_SALES",
+      "AW_ATOM_COST",
+      "AW_ATOM_MARGIN"
+    ],
+    "RPT": [
+      "AW_ATOM_SALES",
+      "AW_ATOM_COST",
+      "AW_ATOM_MARGIN"
+    ]
+  }
+}

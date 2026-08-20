@@ -1,0 +1,7 @@
+SELECT {[Measures].[TotalProductCost]} ON COLUMNS,
+CrossJoin([Date].[Calendar].[Month].Members,
+          [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS
+FROM [Adventure Works DW]
+WHERE ([Product].[Product Category].[Bikes],
+       [Sales Territory].[Sales Territory Group].[Europe],
+       [Date].[Calendar Year].[2013])

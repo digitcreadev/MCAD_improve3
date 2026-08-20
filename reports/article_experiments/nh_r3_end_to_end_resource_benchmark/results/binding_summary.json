@@ -1,0 +1,31 @@
+{
+  "archetype_counts": {
+    "ATOM": 6900,
+    "DIST": 5700,
+    "DST": 2090,
+    "INAD": 2880,
+    "MIX": 1307,
+    "PAIR": 2700,
+    "REPEAT": 5400,
+    "RPT": 1823
+  },
+  "binding_kind": "deterministic_workload_embedding_v1",
+  "calibration_val_sessions": 40,
+  "claim_status": "PLANNED_NOT_EXECUTED",
+  "confirmatory_test_sessions": 300,
+  "full_sequence_rows": 28800,
+  "inadmissible_rows": 2880,
+  "pilot_dev_sessions": 20,
+  "quota_fallback_test_sessions": 120,
+  "safe_pruned_rows": 19496,
+  "template_counts": {
+    "AW_ATOM_COST": 4768,
+    "AW_ATOM_MARGIN": 4656,
+    "AW_ATOM_SALES": 4699,
+    "AW_BAD_GRAIN_YEAR": 2880,
+    "AW_DISTRACTOR_ACCESSORIES_SALES": 7790,
+    "AW_MIX_ACCESSORIES_SALES_COST": 1307,
+    "AW_PAIR_SALES_COST": 2700
+  },
+  "unique_sessions": 1200
+}

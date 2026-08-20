@@ -1,0 +1,69 @@
+{
+  "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff",
+  "files": [
+    {
+      "path": "config/r3_protocol.json",
+      "sha256": "ed4d84485adb748d102df287f12c61556f88233246da6c55a6ed207e942aa9a6"
+    },
+    {
+      "path": "docs/BACKEND_BINDING_PROTOCOL.md",
+      "sha256": "2689afc6291122d54fcf5eed7db50b606b5e3af8e3e2aa8501c7bd6ec62168fd"
+    },
+    {
+      "path": "docs/MEASUREMENT_PROTOCOL.md",
+      "sha256": "dccd3127b032207cbdd93a1a8dd073e22f3a135c0de378c252232794486c4bfb"
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "78d8995aca7f2c60c03ed1652489c0e357dffadfcf102cca8c5e9371307fd6f8"
+    },
+    {
+      "path": "docs/SCIENTIFIC_CONTRACT.md",
+      "sha256": "037bdd2009f8a19c8c8530c14b5c4c0a616c5c6fc31f92b4303e5b5154b2421f"
+    },
+    {
+      "path": "docs/STAGE_PLAN.md",
+      "sha256": "c7daef9b05db095c6506b7fe89ab64886cb4e20d51d99e16c4e42ce6adad02ff"
+    },
+    {
+      "path": "implementation/build_binding_plan.py",
+      "sha256": "409ae306620b3eb484cc526320bac2bff44f1c1aa5593354489c2f92416546bd"
+    },
+    {
+      "path": "implementation/verify_protocol.py",
+      "sha256": "bf9db2cc5e73f09070092b72467ded4ced7eecfcc777914142d1ba3d3004fe9d"
+    },
+    {
+      "path": "templates/mdx/AW_ATOM_COST.mdx",
+      "sha256": "071b2b794a255198e80cdfc6637241379abeaf7af54b90e9af59633d418269ce"
+    },
+    {
+      "path": "templates/mdx/AW_ATOM_MARGIN.mdx",
+      "sha256": "18c1b6f720b21d8df5014848a0f14854dc65dbe2d550656cdc7772fa41225fb1"
+    },
+    {
+      "path": "templates/mdx/AW_ATOM_SALES.mdx",
+      "sha256": "636f9472760e9dd80366d58b6af3547c9cd1b6c961b33b005d3cf7afb0114bea"
+    },
+    {
+      "path": "templates/mdx/AW_BAD_GRAIN_YEAR.mdx",
+      "sha256": "149043d18621295ea264cd9da6a58f79affe249cb64d19d6c0b746b03aa22172"
+    },
+    {
+      "path": "templates/mdx/AW_DISTRACTOR_ACCESSORIES_SALES.mdx",
+      "sha256": "fe1e6f4a076f7e63e0408ee5cb43f923e517046b3aba1bad48e462946497003f"
+    },
+    {
+      "path": "templates/mdx/AW_MIX_ACCESSORIES_SALES_COST.mdx",
+      "sha256": "b536e8c4f30c69f17c2a87332a5d2c9cf9cd318931548ef10cc989aa7dde4133"
+    },
+    {
+      "path": "templates/mdx/AW_PAIR_SALES_COST.mdx",
+      "sha256": "f7f79c1b84a526910a423062ff35fd9f0aed5cdd588818e53fa9176cca9c8361"
+    }
+  ],
+  "freeze_id": "MCAD-NH-R3-A-PROTOCOL-FREEZE-1",
+  "measured_backend_runs": 0,
+  "parent_r2_commit": "21ae791c850c019f07554e006ce9db82e1ac8769",
+  "resource_claims": "NOT_PROMOTED"
+}
