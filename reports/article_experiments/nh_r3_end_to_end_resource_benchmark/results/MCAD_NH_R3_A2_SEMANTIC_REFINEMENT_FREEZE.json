@@ -1,0 +1,103 @@
+{
+  "binding_changed": false,
+  "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff",
+  "freeze_id": "MCAD-NH-R3-A2-SEMANTIC-REFINEMENT-FREEZE-1",
+  "measured_backend_runs": 0,
+  "parent_r3a1_commit": "3222ae0a60b1faa35bf6923238424494bd7f1666",
+  "parent_r3a1_protocol_freeze_sha256": "e5d8e6857a22962623aa483eeb92f60cb66aac1e8e98ea3f6a7e060558a42f16",
+  "patch_files": [
+    {
+      "path": "README.md",
+      "sha256": "e989a420e8e368e2d42e13bc031c5a280773e6bb9a222a999e3d62fe366de8f9"
+    },
+    {
+      "path": "config/r3_protocol.json",
+      "sha256": "da1c1ccca55fb1ccecec984c3a5a394c4964f6a22d64bd152560f89acef67e30"
+    },
+    {
+      "path": "docs/BACKEND_BINDING_PROTOCOL.md",
+      "sha256": "327c46818a901048e59fa785da740455b16740c75dd546643989652064f9fc8a"
+    },
+    {
+      "path": "docs/MEASUREMENT_PROTOCOL.md",
+      "sha256": "e4a5270a0f6d257fa224ebf102eadfcc9590abaa274762a0594f59279fd5c007"
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "e989a420e8e368e2d42e13bc031c5a280773e6bb9a222a999e3d62fe366de8f9"
+    },
+    {
+      "path": "docs/SCIENTIFIC_CONTRACT.md",
+      "sha256": "76652dcc42a55acd31efba42d8037de5ce9f7e961865189ef0d6a02fec3ef8bc"
+    },
+    {
+      "path": "docs/STAGE_PLAN.md",
+      "sha256": "8db19ce222a5270815eeda14b7a8530552ebffe626202f9442f1156cd3c782c0"
+    },
+    {
+      "path": "docs/FORMAL_REFINEMENT_A2.md",
+      "sha256": "7840b3e7288455e145b60cd5fd4f4556b80dfde8c635c5d2e11485b121ecfa15"
+    },
+    {
+      "path": "docs/CANONICAL_QUERY_PROFILE_CONTRACT.md",
+      "sha256": "866d3b46862c1750635da8bc86e4547737f6f4e0124b3c918b9ba70a026cf508"
+    },
+    {
+      "path": "docs/EVIDENCE_REALIZABILITY_CONTRACT.md",
+      "sha256": "1bd8d142a62d85dbcfd0ca66924c1299892bbf185dc1b8b19f59225f0f70224b"
+    },
+    {
+      "path": "docs/RELATED_WORK_POSITIONING_A2.md",
+      "sha256": "51107fc643f6f563f3f8d10abbe6bb6ca4d9faf7d314fd1b6386693c24aeaf01"
+    },
+    {
+      "path": "implementation/verify_a2_semantic_refinement.py",
+      "sha256": "a5728ddab41ed028e4bc0ee5d9f4b17f5e5a77f6d68aa44ed7053e62d27e6dce"
+    },
+    {
+      "path": "scripts/30_verify_a2_semantic_refinement.sh",
+      "sha256": "8aa7966d634459a3115fd7ccdcc0de9f7eacf650ee0f254c2510eaf54e8a55d4"
+    }
+  ],
+  "read_only_semantic_dependencies": [
+    {
+      "path": "backend/mcad/query_plan.py",
+      "sha256": "40a492b388c3bf7336add9c881fefde6e14c5cd6a4ad73be76b4d20ba6621309"
+    },
+    {
+      "path": "backend/mcad/mdx_parser.py",
+      "sha256": "1eadee960932e9f207ce0b710344af1898fcf000c7a7fd43c9c21fedabc48e48"
+    },
+    {
+      "path": "backend/mcad/formal_sat.py",
+      "sha256": "93e477b4b3f5fb3386e5604d62dcd64bbe072f5d83cd408ff7d479dd91918b04"
+    },
+    {
+      "path": "backend/mcad/models.py",
+      "sha256": "a76fd8d752941cd9673cbb6dcfae227a3d1f1e7818d70d467868234e884e8b95"
+    },
+    {
+      "path": "backend/ckg/ckg_updater.py",
+      "sha256": "6faaa8b7dea5b682ac9ea6ecf3cf790ff6d7a4c5c56d105a52c4e7acf2ad739d"
+    },
+    {
+      "path": "backend/config/objectives.yaml",
+      "sha256": "61fc085947517e7daf68c2738e0a8d909d5faafa5516537d5454c75112119448"
+    },
+    {
+      "path": "bi-stack/mcad-proxy/execution/adapters/adventureworks_direct_adapter.py",
+      "sha256": "2309899218411ae9513c2f0e03d7a08dd948a7e048f96393a58fd71660548cb2"
+    },
+    {
+      "path": "bi-stack/mcad-proxy/execution/adapters/xmla_mondrian_adapter.py",
+      "sha256": "cf7e23d104f84ae55fd8e080335838410fff33a9bb8319aed03e1b4df21de00d"
+    }
+  ],
+  "resource_claims": "NOT_PROMOTED",
+  "semantic_notes": {
+    "cqp": "SQL and MDX implemented; DAX future target",
+    "metric": "time_to_analytical_objective_completion_ms",
+    "nvac": "report pre-NVAC admissibility and NVAC realizability separately without changing overall gate",
+    "objective_graph": "structural refinement compatible with frozen R1/R2"
+  }
+}

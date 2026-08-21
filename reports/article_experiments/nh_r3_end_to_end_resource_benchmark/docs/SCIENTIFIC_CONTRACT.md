@@ -21,3 +21,67 @@ Inadmissibility (`SAT_FALSE`) remains separate from strategic dispensability.
 R3 claims must be limited to the measured backends, templates, and experimental
 environment. The symbolic R2 evidence atoms are not asserted to be one-to-one
 business equivalents of AdventureWorks cells.
+
+## R3-A2 semantic/novelty refinement
+
+### Paper-level claim boundary
+The paper's core non-human claim is objective-relative analytical completion and
+safe contribution control. R3's specific estimand remains physical work/time
+avoided **conditional on** the frozen semantic decisions and backend embedding.
+
+MCAD constructs the analytical basis prescribed by the instantiated objective.
+The adequacy of that particular objective instantiation to the real business
+need is an upstream validity assumption. Human/organizational decision quality
+is downstream and is not inferred by R3.
+
+### Objective graph mapping
+`O={c_i}` remains the semantic target already used by NH-R1/NH-R2.
+
+`G_O` denotes the structural objective graph. In the current implementation:
+- objective nodes connect to constraint nodes via `HAS_CONSTRAINT`;
+- constraint nodes connect to virtual analytical nodes via `REQUIRES_NV`;
+- alternative sufficient supports are represented by `requirement_sets`
+  containing virtual-node identifiers.
+
+Support sets may be drawn as logical support nodes/hyperedges in the paper, but
+they are not currently materialized as a separate physical CKG node type.
+
+Virtual nodes are therefore **not identical to constraints**. They represent
+analytical realization/calculation points associated with constraints.
+
+### Constraint states
+Current implementation states `none`, `partial`, `total` correspond to:
+`UNRESOLVED`, `PARTIALLY_SUPPORTED`, `COMPUTABLE`.
+
+`ceval()` treats alternative sufficient `requirement_sets` disjunctively.
+Partial-progress reporting currently follows the selected session support
+policy; no broader claim about optimal progress across every alternative support
+is made by R3-A2.
+
+### Canonical Query Profile
+CQP is treated as a major enabling contribution:
+
+> language-agnostic canonicalization of analytical queries for objective-relative semantic reasoning.
+
+The current repository implements SQL and MDX analytical extraction into a
+shared feature vocabulary. DAX is an explicit future target, not current
+experimental support.
+
+### Evidence-realizability
+For scientific exposition, distinguish:
+`semantic admissibility pre-NVAC`
+from
+`evidence realizability/non-vacuity`
+from
+`acquired evidence`
+from
+`contribution`
+from
+`action policy`.
+
+The existing overall SAT/gate outcome is preserved; R3-A2 only makes the
+substructure explicit for reporting and instrumentation.
+
+`NONCONTRIBUTIVE_NOW != SAFE_TO_PRUNE`.
+
+All gate/probe overhead remains included in R3 resource accounting.

@@ -33,7 +33,7 @@
       "sqlserver_cgroup_io_rbytes_delta",
       "sqlserver_cgroup_io_wbytes_delta",
       "response_bytes",
-      "time_to_objective_ms"
+      "time_to_analytical_objective_completion_ms"
     ],
     "secondary_metrics": [
       "sqlserver_statistics_io_logical_reads_if_available",
@@ -41,7 +41,24 @@
       "sqlserver_statistics_time_elapsed_ms_if_available",
       "memory_current_samples_and_memory_time_if_feasible",
       "emondrian_cgroup_cpu_and_io_deltas_for_secondary_path"
-    ]
+    ],
+    "analytical_completion_metric": {
+      "name": "time_to_analytical_objective_completion_ms",
+      "start": "immediately before first candidate policy evaluation after prescribed environment readiness/warm-up",
+      "stop": "first state where C_E^{<=t}(O)=O_req",
+      "includes": [
+        "MCAD gate reasoning",
+        "NVAC/NOVC probes",
+        "full backend executions",
+        "attributable client/backend waiting"
+      ],
+      "excludes": [
+        "container startup",
+        "database restore",
+        "one-time environment preparation",
+        "human decision-making"
+      ]
+    }
   },
   "parent_r2_commit": "21ae791c850c019f07554e006ce9db82e1ac8769",
   "parent_r2_freeze_sha256": "5c1b7e930e92ab11835e3d3cfba7af2a50e9ade281be2e29b04f7f11792bdb1e",
@@ -99,5 +116,21 @@
       "AW_ATOM_COST",
       "AW_ATOM_MARGIN"
     ]
+  },
+  "semantic_refinement_a2": {
+    "objective_graph": "O remains the semantic target; G_O is the structural objective->constraint->virtual-node/support-set projection",
+    "cqp_claim": "language-agnostic canonicalization of analytical queries for objective-relative semantic reasoning",
+    "currently_implemented_cqp_languages": [
+      "sql",
+      "mdx"
+    ],
+    "future_language_target": "dax",
+    "universal_language_support_claim": false,
+    "report_semantic_admissibility_pre_nvac": true,
+    "report_evidence_realizability_nvac": true,
+    "overall_gate_behavior_changed": false,
+    "noncontributive_now_not_safe_to_prune": true,
+    "prune_implies_zero_backend_interaction": false,
+    "binding_change": false
   }
 }
