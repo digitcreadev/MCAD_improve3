@@ -1,0 +1,45 @@
+{
+  "authorization": {
+    "confirmatory_claim_authorized": false,
+    "dev_measured_pilot_authorized": true,
+    "scope": "preregistered NH-R3-B DEV instrumentation pilot only"
+  },
+  "contract_version": "mcad.nh_r3.b2c.dev_pilot_authorization.v1",
+  "frozen_authorities": {
+    "b1_preregistration_sha256": "2a0453d1ae58465d027c43f1792cbb91b60f6df65dc50544274cbbffdfed166f",
+    "b1_schedule_sha256": "6076e70364a55fecaf55bc9a7c2b7ce767ac2562a661c27bafb78f2768544c7e",
+    "b2a1_runtime_sha256": "fb0e12d1e8fe57272135078ce4171b68f8da8231f4a0d355e95b2fe9e572a59a",
+    "b2b_contract_sha256": "2da4a94e45da9476e79012b6b34aeb00df8eee14e98b86337feb4c64dada19cb",
+    "b2b_runner_sha256": "fa4458a212dd88135d4806bcdfbc6e564ddd7daa9fe944653aa187079065761e",
+    "b2b_verifier_sha256": "8b8db8563c9e4813cac3b540bdec8eccc126591dfd9aa0e0335e181206ae70de",
+    "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff"
+  },
+  "historical_artifacts_must_remain_unchanged": true,
+  "operational_transition": {
+    "backend_start_authorized": false,
+    "next_required_gate": "controlled_backend_start_and_nonmeasured_warmup_before_first_measured_arm"
+  },
+  "parent_head": "eb8019c03d1f316ccd834d1b324be2afc4ffde82",
+  "preflight_evidence": {
+    "backend_started_by_preflight": false,
+    "cgroup_readable": null,
+    "container_state_after": "NONE",
+    "container_state_before": "NONE",
+    "container_state_unchanged": true,
+    "contract_version": "mcad.nh_r3.b2b.preflight_readonly.v1",
+    "historical_campaign_artifact_writes": "NONE",
+    "measured_query_executed": false,
+    "plan_arm_runs": 60,
+    "plan_candidate_actions": 1440,
+    "plan_sessions": 20,
+    "repository_mutated_by_preflight": false,
+    "result": "PASS",
+    "sqlserver_container_already_running": false
+  },
+  "scientific_constraints": {
+    "dev_pilot_only": true,
+    "live_gate_may_relabel_frozen_action": false,
+    "resource_saving_claim_authorized": false
+  },
+  "stage": "R3-B2C_DEV_PILOT_AUTHORIZATION"
+}
