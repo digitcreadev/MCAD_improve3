@@ -1,0 +1,48 @@
+{
+  "cgroup": {
+    "cpu_metric": "usage_usec",
+    "cpu_source": "/sys/fs/cgroup/cpu.stat",
+    "io_metrics": [
+      "sum rbytes",
+      "sum wbytes"
+    ],
+    "io_source": "/sys/fs/cgroup/io.stat",
+    "negative_delta_policy": "invalidate_arm_run_never_clamp",
+    "service": "adventureworks-sqlserver"
+  },
+  "confirmatory_claim_authorized": false,
+  "contract_version": "mcad.nh_r3.b2b.resource_runner_contract.v1",
+  "frozen_authorities": {
+    "b1_preregistration_sha256": "2a0453d1ae58465d027c43f1792cbb91b60f6df65dc50544274cbbffdfed166f",
+    "b1_schedule_sha256": "6076e70364a55fecaf55bc9a7c2b7ce767ac2562a661c27bafb78f2768544c7e",
+    "b2a1_runtime_sha256": "fb0e12d1e8fe57272135078ce4171b68f8da8231f4a0d355e95b2fe9e572a59a",
+    "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff"
+  },
+  "historical_runtime_files_must_remain_unchanged": [
+    "bi-stack/docker-compose.yml",
+    "bi-stack/mcad-proxy/Dockerfile",
+    "bi-stack/mcad-proxy/app.py",
+    "bi-stack/mcad-proxy/execution/gateway.py",
+    "bi-stack/mcad-proxy/execution/adapters/adventureworks_direct_adapter.py"
+  ],
+  "measurement_authorized": false,
+  "next_gate": "commit B2b static runner, then explicit live non-measured runtime preflight",
+  "parent_head": "51538eac15b8fe2717a36ff7cb701a66bb694025",
+  "plan": {
+    "action_source": "results/full_sequence_binding.csv",
+    "arm_order_source": "config/r3_b1_arm_order_schedule.csv",
+    "arm_runs": 60,
+    "candidate_actions": 1440,
+    "candidates_per_arm_run": 24,
+    "live_gate_may_relabel_frozen_action": false,
+    "pilot_sessions": 20
+  },
+  "preflight_readonly": {
+    "may_execute_bi_query": false,
+    "may_execute_sql_query": false,
+    "may_read_existing_container_cgroup": true,
+    "may_start_backend": false
+  },
+  "purpose": "Install deterministic pilot planning and cgroup read-only instrumentation without starting a backend or executing a measured query.",
+  "stage": "R3-B2B_STATIC_RUNNER_AND_READONLY_PREFLIGHT"
+}
