@@ -1,0 +1,46 @@
+{
+  "authorization": {
+    "confirmatory_claim_authorized": false,
+    "dev_measured_pilot_authorized": true,
+    "scope": "preregistered NH-R3-B DEV instrumentation pilot only"
+  },
+  "cache_control": {
+    "fresh_mcad_session_for_each_gated_arm": true,
+    "mcad_api_restart_before_every_arm": true,
+    "proxy_remains_running": true,
+    "sqlserver_remains_running_and_warm": true
+  },
+  "contract_version": "mcad.nh_r3.b2e.dev_pilot_executor_contract.v1",
+  "execution": {
+    "candidate_actions": 1440,
+    "gated_arm_runs": 40,
+    "pilot_arm_runs": 60,
+    "pilot_sessions": 20,
+    "ungated_arm_runs": 20
+  },
+  "frozen_authorities": {
+    "b1_preregistration_sha256": "2a0453d1ae58465d027c43f1792cbb91b60f6df65dc50544274cbbffdfed166f",
+    "b1_schedule_sha256": "6076e70364a55fecaf55bc9a7c2b7ce767ac2562a661c27bafb78f2768544c7e",
+    "b2a1_runtime_sha256": "fb0e12d1e8fe57272135078ce4171b68f8da8231f4a0d355e95b2fe9e572a59a",
+    "b2c_authorization_sha256": "78a7c9a92b9b9f1d7dd10821449205bc4bbd7b996c4808aec747df44027180a4",
+    "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff"
+  },
+  "historical_artifacts_must_remain_unchanged": true,
+  "measurement": {
+    "backend_request_count_includes_physical_uncached_nvac_probes": true,
+    "cgroup_snapshots_outside_client_wall_timer": true,
+    "full_execute_endpoint": "/bi/r3/measurement/full-execute",
+    "gate_only_endpoint": "/bi/r3/measurement/gate-only",
+    "live_gate_may_relabel_frozen_action": false,
+    "negative_cgroup_delta_invalidates_arm": true,
+    "output_must_be_outside_repository_during_pilot": true,
+    "time_to_completion_uses_frozen_completion_candidate": true
+  },
+  "operational_gate": {
+    "executor_run_requires_confirmation": "EXECUTE_AUTHORIZED_NH_R3_DEV_PILOT",
+    "measurement_executed_by_static_verification": false,
+    "next_required_gate": "commit_and_publish_executor_before_measured_DEV_pilot"
+  },
+  "parent_head": "4736455d48483021e07fcc5d44a12f55bfeb652b",
+  "stage": "R3-B2E_DEV_PILOT_EXECUTOR_STATIC"
+}
