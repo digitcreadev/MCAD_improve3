@@ -1,0 +1,21 @@
+{
+  "confirmatory_claim_authorized": false,
+  "contract_version": "mcad.nh_r3.b2.legacy_protection.v1",
+  "historical_campaign_paths_untouched": true,
+  "legacy_entrypoint": "app:app",
+  "measurement_authorized": false,
+  "parent_head": "8c328b036c498637aebd877f19160265f29625f7",
+  "protected_legacy_blobs": {
+    "bi-stack/docker-compose.yml": "210d4fbb7d09ef2f4a8ad664f34278fb51185a4e",
+    "bi-stack/mcad-proxy/Dockerfile": "e5d29c88134de88419a1bc4902c5efd7c11a96a4",
+    "bi-stack/mcad-proxy/app.py": "032b5eb8d9fe9f5bc4943b87396d58de1e08f309",
+    "bi-stack/mcad-proxy/execution/adapters/adventureworks_direct_adapter.py": "e8e980e03904a4a418028a4edaabe1b82e56ba13",
+    "bi-stack/mcad-proxy/execution/gateway.py": "d3a92ebe9fc417758c2865c43cba4af9d1ed9d03"
+  },
+  "r3_entrypoint": "r3_measurement_app:app",
+  "r3_only_files": {
+    "bi-stack/docker-compose.r3-b2.override.yml": "7d3d06665ff4a793db8b673a6127d6a19e37958679f76d4b06bc9e812f3c6269",
+    "bi-stack/mcad-proxy/Dockerfile.r3-b2": "63fa970f77f62b3bf9a2319827df17677eb0e8fd2f30c664c1f08962ab0863f0",
+    "bi-stack/mcad-proxy/r3_measurement_app.py": "ff9a015b1a9f160187ae4a03510499b03b5a1c5fb2fb909822f83c49aca29a26"
+  }
+}
