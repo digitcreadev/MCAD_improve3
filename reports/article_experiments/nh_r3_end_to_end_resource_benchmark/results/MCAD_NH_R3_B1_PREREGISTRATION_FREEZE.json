@@ -1,0 +1,27 @@
+{
+  "backend_execution_performed": false,
+  "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff",
+  "contract_version": "mcad.nh_r3.b1.preregistration_freeze.v1",
+  "measurement_authorized": false,
+  "next_station": "R3-B1 runtime implementation and non-measured preflight",
+  "parent_head": "32624aa76d91f38086fe101771be139400140f1c",
+  "preregistered_files": [
+    {
+      "bytes": 6511,
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_b1_measurement_preregistration.json",
+      "sha256": "2a0453d1ae58465d027c43f1792cbb91b60f6df65dc50544274cbbffdfed166f"
+    },
+    {
+      "bytes": 4023,
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_b1_arm_order_schedule.csv",
+      "sha256": "6076e70364a55fecaf55bc9a7c2b7ce767ac2562a661c27bafb78f2768544c7e"
+    },
+    {
+      "bytes": 4957,
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/docs/R3_B1_MEASUREMENT_PREREGISTRATION.md",
+      "sha256": "8b4d326e66eb8438d509822f1cd06aad031fbf785fd3d377461d96e18cac31ec"
+    }
+  ],
+  "r3a1_freeze_sha256": "e5d8e6857a22962623aa483eeb92f60cb66aac1e8e98ea3f6a7e060558a42f16",
+  "r3a2_freeze_sha256": "51cf6cd77cc033c1bd99e3c897378e79c3a58f3a6c4d66549403feba306cd23a"
+}

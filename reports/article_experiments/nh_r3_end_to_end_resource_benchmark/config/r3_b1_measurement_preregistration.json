@@ -1,0 +1,142 @@
+{
+  "arms": {
+    "PERMISSIVE_GATED": {
+      "completion_boundary": "PERMISSIVE",
+      "full_backend_rule": "execute iff frozen class != INADMISSIBLE",
+      "gate_result_action_authority": false,
+      "run_gate": true
+    },
+    "SAFE_PRUNING": {
+      "completion_boundary": "SAFE_PRUNING",
+      "full_backend_rule": "execute iff frozen operational_action in {EXECUTE, EXECUTE_FAIL_OPEN}",
+      "gate_result_action_authority": false,
+      "inadmissible_rule": "frozen operational_action == REJECT_INADMISSIBLE suppresses full backend execution",
+      "prune_rule": "frozen operational_action == PRUNE suppresses full backend execution only",
+      "run_gate": true
+    },
+    "UNGATED_EXECUTE_ADMISSIBLE": {
+      "completion_boundary": "PERMISSIVE",
+      "full_backend_rule": "execute iff frozen class != INADMISSIBLE",
+      "run_gate": false,
+      "run_nvac_via_gate": false
+    }
+  },
+  "authorization": {
+    "measured_pilot_authorized": false,
+    "next_required_step": "implement_and_audit_R3_B_measurement_runtime_before_any_measured_query"
+  },
+  "backend_request_accounting": {
+    "backend_request_count_including_gate_probes": "full physical SQL executions + uncached physical NVAC probe SQL executions",
+    "cache_hit_counts_as_backend_request": false,
+    "gate_evaluation_count": "reported separately",
+    "gate_http_call_counts_as_backend_request": false,
+    "nvac_physical_probe_rule": "count only when probe_attempted=true AND cache_hit!=true AND raw_probe_summary.physical_execution=true",
+    "response_bytes": "sum physical full-query response_bytes plus physical uncached NVAC probe response_bytes"
+  },
+  "cache_control": {
+    "effect_based_reruns": false,
+    "mcad_api": "restart before every arm run outside measured interval",
+    "proxy": "remains_running; create a fresh MCAD session for each gated arm",
+    "reason": "clear process-local NVAC probe cache and equalize gate initial state",
+    "sqlserver": "remains_running_and_warm_for_primary_pilot"
+  },
+  "completion": {
+    "boundary_source_permissive": "R2 session_summary.first_full_phi_candidate_permissive",
+    "boundary_source_safe": "R2 session_summary.first_full_phi_candidate_safe",
+    "boundary_source_ungated": "PERMISSIVE frozen completion candidate",
+    "equivalent_condition": "C_E^{<=t}(O)=O_req",
+    "formal_rule": "first candidate after arm action where frozen phi_after >= 1.0",
+    "live_mcad_phi_is_completion_authority": false,
+    "safe_and_permissive_candidate_equal_for_all_20_dev_sessions": true,
+    "stop_timestamp": "immediately after all required gate/probe/full-backend work for the frozen completion candidate has completed"
+  },
+  "contract_version": "mcad.nh_r3.b1.measurement_preregistration.v1",
+  "measurement_runtime_contract": {
+    "full_execute_contract": {
+      "adapter": "adventureworks_direct",
+      "allow_fallback": false,
+      "calls_execution_gateway": true,
+      "calls_mcad_eval": false,
+      "updates_CKG": false,
+      "warehouse_id": "adventureworks_sql_direct"
+    },
+    "gate_only_contract": {
+      "calls_mcad_eval": true,
+      "executes_full_candidate_query": false,
+      "may_trigger_real_nvac_probe": true,
+      "updates_full_result_CKG": false
+    },
+    "implementation_status": "NOT_IMPLEMENTED_AT_PREREGISTRATION",
+    "required_full_execute_endpoint": "/bi/r3/measurement/full-execute",
+    "required_gate_only_endpoint": "/bi/r3/measurement/gate-only"
+  },
+  "parent": {
+    "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff",
+    "git_head": "32624aa76d91f38086fe101771be139400140f1c",
+    "r3a1_freeze_sha256": "e5d8e6857a22962623aa483eeb92f60cb66aac1e8e98ea3f6a7e060558a42f16",
+    "r3a2_freeze_sha256": "51cf6cd77cc033c1bd99e3c897378e79c3a58f3a6c4d66549403feba306cd23a"
+  },
+  "pilot": {
+    "arm_runs": 60,
+    "candidates_per_session": 24,
+    "confirmatory_claim_authorized": false,
+    "frozen_candidate_rows": 480,
+    "semantic_sessions": 20
+  },
+  "randomization": {
+    "method": "seeded deterministic balanced permutation schedule",
+    "position_balance_max_difference": 1,
+    "schedule_file": "config/r3_b1_arm_order_schedule.csv",
+    "schedule_sha256": "6076e70364a55fecaf55bc9a7c2b7ce767ac2562a661c27bafb78f2768544c7e",
+    "seed_material": "MCAD-NH-R3|R3-B1|arm-order|a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff|51cf6cd77cc033c1bd99e3c897378e79c3a58f3a6c4d66549403feba306cd23a|32624aa76d91f38086fe101771be139400140f1c",
+    "seed_sha256": "2c5986a4c5846bd17802869bc2302ad8edad82dcf0b3d7d8b57096546b885f8f"
+  },
+  "scientific_authority": {
+    "live_gate_divergence": "record_but_do_not_change_frozen_action",
+    "live_gate_may_relabel_frozen_action": false,
+    "live_mcad_gate_role": "measurement_of_gate_and_NVAC_overhead_only",
+    "r3_binding_authority": "full_sequence_binding.csv",
+    "semantic_action_authority": "frozen_NH_R2_SAFE_PRUNING_rows"
+  },
+  "secondary_metrics": {
+    "absence_does_not_block_dev_pilot": true,
+    "memory_current": "feasibility_only_at_R3_B_dev",
+    "statistics_io_time": "optional_if_instrumentable_without_changing_primary_execution_semantics"
+  },
+  "sqlserver_cgroup": {
+    "container_service": "adventureworks-sqlserver",
+    "cpu_metric": "usage_usec delta",
+    "cpu_source": "/sys/fs/cgroup/cpu.stat",
+    "io_metrics": [
+      "sum rbytes delta",
+      "sum wbytes delta"
+    ],
+    "io_source": "/sys/fs/cgroup/io.stat",
+    "negative_delta_policy": "invalidate arm run; never clamp to zero",
+    "snapshot_after_arm": "outside client wall timer",
+    "snapshot_before_arm": "outside client wall timer"
+  },
+  "stage": "R3-B1_PREREGISTRATION_BEFORE_DEV_MEASUREMENT",
+  "station": "MCAD-NH-R3",
+  "timing": {
+    "client_wall_ns": {
+      "instrumentation_snapshots_included": false,
+      "start": "immediately before candidate 1 arm logic",
+      "stop": "immediately after candidate 24 arm logic"
+    },
+    "time_to_analytical_objective_completion_ms": {
+      "container_startup_included": false,
+      "database_restore_included": false,
+      "human_time_included": false,
+      "start": "same timestamp as client_wall_ns start",
+      "stop": "after required work for frozen completion candidate"
+    }
+  },
+  "warmup": {
+    "backend": "adventureworks_sql_direct",
+    "measured": false,
+    "repetitions": 1,
+    "rule": "execute every unique frozen R3 MDX template once in lexicographic template_id order using direct backend-only execution",
+    "sqlserver_restart_after_warmup": false
+  }
+}
