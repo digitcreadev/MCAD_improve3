@@ -11,7 +11,7 @@ from fastapi.responses import JSONResponse
 import app as legacy
 
 
-R3_MEASUREMENT_CONTRACT = "mcad.nh_r3.b2.measurement_runtime.v1"
+R3_MEASUREMENT_CONTRACT = "mcad.nh_r3.b2.measurement_runtime.v1.1"
 R3_FIXED_DW_ID = "adventureworks_sql_direct"
 R3_FIXED_ADAPTER_ID = "adventureworks_direct"
 
@@ -67,10 +67,47 @@ def _r3_eval_payload(fields: dict[str, Any], payload: dict[str, Any]) -> dict[st
     return out
 
 
+def _r3_get_path(value: Any, *keys: str) -> Any:
+    cur = value
+    for key in keys:
+        if not isinstance(cur, dict):
+            return None
+        cur = cur.get(key)
+    return cur
+
+
+def _r3_canonical_nvac_evidence(decision: dict[str, Any]) -> tuple[dict[str, Any], str]:
+    """Return one canonical nvac_ok evidence object from a live /eval response.
+
+    MCAD deliberately exposes the same formal SAT evidence in more than one
+    representation (for example details.sat_evidence.nvac_ok and
+    details.nvac_evidence).  Those are aliases of one probe event, not multiple
+    backend requests.  R3 accounting therefore selects one canonical evidence
+    path before counting physical work.
+    """
+    candidates = (
+        (("details", "nvac_evidence"), "details.nvac_evidence"),
+        (("nvac_evidence",), "nvac_evidence"),
+        (("details", "sat_evidence", "nvac_ok"), "details.sat_evidence.nvac_ok"),
+        (("sat_evidence", "nvac_ok"), "sat_evidence.nvac_ok"),
+        (("details", "graph_update", "nvac_evidence"), "details.graph_update.nvac_evidence"),
+        (("graph_update", "nvac_evidence"), "graph_update.nvac_evidence"),
+    )
+    for path, label in candidates:
+        evidence = _r3_get_path(decision, *path)
+        if isinstance(evidence, dict) and evidence:
+            return evidence, label
+    return decision if isinstance(decision, dict) else {}, "recursive_fallback"
+
+
 def _r3_probe_records(value: Any):
     if isinstance(value, dict):
         if "probe_attempted" in value or "raw_probe_summary" in value:
             yield value
+            return
+        probe = value.get("probe")
+        if isinstance(probe, dict):
+            yield from _r3_probe_records(probe)
             return
         for nested in value.values():
             yield from _r3_probe_records(nested)
@@ -79,8 +116,41 @@ def _r3_probe_records(value: Any):
             yield from _r3_probe_records(nested)
 
 
+def _r3_probe_identity(rec: dict[str, Any]) -> tuple[Any, ...]:
+    raw = rec.get("raw_probe_summary")
+    raw = raw if isinstance(raw, dict) else {}
+    return (
+        bool(rec.get("probe_attempted")),
+        bool(rec.get("cache_hit")),
+        rec.get("probe_url"),
+        rec.get("probe_query"),
+        rec.get("probe_measure"),
+        rec.get("elapsed_ms"),
+        rec.get("non_empty"),
+        rec.get("count"),
+        raw.get("response_digest") or raw.get("result_digest"),
+        raw.get("response_bytes"),
+        raw.get("elapsed_ms"),
+        raw.get("generated_sql"),
+        raw.get("adapter_id"),
+        raw.get("dw_id"),
+        bool(raw.get("physical_execution")),
+    )
+
+
 def _r3_nvac_accounting(decision: dict[str, Any]) -> dict[str, Any]:
-    records = list(_r3_probe_records(decision))
+    evidence, evidence_source = _r3_canonical_nvac_evidence(decision)
+    represented_records = list(_r3_probe_records(evidence))
+
+    records: list[dict[str, Any]] = []
+    seen: set[tuple[Any, ...]] = set()
+    for rec in represented_records:
+        identity = _r3_probe_identity(rec)
+        if identity in seen:
+            continue
+        seen.add(identity)
+        records.append(rec)
+
     attempted = 0
     cache_hits = 0
     physical = 0
@@ -127,7 +197,10 @@ def _r3_nvac_accounting(decision: dict[str, Any]) -> dict[str, Any]:
         )
 
     return {
+        "canonical_evidence_source": evidence_source,
+        "represented_probe_record_count": len(represented_records),
         "probe_record_count": len(records),
+        "duplicate_probe_representation_count": len(represented_records) - len(records),
         "probe_attempted_count": attempted,
         "cache_hit_count": cache_hits,
         "physical_uncached_probe_count": physical,

@@ -6,8 +6,9 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+from typing import Any
 
-PARENT = "8c328b036c498637aebd877f19160265f29625f7"
+BASE_PARENT = "8c328b036c498637aebd877f19160265f29625f7"
 BRANCH = "paper/nh-r3-end-to-end-resource-benchmark-20260820T193919Z"
 R3_REL = Path("reports/article_experiments/nh_r3_end_to_end_resource_benchmark")
 EXPECTED_B1 = {
@@ -26,8 +27,16 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
 def git(*args: str, cwd: Path) -> str:
     return subprocess.check_output(["git", *args], cwd=cwd, text=True).strip()
+
+
+def git_bytes(*args: str, cwd: Path) -> bytes:
+    return subprocess.check_output(["git", *args], cwd=cwd)
 
 
 def fn_source(tree: ast.AST, source: str, name: str) -> str:
@@ -41,15 +50,109 @@ def fn_source(tree: ast.AST, source: str, name: str) -> str:
     return ""
 
 
+def extract_helper_functions(tree: ast.Module, names: set[str]) -> dict[str, Any]:
+    selected: list[ast.stmt] = []
+    found: set[str] = set()
+    for node in tree.body:
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name in names:
+            selected.append(node)
+            found.add(node.name)
+    missing = names - found
+    if missing:
+        fail("accounting_helper_missing:" + ",".join(sorted(missing)))
+    module = ast.Module(body=selected, type_ignores=[])
+    ast.fix_missing_locations(module)
+    ns: dict[str, Any] = {"Any": Any}
+    exec(compile(module, "<r3-accounting-unit>", "exec"), ns, ns)
+    return ns
+
+
+def verify_nvac_accounting_unit(tree: ast.Module) -> None:
+    helpers = extract_helper_functions(
+        tree,
+        {
+            "_r3_get_path",
+            "_r3_canonical_nvac_evidence",
+            "_r3_probe_records",
+            "_r3_probe_identity",
+            "_r3_nvac_accounting",
+        },
+    )
+    accounting = helpers["_r3_nvac_accounting"]
+
+    raw = {
+        "physical_execution": True,
+        "response_bytes": 321,
+        "elapsed_ms": 9,
+        "response_digest": "sha256:probe-one",
+        "generated_sql": "SELECT 1",
+        "adapter_id": "adventureworks_direct",
+        "dw_id": "adventureworks_sql_direct",
+    }
+    probe = {
+        "probe_attempted": True,
+        "cache_hit": False,
+        "probe_url": "http://mcad-proxy:9000/bi/nvac-probe",
+        "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW]",
+        "probe_measure": "SalesAmount",
+        "elapsed_ms": 11,
+        "non_empty": True,
+        "count": 1,
+        "raw_probe_summary": raw,
+    }
+    evidence = {"probe": probe}
+    # The MCAD response deliberately aliases the same formal evidence under
+    # sat_evidence.nvac_ok and nvac_evidence (and may also expose graph_update).
+    duplicate_response = {
+        "details": {
+            "sat_evidence": {"nvac_ok": evidence},
+            "nvac_evidence": evidence,
+            "graph_update": {"nvac_evidence": evidence},
+        }
+    }
+    out = accounting(duplicate_response)
+    if out.get("canonical_evidence_source") != "details.nvac_evidence":
+        fail("nvac_canonical_source_wrong")
+    if out.get("physical_uncached_probe_count") != 1:
+        fail("nvac_duplicate_representation_double_count")
+    if out.get("backend_request_count_including_gate_probes") != 1:
+        fail("nvac_backend_request_count_wrong")
+    if out.get("physical_uncached_probe_response_bytes") != 321:
+        fail("nvac_response_bytes_wrong")
+
+    cache_probe = dict(probe)
+    cache_probe["cache_hit"] = True
+    cache_out = accounting({"details": {"nvac_evidence": {"probe": cache_probe}}})
+    if cache_out.get("physical_uncached_probe_count") != 0:
+        fail("nvac_cache_hit_counted_as_physical")
+    if cache_out.get("physical_uncached_probe_response_bytes") != 0:
+        fail("nvac_cache_hit_bytes_counted")
+
+    none_out = accounting({"details": {"nvac_evidence": {"probe_attempted": False}}})
+    if none_out.get("physical_uncached_probe_count") != 0:
+        fail("nvac_nonprobe_counted")
+
+    print("nvac_alias_representation_single_count=PASS")
+    print("nvac_cache_hit_zero_physical_count=PASS")
+    print("nvac_accounting_unit=PASS")
+
+
 def main() -> None:
     repo = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parents[4]
     r3 = repo / R3_REL
-    protection = json.loads((r3 / "config/r3_b2_legacy_protection.json").read_text(encoding="utf-8"))
+    protection_path = r3 / "config/r3_b2_legacy_protection.json"
+    protection = json.loads(protection_path.read_text(encoding="utf-8"))
 
     if git("branch", "--show-current", cwd=repo) != BRANCH:
         fail("branch_changed")
-    if git("rev-parse", "HEAD", cwd=repo) != PARENT:
-        fail("parent_head_changed")
+    if subprocess.run(
+        ["git", "merge-base", "--is-ancestor", BASE_PARENT, "HEAD"],
+        cwd=repo,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    ).returncode != 0:
+        fail("b1_parent_not_ancestor")
+    print("b1_parent_ancestor=PASS")
 
     for rel, expected in EXPECTED_B1.items():
         p = r3 / rel
@@ -69,8 +172,14 @@ def main() -> None:
         fail("live_gate_relabel_became_authorized")
     print("b1_scientific_authority=PASS")
 
-    if protection.get("parent_head") != PARENT or protection.get("measurement_authorized") is not False:
+    if protection.get("parent_head") != BASE_PARENT or protection.get("measurement_authorized") is not False:
         fail("legacy_protection_contract_invalid")
+    nvac_contract = protection.get("nvac_accounting") if isinstance(protection.get("nvac_accounting"), dict) else {}
+    if nvac_contract.get("alias_representations_count_as_one_physical_probe") is not True:
+        fail("nvac_alias_dedup_contract_missing")
+    if nvac_contract.get("representation_deduplication_required") is not True:
+        fail("nvac_representation_dedup_not_required")
+    print("nvac_accounting_contract=PASS")
 
     for rel, expected_blob in protection["protected_legacy_blobs"].items():
         actual_blob = git("hash-object", rel, cwd=repo)
@@ -85,13 +194,34 @@ def main() -> None:
     subprocess.run(["git", "diff", "--exit-code", "--", *protected], cwd=repo, check=True, stdout=subprocess.DEVNULL)
     print("protected_legacy_worktree_diff=NONE")
 
+    versioning_states: list[str] = []
     for rel, expected_sha in protection["r3_only_files"].items():
         p = repo / rel
         if not p.is_file() or sha256(p) != expected_sha:
             fail(f"r3_only_file_changed:{rel}")
-        if subprocess.run(["git", "cat-file", "-e", f"HEAD:{rel}"], cwd=repo, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0:
-            fail(f"r3_only_file_already_in_parent:{rel}")
-        print(f"r3_only_{rel.replace('/', '_')}=PASS")
+
+        tracked = subprocess.run(
+            ["git", "cat-file", "-e", f"HEAD:{rel}"],
+            cwd=repo,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ).returncode == 0
+        if tracked:
+            head_sha = sha256_bytes(git_bytes("show", f"HEAD:{rel}", cwd=repo))
+            if head_sha == expected_sha:
+                state = "COMMITTED"
+            else:
+                changed = subprocess.run(
+                    ["git", "diff", "HEAD", "--quiet", "--", rel],
+                    cwd=repo,
+                ).returncode != 0
+                if not changed:
+                    fail(f"r3_only_head_hash_mismatch_without_worktree_patch:{rel}")
+                state = "WORKTREE_PATCH"
+        else:
+            state = "UNTRACKED_PRECOMMIT"
+        versioning_states.append(state)
+        print(f"r3_only_{rel.replace('/', '_')}=PASS state={state}")
 
     runtime = repo / "bi-stack/mcad-proxy/r3_measurement_app.py"
     source = runtime.read_text(encoding="utf-8")
@@ -125,6 +255,8 @@ def main() -> None:
     print("gate_only_separation=PASS")
     print("full_execute_separation=PASS")
 
+    verify_nvac_accounting_unit(tree)
+
     legacy_docker = (repo / "bi-stack/mcad-proxy/Dockerfile").read_text(encoding="utf-8")
     expected_r3_docker = legacy_docker.replace(
         "COPY app.py /app/app.py\n",
@@ -152,6 +284,7 @@ def main() -> None:
         fail("legacy_entrypoint_in_r3_override")
     print("isolated_r3_compose_override=PASS")
 
+    print("r3_runtime_versioning_states=" + ",".join(sorted(set(versioning_states))))
     print("historical_campaign_runtime_untouched=true")
     print("backend_started_by_verifier=false")
     print("measured_query_executed=false")

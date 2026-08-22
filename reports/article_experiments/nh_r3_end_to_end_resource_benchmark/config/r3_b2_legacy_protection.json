@@ -1,6 +1,6 @@
 {
   "confirmatory_claim_authorized": false,
-  "contract_version": "mcad.nh_r3.b2.legacy_protection.v1",
+  "contract_version": "mcad.nh_r3.b2.legacy_protection.v1.1",
   "historical_campaign_paths_untouched": true,
   "legacy_entrypoint": "app:app",
   "measurement_authorized": false,
@@ -16,6 +16,19 @@
   "r3_only_files": {
     "bi-stack/docker-compose.r3-b2.override.yml": "7d3d06665ff4a793db8b673a6127d6a19e37958679f76d4b06bc9e812f3c6269",
     "bi-stack/mcad-proxy/Dockerfile.r3-b2": "63fa970f77f62b3bf9a2319827df17677eb0e8fd2f30c664c1f08962ab0863f0",
-    "bi-stack/mcad-proxy/r3_measurement_app.py": "ff9a015b1a9f160187ae4a03510499b03b5a1c5fb2fb909822f83c49aca29a26"
+    "bi-stack/mcad-proxy/r3_measurement_app.py": "fb0e12d1e8fe57272135078ce4171b68f8da8231f4a0d355e95b2fe9e572a59a"
+  },
+  "nvac_accounting": {
+    "alias_representations_count_as_one_physical_probe": true,
+    "canonical_evidence_priority": [
+      "details.nvac_evidence",
+      "nvac_evidence",
+      "details.sat_evidence.nvac_ok",
+      "sat_evidence.nvac_ok",
+      "details.graph_update.nvac_evidence",
+      "graph_update.nvac_evidence"
+    ],
+    "physical_probe_rule": "probe_attempted=true AND cache_hit!=true AND raw_probe_summary.physical_execution=true",
+    "representation_deduplication_required": true
   }
 }
