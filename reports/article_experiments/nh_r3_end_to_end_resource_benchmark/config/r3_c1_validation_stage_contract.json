@@ -1,0 +1,94 @@
+{
+  "arm_order_randomization": {
+    "algorithm": "six deterministic hash-ordered complete cycles of all 3! permutations, followed by the lexicographically minimal SHA-256-ranked ordered 4-permutation tail among tails preserving per-position max imbalance <= 1",
+    "method": "deterministic_seeded_balanced_permutation_schedule_v1",
+    "position_balance_max_difference": 1,
+    "schedule_file": "config/r3_c1_arm_order_schedule.csv",
+    "schedule_sha256": "4aede87cb911e5ce9baf0f372c011eb6435a6fd1f3411529577ccdbfe5ab6b70",
+    "seed_material": "MCAD-NH-R3|R3-C1|arm-order|a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff|51cf6cd77cc033c1bd99e3c897378e79c3a58f3a6c4d66549403feba306cd23a|94f4dc0ad7d07eaac8d2d2f7583117aaf79c5e03cabb2560f156418f04569da6",
+    "seed_sha256": "b66d344968cfa632afc25025b772c49eb8d03bc60ec631c26db703740e730462"
+  },
+  "arms": [
+    "UNGATED_EXECUTE_ADMISSIBLE",
+    "PERMISSIVE_GATED",
+    "SAFE_PRUNING"
+  ],
+  "authorization": {
+    "backend_query_authorized": false,
+    "confirmatory_claim_authorized": false,
+    "docker_or_service_mutation_authorized": false,
+    "measurement_authorized": false,
+    "next_required_gate": "R3-C2 validation executor static equivalence plus isolated-runtime preflight before any R3-C measured arm"
+  },
+  "completion_authority": {
+    "live_mcad_phi_is_completion_authority": false,
+    "permissive_column": "first_full_phi_candidate_permissive",
+    "safe_column": "first_full_phi_candidate_safe",
+    "source": "frozen NH-R2 results/session_summary.csv",
+    "ungated_boundary": "PERMISSIVE frozen completion candidate"
+  },
+  "contract_version": "mcad.nh_r3.c1.validation_stage_freeze.v1",
+  "dev_result_firewall": {
+    "b2m_role": "historical DEV instrumentation observation only",
+    "may_change_completion_boundary": false,
+    "may_change_primary_estimands": false,
+    "may_choose_arm_order": false,
+    "may_choose_validation_cohort": false,
+    "may_tune_effect_size": false
+  },
+  "frozen_scientific_authorities": {
+    "b1_preregistration_sha256": "2a0453d1ae58465d027c43f1792cbb91b60f6df65dc50544274cbbffdfed166f",
+    "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff",
+    "calibration_val_sessions_git_blob": "454a3110c9935aef3cb180098ac8d56ff7d9e7bd",
+    "calibration_val_sessions_sha256": "94f4dc0ad7d07eaac8d2d2f7583117aaf79c5e03cabb2560f156418f04569da6",
+    "full_sequence_binding_git_blob": "ce3930949b3991cc1af346b01f559f0a9a2798a5",
+    "r2_session_summary_git_blob": "00f5c92d4f06ce1092f49546088bc3461e3e752e",
+    "r3a1_freeze_sha256": "e5d8e6857a22962623aa483eeb92f60cb66aac1e8e98ea3f6a7e060558a42f16",
+    "r3a2_freeze_sha256": "51cf6cd77cc033c1bd99e3c897378e79c3a58f3a6c4d66549403feba306cd23a"
+  },
+  "historical_artifacts_must_remain_unchanged": true,
+  "parent_published_checkpoint": {
+    "branch": "paper/nh-r3-end-to-end-resource-benchmark-20260820T193919Z",
+    "checkpoint": "B2m_DEV_descriptive_analysis",
+    "head": "11d5c1128e13f30125299c1fa8719e5a0abc48bf"
+  },
+  "scientific_reuse": {
+    "binding_change_allowed": false,
+    "effect_size_tuning_allowed": false,
+    "frozen_full_execute_rule_source": "implementation/r3_resource_runner.py::frozen_full_execute_rule",
+    "frozen_gate_rule_source": "implementation/r3_resource_runner.py::frozen_gate_rule",
+    "live_gate_may_relabel_frozen_action": false,
+    "reimplementation_of_safe_pruning_semantics_allowed": false,
+    "scientific_redesign_allowed": false
+  },
+  "stage": "R3-C_VALIDATION_CALIBRATION",
+  "static_plan": {
+    "arm_runs": 120,
+    "candidate_actions": 2880,
+    "gated_arm_runs": 80,
+    "path": "implementation/r3_c1_validation_plan.py",
+    "planned_api_restarts": 120,
+    "planned_fresh_gated_sessions": 80,
+    "planned_gate_evaluations": 1920,
+    "semantic_sessions": 40,
+    "sha256": "76d44e02ae57edd5caa570833e02f65bbabaf361c8e7da6c3c089f6cf065a551",
+    "ungated_arm_runs": 40
+  },
+  "station": "MCAD-NH-R3",
+  "validation_cohort": {
+    "candidates_per_session": 24,
+    "expected_replicates": [
+      "R031",
+      "R032"
+    ],
+    "frozen_candidate_rows": 960,
+    "overlap_with_confirmatory_test": 0,
+    "overlap_with_dev": 0,
+    "selection_role": "CALIBRATION_NO_EFFECT_TUNING",
+    "selection_rule": "2 lexicographically first sessions per (topology,pattern) stratum",
+    "semantic_sessions": 40,
+    "sessions_per_stratum": 2,
+    "split": "val",
+    "strata": 20
+  }
+}
