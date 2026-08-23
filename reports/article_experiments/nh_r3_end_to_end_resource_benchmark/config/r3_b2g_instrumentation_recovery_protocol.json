@@ -1,0 +1,74 @@
+{
+  "contract_version": "mcad.nh_r3.b2g.instrumentation_recovery.v1",
+  "fresh_attempt_policy": {
+    "arm_runs": 60,
+    "candidate_actions": 1440,
+    "full_pilot_restart_from_ordinal_1": true,
+    "import_frozen_objective_into_isolated_mcad_data_dir": true,
+    "outputs_outside_repository": true,
+    "pilot_sessions": 20,
+    "proxy_persistent_between_warmup_and_measurement": true,
+    "requires_explicit_execution_token": "EXECUTE_AUTHORIZED_NH_R3_DEV_PILOT",
+    "restart_sqlserver_before_attempt_local_warmup": true,
+    "sqlserver_restart_after_warmup": false,
+    "verify_persistence_after_mcad_api_restart": true,
+    "warmup_measured": false,
+    "warmup_repetitions_per_template": 1,
+    "warmup_unique_templates": 7
+  },
+  "incident": {
+    "abort_detail": "Unknown objective_id=O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+    "abort_evidence_archive_sha256": "4bba2a3c6095d1a7e703b5652ae6cd0da2886ea1163e40707c022bced5db41b4",
+    "abort_evidence_archive_size": 17745,
+    "abort_http_status": 404,
+    "abort_signature": "UNKNOWN_OBJECTIVE_ON_FIRST_GATED_ARM",
+    "attempt_label": "NH-R3-B2f-v4",
+    "completed_arm": "UNGATED_EXECUTE_ADMISSIBLE",
+    "completed_arm_ordinals": [
+      1
+    ],
+    "completed_arm_runs": 1,
+    "completed_gated_arm_runs": 0,
+    "measured_execution_started": true,
+    "partial_receipt_sha256": "2c2662f0f797863062b713d5354aed99c72462f554cf9187289fc6e2ddbd5042",
+    "pilot_summary_present": false
+  },
+  "parent_head": "fda8fef788741f44afca0ae1816849ab4abbc212",
+  "repair": {
+    "binding_modified": false,
+    "bootstrap_before_measured_interval": true,
+    "bootstrap_source_is_read_only_historical_payload": true,
+    "control_plane_only": true,
+    "executor_modified": false,
+    "historical_files_modified": false,
+    "import_endpoint": "/objectives/import",
+    "measurement_formulas_modified": false,
+    "objective_semantics_modified": false,
+    "persistence_file_relative_to_mcad_data_dir": "imported_objectives.json",
+    "schedule_modified": false,
+    "templates_modified": false,
+    "verify_objective_persists_across_mcad_api_restart_before_measurement": true
+  },
+  "root_cause": {
+    "failure_mechanism": "MCAD_OBJECTIVE_ID_DEFAULT selected the identifier but did not import its objective definition into mcad-api DATA_DIR",
+    "fallback_startup_yaml": "backend/config/objectives.yaml",
+    "frozen_objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+    "objective_import_payload": "bi-stack/objectives/objective_adventureworks_sales_margin_territory_month.json",
+    "objective_import_payload_git_blob": "82ad0cbe911a668e0638aee8ceb6453c784dbc37",
+    "objective_present_in_fallback_startup_yaml": false,
+    "objective_present_in_import_payload": true,
+    "objective_present_in_primary_startup_yaml": false,
+    "primary_startup_yaml": "backend/objectives.yaml"
+  },
+  "scientific_disposition": {
+    "aborted_attempt_excluded_from_all_effect_estimation": true,
+    "aborted_attempt_must_not_be_merged_with_recovery_attempt": true,
+    "confirmatory_claim_authorized": false,
+    "dev_instrumentation_only": true,
+    "effect_based_rerun": false,
+    "frozen_workload_and_action_authorities_unchanged": true,
+    "rerun_reason": "deterministic control-plane configuration defect detected before any gated arm completed",
+    "resource_saving_claim_authorized": false
+  },
+  "stage": "R3-B2G_DEV_INSTRUMENTATION_ABORT_RECOVERY"
+}
