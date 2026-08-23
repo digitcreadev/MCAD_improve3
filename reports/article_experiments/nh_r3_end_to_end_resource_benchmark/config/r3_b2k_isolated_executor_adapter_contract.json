@@ -1,0 +1,91 @@
+{
+  "adapter_scope": {
+    "adapter_may_not_reimplement_scientific_loop": true,
+    "compose_file": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_isolated_runtime.compose.yml",
+    "compose_project": "mcad-r3-rerun1",
+    "frozen_executor_dry_run_called_directly": true,
+    "frozen_executor_run_pilot_called_directly": true,
+    "mcad_api_service": "r3-mcad-api",
+    "mcad_host_base": "http://127.0.0.1:18000",
+    "patches_only": [
+      "executor.compose_cmd",
+      "executor.MCAD_API_SERVICE",
+      "executor.SQLSERVICE",
+      "executor.PROXY_SERVICE",
+      "executor.import_static_runner -> returned static_runner.read_sqlserver_cgroup_snapshot"
+    ],
+    "proxy_host_base": "http://127.0.0.1:19000",
+    "sql_cgroup_target": "r3-sqlserver",
+    "sqlserver_service": "r3-sqlserver",
+    "type": "operational-routing monkeypatch around frozen executor"
+  },
+  "authorization": {
+    "confirmatory_claim_authorized": false,
+    "database_restore_authorized_by_this_checkpoint": false,
+    "docker_commands_authorized_by_this_checkpoint": false,
+    "measured_execution_authorized_by_this_checkpoint": false,
+    "next_gate": "isolated runtime preparation + objective bootstrap + DB restore + warmup + measured pilot macro-station after adapter publication",
+    "objective_import_authorized_by_this_checkpoint": false,
+    "service_mutation_authorized_by_this_checkpoint": false,
+    "static_adapter_checkpoint_only": true,
+    "warmup_authorized_by_this_checkpoint": false
+  },
+  "b2j_clone_creation_evidence": {
+    "archive_sha256": "66f3004b55da6cb2ee77daf495a2488b92bce929acc34d46d1be874881fb7616",
+    "archive_size": 2477,
+    "database_restore_performed": false,
+    "historical_host_ports_reused": false,
+    "historical_network_reused": false,
+    "historical_sql_volume_reused": false,
+    "isolated_clone_created": true,
+    "isolated_clone_running": true,
+    "measured_execution_performed": false,
+    "objective_import_performed": false,
+    "protected_historical_runtime_mutated": false,
+    "warmup_performed": false
+  },
+  "compatibility_problem": {
+    "direct_use_forbidden_until_adapter_published": true,
+    "direct_use_of_frozen_executor_would_target_historical_compose": true,
+    "executor_compose_files_hardcoded": [
+      "bi-stack/docker-compose.yml",
+      "bi-stack/docker-compose.r3-b2.override.yml"
+    ],
+    "executor_mcad_api_service_hardcoded": "mcad-api",
+    "isolated_clone_compose": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_isolated_runtime.compose.yml",
+    "isolated_clone_project": "mcad-r3-rerun1",
+    "isolated_clone_services": {
+      "mcad_api": "r3-mcad-api",
+      "mcad_proxy": "r3-mcad-proxy",
+      "sqlserver": "r3-sqlserver"
+    },
+    "static_runner_sqlserver_service_hardcoded": "adventureworks-sqlserver"
+  },
+  "contract_version": "mcad.nh_r3.b2k.isolated_executor_adapter.v1",
+  "frozen_executor_authority": {
+    "candidate_action_logic_modified": false,
+    "executor_modified": false,
+    "executor_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_dev_pilot_executor.py",
+    "executor_sha256": "9a0b0f7f81a6e6cd59ac72a12e5674f0b55c1ac49893a0200a3b65eb43320e40",
+    "receipt_schema_modified": false,
+    "scientific_plan_logic_modified": false,
+    "static_runner_modified": false,
+    "static_runner_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_resource_runner.py",
+    "static_runner_sha256": "fa4458a212dd88135d4806bcdfbc6e564ddd7daa9fe944653aa187079065761e",
+    "timing_logic_modified": false
+  },
+  "historical_runtime_protection": {
+    "adapter_must_not_reference_historical_compose": true,
+    "adapter_must_not_target_historical_service_names": true,
+    "protected_container_ids": [
+      "ca2434ae491845dec2d2a5dc4ef4b1056f6eb20282024c64a191c3ac5d1f264c",
+      "5767c68c60ecfe5450a9af6ccde82221c3076f9046f82a5a8353865bd73292c1",
+      "ebd1dca12df3cff15dc411c9a5902dc16547c6a78708fd42ff6623cddd9fd612"
+    ],
+    "protected_network": "mcad_net",
+    "protected_project": "bi-stack",
+    "protected_sql_volume": "bi-stack_adventureworks_sqlserver_data"
+  },
+  "parent_head": "d2f5e40171bd2daccec18e7d450644e0b510b5d8",
+  "stage": "R3-B2K_ISOLATED_EXECUTOR_ROUTING_ADAPTER"
+}
