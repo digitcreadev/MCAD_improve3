@@ -1,0 +1,99 @@
+name: mcad-r3-rerun1
+
+services:
+  r3-sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    pull_policy: never
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+      MSSQL_SA_PASSWORD: "${R3_AW_SA_PASSWORD:?R3_AW_SA_PASSWORD is required}"
+    ports:
+      - "127.0.0.1:24333:1433"
+    volumes:
+      - r3_sql_data:/var/opt/mssql
+    networks:
+      - r3_internal
+
+  r3-mcad-api:
+    image: bi-stack-mcad-api
+    pull_policy: never
+    command:
+      - uvicorn
+      - app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --log-level
+      - info
+    ports:
+      - "127.0.0.1:18000:8000"
+    volumes:
+      - type: bind
+        source: "${R3_REPO_ROOT:?R3_REPO_ROOT is required}/backend"
+        target: /app/backend
+        read_only: true
+      - type: bind
+        source: "${R3_RUNTIME_ROOT:?R3_RUNTIME_ROOT is required}/mcad-api-data"
+        target: /app/data
+    environment:
+      MCAD_THRESHOLD_DEFAULT: "0.60"
+      MCAD_OBJECTIVE_ID_DEFAULT: "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN"
+      MCAD_DW_ID_DEFAULT: "adventureworks_sql_direct"
+      MCAD_BI_DECISION_MODE: "formal_contributive"
+      MCAD_NVAC_MODE: "hybrid"
+      MCAD_NVAC_PROBE_URL: "http://r3-mcad-proxy:9000/bi/nvac-probe"
+      MCAD_NVAC_PROBE_TIMEOUT_S: "120.0"
+      PYTHONPATH: "/app/backend:/app"
+      MCAD_OBJECTIVES_YAML: "/app/backend/objectives.yaml"
+      MCAD_OBJECTIVES_FALLBACK_YAML: "/app/backend/config/objectives.yaml"
+      MCAD_DATAWAREHOUSES_YAML: "/app/backend/config/datawarehouses.yaml"
+    networks:
+      - r3_internal
+
+  r3-mcad-proxy:
+    image: bi-stack-mcad-proxy
+    pull_policy: never
+    command:
+      - uvicorn
+      - r3_measurement_app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "9000"
+      - --log-level
+      - info
+      - --access-log
+    ports:
+      - "127.0.0.1:19000:9000"
+    volumes:
+      - type: bind
+        source: "${R3_RUNTIME_ROOT:?R3_RUNTIME_ROOT is required}/proxy-data"
+        target: /app/data
+      - type: bind
+        source: "${R3_RUNTIME_ROOT:?R3_RUNTIME_ROOT is required}/demo-evidence"
+        target: /app/demo-evidence
+    environment:
+      MCAD_PROXY_DATA_DIR: "/app/data"
+      MCAD_DEMO_EVIDENCE_DIR: "/app/demo-evidence"
+      MCAD_API_BASE: "http://r3-mcad-api:8000"
+      MCAD_EVAL_URL: "http://r3-mcad-api:8000/eval"
+      MCAD_CKG_URL: "http://r3-mcad-api:8000/ckg/update"
+      MCAD_OBJECTIVE_ID_DEFAULT: "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN"
+      MCAD_DW_ID_DEFAULT: "adventureworks_sql_direct"
+      MCAD_BI_MODE: "hybrid"
+      MCAD_DW_REGISTRY: "/app/datawarehouses.yaml"
+      ADVENTUREWORKS_SQLSERVER_HOST: "r3-sqlserver"
+      ADVENTUREWORKS_SQLSERVER_PORT: "1433"
+      ADVENTUREWORKS_SQLSERVER_DATABASE: "AdventureWorksDW2022"
+      ADVENTUREWORKS_SQLSERVER_USER: "sa"
+      ADVENTUREWORKS_SQLSERVER_PASSWORD: "${R3_AW_SA_PASSWORD:?R3_AW_SA_PASSWORD is required}"
+    networks:
+      - r3_internal
+
+networks:
+  r3_internal: {}
+
+volumes:
+  r3_sql_data: {}

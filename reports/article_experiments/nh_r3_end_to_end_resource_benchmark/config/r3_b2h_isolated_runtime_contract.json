@@ -1,0 +1,85 @@
+{
+  "authorization": {
+    "backend_query_authorized_by_this_checkpoint": false,
+    "container_start_authorized_by_this_checkpoint": false,
+    "measured_execution_authorized_by_this_checkpoint": false,
+    "next_gate": "live image identity + protected-runtime no-mutation + isolated clone creation",
+    "static_design_only": true
+  },
+  "contract_version": "mcad.nh_r3.b2h.isolated_runtime_design.v1",
+  "historical_runtime_preservation": {
+    "archive_sha256": "a959a38f7135627ad82a2b9818fb124bbae517d5ec75c621c67126d9baae6d82",
+    "archive_size": 2950,
+    "protected_network": "mcad_net",
+    "protected_project": "bi-stack",
+    "protected_services": {
+      "adventureworks-sqlserver": {
+        "container_id": "ca2434ae491845dec2d2a5dc4ef4b1056f6eb20282024c64a191c3ac5d1f264c",
+        "host_port": 14333,
+        "image_id": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+        "image_ref": "mcr.microsoft.com/mssql/server:2022-latest",
+        "volume": "bi-stack_adventureworks_sqlserver_data"
+      },
+      "mcad-api": {
+        "container_id": "5767c68c60ecfe5450a9af6ccde82221c3076f9046f82a5a8353865bd73292c1",
+        "host_port": 8000,
+        "image_id": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+        "image_ref": "bi-stack-mcad-api"
+      },
+      "mcad-proxy": {
+        "container_id": "ebd1dca12df3cff15dc411c9a5902dc16547c6a78708fd42ff6623cddd9fd612",
+        "host_port": 9000,
+        "image_id": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+        "image_ref": "bi-stack-mcad-proxy"
+      }
+    }
+  },
+  "isolated_clone": {
+    "compose_project_name": "mcad-r3-rerun1",
+    "historical_container_reuse_forbidden": true,
+    "historical_host_ports_reuse_forbidden": true,
+    "historical_network_reuse_forbidden": true,
+    "historical_read_only_backend_mount_allowed": true,
+    "historical_rw_bind_mounts_forbidden": true,
+    "historical_sql_volume_reuse_forbidden": true,
+    "host_ports": {
+      "r3-mcad-api": "127.0.0.1:18000:8000",
+      "r3-mcad-proxy": "127.0.0.1:19000:9000",
+      "r3-sqlserver": "127.0.0.1:24333:1433"
+    },
+    "loopback_only_host_ports": true,
+    "network_key": "r3_internal",
+    "new_sql_volume_required": true,
+    "no_build": true,
+    "pull_policy": "never",
+    "reuse_exact_local_image_bytes_only": true,
+    "runtime_root_must_be_outside_repository": true,
+    "services": [
+      "r3-sqlserver",
+      "r3-mcad-api",
+      "r3-mcad-proxy"
+    ],
+    "sql_volume_key": "r3_sql_data"
+  },
+  "parent_head": "3ad3fd012af59bc686d7a3ad8178e7df122da96d",
+  "scientific_runtime": {
+    "bootstrap_target": "isolated r3-mcad-api only",
+    "confirmatory_claim_authorized": false,
+    "dw_id": "adventureworks_sql_direct",
+    "objective_bootstrap_required": true,
+    "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+    "proxy_command": [
+      "uvicorn",
+      "r3_measurement_app:app",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "9000",
+      "--log-level",
+      "info",
+      "--access-log"
+    ],
+    "sql_database": "AdventureWorksDW2022"
+  },
+  "stage": "R3-B2H_ISOLATED_RUNTIME_DESIGN"
+}
