@@ -1,0 +1,82 @@
+{
+  "contract_version": "mcad.nh_r3.d0.confirmatory_inference_protocol.v1",
+  "design_basis": {
+    "equal_sessions_per_stratum": 15,
+    "lower_is_better_for_all_frozen_primary_metrics": true,
+    "paired_sessions": true,
+    "primary_causal_comparison": "SAFE_PRUNING vs PERMISSIVE_GATED",
+    "primary_cohort_sessions": 300,
+    "randomized_arm_order": true,
+    "secondary_break_even_comparison": "SAFE_PRUNING vs UNGATED_EXECUTE_ADMISSIBLE",
+    "strata": 20
+  },
+  "effect_size_tuning_performed": false,
+  "frozen_before_test_measurement": true,
+  "integrity_and_rerun_rules": {
+    "automatic_rerun": false,
+    "mechanical_rerun_if_ever_authorized": "must be justified solely by documented external/mechanical failure, never by observed effects",
+    "negative_cgroup_delta": "invalidate arm run; never clamp to zero; freeze attempt for audit",
+    "no_effect_based_early_stopping": true,
+    "no_effect_based_reruns": true,
+    "no_interim_effect_looks": true,
+    "partial_execution": "freeze exact partial attempt; assistant audit required before any rerun authorization"
+  },
+  "primary_endpoint_family": {
+    "alternative": "mean paired difference < 0",
+    "comparison": "SAFE_PRUNING - PERMISSIVE_GATED",
+    "confidence_interval": {
+      "confidence": 0.95,
+      "kind": "stratified percentile bootstrap for mean paired difference",
+      "replicates": 20000,
+      "resampling": "resample 15 paired sessions with replacement within each of 20 frozen strata",
+      "seed_rule": "SHA256(seed_namespace|bootstrap|metric_id), independent of measured outcomes"
+    },
+    "confirmatory_metric_claim_rule": "A metric-specific reduction is confirmatory only if measurement integrity passes, observed mean paired difference is < 0, and Holm-adjusted one-sided p <= 0.05.",
+    "estimand": "equal-weight mean paired difference over the frozen confirmatory cohort; all 20 strata have equal session counts",
+    "familywise_alpha": 0.05,
+    "global_claim_rule": "Do not infer a global system-benefit claim merely because one or more endpoints pass. Report endpoint-specific confirmation and the full multiplicity-adjusted family.",
+    "metrics": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "multiplicity": "Holm step-down across all 8 frozen primary metrics",
+    "permutation_test": {
+      "kind": "paired sign-flip randomization test of the mean paired difference",
+      "monte_carlo_p": "(1 + count(T_perm <= T_obs)) / (B + 1)",
+      "replicates": 100000,
+      "seed_namespace_sha256": "a550a533086d3eafe6fa4512caab03a85b3c8a06b7efb7c805c4da841f5ef8e0",
+      "seed_rule": "SHA256(seed_namespace|metric_id), independent of measured outcomes"
+    }
+  },
+  "quota_fallback": {
+    "effect_based_fallback_forbidden": true,
+    "fallback_activation_before_measurement": true,
+    "fallback_activation_requires_external_constraint": true,
+    "fallback_is_120": true,
+    "fallback_label": "RESOURCE_CONSTRAINED_CONFIRMATORY_SUBSET",
+    "must_report_resource_constraint_explicitly": true,
+    "primary_is_300": true,
+    "same_inference_procedure": true
+  },
+  "secondary_break_even_family": {
+    "comparison": "SAFE_PRUNING - UNGATED_EXECUTE_ADMISSIBLE",
+    "confirmatory_p_value": false,
+    "purpose": "Preserve the practical deployment break-even diagnostic without changing NH-R4, which remains the dedicated scale/concurrency/break-even stage.",
+    "report": [
+      "paired mean difference",
+      "percent change of means",
+      "95% stratified bootstrap confidence interval",
+      "direction counts"
+    ],
+    "status": "secondary; not part of the primary multiplicity family"
+  },
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "validation_results_used_to_select_alpha_or_test": false,
+  "validation_results_used_to_select_endpoints": false
+}
