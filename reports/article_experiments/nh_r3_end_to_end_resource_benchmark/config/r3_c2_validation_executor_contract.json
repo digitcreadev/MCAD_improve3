@@ -1,0 +1,120 @@
+{
+  "authorization": {
+    "backend_query_authorized": false,
+    "confirmatory_claim_authorized": false,
+    "docker_mutation_authorized": false,
+    "effect_size_tuning_allowed": false,
+    "measurement_authorized": false,
+    "readonly_docker_inspection_authorized": true,
+    "readonly_http_health_authorized": true,
+    "scientific_redesign_allowed": false,
+    "service_mutation_authorized": false
+  },
+  "c1_authorities": {
+    "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff",
+    "contract_git_blob": "d3e3ac7b44e04a1720c780acff25fcb673f322a1",
+    "schedule_git_blob": "e8a60595f80fea50362c728837a241c23fa8079d",
+    "schedule_sha256": "4aede87cb911e5ce9baf0f372c011eb6435a6fd1f3411529577ccdbfe5ab6b70",
+    "validation_plan_git_blob": "612edec91932d5abeb16da51b10eca6e58fb3c32",
+    "validation_plan_sha256": "76d44e02ae57edd5caa570833e02f65bbabaf361c8e7da6c3c089f6cf065a551"
+  },
+  "contract_version": "mcad.nh_r3.c2.validation_executor_preflight.v1.2",
+  "executor_specialization": {
+    "completion_boundary_source": "frozen NH-R2 results/session_summary.csv via R3-C1 plan",
+    "future_authorization_file": "config/r3_c3_validation_measurement_authorization.json",
+    "future_confirm_token": "EXECUTE_AUTHORIZED_NH_R3_C_VALIDATION_40",
+    "future_measurement_policy_source": "frozen B1 sqlserver_cgroup.negative_delta_policy",
+    "isolated_routing_source": "implementation/r3_isolated_executor_adapter.py",
+    "live_gate_may_relabel_frozen_action": false,
+    "measurement_code_present_but_locked_by_future_authorization": true,
+    "operational_helpers_source": "implementation/r3_dev_pilot_executor.py",
+    "safe_pruning_semantics_reimplemented": false,
+    "scientific_rules_source": "implementation/r3_c1_validation_plan.py + implementation/r3_resource_runner.py"
+  },
+  "frozen_operational_authorities": {
+    "b2e_executor_git_blob": "5eeaf00e00dfd6561959c81941acc902acf8b509",
+    "b2k_isolated_adapter_git_blob": "41792ef397834dcea7369882c6273e693d2608e9",
+    "isolated_compose_git_blob": "f807f35039d89ac5dae153fb3fa36d99f4a33e53",
+    "r3_measurement_runtime_sha256": "fb0e12d1e8fe57272135078ce4171b68f8da8231f4a0d355e95b2fe9e572a59a"
+  },
+  "generated_file_sha256": {
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_c2_validation_executor.py": "c7c7d034aaba3d7ed967ad114e5a1a13cba92a98c68e82346586af1ea42ea7be",
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/verify_r3_c2_validation_executor_static.py": "5ff3d3554e3110c97a23015c2c60151a86407649cd70d26f31f0facab5e2f22d",
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_c2_isolated_runtime_preflight_readonly.sh": "2a60cef2ffaa8e0b53ce07f7b6b1708276c076818abedee57565f3ad6a28ee43"
+  },
+  "isolated_clone_authority": {
+    "api_image_id": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+    "host_ports": {
+      "api": 18000,
+      "proxy": 19000,
+      "sql": 24333
+    },
+    "mcad_api_container_id": "ec03867deaf7fb31a909eef371895189603be78b8526b14528155cea645f7c8b",
+    "mcad_proxy_container_id": "c12ba832d2f59b55037e6086d3021e66b8093c6fb3ef5cb26a37c0796ff20786",
+    "network": "mcad-r3-rerun1_r3_internal",
+    "project": "mcad-r3-rerun1",
+    "proxy_image_id": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+    "sql_image_id": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+    "sql_volume": "mcad-r3-rerun1_r3_sql_data",
+    "sqlserver_container_id": "7eb03679a67d80f1f9d708a0ecc42ee1d89e4f60ec26ff0fea2925f1b041395c"
+  },
+  "next_gate": {
+    "if_isolated_clone_running_and_healthy": "R3-C3_VALIDATION_MEASUREMENT_AUTHORIZATION_AND_ONE_SHOT_PREMEASUREMENT_GATE",
+    "if_isolated_clone_stopped_but_intact": "R3-C3_ISOLATED_CLONE_ONLY_BRINGUP_PLUS_AUTHORIZATION_PREMEASUREMENT_GATE",
+    "measurement_still_forbidden_in_R3_C2": true
+  },
+  "parent_published_checkpoint": {
+    "branch": "paper/nh-r3-end-to-end-resource-benchmark-20260820T193919Z",
+    "checkpoint": "R3-C1_validation_stage_freeze",
+    "head": "082457760ba1602c5eda5f74a9cb653eed3552e1"
+  },
+  "protected_historical_runtime": {
+    "mcad_api": {
+      "container_id": "5767c68c60ecfe5450a9af6ccde82221c3076f9046f82a5a8353865bd73292c1",
+      "image_id": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:09:46.36179959Z"
+    },
+    "mcad_proxy": {
+      "container_id": "ebd1dca12df3cff15dc411c9a5902dc16547c6a78708fd42ff6623cddd9fd612",
+      "image_id": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:08:25.609823871Z"
+    },
+    "mutation_allowed": false,
+    "sqlserver": {
+      "container_id": "ca2434ae491845dec2d2a5dc4ef4b1056f6eb20282024c64a191c3ac5d1f264c",
+      "image_id": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:02:34.457234573Z"
+    }
+  },
+  "stage": "R3-C_VALIDATION_CALIBRATION",
+  "static_verifier_correction": {
+    "classification": "instrumentation_verifier_envelope_bug",
+    "correction": "reconstruct the two-field frozen scientific-rule input envelope before equivalence comparison; no change to R3-C1 plan or frozen scientific rules",
+    "measurement_performed_in_failed_v1_attempt": false,
+    "root_cause": "v1 verifier passed normalized R3-C1 action keys frozen_class/frozen_operational_action directly into frozen_full_execute_rule, whose contract expects binding-row keys class/operational_action",
+    "scientific_plan_changed": false
+  },
+  "static_verifier_correction_v1_2": {
+    "classification": "contract_verifier_field_name_mismatch",
+    "correction": "rename only the C2 contract metadata field to fresh_mcad_sessions_planned; cardinality remains 80",
+    "measurement_performed_in_failed_attempt": false,
+    "root_cause": "C2 contract used validation_execution_plan.fresh_gated_sessions_planned while the verifier and C1 dry-run contract use fresh_mcad_sessions_planned",
+    "scientific_plan_changed": false
+  },
+  "station": "MCAD-NH-R3",
+  "validation_execution_plan": {
+    "arm_runs": 120,
+    "candidate_actions": 2880,
+    "candidates_per_arm": 24,
+    "fresh_mcad_sessions_planned": 80,
+    "gate_evaluations_planned": 1920,
+    "gated_arm_runs": 80,
+    "mcad_api_restarts_planned": 120,
+    "selection_role": "CALIBRATION_NO_EFFECT_TUNING",
+    "semantic_sessions": 40,
+    "ungated_arm_runs": 40
+  }
+}
