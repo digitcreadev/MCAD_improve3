@@ -1,0 +1,68 @@
+{
+  "analysis_class": "CONFIRMATORY_PRIMARY_SQL_DIRECT",
+  "contract_version": "mcad.nh_r3.d1.confirmatory_executor_preflight.v1",
+  "d1_authorization": {
+    "backend_query_authorized": false,
+    "confirmatory_claim_authorized": false,
+    "docker_mutation_authorized": false,
+    "effect_size_tuning_allowed": false,
+    "measurement_authorized": false,
+    "r3c_rerun_authorized": false,
+    "scientific_redesign_allowed": false,
+    "service_mutation_authorized": false
+  },
+  "fallback_firewall": {
+    "effect_based_fallback_forbidden": true,
+    "fallback_activation_authorized_now": false,
+    "fallback_executor_path_enabled_in_d1": false,
+    "fallback_sessions": 120
+  },
+  "future_measurement_authorization": {
+    "authorization_file": "config/r3_d2_confirmatory_measurement_authorization.json",
+    "expected_confirm_token": "EXECUTE_AUTHORIZED_NH_R3_D_CONFIRMATORY_PRIMARY_300",
+    "expected_contract_version": "mcad.nh_r3.d2.confirmatory_measurement_authorization.v1",
+    "must_be_absent_during_d1": true
+  },
+  "next": "R3-D2_CONFIRMATORY_MEASUREMENT_AUTHORIZATION_AND_ONE_SHOT_PREMEASUREMENT_GATE",
+  "parent_d0_head": "f610dd5d1a61830385bb11f537eb1d740bb0ccc6",
+  "primary_execution_plan": {
+    "arm_runs": 900,
+    "candidate_actions": 21600,
+    "fresh_mcad_sessions_planned": 600,
+    "full_backend_executions_planned": 14580,
+    "gate_evaluations_planned": 14400,
+    "gated_arm_runs": 600,
+    "mcad_api_restarts_planned": 900,
+    "mode": "primary",
+    "selection_role": "CONFIRMATORY_PRIMARY",
+    "semantic_sessions": 300,
+    "ungated_arm_runs": 300,
+    "unique_templates": 7
+  },
+  "runtime": {
+    "d1_readonly_docker_inspection_allowed": true,
+    "d1_readonly_http_health_allowed": true,
+    "historical_runtime_mutation_allowed": false,
+    "isolated_project": "mcad-r3-rerun1",
+    "mcad_base": "http://127.0.0.1:18000",
+    "proxy_base": "http://127.0.0.1:19000",
+    "runtime_root": "/workspaces/MCAD_R3_ISOLATED_RUNTIME_d2f5e40171bd2daccec18e7d450644e0b510b5d8"
+  },
+  "scientific_authorities": {
+    "b2e_frozen_executor_git_blob": "5eeaf00e00dfd6561959c81941acc902acf8b509",
+    "b2k_isolated_adapter_git_blob": "41792ef397834dcea7369882c6273e693d2608e9",
+    "d0_activation_contract_git_blob": "6c608b951bca9b262cc69bb7964a48cec79c62b1",
+    "d0_activation_contract_sha256": "f80aecb60199b03048a52f4a3673d1c773be01584c575a1c7548f71e0c87ea87",
+    "d0_inference_protocol_git_blob": "cd3c64c4e7c67226b8f635953e5a17bc5eca37eb",
+    "d0_inference_protocol_sha256": "fefa540824a40ae1ba8f04b72517fd8e80644d9889b5848d6626fd607b3fa7b6",
+    "d0_plan_git_blob": "54750b314717dc370ca65f84ca765c338b4abb2c",
+    "d0_plan_sha256": "1a1990776ccf63211818c1ebf5357e6390d75576d553fe0a76c93b53fc1c0605",
+    "fallback_schedule_git_blob": "bae0fd86e18236296c94b5b404203f06f4ad55b5",
+    "fallback_schedule_sha256": "892fa245526b5b4c67dba87c3319b154a14c2aae7da430fe5930edc1e9290cb1",
+    "isolated_compose_git_blob": "f807f35039d89ac5dae153fb3fa36d99f4a33e53",
+    "primary_schedule_git_blob": "6b53ab6d271425b9e5113bdd405775f05c6d65df",
+    "primary_schedule_sha256": "4f333b234de5a097b6f22c9d4803463560ca26bf163de3dbc623825bee11b622"
+  },
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "station": "MCAD-NH-R3"
+}
