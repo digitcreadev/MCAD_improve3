@@ -1,0 +1,130 @@
+{
+  "api_required_routes": true,
+  "backend_query_executed": false,
+  "clone_rebind_mutation_performed": true,
+  "contract_version": "mcad.nh_r3.d3.r2.runtime_rebind_receipt.v1",
+  "effect_analysis_performed": false,
+  "effect_size_tuning_performed": false,
+  "fallback_120_activated": false,
+  "full_rerun_execution_authorized_now": false,
+  "host": {
+    "idle_timeout_minutes": 240,
+    "name": "shiny-pancake-wvgr9v47w4r6c9qwr",
+    "state": "Available"
+  },
+  "interrupted_attempt_archive_sha256": "1c5bb0d802e1400a38c8bd57d629553f331821771d8bfbf83424caecd5d7fb37",
+  "isolated_api_health_http": 200,
+  "isolated_api_openapi_http": 200,
+  "isolated_clone_after": {
+    "clone_mcad_api": {
+      "id": "ec03867deaf7fb31a909eef371895189603be78b8526b14528155cea645f7c8b",
+      "image": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+      "name": "/mcad-r3-rerun1-r3-mcad-api-1",
+      "restart_count": 0,
+      "started_at": "2026-08-23T22:18:03.377969372Z",
+      "state": "running"
+    },
+    "clone_mcad_proxy": {
+      "id": "c12ba832d2f59b55037e6086d3021e66b8093c6fb3ef5cb26a37c0796ff20786",
+      "image": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+      "name": "/mcad-r3-rerun1-r3-mcad-proxy-1",
+      "restart_count": 0,
+      "started_at": "2026-08-23T22:18:03.115559786Z",
+      "state": "running"
+    },
+    "clone_sqlserver": {
+      "id": "7eb03679a67d80f1f9d708a0ecc42ee1d89e4f60ec26ff0fea2925f1b041395c",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "name": "/mcad-r3-rerun1-r3-sqlserver-1",
+      "restart_count": 0,
+      "started_at": "2026-08-23T22:18:02.732381299Z",
+      "state": "running"
+    }
+  },
+  "isolated_clone_before": {
+    "clone_mcad_api": {
+      "id": "ec03867deaf7fb31a909eef371895189603be78b8526b14528155cea645f7c8b",
+      "image": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+      "name": "/mcad-r3-rerun1-r3-mcad-api-1",
+      "restart_count": 0,
+      "started_at": "2026-08-23T21:42:39.194279567Z",
+      "state": "exited"
+    },
+    "clone_mcad_proxy": {
+      "id": "c12ba832d2f59b55037e6086d3021e66b8093c6fb3ef5cb26a37c0796ff20786",
+      "image": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+      "name": "/mcad-r3-rerun1-r3-mcad-proxy-1",
+      "restart_count": 0,
+      "started_at": "2026-08-23T11:08:52.451119176Z",
+      "state": "exited"
+    },
+    "clone_sqlserver": {
+      "id": "7eb03679a67d80f1f9d708a0ecc42ee1d89e4f60ec26ff0fea2925f1b041395c",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "name": "/mcad-r3-rerun1-r3-sqlserver-1",
+      "restart_count": 0,
+      "started_at": "2026-08-23T11:44:16.354977797Z",
+      "state": "exited"
+    }
+  },
+  "isolated_project": "mcad-r3-rerun1",
+  "isolated_proxy_openapi_http": 200,
+  "isolated_runtime_root": "/workspaces/MCAD_R3_ISOLATED_RUNTIME_d2f5e40171bd2daccec18e7d450644e0b510b5d8",
+  "measurement_executed": false,
+  "next": "R3-D3-R3_REPLACEMENT_PRIMARY_300_EXECUTION_AUTHORIZATION_AND_PREMEASUREMENT_GATE",
+  "parent_recovery_head": "af03ce42ec9e35293b438aa1924b7f8eb76c5449",
+  "partial_attempt_reused": false,
+  "protected_historical_runtime_after": {
+    "protected_mcad_api": {
+      "id": "5767c68c60ecfe5450a9af6ccde82221c3076f9046f82a5a8353865bd73292c1",
+      "image": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:09:46.36179959Z",
+      "state": "exited"
+    },
+    "protected_mcad_proxy": {
+      "id": "ebd1dca12df3cff15dc411c9a5902dc16547c6a78708fd42ff6623cddd9fd612",
+      "image": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:08:25.609823871Z",
+      "state": "exited"
+    },
+    "protected_sqlserver": {
+      "id": "ca2434ae491845dec2d2a5dc4ef4b1056f6eb20282024c64a191c3ac5d1f264c",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:02:34.457234573Z",
+      "state": "exited"
+    }
+  },
+  "protected_historical_runtime_before": {
+    "protected_mcad_api": {
+      "id": "5767c68c60ecfe5450a9af6ccde82221c3076f9046f82a5a8353865bd73292c1",
+      "image": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:09:46.36179959Z",
+      "state": "exited"
+    },
+    "protected_mcad_proxy": {
+      "id": "ebd1dca12df3cff15dc411c9a5902dc16547c6a78708fd42ff6623cddd9fd612",
+      "image": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:08:25.609823871Z",
+      "state": "exited"
+    },
+    "protected_sqlserver": {
+      "id": "ca2434ae491845dec2d2a5dc4ef4b1056f6eb20282024c64a191c3ac5d1f264c",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:02:34.457234573Z",
+      "state": "exited"
+    }
+  },
+  "protected_historical_runtime_mutated": false,
+  "proxy_required_measurement_routes": true,
+  "resume_from_arm_298": false,
+  "sql_tcp_ready": true,
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "station": "MCAD-NH-R3",
+  "status": "PASS_READY_FOR_R3_D3_R3"
+}

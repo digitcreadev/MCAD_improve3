@@ -1,0 +1,65 @@
+{
+  "contract_version": "mcad.nh_r3.d3.r2.stable_host_runtime_rebind.v1",
+  "frozen_authorities": {
+    "d3_execution_contract_git_blob": "c4e45aa2a04bdb084a2c9a9047f074c31a5cf665",
+    "interrupted_attempt_archive_sha256": "1c5bb0d802e1400a38c8bd57d629553f331821771d8bfbf83424caecd5d7fb37",
+    "interruption_freeze_git_blob": "67e256df516bd8079971c1dc645df408804cebe5",
+    "isolated_compose_git_blob": "f807f35039d89ac5dae153fb3fa36d99f4a33e53",
+    "mechanical_rerun_authorization_git_blob": "14fce8bcc4601947ce82d9dbe686c51286689206"
+  },
+  "host": {
+    "current_observed_idle_timeout_minutes": 240,
+    "host_state_required": "Available",
+    "measurement_authorized_in_this_station": false,
+    "minimum_idle_timeout_minutes": 120,
+    "require_codespace_name": true,
+    "required_idle_timeout_minutes_for_this_rebind": 240
+  },
+  "isolated_clone_rebind": {
+    "backend_query_allowed_in_this_station": false,
+    "mcad_api_restart_during_future_measurement_allowed": true,
+    "measurement_allowed_in_this_station": false,
+    "project": "mcad-r3-rerun1",
+    "proxy_restart_after_rebind_allowed": false,
+    "pull_allowed": false,
+    "rebuild_allowed": false,
+    "recreate_allowed": false,
+    "runtime_root": "/workspaces/MCAD_R3_ISOLATED_RUNTIME_d2f5e40171bd2daccec18e7d450644e0b510b5d8",
+    "sqlserver_restart_after_rebind_allowed": false,
+    "start_exact_existing_clone_containers_allowed": true
+  },
+  "next": "R3-D3-R3_REPLACEMENT_PRIMARY_300_EXECUTION_AUTHORIZATION_AND_PREMEASUREMENT_GATE",
+  "parent_recovery_head": "af03ce42ec9e35293b438aa1924b7f8eb76c5449",
+  "preflight": {
+    "effect_analysis_allowed": false,
+    "fallback_activation_allowed": false,
+    "require_api_health_200": true,
+    "require_api_openapi_200": true,
+    "require_exact_clone_ids_images_mounts_ports": true,
+    "require_exact_network_and_volume": true,
+    "require_measurement_routes": true,
+    "require_no_new_d3_attempt": true,
+    "require_partial_attempt_archive_intact": true,
+    "require_proxy_openapi_200": true,
+    "require_sql_tcp_ready": true
+  },
+  "protected_historical_runtime": {
+    "must_remain_exited": true,
+    "mutation_allowed": false,
+    "restart_allowed": false,
+    "start_allowed": false
+  },
+  "scientific_boundary": {
+    "effect_size_tuning_performed": false,
+    "fallback_120_activated": false,
+    "full_rerun_execution_authorized_now": false,
+    "interim_effect_analysis_performed": false,
+    "mechanical_full_rerun_scientifically_authorized": true,
+    "rerun_scope": "FULL_PRIMARY_300_FROM_BLOCK_1",
+    "resume_from_arm_298": false,
+    "reuse_partial_receipts": false,
+    "scientific_plan_changed": false
+  },
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "station": "MCAD-NH-R3"
+}
