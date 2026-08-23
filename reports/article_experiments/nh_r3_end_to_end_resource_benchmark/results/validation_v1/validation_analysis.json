@@ -1,0 +1,534 @@
+{
+  "analysis_class": "VALIDATION_CALIBRATION_NONCONFIRMATORY",
+  "arm_means": {
+    "PERMISSIVE_GATED": {
+      "backend_request_count_including_gate_probes": 27.6,
+      "client_wall_ms": 2678.297433,
+      "full_backend_execution_count": 21.6,
+      "nvac_physical_backend_request_count": 6.0,
+      "response_bytes": 212203.925,
+      "sqlserver_cpu_usage_usec_delta": 1261604.7,
+      "sqlserver_io_rbytes_delta": 12800.0,
+      "sqlserver_io_wbytes_delta": 0.0,
+      "time_to_analytical_objective_completion_ms": 1119.645981
+    },
+    "SAFE_PRUNING": {
+      "backend_request_count_including_gate_probes": 11.425,
+      "client_wall_ms": 1826.213698,
+      "full_backend_execution_count": 5.425,
+      "nvac_physical_backend_request_count": 6.0,
+      "response_bytes": 61753.525,
+      "sqlserver_cpu_usage_usec_delta": 526180.775,
+      "sqlserver_io_rbytes_delta": 33177.6,
+      "sqlserver_io_wbytes_delta": 102.4,
+      "time_to_analytical_objective_completion_ms": 902.790254
+    },
+    "UNGATED_EXECUTE_ADMISSIBLE": {
+      "backend_request_count_including_gate_probes": 21.6,
+      "client_wall_ms": 1116.194071,
+      "full_backend_execution_count": 21.6,
+      "nvac_physical_backend_request_count": 0.0,
+      "response_bytes": 201169.975,
+      "sqlserver_cpu_usage_usec_delta": 1009584.975,
+      "sqlserver_io_rbytes_delta": 0.0,
+      "sqlserver_io_wbytes_delta": 0.0,
+      "time_to_analytical_objective_completion_ms": 442.309339
+    }
+  },
+  "contract_version": "mcad.nh_r3.c5.validation_analysis.v1",
+  "dev_reference": {
+    "analysis_class": "DEV_DESCRIPTIVE_NONCONFIRMATORY",
+    "arm_means": {
+      "PERMISSIVE_GATED": {
+        "backend_request_count_including_gate_probes": 27.8,
+        "client_wall_ms": 2934.481085,
+        "full_backend_execution_count": 21.6,
+        "nvac_physical_backend_request_count": 6.2,
+        "response_bytes": 212604.1,
+        "sqlserver_cpu_usage_usec_delta": 1477928.8,
+        "sqlserver_io_rbytes_delta": 3061350.4,
+        "sqlserver_io_wbytes_delta": 3379.2,
+        "time_to_analytical_objective_completion_ms": 1331.704737
+      },
+      "SAFE_PRUNING": {
+        "backend_request_count_including_gate_probes": 11.8,
+        "client_wall_ms": 1978.393798,
+        "full_backend_execution_count": 5.6,
+        "nvac_physical_backend_request_count": 6.2,
+        "response_bytes": 63713.1,
+        "sqlserver_cpu_usage_usec_delta": 579708.05,
+        "sqlserver_io_rbytes_delta": 84582.4,
+        "sqlserver_io_wbytes_delta": 37785.6,
+        "time_to_analytical_objective_completion_ms": 1056.302709
+      },
+      "UNGATED_EXECUTE_ADMISSIBLE": {
+        "backend_request_count_including_gate_probes": 21.6,
+        "client_wall_ms": 1192.924573,
+        "full_backend_execution_count": 21.6,
+        "nvac_physical_backend_request_count": 0.0,
+        "response_bytes": 201202.1,
+        "sqlserver_cpu_usage_usec_delta": 1072503.65,
+        "sqlserver_io_rbytes_delta": 29900.8,
+        "sqlserver_io_wbytes_delta": 0.0,
+        "time_to_analytical_objective_completion_ms": 548.685382
+      }
+    },
+    "headline_pair_counts": {
+      "safe_vs_permissive_backend_requests": {
+        "equal": 0,
+        "higher": 0,
+        "lower": 20,
+        "percent_change_of_means": -57.553957
+      },
+      "safe_vs_permissive_client_wall_ms": {
+        "equal": 0,
+        "higher": 0,
+        "lower": 20,
+        "percent_change_of_means": -32.581136
+      },
+      "safe_vs_permissive_completion_ms": {
+        "equal": 0,
+        "higher": 4,
+        "lower": 16,
+        "percent_change_of_means": -20.680412
+      },
+      "safe_vs_ungated_backend_requests": {
+        "equal": 0,
+        "higher": 0,
+        "lower": 20,
+        "percent_change_of_means": -45.37037
+      },
+      "safe_vs_ungated_client_wall_ms": {
+        "equal": 0,
+        "higher": 20,
+        "lower": 0,
+        "percent_change_of_means": 65.843997
+      },
+      "safe_vs_ungated_completion_ms": {
+        "equal": 0,
+        "higher": 20,
+        "lower": 0,
+        "percent_change_of_means": 92.51519
+      }
+    },
+    "source_git_blob": "6630fed75e43256c619927c911dcc03c6bfed0a6"
+  },
+  "integrity": {
+    "arm_receipts": 120,
+    "candidate_records": 2880,
+    "confirmatory_claim_authorized": false,
+    "effect_size_tuning_performed": false,
+    "fresh_gated_sessions": 80,
+    "frozen_action_authority_preserved": true,
+    "full_backend_executions": 1945,
+    "gate_evaluations": 1920,
+    "live_gate_action_authoritative": false,
+    "negative_cgroup_delta_arm_runs": 0,
+    "scientific_redesign_performed": false,
+    "semantic_sessions": 40,
+    "warmup_templates_completed": 7
+  },
+  "interpretation_guardrails": {
+    "lower_resource_or_time_values_are_descriptively_better": true,
+    "no_p_values_computed": true,
+    "no_posthoc_effect_tuning": true,
+    "primary_causal_comparison": "SAFE_PRUNING vs PERMISSIVE_GATED",
+    "readiness_is_based_on_measurement_integrity_not_desired_effect_size": true,
+    "ungated_role": "practical break-even comparator",
+    "validation_not_confirmatory": true
+  },
+  "io_diagnostic": {
+    "interpretation": "Warm-cache cgroup I/O deltas are sparse/mostly zero. Preserve and report them descriptively; do not promote a strong disk-I/O saving claim from R3-C.",
+    "sqlserver_io_rbytes_delta": {
+      "permissive_nonzero_arms": 1,
+      "safe_nonzero_arms": 1,
+      "ungated_nonzero_arms": 0
+    },
+    "sqlserver_io_wbytes_delta": {
+      "permissive_nonzero_arms": 0,
+      "safe_nonzero_arms": 1,
+      "ungated_nonzero_arms": 0
+    }
+  },
+  "paired_contrasts": {
+    "SAFE_vs_PERMISSIVE": {
+      "backend_request_count_including_gate_probes": {
+        "a_higher_count": 0,
+        "a_lower_count": 40,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "PERMISSIVE_GATED",
+        "equal_count": 0,
+        "mean_a": 11.425,
+        "mean_b": 27.6,
+        "mean_delta_a_minus_b": -16.175,
+        "median_delta_a_minus_b": -16.0,
+        "metric": "backend_request_count_including_gate_probes",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": -58.605072
+      },
+      "client_wall_ms": {
+        "a_higher_count": 0,
+        "a_lower_count": 40,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "PERMISSIVE_GATED",
+        "equal_count": 0,
+        "mean_a": 1826.213698,
+        "mean_b": 2678.297433,
+        "mean_delta_a_minus_b": -852.083735,
+        "median_delta_a_minus_b": -836.27661,
+        "metric": "client_wall_ms",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": -31.81438
+      },
+      "full_backend_execution_count": {
+        "a_higher_count": 0,
+        "a_lower_count": 40,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "PERMISSIVE_GATED",
+        "equal_count": 0,
+        "mean_a": 5.425,
+        "mean_b": 21.6,
+        "mean_delta_a_minus_b": -16.175,
+        "median_delta_a_minus_b": -16.0,
+        "metric": "full_backend_execution_count",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": -74.884259
+      },
+      "nvac_physical_backend_request_count": {
+        "a_higher_count": 0,
+        "a_lower_count": 0,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "PERMISSIVE_GATED",
+        "equal_count": 40,
+        "mean_a": 6.0,
+        "mean_b": 6.0,
+        "mean_delta_a_minus_b": 0.0,
+        "median_delta_a_minus_b": 0.0,
+        "metric": "nvac_physical_backend_request_count",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": 0.0
+      },
+      "response_bytes": {
+        "a_higher_count": 0,
+        "a_lower_count": 40,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "PERMISSIVE_GATED",
+        "equal_count": 0,
+        "mean_a": 61753.525,
+        "mean_b": 212203.925,
+        "mean_delta_a_minus_b": -150450.4,
+        "median_delta_a_minus_b": -149062.0,
+        "metric": "response_bytes",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": -70.898971
+      },
+      "sqlserver_cpu_usage_usec_delta": {
+        "a_higher_count": 0,
+        "a_lower_count": 40,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "PERMISSIVE_GATED",
+        "equal_count": 0,
+        "mean_a": 526180.775,
+        "mean_b": 1261604.7,
+        "mean_delta_a_minus_b": -735423.925,
+        "median_delta_a_minus_b": -724376.0,
+        "metric": "sqlserver_cpu_usage_usec_delta",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": -58.292738
+      },
+      "sqlserver_io_rbytes_delta": {
+        "a_higher_count": 1,
+        "a_lower_count": 1,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "PERMISSIVE_GATED",
+        "equal_count": 38,
+        "mean_a": 33177.6,
+        "mean_b": 12800.0,
+        "mean_delta_a_minus_b": 20377.6,
+        "median_delta_a_minus_b": 0.0,
+        "metric": "sqlserver_io_rbytes_delta",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": 159.2
+      },
+      "sqlserver_io_wbytes_delta": {
+        "a_higher_count": 1,
+        "a_lower_count": 0,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "PERMISSIVE_GATED",
+        "equal_count": 39,
+        "mean_a": 102.4,
+        "mean_b": 0.0,
+        "mean_delta_a_minus_b": 102.4,
+        "median_delta_a_minus_b": 0.0,
+        "metric": "sqlserver_io_wbytes_delta",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": null
+      },
+      "time_to_analytical_objective_completion_ms": {
+        "a_higher_count": 8,
+        "a_lower_count": 32,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "PERMISSIVE_GATED",
+        "equal_count": 0,
+        "mean_a": 902.790254,
+        "mean_b": 1119.645981,
+        "mean_delta_a_minus_b": -216.855727,
+        "median_delta_a_minus_b": -175.80919,
+        "metric": "time_to_analytical_objective_completion_ms",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": -19.368241
+      }
+    },
+    "SAFE_vs_UNGATED": {
+      "backend_request_count_including_gate_probes": {
+        "a_higher_count": 0,
+        "a_lower_count": 40,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "UNGATED_EXECUTE_ADMISSIBLE",
+        "equal_count": 0,
+        "mean_a": 11.425,
+        "mean_b": 21.6,
+        "mean_delta_a_minus_b": -10.175,
+        "median_delta_a_minus_b": -10.0,
+        "metric": "backend_request_count_including_gate_probes",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": -47.106481
+      },
+      "client_wall_ms": {
+        "a_higher_count": 40,
+        "a_lower_count": 0,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "UNGATED_EXECUTE_ADMISSIBLE",
+        "equal_count": 0,
+        "mean_a": 1826.213698,
+        "mean_b": 1116.194071,
+        "mean_delta_a_minus_b": 710.019627,
+        "median_delta_a_minus_b": 718.691798,
+        "metric": "client_wall_ms",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": 63.610769
+      },
+      "full_backend_execution_count": {
+        "a_higher_count": 0,
+        "a_lower_count": 40,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "UNGATED_EXECUTE_ADMISSIBLE",
+        "equal_count": 0,
+        "mean_a": 5.425,
+        "mean_b": 21.6,
+        "mean_delta_a_minus_b": -16.175,
+        "median_delta_a_minus_b": -16.0,
+        "metric": "full_backend_execution_count",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": -74.884259
+      },
+      "nvac_physical_backend_request_count": {
+        "a_higher_count": 40,
+        "a_lower_count": 0,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "UNGATED_EXECUTE_ADMISSIBLE",
+        "equal_count": 0,
+        "mean_a": 6.0,
+        "mean_b": 0.0,
+        "mean_delta_a_minus_b": 6.0,
+        "median_delta_a_minus_b": 6.0,
+        "metric": "nvac_physical_backend_request_count",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": null
+      },
+      "response_bytes": {
+        "a_higher_count": 0,
+        "a_lower_count": 40,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "UNGATED_EXECUTE_ADMISSIBLE",
+        "equal_count": 0,
+        "mean_a": 61753.525,
+        "mean_b": 201169.975,
+        "mean_delta_a_minus_b": -139416.45,
+        "median_delta_a_minus_b": -138548.0,
+        "metric": "response_bytes",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": -69.302812
+      },
+      "sqlserver_cpu_usage_usec_delta": {
+        "a_higher_count": 0,
+        "a_lower_count": 40,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "UNGATED_EXECUTE_ADMISSIBLE",
+        "equal_count": 0,
+        "mean_a": 526180.775,
+        "mean_b": 1009584.975,
+        "mean_delta_a_minus_b": -483404.2,
+        "median_delta_a_minus_b": -485606.5,
+        "metric": "sqlserver_cpu_usage_usec_delta",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": -47.881477
+      },
+      "sqlserver_io_rbytes_delta": {
+        "a_higher_count": 1,
+        "a_lower_count": 0,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "UNGATED_EXECUTE_ADMISSIBLE",
+        "equal_count": 39,
+        "mean_a": 33177.6,
+        "mean_b": 0.0,
+        "mean_delta_a_minus_b": 33177.6,
+        "median_delta_a_minus_b": 0.0,
+        "metric": "sqlserver_io_rbytes_delta",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": null
+      },
+      "sqlserver_io_wbytes_delta": {
+        "a_higher_count": 1,
+        "a_lower_count": 0,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "UNGATED_EXECUTE_ADMISSIBLE",
+        "equal_count": 39,
+        "mean_a": 102.4,
+        "mean_b": 0.0,
+        "mean_delta_a_minus_b": 102.4,
+        "median_delta_a_minus_b": 0.0,
+        "metric": "sqlserver_io_wbytes_delta",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": null
+      },
+      "time_to_analytical_objective_completion_ms": {
+        "a_higher_count": 40,
+        "a_lower_count": 0,
+        "arm_a": "SAFE_PRUNING",
+        "arm_b": "UNGATED_EXECUTE_ADMISSIBLE",
+        "equal_count": 0,
+        "mean_a": 902.790254,
+        "mean_b": 442.309339,
+        "mean_delta_a_minus_b": 460.480915,
+        "median_delta_a_minus_b": 418.331244,
+        "metric": "time_to_analytical_objective_completion_ms",
+        "n_pairs": 40,
+        "percent_change_of_means_a_vs_b": 104.108341
+      }
+    }
+  },
+  "readiness": {
+    "basis": [
+      "C4 archive and internal SHA256 manifest verified.",
+      "40/40 validation sessions and 120/120 arm receipts passed integrity.",
+      "No negative cgroup deltas and no live-gate relabeling occurred.",
+      "SAFE and PERMISSIVE incurred identical paired NVAC-probe counts in 40/40 sessions.",
+      "Primary SAFE-vs-PERMISSIVE resource/time direction is stable without any effect-size tuning.",
+      "UNGATED temporal break-even is not reached; this negative regime is retained rather than tuned away.",
+      "No measurement-mechanics defect requiring a validation rerun was identified."
+    ],
+    "binding_change_required": false,
+    "cohort_change_required": false,
+    "confirmatory_claim_authorized": false,
+    "effect_based_rerun_required": false,
+    "measurement_mechanics_change_required": false,
+    "next": "R3-D0_CONFIRMATORY_SQL_DIRECT_STATIC_ACTIVATION_NO_MEASUREMENT",
+    "r3c_rerun_authorized": false,
+    "status": "PASS_READY_FOR_R3D_STATIC_ACTIVATION"
+  },
+  "replicate_diagnostics": {
+    "PERMISSIVE_GATED": {
+      "backend_request_count_including_gate_probes": {
+        "R031_mean": 27.6,
+        "R032_mean": 27.6,
+        "R032_vs_R031_percent": 0.0
+      },
+      "client_wall_ms": {
+        "R031_mean": 2678.369189,
+        "R032_mean": 2678.225677,
+        "R032_vs_R031_percent": -0.005358
+      },
+      "response_bytes": {
+        "R031_mean": 212273.95,
+        "R032_mean": 212133.9,
+        "R032_vs_R031_percent": -0.065976
+      },
+      "sqlserver_cpu_usage_usec_delta": {
+        "R031_mean": 1265154.85,
+        "R032_mean": 1258054.55,
+        "R032_vs_R031_percent": -0.56122
+      },
+      "time_to_analytical_objective_completion_ms": {
+        "R031_mean": 1083.247105,
+        "R032_mean": 1156.044857,
+        "R032_vs_R031_percent": 6.720327
+      }
+    },
+    "SAFE_PRUNING": {
+      "backend_request_count_including_gate_probes": {
+        "R031_mean": 11.5,
+        "R032_mean": 11.35,
+        "R032_vs_R031_percent": -1.304348
+      },
+      "client_wall_ms": {
+        "R031_mean": 1817.521389,
+        "R032_mean": 1834.906007,
+        "R032_vs_R031_percent": 0.956501
+      },
+      "response_bytes": {
+        "R031_mean": 62471.2,
+        "R032_mean": 61035.85,
+        "R032_vs_R031_percent": -2.297619
+      },
+      "sqlserver_cpu_usage_usec_delta": {
+        "R031_mean": 527479.2,
+        "R032_mean": 524882.35,
+        "R032_vs_R031_percent": -0.492313
+      },
+      "time_to_analytical_objective_completion_ms": {
+        "R031_mean": 884.572879,
+        "R032_mean": 921.007628,
+        "R032_vs_R031_percent": 4.118909
+      }
+    },
+    "UNGATED_EXECUTE_ADMISSIBLE": {
+      "backend_request_count_including_gate_probes": {
+        "R031_mean": 21.6,
+        "R032_mean": 21.6,
+        "R032_vs_R031_percent": 0.0
+      },
+      "client_wall_ms": {
+        "R031_mean": 1125.566591,
+        "R032_mean": 1106.821552,
+        "R032_vs_R031_percent": -1.665387
+      },
+      "response_bytes": {
+        "R031_mean": 201239.95,
+        "R032_mean": 201100.0,
+        "R032_vs_R031_percent": -0.069544
+      },
+      "sqlserver_cpu_usage_usec_delta": {
+        "R031_mean": 1016128.55,
+        "R032_mean": 1003041.4,
+        "R032_vs_R031_percent": -1.287942
+      },
+      "time_to_analytical_objective_completion_ms": {
+        "R031_mean": 434.548317,
+        "R032_mean": 450.07036,
+        "R032_vs_R031_percent": 3.571995
+      }
+    }
+  },
+  "source": {
+    "archive_members": 130,
+    "archive_name": "MCAD_R3_C4_VALIDATION_RESULTS_20260823T193237Z.tar.gz",
+    "archive_root": "MCAD_R3_C4_VALIDATION_ATTEMPT_20260823T193237Z",
+    "archive_sha256": "116fc16926d7953cba90d89cee380ae494298b46327ebaf53a1152ec67711908",
+    "c4_execution_kit_head": "24335a3e9d98b53c7f63dff2b418d15a24dd2f2e",
+    "frozen_dev_analysis_git_blob": "6630fed75e43256c619927c911dcc03c6bfed0a6",
+    "internal_manifest_entries": 126,
+    "internal_manifest_verified": true
+  },
+  "stage": "R3-C_VALIDATION_CALIBRATION",
+  "stratum_direction_diagnostics": {
+    "safe_vs_permissive_completion_lower_strata": 18,
+    "safe_vs_permissive_completion_total_strata": 20,
+    "safe_vs_permissive_wall_lower_strata": 20,
+    "safe_vs_permissive_wall_total_strata": 20,
+    "safe_vs_ungated_completion_break_even_strata": 0,
+    "safe_vs_ungated_completion_total_strata": 20,
+    "safe_vs_ungated_wall_break_even_strata": 0,
+    "safe_vs_ungated_wall_total_strata": 20
+  }
+}
