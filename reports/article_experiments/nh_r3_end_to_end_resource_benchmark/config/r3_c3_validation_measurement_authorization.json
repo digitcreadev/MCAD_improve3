@@ -1,0 +1,64 @@
+{
+  "analysis_class": "VALIDATION_CALIBRATION_NONCONFIRMATORY",
+  "authorization": {
+    "backend": "adventureworks_sql_direct",
+    "confirmatory_claim_authorized": false,
+    "effect_size_tuning_performed": false,
+    "explicit_confirm_token": "EXECUTE_AUTHORIZED_NH_R3_C_VALIDATION_40",
+    "measurement_executor": "implementation/r3_c2_validation_executor.py",
+    "one_shot_premeasurement_gate": "runtime/r3_c3_one_shot_premeasurement_readonly.sh",
+    "one_shot_premeasurement_gate_required": true,
+    "runtime_project": "mcad-r3-rerun1",
+    "scientific_redesign_performed": false,
+    "validation_measured_execution_authorized": true
+  },
+  "c1_head": "082457760ba1602c5eda5f74a9cb653eed3552e1",
+  "c2_head": "31941cc21a099ae931a2b5f6dd0c0f34c8d2a4de",
+  "contract_version": "mcad.nh_r3.c3.validation_measurement_authorization.v1",
+  "frozen_authorities": {
+    "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff",
+    "c1_schedule_sha256": "4aede87cb911e5ce9baf0f372c011eb6435a6fd1f3411529577ccdbfe5ab6b70",
+    "c1_validation_plan_sha256": "76d44e02ae57edd5caa570833e02f65bbabaf361c8e7da6c3c089f6cf065a551",
+    "c2_contract_git_blob": "8fd845bbd74803aaf0d8e0c11042301e3e74431f",
+    "c2_executor_git_blob": "ea5895e9b6304cd5981f9e48843b89db91296740",
+    "c2_executor_sha256": "c7c7d034aaba3d7ed967ad114e5a1a13cba92a98c68e82346586af1ea42ea7be",
+    "c2_runtime_preflight_sha256": "2a60cef2ffaa8e0b53ce07f7b6b1708276c076818abedee57565f3ad6a28ee43",
+    "c2_static_verifier_sha256": "5ff3d3554e3110c97a23015c2c60151a86407649cd70d26f31f0facab5e2f22d"
+  },
+  "measurement_boundary": {
+    "R3_C3_may_use_docker_inspect": true,
+    "R3_C3_may_use_readonly_http_get": true,
+    "R3_C3_performs_backend_query": false,
+    "R3_C3_performs_docker_mutation": false,
+    "R3_C3_performs_measurement": false,
+    "R3_C3_performs_service_mutation": false,
+    "next_station_after_pass": "R3-C4_EXECUTE_40_SESSION_VALIDATION_ONE_SHOT"
+  },
+  "runtime_preconditions": {
+    "clone_bringup_required": false,
+    "clone_health_required": true,
+    "clone_must_be_running": true,
+    "clone_service_restart_before_measurement_authorization_allowed": false,
+    "historical_runtime_mutation_allowed": false,
+    "measured_output_must_be_outside_repository": true,
+    "r3_aw_sa_password_environment_required": true
+  },
+  "stage": "R3-C_VALIDATION_CALIBRATION",
+  "station": "MCAD-NH-R3",
+  "validation_scope": {
+    "arm_order_change_allowed": false,
+    "arm_runs": 120,
+    "candidate_actions": 2880,
+    "cohort_change_allowed": false,
+    "completion_boundary_change_allowed": false,
+    "effect_size_tuning_allowed": false,
+    "fresh_mcad_sessions_planned": 80,
+    "gate_evaluations_planned": 1920,
+    "gated_arm_runs": 80,
+    "live_gate_may_relabel_frozen_action": false,
+    "mcad_api_restarts_planned": 120,
+    "selection_role": "CALIBRATION_NO_EFFECT_TUNING",
+    "semantic_sessions": 40,
+    "ungated_arm_runs": 40
+  }
+}
