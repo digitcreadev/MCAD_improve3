@@ -1,0 +1,64 @@
+{
+  "analysis_class": "CONFIRMATORY_PRIMARY_SQL_DIRECT",
+  "contract_version": "mcad.nh_r3.d3.r3.replacement_primary_300_execution_authorization.v1",
+  "frozen_authorities": {
+    "d3_execution_contract_git_blob": "c4e45aa2a04bdb084a2c9a9047f074c31a5cf665",
+    "interrupted_attempt_archive_sha256": "1c5bb0d802e1400a38c8bd57d629553f331821771d8bfbf83424caecd5d7fb37",
+    "interruption_freeze_git_blob": "67e256df516bd8079971c1dc645df408804cebe5",
+    "mechanical_rerun_authorization_git_blob": "14fce8bcc4601947ce82d9dbe686c51286689206",
+    "r2_contract_git_blob": "52748f1c02cb1dafd0a6f05964ffe2a5af63c48e",
+    "r2_runtime_receipt_git_blob": "09a2ed82c0ffc86c567e543aaa9010c409f3ee88"
+  },
+  "host_binding": {
+    "codespace_name": "shiny-pancake-wvgr9v47w4r6c9qwr",
+    "r2_observed_idle_timeout_minutes": 240,
+    "required_idle_timeout_minutes": 240,
+    "required_state": "Available"
+  },
+  "next": "R3-D3-R4_EXECUTE_REPLACEMENT_PRIMARY_300_ONE_SHOT",
+  "parent_r2_head": "0a02586b18fe0612d0e058e6029ddd24c536f52a",
+  "r3_wrapper_boundary": {
+    "backend_query_executed_in_r3": false,
+    "docker_or_service_mutation_executed_in_r3": false,
+    "effect_analysis_executed_in_r3": false,
+    "measurement_executed_in_r3": false,
+    "replacement_measurement_requires_subsequent_explicit_r4_command": true
+  },
+  "replacement_execution": {
+    "arm_runs": 900,
+    "candidate_actions": 21600,
+    "confirm_token": "EXECUTE_AUTHORIZED_NH_R3_D3_REPLACEMENT_PRIMARY_300",
+    "confirmatory_claim_authorized": false,
+    "effect_size_tuning_performed": false,
+    "fallback_120_activated": false,
+    "fresh_gated_sessions_planned": 600,
+    "full_backend_executions_planned": 14580,
+    "gate_evaluations_planned": 14400,
+    "mechanical_full_rerun_scientifically_authorized": true,
+    "no_effect_based_reruns": true,
+    "no_interim_effect_looks": true,
+    "repeat_fixed_7_template_warmup": true,
+    "replacement_primary_300_execution_authorized": true,
+    "rerun_scope": "FULL_PRIMARY_300_FROM_BLOCK_1",
+    "resume_from_arm_298": false,
+    "reuse_partial_receipts": false,
+    "scientific_redesign_performed": false,
+    "semantic_sessions": 300
+  },
+  "runtime": {
+    "isolated_clone_pull_allowed": false,
+    "isolated_clone_rebuild_allowed": false,
+    "isolated_clone_recreate_allowed": false,
+    "isolated_mcad_api_restart_during_replacement_measurement_allowed": true,
+    "isolated_project": "mcad-r3-rerun1",
+    "isolated_proxy_restart_allowed": false,
+    "isolated_sqlserver_restart_allowed": false,
+    "mcad_base": "http://127.0.0.1:18000",
+    "protected_historical_runtime_must_remain_exited": true,
+    "protected_historical_runtime_mutation_allowed": false,
+    "proxy_base": "http://127.0.0.1:19000",
+    "runtime_root": "/workspaces/MCAD_R3_ISOLATED_RUNTIME_d2f5e40171bd2daccec18e7d450644e0b510b5d8"
+  },
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "station": "MCAD-NH-R3"
+}
