@@ -1,0 +1,77 @@
+{
+  "analysis_class": "CONFIRMATORY_PRIMARY_SQL_DIRECT",
+  "contract_version": "mcad.nh_r3.d3.primary_confirmatory_execution_kit.v1",
+  "frozen_authorities": {
+    "d0_primary_schedule_git_blob": "6b53ab6d271425b9e5113bdd405775f05c6d65df",
+    "d0_primary_schedule_sha256": "4f333b234de5a097b6f22c9d4803463560ca26bf163de3dbc623825bee11b622",
+    "d1_executor_git_blob": "ee0fb893a35086d01a69ee4eb8d70166ba2bb7b0",
+    "d1_executor_sha256": "b4e024ab12940a9824f39188e8b79e0974f166d7b98ac04ab7afe70082a012ae",
+    "d2_authorization_git_blob": "3dc900948f1022c6f991964f50570bbb1ad9bcff",
+    "d2_authorization_sha256": "d3725ff2fea15c1501cfba26265922a19b2c41354b57c9bee81dce1e22415d2c",
+    "d2_premeasurement_git_blob": "5fbcbba4a105949b0c3658dde8659d004985e2be",
+    "d2_premeasurement_sha256": "d0e659001a114a3fae59fe2e2c9bf96b847aaca487f47d799eb942bf91497282",
+    "d2_static_verifier_git_blob": "6553c235e02c2b6ec4cdb6966e7925e910c2fa25",
+    "d2_static_verifier_sha256": "9276809f1a8b1b25efb6357017fd86bd2eec1cd8c9a9524661a5832664e32cb7",
+    "measurement_protocol_git_blob": "2d3a49794f196c6b6a43b3a0041dfd46dff357ab"
+  },
+  "integrity": {
+    "expected_arm_receipts": 900,
+    "expected_arms_per_session": 3,
+    "expected_candidate_records": 21600,
+    "expected_fresh_gated_sessions": 600,
+    "expected_full_backend_executions": 14580,
+    "expected_gate_evaluations": 14400,
+    "expected_unique_semantic_sessions": 300,
+    "negative_cgroup_delta_policy": "invalidate arm run; never clamp to zero",
+    "partial_attempt_policy": "preserve exact partial attempt and execution log; do not automatically resume, rerun, or activate fallback; assistant audit required"
+  },
+  "parent_d2_head": "e399654ddcd0bb41febd07e8f12d384751407c5e",
+  "primary_execution": {
+    "arm_runs": 900,
+    "candidate_actions": 21600,
+    "confirm_token": "EXECUTE_AUTHORIZED_NH_R3_D_CONFIRMATORY_PRIMARY_300",
+    "confirmatory_claim_authorized_during_execution": false,
+    "effect_size_tuning_allowed": false,
+    "executor": "implementation/r3_d1_confirmatory_executor.py",
+    "fallback_120_activated": false,
+    "fresh_gated_sessions_planned": 600,
+    "full_backend_executions_planned": 14580,
+    "gate_evaluations_planned": 14400,
+    "gated_arm_runs": 600,
+    "mcad_api_restarts_planned": 900,
+    "no_interim_effect_looks": true,
+    "output_directory_must_not_preexist": true,
+    "output_must_be_outside_repository": true,
+    "semantic_sessions": 300,
+    "ungated_arm_runs": 300
+  },
+  "publication_boundary": {
+    "effect_analysis_is_forbidden_in_D3_wrapper": true,
+    "execution_kit_must_be_committed_and_pushed_before_first_warmup_backend_query": true,
+    "measured_results_are_not_committed_in_D3": true,
+    "next_after_partial_failure": "R3-D3_PARTIAL_ATTEMPT_AUDIT_NO_AUTOMATIC_RERUN",
+    "next_after_success": "R3-D4_CONFIRMATORY_INFERENCE_AND_FREEZE"
+  },
+  "runtime": {
+    "historical_runtime_mutation_allowed": false,
+    "isolated_mcad_api_restart_allowed": true,
+    "isolated_project": "mcad-r3-rerun1",
+    "isolated_proxy_restart_allowed": false,
+    "isolated_sqlserver_restart_allowed": false,
+    "mcad_base": "http://127.0.0.1:18000",
+    "proxy_base": "http://127.0.0.1:19000",
+    "runtime_root": "/workspaces/MCAD_R3_ISOLATED_RUNTIME_d2f5e40171bd2daccec18e7d450644e0b510b5d8"
+  },
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "station": "MCAD-NH-R3",
+  "warmup": {
+    "backend": "adventureworks_sql_direct",
+    "endpoint": "/bi/r3/measurement/full-execute",
+    "measured": false,
+    "repetitions": 1,
+    "required": true,
+    "rule": "execute every unique frozen R3 MDX template once in lexicographic template_id order before the measured PRIMARY 300 campaign",
+    "sqlserver_restart_after_warmup": false,
+    "unique_templates": 7
+  }
+}
