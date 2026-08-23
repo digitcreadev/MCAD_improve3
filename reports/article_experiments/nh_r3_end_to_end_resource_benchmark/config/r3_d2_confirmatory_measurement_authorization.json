@@ -1,0 +1,63 @@
+{
+  "analysis_class": "CONFIRMATORY_PRIMARY_SQL_DIRECT",
+  "authorization": {
+    "automatic_rerun": false,
+    "confirmatory_claim_authorized": false,
+    "effect_size_tuning_performed": false,
+    "fallback_120_activated": false,
+    "fallback_activation_from_observed_effects_forbidden": true,
+    "no_effect_based_reruns": true,
+    "no_interim_effect_looks": true,
+    "primary_300_measured_execution_authorized": true,
+    "scientific_redesign_performed": false
+  },
+  "contract_version": "mcad.nh_r3.d2.confirmatory_measurement_authorization.v1",
+  "d0_head": "f610dd5d1a61830385bb11f537eb1d740bb0ccc6",
+  "d1_head": "f567b869a7cea486a780b35bf4acc873245fda88",
+  "frozen_authorities": {
+    "d0_inference_protocol_git_blob": "cd3c64c4e7c67226b8f635953e5a17bc5eca37eb",
+    "d1_contract_git_blob": "879cfbd3be42831fa74cc43737ca6cf23454fee4",
+    "d1_contract_sha256": "ebb654a6ededd99edf6c86aa2841aacfbb1504857db457173fee1bfb5b7749ae",
+    "d1_executor_git_blob": "ee0fb893a35086d01a69ee4eb8d70166ba2bb7b0",
+    "d1_executor_sha256": "b4e024ab12940a9824f39188e8b79e0974f166d7b98ac04ab7afe70082a012ae",
+    "d1_runtime_preflight_git_blob": "9d45411272403731724263f3c86ef404e63fc3ce",
+    "d1_runtime_preflight_sha256": "20cc626dbd3f141685b4a12a9832ad70e75091344d47398034823a8ea19afc34",
+    "d1_static_verifier_git_blob": "c877c781e8dc67de5eb89c9682a9941a6add003f",
+    "d1_static_verifier_sha256": "cb6728c73de26128ccbd52071f4396ac32f1ee5356e2461b1620e666fda6e513",
+    "primary_schedule_git_blob": "6b53ab6d271425b9e5113bdd405775f05c6d65df",
+    "primary_schedule_sha256": "4f333b234de5a097b6f22c9d4803463560ca26bf163de3dbc623825bee11b622"
+  },
+  "next": "R3-D3_EXECUTE_PRIMARY_300_CONFIRMATORY_ONE_SHOT",
+  "primary_execution": {
+    "arm_runs": 900,
+    "candidate_actions": 21600,
+    "confirm_token": "EXECUTE_AUTHORIZED_NH_R3_D_CONFIRMATORY_PRIMARY_300",
+    "fresh_gated_sessions_planned": 600,
+    "full_backend_executions_planned": 14580,
+    "gate_evaluations_planned": 14400,
+    "gated_arm_runs": 600,
+    "mcad_api_restarts_planned": 900,
+    "output_directory_must_not_preexist": true,
+    "output_must_be_outside_repository": true,
+    "semantic_sessions": 300,
+    "ungated_arm_runs": 300
+  },
+  "publication_boundary": {
+    "d2_wrapper_executes_backend_query": false,
+    "d2_wrapper_executes_measurement": false,
+    "d2_wrapper_mutates_docker_or_services": false,
+    "measurement_requires_subsequent_explicit_D3_command": true
+  },
+  "runtime": {
+    "historical_runtime_mutation_allowed": false,
+    "isolated_mcad_api_restart_during_measurement_allowed": true,
+    "isolated_project": "mcad-r3-rerun1",
+    "isolated_proxy_restart_allowed": false,
+    "isolated_sqlserver_restart_allowed": false,
+    "mcad_base": "http://127.0.0.1:18000",
+    "proxy_base": "http://127.0.0.1:19000",
+    "runtime_root": "/workspaces/MCAD_R3_ISOLATED_RUNTIME_d2f5e40171bd2daccec18e7d450644e0b510b5d8"
+  },
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "station": "MCAD-NH-R3"
+}
