@@ -1,0 +1,75 @@
+{
+  "analysis_class": "VALIDATION_CALIBRATION_NONCONFIRMATORY",
+  "contract_version": "mcad.nh_r3.c4.validation_execution_kit.v1",
+  "frozen_authorities": {
+    "binding_plan_sha256": "a97a525e3766ca5aaadf8de3a8ccb200ea682cdfdbfd4eca71abc03834903dff",
+    "c1_schedule_sha256": "4aede87cb911e5ce9baf0f372c011eb6435a6fd1f3411529577ccdbfe5ab6b70",
+    "c1_validation_plan_sha256": "76d44e02ae57edd5caa570833e02f65bbabaf361c8e7da6c3c089f6cf065a551",
+    "c2_executor_sha256": "c7c7d034aaba3d7ed967ad114e5a1a13cba92a98c68e82346586af1ea42ea7be",
+    "c3_authorization_sha256": "4e374d1d216037f8fda7ac021a12501fa12fe82d371f9d3345d6b0dcbfa895c8",
+    "c3_premeasurement_sha256": "20290cc4d1701f178a3146b8f9876d0da936c334b5e37d863aac68355682d88c",
+    "c3_static_verifier_sha256": "a3bbf880430ce2d934e80845627641827c045b1f31c4db005ea4393f85bbd288"
+  },
+  "integrity": {
+    "expected_arm_receipts": 120,
+    "expected_arms_per_session": 3,
+    "expected_candidate_records": 2880,
+    "expected_unique_semantic_sessions": 40,
+    "expected_warmup_templates": 7,
+    "negative_cgroup_delta_policy": "invalidate arm run; never clamp to zero",
+    "partial_attempt_policy": "preserve_exactly; do_not_auto_resume_or_rerun; assistant_audit_required",
+    "successful_run_policy": "archive_external_attempt_and_sha256_before_analysis"
+  },
+  "measurement": {
+    "arm_runs": 120,
+    "candidate_actions": 2880,
+    "confirm_token": "EXECUTE_AUTHORIZED_NH_R3_C_VALIDATION_40",
+    "confirmatory_claim_authorized": false,
+    "effect_size_tuning_allowed": false,
+    "executor": "implementation/r3_c2_validation_executor.py",
+    "fresh_mcad_sessions_planned": 80,
+    "gate_evaluations_planned": 1920,
+    "gated_arm_runs": 80,
+    "live_gate_may_relabel_frozen_action": false,
+    "mcad_api_restarts_planned": 120,
+    "output_must_be_outside_repository": true,
+    "semantic_sessions": 40,
+    "ungated_arm_runs": 40
+  },
+  "parent_c3_head": "266bc62593652547b3184969e4003fe2178843f8",
+  "publication_boundary": {
+    "execution_kit_must_be_committed_and_pushed_before_first_warmup_backend_query": true,
+    "measured_results_are_not_committed_in_R3_C4": true,
+    "next_after_partial_failure": "R3-C4_RECOVERY_AUDIT_NO_AUTOMATIC_RERUN",
+    "next_after_success": "R3-C5_VALIDATION_ANALYSIS_AND_FREEZE"
+  },
+  "runtime": {
+    "historical_runtime_mutation_allowed": false,
+    "isolated_mcad_api_restart_allowed_during_measurement": true,
+    "isolated_project": "mcad-r3-rerun1",
+    "isolated_proxy_restart_allowed": false,
+    "isolated_sqlserver_restart_allowed": false,
+    "mcad_base": "http://127.0.0.1:18000",
+    "proxy_base": "http://127.0.0.1:19000",
+    "runtime_root": "/workspaces/MCAD_R3_ISOLATED_RUNTIME_d2f5e40171bd2daccec18e7d450644e0b510b5d8"
+  },
+  "stage": "R3-C_VALIDATION_CALIBRATION",
+  "station": "MCAD-NH-R3",
+  "warmup": {
+    "backend": "adventureworks_sql_direct",
+    "endpoint": "/bi/r3/measurement/full-execute",
+    "measured": false,
+    "repetitions": 1,
+    "rule": "execute every unique frozen R3 MDX template once in lexicographic template_id order using direct backend-only execution",
+    "sqlserver_restart_after_warmup": false,
+    "unique_templates": [
+      "AW_ATOM_COST",
+      "AW_ATOM_MARGIN",
+      "AW_ATOM_SALES",
+      "AW_BAD_GRAIN_YEAR",
+      "AW_DISTRACTOR_ACCESSORIES_SALES",
+      "AW_MIX_ACCESSORIES_SALES_COST",
+      "AW_PAIR_SALES_COST"
+    ]
+  }
+}
