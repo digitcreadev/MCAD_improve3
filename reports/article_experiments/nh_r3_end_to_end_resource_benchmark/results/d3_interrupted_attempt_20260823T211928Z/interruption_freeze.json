@@ -1,0 +1,86 @@
+{
+  "attempt": {
+    "attempt_manifest_present": true,
+    "attempt_root": "/workspaces/MCAD_R3_D3_CONFIRMATORY_PRIMARY_ATTEMPT_20260823T211928Z",
+    "confirmatory_primary_summary_present": false,
+    "execution_log": "/workspaces/MCAD_R3_D3_CONFIRMATORY_PRIMARY_EXECUTION_20260823T211928Z.log",
+    "execution_log_sha256": "ea86136d2970dfafd069cc1cf1eae996218a14b50219e883b310f9aa70b33b99",
+    "execution_log_size_bytes": 78579,
+    "handoff_present": false,
+    "integrity_summary_present": false,
+    "partial_arm_receipts_present": 297,
+    "planned_arm_receipts": 900,
+    "preserved_archive": "/workspaces/MCAD_R3_D3_CONFIRMATORY_PRIMARY_INTERRUPTED_20260823T211928Z_PRESERVED_20260823T215439Z.tar.gz",
+    "preserved_archive_sha256": "1c5bb0d802e1400a38c8bd57d629553f331821771d8bfbf83424caecd5d7fb37",
+    "preserved_archive_sha_file": "/workspaces/MCAD_R3_D3_CONFIRMATORY_PRIMARY_INTERRUPTED_20260823T211928Z_PRESERVED_20260823T215439Z.tar.gz.sha256.txt",
+    "run_id": "20260823T211928Z",
+    "source_file_hash_manifest_sha256": "96aa263374e517e4fd11ecaac79aa2a3733598a0ba89e980b0e0cf391d4a4a23",
+    "warmup_receipt_present": true
+  },
+  "contract_version": "mcad.nh_r3.d3.interrupted_attempt_freeze.v1",
+  "d3_execution_kit_head": "6fedb3ecf8d38680203d1dc07d6d776e651d85e2",
+  "failure_classification": {
+    "class": "EXTERNAL_CODESPACE_HOST_STOP_DURING_MEASUREMENT",
+    "effect_analysis_performed_before_freeze": false,
+    "failure_caused_by_observed_effects": false,
+    "fallback_120_activated": false,
+    "interim_effect_look_authorized": false,
+    "mechanical_external_failure": true,
+    "scientific_failure": false
+  },
+  "post_restart_runtime_snapshot": {
+    "historical_runtime_policy": "DO_NOT_RESTART_OR_MUTATE_PROTECTED_HISTORICAL_CONTAINERS",
+    "isolated_clone_mcad_api": {
+      "id": "ec03867deaf7fb31a909eef371895189603be78b8526b14528155cea645f7c8b",
+      "image": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+      "restart_count": 0,
+      "started_at": "2026-08-23T21:42:39.194279567Z",
+      "state": "exited"
+    },
+    "isolated_clone_mcad_proxy": {
+      "id": "c12ba832d2f59b55037e6086d3021e66b8093c6fb3ef5cb26a37c0796ff20786",
+      "image": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+      "restart_count": 0,
+      "started_at": "2026-08-23T11:08:52.451119176Z",
+      "state": "exited"
+    },
+    "isolated_clone_sqlserver": {
+      "id": "7eb03679a67d80f1f9d708a0ecc42ee1d89e4f60ec26ff0fea2925f1b041395c",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "restart_count": 0,
+      "started_at": "2026-08-23T11:44:16.354977797Z",
+      "state": "exited"
+    },
+    "protected_mcad_api": {
+      "id": "5767c68c60ecfe5450a9af6ccde82221c3076f9046f82a5a8353865bd73292c1",
+      "image": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:09:46.36179959Z",
+      "state": "exited"
+    },
+    "protected_mcad_proxy": {
+      "id": "ebd1dca12df3cff15dc411c9a5902dc16547c6a78708fd42ff6623cddd9fd612",
+      "image": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:08:25.609823871Z",
+      "state": "exited"
+    },
+    "protected_sqlserver": {
+      "id": "ca2434ae491845dec2d2a5dc4ef4b1056f6eb20282024c64a191c3ac5d1f264c",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "restart_count": 0,
+      "started_at": "2026-08-23T10:02:34.457234573Z",
+      "state": "exited"
+    }
+  },
+  "scientific_disposition": {
+    "automatic_rerun_authorized": false,
+    "fallback_activation_authorized": false,
+    "partial_attempt_excluded_from_final_inference": true,
+    "partial_attempt_is_confirmatory_evidence": false,
+    "partial_receipts_must_not_be_combined_with_future_complete_rerun": true,
+    "resume_from_arm_298_authorized": false
+  },
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "station": "MCAD-NH-R3"
+}

@@ -1,0 +1,40 @@
+{
+  "contract_version": "mcad.nh_r3.d3.mechanical_rerun_authorization.v1",
+  "effect_size_tuning_performed": false,
+  "failure_basis": "EXTERNAL_CODESPACE_HOST_STOP_DURING_MEASUREMENT",
+  "fallback_120_activated": false,
+  "interim_effect_analysis_performed": false,
+  "interrupted_attempt_archive_sha256": "1c5bb0d802e1400a38c8bd57d629553f331821771d8bfbf83424caecd5d7fb37",
+  "interrupted_attempt_run_id": "20260823T211928Z",
+  "next": "R3-D3-R2_STABLE_HOST_RUNTIME_REBIND_AND_PREFLIGHT_NO_MEASUREMENT",
+  "parent_d3_execution_kit_head": "6fedb3ecf8d38680203d1dc07d6d776e651d85e2",
+  "protected_historical_runtime": {
+    "must_remain_unstarted_after_external_stop": true,
+    "mutation_authorized": false
+  },
+  "rerun_policy": {
+    "activate_fallback_120": false,
+    "effect_based_rerun_or_fallback_forbidden": true,
+    "execution_authorized_now": false,
+    "mechanical_full_rerun_scientifically_authorized": true,
+    "one_complete_replacement_attempt_may_be_authorized_after_host_runtime_preflight": true,
+    "repeat_fixed_7_template_warmup": true,
+    "rerun_scope": "FULL_PRIMARY_300_FROM_BLOCK_1",
+    "resume_partial_attempt": false,
+    "reuse_partial_receipts": false,
+    "use_same_d0_inference_protocol": true,
+    "use_same_d1_executor": true,
+    "use_same_primary_300_cohort": true,
+    "use_same_primary_schedule": true
+  },
+  "scientific_plan_changed": false,
+  "stable_host_requirement": {
+    "current_interrupted_codespace_is_not_approved_for_immediate_rerun": true,
+    "long_run_host_timeout_must_be_verified_before_measurement": true,
+    "minimum_planned_host_window_minutes": 120,
+    "new_or_rebound_isolated_runtime_must_be_preflighted_before_measurement": true,
+    "recommended_idle_timeout_minutes": 240
+  },
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "station": "MCAD-NH-R3"
+}
