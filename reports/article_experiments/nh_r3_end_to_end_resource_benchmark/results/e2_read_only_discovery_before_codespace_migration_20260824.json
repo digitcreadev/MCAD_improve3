@@ -1,0 +1,109 @@
+{
+  "contract_version": "mcad.nh_r3.e2.read_only_discovery_before_codespace_migration.v1",
+  "station": "MCAD-NH-R3",
+  "stage": "R3-E_XMLA_EMONDRIAN_END_TO_END_REPLICATION",
+  "substage": "R3-E2_XMLA_ISOLATED_RUNTIME_DISCOVERY_AND_MATERIALIZATION_PREFLIGHT_READ_ONLY_NO_MEASUREMENT",
+  "parent_e1_head": "e93641209b70605237931bf962bc83ac0dc81a48",
+  "discovery_script_sha256": "e082b465dcabab99d5b5ba6ba8185a11e35b53207f9df05f503d9e3968a72cee",
+  "classification": "PASS_DISCOVERY_COMPLETED_HOST_SPECIFIC",
+  "host_relocation_planned": true,
+  "host_relocation_reason": "Codespaces account/quota migration",
+  "host_specific_findings_must_be_revalidated_on_new_codespace": true,
+  "scientific_measurement_rerun_required": false,
+  "findings": {
+    "protected_historical_runtime_exact_exited_continuity": "PASS",
+    "r3d_runtime_identity_images": "PASS",
+    "exact_local_emondrian_image_discovery": "NONE",
+    "emondrian_adventureworks_candidate_containers": 0,
+    "emondrian_unique_candidate_image_ids": 0,
+    "emondrian_matching_image_refs": 0,
+    "adventureworks_seed_candidate_files": 2,
+    "adventureworks_seed_unique_sha256": 1,
+    "adventureworks_seed_sha256": "ac4a39502645c31f114331be28ce671ac5f70b0645f2aa59d8dccfbaae081c05",
+    "adventureworks_seed_bytes": 101834752,
+    "credential_material_present_sql": true,
+    "credential_material_present_proxy": true,
+    "credential_values_match": true,
+    "credential_value_printed": false,
+    "planned_host_ports": [25333, 18182, 18100, 19100],
+    "planned_host_port_conflict_count": 0,
+    "planned_host_ports_all_free": true,
+    "planned_project_preexisting_containers": 0,
+    "planned_network_preexists": false,
+    "planned_sql_volume_preexists": false,
+    "planned_runtime_objects_absent": true,
+    "workspaces_filesystem": "/dev/loop4",
+    "workspaces_total_kb": 32847680,
+    "workspaces_used_kb": 16493500,
+    "workspaces_available_kb": 14660084,
+    "workspaces_capacity": "53%"
+  },
+  "protected_historical_runtime": {
+    "sqlserver": {
+      "container_id": "ca2434ae491845dec2d2a5dc4ef4b1056f6eb20282024c64a191c3ac5d1f264c",
+      "state": "exited",
+      "started_at": "2026-08-23T10:02:34.457234573Z",
+      "restart_count": 0,
+      "image_id": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89"
+    },
+    "mcad_api": {
+      "container_id": "5767c68c60ecfe5450a9af6ccde82221c3076f9046f82a5a8353865bd73292c1",
+      "state": "exited",
+      "started_at": "2026-08-23T10:09:46.36179959Z",
+      "restart_count": 0,
+      "image_id": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840"
+    },
+    "mcad_proxy": {
+      "container_id": "ebd1dca12df3cff15dc411c9a5902dc16547c6a78708fd42ff6623cddd9fd612",
+      "state": "exited",
+      "started_at": "2026-08-23T10:08:25.609823871Z",
+      "restart_count": 0,
+      "image_id": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4"
+    }
+  },
+  "r3d_runtime": {
+    "sqlserver": {
+      "container_id": "7eb03679a67d80f1f9d708a0ecc42ee1d89e4f60ec26ff0fea2925f1b041395c",
+      "state": "exited",
+      "started_at": "2026-08-23T22:18:02.732381299Z",
+      "restart_count": 0,
+      "image_id": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89"
+    },
+    "mcad_proxy": {
+      "container_id": "c12ba832d2f59b55037e6086d3021e66b8093c6fb3ef5cb26a37c0796ff20786",
+      "state": "exited",
+      "started_at": "2026-08-23T22:18:03.115559786Z",
+      "restart_count": 0,
+      "image_id": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4"
+    },
+    "mcad_api": {
+      "container_id": "ec03867deaf7fb31a909eef371895189603be78b8526b14528155cea645f7c8b",
+      "state": "exited",
+      "started_at": "2026-08-23T23:59:29.601911851Z",
+      "restart_count": 0,
+      "image_id": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840"
+    }
+  },
+  "execution_boundary": {
+    "repository_mutated_by_discovery": false,
+    "docker_or_service_mutation_performed": false,
+    "docker_build_performed": false,
+    "container_create_start_restart_performed": false,
+    "network_or_volume_create_performed": false,
+    "backend_query_executed": false,
+    "database_restore_performed": false,
+    "measurement_performed": false,
+    "effect_analysis_performed": false,
+    "historical_xmla_q1_q6_rerun_performed": false,
+    "sql_direct_measurement_rerun_performed": false,
+    "secret_value_printed": false,
+    "materialization_authorized": false
+  },
+  "migration_boundary": {
+    "old_host_e2_findings_are_evidence_only": true,
+    "new_host_requires_environment_preflight_revalidation": true,
+    "new_host_revalidation_is_not_scientific_measurement_rerun": true,
+    "new_host_materialization_remains_unauthorized": true
+  },
+  "next": "MIGRATE_CODESPACE_THEN_REPEAT_HOST_SPECIFIC_E2_PREFLIGHT_READ_ONLY_ON_NEW_HOST"
+}
