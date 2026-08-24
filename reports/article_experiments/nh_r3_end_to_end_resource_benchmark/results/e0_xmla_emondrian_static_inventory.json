@@ -1,0 +1,17 @@
+{
+  "backend_query_executed": false,
+  "d4_confirmed_metric_count": 6,
+  "d4_global_system_benefit_claim_authorized": false,
+  "docker_or_service_mutation_performed": false,
+  "effect_analysis_performed": false,
+  "historical_xmla_path_proof_present": true,
+  "historical_xmla_path_proof_rerun_authorized": false,
+  "historical_xmla_path_proof_reused_as_measurement": false,
+  "inventory_version": "mcad.nh_r3.e0.xmla_static_inventory.v1",
+  "new_measurement_started": false,
+  "next": "R3-E1_XMLA_ISOLATED_RUNTIME_PLAN_AND_STATIC_PREFLIGHT_NO_MEASUREMENT",
+  "parent_head": "b1e0e6caf1fda43f970990027ec62cd1f1570d1c",
+  "r3_d_sql_direct_stage_frozen": true,
+  "r3_e_stage_role": "XMLA/eMondrian end-to-end replication",
+  "secondary_backend_id": "adventureworks_xmla"
+}

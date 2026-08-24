@@ -1,0 +1,23 @@
+{
+  "backend_query_executed": false,
+  "contract_version": "mcad.nh_r3.e0.static_verifier_recovery.v1",
+  "correct_expected_stage_plan_git_blob": "a80c68a2e29fd9e8e8807b085b7dad88dc29dcc9",
+  "correction_scope": "VERIFIER_ONLY_ONE_LINE_GIT_BLOB_HEADER_FIX",
+  "docker_or_service_mutation_performed": false,
+  "e0_contract_modified": false,
+  "e0_static_inventory_modified": false,
+  "effect_analysis_performed": false,
+  "failure_class": "MECHANICAL_GIT_BLOB_FRAMING_BUG",
+  "failure_stage": "E0_STATIC_VERIFY_BEFORE_STAGE_COMMIT_PUSH",
+  "historical_xmla_q1_q6_rerun_performed": false,
+  "measurement_performed": false,
+  "next": "RETRY_E0_STATIC_ACTIVATION_WITH_VERIFIER_ONLY_V2_CORRECTION",
+  "observed_failure": "frozen authority changed: stage_plan -> d7999c74e77c97cc8dbca9d8b54c491ae44d86f9",
+  "parent_head": "b1e0e6caf1fda43f970990027ec62cd1f1570d1c",
+  "repository_commit_created_by_failed_v1": false,
+  "repository_push_performed_by_failed_v1": false,
+  "root_cause": "git_blob helper hashed a literal backslash-zero sequence in the Git object header instead of the required NUL byte",
+  "v1_package_sha256": "697c45fd60283621cb13e80251f839dfbdeb7e1ac9d0d4ef135fb3e6896036e3",
+  "v1_verifier_sha256": "cead45e2f348dba48ec8a756bb875f14b09f41287bd70ae34cd682ee2eaa88f0",
+  "v2_verifier_sha256": "21db438407a71dcc72549aef6facd52b188b6bfe4c66e78fbc6e3c4165d7e3fa"
+}
