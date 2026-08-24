@@ -1,0 +1,30 @@
+{
+  "backend_query_executed": false,
+  "database_restore_performed": false,
+  "database_seed_sha256_discovered": false,
+  "docker_or_service_mutation_performed": false,
+  "e0_published_and_frozen": true,
+  "effect_analysis_performed": false,
+  "emondrian_new_unpinned_build_authorized": false,
+  "emondrian_unpinned_latest_build_detected_in_repository_dockerfile": true,
+  "exact_local_emondrian_image_id_discovered": false,
+  "historical_xmla_q1_q6_rerun_performed": false,
+  "host_port_availability_checked": false,
+  "inventory_version": "mcad.nh_r3.e1.xmla_isolated_runtime_static_preflight.v1",
+  "isolation_plan_frozen": true,
+  "measurement_performed": false,
+  "next": "R3-E2_XMLA_ISOLATED_RUNTIME_DISCOVERY_AND_MATERIALIZATION_PREFLIGHT_READ_ONLY_NO_MEASUREMENT",
+  "parent_e0_head": "b88cc576ec547ebbb71edee181dddda866cf3a33",
+  "planned_host_ports": [
+    25333,
+    18182,
+    18100,
+    19100
+  ],
+  "planned_new_sql_volume": "mcad-r3e-xmla1_r3e_sql_data",
+  "planned_project_name": "mcad-r3e-xmla1",
+  "r3_d_sql_direct_stage_frozen": true,
+  "runtime_objects_created": false,
+  "secondary_backend_id": "adventureworks_xmla",
+  "sql_direct_rerun_performed": false
+}
