@@ -1,0 +1,67 @@
+{
+  "contract_version": "mcad.nh_r3.d4.verifier_only_recovery.v1",
+  "current_parent_head": "f48ac066302b313957825978855d90aece9d1448",
+  "failure_class": "ORDER_ONLY_FALSE_NEGATIVE_IN_POST_GENERATION_VERIFIER",
+  "frozen_generated_inference": {
+    "all_8_confirmed": false,
+    "confirmed_metric_count": 6,
+    "confirmed_metrics": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "global_system_benefit_claim_authorized": false,
+    "not_confirmed_metrics": [
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta"
+    ],
+    "primary_metric_family_count": 8,
+    "secondary_confirmatory_p_values_computed": false
+  },
+  "generated_outputs_sha256": {
+    "SHA256SUMS.txt": "15fa3164c070eddb177ae5c685a1e6e1e5ea8a0541aa669ef4d2c3e951e1b152",
+    "confirmatory_analysis.json": "a2e4311ba5a9a5d6fbe6ce683fc406b0ff7d3fa8cca2496a0769bcb9f4710394",
+    "confirmatory_arm_means.csv": "aae0a575bfce4984a65b932aba845d4c93f6604bf0c0f25b5841e9aef6e74b50",
+    "confirmatory_primary_endpoint_family.csv": "172ee3c6debb2cce46fbf59d0a8cf8732d9d5bb9fac7b71aa8c3071c92abc246",
+    "confirmatory_secondary_break_even.csv": "89f51a54dac1847be7c876dd8becedbad0d38121aeff63e4130409a4382019a1",
+    "confirmatory_session_paired_metrics.csv": "59ee172b293d2f7494750cbd5fbab22f49f7cfb975a41a5ef93fc00d0486d31b",
+    "confirmatory_stratum_diagnostics.csv": "e23a8404cad96f1059529a05a1e41abbf641ef6b58428868c576da5cdc90b528"
+  },
+  "inference_generation": {
+    "completed": true,
+    "effect_analysis_reexecution_authorized": false,
+    "exit_status": 0,
+    "must_not_be_recomputed": true
+  },
+  "next_on_pass": "R3-E0_XMLA_EMONDRIAN_END_TO_END_REPLICATION_STATIC_ACTIVATION_NO_MEASUREMENT",
+  "original_d4_sources_sha256": {
+    "config/r3_d4_confirmatory_inference_freeze_contract.json": "eeae2cae1e6f9f942a8ead65598929bca7b8b0058e4a4ddca4037d36c64c91be",
+    "implementation/r3_d4_confirmatory_inference.py": "6b85d01771891d04a232785c7b96bde3b0d6bbb01bcf2e81d7a41f186b22dc43",
+    "implementation/verify_r3_d4_static.py": "26e6c30ab2acb9416d04399fa77397c9a33ae7acbf7dfa17b003f4a17e53a7fa"
+  },
+  "preservation": {
+    "audit_timestamp_utc": "20260824T100706Z",
+    "existing_generated_outputs_must_remain_byte_identical": true,
+    "preserved_residue_archive": "/workspaces/MCAD_R3_D4_GENERATED_BEFORE_VERIFY_FIX_PRESERVED_20260824T100706Z.tar.gz",
+    "preserved_residue_archive_sha256": "b8fdd1c5f55c10c2cb989fb4d43be6414b74020c34923b501366b5a30e19e974",
+    "residue_manifest_sha256": "18e0b6bd0e976f5169bd4aa718f2810808b11eb038544a8234d1a418651cbaea"
+  },
+  "r4_execution_kit_head": "eae990ad9125896cb733261177a0d7dbb8ae934f",
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "station": "MCAD-NH-R3",
+  "verifier_fix_scope": {
+    "allowed": "verify exact existing generated outputs with metric-family identity independent of JSON object key order",
+    "backend_query": false,
+    "docker_or_service_mutation": false,
+    "effect_size_tuning": false,
+    "measurement": false,
+    "modify_generated_outputs": false,
+    "modify_original_analysis_source": false,
+    "rerun_bootstrap": false,
+    "rerun_sign_flip": false,
+    "scientific_redesign": false
+  }
+}

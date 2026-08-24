@@ -1,0 +1,77 @@
+{
+  "analysis_class": "CONFIRMATORY_PRIMARY_SQL_DIRECT",
+  "contract_version": "mcad.nh_r3.d4.confirmatory_inference_freeze.v1",
+  "execution_boundary": {
+    "backend_query_allowed": false,
+    "confirmatory_endpoint_claims_authorized_only_by_frozen_rule": true,
+    "docker_or_service_mutation_allowed": false,
+    "effect_analysis_authorized": true,
+    "measurement_allowed": false
+  },
+  "frozen_authorities": {
+    "d0_inference_protocol_git_blob": "cd3c64c4e7c67226b8f635953e5a17bc5eca37eb",
+    "d0_static_activation_contract_git_blob": "6c608b951bca9b262cc69bb7964a48cec79c62b1",
+    "r4_execution_contract_git_blob": "9c836096dac1727fa859a0accc8800ac3c6de89d",
+    "r4_replacement_driver_git_blob": "8358bd8e5ca559f928e8da78e2de5dcc41bf687e"
+  },
+  "implementation_freeze": {
+    "bootstrap_resampling": "15 paired sessions with replacement within each of 20 frozen strata",
+    "bootstrap_seed_rule": "SHA256(seed_namespace_sha256|bootstrap|metric_id)",
+    "effect_size_tuning_performed": false,
+    "percentile_ci_rule": "linear interpolation on sorted bootstrap replicates at q*(B-1)",
+    "primary_sign_flip_seed_rule": "SHA256(seed_namespace_sha256|metric_id)",
+    "rng_engine": "Python random.Random (MT19937), integer seed derived from SHA256 rule",
+    "same_bootstrap_resamples_used_for_primary_and_secondary_contrasts": true,
+    "scientific_redesign_performed": false
+  },
+  "next_on_pass": "R3-E0_XMLA_EMONDRIAN_END_TO_END_REPLICATION_STATIC_ACTIVATION_NO_MEASUREMENT",
+  "parent_r4_execution_kit_head": "eae990ad9125896cb733261177a0d7dbb8ae934f",
+  "primary_inference": {
+    "alternative": "mean paired difference < 0",
+    "bootstrap_confidence": 0.95,
+    "bootstrap_replicates": 20000,
+    "claim_rule": "metric-specific reduction only if integrity passes, observed mean paired difference < 0, and Holm-adjusted one-sided p <= 0.05",
+    "comparison": "SAFE_PRUNING - PERMISSIVE_GATED",
+    "global_claim_rule": "no global system-benefit claim from partial endpoint confirmation",
+    "holm_familywise_alpha": 0.05,
+    "metrics": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "seed_namespace_sha256": "a550a533086d3eafe6fa4512caab03a85b3c8a06b7efb7c805c4da841f5ef8e0",
+    "sign_flip_replicates": 100000
+  },
+  "secondary_break_even": {
+    "comparison": "SAFE_PRUNING - UNGATED_EXECUTE_ADMISSIBLE",
+    "confirmatory_p_value": false,
+    "report": [
+      "paired mean difference",
+      "percent change of means",
+      "95% stratified bootstrap confidence interval",
+      "direction counts"
+    ]
+  },
+  "source_measurement": {
+    "archive_name": "MCAD_R3_D3_REPLACEMENT_PRIMARY_RESULTS_20260823T224457Z.tar.gz",
+    "archive_sha256": "8ac00f467d7fb2235e6a4df2850278e1893103279077178ffe610db995a91ff5",
+    "arm_receipts": 900,
+    "candidate_records": 21600,
+    "fallback_120_activated": false,
+    "fresh_gated_sessions": 600,
+    "full_backend_executions": 14580,
+    "gate_evaluations": 14400,
+    "interrupted_partial_receipts_reused": false,
+    "negative_cgroup_delta_arm_runs": 0,
+    "resume_from_arm_298": false,
+    "semantic_sessions": 300,
+    "warmup_templates": 7
+  },
+  "stage": "R3-D_CONFIRMATORY_SQL_DIRECT",
+  "station": "MCAD-NH-R3"
+}
