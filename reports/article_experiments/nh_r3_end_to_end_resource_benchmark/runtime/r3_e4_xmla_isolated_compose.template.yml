@@ -1,0 +1,48 @@
+# STATIC TEMPLATE ONLY.
+# DO NOT RUN docker compose against this file before a post-bundle materialization authorization checkpoint.
+name: mcad-r3e-xmla1
+
+services:
+  r3e-adventureworks-sqlserver:
+    image: ${R3E_SQLSERVER_IMAGE_REF:?bind exact image after verified bundle docker-load authorization}
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${R3_AW_SA_PASSWORD:?runtime-only secret}
+    ports:
+      - "25333:1433"
+    volumes:
+      - r3e_sql_data:/var/opt/mssql
+    networks: [r3e_internal]
+
+  r3e-emondrian-adventureworks:
+    image: ${R3E_EMONDRIAN_IMAGE_REF:?bind image produced from authorized pinned R3-E build}
+    ports:
+      - "18182:8080"
+    networks: [r3e_internal]
+    depends_on:
+      - r3e-adventureworks-sqlserver
+
+  r3e-mcad-api:
+    image: ${R3E_MCAD_API_IMAGE_REF:?bind exact image after verified bundle docker-load authorization}
+    ports:
+      - "18100:8000"
+    networks: [r3e_internal]
+    depends_on:
+      - r3e-emondrian-adventureworks
+
+  r3e-mcad-proxy:
+    image: ${R3E_MCAD_PROXY_IMAGE_REF:?bind exact image after verified bundle docker-load authorization}
+    ports:
+      - "19100:9000"
+    networks: [r3e_internal]
+    depends_on:
+      - r3e-mcad-api
+      - r3e-emondrian-adventureworks
+
+networks:
+  r3e_internal:
+    name: mcad-r3e-xmla1_r3e_internal
+
+volumes:
+  r3e_sql_data:
+    name: mcad-r3e-xmla1_r3e_sql_data

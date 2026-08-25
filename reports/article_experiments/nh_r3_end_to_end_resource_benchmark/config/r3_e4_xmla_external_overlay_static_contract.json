@@ -1,0 +1,94 @@
+{
+  "compose_template": {
+    "emondrian_image_must_be_built_only_after_materialization_authorization": true,
+    "exact_image_references_for_sql_api_proxy_must_be_bound_after_bundle_recovery": true,
+    "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e4_xmla_isolated_compose.template.yml",
+    "static_template_only": true
+  },
+  "contract_version": "mcad.nh_r3.e4.xmla_external_overlay_static.v1",
+  "deferred_until_bundle_recovery": [
+    "bind exact loaded SQL Server / MCAD API / MCAD proxy image references",
+    "new-host E2 read-only revalidation",
+    "materialization authorization",
+    "docker load",
+    "eMondrian build",
+    "SQL restore",
+    "runtime creation",
+    "XMLA mechanical path validation",
+    "R3-E measured execution"
+  ],
+  "execution_boundary": {
+    "backend_query_allowed": false,
+    "bundle_read_required_now": false,
+    "container_create_start_restart_allowed": false,
+    "database_restore_allowed": false,
+    "docker_build_allowed": false,
+    "docker_load_allowed": false,
+    "effect_analysis_allowed": false,
+    "historical_artifact_mutation_allowed": false,
+    "historical_xmla_q1_q6_rerun_allowed": false,
+    "measurement_allowed": false,
+    "network_or_volume_create_allowed": false,
+    "sql_direct_rerun_allowed": false
+  },
+  "frozen_authorities": {
+    "e3c_contract_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e3c_emondrian_pinned_build_inputs.json",
+    "emondrian_release_tag": "v9.3.0.6",
+    "emondrian_war_sha256": "100895f17acd4e4d3e3af58c2fbd442d95ca71fb969169d4c1a66acb974c52db",
+    "mcad_api_expected_image_id": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+    "mcad_proxy_expected_image_id": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+    "mssql_jdbc_sha256": "3b1a70145dbaff98daa70022791e15becfb2b9534cc9e8cfaa1bdba6a3edeb8e",
+    "sqlserver_expected_image_id": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+    "tomcat_linux_amd64_digest": "sha256:81be7f8d435228148a6419d5e967e6c31f094ec3a492055b42c66d2bb775627c",
+    "web_inf_manifest_sha256": "cb2b90d9627202df6063cb61037b161de231d9f91630b835dd514f141f8abb50"
+  },
+  "isolated_runtime": {
+    "container_ports": {
+      "emondrian": 8080,
+      "mcad_api": 8000,
+      "mcad_proxy": 9000,
+      "sqlserver": 1433
+    },
+    "host_ports": {
+      "emondrian": 18182,
+      "mcad_api": 18100,
+      "mcad_proxy": 19100,
+      "sqlserver": 25333
+    },
+    "network_name": "mcad-r3e-xmla1_r3e_internal",
+    "project_name": "mcad-r3e-xmla1",
+    "runtime_root": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54",
+    "services": {
+      "emondrian": "r3e-emondrian-adventureworks",
+      "mcad_api": "r3e-mcad-api",
+      "mcad_proxy": "r3e-mcad-proxy",
+      "sqlserver": "r3e-adventureworks-sqlserver"
+    },
+    "sql_data_volume_name": "mcad-r3e-xmla1_r3e_sql_data"
+  },
+  "next": "R3-E5_EXECUTOR_RECEIPTS_VERIFIERS_STATIC_PREPARATION_NO_BACKEND_IO",
+  "parent_e3c_head": "43c0e5855909b045fbc1e0395d697a9794f02c10",
+  "pinned_build_descriptor": {
+    "base_from": "tomcat@sha256:81be7f8d435228148a6419d5e967e6c31f094ec3a492055b42c66d2bb775627c",
+    "build_allowed_now": false,
+    "build_context_requires_exact_emondrian_war_sha256": "100895f17acd4e4d3e3af58c2fbd442d95ca71fb969169d4c1a66acb974c52db",
+    "build_context_requires_exact_jdbc_sha256": "3b1a70145dbaff98daa70022791e15becfb2b9534cc9e8cfaa1bdba6a3edeb8e",
+    "build_context_requires_exact_web_inf_manifest_sha256": "cb2b90d9627202df6063cb61037b161de231d9f91630b835dd514f141f8abb50",
+    "dockerfile_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e4_emondrian_pinned.Dockerfile",
+    "remote_add_or_latest_allowed": false
+  },
+  "runtime_overlay": {
+    "credential_placeholder": "__R3_AW_SA_PASSWORD__",
+    "credential_value_may_be_committed": false,
+    "credential_value_may_be_printed": false,
+    "datasources_template_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e4_datasources.xml.template",
+    "jdbc_target": "r3e-adventureworks-sqlserver:1433",
+    "mechanical_host_and_credential_binding_only": true,
+    "semantic_schema_change_allowed": false,
+    "xmla_upstream": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla"
+  },
+  "scientific_role": "SECONDARY_END_TO_END_CONFIRMATION",
+  "stage": "R3-E_XMLA_EMONDRIAN_END_TO_END_REPLICATION",
+  "station": "MCAD-NH-R3",
+  "substage": "R3-E4_EXTERNAL_ISOLATED_RUNTIME_OVERLAY_STATIC_PLAN_NO_DOCKER"
+}

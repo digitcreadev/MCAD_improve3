@@ -1,0 +1,19 @@
+{
+  "backend_query_executed": false,
+  "bundle_dependency_for_this_station": false,
+  "container_or_service_mutation_performed": false,
+  "contract_version": "mcad.nh_r3.e4.xmla_external_overlay_static_receipt.v1",
+  "database_restore_performed": false,
+  "docker_build_performed": false,
+  "docker_command_executed": false,
+  "effect_analysis_performed": false,
+  "historical_artifacts_modified": false,
+  "materialization_authorized": false,
+  "measurement_performed": false,
+  "next": "R3-E5_EXECUTOR_RECEIPTS_VERIFIERS_STATIC_PREPARATION_NO_BACKEND_IO",
+  "parent_e3c_head": "43c0e5855909b045fbc1e0395d697a9794f02c10",
+  "pinned_emondrian_input_authority_reused": true,
+  "plan_class": "STATIC_NO_DOCKER_NO_BACKEND",
+  "runtime_secret_value_embedded": false,
+  "runtime_topology_frozen": true
+}

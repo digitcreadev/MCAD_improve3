@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- STATIC TEMPLATE ONLY.
+     __R3_AW_SA_PASSWORD__ MUST be replaced out-of-repository at materialization time.
+     No credential value may be committed or printed by the R3-E workflow. -->
+<DataSources>
+  <DataSource>
+    <DataSourceName>AdventureWorksDW</DataSourceName>
+    <DataSourceDescription>AdventureWorksDW2022 SQL Server Data Warehouse</DataSourceDescription>
+    <URL>http://localhost:8080/emondrian/xmla</URL>
+    <DataSourceInfo>Provider=mondrian;Jdbc='jdbc:sqlserver://r3e-adventureworks-sqlserver:1433;databaseName=AdventureWorksDW2022;encrypt=false;trustServerCertificate=true';JdbcDrivers=com.microsoft.sqlserver.jdbc.SQLServerDriver;JdbcUser=sa;JdbcPassword=__R3_AW_SA_PASSWORD__;Catalog=file:/usr/local/tomcat/webapps/emondrian/WEB-INF/schema/AdventureWorksDW.xml</DataSourceInfo>
+    <ProviderName>Mondrian</ProviderName>
+    <ProviderType>MDP</ProviderType>
+    <AuthenticationMode>Unauthenticated</AuthenticationMode>
+    <Catalogs>
+      <Catalog name="AdventureWorksDW">
+        <Definition>file:/usr/local/tomcat/webapps/emondrian/WEB-INF/schema/AdventureWorksDW.xml</Definition>
+      </Catalog>
+    </Catalogs>
+  </DataSource>
+</DataSources>
