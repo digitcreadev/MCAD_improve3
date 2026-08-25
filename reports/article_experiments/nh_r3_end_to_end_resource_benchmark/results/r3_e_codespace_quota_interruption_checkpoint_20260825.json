@@ -1,0 +1,86 @@
+{
+  "contract_version": "mcad.nh_r3.e.codespace_quota_interruption_checkpoint.v1",
+  "recorded_on": "2026-08-25",
+  "repository": "digitcreadev/MCAD_improve3",
+  "branch": "paper/nh-r3-end-to-end-resource-benchmark-20260820T193919Z",
+  "git_checkpoint_before_this_archive": "c7f727db7b5c67c161e6357bb2dde4f3cf313d62",
+  "scientific_state": {
+    "r3_d_sql_direct": "FROZEN_COMPLETE_DO_NOT_RERUN",
+    "r3_d4_confirmatory_inference": "FROZEN_COMPLETE_6_OF_8_METRICS_CONFIRMED",
+    "r3_e0_static_activation": "FROZEN_COMPLETE",
+    "r3_e1_isolated_runtime_plan": "FROZEN_COMPLETE",
+    "r3_e2_old_host_read_only_discovery": "FROZEN_COMPLETE_HOST_SPECIFIC",
+    "r3_e_materialization_authorized": false,
+    "r3_e_measurement_started": false
+  },
+  "migration_state": {
+    "old_account": "benabib2",
+    "old_codespace_display_name": "shiny pancake",
+    "old_codespace_access": "BLOCKED_BY_CODESPACES_QUOTA_EXHAUSTION",
+    "quota_reset_expected_date": "2026-09-01",
+    "new_account": "benabib03",
+    "new_codespace_git_checkout_verified": true,
+    "new_codespace_branch_verified": "paper/nh-r3-end-to-end-resource-benchmark-20260820T193919Z",
+    "new_codespace_head_verified": "c7f727db7b5c67c161e6357bb2dde4f3cf313d62",
+    "new_codespace_remote_head_verified": "c7f727db7b5c67c161e6357bb2dde4f3cf313d62"
+  },
+  "blocked_bundle": {
+    "prepared_before_quota_exhaustion": true,
+    "old_host_path": "/workspaces/MCAD_R3E_CODESPACE_MIGRATION_BUNDLE_20260824",
+    "bundle_gate": "PASS_READY_TO_COPY_OFF_OLD_CODESPACE",
+    "secret_values_exported": false,
+    "components": {
+      "AdventureWorksDW2022.bak": {
+        "bytes": 101834752,
+        "sha256": "ac4a39502645c31f114331be28ce671ac5f70b0645f2aa59d8dccfbaae081c05",
+        "critical_for_resume": true
+      },
+      "exact_runtime_images.tar": {
+        "bytes": 794181632,
+        "sha256": "22eba9990c871c0fb719757d0310d2e1609f4d9bddcb0b0665f35c1f8f02a7fd",
+        "critical_for_resume": true,
+        "contains_exact_images": {
+          "sqlserver": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+          "mcad_api": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+          "mcad_proxy": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4"
+        }
+      },
+      "MCAD_improve3_branch.bundle": {
+        "sha256": "99d27dd4dcba9768471dff97d6b510a871a138ff08e228d9a93236723e03dead",
+        "critical_for_resume": false,
+        "reason": "Git branch is already migrated and verified on benabib03"
+      },
+      "MIGRATION_MANIFEST.txt": {
+        "integrity_checked_before_lock": true
+      },
+      "SHA256SUMS.txt": {
+        "internal_manifest_passed_before_lock": true
+      }
+    }
+  },
+  "emondrian_state": {
+    "exact_local_adventureworks_image_found_on_old_host": false,
+    "exact_image_count": 0,
+    "image_in_blocked_bundle": false,
+    "unpinned_latest_build_allowed": false,
+    "static_pinning_work_can_proceed_without_bundle": true
+  },
+  "resume_boundary": {
+    "do_not_rerun_r3_d": true,
+    "do_not_rerun_d4": true,
+    "do_not_rerun_historical_xmla_q1_q6": true,
+    "do_not_reconstruct_sql_api_proxy_images_as_substitute_for_bundle": true,
+    "do_not_build_emondrian_from_latest": true,
+    "new_host_e2_read_only_revalidation_required_after_bundle_transfer": true,
+    "new_host_e2_revalidation_is_scientific_rerun": false
+  },
+  "allowed_work_during_interruption": [
+    "static eMondrian pinning/reproducibility work",
+    "R3-E runtime overlay/executor/verifier/receipt preparation without Docker or backend",
+    "static/unit/no-I/O tests",
+    "manuscript integration of already frozen R3-D/D4 results",
+    "manuscript editorial refinement and source audit on already frozen evidence",
+    "NH-R4 skeleton only; no final preregistration before R3-F"
+  ],
+  "next_after_quota_reset": "RECOVER_AND_VERIFY_BLOCKED_BUNDLE_THEN_REVALIDATE_NEW_HOST_E2_READ_ONLY"
+}
