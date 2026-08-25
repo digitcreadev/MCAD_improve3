@@ -1,0 +1,155 @@
+{
+  "contract_version": "mcad.nh_r3.e6.xmla_replication_seed_manifest.v1",
+  "frozen_before_xmla_measurement": true,
+  "outcome_independent": true,
+  "parent_e5_head": "effd3a0677bc943f51faf87f4808743136ba027b",
+  "primary_family": {
+    "backend_request_count_including_gate_probes": {
+      "bootstrap": {
+        "sha256": "b4f722a999cce7e151499f2f58d2b04148cff010f7396053fc7805b510b5b441",
+        "uint64_be_prefix": 13039929357899720673
+      },
+      "permutation": {
+        "sha256": "c8c31b9b7ce050b41fd4116b305fb80ba1b38a33ec906e4d0ddfe5e7ca88c0c6",
+        "uint64_be_prefix": 14466436782673121460
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "072b047717ba1303c0d52b9c557a30a9b910022b781f37cdf60a961d0ac86c00",
+        "uint64_be_prefix": 516511491809743619
+      }
+    },
+    "client_wall_ms": {
+      "bootstrap": {
+        "sha256": "0431b4e28133034a06adf0ae0775368cc340a59a6451e07c1b099ab166f76490",
+        "uint64_be_prefix": 302221534933746506
+      },
+      "permutation": {
+        "sha256": "3dec6e3c85f7a1529dff5857805a847f945a003af98dde79ec6a046e2aa38efd",
+        "uint64_be_prefix": 4462062537042010450
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "8ca499610bbdbea9634dface5e6b441b4864ca3721542b08feefe1b75446bcdb",
+        "uint64_be_prefix": 10134393703578320553
+      }
+    },
+    "full_backend_execution_count": {
+      "bootstrap": {
+        "sha256": "50ba9ab77617c275eb7b6f07bb89676e1c0eae9d0642a27f7caee784e3acb326",
+        "uint64_be_prefix": 5817131981453378165
+      },
+      "permutation": {
+        "sha256": "6deac7bf0366b64cb8f9be3433fc6565c124c2ef087cf9145ec67e8bb24538fb",
+        "uint64_be_prefix": 7920362517894182476
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "3c4786e47d887ad153beb86609c7e914cc72443b9164c23fc270c8808c7dfbd0",
+        "uint64_be_prefix": 4343588681538894545
+      }
+    },
+    "response_bytes": {
+      "bootstrap": {
+        "sha256": "a088395f2f40bf1ff6534e1e82e05227322eb242857abc7bfa2385cbb085612c",
+        "uint64_be_prefix": 11567558723878567711
+      },
+      "permutation": {
+        "sha256": "53e9805a2c4f531c1ac4db88272d34f462c683676060c4e59b18978fbb607f5e",
+        "uint64_be_prefix": 6046505099500409628
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "bb391a3a061684b36984187104183fda317c545774650a0199ffb0ac3086ab22",
+        "uint64_be_prefix": 13490842995277595827
+      }
+    },
+    "sqlserver_cpu_usage_usec_delta": {
+      "bootstrap": {
+        "sha256": "b5ceb75706736a08afe329a468a7f7b7cfb591ce57046930a40e6a176a55e9a3",
+        "uint64_be_prefix": 13100609950465616392
+      },
+      "permutation": {
+        "sha256": "52331f7aa2817cc317e83be68383ad178df531fc9a81f8a8108ec59f6f24cdf7",
+        "uint64_be_prefix": 5923112546495200451
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "2529d2e2b23ba4ec87a474b0d617a3bdca2923fdc42713a064f525e85eae5f92",
+        "uint64_be_prefix": 2677903324543165676
+      }
+    },
+    "sqlserver_io_rbytes_delta": {
+      "bootstrap": {
+        "sha256": "4328d491ac85ececfa73ac4c6c2782417cb0035cabfa34f5956a68bd28188049",
+        "uint64_be_prefix": 4839351521739402476
+      },
+      "permutation": {
+        "sha256": "e95d0ea024221edc2542643f35f835de00168e6423c73887eff7c0e6eaebb98d",
+        "uint64_be_prefix": 16815612664635072220
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "c88f73f3c7d712bf42ab3e160bda32d17a1ef15ca4b251bd2c44615cb1946957",
+        "uint64_be_prefix": 14451897220122219199
+      }
+    },
+    "sqlserver_io_wbytes_delta": {
+      "bootstrap": {
+        "sha256": "acf30044eea12d68f8a0ac74113d6bf68506fefe2956b5e14342a437022bd899",
+        "uint64_be_prefix": 12462304889925610856
+      },
+      "permutation": {
+        "sha256": "bb5163afb6de85a182052a787fcff8399806353beb7aaf3b287cb5a2a7362399",
+        "uint64_be_prefix": 13497679164544550305
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "0c9b565e52a6c4dce4355feb8d984c886939f34ae23d5b40bb4114c5c2727e4c",
+        "uint64_be_prefix": 908414712958862556
+      }
+    },
+    "time_to_analytical_objective_completion_ms": {
+      "bootstrap": {
+        "sha256": "2f73a3962794245fcf8b445094beec5946aea83b0149c846c703221d1cbd36e6",
+        "uint64_be_prefix": 3419256407408780383
+      },
+      "permutation": {
+        "sha256": "482b68718709e3148dfcd9e4ef540f44320eb47030de9d3ba779071721ab7656",
+        "uint64_be_prefix": 5200365031535534868
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "85f990da5ef525e56712ec48222582c43f4f498e376d5894cbabac413c64fab2",
+        "uint64_be_prefix": 9653906543815763429
+      }
+    }
+  },
+  "seed_namespace_literal": "MCAD-NH-R3-E6|XMLA_REPLICATION|effd3a0677bc943f51faf87f4808743136ba027b|v1",
+  "seed_namespace_sha256": "b3bcfe0ff7bbc0b2a7fb786f76dcdb9973de72380ff55f312b0fa172ed2475e5",
+  "seed_rule": "SHA256(seed_namespace_sha256|kind|metric_id); use first 16 hex chars as unsigned 64-bit seed",
+  "xmla_secondary_diagnostics": {
+    "emondrian_cpu_usage_usec_delta": {
+      "descriptive_bootstrap": {
+        "sha256": "9097672fb16403ac7ad7dbe60e8979d82f07d28dba1e38b9700254cfc9a4a1e6",
+        "uint64_be_prefix": 10418909717482177452
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "48f01aa5e7f0ccdc48b49d9fafbe6e81440e3780790ee52e20792877403fe82d",
+        "uint64_be_prefix": 5255730065004612828
+      }
+    },
+    "emondrian_io_rbytes_delta": {
+      "descriptive_bootstrap": {
+        "sha256": "3a0c7f100b80ecabe5a7484492a5fcec05bc7dc65cb1d0b3cea29d039521c407",
+        "uint64_be_prefix": 4182857860809551019
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "2d3cee906f64f433c7e3bbfbbd9447445bf5b614c09531d50eb79020661842a1",
+        "uint64_be_prefix": 3259742534420984883
+      }
+    },
+    "emondrian_io_wbytes_delta": {
+      "descriptive_bootstrap": {
+        "sha256": "3fcc685af092edd5035a55a4446ed5c52e3708808dc49e8548d5510491498e0a",
+        "uint64_be_prefix": 4597164059430940117
+      },
+      "secondary_break_even_bootstrap": {
+        "sha256": "8a81fc582f33158c4ef8717ec2e9232179e253bf34d9da85ae1decc693422eb5",
+        "uint64_be_prefix": 9980535704908928396
+      }
+    }
+  }
+}

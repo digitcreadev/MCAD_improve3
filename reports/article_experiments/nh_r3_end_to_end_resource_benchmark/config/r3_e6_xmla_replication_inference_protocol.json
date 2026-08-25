@@ -1,0 +1,186 @@
+{
+  "analysis_execution_boundary": {
+    "analysis_authorization_file_present": false,
+    "bundle_read_required_in_e6": false,
+    "docker_allowed_in_e6": false,
+    "effect_analysis_allowed_in_e6": false,
+    "http_or_backend_query_allowed_in_e6": false,
+    "measured_receipt_ingestion_allowed_in_e6": false,
+    "measurement_allowed_in_e6": false,
+    "measurement_authorization_file_present": false,
+    "real_confidence_interval_computation_allowed_in_e6": false,
+    "real_p_value_computation_allowed_in_e6": false
+  },
+  "contract_version": "mcad.nh_r3.e6.xmla_replication_inference_protocol.v1",
+  "cross_backend_interpretation": {
+    "backend_equivalence_claim_authorized": false,
+    "cross_backend_effect_difference_test_pre_registered": false,
+    "cross_backend_summary_status": "DESCRIPTIVE_LOGICAL_CONCORDANCE_ONLY",
+    "effect_homogeneity_claim_authorized": false,
+    "new_global_system_benefit_claim_authorized": false,
+    "two_backend_metric_confirmation_rule": "A metric may be described as confirmed on both SQL Direct and XMLA only if its frozen R3-D/D4 metric-specific claim is confirmed and its R3-E XMLA metric-specific replication claim passes the full 8-metric XMLA Holm family. Never remove any of the 8 metrics based on R3-D/D4 results."
+  },
+  "design_basis": {
+    "adapter": "xmla_mondrian",
+    "arms": [
+      "UNGATED_EXECUTE_ADMISSIBLE",
+      "PERMISSIVE_GATED",
+      "SAFE_PRUNING"
+    ],
+    "backend": "adventureworks_xmla",
+    "equal_sessions_per_stratum": 15,
+    "lower_is_better_for_all_shared_primary_metrics": true,
+    "paired_sessions": true,
+    "primary_causal_comparison": "SAFE_PRUNING - PERMISSIVE_GATED",
+    "primary_cohort_sessions": 300,
+    "randomized_arm_order": true,
+    "secondary_break_even_comparison": "SAFE_PRUNING - UNGATED_EXECUTE_ADMISSIBLE",
+    "strata": 20
+  },
+  "effect_size_tuning_performed": false,
+  "frozen_authorities": {
+    "d0_inference_protocol": {
+      "git_blob": "cd3c64c4e7c67226b8f635953e5a17bc5eca37eb",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_d0_confirmatory_inference_protocol.json"
+    },
+    "d0_primary_schedule": {
+      "git_blob": "6b53ab6d271425b9e5113bdd405775f05c6d65df",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_d0_confirmatory_primary_arm_order_schedule.csv"
+    },
+    "e4_overlay_contract": {
+      "git_blob": "a07d35b69ff8c717c5d4c2610ba28685f0873827",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e4_xmla_external_overlay_static_contract.json"
+    },
+    "e5_executor": {
+      "git_blob": "a67e69eb1f9e1735a6e1868135ff1a513beaf221",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e5_xmla_executor_static.py"
+    },
+    "e5_executor_contract": {
+      "git_blob": "8db8982a735aeff5cf3a27e0eb23af87a2ef4baa",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e5_xmla_executor_receipt_static_contract.json"
+    },
+    "e5_receipt_schema": {
+      "git_blob": "9dd353e1495e677c1d75cb0ccb8adfa2920c335e",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e5_xmla_arm_receipt_schema.json"
+    },
+    "e5_verifier": {
+      "git_blob": "60f90d3bf3cbb1a54ae4bd66dbb2789a47bdbb32",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/verify_r3_e5_xmla_executor_static.py"
+    }
+  },
+  "frozen_before_xmla_measurement": true,
+  "measurement_integrity": {
+    "negative_cgroup_delta_policy": "invalidate affected arm run; never clamp to zero; freeze exact attempt for audit; no inferential claim until an explicitly authorized mechanical rerun or other pre-specified resolution",
+    "no_effect_based_early_stopping": true,
+    "no_effect_based_reruns": true,
+    "no_interim_effect_looks": true,
+    "partial_execution_policy": "freeze exact partial attempt; no automatic rerun; no effect look; assistant audit required before any rerun authorization",
+    "receipt_schema": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e5_xmla_arm_receipt_schema.json",
+    "required_arm_receipts": 900,
+    "required_arms_per_session": 3,
+    "required_semantic_sessions": 300,
+    "requirements": [
+      "exactly one arm receipt per frozen session-arm pair",
+      "all 300 frozen session ids present",
+      "arm position agrees with frozen randomized schedule",
+      "candidate_actions=24 for every arm receipt",
+      "completion_candidate_reached=true for every arm receipt",
+      "completion_candidate_unique=true for every arm receipt",
+      "secret_value_recorded=false for every arm receipt",
+      "historical_runtime_targeted=false for every arm receipt",
+      "runtime identities match the future authorized isolated R3-E runtime",
+      "negative_cgroup_delta_detected=false for every arm receipt",
+      "no missing primary metric values"
+    ],
+    "schedule": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_d0_confirmatory_primary_arm_order_schedule.csv"
+  },
+  "next": "R3-E7_XMLA_INFERENCE_IMPLEMENTATION_SYNTHETIC_TESTS_NO_MEASURED_DATA",
+  "parent_e5_head": "effd3a0677bc943f51faf87f4808743136ba027b",
+  "posthoc_endpoint_selection_allowed": false,
+  "scientific_role": "SECONDARY_END_TO_END_CONFIRMATION",
+  "secondary_break_even_family": {
+    "bootstrap_replicates": 20000,
+    "comparison": "SAFE_PRUNING - UNGATED_EXECUTE_ADMISSIBLE",
+    "confirmatory_p_value": false,
+    "metrics": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "report": [
+      "paired mean difference",
+      "percent change of means",
+      "95% stratified bootstrap confidence interval",
+      "direction counts"
+    ],
+    "seed_kind": "secondary_break_even_bootstrap",
+    "status": "SECONDARY_DESCRIPTIVE_NOT_IN_PRIMARY_MULTIPLICITY_FAMILY"
+  },
+  "shared_primary_replication_family": {
+    "alternative": "mean paired difference < 0",
+    "comparison": "SAFE_PRUNING - PERMISSIVE_GATED",
+    "confidence_interval": {
+      "confidence": 0.95,
+      "kind": "stratified percentile bootstrap for mean paired difference",
+      "replicates": 20000,
+      "resampling": "within each of the 20 frozen strata, resample 15 paired sessions with replacement, then combine all 300 resampled paired differences with equal session weight",
+      "seed_kind": "bootstrap",
+      "seed_manifest": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e6_xmla_replication_seed_manifest.json"
+    },
+    "estimand": "equal-weight mean paired difference over the same frozen 300-session cohort; all 20 strata contain 15 paired sessions",
+    "family_size": 8,
+    "familywise_alpha": 0.05,
+    "global_claim_rule": "Do not infer a global system-benefit claim merely because one or more shared endpoints replicate.",
+    "metric_specific_claim_rule": "XMLA replication confirms a reduction for a metric only if measurement_integrity=PASS, observed mean paired difference is < 0, and Holm-adjusted one-sided p <= 0.05.",
+    "metrics": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "multiplicity": "Holm step-down across all 8 frozen primary metrics",
+    "permutation_test": {
+      "kind": "paired sign-flip randomization test of the mean paired difference",
+      "monte_carlo_p": "(1 + count(T_perm <= T_obs)) / (B + 1)",
+      "replicates": 100000,
+      "seed_kind": "permutation",
+      "seed_manifest": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e6_xmla_replication_seed_manifest.json"
+    },
+    "status": "PRE_SPECIFIED_SECONDARY_BACKEND_CONFIRMATORY_REPLICATION_FAMILY"
+  },
+  "stage": "R3-E_XMLA_EMONDRIAN_END_TO_END_REPLICATION",
+  "station": "MCAD-NH-R3",
+  "substage": "R3-E6_XMLA_REPLICATION_INFERENCE_PROTOCOL_STATIC_FREEZE_NO_MEASUREMENT",
+  "validation_or_xmla_results_used_to_select_alpha_or_test": false,
+  "validation_or_xmla_results_used_to_select_endpoints": false,
+  "xmla_specific_resource_diagnostics": {
+    "bootstrap_replicates": 20000,
+    "claim_boundary": "No metric-specific confirmatory reduction claim and no global claim may be based solely on these three eMondrian-specific diagnostics.",
+    "confirmatory_p_values_authorized": false,
+    "holm_family_membership": false,
+    "metrics": [
+      "emondrian_cpu_usage_usec_delta",
+      "emondrian_io_rbytes_delta",
+      "emondrian_io_wbytes_delta"
+    ],
+    "report": [
+      "paired mean difference SAFE_PRUNING - PERMISSIVE_GATED",
+      "percent change of means",
+      "95% stratified bootstrap confidence interval",
+      "direction counts",
+      "paired mean difference SAFE_PRUNING - UNGATED_EXECUTE_ADMISSIBLE",
+      "secondary break-even percent change of means",
+      "secondary break-even 95% stratified bootstrap confidence interval"
+    ],
+    "status": "SECONDARY_RESOURCE_ATTRIBUTION_DIAGNOSTICS"
+  }
+}
