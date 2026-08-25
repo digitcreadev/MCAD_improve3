@@ -1,0 +1,26 @@
+{
+  "contract_version": "mcad.nh_r3.e3b.discovery_freeze.v1",
+  "external_directory": "/workspaces/MCAD_R3E_EMONDRIAN_PINNING_DISCOVERY_20260825T183637Z",
+  "facts": {
+    "emondrian_tag": "v9.3.0.6",
+    "emondrian_tag_commit": "d2006c162fcc6c4e7ec90a0c03485056696134ad",
+    "emondrian_war_bytes": 52732089,
+    "emondrian_war_sha256": "100895f17acd4e4d3e3af58c2fbd442d95ca71fb969169d4c1a66acb974c52db",
+    "jdbc_bytes": 1470328,
+    "jdbc_sha256": "3b1a70145dbaff98daa70022791e15becfb2b9534cc9e8cfaa1bdba6a3edeb8e",
+    "tomcat_linux_amd64_digest": "sha256:81be7f8d435228148a6419d5e967e6c31f094ec3a492055b42c66d2bb775627c",
+    "tomcat_registry_index_digest": "sha256:ea48b0973e57be669a1fc024dc719bf059bf721e532bb485bc5dd0bbcf08dcf1",
+    "web_inf_manifest_sha256": "cb2b90d9627202df6063cb61037b161de231d9f91630b835dd514f141f8abb50"
+  },
+  "receipt_sha256": "d52f2238e67b5116780e48c1a38dc4f5682c2d273dcd3aebd924cd30dbf0ec46",
+  "recorded_from_user_returned_execution": true,
+  "repository_head_during_discovery": "918ea6d4eb3f0a517b637dcef6c033f12a724d01",
+  "run_id": "20260825T183637Z",
+  "safety": {
+    "backend_query_executed": false,
+    "docker_build_performed": false,
+    "measurement_performed": false,
+    "repository_mutated": false
+  },
+  "transaction_manifest_sha256": "97310b2110652038c90875e076e7056700d625349cd39ce1c69ca97f8590029a"
+}

@@ -1,0 +1,6 @@
+75ed4613619850c824bdd832af6da1311faa9460c2f025d64df665d510329d70  bi-stack/emondrian-adventureworks/WEB-INF/classes/mondrian.properties
+672bf9a36867850ace13071606352e251b431d80fac763078c3f64e69e23623c  bi-stack/emondrian-adventureworks/WEB-INF/datasources.multi-dw.xml
+c4832dc6032b27f2ad02bd6166742c53c8927b74638cd7278da8bdf1b0ccb782  bi-stack/emondrian-adventureworks/WEB-INF/datasources.xml
+dbfe1cd549e125358339c1ac971acf4909b371485529a70b570d1ae8505902dd  bi-stack/emondrian-adventureworks/WEB-INF/schema/AdventureWorksDW.xml
+accf51dbd82bca9d78558b6559a50d5e1dc616cccbb2aa87678c98ef6895793d  bi-stack/emondrian-adventureworks/WEB-INF/schema/Foodmart.xml
+c10662600d00d02bb776278626ceb19bb98d027f7c320dc4a2811b2007ae6a12  bi-stack/emondrian-adventureworks/WEB-INF/web.xml

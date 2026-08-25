@@ -1,0 +1,76 @@
+{
+  "contract_version": "mcad.nh_r3.e3c.emondrian_pinned_build_inputs.v1",
+  "e3b_discovery_authority": {
+    "external_directory": "/workspaces/MCAD_R3E_EMONDRIAN_PINNING_DISCOVERY_20260825T183637Z",
+    "external_transaction_manifest_sha256": "97310b2110652038c90875e076e7056700d625349cd39ce1c69ca97f8590029a",
+    "receipt_sha256": "d52f2238e67b5116780e48c1a38dc4f5682c2d273dcd3aebd924cd30dbf0ec46",
+    "run_id": "20260825T183637Z"
+  },
+  "emondrian": {
+    "asset_bytes": 52732089,
+    "asset_name": "emondrian.war",
+    "asset_sha256": "100895f17acd4e4d3e3af58c2fbd442d95ca71fb969169d4c1a66acb974c52db",
+    "asset_url": "https://github.com/SergeiSemenkov/eMondrian/releases/download/v9.3.0.6/emondrian.war",
+    "future_materialization_rule": "download_explicit_tag_asset_then_require_exact_sha256_before_use",
+    "github_asset_api_digest": null,
+    "github_release_immutable": false,
+    "release_tag": "v9.3.0.6",
+    "repository": "SergeiSemenkov/eMondrian",
+    "tag_commit": "d2006c162fcc6c4e7ec90a0c03485056696134ad"
+  },
+  "execution_boundary": {
+    "backend_query_allowed": false,
+    "container_create_start_restart_allowed": false,
+    "database_restore_allowed": false,
+    "docker_build_allowed": false,
+    "docker_pull_or_load_allowed": false,
+    "historical_xmla_q1_q6_rerun_allowed": false,
+    "measurement_allowed": false,
+    "repository_historical_artifact_mutation_allowed": false,
+    "sql_direct_rerun_allowed": false
+  },
+  "historical_runtime_claim_boundary": {
+    "historical_build_reproducibility": "INSUFFICIENT_FOR_CONFIRMATORY_REBUILD",
+    "historical_dockerfile_git_blob": "4d0a3c95c51e14f9d916cae24eefe748a11ff486",
+    "historical_dockerfile_must_remain_unmodified": true,
+    "historical_dockerfile_sha256": "859a11f7db99748802149dfa207c4f1d9d73690a19a80cb8285d469c37037414",
+    "historical_emondrian_selector": "releases/latest/download/emondrian.war",
+    "historical_exact_runtime_reconstruction_claim_authorized": false
+  },
+  "mssql_jdbc": {
+    "asset_bytes": 1470328,
+    "asset_name": "mssql-jdbc-12.6.1.jre11.jar",
+    "asset_sha256": "3b1a70145dbaff98daa70022791e15becfb2b9534cc9e8cfaa1bdba6a3edeb8e",
+    "asset_url": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.6.1.jre11/mssql-jdbc-12.6.1.jre11.jar",
+    "future_materialization_rule": "require_exact_sha256_before_copy_into_runtime",
+    "version": "12.6.1.jre11"
+  },
+  "new_r3e_reproducible_runtime": {
+    "build_allowed_in_e3c": false,
+    "future_build_requires_post_bundle_materialization_authorization": true,
+    "materialization_allowed_in_e3c": false,
+    "must_not_claim_byte_identity_with_historical_emondrian_image": true,
+    "role": "NEW_R3_ONLY_REPRODUCIBLE_XMLA_CONFIRMATION_RUNTIME"
+  },
+  "next": "R3-E4_EXTERNAL_ISOLATED_RUNTIME_OVERLAY_STATIC_PLAN_NO_DOCKER",
+  "parent_head": "918ea6d4eb3f0a517b637dcef6c033f12a724d01",
+  "scientific_role": "SECONDARY_END_TO_END_CONFIRMATION",
+  "stage": "R3-E_XMLA_EMONDRIAN_END_TO_END_REPLICATION",
+  "station": "MCAD-NH-R3",
+  "substage": "R3-E3C_EMONDRIAN_PINNED_INPUT_STATIC_FREEZE",
+  "tomcat": {
+    "future_from_reference": "tomcat@sha256:81be7f8d435228148a6419d5e967e6c31f094ec3a492055b42c66d2bb775627c",
+    "future_materialization_rule": "require_platform_linux_amd64_and_exact_manifest_digest",
+    "historical_tag": "9.0-jdk17-temurin",
+    "linux_amd64_manifest_digest": "sha256:81be7f8d435228148a6419d5e967e6c31f094ec3a492055b42c66d2bb775627c",
+    "registry_index_digest": "sha256:ea48b0973e57be669a1fc024dc719bf059bf721e532bb485bc5dd0bbcf08dcf1",
+    "target_platform": "linux/amd64"
+  },
+  "web_inf": {
+    "file_count": 6,
+    "future_runtime_mechanical_overlay_allowed": true,
+    "manifest_repo_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/results/e3c_emondrian_web_inf_sha256s.txt",
+    "manifest_sha256": "cb2b90d9627202df6063cb61037b161de231d9f91630b835dd514f141f8abb50",
+    "semantic_schema_change_allowed": false
+  }
+}
