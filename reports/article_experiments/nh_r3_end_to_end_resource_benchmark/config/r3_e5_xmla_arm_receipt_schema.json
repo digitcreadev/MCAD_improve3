@@ -1,0 +1,197 @@
+{
+  "$id": "mcad.nh_r3.e5.xmla_arm_receipt.schema.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "arm": {
+      "enum": [
+        "UNGATED_EXECUTE_ADMISSIBLE",
+        "PERMISSIVE_GATED",
+        "SAFE_PRUNING"
+      ]
+    },
+    "arm_position": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "backend_request_count_including_gate_probes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "block_index": {
+      "maximum": 300,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "candidate_actions": {
+      "const": 24
+    },
+    "client_wall_ms": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "completion_candidate_index": {
+      "maximum": 23,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "completion_candidate_reached": {
+      "type": "boolean"
+    },
+    "emondrian_cpu_usage_usec_delta": {
+      "type": "integer"
+    },
+    "emondrian_io_rbytes_delta": {
+      "type": "integer"
+    },
+    "emondrian_io_wbytes_delta": {
+      "type": "integer"
+    },
+    "full_backend_execution_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "gate_evaluations": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "integrity_flags": {
+      "additionalProperties": false,
+      "properties": {
+        "completion_candidate_unique": {
+          "const": true
+        },
+        "historical_runtime_targeted": {
+          "const": false
+        },
+        "negative_cgroup_delta_detected": {
+          "type": "boolean"
+        },
+        "secret_value_recorded": {
+          "const": false
+        }
+      },
+      "required": [
+        "negative_cgroup_delta_detected",
+        "secret_value_recorded",
+        "historical_runtime_targeted",
+        "completion_candidate_unique"
+      ],
+      "type": "object"
+    },
+    "pattern": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "receipt_version": {
+      "const": "mcad.nh_r3.e5.xmla_arm_receipt.v1"
+    },
+    "response_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "runtime_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "emondrian_container_id": {
+          "type": "string"
+        },
+        "emondrian_image_id": {
+          "type": "string"
+        },
+        "mcad_api_container_id": {
+          "type": "string"
+        },
+        "mcad_api_image_id": {
+          "type": "string"
+        },
+        "mcad_proxy_container_id": {
+          "type": "string"
+        },
+        "mcad_proxy_image_id": {
+          "type": "string"
+        },
+        "project_name": {
+          "const": "mcad-r3e-xmla1"
+        },
+        "sqlserver_container_id": {
+          "type": "string"
+        },
+        "sqlserver_image_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_name",
+        "sqlserver_container_id",
+        "sqlserver_image_id",
+        "emondrian_container_id",
+        "emondrian_image_id",
+        "mcad_api_container_id",
+        "mcad_api_image_id",
+        "mcad_proxy_container_id",
+        "mcad_proxy_image_id"
+      ],
+      "type": "object"
+    },
+    "selection_role": {
+      "const": "CONFIRMATORY_PRIMARY"
+    },
+    "session_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sqlserver_cpu_usage_usec_delta": {
+      "type": "integer"
+    },
+    "sqlserver_io_rbytes_delta": {
+      "type": "integer"
+    },
+    "sqlserver_io_wbytes_delta": {
+      "type": "integer"
+    },
+    "time_to_analytical_objective_completion_ms": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "topology": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "receipt_version",
+    "run_id",
+    "session_id",
+    "block_index",
+    "topology",
+    "pattern",
+    "selection_role",
+    "arm",
+    "arm_position",
+    "candidate_actions",
+    "gate_evaluations",
+    "full_backend_execution_count",
+    "backend_request_count_including_gate_probes",
+    "response_bytes",
+    "client_wall_ms",
+    "time_to_analytical_objective_completion_ms",
+    "sqlserver_cpu_usage_usec_delta",
+    "sqlserver_io_rbytes_delta",
+    "sqlserver_io_wbytes_delta",
+    "emondrian_cpu_usage_usec_delta",
+    "emondrian_io_rbytes_delta",
+    "emondrian_io_wbytes_delta",
+    "completion_candidate_index",
+    "completion_candidate_reached",
+    "runtime_identity",
+    "integrity_flags"
+  ],
+  "title": "MCAD NH-R3-E XMLA arm-run receipt",
+  "type": "object"
+}
