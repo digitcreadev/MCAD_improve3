@@ -1,0 +1,110 @@
+{
+  "claim_boundary": {
+    "backend_equivalence_claim_authorized": false,
+    "effect_homogeneity_claim_authorized": false,
+    "global_system_benefit_claim_authorized": false,
+    "synthetic_test_results_are_scientific_effect_evidence": false,
+    "synthetic_test_results_may_change_claims": false
+  },
+  "contract_version": "mcad.nh_r3.e7.xmla_inference_engine_static.v1",
+  "engine_scope": {
+    "engine_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e7_xmla_inference_engine.py",
+    "file_input_cli_for_measured_data_implemented": false,
+    "future_real_analysis_requires_separate_post_measurement_authorization": true,
+    "measured_data_refusal_probe_implemented": true,
+    "measured_receipt_ingestion_implemented": false,
+    "pure_python_stdlib_only": true,
+    "real_analysis_entrypoint_implemented": false,
+    "synthetic_self_test_cli_implemented": true
+  },
+  "execution_boundary": {
+    "bundle_read_allowed": false,
+    "docker_allowed": false,
+    "historical_artifact_mutation_allowed": false,
+    "historical_d4_recomputation_allowed": false,
+    "http_or_backend_query_allowed": false,
+    "measured_receipt_ingestion_allowed": false,
+    "measurement_allowed": false,
+    "real_confidence_interval_computation_allowed": false,
+    "real_effect_analysis_allowed": false,
+    "real_p_value_computation_allowed": false,
+    "synthetic_confidence_interval_computation_allowed": true,
+    "synthetic_effect_analysis_allowed": true,
+    "synthetic_p_value_computation_allowed": true
+  },
+  "frozen_authorities": {
+    "d4_reference_engine": {
+      "git_blob": "9d957ef3e0fe76ff04517f6207d7e57a02d81564",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_d4_confirmatory_inference.py",
+      "role": "historical algorithmic semantic reference only; D4 is not recomputed"
+    },
+    "e6_protocol": {
+      "git_blob": "a49d00a38c2c62c6d7bff26a474d3e5662e8e301",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e6_xmla_replication_inference_protocol.json"
+    },
+    "e6_seed_manifest": {
+      "git_blob": "c0c412e83cffcddcda62d8354571fa9fea9c04ba",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e6_xmla_replication_seed_manifest.json"
+    },
+    "e6_verifier": {
+      "git_blob": "4519a226b7a5e8c54113603790a3adb24dede97a",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/verify_r3_e6_xmla_replication_inference_static.py"
+    }
+  },
+  "next": "R3-E8_PRE_BUNDLE_STATIC_COMPLETION_AND_RESUME_HANDOFF",
+  "parent_e6_head": "45dc105e6e9c1ef800323af2a78987a2b8ddcf11",
+  "production_inference_defaults_frozen_from_e6": {
+    "bootstrap_confidence": 0.95,
+    "bootstrap_kind": "stratified percentile bootstrap for mean paired difference",
+    "bootstrap_replicates": 20000,
+    "familywise_alpha": 0.05,
+    "multiplicity": "Holm step-down across all 8 frozen primary metrics",
+    "one_sided_alternative": "mean paired difference < 0",
+    "permutation_kind": "paired sign-flip randomization test of the mean paired difference",
+    "permutation_p_rule": "(1 + count(T_perm <= T_obs)) / (B + 1)",
+    "permutation_replicates": 100000,
+    "primary_comparison": "SAFE_PRUNING - PERMISSIVE_GATED",
+    "secondary_break_even_comparison": "SAFE_PRUNING - UNGATED_EXECUTE_ADMISSIBLE",
+    "sessions_per_stratum": 15,
+    "shared_primary_family_size": 8,
+    "shared_primary_metrics": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "strata": 20,
+    "xmla_specific_confirmatory_p_values_authorized": false,
+    "xmla_specific_secondary_metrics": [
+      "emondrian_cpu_usage_usec_delta",
+      "emondrian_io_rbytes_delta",
+      "emondrian_io_wbytes_delta"
+    ]
+  },
+  "purpose": "implement and test the frozen E6 inference machinery without measured XMLA data",
+  "scientific_role": "SECONDARY_END_TO_END_CONFIRMATION",
+  "stage": "R3-E_XMLA_EMONDRIAN_END_TO_END_REPLICATION",
+  "station": "MCAD-NH-R3",
+  "substage": "R3-E7_XMLA_INFERENCE_IMPLEMENTATION_SYNTHETIC_TESTS_NO_MEASURED_DATA",
+  "synthetic_test_scope": {
+    "bootstrap_replicates": 2048,
+    "permutation_replicates": 4096,
+    "synthetic_namespace_sha256": "f37c7d43e21dd56bb46c563ce4c58d12cbac6880f7d9d1d2876c215ad5ab4666",
+    "tests": [
+      "zero-effect null case",
+      "strict negative paired effect",
+      "strict positive paired effect",
+      "Holm exact vector",
+      "sign-flip determinism",
+      "stratified bootstrap determinism",
+      "secondary diagnostics have no confirmatory p-value",
+      "measured-data execution refusal"
+    ],
+    "uses_e6_production_seed_streams": false,
+    "vectors_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e7_xmla_inference_synthetic_test_vectors.json"
+  }
+}

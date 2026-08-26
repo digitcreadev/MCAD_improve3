@@ -1,0 +1,75 @@
+{
+  "contract_version": "mcad.nh_r3.e7.synthetic_test_vectors.v1",
+  "holm_vector": {
+    "expected_adjusted_p": [
+      0.008,
+      0.07,
+      0.12,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "metric_ids": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "raw_p": [
+      0.001,
+      0.01,
+      0.02,
+      0.2,
+      0.3,
+      0.4,
+      0.8,
+      1.0
+    ]
+  },
+  "measured_data_used": false,
+  "namespace_literal": "MCAD-NH-R3-E7|SYNTHETIC_ONLY|45dc105e6e9c1ef800323af2a78987a2b8ddcf11|v1",
+  "namespace_sha256": "f37c7d43e21dd56bb46c563ce4c58d12cbac6880f7d9d1d2876c215ad5ab4666",
+  "scenarios": {
+    "strict_negative_difference": {
+      "expected_ci95": [
+        -10.0,
+        -10.0
+      ],
+      "expected_mean_difference": -10.0,
+      "expected_raw_one_sided_p_upper_bound": 0.01,
+      "permissive": 100.0,
+      "safe": 90.0
+    },
+    "strict_positive_difference": {
+      "expected_ci95": [
+        5.0,
+        5.0
+      ],
+      "expected_mean_difference": 5.0,
+      "expected_raw_one_sided_p": 1.0,
+      "permissive": 100.0,
+      "safe": 105.0
+    },
+    "zero_difference": {
+      "expected_ci95": [
+        0.0,
+        0.0
+      ],
+      "expected_mean_difference": 0.0,
+      "expected_raw_one_sided_p": 1.0,
+      "permissive": 100.0,
+      "safe": 100.0
+    }
+  },
+  "synthetic_only": true,
+  "test_replicates": {
+    "bootstrap": 2048,
+    "permutation": 4096
+  }
+}
