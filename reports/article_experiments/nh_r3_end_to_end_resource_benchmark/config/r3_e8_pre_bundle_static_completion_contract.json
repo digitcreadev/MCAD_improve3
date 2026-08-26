@@ -1,0 +1,174 @@
+{
+  "allowed_while_bundle_is_unavailable_after_e8": [
+    "manuscript integration of already frozen R3-D/D4 evidence",
+    "methods/provenance/reproducibility/limitations refinement based on already frozen evidence",
+    "editorial placeholders for pending R3-E/R3-F/NH-R4 without invented results",
+    "read-only repository audit and documentation QA",
+    "no-I/O checks of already frozen static R3-E artifacts"
+  ],
+  "blocked_bundle": {
+    "artifacts": {
+      "AdventureWorksDW2022.bak": {
+        "bytes": 101834752,
+        "sha256": "ac4a39502645c31f114331be28ce671ac5f70b0645f2aa59d8dccfbaae081c05"
+      },
+      "MCAD_improve3_branch.bundle": {
+        "critical_for_resume": false,
+        "reason": "Git branch has already been migrated and advanced on benabib03",
+        "sha256": "99d27dd4dcba9768471dff97d6b510a871a138ff08e228d9a93236723e03dead"
+      },
+      "exact_runtime_images.tar": {
+        "bytes": 794181632,
+        "sha256": "22eba9990c871c0fb719757d0310d2e1609f4d9bddcb0b0665f35c1f8f02a7fd"
+      }
+    },
+    "exact_runtime_image_ids": {
+      "mcad_api": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+      "mcad_proxy": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+      "sqlserver": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89"
+    },
+    "must_not_delete_source_codespace_before_verified_recovery": true,
+    "recovery_target_date_context": "2026-09-01 quota reset target; verify actual Codespaces availability before recovery",
+    "source_account": "benabib2",
+    "source_codespace_label": "shiny pancake",
+    "source_directory": "/workspaces/MCAD_R3E_CODESPACE_MIGRATION_BUNDLE_20260824"
+  },
+  "completed_static_lineage": [
+    {
+      "commit": "b88cc576ec547ebbb71edee181dddda866cf3a33",
+      "station": "R3-E0",
+      "status": "FROZEN"
+    },
+    {
+      "commit": "e93641209b70605237931bf962bc83ac0dc81a48",
+      "station": "R3-E1",
+      "status": "FROZEN"
+    },
+    {
+      "commit": "c7f727db7b5c67c161e6357bb2dde4f3cf313d62",
+      "station": "R3-E2_OLD_HOST_DISCOVERY",
+      "status": "FROZEN_HOST_SPECIFIC_OLD_HOST"
+    },
+    {
+      "commit": "918ea6d4eb3f0a517b637dcef6c033f12a724d01",
+      "station": "QUOTA_RUPTURE_CHECKPOINT",
+      "status": "FROZEN"
+    },
+    {
+      "commit": "43c0e5855909b045fbc1e0395d697a9794f02c10",
+      "station": "R3-E3C_PINNED_INPUTS",
+      "status": "FROZEN"
+    },
+    {
+      "commit": "e34ba8e6e0c1267974305053557c6a28acfe2c11",
+      "station": "R3-E4_STATIC_RUNTIME_OVERLAY",
+      "status": "FROZEN"
+    },
+    {
+      "commit": "effd3a0677bc943f51faf87f4808743136ba027b",
+      "station": "R3-E5_EXECUTOR_RECEIPT_STATIC",
+      "status": "FROZEN"
+    },
+    {
+      "commit": "45dc105e6e9c1ef800323af2a78987a2b8ddcf11",
+      "station": "R3-E6_INFERENCE_PROTOCOL_STATIC",
+      "status": "FROZEN"
+    },
+    {
+      "commit": "18f6c02c351c7c257c5f108f3dafb972095eeb14",
+      "station": "R3-E7_INFERENCE_SYNTHETIC_TESTS",
+      "status": "FROZEN"
+    }
+  ],
+  "contract_version": "mcad.nh_r3.e8.pre_bundle_static_completion.v1",
+  "e7_authority_blobs": {
+    "contract": {
+      "git_blob": "caea2ca1f4d704d6c76a5e16d4ecf670094505b4",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e7_xmla_inference_engine_static_contract.json"
+    },
+    "engine": {
+      "git_blob": "8a77d336d66ea292dfb728ce55beb607f65128db",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e7_xmla_inference_engine.py"
+    },
+    "recovery_receipt": {
+      "git_blob": "2b8a16e058308ed209e1c4214980408f582a2c4a",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/results/e7_static_verifier_recovery.json"
+    },
+    "synthetic_receipt": {
+      "git_blob": "d71055e71cc810f2698c69e538fdd3021a617b90",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/results/e7_xmla_inference_synthetic_test_receipt.json"
+    },
+    "vectors": {
+      "git_blob": "cce56566b21d268d18c365ab6c3f6d001d6c21c4",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e7_xmla_inference_synthetic_test_vectors.json"
+    },
+    "verifier": {
+      "git_blob": "85110656e469d97babf6a4b377d44c5705730289",
+      "path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/verify_r3_e7_xmla_inference_synthetic.py"
+    }
+  },
+  "forbidden_before_verified_bundle_and_new_host_e2": {
+    "container_start_restart": true,
+    "d4_recomputation": true,
+    "database_restore": true,
+    "docker_build": true,
+    "docker_compose_up": true,
+    "docker_load": true,
+    "historical_artifact_mutation": true,
+    "historical_xmla_q1_q6_rerun": true,
+    "measured_receipt_ingestion": true,
+    "network_or_volume_create": true,
+    "real_confidence_interval_computation": true,
+    "real_effect_analysis": true,
+    "real_p_value_computation": true,
+    "sql_direct_rerun": true,
+    "xmla_backend_query": true
+  },
+  "next_experimental_state": "BLOCKED_WAITING_FOR_VERIFIED_BUNDLE_RECOVERY_AND_NEW_HOST_E2_READ_ONLY_REVALIDATION",
+  "next_parallel_workstream": "MANUSCRIPT_BUNDLE_INDEPENDENT_WORK_ON_SEPARATE_DESCENDANT_BRANCH_OR_WORKTREE",
+  "parent_e7_head": "18f6c02c351c7c257c5f108f3dafb972095eeb14",
+  "pinned_emondrian_authority": {
+    "historical_exact_runtime_reconstruction_claim_authorized": false,
+    "jdbc_sha256": "3b1a70145dbaff98daa70022791e15becfb2b9534cc9e8cfaa1bdba6a3edeb8e",
+    "new_r3e_reproducible_runtime_inputs_frozen": true,
+    "release_tag": "v9.3.0.6",
+    "tag_commit": "d2006c162fcc6c4e7ec90a0c03485056696134ad",
+    "tomcat_linux_amd64_digest": "sha256:81be7f8d435228148a6419d5e967e6c31f094ec3a492055b42c66d2bb775627c",
+    "war_bytes": 52732089,
+    "war_sha256": "100895f17acd4e4d3e3af58c2fbd442d95ca71fb969169d4c1a66acb974c52db",
+    "web_inf_manifest_sha256": "cb2b90d9627202df6063cb61037b161de231d9f91630b835dd514f141f8abb50"
+  },
+  "post_bundle_resume_sequence": [
+    "Recover the old-Codespace migration bundle without starting historical services or benchmarks.",
+    "Verify SHA256SUMS and the three critical artifact identities before and after transfer.",
+    "Keep Docker unloaded; run only the new-host E2 read-only revalidation.",
+    "Verify planned ports, absence of pre-existing mcad-r3e-xmla1 objects, free disk, credential presence without values, seed/bundle hashes, and eMondrian local discovery.",
+    "Combine verified bundle + new-host E2 + frozen E3C-E7 authorities into a separate materialization-authorization checkpoint.",
+    "Only after materialization authorization: docker load exact SQL/API/proxy images and verify exact image IDs.",
+    "Build the new R3-only eMondrian image from the pinned E3C inputs and verify its provenance receipt.",
+    "Restore AdventureWorks into the isolated SQL volume and create the mcad-r3e-xmla1 isolated runtime.",
+    "Run mechanical XMLA path validation only; do not rerun historical Q1-Q6 evidence.",
+    "After explicit measured-execution authorization, execute the frozen 300-session/900-arm R3-E cohort.",
+    "Freeze measurement integrity; only then authorize real E7-style inference on measured receipts.",
+    "Freeze R3-E results, then execute R3-F cross-backend synthesis and continue to NH-R4."
+  ],
+  "purpose": "close all currently authorized bundle-independent R3-E experimental static work and freeze the exact post-bundle resume boundary",
+  "scientific_role": "SECONDARY_END_TO_END_CONFIRMATION",
+  "stage": "R3-E_XMLA_EMONDRIAN_END_TO_END_REPLICATION",
+  "static_experimental_completion": {
+    "bundle_independent_runtime_design_complete": true,
+    "executor_receipt_schema_static_complete": true,
+    "inference_engine_synthetic_tests_complete": true,
+    "inference_protocol_static_complete": true,
+    "isolated_runtime_overlay_static_plan_complete": true,
+    "nh_r4_complete": false,
+    "pinned_emondrian_inputs_complete": true,
+    "r3_f_cross_backend_synthesis_complete": false,
+    "runtime_materialization_complete": false,
+    "xmla_measured_execution_complete": false,
+    "xmla_mechanical_runtime_validation_complete": false,
+    "xmla_real_inference_complete": false
+  },
+  "station": "MCAD-NH-R3",
+  "substage": "R3-E8_PRE_BUNDLE_STATIC_COMPLETION_AND_RESUME_HANDOFF"
+}
