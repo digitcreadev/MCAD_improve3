@@ -1,0 +1,43 @@
+{
+  "station": "NH-MANUSCRIPT-DELTA-0g",
+  "role": "POST_A8_RELATED_WORK_AND_NOVELTY_BOUNDARY_CONTROLLED_PATCH",
+  "parent_commit": "20ca0c79a4af60712b63173b48243796241805a9",
+  "branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+  "source_file": "manuscript/post_a8_nh/working_release/manuscript/fr/MCAD_FR_POST_A8_NH.tex",
+  "source_before_sha256": "90cbc11786dd0153219169b3c574d79249ba54c3790072916320412426d5ac0f",
+  "source_after_sha256": "85183f70833c4f134d02af5c23072923f3be198d1a27eb71c45b7bd4a5ca1d3a",
+  "new_descendant_bibliography": "manuscript/post_a8_nh/working_release/literature/references_post_a8_nh.bib",
+  "new_descendant_bibliography_sha256": "08a43d4d71275d947332e7cdda7087895939f47ce0ac9d272063dca25bee5e0f",
+  "new_related_work_table": "manuscript/post_a8_nh/working_release/tables/fr/T_related_work_landscape_post_a8_nh.tex",
+  "new_related_work_table_sha256": "7810e7f85a42981bf656a2c3e4dbcd898cfce36dc9e93b171f57fece8fbab217",
+  "related_work_framework": "F1-F12",
+  "new_literature_keys": [
+    "BegoliCalcite2018",
+    "SubstraitSpec2026",
+    "BertinoMusto1992",
+    "LuoEmptyResult2006",
+    "KraftWIQ2012",
+    "NiuDataSkipping2021"
+  ],
+  "excluded_reference_not_reintroduced": "NegreRavatTeste2018",
+  "novelty_boundary": {
+    "primitive_priority_claim_authorized": false,
+    "first_or_only_claim_authorized": false,
+    "external_superiority_claim_authorized": false,
+    "direct_experimental_baseline_equivalence_to_literature_systems": false,
+    "distinctive_claim": "integration of objective formalization, typed context/evidence, CQP, realizability, acquired session evidence, residual objective frontier, and safe-pruning/fail-open action"
+  },
+  "preservation": {
+    "frontmatter_and_introduction_modified": false,
+    "overview_formalization_evaluation_modified": false,
+    "A8_parent_copy_modified": false,
+    "canonical_A8_source_modified": false,
+    "original_A8_bibliography_modified": false,
+    "old_A8_comparative_table_modified": false
+  },
+  "build_executed": false,
+  "docker_executed": false,
+  "backend_query_executed": false,
+  "measurement_executed": false,
+  "next": "NH-MANUSCRIPT-DELTA-0h_OVERVIEW_AND_CONCEPTUAL_CHAIN_CONTROLLED_PATCH"
+}
