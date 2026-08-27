@@ -1,0 +1,21 @@
+\section{Preuves formelles complémentaires}
+\label{app:formal-proofs}
+
+\paragraph*{Preuve de la Proposition~\ref{prop:borne}}
+Par définition $C_{\mathrm{eval}}(QP,O)\subseteq C^*(O)$ et $|C^*(O)|>0$. Ainsi $0\le |C_{\mathrm{eval}}(QP,O)|\le |C^*(O)|$, donc $\varphi(QP,O)\in[0,1]$. Les deux caractérisations d'égalité découlent directement de la cardinalité d'ensembles finis et de l'inclusion $C_{\mathrm{eval}}(QP,O)\subseteq C^*(O)$.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Preuve de la Proposition~\ref{prop:mono-real}}
+Supposons $\mathrm{Real}(QP_a)\subseteq\mathrm{Real}(QP_b)$. Si $c\in C_{\mathrm{eval}}(QP_a,O)$, il existe $R\in\mathcal R(c)$ tel que $R\subseteq\mathrm{Real}(QP_a)$; donc $R\subseteq\mathrm{Real}(QP_b)$ et $c\in C_{\mathrm{eval}}(QP_b,O)$. Ainsi $C_{\mathrm{eval}}(QP_a,O)\subseteq C_{\mathrm{eval}}(QP_b,O)$ et $\varphi(QP_a,O)\le\varphi(QP_b,O)$.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Preuve de la Proposition~\ref{prop:session}}
+Dans une phase sémantique fixe, $E_{t-1}\subseteq E_t$. Si $c\in C_E^{\le t-1}(O)$, il existe un support suffisant $R\subseteq E_{t-1}$; on a alors $R\subseteq E_t$ et $c\in C_E^{\le t}(O)$. Donc $C_E^{\le t-1}(O)\subseteq C_E^{\le t}(O)$. En divisant les cardinalités par la constante positive $|C^*(O)|$, on obtient la monotonie et la bornitude de $\varphi^{\le t}$, donc $\Delta\varphi_t\ge0$.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Preuve de la Proposition~\ref{prop:graded}}
+Pour tout support fini non vide $R$, $0\le |R\cap X|/|R|\le1$. Le maximum sur la famille finie non vide $\mathcal R(c)$ donne $\kappa_c(X)\in[0,1]$, puis la moyenne sur l'ensemble fini non vide $C^*(O)$ donne $\psi\in[0,1]$. Si $c\in C_{\mathrm{eval}}(QP,O)$, au moins un support est entièrement inclus dans $\mathrm{Real}(QP)$ et $\kappa_c=1$; la moyenne donne $\varphi(QP,O)\le\psi(QP,O)$. Si $E_{t-1}\subseteq E_t$, les intersections avec les supports ne peuvent que croître; chaque $\kappa_c(E_t)$ et leur moyenne sont donc non décroissants, d'où $\Delta\psi_t\ge0$.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Preuve de la Proposition~\ref{prop:session-equivalence}}
+Supposons (A1) et (A2). Comme l'évidence est retenue de manière monotone dans la phase, $C_E^{\le i}(O)\subseteq C_E^{\le t}(O)$ pour $i\le t$. Le terme initial $C_E^{\le0}(O)$ est donc inclus dans $C_E^{\le t}(O)$. Par (A1), pour tout $i\le t$, $C_{\mathrm{eval}}(QP_i,O)\subseteq C_E^{\le i}(O)\subseteq C_E^{\le t}(O)$. En prenant l'union, on obtient $C_Q^{\le t}(O;E_0)\subseteq C_E^{\le t}(O)$.
+
+Réciproquement, soit $c\in C_E^{\le t}(O)$. Si $c\in C_E^{\le0}(O)$, alors $c\in C_Q^{\le t}(O;E_0)$ par définition. Sinon, il existe un plus petit $j\in\{1,\ldots,t\}$ tel que $c\in C_E^{\le j}(O)$; donc $c\in C_E^{\le j}(O)\setminus C_E^{\le j-1}(O)$. Par (A2), $c\in C_{\mathrm{eval}}(QP_j,O)$, donc $c\in C_Q^{\le t}(O;E_0)$. L'égalité est établie.
+
+Si seule (A1) est conservée, la première inclusion reste valide. Elle peut être stricte : considérons un support $R=\{nv_1,nv_2\}$, $E_0=\emptyset$, $A_1=\{nv_1\}\subseteq\mathrm{Real}(QP_1)$ et $A_2=\{nv_2\}\subseteq\mathrm{Real}(QP_2)$. Alors $R\subseteq E_2$ mais aucune requête individuelle ne réalise $R$; la contrainte appartient à $C_E^{\le2}(O)$ et pas à $C_Q^{\le2}(O;E_0)$.\unskip\nobreak\hspace{0.5em}$\blacksquare$

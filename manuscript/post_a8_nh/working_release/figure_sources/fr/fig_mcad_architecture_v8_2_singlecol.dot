@@ -1,0 +1,60 @@
+digraph MCAD {
+  graph [rankdir=TB, splines=ortho, bgcolor="white", pad=0.06, margin=0.02,
+         nodesep=0.22, ranksep=0.28, fontname="Times-Roman", fontsize=11,
+         newrank=true, compound=true];
+  node [shape=box, style="rounded", fontname="Times-Roman", fontsize=9,
+        margin="0.08,0.06", color="black", penwidth=0.9];
+  edge [color="black", penwidth=0.9, arrowsize=0.55];
+
+  analyst [label="Analyste / BI\nobjectif O, requête q_t\nétat de session", width=1.45];
+  extract [label="Extraction canonique\nMDX / SQL / QP_t", width=1.45];
+  sat [label="SAT(QP_t)\nadmissibilité", width=1.35];
+  real [label="Real(QP_t)\nsupports réalisables", width=1.35];
+  ceval [label="C_eval(QP_t,O), S*\ncontraintes calculables\net support utile", width=1.45];
+  phi [label="phi^{<=t}(O), Delta phi_t\ncalculabilité cumulée\net contribution", width=1.48];
+  policy [label="Politique pi_act\nexécuter / notifier / avertir\nguider / recommander / bloquer", width=1.7];
+  gateway [label="Execution Gateway\nSQL Direct ou XMLA/Mondrian", width=1.7];
+  feedback [label="Retour, explication\net mise à jour H_t", width=1.7];
+
+  subgraph cluster_ckg {
+    label="Contexte de l'analyse décisionnelle / CKG";
+    labelloc="t";
+    fontname="Times-Roman";
+    fontsize=11;
+    style="rounded,dashed";
+    color="black";
+    penwidth=0.9;
+    margin=10;
+
+    catalog [label="Catalogue\nfaits, dimensions, hiérarchies, mesures", width=1.5];
+    semantics [label="Sémantique métier\nKPI, unités, agrégateurs, temporalité", width=1.5];
+    objective [label="Objectif stratégique\nC*(O), nœuds virtuels, supports R(c)", width=1.5];
+    memory [label="Mémoire de session\nsupports acquis, provenance", width=1.5];
+    build [label="Construction / évolution du CKG\nschémas, métadonnées, KPI, règles", width=1.5];
+  }
+
+  // Main chain
+  analyst -> extract -> sat -> real -> ceval -> phi -> policy -> gateway -> feedback;
+
+  // Pair alignment.
+  { rank=same; sat; catalog; }
+  { rank=same; real; semantics; }
+  { rank=same; ceval; objective; }
+  { rank=same; phi; memory; }
+  { rank=same; feedback; build; }
+
+  // Invisible pulls to stabilize columns.
+  sat -> catalog [style=invis, weight=10];
+  real -> semantics [style=invis, weight=10];
+  ceval -> objective [style=invis, weight=10];
+  phi -> memory [style=invis, weight=10];
+  feedback -> build [style=invis, weight=10];
+
+  // Context dependencies.
+  catalog:w -> sat:e [style=dashed, constraint=false];
+  semantics:w -> real:e [style=dashed, constraint=false];
+  objective:w -> ceval:e [style=dashed, constraint=false];
+  memory:w -> phi:e [style=dashed, constraint=false];
+  build:n -> memory:s [style=dashed, constraint=false];
+  feedback:e -> memory:s [style=dashed, constraint=false, minlen=2];
+}

@@ -1,0 +1,28 @@
+\begin{table*}[!t]
+\centering
+\caption{Differentiation matrix between MCAD and directly relevant research lines. Cells describe the center of gravity of the cited work; they are not exhaustive claims that other capabilities are absent.}
+\label{tab:comparative-approaches}
+\scriptsize
+\setlength{\tabcolsep}{2.0pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{2.05cm}p{2.15cm}p{2.05cm}p{2.25cm}p{3.45cm}X@{}}
+\toprule
+Work / line & Input / unit & State / context & Purpose or criterion & Mechanism and output & Position relative to MCAD \\
+\midrule
+Djedaini \emph{et al.}~\cite{DjedainiEtAl2019} & query within an OLAP exploration & exploration history & contribution to exploration quality/progression & query features, supervised learning, and competence tracking; automatic assessment & MCAD derives contribution from explicit constraints and realizable supports relative to session state rather than learning it from traces. \\
+Aligon \emph{et al.}~\cite{AligonDSS2015} & current session + session log & session and historical neighborhood & relevance of a continuation & collaborative filtering, alignment, and adaptation; recommendation of a future session & MCAD evaluates the current query; its indicator can then feed a recommendation policy. \\
+Negre, Ravat, Teste~\cite{NegreRavatTeste2018} & OLAP query or recommendation + context & recommendation context and obsolescence & avoid inappropriate or non-computable recommendations & obsolescence indicator + post-filtering; contextual recommendation & MCAD also uses context but first measures progress toward an explicit objective, then separates that measure from the action. \\
+Intentional Analytics~\cite{VassiliadisMarcelRizzi2019,FranciaPredict2026} & analytical intention + enriched cube & session, previous results, and models & express a high-level analytical need & intentional operators and models; enriched answer / insight & IAM raises the level at which analysis is expressed; MCAD formalizes objective computability and its query-by-query variation. \\
+Assessment / \emph{assess} operator~\cite{FranciaAssess2021} & target cube + reference benchmark & expected-vs-observed performance context & assess a measure relative to an expectation & benchmark comparison + labeling of the outcome & Close on KPI-oriented assessment, but MCAD evaluates support completion and session-relative objective computability rather than deviation from an expected value. \\
+RE4DW~\cite{NasiriAhmedWrembelZimanyi2017} & strategic objectives and KPIs & DW design context & derive data requirements and a multidimensional model & requirements engineering; requirements and multidimensional model & RE4DW links strategy and design; MCAD extends that continuum to runtime through sufficient supports and marginal gain. \\
+Summarizability / semantic validation~\cite{SimonAmannLiuGancarski2023} & measure, dimension, grain, aggregation & schema, hierarchies, summarizability properties & semantic correctness of the computation & summarizability conditions and propagation; valid/invalid aggregation & A useful condition for MCAD admissibility, but not equivalent to support realization or contribution. \\
+Aggregate provenance~\cite{AlOmeirLaiMilaniPottinger2023} & aggregate result + source data & computation dependencies and data origin & explain data origin and influence & provenance summaries; result dependencies & Provenance explains the evidence; MCAD determines whether the associated support makes a constraint computable. \\
+\textbf{MCAD} & \textbf{$QP_t$, objective $O$, CKG} & \textbf{decision-analysis context + $H_t$} & \textbf{complete/partial computability and marginal gain} & \textbf{SAT / Real / $C_{eval}$ / $\varphi,\Delta\varphi$; indicator then configurable policy} & \textbf{unit of evaluation: what the query makes newly computable for the objective given the session state.} \\
+\bottomrule
+\end{tabularx}
+\vspace{0.7mm}
+\begin{minipage}{0.985\textwidth}
+\footnotesize\emph{Note---} Neighboring methods were not reimplemented as competing baselines in the reported campaigns; this matrix establishes conceptual and mechanistic differentiation, not direct experimental superiority.
+\end{minipage}
+\normalsize
+\end{table*}

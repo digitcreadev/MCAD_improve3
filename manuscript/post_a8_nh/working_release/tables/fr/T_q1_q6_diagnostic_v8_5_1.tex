@@ -1,0 +1,21 @@
+\begin{table*}[!t]
+\centering
+\caption{Lecture diagnostique de la trace canonique Q1--Q6 à partir des observations déjà acquises. Le tableau sépare explicitement admissibilité, calculabilité marginale et effet physique; aucune nouvelle exécution n'est introduite.}
+\label{tab:q1-q6-diagnostic}
+\scriptsize
+\setlength{\tabcolsep}{2.4pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{tabularx}{\textwidth}{@{}p{0.55cm}p{0.72cm}p{2.35cm}p{1.05cm}p{2.15cm}p{2.55cm}X@{}}
+\toprule
+Étape & SAT & Nouvelle contrainte & $\Delta\varphi_t$ & Action / physique & Motif & Lecture scientifique \\
+\midrule
+Q1 & vrai & $c_1$ (ventes) & $1/3$ & ALLOW / exécutée & support nouveau & première contrainte nouvellement calculable \\
+Q2 & vrai & $c_2$ (coût) & $1/3$ & ALLOW / exécutée & support nouveau & deuxième contrainte nouvellement calculable \\
+Q3 & vrai & $c_3$ (marge) & $1/3$ & ALLOW / exécutée & support nouveau & objectif complètement calculable \\
+Q4 & vrai & -- & $0$ & BLOCK / sans exécution & hors périmètre de l'objectif & admissible, mais aucune contrainte nouvelle \\
+Q5 & faux & -- & $0$ & BLOCK / sans exécution & grain incompatible & inadmissible : la clause de grain échoue \\
+Q6 & vrai & -- & $0$ & BLOCK / sans exécution & redondance après couverture & admissible et redondante : $\Delta\varphi=0$ \\
+\bottomrule
+\end{tabularx}
+\normalsize
+\end{table*}

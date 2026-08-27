@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth,
+height=0.58\linewidth,
+title={Robustness: false ALLOW},
+xlabel={Scenario family},
+ylabel={False-ALLOW rate},
+grid=major,
+legend style={font=\scriptsize,at={(0.5,-0.28)},anchor=north,legend columns=2},
+xtick={0,1,2,3},
+xticklabels={{adversarial\_sat},{adversarial\_semantic},{noisy\_borderline},{stress\_long}},
+x tick label style={rotate=22,anchor=east,font=\scriptsize},
+ymin=0,
+ymax=1.0]
+\addplot+[mark=*] coordinates {(0,0.0) (1,0.0) (2,0.0) (3,0.0)};
+\addlegendentry{MCAD}
+\addplot+[mark=square*] coordinates {(0,0.833333) (1,0.8) (2,0.75) (3,0.625)};
+\addlegendentry{naive}
+\addplot+[mark=triangle*] coordinates {(0,0.666667) (1,0.6) (2,0.75) (3,0.625)};
+\addlegendentry{measure overlap}
+\addplot+[mark=diamond*] coordinates {(0,0.255556) (1,0.253333) (2,0.191667) (3,0.145833)};
+\addlegendentry{random matched}
+\end{axis}
+\end{tikzpicture}

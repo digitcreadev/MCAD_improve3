@@ -1,0 +1,47 @@
+{
+  "release_id": "MCAD-V8.7.6-A8-20260818T234700Z",
+  "release_version": "V8.7.6",
+  "station": "A8 — Immutable Reproducibility Release",
+  "freeze_time_utc": "2026-08-18T23:47:00Z",
+  "source_date_epoch": 1787096820,
+  "input": {
+    "a7_candidate_package": "MCAD_V8_7_6_A7_CANDIDATE_PACKAGE.zip",
+    "a7_candidate_sha256": "19c61f0bdf10bd22d522e359a54f56e97f686f90ed825ef789effa43141d32ea",
+    "a7_audit_package": "MCAD_A7_EXISTING_ABLATION_CLAIM_CONSOLIDATION.zip",
+    "a7_audit_sha256": "d68e21d3f6dd37c20d92fb66ed71a854c3b56fefb110c2d7a0de147bb59049b9"
+  },
+  "scientific_execution_performed": false,
+  "experiment_rerun_performed": false,
+  "statistical_execution_performed": false,
+  "backend_execution_performed": false,
+  "human_validation_performed": false,
+  "manuscript_content_changed_from_a7": false,
+  "bibliography_entry_count": 39,
+  "final_pdf": {
+    "en": {
+      "path": "manuscript/en/MCAD_EN_V8_7_6.pdf",
+      "sha256": "34c5d20ee5bb2328b453c1d2029df98dd3eb5a20066d56bc94a221ac4e032a66",
+      "pages": 19
+    },
+    "fr": {
+      "path": "manuscript/fr/MCAD_FR_V8_7_6.pdf",
+      "sha256": "86f79d7b1944a71eac62c66588aa9de5e1bacf6d5ca0937e83bcd2a36692ccf0",
+      "pages": 21
+    }
+  },
+  "final_tex": {
+    "en": {
+      "path": "manuscript/en/MCAD_EN_V8_7_6.tex",
+      "sha256": "ee01a7fb572af44390013b062b7e4f06d62f459a274168a4bde6014a143eca60"
+    },
+    "fr": {
+      "path": "manuscript/fr/MCAD_FR_V8_7_6.tex",
+      "sha256": "c013a6f1e3f84a2e6e898a07106c5e5f4bb0cd9227e3b6763caf6e2186c2060c"
+    }
+  },
+  "build": {
+    "command": "./BUILD.sh",
+    "byte_reproducible_pdf_target": true,
+    "environment_record": "traceability/reproducibility/BUILD_ENVIRONMENT.txt"
+  }
+}

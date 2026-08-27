@@ -1,0 +1,16 @@
+\begin{tikzpicture}[
+  node distance=3.5mm,
+  every node/.style={font=\scriptsize,align=center},
+  layer/.style={draw,rounded corners=1mm,minimum width=0.94\linewidth,minimum height=9.5mm,inner sep=3pt},
+  >=Stealth
+]
+\node[layer] (a) {\textbf{A. Noyau scientifique}\\
+Contexte de l'analyse décisionnelle modélisé par CKG $\rightarrow$ objectif en contraintes + supports suffisants $\rightarrow$ calculabilité nulle/partielle/totale, relative à la requête et à la session};
+\node[layer,below=of a] (b) {\textbf{B. Contribution et mécanisme formel}\\
+$QP \rightarrow \mathrm{SAT} \rightarrow \mathrm{Real} \rightarrow C_{\mathrm{eval}} \rightarrow S^* \rightarrow \varphi,\Delta\varphi$; admissibilité $\neq$ contribution stratégique; redondance relative à $O$ et à l'état $H_t$};
+\node[layer,below=of b] (c) {\textbf{C. Objets d'opérationnalisation}\\
+Nœuds virtuels comme spécifications de support; CKG comme mémoire sémantique active; QP canonique; explications par objets formels; traçabilité de la décision};
+\node[layer,below=of c] (d) {\textbf{D. Politique d'action et réalisation système}\\
+Indicateur MCAD $z_t$ $\rightarrow$ $\pi_{\mathrm{act}}$ $\rightarrow$ exécuter / notifier / avertir / guider / recommander / bloquer; le gate ALLOW/BLOCK est une instanciation stricte du prototype};
+\draw[->] (a)--(b); \draw[->] (b)--(c); \draw[->] (c)--(d);
+\end{tikzpicture}

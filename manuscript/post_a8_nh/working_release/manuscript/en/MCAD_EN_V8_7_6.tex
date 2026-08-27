@@ -1,0 +1,702 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{placeins}
+\usepackage{balance}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes,calc,fit}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\makeatletter
+\def\ps@plain{%
+  \def\@oddhead{}\def\@evenhead{}%
+  \def\@oddfoot{\hfil\thepage\hfil}%
+  \def\@evenfoot{\hfil\thepage\hfil}}
+\makeatother
+
+% Use the conventional manuscript label instead of IEEEtran's default "Index Terms".
+\renewcommand{\IEEEkeywordsname}{Key words}
+
+\newtheorem{proposition}{Proposition}
+
+\graphicspath{{figures/en/}}
+\begin{document}
+
+\title{MCAD (Contextual Mask for Decision Analysis): Evaluating the Contribution of OLAP Queries to Strategic-Objective Computability in Decision-Analysis Sessions}
+\author{}
+\maketitle
+\pagestyle{plain}
+\thispagestyle{plain}
+
+\begin{abstract}
+A decision-analysis session is not merely a sequence of executable queries: each query is interpreted against the multidimensional schema, active strategic objective, business rules, and evidence already acquired. We introduce the \emph{Contextual Mask for Decision Analysis} (MCAD), which semantically maps a candidate query's canonical plan to this decision-analysis context, represented as a contextual knowledge graph (CKG). For each objective constraint, MCAD identifies sufficient supports and evaluates whether the current query makes any constraint newly computable relative to session state. The induced mask is inspectable; its evaluation establishes contribution, while the operational action remains separate. MCAD therefore targets verifiable progress in objective computability rather than user preference, interestingness, or perceived utility; $\Delta\varphi$ distinguishes admissibility, computability, and strategic progress without serving as a proxy for satisfaction.
+
+The prototype evaluates one strict policy in which the contribution indicator drives ALLOW/BLOCK before backend execution, while the same indicator could support notification, warning, guidance, or recommendation. The evaluation combines an end-to-end trace, 1000 sessions with 7960 decisions, multiple warehouses, two backend paths, and a controlled robustness benchmark with internal reference policies and targeted ablations. Relative to that benchmark's reference specification, MCAD preserves final coverage while recording zero false ALLOW and non-contributive execution rates; semantic-decision p50 spans 0.337--0.666~ms and p99 0.649--1.461~ms across the studied factors, while CKG growth is characterized separately up to 1693 nodes and 2406 edges. These results support feasibility within the tested configurations, not human decision value, external superiority, or a universal interaction policy.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Data warehouses, OLAP, business intelligence, strategic objectives, strategic computability, contextual knowledge graphs, KPI semantics, query contribution, explainability.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:intro}
+
+Data warehouses and OLAP systems provide the technical backbone for decision analysis: they aggregate facts, support navigation across hierarchies, and let analysts compare indicators along multiple dimensions~\cite{ChaudhuriDayal97,KimballRoss2013,ChenBI2012}. However, a real analytical session is shaped by more than the cube alone. It unfolds around an objective, KPIs, business constraints, scenarios, units, summarizability rules, temporal windows, and an evolving body of information gathered during the session. Accordingly, a query can be fully valid from a syntactic and schema perspective, and can even be interesting to the analyst, while still failing to supply what is needed to compute the strategic objective currently pursued.
+
+Relevant work addresses complementary parts of this problem: preference and personalization adapt analytics to users~\cite{GolfarelliRizziBiondi2011,JacobGunklachMaedche2025}; recommendation, guidance, and context-aware methods steer exploration~\cite{AligonDSS2015,NegreRavatTeste2018,GunklachNadj2023,RoyContextOLAP2022}; contribution and \emph{interestingness} study novelty or usefulness~\cite{DjedainiEtAl2019,GkitsakisEtAl2024,ArenasExploratory2025}; Intentional Analytics raises the interaction level~\cite{VassiliadisMarcelRizzi2019,FranciaPredict2026}; and goal/KPI models, knowledge graphs, validation, and provenance represent objectives, semantics, and explanations~\cite{Pourshahid2014,MateTrujilloMylopoulos2017,RoldanGarciaEtAl2021,DiamantiniKPISurvey2025,HoganKGSurvey2021,ZhongKGC2024,W3CSHACL2017,W3CPROVO2013}.
+
+In this sense, MCAD brings these strands together around one precise operational question: \emph{given what this session already knows, which constraints of the active objective does the current query make computable now?} We call this property \textbf{strategic computability}. The contribution is therefore not to claim that personalization, recommendation, KPI modeling, knowledge graphs, or provenance are new in isolation. Rather, it is to define a query/session-level computability semantics that connects an explicit objective to sufficient supports and session state, and then keeps this assessment separate from a configurable action policy.
+
+We represent the \textbf{decision-analysis context} as a contextual knowledge graph (CKG) linking the multidimensional catalog with KPI semantics, units, aggregation and temporal rules, scenarios, the active objective, and session memory. Objective $O$ is decomposed into explicit constraints connected to one or more sufficient supports, so each query can be evaluated against both newly realized supports and evidence already accumulated.
+
+The \textbf{contextual mask} records the outcome of semantically mapping a candidate query's canonical plan onto that decision-analysis context. Because the mapping is objective- and session-aware, it takes into account the active objective, its constraints and sufficient supports, the applicable business and temporal rules, and the current session state. The resulting mask identifies the plan elements that realize, or can realize, the supports needed by the objective constraints.
+
+The mask is then evaluated against the session state in order to determine, explicitly, whether the query adds anything new to constraint computability. Only after that assessment does the action policy $\pi_{\mathrm{act}}$ decide what to do: execute, notify, warn, guide, recommend, or block. Put differently, \emph{semantic mapping produces the mask; mask evaluation establishes contribution; policy turns that assessment into an action}.
+
+\paragraph*{Terminology} Throughout the paper, we primarily use \emph{decision-analysis context} for this complete object. The shorter expression \emph{analytical context} may be used as a stylistic synonym when no ambiguity is possible; it does not refer only to the cube schema or to technical query parameters. We use \emph{semantic mapping} for the mapping operation and \emph{contextual mask} for its result.
+
+Two distinctions are central. First, \textbf{admissibility is not strategic contribution}: $\mathrm{SAT}(QP)=\mathrm{true}$ may still yield $\Delta\varphi=0$. Second, \textbf{redundancy is objective- and session-relative}: a query can contribute early and become non-contributive once its constraints are already computable. MCAD therefore distinguishes null, partial, and complete computability at query and cumulative-session levels.
+
+MCAD defines a \textbf{contribution indicator}, not a universal blocking rule. A deployment may execute, notify, warn, guide, recommend, or block. The strict ALLOW/BLOCK policy used in part of the evaluation is only an experimental instantiation for testing pre-backend control.
+
+The article makes four main contributions:
+\begin{itemize}
+  \item a \textbf{query- and session-relative semantics of strategic computability}, grounded in an explicit decision-analysis context represented by a CKG and connecting strategic objectives to constraints, sufficient supports, and cumulative session evidence;
+  \item an \textbf{inspectable formal mechanism for contribution assessment}, based on canonical query plans, virtual support nodes, the chain $QP\rightarrow\mathrm{SAT}\rightarrow\mathrm{Real}\rightarrow C_{\mathrm{eval}}\rightarrow S^*\rightarrow\varphi,\Delta\varphi$, and a graded $\kappa/\psi$ extension, while keeping computation correctness, provenance, support realization, computability, and marginal contribution conceptually distinct;
+  \item a \textbf{separation between contribution and operational action}: the contextual mask and contribution indicator are independent of the configurable policy $\pi_{\mathrm{act}}$, which may execute, notify, warn, guide, recommend, or block according to deployment needs; and
+  \item a \textbf{research prototype and targeted empirical verification} combining end-to-end physical evidence, multi-configuration preservation, controlled robustness reference policies and targeted ablations, structural growth, semantic-decision latency, and explicit evidence traceability, with the strict ALLOW/BLOCK gate treated only as one experimental policy instantiation.
+\end{itemize}
+
+\begin{figure*}[!t]
+\centering
+\resizebox{0.95\textwidth}{!}{\input{figures/en/F_contribution_hierarchy.tex}}
+\caption{Conceptual hierarchy of MCAD contributions. The scientific core concerns the decision-analysis context, strategic computability, and its variation; formal mechanisms and the action policy operationalize that core.}
+\label{fig:contribution-hierarchy}
+\end{figure*}
+
+The remainder of the article examines the scientific neighborhood of MCAD, then presents the decision-analysis context, the CKG, the formalization, and the architecture. The evaluation then distinguishes the quality of the contribution indicator from the strict ALLOW/BLOCK policy used to demonstrate pre-backend control.
+
+\section{Related Work and Scientific Positioning}
+\label{sec:related}
+
+MCAD intersects multidimensional modeling and summarizability, personalization, recommendation, \emph{interestingness}, Intentional Analytics, goal/KPI modeling, knowledge graphs, validation, provenance, and explainability. We discuss these lines only to delimit the functions MCAD uses, complements, or leaves outside scope, emphasizing the closest mechanisms for the novelty boundary.
+
+\subsection{Data Warehouses, OLAP, and Summarizability}
+
+Foundational work on data warehouses and OLAP establishes the facts, dimensions, hierarchies, measures, grains, and aggregations that structure the multidimensional space~\cite{ChaudhuriDayal97,KimballRoss2013}; BI\&A broadens that foundation toward decision architectures and uses~\cite{ChenBI2012}. Summarizability, however, specifies that an aggregation is correct only under semantic conditions. Horner, Song, and Chen characterize the effects of additive, semi-additive, and non-additive measures~\cite{HornerSongChen2004}; Niemi and Niinimaki relate ontologies to summarizability control~\cite{NiemiNiinimaki2010}. Simon \emph{et al.} more directly formalize generalized summarizability conditions and propagation rules over interactive analytical-query sessions, including non-distributive functions~\cite{SimonAmannLiuGancarski2023}.
+
+For MCAD, summarizability belongs to the admissibility side of the pipeline. It is therefore a necessary semantic condition in the relevant cases, but it is not the definition of contribution. The \texttt{grain\_ok} and \texttt{agg\_ok} clauses check the grain, aggregation, and summarizability rules actually encoded in the CKG; we do not claim to implement the full generalized framework of Simon \emph{et al.}. Even a semantically correct aggregate may add no new sufficient support for the active objective. The distinction we need is therefore explicit: \emph{correct computation $\neq$ realized analytical support $\neq$ computable strategic constraint $\neq$ positive marginal contribution}.
+
+The frontier also concerns query formulation. Text-to-MDX systems generate an analytical query from a user question~\cite{BimonteRizziTextToMDX2026}; MCAD operates downstream of that generation and evaluates the semantics of the resulting canonical plan relative to the objective and session state.
+
+\subsection{OLAP Preferences and Personalization}
+
+Personalization adapts schemas, views, or queries to user characteristics. myOLAP directly formalizes preferences over attributes, measures, and aggregation levels~\cite{GolfarelliRizziBiondi2011}, while a recent review synthesizes BI\&A personalization according to user, task, and usage context~\cite{JacobGunklachMaedche2025}. MCAD does not replace this purpose: a preference describes what a user wants to see, whereas MCAD evaluates what the query makes computable for an explicit strategic objective. The two dimensions can be combined, but they should not be conflated.
+
+\subsection{Recommendation, Guidance, and Usage Context}
+
+OLAP recommender systems exploit navigation histories and previous sessions to propose future queries or sequences~\cite{AligonDSS2015}. Negre, Ravat, and Teste address context-aware OLAP recommendation more directly: recommendations may be inappropriate, including irrelevant or non-computable ones, and their approach combines an obsolescence indicator with contextual post-filtering~\cite{NegreRavatTeste2018}. BI\&A guidance further structures assistance by analysis phase, degree of guidance, and interaction form~\cite{GunklachNadj2023}, while other context-aware OLAP variants add situational variables to information selection~\cite{RoyContextOLAP2022}. MCAD therefore claims neither the first use of context in OLAP nor the first query filtering mechanism. Its distinction lies in the property evaluated: the CKG materializes a decision-analysis context tied to an explicit strategic objective, the reasoner determines which constraints become computable relative to session state, and a separate policy can then use that evaluation for guidance, recommendation, execution, or blocking.
+
+These approaches target continuation relevance, obsolescence, novelty, intention, or likely next actions. MCAD instead evaluates the increase in computability of an explicit objective. Hence a recommendable or surprising query may have $\Delta\varphi=0$, while a routine query may be necessary if it completes a sufficient support.
+
+\subsection{Exploration Contribution, Interestingness, and Exploratory Querying}
+
+Djedaini \emph{et al.} are a particularly close neighbor because they automatically assess interactive OLAP explorations using query features and supervised learning, relating contribution to user-skill progression~\cite{DjedainiEtAl2019}. MCAD differs in both supervision and target semantics: it does not learn contribution from labeled exploration traces; it derives contribution symbolically from an explicit objective, its sufficient supports, and session state. Work on query/result interestingness and exploratory querying asks complementary questions about novelty, surprise, exploration value, or exploratory interaction~\cite{GkitsakisEtAl2024,ArenasExploratory2025}. MCAD does not treat interestingness as equivalent to strategic computability.
+
+\subsection{Intentional Analytics}
+
+Intentional Analytics raises the interaction level from individual operations to analytical intentions. The Intentional Analytics Model (IAM) models intentions and their operationalization over enriched multidimensional spaces~\cite{VassiliadisMarcelRizzi2019}; more recent work explores intention prediction in this setting~\cite{FranciaPredict2026}. A particularly close neighbor is the \emph{assess} operator of Francia \emph{et al.}, which evaluates a target cube by comparing its observed performance with a reference cube or benchmark and then labeling the comparison outcome~\cite{FranciaAssess2021}. This is close to MCAD because a benchmark may encode expected KPI performance, but the evaluated property is different: \emph{assess} judges an observed value against an expectation, whereas MCAD asks whether query-provided evidence completes sufficient supports and thereby changes which constraints of an explicit objective are computable relative to session state. MCAD is therefore compatible with this line but addresses a distinct runtime property once a query or plan exists.
+
+\subsection{Objectives, KPIs, and the Path to Multidimensional Models}
+
+Goal-oriented BI and decision-support approaches establish links among organizational objectives, KPIs, processes, and analytical requirements~\cite{Pourshahid2014}. Semantic KPI models make indicator definitions, formulas, units, and dependencies explicit~\cite{MateTrujilloMylopoulos2017,RoldanGarciaEtAl2021,DiamantiniKPISurvey2025}. Requirements engineering for data warehouses also derives data needs and multidimensional models from strategic objectives~\cite{NasiriAhmedWrembelZimanyi2017}. MCAD therefore does not claim to invent the strategy--KPI--warehouse link. It extends this continuum to runtime, query by query: the active strategic objective is decomposed into constraints and sufficient supports, and the system evaluates which of those constraints each query actually makes computable in the current session state.
+
+Multiple or conflicting objectives and state-dependent policies are natural extensions of the framework; contextual optimization is a relevant neighboring line for the latter~\cite{SadanaEJOR2025}. The evaluated version of MCAD does not yet optimize conflicting objectives or learn an action policy.
+
+\subsection{Knowledge Graphs, Semantic OLAP, and Provenance}
+
+Knowledge graphs provide a general framework for representing entities, relations, schemas, and rules~\cite{HoganKGSurvey2021}; their automated construction and evolution remain active research topics~\cite{ZhongKGC2024}. In DW/BI, ontologies support semantic modeling, integration, and interoperability~\cite{AntunesCardosoBarateiro2022}. QB4OLAP and the RDF Data Cube Vocabulary connect semantic representation with multidimensional structures~\cite{Etcheverry2014,W3CDataCube2014}; KG-OLAP formalizes multidimensional operations over contextualized graphs~\cite{SchuetzSerafiniBozzato2021}, while Staudinger \emph{et al.} use a graph to retain context and provenance during analysis~\cite{StaudingerSchuetzSchrefl2025}.
+
+\paragraph*{Aggregate-result provenance and support justification}
+Aggregate-result provenance provides a complementary neighborhood for explainability. AlOmeir \emph{et al.} propose provenance summaries for aggregate queries to make the influence of source data more readable and to compare provenance across aggregate results~\cite{AlOmeirLaiMilaniPottinger2023}. This problem remains distinct from MCAD: provenance explains which data a result depends on; MCAD explains why supports associated with that result do, or do not, make an objective constraint computable. A provenance summary could therefore be attached to each realized support as additional justification without changing the definition of $\Delta\varphi$. This integration is not evaluated as an independent component of the current prototype. Provenance justifies the dependence of a result on source data; by itself, it does not validate the business relevance of the constraint or the sufficiency of the support for the objective.
+
+SHACL provides a standard graph-validation language~\cite{W3CSHACL2017}, and PROV-O a standard provenance model~\cite{W3CPROVO2013}; recent why-provenance work further informs explanations for why an answer exists~\cite{CalauttiEtAl2024}.
+
+In MCAD, the CKG has a more specific responsibility: anchoring objective constraints and sufficient supports and maintaining the semantic memory required for session-relative contribution computation. Current inspectability is derived from symbolic objects---$\mathrm{SAT}$ clauses, realized supports, computable constraints, mask $S^*$, and marginal gain---rather than fine-grained source-tuple provenance. In summary, provenance explains the origin of evidence; symbolic traceability preserves the MCAD reasoning chain; MCAD determines the contribution of that evidence to objective computability.
+
+\subsection{Value Purpose and the Targeted Gap}
+
+The preceding families do not necessarily optimize the same object. Personalization and recommendation primarily target interaction adaptation and continuity; \emph{interestingness} characterizes informational or cognitive interest; IAM formalizes analytical intention; benchmark-based assessment compares observed performance with a reference~\cite{FranciaAssess2021}; KPI models organize objective--indicator alignment; summarizability controls aggregation correctness; provenance explains the origin or reasons of a result. MCAD evaluates another property: verifiable progress in the computability of an explicit strategic objective, at each query and relative to session state. This distinction is a conceptual positioning axis, not a claim of psychological superiority or an additional experimental question.
+
+The gap is therefore formulated cautiously. To the best of our knowledge within the reviewed corpus, these functions remain primarily distributed across specialized research lines. MCAD aims to articulate them around a common operational semantics: strategic objective $\rightarrow$ explicit constraints $\rightarrow$ sufficient supports $\rightarrow$ canonical plan $\rightarrow$ admissibility $\rightarrow$ realizable supports $\rightarrow$ computable constraints $\rightarrow$ marginal contribution, with session memory and a separate action policy. The distinctive contribution lies in this query/session-level unit of evaluation and in the chain that makes it computable and explainable.
+
+\subsection{Direct Comparison with the Closest Approaches}
+
+Table~\ref{tab:comparative-approaches} provides a direct comparison with the neighbors that most clearly expose the novelty boundary: exploration contribution, session recommendation, context-aware OLAP recommendation, Intentional Analytics, and goal-oriented requirements engineering. The dimensions distinguish input and unit of analysis, state/context, evaluated purpose, computational mechanism, and output. Cells describe the center of gravity of the cited work rather than an exhaustive absence of capabilities.
+
+\input{tables/en/T_comparative_approaches_v8_6_1.tex}
+
+The comparison is meant to locate MCAD, not to claim ownership of individual building blocks. Djedaini \emph{et al.} learn contribution within an exploration; Aligon \emph{et al.} and Negre \emph{et al.} help select or filter what comes next; IAM raises the level at which an analysis is expressed; RE4DW links strategic goals to multidimensional design; summarizability asks whether a computation is semantically sound; and provenance traces a result back to its source data. MCAD works at runtime between these levels: it turns an explicit objective into constraints and sufficient supports and asks how much the current query changes their computability given the session so far. In short: \emph{summarizability asks whether the computation is correct; provenance asks where the result comes from; MCAD asks what the result makes newly computable for the objective}.
+
+\section{Overview of MCAD}
+\label{sec:overview}
+
+At the system level, MCAD sits between the analyst and the warehouse as a semantic decision layer. It asks two questions in sequence: is the query coherent with the decision-analysis context, and, if so, what does it add to the computability of the active objective?
+
+\subsection{Conceptual Chain from Query to Objective}
+
+Figure~\ref{fig:concept-chain} summarizes the central conceptual chain: an OLAP query is compiled into a canonical query plan $QP$ and then subjected to semantic mapping against the CKG, the current objective, and session state. This operation induces a contextual mask $S_t^*$ whose evaluation characterizes marginal contribution before a configurable action policy is applied.
+
+\begin{figure*}[!t]
+\centering
+\resizebox{\textwidth}{!}{\input{figures/en/F01_conceptual_chain.tex}}
+\caption{Central conceptual chain of MCAD: from the query to the strategic-computability indicator and then to a configurable action policy.}
+\label{fig:concept-chain}
+\end{figure*}
+
+\subsection{Main Components of MCAD}
+
+The contextual knowledge graph (CKG) is the operational representation of the \textbf{decision-analysis context}. It brings together the multidimensional catalog, KPI semantics, units and aggregators, business constraints, scenarios, temporal windows, the active objective, and the relations needed to interpret session state. In that sense, the CKG is more than a catalog: it is active semantic memory linking what the warehouse can provide with what the objective still needs in order to become computable.
+
+The active strategic objective is modeled as a finite set of constraints attached to explicit KPI semantics. For each constraint, MCAD identifies the minimal analytical cells required for evaluation: combinations of fact, grain, measures, aggregators, units, filters, and period. These cells are represented as \emph{virtual nodes}.
+
+Each analytical query is reduced to a canonical query plan containing the semantics that matter to MCAD: target fact, grain, measures and aggregators, units, filters, and temporal window. This keeps the reasoning layer independent of surface syntax. The evaluated prototype includes extractors for MDX and analytical SQL; other languages would require an equally reliable mapping to $QP$.
+
+Once a plan is contextually valid, MCAD determines which objective-related virtual nodes become realizable and then which constraints become computable. Semantic mapping among the plan, context, and supports induces an inspectable contextual mask. The mask itself chooses no action: its evaluation feeds the contribution measure, optionally weighted, and the action policy then selects the operational response.
+
+\subsection{Illustrative CKG Fragment and Practical Construction}
+
+Figure~\ref{fig:ckg-fragment} shows a simplified CKG fragment centered on a dimension, a measure, a KPI, a constraint, and a virtual node.
+
+\begin{figure}[!t]
+\centering
+\begin{tikzpicture}[
+  node distance=6mm and 10mm,
+  every node/.style={font=\scriptsize, align=center},
+  box/.style={draw, rounded corners=1mm, minimum width=16mm, minimum height=7mm, inner sep=2pt},
+  >=Stealth
+]
+\node[box] (d) {Dimension\\Product};
+\node[box, right=of d] (m) {Measure\\Margin\%};
+\node[box, below=of m] (k) {KPI\\BIO Margin\\North 1998};
+\node[box, right=of k] (c) {Constraint\\$c_1$};
+\node[box, below=of c] (nv) {Virtual node\\(HF, North,\\month 1998)};
+\draw[->] (d) -- node[above]{has\_measure} (m);
+\draw[->] (m) -- node[right]{defines\_KPI} (k);
+\draw[->] (k) -- node[above]{linked\_to} (c);
+\draw[->] (c) -- node[right]{requires\_cell} (nv);
+\end{tikzpicture}
+\caption{Simplified CKG fragment linking a dimension, a measure, a KPI, a constraint, and a virtual node.}
+\label{fig:ckg-fragment}
+\end{figure}
+
+In practice, building the CKG draws on several sources: the multidimensional schema, technical metadata such as data dictionaries and ETL rules, business documentation such as KPI definitions and reporting procedures, and expert workshops used to surface rules that are otherwise implicit---for example incompatible filters, scenario assumptions, admissible units, or specific temporal windows.
+
+A deployment could bootstrap the CKG from schemas and metadata and enrich it with business knowledge, but the present experiments use CKGs prepared from controlled schemas, rules, and objectives. Automatic construction from documents, logs, or implicit rules therefore remains future work. The evidence concerns reasoning over a specified CKG, not automatic knowledge acquisition; the graph could be stored in a property-graph database or RDF store.
+
+\section{Formalization of MCAD}
+\label{sec:formal}
+
+This section introduces the main formal objects of MCAD in the order in which they are needed by the reasoning chain. We first distinguish the multidimensional schema from the \emph{decision-analysis context} and then show how that context is represented and queried in the CKG. We next define strategic objectives, virtual nodes, canonical query plans, contextual validity, contribution measures, and the action policy. Detailed proofs are provided in Appendix~A.
+
+Importantly, the contextual mask should not be conflated with the CKG, with $C_{\mathrm{eval}}$, or with $\Delta\varphi_t$. The CKG provides the semantic reference frame, $C_{\mathrm{eval}}$ denotes computable constraints, and $\Delta\varphi_t$ measures marginal computability gain. It is the semantic representation of the mapping among the query plan, the context, the supports, and the objective constraints.
+
+\subsection{Decision-Analysis Context and Contextual Knowledge Graph}
+
+We consider a warehouse organized according to a classical multidimensional schema~\cite{ChaudhuriDayal97,KimballRoss2013}, with a set of fact tables $F$, a set of dimensions $D$ organized into level hierarchies, and a set of measures $M$. For a dimension $D\in D$, let $L(D)$ denote its hierarchical levels. An \emph{analysis grain} is a Cartesian product of levels:
+\[
+g = \prod_{D\in D_g} \ell_D,\quad \ell_D\in L(D),
+\]
+where $D_g\subseteq D$ is the set of dimensions represented in grain $g$.
+
+An \emph{elementary analytical entity} is a triplet $(f,g,m)$, where $f\in F$ is a fact table, $g$ is a grain, and $m$ is a measure or derived KPI computed at that grain.
+
+Table~\ref{tab:notation} summarizes the main notation used throughout the paper.
+\input{tables/en/T_notation.tex}
+
+The decision-analysis context at step $t$ is represented conceptually as
+\[
+\mathcal C_t^{DA}=(W,O,C^*(O),K,\Sigma,U,\Omega,H_t),
+\]
+where $W$ denotes the multidimensional warehouse/catalog context, $O$ the active strategic objective, $C^*(O)$ its constraints, $K$ KPI and business semantics, $\Sigma$ contextual and summarizability rules, $U$ unit semantics, $\Omega$ temporal/scenario information, and $H_t$ the cumulative session state. This complete context is operationalized in a contextual knowledge graph
+\[
+\mathrm{CKG}=(V,E,L),
+\]
+where $V$ is a set of nodes, $E\subseteq V\times L\times V$ a set of labeled edges, and $L$ the relation types. Nodes include schema elements, computational objects, business constraints, scenarios, temporal windows, objective elements, and session-state objects.
+
+Knowledge-graph, semantic-indicator, and multidimensional-design research motivates graph representations and formal analytical objects~\cite{HoganKGSurvey2021,DiamantiniKPISurvey2025,RomeroAbello2010}. In MCAD, relation names such as \textit{rolls\_up\_to}, \textit{has\_measure}, \textit{defines\_KPI}, \textit{uses\_unit}, \textit{allowed\_agg}, \textit{requires\_grain}, \textit{conflicts\_with}, and \textit{applicable\_in\_scenario} are prototype design choices and are not attributed to the cited literature. KPI computation rules and business constraints are encoded as additional nodes and edges.
+
+\subsection{Strategic Objectives, Constraints, and Virtual Nodes}
+
+A strategic objective is modeled as
+\[
+O=(K^*(O),C^*(O)),
+\]
+where $K^*(O)$ is the set of KPIs relevant to the objective and $C^*(O)$ is a finite set of analytical constraints. Each constraint $c\in C^*(O)$ is associated with a KPI $\mathrm{KPI}(c)\in K^*(O)$ and a predicate $r_c$ that may return either a Boolean value or a degree of satisfaction in $[0,1]$ once the required data are available. MCAD explicitly distinguishes \emph{computability} of a constraint---whether the quantity required for evaluating it can be computed---from its \emph{actual satisfaction} on data.
+
+To connect constraints with warehouse structure, MCAD introduces \emph{virtual nodes}
+\[
+nv=(f,g,m,\alpha,u,S,w),
+\]
+where $f\in F$ is a fact table, $g$ a grain, $m\in M$ a measure or KPI, $\alpha$ an aggregation operator, $u$ a unit, $S$ a set of filters, and $w$ a temporal window. A virtual node therefore describes a minimal analytical cell characterized by a cube position and an observed or derived quantity.
+
+For each constraint $c\in C^*(O)$, let $\mathcal R(c)$ denote a finite nonempty family of sufficient supports, each support being a finite nonempty set of virtual nodes. Throughout this formal section, $C^*(O)$ is finite and nonempty; for every $c\in C^*(O)$, $1\le |\mathcal R(c)|<\infty$; and every $R\in\mathcal R(c)$ is finite and nonempty. The relation ``sufficient support'' is an input of the objective model and the CKG; it is not automatically inferred by the evaluated MCAD reasoner. MCAD checks realization of the specified supports and derives the corresponding computability. The business validity of that specification is therefore an assumption of the mechanism.
+
+\paragraph*{Illustrative virtual node}
+Consider a virtual node associated with a margin constraint for a BIO product family in the North region:
+\[
+nv_1=(\textit{SALES},g,\mathrm{Margin\%},\mathrm{avg},\%,S,w),
+\]
+where $g$ fixes the grain \{Month=2024-03, ProductFamily=BIO, Region=North\}, $S=\{\text{Channel}=\text{Physical Store}\}$, and $w=[2024\text{-}03\text{-}01,2024\text{-}03\text{-}31]$. A measured average margin of $18.7\%$ for that cell can therefore be represented independently of the query language used to obtain it.
+
+\subsection{Canonical Query Plans and Contextual Validity}
+
+Each analytical query is abstracted as a \emph{canonical query plan}
+\[
+QP=(f_Q,g_Q,M_Q,\alpha_Q,u_Q,S_Q,w_Q),
+\]
+where $f_Q\in F$ is the target fact table, $g_Q$ is the canonical query grain, $M_Q\subseteq M$ the requested measures or KPIs, $\alpha_Q$ maps measures to aggregation/computation operators, $u_Q$ maps measures to semantic units, $S_Q$ is a finite set of normalized atomic slicers, and $w_Q$ is a canonical description of the temporal component. Grain $g_Q$ is defined as a partial mapping from active dimensions to hierarchical levels after normalization through the CKG.
+
+The plan is not raw query syntax but a semantic canonical representation produced by an extraction operator
+\[
+\mathcal E_L(q,CKG)=QP,
+\]
+where $q$ is written in an analytical language $L$ such as MDX or analytical SQL. Presentation-only differences that induce the same analytical selection therefore lead to the same canonical plan.
+
+Contextual validity is captured by
+\begin{equation}
+\label{eq:sat}
+\begin{aligned}
+\mathrm{SAT}(QP) \Leftrightarrow {} & \mathrm{grain\_ok}(QP)\wedge \mathrm{agg\_ok}(QP) \\
+& \wedge \mathrm{unit\_ok}(QP)\wedge \mathrm{slc\_ok}(QP) \\
+& \wedge \mathrm{time\_ok}(QP)\wedge \mathrm{nvac\_ok}(QP).
+\end{aligned}
+\end{equation}
+Each clause represents a family of constraints derived from the CKG:
+\begin{itemize}
+  \item $\mathrm{grain\_ok}$ checks grain compatibility with hierarchies and summarizability rules;
+  \item $\mathrm{agg\_ok}$ checks whether requested aggregation operators are semantically authorized for the measures and grain; this check concerns computation correctness, not contribution;
+  \item $\mathrm{unit\_ok}$ checks unit consistency;
+  \item $\mathrm{slc\_ok}$ checks non-contradiction and filter compatibility;
+  \item $\mathrm{time\_ok}$ checks temporal consistency; and
+  \item $\mathrm{nvac\_ok}$ checks that the queried subspace is not \emph{a priori} empty according to the CKG.
+\end{itemize}
+
+Relationships among slicers such as \texttt{mutex}, \texttt{includes}, and \texttt{coherent} are especially important for $\mathrm{slc\_ok}$. Table~\ref{tab:slicers} illustrates representative cases.
+\input{tables/en/T_slicer_relations.tex}
+
+Algorithm~\ref{alg:sat} gives a simplified computation of $\mathrm{SAT}(QP)$.
+\begin{algorithm}[!t]
+\caption{Contextual-validity check $\mathrm{SAT}(QP)$}
+\label{alg:sat}
+\begin{algorithmic}[1]
+\REQUIRE Query plan $QP$, graph $CKG$
+\ENSURE $\mathrm{SAT}(QP)\in\{\texttt{true},\texttt{false}\}$
+\STATE Extract $(f_Q,g_Q,M_Q,\alpha_Q,u_Q,S_Q,w_Q)$ from $QP$
+\IF{$\mathrm{grain\_ok}(QP,CKG)$ is false} \RETURN false \ENDIF
+\IF{$\mathrm{agg\_ok}(QP,CKG)$ is false} \RETURN false \ENDIF
+\IF{$\mathrm{unit\_ok}(QP,CKG)$ is false} \RETURN false \ENDIF
+\IF{$\mathrm{slc\_ok}(QP,CKG)$ is false} \RETURN false \ENDIF
+\IF{$\mathrm{time\_ok}(QP,CKG)$ is false} \RETURN false \ENDIF
+\IF{$\mathrm{nvac\_ok}(QP,CKG)$ is false} \RETURN false \ENDIF
+\RETURN true
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Realizable Evidence, Computable Constraints, and the Contextual Mask}
+
+In the operational pipeline, $\mathrm{SAT}(QP)$ is the first safeguard. If $\mathrm{SAT}(QP)=\mathrm{false}$, the strict policy does not authorize the query and $\mathrm{Real}$ and $C_{\mathrm{eval}}$ are not used to justify authorization. Conversely, $\mathrm{SAT}(QP)=\mathrm{true}$ does not imply positive contribution: an admissible query may still have $\Delta\varphi_t=0$.
+
+Given objective $O$ and plan $QP$, let
+\[
+\mathrm{Real}(QP)\subseteq N(O)
+\]
+denote the virtual nodes realizable by $QP$. A virtual node $nv=(f,g,m,\alpha,u,S,w)$ is realizable if the fact, grain, measure, aggregator, unit, slicers, and temporal window are canonically compatible with the query plan. Formally,
+\[
+\mathrm{Real}(QP)=\{nv\in N(O)\mid \mathrm{Realizable}(nv,QP)\}.
+\]
+Thus, $\mathrm{Real}(QP)$ denotes fully compatible virtual-node evidence rather than the mere presence of a measure in the query.
+
+For each $c\in C^*(O)$, let
+\[
+\mathcal{R}(c)=\{R_{c,1},\dots,R_{c,p_c}\},\quad R_{c,j}\subseteq N(O),
+\]
+where each $R_{c,j}$ is sufficient to make $c$ computable. We define
+\[
+C_{\mathrm{eval}}(QP,O)=\{c\in C^*(O)\mid \exists R\in \mathcal{R}(c),\ R\subseteq \mathrm{Real}(QP)\}.
+\]
+The existential quantifier is essential: complete computability of a constraint is obtained as soon as at least one sufficient support is fully realized; alternative supports need not be realized simultaneously. If each constraint has a unique support $N(c)$, then
+\[
+C_{\mathrm{eval}}(QP,O)=\{c\in C^*(O)\mid N(c)\subseteq \mathrm{Real}(QP)\}.
+\]
+
+\paragraph*{Graded intra-constraint computability}
+The preceding definition characterizes complete constraint computability. To represent internal progress before a sufficient support is fully realized, define support coverage for $R\in\mathcal R(c)$ and $X\subseteq N(O)$ as
+\[
+\rho(R,X)=\frac{|R\cap X|}{|R|}\in[0,1],\qquad R\neq\emptyset.
+\]
+The intra-constraint computability degree is
+\[
+\kappa_c(X)=\max_{R\in\mathcal R(c)}\rho(R,X).
+\]
+Hence $\kappa_c(X)=0$ means that no element of a sufficient support is yet realized, $0<\kappa_c(X)<1$ represents partial intra-constraint computability, and $\kappa_c(X)=1$ means that at least one sufficient support is complete. For a query,
+\[
+\psi(QP,O)=\frac{1}{|C^*(O)|}\sum_{c\in C^*(O)}\kappa_c(\mathrm{Real}(QP)).
+\]
+A constraint belongs to $C_{\mathrm{eval}}(QP,O)$ if and only if $\kappa_c(\mathrm{Real}(QP))=1$; $\varphi$ therefore counts only fully computable constraints, whereas $\psi$ preserves intra-constraint progress.
+
+At session level, let $E_0\subseteq N(O)$ denote evidence already acquired and retained at the beginning of a semantic phase. For $t\ge1$, let $A_t$ contain only evidence actually acquired at step $t$, with $A_t\subseteq\mathrm{Real}(QP_t)$ and monotone update $E_t=E_{t-1}\cup A_t$. A blocked, non-executed, or otherwise non-acquired candidate has $A_t=\emptyset$. Define
+\[
+\begin{aligned}
+\psi^{\le t}(O)&=\frac{1}{|C^*(O)|}\sum_{c\in C^*(O)}\kappa_c(E_t),\\
+\Delta\psi_t&=\psi^{\le t}(O)-\psi^{\le t-1}(O).
+\end{aligned}
+\]
+The reported campaigns, however, use the binary $\varphi/\Delta\varphi$ measure based on fully computable constraints; $\psi/\Delta\psi$ is a formalized extension that is not experimentally evaluated in the present study and is not used to reinterpret the existing ALLOW/BLOCK decisions.
+
+\paragraph*{Phase assumptions and interpretation conventions}
+The formal properties are conditional on a fixed \emph{semantic phase}. (H1) Objective $O$, constraints $C^*(O)$, sufficient supports $\mathcal R(c)$, and contextual rules remain fixed within a phase; an explicit change in KPI, scope, business rule, or support defines a new comparison baseline. (H2) Support elements are canonical, semantically atomic analytical units at the chosen representation level and are not arbitrarily refined within the phase. (H3) With alternative supports, the maximum in $\kappa_c$ measures progress toward the currently most advanced sufficient alternative; it is neither a probability of success nor a business-satisfaction degree. (H4) Only evidence actually acquired in $E_t$ is counted; unknown or unobserved components are not treated as realized. (H5) In the weighted variant, weights are positive, exogenous priorities fixed with the objective and are not learned from MCAD decisions. The experiments in this paper evaluate the unweighted $\varphi/\Delta\varphi$ version.
+
+Semantic mapping is denoted conceptually by $\mathcal M(QP,C_t^{DA},O)$. The induced contextual mask $S_t^*$ represents canonical-plan elements retained by this mapping with the context and objective supports. In the evaluated formal instantiation,
+\[
+S^*(QP,O)=\bigcup_{c\in C_{\mathrm{eval}}(QP,O)}\ \bigcup_{\substack{R\in \mathcal{R}(c)\\R\subseteq \mathrm{Real}(QP)}} R,
+\]
+and, in the unique-support case,
+\[
+S^*(QP,O)=\bigcup_{c\in C_{\mathrm{eval}}(QP,O)} N(c).
+\]
+The mask $S_t^*$ does not necessarily represent all query results and replaces neither computable constraints nor the contribution measure. In the prototype, mask materialization is an inspectable object linked to the CKG and session state; it is neither a rewrite of the multidimensional catalog nor fine-grained source-tuple provenance.
+
+The following chain is a complementary conceptual view and does not modify the preceding equations:
+\[
+\begin{aligned}
+q_t&\rightarrow QP_t\rightarrow \mathcal{M}(QP_t,C_t^{DA},O)\rightarrow S_t^*\\
+   &\rightarrow \operatorname{Eval}(S_t^*)\rightarrow \Delta\varphi_t\rightarrow \pi_{\mathrm{act}}.
+\end{aligned}
+\]
+Here $\mathcal M$ is semantic mapping, $S_t^*$ the contextual mask, $\operatorname{Eval}(S_t^*)$ contribution evaluation, $\Delta\varphi_t$ marginal contribution, and $\pi_{\mathrm{act}}$ the action policy.
+
+\subsection{Contribution Measures, Session Progress, and Complexity}
+
+For $|C^*(O)|\ge1$, the unweighted contribution of $QP$ is
+\[
+\varphi(QP,O)=\frac{|C_{\mathrm{eval}}(QP,O)|}{|C^*(O)|}\in[0,1].
+\]
+A weighted variant uses positive weights $w_c>0$:
+\[
+\varphi_w(QP,O)=\frac{\sum_{c\in C_{\mathrm{eval}}(QP,O)} w_c}{\sum_{c\in C^*(O)} w_c}.
+\]
+Weights express exogenous business priorities and remain fixed within a phase; modifying them is an explicit change in priorities. The experimental results below use the unweighted measure.
+
+For session semantics, two cumulative sets must be distinguished. Evidence-wise accumulation is canonical:
+\[
+C_E^{\le t}(O)=\left\{c\in C^*(O)\mid \exists R\in\mathcal R(c),\ R\subseteq E_t\right\}.
+\]
+For comparison with query-wise completion while allowing a nonempty initial state, define
+\[
+C_Q^{\le t}(O;E_0)=C_E^{\le0}(O)\cup\bigcup_{i=1}^{t} C_{\mathrm{eval}}(QP_i,O).
+\]
+When $E_0=\emptyset$, this reduces to the query-wise union exercised by the audited historical sessions. We define
+\[
+C_{\mathrm{eval}}^{\le t}(O):=C_E^{\le t}(O),\qquad
+\varphi^{\le t}(O)=\frac{|C_{\mathrm{eval}}^{\le t}(O)|}{|C^*(O)|},
+\]
+and $\Delta\varphi_t=\varphi^{\le t}(O)-\varphi^{\le t-1}(O)$.
+
+Two per-step conditions make the query-wise shortcut testable. (A1) \emph{Query-to-acquisition consistency}: $C_{\mathrm{eval}}(QP_i,O)\subseteq C_E^{\le i}(O)$. (A2) \emph{Single-query completion of newly computable constraints}: $C_E^{\le i}(O)\setminus C_E^{\le i-1}(O)\subseteq C_{\mathrm{eval}}(QP_i,O)$. A2 means that whenever a constraint first becomes evidence-wise computable, the current query alone realizes a complete sufficient support; it does not require singleton supports. The audited Q1--Q6, B/C, and frozen RQ4 paths satisfy these conditions transition by transition. For FoodMart-1000, the 2266 acquired ALLOW events and their cumulative progression are auditable, but raw $C_{\mathrm{eval}}$ outputs for the 5694 blocked candidates were not retained; therefore exhaustive per-candidate equality over all 7960 decisions is not claimed. No published numerical result is changed by this boundary clarification.
+
+Two kinds of partiality must be distinguished. At objective level, coverage is null when $C_{\mathrm{eval}}=\emptyset$, partial when only a proper subset of $C^*(O)$ is computable, and complete when $C_{\mathrm{eval}}=C^*(O)$. At individual-constraint level, $0<\kappa_c(X)<1$ instead represents partial computability within one constraint. Contribution is query- and session-relative. Reproducing already acquired evidence can give $\Delta\varphi_t=0$ and $\Delta\psi_t=0$, but $\Delta\varphi_t=0$ does not generally imply $A_t=\emptyset$ or $\Delta\psi_t=0$: under a non-strict policy, an executed query may acquire authorized partial evidence without yet completing a sufficient support. The reported strict campaigns use the binary complete-support measure and are not reinterpreted through this graded case.
+
+\begin{proposition}
+\label{prop:borne}
+For every objective $O$ and query plan $QP$ with $|C^*(O)|\ge1$, $\varphi(QP,O)\in[0,1]$. Moreover, $\varphi(QP,O)=0$ iff $C_{\mathrm{eval}}(QP,O)=\emptyset$, and $\varphi(QP,O)=1$ iff $C_{\mathrm{eval}}(QP,O)=C^*(O)$.
+\end{proposition}
+
+\begin{proposition}
+\label{prop:mono-real}
+If $\mathrm{Real}(QP_a)\subseteq\mathrm{Real}(QP_b)$, then $\varphi(QP_a,O)\le\varphi(QP_b,O)$.
+\end{proposition}
+
+\begin{proposition}
+\label{prop:session}
+For session $(QP_1,\dots,QP_T)$, $(\varphi^{\le t}(O))$ is monotone non-decreasing and bounded in $[0,1]$; in particular $\Delta\varphi_t\ge0$.
+\end{proposition}
+
+\begin{proposition}
+\label{prop:graded}
+For every query and session state, $\kappa_c\in[0,1]$ and $\psi\in[0,1]$. Moreover $\varphi(QP,O)\le\psi(QP,O)$; under monotone evidence accumulation $E_{t-1}\subseteq E_t$, $\psi^{\le t-1}(O)\le\psi^{\le t}(O)$ and $\Delta\psi_t\ge0$.
+\end{proposition}
+
+\begin{proposition}
+\label{prop:session-equivalence}
+Assume, within one fixed semantic phase, that for every step $i$: (A1) $C_{\mathrm{eval}}(QP_i,O)\subseteq C_E^{\le i}(O)$ and (A2) $C_E^{\le i}(O)\setminus C_E^{\le i-1}(O)\subseteq C_{\mathrm{eval}}(QP_i,O)$. Then, for every $t$, $C_Q^{\le t}(O;E_0)=C_E^{\le t}(O)$. If (A1) is retained but (A2) is dropped, then $C_Q^{\le t}(O;E_0)\subseteq C_E^{\le t}(O)$, and the inclusion can be strict.
+\end{proposition}
+
+With indexed virtual-node/support representations and constant-time indexed membership/compatibility lookups, a direct scan of the relevant reasoning structures has core cost
+\[
+O\!\left(|N_{\mathrm{cand}}(O)|+\sum_{c\in C^*(O)}\sum_{R\in\mathcal R(c)}|R|\right),
+\]
+that is, linear in the candidate virtual nodes and support elements actually traversed under these assumptions. This bound concerns the reasoning core after indexed structures have been built. It excludes canonical-plan extraction, CKG construction or maintenance, backend data access, and resolution of general non-indexed business rules; it is therefore not an end-to-end complexity bound for the analytical system.
+
+\subsection{Contribution Indicator and Action Policy}
+
+The scientific output of MCAD is a contribution evaluation, not an intrinsic ALLOW/BLOCK decision. Let
+\[
+z_t=\bigl(\mathrm{SAT}(QP_t),C_{\mathrm{eval}}(QP_t,O),S^*(QP_t,O),
+\varphi^{\le t}(O),\Delta\varphi_t\bigr)
+\]
+collect the relevant formal objects. A configurable policy
+\[
+\begin{aligned}
+\pi_{\mathrm{act}}(z_t,\mathcal C_t^{DA})\in\{&\textsc{Execute},\textsc{Notify},\textsc{Warn},\textsc{Guide},\\
+&\textsc{Recommend},\textsc{Block}\}.
+\end{aligned}
+\]
+selects the operational action. A \emph{non-contributive query} denotes an admissible query whose marginal computability gain is zero relative to the current objective and session state; it does not mean that the query is syntactically invalid or useless to a user or another analysis. The strict experimental policy maps inadmissible or non-contributive cases to \textsc{Block}; this mapping belongs to the protocol and is not part of the scientific definition of contribution.
+
+\subsection{Canonical Abstraction and Query-Language Independence}
+
+MCAD depends on canonical representation $QP=(f_Q,g_Q,M_Q,\alpha_Q,u_Q,S_Q,w_Q)$ rather than on a particular query syntax. For any analytical language $L$ with a reliable extractor $\mathcal E_L(q,CKG)=QP$, the same $\mathrm{SAT}/\mathrm{Real}/C_{\mathrm{eval}}/\varphi$ reasoning core can in principle be reused. This interface property does not imply equally mature extractors for all languages. The prototype paths and the experimentally exercised backends are bounded explicitly below.
+
+\section{Prototype Architecture and Workflow}
+\label{sec:arch}
+
+The prototype separates the CKG-based decision-analysis context, MCAD contribution reasoning, action policy, and analytical execution so that the computability model is not conflated with the strict ALLOW/BLOCK policy used in some experiments. Figure~\ref{fig:arch-mcad} shows these layers.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.98\columnwidth]{figures/en/fig_mcad_architecture_v8_2_singlecol.pdf}
+\caption{MCAD single-column architecture. The CKG materializes the decision-analysis context; the MCAD core computes admissibility, realizable supports, computable constraints, and marginal contribution; a configurable action policy then turns that evaluation into interaction or control before any physical execution.}
+\label{fig:arch-mcad}
+\end{figure}
+
+\subsection{Session Layer and Query Acquisition}
+
+The analyst works within a session associated with an active strategic objective. The interface maintains the objective identity $O$, the current query $q_t$, and session state $H_{t-1}$. Input adapters extract a canonical query plan $QP_t$ from MDX or analytical SQL---or directly receive one. The canonical representation lets the reasoner work over homogeneous semantics independently of the implemented front-end syntax.
+
+\subsection{Decision-Analysis Context / CKG Layer}
+
+The CKG is organized around four families of objects: (i) the multidimensional catalog (facts, dimensions, hierarchies, measures); (ii) business semantics (KPIs, units, aggregators, scenarios, and temporal rules); (iii) the objective model (constraints $C^*(O)$, virtual nodes, and sufficient supports); and (iv) session memory (already computable constraints and observed useful supports). This layer provides $\mathrm{SAT}$, $\mathrm{Real}$, and $C_{\mathrm{eval}}$ with the relations required to reason over the decision-analysis context rather than over query syntax alone.
+
+\subsection{MCAD Reasoning Core}
+
+The semantic pipeline preserves the formal chain $QP\rightarrow\mathrm{SAT}\rightarrow\mathrm{Real}\rightarrow C_{\mathrm{eval}}\rightarrow S^*\rightarrow\varphi,\Delta\varphi$. Conceptually, the CKG is the reference frame in which the plan is semantically mapped; the contextual mask is the induced representation of that mapping for the query, objective, and current session state. Mask evaluation feeds the contribution measure, after which policy $\pi_{\mathrm{act}}$ converts that measure into an operational action. Outputs are retained as inspectable objects: admissibility clauses, realized/missing supports, computable constraints, contextual mask, and cumulative progress. The evaluated prototype implements and exposes the query-level reasoning chain and the session behavior exercised by the frozen historical campaigns. The generalized evidence-wise $C_E$ semantics---including multi-query support assembly and arbitrary alternative-support accumulation---is formally specified and regression-tested by the reference model, but this paper does not claim that every such generalized case is fully implemented by the separately inspected candidate session accumulator.
+
+\input{tables/en/T_prototype_formal_coverage_V8_7_6.tex}
+
+\subsection{Action Policy and Physical Execution}
+
+The reasoning output is sent to $\pi_{\mathrm{act}}$, which selects an action according to deployment context. An assistance policy can show a warning or notification for a redundant query; a guidance policy can suggest a query with expected $\Delta\varphi>0$; a recommendation policy can rank alternatives; a permissive policy can execute despite $\Delta\varphi=0$ while recording the contribution indicator; and a strict policy can use \textsc{Block} to prevent physical effect. The demonstration prototype uses the latter configuration to verify that identified non-contribution can in fact be enforced before SQL Direct or XMLA/Mondrian execution.
+
+\subsection{User Feedback, Session Memory, and Traceability}
+
+The interface can return the result, newly computable constraints, $\varphi^{\le t}(O)$, $\Delta\varphi_t$, and a formal explanation. On the evaluated paths, session state is updated with evidence credited by the protocol; the generalized $E_t/C_E$ semantics remains the normative reference for future multi-query accumulation, while the prototype claim is limited to exercised paths. Traceability retains the canonical plan, relevant clauses, supports, mask, and action. Fine-grained tuple provenance is not implemented, although support-level summaries could be added without changing $C_{\mathrm{eval}}$ or $\Delta\varphi$.
+
+\subsection{End-to-End Workflow}
+
+The workflow is summarized as follows:
+\begin{enumerate}
+  \item select or define objective $O$ and initialize its context in the CKG;
+  \item submit query $q_t$ and extract canonical plan $QP_t$;
+  \item perform semantic mapping, construct mask $S_t^*$, and evaluate $\mathrm{SAT}$, $\mathrm{Real}$, $C_{\mathrm{eval}}$, $\varphi^{\le t}$, and $\Delta\varphi_t$;
+  \item apply the deployment-specific policy $\pi_{\mathrm{act}}$ (execution, notification, warning, guidance, recommendation, or blocking);
+  \item if the action requires it, forward the query to the backend and retrieve the result; and
+  \item update $H_t$ and return explanation and session progress to the analyst.
+\end{enumerate}
+
+\section{Experimental Evaluation}
+\label{sec:exp}
+\label{sec:experiments}
+
+\subsection{Evaluation Questions and Protocol}
+
+The workloads come with an explicit reference specification: objectives, constraints, and sufficient supports are fixed before the tested policy runs. This lets us evaluate whether the reasoner behaves consistently with a given CKG and objective, but it does not independently establish that the decomposition is the best representation of business practice. We do not measure inter-expert agreement or agreement between formal computability and utility judged by practicing analysts. In the robustness benchmark, \texttt{oracle\_allow} and \texttt{oracle\_ceval} are part of the scenario specification and are read before the policy under test is invoked; they are not inferred from the policy's own output.
+
+The evaluation is organized around six research questions separating scientific contribution evaluation, operational policy instantiation, and prototype properties:
+\begin{itemize}
+  \item \textbf{RQ1 -- Contribution discrimination:} Does MCAD distinguish contributive, inadmissible, and redundant queries and correctly update cumulative session computability?
+  \item \textbf{RQ2 -- Pre-backend application:} When a strict ALLOW/BLOCK policy uses the MCAD indicator, is the action consistently applied before physical execution over a large number of sessions?
+  \item \textbf{RQ3 -- Semantic preservation:} Are decisions and their reasons preserved across several warehouses and between SQL Direct and XMLA paths in paired scenarios?
+  \item \textbf{RQ4 -- Controlled robustness and component sensitivity:} How does MCAD compare with internal reference policies and targeted ablations under adversarial, noisy, and longer scenarios?
+  \item \textbf{RQ5 -- Structural growth:} How do CKG nodes, edges, and virtual nodes evolve as problem size increases?
+  \item \textbf{RQ6 -- Semantic-decision cost:} How do p50, p95, and p99 evolve as the number of constraints, number of virtual nodes, and membership density vary?
+\end{itemize}
+
+Table~\ref{tab:evaluation-scope} shows how the six questions are covered. We deliberately keep three kinds of evidence separate: end-to-end physical evidence, where an authorized query actually reaches SQL Direct or XMLA; a controlled semantic-core benchmark using internal reference policies and targeted ablations; and structural/timing characterization of the MCAD layer itself. Using all three gives a broader empirical picture, but they are not interchangeable replications of the same experiment.
+
+\input{tables/en/T_evaluation_scope_v8_5_1.tex}
+
+Metrics follow that separation: computability coverage and gain, consistency between selected action and physical effect, \emph{false ALLOW}/\emph{false BLOCK} rates, non-contributive executions, CKG size, and p50/p95/p99 semantic-decision quantiles. These quantiles do not measure SQL/XMLA execution time. The Q1--Q6 trace is one instrumented end-to-end sequence, not six independent replications; the FoodMart study contains 1000 sessions and 7960 decisions.
+
+\subsection{End-to-End Functioning Evidence}
+
+A six-query AdventureWorks trace illustrates the strict demonstration policy. Q1--Q3 successively provide supports for \emph{SalesAmount}, \emph{TotalProductCost}, and \emph{GrossMargin}, moving cumulative computability from $1/3$ to $2/3$ to $1$; each is authorized and physically executed. Q4--Q6 test out-of-objective scope, grain mismatch, and post-coverage redundancy and are stopped before the backend. The same contribution assessments could instead drive warning, guidance, or recommendation.
+
+This scenario illustrates two core properties: contextual admissibility is necessary but not sufficient, and contribution is relative to session state. Q6 satisfies the validity clauses but adds no newly computable constraint; its marginal gain is zero. The strict demonstration policy therefore chooses \textsc{Block}; that operational choice does not follow from $\Delta\varphi=0$ alone.
+
+\input{tables/en/T_q1_q6_diagnostic_v8_5_1.tex}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=0.60\textwidth]{figures/en/F_ui_native_q1.png}\par
+\vspace{1.4mm}
+{\scriptsize (a) Q1: positive contribution, ALLOW, and physical execution}\par
+\vspace{4.0mm}
+\includegraphics[width=0.60\textwidth]{figures/en/F_ui_native_overview_3_3.png}\par
+\vspace{1.4mm}
+{\scriptsize (b) After Q6: 3 ALLOW / 3 BLOCK and 100\% objective computability}\par
+\vspace{4.0mm}
+\includegraphics[width=0.60\textwidth]{figures/en/F_ui_native_q6.png}\par
+\vspace{1.4mm}
+{\scriptsize (c) Q6: admissible, redundant, $\Delta\varphi=0$, without physical execution}
+\caption{End-to-end visual evidence under the strict demonstration policy. (a) Q1 brings a new support, receives ALLOW, and reaches the backend. (b) After the six queries, the session overview shows 3 ALLOW, 3 BLOCK, and 100\% strategic computability. (c) Q6 remains contextually admissible but adds no new computability; the strict policy chooses BLOCK before the backend. All three panels are native captures from the same instrumented session.}
+\label{fig:ui-evidence}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/en/F04_q1_q6_coverage.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/en/F05_q1_q6_gate_execution.tex}\end{minipage}
+\caption{Q1--Q6 trace: (left) cumulative computability progress; (right) strict ALLOW/BLOCK policy instantiation of the indicator and corresponding physical effect.}
+\label{fig:decision-trace}
+\end{figure*}
+
+\subsection{Large-Scale Execution and Multi-Configuration Preservation}
+
+The FoodMart workload contains 1000 analytical sessions and 7960 decisions. Under the strict policy evaluated here, 2266 queries are authorized and 5694 are blocked. Every authorized query reaches physical execution, and every blocked query is stopped before the backend. Across the full workload, all 7960 decisions satisfy the canonical decision--physical-effect contract; no violation is observed. The A1 historical audit independently reconstructs the 2266 acquired ALLOW events and their cumulative progression. However, the campaign did not retain raw $C_{\mathrm{eval}}$ outputs for the 5694 blocked candidates; consequently, this paper does not claim an exhaustive per-candidate reconstruction of $C_Q^{\le t}=C_E^{\le t}$ over all 7960 decisions. This is a trace-retention boundary, not a change to the reported action or physical-execution counts.
+
+A secondary reaggregation of recorded reasons, without new experimental runs, shows \texttt{BLOCK\_REDUNDANT\_DPHI\_ZERO} for $3\,372$ decisions: 42.4\% of all decisions and 59.2\% of BLOCK decisions. The seven mutually assigned primary-reason categories sum to all 7960 decisions, so this count denotes the explicit session-redundancy reason rather than every numerical occurrence of $\Delta\varphi=0$. It shows that, under this strict policy, a large share of stops reflects no newly computable constraint; it is not a measure of human blocking utility.
+
+\input{tables/en/T_campaign_a_reason_profile_v8_5_1.tex}
+
+The multi-warehouse study combines FoodMart/XMLA with AdventureWorks and SteelWheels/SQL Direct: 7 of 18 queries are executed and 11 stopped before the backend. A paired AdventureWorks study runs six logically equivalent queries through SQL Direct and XMLA with unchanged order, decisions, reasons, and execution policy. This demonstrates preservation only across the warehouses, adapters, and paths exercised, not universal portability or backend-performance equivalence.
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/en/F08_campaign_b_multidataset.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/en/F09_campaign_c_backend_parity.tex}\end{minipage}
+\caption{Decision-behavior preservation in the tested configurations: (left) FoodMart, AdventureWorks, and SteelWheels; (right) consistency of AdventureWorks decisions between SQL Direct and XMLA.}
+\label{fig:portability}
+\end{figure*}
+
+\subsection{Controlled Robustness and Targeted Ablations}
+
+Robustness is tested across four scenario families: adversarial admissibility cases, adversarial semantic cases, noisy borderline cases, and longer sequences. We compare MCAD with three internal reference policies---a permissive naive policy, a measure-overlap heuristic, and a matched random policy---and three targeted ablations that each remove or relax one reasoning link. The reference policies are diagnostic comparators, not reimplementations of neighboring published systems. In this benchmark, \emph{false ALLOW} means that the tested policy authorizes a query that the scenario specification marks for blocking; \emph{false BLOCK} is the reverse. These are therefore deviations from a controlled operational reference, not errors against an independently observed notion of human utility or decision quality.
+
+\input{tables/en/T_robustness.tex}
+
+Within this controlled benchmark, MCAD preserves the final coverage of deterministic permissive policies while recording zero false ALLOW, false BLOCK, and non-contributive execution rates in every scenario family. Removing $\mathrm{SAT}$ raises mean false-ALLOW to 0.0417 and non-contributive execution to 0.125; removing $\mathrm{Real}$ or relaxing $C_{\mathrm{eval}}$ raises them to 0.08125 and 0.1875. The three ablations are interpreted component-wise: each manipulation degrades reference-aligned behavior in at least one exercised family, providing sensitivity evidence that the manipulated link is behaviorally consequential under this specification. This does not establish that every MCAD component is necessary in every setting. Moreover, the no-$\mathrm{Real}$ and relaxed-$C_{\mathrm{eval}}$ variants have identical aggregate false-ALLOW and non-contributive-execution rates here, so this protocol does not separately identify their effect magnitudes. None of these results constitutes direct superiority over neighboring systems.
+
+\begin{figure}[!tb]
+\centering
+\input{figures/en/F10_robustness_false_allow.tex}
+\caption{False-ALLOW rate by scenario family for MCAD and the internal reference policies.}
+\label{fig:robustness-false-allow}
+\end{figure}
+
+\subsection{Structural Growth and Semantic-Decision Cost}
+
+As the scale factor grows from 1 to 40, the CKG reaches 1693 nodes, 2406 edges, and 322 virtual nodes at the largest studied level. This experiment describes how the semantic representation grows. It is not a throughput test and should not be read as an industrial scalability result.
+
+\input{tables/en/T_scalability_V8_7_6.tex}
+
+\begin{figure}[!tb]
+\centering
+\input{figures/en/F12_scalability_structural.tex}
+\caption{Structural growth of the CKG as a function of scale factor.}
+\label{fig:scalability}
+\end{figure}
+
+MCAD timing cost is characterized separately along three complexity dimensions with canonical measurements: number of constraints, number of virtual nodes, and membership density. p50 represents typical behavior, while p95 and p99 expose the tail of the distribution, which matters for an interactive layer~\cite{DeanBarroso2013}; the protocol also retains observation counts to avoid interpreting an isolated percentile~\cite{KaliberaJones2013}.
+
+\input{tables/en/T_semantic_latency_quantiles.tex}
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/en/F21_latency_constraint_count.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/en/F22_latency_virtual_node_count.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/en/F23_latency_membership_density.tex}\end{minipage}
+\caption{p50/p95/p99 semantic-decision latency as the number of constraints, virtual-node count, and membership density vary. Backend time is excluded.}
+\label{fig:semantic-latency}
+\end{figure*}
+
+Virtual-node count shows the clearest timing trend, membership density only a weak effect, and constraint count is non-monotonic. From 6 to 24 virtual nodes, p50 rises from 0.3366 to 0.5223~ms (+55.2\%) and p99 from 0.6488 to 1.1464~ms (+76.7\%); from 25\% to 100\% membership density, p50 changes from 0.4561 to 0.4652~ms (+2.0\%) and p99 from 1.0850 to 1.1378~ms (+4.9\%). These are descriptive transformations, not inferential effects. Across all published factors, p50 remains 0.337--0.666~ms and p99 0.649--1.461~ms; backend interaction, contention, dynamic CKG maintenance, and industrial-scale portfolios remain outside scope.
+
+\subsection{Results Synthesis}
+
+No single experiment is meant to carry the entire argument. Instead, the evidence is deliberately complementary. The Q1--Q6 trace exposes the session-level causal mechanism; the 1000-session FoodMart workload checks repeated enforcement of the strict policy before the backend; the multi-warehouse and paired-backend studies examine preservation across different execution paths; the robustness benchmark checks component sensitivity through internal reference policies and targeted ablations; and the structural and timing studies characterize the cost of the semantic layer. Across these experiments, the important case $\mathrm{SAT}=\mathrm{true}$ with $\Delta\varphi=0$ is observed and kept distinct from inadmissibility. Reaggregating the 7960 recorded decisions supports the same interpretation: a substantial share of BLOCK decisions carries the primary session-redundancy reason, while MCAD retains zero false ALLOW, false BLOCK, and non-contributive execution in each robustness family relative to the benchmark specification. The empirical claim is therefore about computability, session dependence, and consistency of the mechanism; the operational response remains configurable.
+
+This diversity reduces the risk that a result is specific to a single trace or backend without establishing universality. Interpretations are bounded to the objectives, warehouses, policies, and complexity factors explicitly covered by Table~\ref{tab:evaluation-scope}; generalization to organizations, concurrent workloads, or dynamic objectives remains future validation work.
+
+\paragraph*{Evidence traceability} For each RQ, canonical data, derived artifacts, and the interpretation boundary are associated in the reproducibility package. Quantitative readings added through secondary analysis (FoodMart reason profile, Q1--Q6 diagnostic, scenario-family robustness view, and descriptive quantile variations) are computed only from already acquired observations and add no session, query, or timing measurement to the protocol.
+
+\section{Discussion, Limitations, and Future Directions}
+\label{sec:discussion}
+
+The results support a central interpretation: query contribution in a decision-analysis session is not reducible to validity, preference similarity, or cognitive interest. MCAD instead measures variation in strategic-objective computability relative to context and session history, explaining why equally admissible queries can contribute differently and why repeated evidence can lose marginal value.
+
+The CKG plays a stronger role than a metadata catalog. It brings together the decision-analysis context required for reasoning: multidimensional structures, business semantics, KPIs, constraints, sufficient supports, rules, temporal information, and cumulative state. Separating this context, the contribution indicator, and policy $\pi_{\mathrm{act}}$ allows the model to support several forms of assistance without changing its core semantics.
+
+The contextual mask is not a filtering policy. It represents the semantic relation among the query plan, context, and objective supports; contribution is evaluated separately, after which an action policy may exploit that evaluation.
+
+\subsection{From Contribution Indicator to Interaction Strategies}
+
+BLOCK is not the default meaning of non-contribution but one strict governance choice. The same $\Delta\varphi=0$ can be displayed, turned into a warning, used for guidance or recommendation, or blocked under compliance or cost-control policy. MCAD specifies \emph{what the query contributes}; deployment policy decides \emph{what to do with that information}.
+
+\subsection{Value Purpose and Complementarity with User-Centered Approaches}
+
+MCAD does not replace user-centered criteria. A query may be preferred, novel, or useful despite $\Delta\varphi_t=0$, while an unsurprising query may be essential if it completes a strategic support. Computability and user-centered value are therefore complementary dimensions; the present experiments do not measure satisfaction, learning, or human decision quality.
+
+Within a fixed semantic phase, objective, supports, and contextual rules remain fixed and acquired evidence $E_t$ is monotone, so simple repetition does not restore contribution. The general session semantics permits several queries to jointly complete a support, although reported campaigns use single-query completion. Contribution may change in another session or after an explicit objective, scope, or rule change that starts a new phase.
+
+\subsection{Implications}
+
+From these results, three implications can be stated without extending the claims beyond the evaluated scope. First, MCAD provides a mechanism for \textbf{analytical-governance support} based on computability state rather than execution alone. Second, $\varphi(QP,O)$ and $\Delta\varphi_t$ can serve as explainable strategic-computability indicators complementary to personalization, guidance, or recommendation; they do not replace them. Third, explicit representation of context, sufficient supports, and marginal gains offers an interface to sequential and contextual-optimization policies~\cite{SadanaEJOR2025}, where strategic progress could become an interpretable reward or constraint.
+
+\subsection{Limitations and Threats to Validity}
+
+\textbf{Construct validity and business oracle.} MCAD measures \emph{strategic computability}: the ability of a session to possess sufficient supports for evaluating objective constraints. This quantity is neither the final economic value of a decision nor analyst satisfaction. A query can make a KPI computable without changing a manager's decision; conversely, qualitatively important information can remain outside the model if the objective is poorly operationalized. Objective decomposition and sufficient-support specification therefore form a semantic oracle supplied to the mechanism; errors, ambiguity, or omissions can propagate to $\mathrm{SAT}$, $\mathrm{Real}$, $C_{\mathrm{eval}}$, $\kappa_c$, and contribution measures. The campaigns verify the prototype relative to the supplied CKG, business rules, constraints, and supports; they do not independently validate the business correctness of that specification. Summarizability and provenance strengthen computation correctness and result traceability, respectively, without removing this dependence. Three levels must therefore be distinguished: reasoner correctness relative to encoded rules, correctness of those rules relative to business needs, and human utility of the resulting action. The $\kappa_c/\psi$ intra-constraint extension is formalized but not experimentally evaluated in this study; the reported campaigns use $\varphi/\Delta\varphi$. Mask construction also depends on the quality of extraction to the canonical plan, sufficient-support specification, and relations encoded in the CKG. The present study validates reasoning over representations prepared for controlled scenarios; it does not yet validate automatic mask construction from arbitrary queries, business documents, or heterogeneous sources.
+
+\textbf{Experimental validity, external comparison, and performance.} Physical evidence, the controlled robustness benchmark, and structural/temporal characterizations answer different questions. The robustness reference policies are diagnostic, and the ablations provide component-sensitivity evidence only for the manipulated $\mathrm{SAT}$, $\mathrm{Real}$, and $C_{\mathrm{eval}}$ links under the controlled specification; they do not establish universal component necessity. Djedaini, Negre, IAM, and other close neighbors were not reimplemented as competing systems, so no direct experimental superiority over them is claimed. Physical verification covers FoodMart, AdventureWorks, and SteelWheels, two backend paths (SQL Direct and XMLA/Mondrian), an instrumented trace, 1000 sessions, and controlled multi-configuration scenarios: it establishes multi-context feasibility and observed preservation within tested paths, not universal invariance. The p50/p95/p99 values cover 118000 semantic-decision observations and exclude SQL/XMLA latency, contention, and multi-user throughput; structural characterization describes CKG growth to scale factor 40 and is not an industrial capacity benchmark.
+
+\textbf{Action policy and human factors.} ALLOW/BLOCK is a strict instantiation selected to verify that an MCAD-derived decision can act before the backend; it defines neither contribution nor the general framework policy. Notification, warning, guidance, recommendation, or permissive execution can use the same indicator. The current protocol does not measure acceptability, satisfaction, learning, or final human decision quality; $\Delta\varphi$ is therefore not presented as a validated predictor of human utility.
+
+\subsection{Future Directions}
+
+Priority extensions are broader and more independent tests of the same model: automated CKG construction and maintenance using knowledge-graph techniques~\cite{ZhongKGC2024}; independent expert specification of objectives, constraints, and supports; support-level provenance summaries~\cite{AlOmeirLaiMilaniPottinger2023}; and multiple or conflicting objectives. Interaction studies could compare policies based on $\Delta\varphi$/$\Delta\psi$, while direct common-task comparisons, concurrent deployments, and user studies would address the main empirical questions left open.
+
+\begingroup
+\raggedbottom
+\setlength{\parskip}{0pt}
+\section{Conclusion}
+\label{sec:conclusion}
+
+MCAD introduces a contextual mask obtained by semantically mapping a candidate query to the decision-analysis context. In practical terms, the objective is made explicit through constraints and sufficient supports, the query is reduced to a canonical plan, and the mapping is then evaluated relative to what the session has already acquired. This makes it possible to state, explicitly and inspectably, whether the current query makes any objective constraint newly computable, rather than merely whether the query is executable or semantically admissible. Marginal contribution $\Delta\varphi$ keeps admissibility, evidence realization, and progress toward the objective separate, while the action itself remains a policy decision. The $\kappa/\psi$ extension further captures partial intra-constraint computability, but that graded extension is formal rather than experimentally validated in this study.
+
+Within the tested configurations, the prototype behaves consistently with the MCAD reasoning model, preserves decision behavior across exercised backend paths, and exhibits the measured semantic-decision cost. Controlled robustness and targeted ablations show that the manipulated reasoning links are behaviorally consequential under the benchmark reference specification; ALLOW/BLOCK remains only one policy instantiation.
+
+These findings remain conditional on the supplied CKG, business rules, objectives, constraints, and supports. Independent business validity, human query value, interaction-policy effects, direct superiority over neighboring methods, and industrial-workload generalization are not established. MCAD should therefore be read as a formal, explainable layer for strategic computability, not as a validated measure of organizational decision quality.
+
+\endgroup
+
+\FloatBarrier
+\appendices
+\input{supplement/en/S_formal_proofs_V8_7_6.tex}
+\input{supplement/en/S_foodmart_formalization.tex}
+\FloatBarrier
+\balance
+\bibliographystyle{IEEEtran}
+\bibliography{literature/references}
+
+\end{document}

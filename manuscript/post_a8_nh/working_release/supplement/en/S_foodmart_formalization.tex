@@ -1,0 +1,71 @@
+\section{Detailed Formalization of the FoodMart HF/North Example}
+\label{app:foodmart}
+
+We return to the FoodMart example used to illustrate the mechanism's formalization. The \textit{Sales} cube is defined by:
+\begin{itemize}
+  \item $F=\{\textit{Sales}\}$,
+  \item three dimensions $D=\{\textit{Time},\textit{Product},\textit{Store}\}$, and
+  \item measures $M=\{\mathrm{Store\ Sales},\mathrm{Store\ Cost},\mathrm{Units\ Sold}\}$ together with a derived KPI $\mathrm{Margin\%}$.
+\end{itemize}
+
+The dimension hierarchies are:
+\begin{itemize}
+  \item Time: Day $\rightarrow$ Month $\rightarrow$ Year,
+  \item Product: Product $\rightarrow$ Subcategory $\rightarrow$ Category,
+  \item Store: Store $\rightarrow$ City $\rightarrow$ Region.
+\end{itemize}
+
+The objective $O_{\mathrm{HF\_NORTH}}$ is defined by the constraints formalized below, with $C^*(O_{\mathrm{HF\_NORTH}})=\{c_1,c_2,c_3\}$. Each constraint is associated with a set of virtual nodes:
+\begin{itemize}
+  \item $N(c_1)$ contains nodes of the form
+  \[
+  \begin{aligned}
+  nv_{1,m}={}&(\textit{Sales},g_m,\mathrm{Margin\%},\mathrm{avg},\%,\\
+             &S_{\mathrm{HF,North}},w_{1998}).
+  \end{aligned}
+  \]
+  where $g_m$ has grain \{Month, Category=Health Food, Region=North\}, $S_{\mathrm{HF,North}}$ restricts the category to Health Food and the region to North, and $w_{1998}$ is the temporal window corresponding to year 1998.
+  \item $N(c_2)$ contains nodes of the form
+  \[
+  \begin{aligned}
+  nv_{2,r}={}&(\textit{Sales},g_r,\mathrm{StockoutRate},\mathrm{ratio},\%,\\
+             &S_{\mathrm{HF,North}},w_{1998}).
+  \end{aligned}
+  \]
+  where $g_r$ has grain \{Store, Category=Health Food, Region=North\} and $\mathrm{StockoutRate}$ is a KPI derived from \textit{Units Sold} and inventory information.
+  \item $N(c_3)$ contains nodes of the form
+  \[
+  \begin{aligned}
+  nv_{3,m}={}&(\textit{Sales},g_m,\mathrm{Sales},\mathrm{sum},\text{USD},\\
+             &S_{\mathrm{HF,North}},w_{1997\_1998}).
+  \end{aligned}
+  \]
+  where $\mathrm{Sales}=\mathrm{Store\ Sales}$ and $w_{1997\_1998}$ covers years 1997 and 1998.
+\end{itemize}
+
+\paragraph*{Illustration of partial intra-constraint computability.}
+This extension is purely formal in the present version and does not reinterpret any experimental campaign. To illustrate $\kappa_c$, suppose that the minimal support of $c_1$ requires one monthly cell for each of the twelve months of 1998. If the current state $E_t$ contains six of these twelve nodes and no other more advanced sufficient support for $c_1$, then
+\[
+\kappa_{c_1}(E_t)=\frac{6}{12}=0.5.
+\]
+Constraint $c_1$ is not yet fully computable, but its internal progress is no longer zero. Once all twelve required nodes have been acquired, $\kappa_{c_1}=1$ and the support of $c_1$ is complete under the graded extension. This example therefore explicitly distinguishes \emph{partial coverage of the objective} from \emph{partial computability within a single constraint}, without modifying the binary values reported in the existing campaigns.
+
+Consider, for example, the guided query $QP'_1$:
+\[
+\begin{aligned}
+QP'_1={}&(\textit{Sales},g_m,\{\mathrm{Margin\%}\},\{\mathrm{avg}\},\{\%\},\\
+        &S_{\mathrm{HF,North}},w_{1998}).
+\end{aligned}
+\]
+Under reasonable CKG compatibility assumptions,
+\[
+\mathrm{Real}(QP'_1)\supseteq \{nv_{1,m}\mid m\in \text{months of 1998}\},
+\]
+and therefore $c_1\in C_{\mathrm{eval}}(QP'_1,O_{\mathrm{HF\_NORTH}})$. If no cell from $N(c_2)$ or $N(c_3)$ is realizable by $QP'_1$, then
+\[
+\begin{aligned}
+C_{\mathrm{eval}}(QP'_1,O_{\mathrm{HF\_NORTH}})&=\{c_1\},\\
+\varphi(QP'_1,O_{\mathrm{HF\_NORTH}})&=\frac{1}{3}.
+\end{aligned}
+\]
+Likewise, queries $QP'_2$ and $QP'_3$ are constructed to realize nodes from $N(c_2)$ and $N(c_3)$, respectively, allowing the session $(QP'_1,QP'_2,QP'_3)$ to reach complete coverage of the objective constraints quickly.

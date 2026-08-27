@@ -1,0 +1,20 @@
+\begin{table*}[!t]
+\centering
+\caption{Coverage of the mathematical core by the evaluated prototype and the V8.7.6 formal reference model.}
+\label{tab:prototype-formal-coverage}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{0.18\textwidth}p{0.18\textwidth}X p{0.19\textwidth}@{}}
+\toprule
+Formal construction & Role in the model & Verified/evaluated realization & Observable evidence \\
+\midrule
+Canonical plan $QP$ & Language-independent analytical abstraction & MDX parser, analytical-SQL parser, and direct QP endpoint with canonical normalization on the evaluated paths. & \texttt{/parse\_mdx}, \texttt{/parse\_sql}, \texttt{/eval\_qp} \\
+$\mathrm{SAT}(QP)$ & Contextual admissibility & Named objective-sensitive clauses (grain, aggregation, unit, slicer, time, nonempty subspace) exercised by the prototype. & Clause-level explanations \\
+$\mathrm{Real}(QP)$ & Realizable virtual-node evidence & Canonical compatibility on fact, grain, measure, aggregator, unit, slicers, and temporal window on the evaluated paths. & Realized-node identifiers and traces \\
+$C_{\mathrm{eval}}(QP,O)$ & Fully computable constraints & Complete sufficient supports represented by requirement sets; query-level complete-support logic exercised by the frozen campaigns. & Computable constraints and selected complete support \\
+$S^*(QP,O)$ & Contextual mask & Inspectable mask induced from realized complete supports on the evaluated paths. & \texttt{induced\_mask\_node\_ids}, \texttt{induced\_mask\_constraints}, missing requirements \\
+$\varphi(QP,O)$ and historical session variants & Binary contribution and cumulative progress & Query-level $\varphi$ and the session behavior exercised by Q1--Q6, B/C, FoodMart retained ALLOW evidence, and frozen RQ4 are supported by historical artifacts. The generalized evidence-wise $E_t/C_E$ semantics, including multi-query support assembly and arbitrary alternative-support accumulation, is specified and regression-tested by the independent formal reference model; full implementation by the separately inspected candidate accumulator is not claimed. & \texttt{phi}, \texttt{phi\_weighted}, historical \texttt{phi\_leq\_t}/\texttt{delta\_phi\_t}; A2 property/model-check outputs \\
+\bottomrule
+\end{tabularx}
+\end{table*}

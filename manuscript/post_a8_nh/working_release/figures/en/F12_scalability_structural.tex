@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth,
+height=0.58\linewidth,
+title={Structural growth of the CKG},
+xlabel={Scale factor},
+ylabel={Structural size},
+grid=major,
+legend style={font=\scriptsize,at={(0.5,-0.28)},anchor=north,legend columns=3},
+xtick={1,5,10,20,40},
+ymin=0]
+\addplot+[mark=*] coordinates {(1,55) (5,223) (10,433) (20,853) (40,1693)};
+\addlegendentry{nodes}
+\addplot+[mark=square*] coordinates {(1,66) (5,306) (10,606) (20,1206) (40,2406)};
+\addlegendentry{edges}
+\addplot+[mark=triangle*] coordinates {(1,10) (5,42) (10,82) (20,162) (40,322)};
+\addlegendentry{virtual nodes}
+\end{axis}
+\end{tikzpicture}

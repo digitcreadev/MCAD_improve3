@@ -1,0 +1,51 @@
+evidence,metric,value,unit,source
+Q1-Q6 end-to-end trace,queries,6,queries,data/q1_q6_canonical_trace.csv
+Q1-Q6 end-to-end trace,ALLOW decisions,3,decisions,data/q1_q6_canonical_trace.csv
+Q1-Q6 end-to-end trace,BLOCK decisions,3,decisions,data/q1_q6_canonical_trace.csv
+Q1-Q6 end-to-end trace,physical executions,3,executions,data/q1_q6_canonical_trace.csv
+Q1-Q6 end-to-end trace,final cumulative phi,1,fraction,data/q1_q6_canonical_trace.csv
+FoodMart 1000-session campaign,sessions,1000,sessions,data/campaign_a_1000_summary.json
+FoodMart 1000-session campaign,decisions,7960,decisions,data/campaign_a_1000_summary.json
+FoodMart 1000-session campaign,ALLOW decisions,2266,decisions,data/campaign_a_1000_summary.json
+FoodMart 1000-session campaign,BLOCK decisions,5694,decisions,data/campaign_a_1000_summary.json
+FoodMart 1000-session campaign,ALLOW physical executions,2266,executions,data/campaign_a_1000_summary.json
+FoodMart 1000-session campaign,BLOCK physical executions,0,executions,data/campaign_a_1000_summary.json
+FoodMart 1000-session campaign,pre-backend BLOCK,5694,decisions,data/campaign_a_1000_summary.json
+FoodMart 1000-session campaign,decision-effect contract violations,0,violations,data/campaign_a_1000_summary.json
+FoodMart secondary descriptive reaggregation,primary BLOCK_REDUNDANT_DPHI_ZERO count,3372,decisions,data/campaign_a_reason_profile_v8_5_1.csv
+FoodMart secondary descriptive reaggregation,primary redundancy share of all decisions,42.3618,percent,data/campaign_a_reason_profile_v8_5_1.csv
+FoodMart secondary descriptive reaggregation,primary redundancy share of BLOCK decisions,59.2202,percent,data/campaign_a_reason_profile_v8_5_1.csv
+Multi-warehouse physical campaign,queries,18,queries,data/campaign_b_summary.csv
+Multi-warehouse physical campaign,ALLOW physical executions,7,executions,data/campaign_b_summary.csv
+Multi-warehouse physical campaign,pre-backend stops,11,decisions,data/campaign_b_summary.csv
+Paired SQL Direct/XMLA campaign,paired evaluations,12,evaluations,data/campaign_c_summary.csv
+Paired SQL Direct/XMLA campaign,physical executions,4,executions,data/campaign_c_summary.csv
+Paired SQL Direct/XMLA campaign,BLOCK decisions,8,decisions,data/campaign_c_summary.csv
+Controlled robustness,ablation_ceval_any_intersection false ALLOW rate,0.08125,rate,data/robustness_policy_summary.csv
+Controlled robustness,ablation_ceval_any_intersection false BLOCK rate,0.0,rate,data/robustness_policy_summary.csv
+Controlled robustness,ablation_ceval_any_intersection non-contributive execution rate,0.1875,rate,data/robustness_policy_summary.csv
+Controlled robustness,ablation_no_real false ALLOW rate,0.08125,rate,data/robustness_policy_summary.csv
+Controlled robustness,ablation_no_real false BLOCK rate,0.0,rate,data/robustness_policy_summary.csv
+Controlled robustness,ablation_no_real non-contributive execution rate,0.1875,rate,data/robustness_policy_summary.csv
+Controlled robustness,ablation_no_sat false ALLOW rate,0.041667,rate,data/robustness_policy_summary.csv
+Controlled robustness,ablation_no_sat false BLOCK rate,0.0,rate,data/robustness_policy_summary.csv
+Controlled robustness,ablation_no_sat non-contributive execution rate,0.125,rate,data/robustness_policy_summary.csv
+Controlled robustness,baseline_measure_overlap false ALLOW rate,0.660417,rate,data/robustness_policy_summary.csv
+Controlled robustness,baseline_measure_overlap false BLOCK rate,0.0,rate,data/robustness_policy_summary.csv
+Controlled robustness,baseline_measure_overlap non-contributive execution rate,0.73125,rate,data/robustness_policy_summary.csv
+Controlled robustness,baseline_naive false ALLOW rate,0.752083,rate,data/robustness_policy_summary.csv
+Controlled robustness,baseline_naive false BLOCK rate,0.0,rate,data/robustness_policy_summary.csv
+Controlled robustness,baseline_naive non-contributive execution rate,0.752083,rate,data/robustness_policy_summary.csv
+Controlled robustness,baseline_random_matched false ALLOW rate,0.211597,rate,data/robustness_policy_summary.csv
+Controlled robustness,baseline_random_matched false BLOCK rate,0.185833,rate,data/robustness_policy_summary.csv
+Controlled robustness,baseline_random_matched non-contributive execution rate,0.650556,rate,data/robustness_policy_summary.csv
+Controlled robustness,mcad false ALLOW rate,0.0,rate,data/robustness_policy_summary.csv
+Controlled robustness,mcad false BLOCK rate,0.0,rate,data/robustness_policy_summary.csv
+Controlled robustness,mcad non-contributive execution rate,0.0,rate,data/robustness_policy_summary.csv
+CKG structural growth,n_nodes,1693,count,data/scalability_catalog_structural.csv
+CKG structural growth,n_edges,2406,count,data/scalability_catalog_structural.csv
+CKG structural growth,n_virtual_nodes,322,count,data/scalability_catalog_structural.csv
+Semantic-decision latency,p50_ms minimum,0.336554500,ms,data/semantic_latency_quantiles_p50_p95_p99.csv
+Semantic-decision latency,p50_ms maximum,0.665984500,ms,data/semantic_latency_quantiles_p50_p95_p99.csv
+Semantic-decision latency,p99_ms minimum,0.648839450,ms,data/semantic_latency_quantiles_p50_p95_p99.csv
+Semantic-decision latency,p99_ms maximum,1.460577100,ms,data/semantic_latency_quantiles_p50_p95_p99.csv

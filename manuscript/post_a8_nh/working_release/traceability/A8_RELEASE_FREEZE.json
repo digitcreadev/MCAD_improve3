@@ -1,0 +1,12 @@
+{
+  "release_id": "MCAD-V8.7.6-A8-20260818T234700Z",
+  "status": "FROZEN",
+  "freeze_time_utc": "2026-08-18T23:47:00Z",
+  "a7_gate": "PASS",
+  "a8_scope": "reproducibility_and_immutability_only",
+  "scientific_content_mutated": false,
+  "new_observations": 0,
+  "next_station": "A9 \u2014 Final claim/boundary audit",
+  "a8_gate": "PASS",
+  "archive_hashes_recorded_externally": true
+}

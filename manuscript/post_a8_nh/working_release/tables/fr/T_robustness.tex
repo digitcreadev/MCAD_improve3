@@ -1,0 +1,19 @@
+\begin{table*}[!t]
+\centering
+\caption{Robustesse contrôlée : comparaison avec les politiques de référence et les ablations.}
+\label{tab:robustness}
+\small
+\begin{tabular}{@{}p{0.24\textwidth}rrrrr@{}}
+\toprule
+Politique & Sessions & $\varphi$ final & False ALLOW & False BLOCK & Exec. non contributives \\
+\midrule
+MCAD & 240 & 0.500000 & 0.000000 & 0.000000 & 0.000000 \\
+Naïve & 240 & 0.500000 & 0.752083 & 0.000000 & 0.752083 \\
+Recouvrement de mesures & 240 & 0.500000 & 0.660417 & 0.000000 & 0.731250 \\
+Aléatoire appariée & 240 & 0.119444 & 0.211597 & 0.185833 & 0.650556 \\
+Sans $\mathrm{SAT}$ & 240 & 0.500000 & 0.041667 & 0.000000 & 0.125000 \\
+Sans $\mathrm{Real}$ & 240 & 0.500000 & 0.081250 & 0.000000 & 0.187500 \\
+$C_{\mathrm{eval}}$ relâché & 240 & 0.500000 & 0.081250 & 0.000000 & 0.187500 \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,20 @@
+\begin{table*}[!t]
+\centering
+\caption{Couverture du cœur mathématique par le prototype évalué et le modèle de référence formel V8.7.6.}
+\label{tab:prototype-formal-coverage}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{0.18\textwidth}p{0.18\textwidth}X p{0.19\textwidth}@{}}
+\toprule
+Construction formelle & Rôle dans le modèle & Réalisation vérifiée/évaluée & Évidence observable \\
+\midrule
+Plan canonique $QP$ & Abstraction analytique indépendante du langage & Parseurs MDX/SQL analytique et endpoint QP direct avec normalisation canonique sur les chemins évalués. & \texttt{/parse\_mdx}, \texttt{/parse\_sql}, \texttt{/eval\_qp} \\
+$\mathrm{SAT}(QP)$ & Admissibilité contextuelle & Clauses nommées sensibles à l'objectif (grain, agrégation, unité, slicer, temps, sous-espace non vide) exercées par le prototype. & Explications clause par clause \\
+$\mathrm{Real}(QP)$ & Évidence de nœuds virtuels réalisables & Compatibilité canonique sur fait, grain, mesure, agrégateur, unité, slicers et fenêtre temporelle sur les chemins évalués. & Identifiants de nœuds réalisés et traces \\
+$C_{\mathrm{eval}}(QP,O)$ & Contraintes entièrement calculables & Supports suffisants complets représentés par requirement sets; logique de support complet au niveau requête exercée par les campagnes gelées. & Contraintes calculables et support complet sélectionné \\
+$S^*(QP,O)$ & Masque contextuel & Masque inspectable induit à partir des supports complets réalisés sur les chemins évalués. & \texttt{induced\_mask\_node\_ids}, \texttt{induced\_mask\_constraints}, exigences manquantes \\
+$\varphi(QP,O)$ et variantes historiques de session & Contribution binaire et progression cumulative & $\varphi$ au niveau requête et le comportement de session exercé par Q1--Q6, B/C, l'évidence ALLOW FoodMart retenue et RQ4 gelé sont supportés par les artefacts historiques. La sémantique générale fondée sur $E_t/C_E$, incluant l'assemblage multi-requêtes et l'accumulation arbitraire de supports alternatifs, est spécifiée et testée en régression par le modèle de référence indépendant; son implémentation complète par l'accumulateur candidat inspecté séparément n'est pas revendiquée. & \texttt{phi}, \texttt{phi\_weighted}, historiques \texttt{phi\_leq\_t}/\texttt{delta\_phi\_t}; sorties des tests A2 \\
+\bottomrule
+\end{tabularx}
+\end{table*}

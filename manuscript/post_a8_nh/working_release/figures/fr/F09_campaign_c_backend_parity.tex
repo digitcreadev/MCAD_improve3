@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+\begin{axis}[ybar,
+bar width=7pt,
+width=\linewidth,
+height=0.58\linewidth,
+title={Cohérence backend appariée},
+ylabel={Nombre d'évaluations},
+xtick={0,1},
+xticklabels={{SQL Direct},{XMLA}},
+x tick label style={rotate=20,anchor=east,font=\scriptsize},
+grid=major,
+legend style={font=\scriptsize,at={(0.5,-0.28)},anchor=north,legend columns=3},
+ymin=0]
+\addplot+ coordinates {(0,2) (1,2)};
+\addlegendentry{ALLOW}
+\addplot+ coordinates {(0,4) (1,4)};
+\addlegendentry{BLOCK}
+\addplot+ coordinates {(0,2) (1,2)};
+\addlegendentry{physiques}
+\end{axis}
+\end{tikzpicture}

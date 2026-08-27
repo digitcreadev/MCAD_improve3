@@ -1,0 +1,681 @@
+{
+  "document": "NH-MANUSCRIPT-DELTA-0c section-by-section semantic patch specification",
+  "date": "2026-08-27",
+  "mode": "NO_EDIT_READ_ONLY_SPECIFICATION",
+  "editorial_parent": {
+    "release": "MCAD-V8.7.6-A8-20260818T234700Z",
+    "source": "MCAD_FR_V8_7_6.tex",
+    "sha256": "c013a6f1e3f84a2e6e898a07106c5e5f4bb0cd9227e3b6763caf6e2186c2060c",
+    "immutable": true
+  },
+  "experimental_checkpoint": {
+    "branch": "paper/nh-r3-end-to-end-resource-benchmark-20260820T193919Z",
+    "head": "e9b48f5f7fab90932d428ff0277c1454c7e5dc05",
+    "station": "R3-E8",
+    "runtime_materialization_complete": false,
+    "xmla_measured_execution_complete": false,
+    "xmla_real_inference_complete": false
+  },
+  "authority_order": [
+    "A8 immutable source/provenance for editorial parent and historical content",
+    "published/frozen post-A8 scientific evidence for current claims",
+    "static contracts/verifiers for pending R3-E methods only",
+    "roadmaps/retrospectives only as interpretation aids"
+  ],
+  "global_rules": {
+    "edit_a8_in_place": false,
+    "use_legacy_MCAD_audited_real_main_fr_tex_as_target": false,
+    "create_new_descendant_for_byte_changes": true,
+    "invent_pending_results": false,
+    "rerun_historical_q1_q6": false,
+    "rerun_sql_direct_r3d": false,
+    "recompute_d4": false,
+    "claim_human_decision_improvement": false,
+    "claim_first_or_only_without_new_prior_art_audit": false,
+    "claim_global_system_benefit": false,
+    "claim_xmla_r3_measured_confirmation_before_r3e_freeze": false
+  },
+  "current_formal_contract": [
+    "O and objective-defined analytical basis",
+    "G_O objective-constraint-support/evidence graph",
+    "typed CKG plus session evidence state",
+    "Canonical Query Profile (CQP) as objective-relative reasoning interface",
+    "semantic admissibility pre-NVAC distinct from evidence realizability",
+    "probe/realizability evidence distinct from acquired evidence",
+    "computability/contribution distinct from action",
+    "NONCONTRIBUTIVE_NOW != SAFE_TO_PRUNE",
+    "residual objective frontier + sufficient safe-pruning condition + fail-open",
+    "time_to_analytical_objective_completion_ms as normative completion-time metric",
+    "MCAD correctness != decision correctness"
+  ],
+  "section_map": [
+    {
+      "id": "frontmatter-title",
+      "a8_lines": "34",
+      "a8_element": "Title",
+      "action": "REWRITE",
+      "keep": [
+        "MCAD name/acronym",
+        "OLAP/decision-analytics context if still useful"
+      ],
+      "remove_or_avoid": [
+        "title centered only on query contribution to strategic calculability"
+      ],
+      "add": [
+        "objective-relative analytical completeness/safe dispensability focus",
+        "system/resource angle only at level supported by R3-D4"
+      ],
+      "authority": [
+        "A45/NH-R0",
+        "R3-A2",
+        "R3-D4"
+      ],
+      "boundary": "Do not promise universal system benefit or completed XMLA confirmation."
+    },
+    {
+      "id": "frontmatter-abstract",
+      "a8_lines": "42-46",
+      "a8_element": "Abstract",
+      "action": "REWRITE",
+      "keep": [
+        "session-relative context",
+        "objective/constraints/supports",
+        "separation contribution vs action",
+        "no human-value claim"
+      ],
+      "remove_or_avoid": [
+        "A8 evaluation summary as if it were the current evidentiary ceiling",
+        "semantic-core p50/p99 as headline system result"
+      ],
+      "add": [
+        "safe-pruning preservation result NH-R1",
+        "deferred multi-query evidence NH-R2",
+        "confirmatory SQL Direct R3-D4: 6/8 primary endpoints confirmed",
+        "two I/O-byte endpoints non-confirmed",
+        "R3-E/XMLA measured confirmation pending"
+      ],
+      "authority": [
+        "NH-R1",
+        "NH-R2",
+        "R3-D4",
+        "R3-E8"
+      ],
+      "boundary": "No global system-benefit sentence; no measured XMLA result."
+    },
+    {
+      "id": "frontmatter-keywords",
+      "a8_lines": "48-50",
+      "a8_element": "IEEEkeywords",
+      "action": "REWRITE",
+      "keep": [
+        "data warehouses",
+        "OLAP",
+        "business intelligence",
+        "strategic objectives",
+        "knowledge graph"
+      ],
+      "add": [
+        "safe pruning",
+        "analytical completeness",
+        "session evidence",
+        "canonical query profile",
+        "resource-aware analytical control"
+      ],
+      "remove_or_avoid": [
+        "keywords implying human decision-quality validation"
+      ],
+      "authority": [
+        "R3-A2",
+        "NH-R1/NH-R2",
+        "R3-D4"
+      ],
+      "boundary": "Use system/semantic terms, not psychological outcome terms."
+    },
+    {
+      "id": "sec-intro",
+      "a8_lines": "52-89",
+      "a8_element": "Introduction",
+      "action": "REWRITE",
+      "keep": [
+        "problem that executable != analytically useful for active objective",
+        "session-relative state",
+        "admissibility != contribution",
+        "action policy separate from semantic reasoning"
+      ],
+      "remove_or_avoid": [
+        "four-contribution block as current final contribution list",
+        "framing where Delta phi is the main discriminator for pruning"
+      ],
+      "add": [
+        "decision problem -> objective formalization -> objective-defined analytical basis -> cumulative session computability -> safe dispensability -> pre-backend suppression",
+        "CQP as enabling contribution",
+        "safe-pruning preservation and deferred contribution",
+        "end-to-end resource estimand and D4 result",
+        "human decision making explicitly outside claim"
+      ],
+      "authority": [
+        "A45/NH-R0",
+        "NH-R1",
+        "NH-R2",
+        "RW-Delta-2",
+        "R3-A2",
+        "R3-D4"
+      ],
+      "boundary": "NONCONTRIBUTIVE_NOW must not be equated with SAFE_TO_PRUNE."
+    },
+    {
+      "id": "sec-related",
+      "a8_lines": "90-152",
+      "a8_element": "Travaux connexes et voisinage scientifique",
+      "action": "HEAVY_REWRITE",
+      "keep": [
+        "OLAP/summarizability",
+        "goal/KPI engineering",
+        "intentional analytics/ASSESS",
+        "KG/provenance where still in final selection"
+      ],
+      "remove_or_avoid": [
+        "A8 comparison matrix as sufficient prior-art audit",
+        "references/families explicitly superseded by RW-Delta-2 selection decisions",
+        "first/only language"
+      ],
+      "add": [
+        "F1 goal/objective formalization",
+        "F2 contextual KG",
+        "F3 canonical query IR: Calcite/Substrait boundary",
+        "F4 personalization",
+        "F5 intentional analytics/query assessment",
+        "F6 session/multi-query",
+        "F7 semantic query optimization",
+        "F8 empty/non-empty query analysis",
+        "F9 provenance/summarizability",
+        "F10 workload/admission control",
+        "F11 data skipping/physical pruning/reuse",
+        "F12 decision support vs decision making"
+      ],
+      "authority": [
+        "NH-RW-Delta-2",
+        "A44 as editorial pool only"
+      ],
+      "boundary": "Novelty = integrated objective/evidence/session/safe-preexecution chain, not novelty of each primitive."
+    },
+    {
+      "id": "sec-overview",
+      "a8_lines": "153-208",
+      "a8_element": "Vue d ensemble de MCAD",
+      "action": "EXTEND_RESTRUCTURE",
+      "keep": [
+        "semantic layer between analyst and warehouse",
+        "CKG role",
+        "canonicalization concept",
+        "objective constraints/supports"
+      ],
+      "remove_or_avoid": [
+        "overview chain ending directly in Delta phi -> policy as if safe pruning followed from marginal contribution"
+      ],
+      "add": [
+        "G_O explicitly",
+        "typed CKG",
+        "CQP",
+        "semantic admissibility pre-NVAC",
+        "evidence realizability vs acquired evidence",
+        "safe-pruning proof gate",
+        "fail-open branch"
+      ],
+      "asset_actions": {
+        "figures/fr/F01_conceptual_chain.tex": "REPLACE",
+        "figures/fr/F_contribution_hierarchy.tex": "REPLACE_OR_HEAVY_REWRITE"
+      },
+      "authority": [
+        "R3-A2",
+        "NH-R1/NH-R2"
+      ],
+      "boundary": "The overview must distinguish probe interaction from full backend execution."
+    },
+    {
+      "id": "formal-context-ckg",
+      "a8_lines": "216-247",
+      "a8_element": "Contexte de l analyse décisionnelle et CKG",
+      "action": "KEEP_EXTEND",
+      "keep": [
+        "multidimensional warehouse notation",
+        "decision-analysis context components",
+        "CKG as explicit relational representation"
+      ],
+      "remove_or_avoid": [
+        "notation collision where E_t denotes both CKG edges and acquired evidence"
+      ],
+      "add": [
+        "typed node/edge partition compatible with G_O",
+        "separate symbols for graph edges and evidence state",
+        "explicit frozen-vs-session-evolving components"
+      ],
+      "authority": [
+        "R3-A2"
+      ],
+      "boundary": "Do not make automatic CKG construction an implemented result."
+    },
+    {
+      "id": "formal-objective-go",
+      "a8_lines": "248-277",
+      "a8_element": "Objectifs stratégiques, contraintes et nœuds virtuels",
+      "action": "REWRITE",
+      "keep": [
+        "O and KPI/constraint distinction",
+        "virtual/analytical evidence atom concept"
+      ],
+      "remove_or_avoid": [
+        "wording that treats one N(c) set as universally necessary when alternative sufficient supports exist"
+      ],
+      "add": [
+        "G_O tripartite objective-constraint-support/evidence representation",
+        "Supp(c) as alternative sufficient supports",
+        "UNRESOLVED/PARTIALLY_SUPPORTED/COMPUTABLE state semantics",
+        "ACTIVE_REQUIRED/SATISFIED_INACTIVE mask if retained by contract"
+      ],
+      "authority": [
+        "R3-A2"
+      ],
+      "boundary": "Sufficiency and necessity must not be conflated."
+    },
+    {
+      "id": "formal-cqp-admissibility",
+      "a8_lines": "278-335",
+      "a8_element": "Plans canoniques et validité contextuelle",
+      "action": "HEAVY_REWRITE",
+      "keep": [
+        "canonical semantic representation idea",
+        "grain/aggregation/unit/slicer/time checks",
+        "language-independent extraction interface"
+      ],
+      "remove_or_avoid": [
+        "nvac_ok inside SAT",
+        "DAX presented as if experimentally validated"
+      ],
+      "add": [
+        "rename/promote CQP",
+        "required CQP fidelity/completeness contract",
+        "semantic admissibility PRE-NVAC",
+        "NOVC/NVAC as separate evidence-realizability/probe gate",
+        "EXECUTE_FAIL_OPEN when canonicalization/proof insufficient",
+        "SQL/MDX demonstrated; DAX architectural/future"
+      ],
+      "authority": [
+        "R3-A2",
+        "RW-Delta-2"
+      ],
+      "boundary": "Non-vacuity is not semantic contribution and not a novelty claim by itself."
+    },
+    {
+      "id": "formal-evidence",
+      "a8_lines": "336-415",
+      "a8_element": "Évidence réalisable, contraintes calculables et masque contextuel",
+      "action": "HEAVY_REWRITE",
+      "keep": [
+        "alternative sufficient support semantics",
+        "E_t monotone acquired evidence idea",
+        "partial-support concept only if clearly secondary"
+      ],
+      "remove_or_avoid": [
+        "Real(QP) language that can blur probe-confirmed realizability with evidence actually acquired",
+        "any rule where probe success advances E_t"
+      ],
+      "add": [
+        "evidence realizability separate from acquired evidence",
+        "probe receipts do not become full session evidence",
+        "after PRUNE: E_{t+1}=E_t",
+        "after successful full execution: acquired_evidence may update E_t",
+        "residual objective frontier U(E_t)"
+      ],
+      "authority": [
+        "R3-A2",
+        "NH-R1",
+        "NH-R2"
+      ],
+      "boundary": "Do not credit backend probes as if the analytical result had been acquired."
+    },
+    {
+      "id": "formal-contribution-safe-pruning",
+      "a8_lines": "416-482",
+      "a8_element": "Mesures de contribution, progression de session et complexité",
+      "action": "HEAVY_REWRITE_EXTEND",
+      "keep": [
+        "evidence-based cumulative computability",
+        "phi as objective-level completion descriptor where compatible",
+        "historical A1/A2 equivalence result as bounded legacy lemma"
+      ],
+      "remove_or_avoid": [
+        "using Delta phi=0 as sufficient pruning criterion",
+        "complexity discussion as substitute for end-to-end cost"
+      ],
+      "add": [
+        "NONCONTRIBUTIVE_NOW != SAFE_TO_PRUNE",
+        "deferred support contribution",
+        "safe-pruning preservation theorem/condition",
+        "fail-open",
+        "time_to_analytical_objective_completion_ms",
+        "separate semantic-core complexity from end-to-end gate/probe/backend cost"
+      ],
+      "authority": [
+        "NH-R1",
+        "NH-R2",
+        "R3-A2",
+        "R3-D0/D4"
+      ],
+      "boundary": "No universal optimality/minimality theorem unless separately proved."
+    },
+    {
+      "id": "formal-action-policy",
+      "a8_lines": "483-508",
+      "a8_element": "Indicateur de contribution et politique d action",
+      "action": "REWRITE",
+      "keep": [
+        "semantic reasoning separate from deployment action"
+      ],
+      "remove_or_avoid": [
+        "strict policy = block all admissible Delta phi zero candidates"
+      ],
+      "add": [
+        "SAFE_PRUNING decision class based on proof obligation",
+        "STRICT_IMMEDIATE as semantic baseline only",
+        "PERMISSIVE_GATED and UNGATED_EXECUTE_ADMISSIBLE as causal system baselines",
+        "fail-open execute when safety proof unavailable"
+      ],
+      "authority": [
+        "NH-R1/NH-R2",
+        "R3-A2",
+        "R3-A1/D0"
+      ],
+      "boundary": "A policy baseline is not part of MCAD semantics."
+    },
+    {
+      "id": "formal-language-boundary",
+      "a8_lines": "509-525",
+      "a8_element": "Abstraction canonique et indépendance langage",
+      "action": "EXTEND_REWRITE",
+      "keep": [
+        "reasoner consumes canonical representation rather than raw syntax"
+      ],
+      "remove_or_avoid": [
+        "broad language-independence interpretation"
+      ],
+      "add": [
+        "CQP contract and fidelity requirement",
+        "SQL and MDX/XMLA demonstrated paths",
+        "DAX/future language adapters = architectural possibility only"
+      ],
+      "authority": [
+        "R3-A2",
+        "RW-Delta-2",
+        "R3-E8 boundary"
+      ],
+      "boundary": "Do not use R3-E static preparation as measured cross-language confirmation."
+    },
+    {
+      "id": "sec-architecture",
+      "a8_lines": "526-573",
+      "a8_element": "Architecture du prototype et flux de travail",
+      "action": "REWRITE_EXTEND",
+      "keep": [
+        "layer separation",
+        "adapter/canonical representation",
+        "session memory",
+        "configurable action policy"
+      ],
+      "remove_or_avoid": [
+        "old fixed QP->SAT->Real->C_eval->phi workflow as current runtime contract"
+      ],
+      "add": [
+        "CQP -> semantic admissibility -> NVAC/NOVC probe -> evidence realizability -> safe-prune proof -> PRUNE or full execute -> acquired-evidence update",
+        "measurement boundary where gate probes count as backend requests",
+        "PRUNE != zero backend interaction"
+      ],
+      "asset_actions": {
+        "figures/fr/fig_mcad_architecture_v8_2_singlecol.pdf": "REPLACE"
+      },
+      "authority": [
+        "R3-A2",
+        "R3-B/C/D methods"
+      ],
+      "boundary": "Historical protected runtime details belong to reproducibility/provenance, not the conceptual architecture figure."
+    },
+    {
+      "id": "sec-evaluation",
+      "a8_lines": "574-700",
+      "a8_element": "Évaluation expérimentale",
+      "action": "REBUILD",
+      "keep": [
+        "historical Q1-Q6/A/B/C/robustness/scalability evidence as legacy evidence block",
+        "explicit limitations on semantic-core latency",
+        "component-sensitivity interpretation of ablations"
+      ],
+      "remove_or_avoid": [
+        "six old RQs as the final evaluation architecture",
+        "phrase mechanism causal at session level",
+        "historical semantic-core timing as end-to-end performance proof"
+      ],
+      "add": [
+        "evaluation authority ladder: inherited evidence -> NH-R1 -> NH-R2 -> R3-B DEV -> R3-C validation -> R3-D confirmatory",
+        "pre-registered baselines SAFE/PERMISSIVE/UNGATED and STRICT_IMMEDIATE semantic baseline",
+        "R3-D 300 sessions/900 arms and 8-primary-endpoint Holm family",
+        "report 6/8 confirmed, 2 I/O-byte endpoints not confirmed",
+        "R3-C negative break-even evidence vs UNGATED",
+        "R3-E status placeholder: statically ready through E8, measured replication pending"
+      ],
+      "asset_actions": {
+        "Q1-Q6 UI/F04/F05": "KEEP_BUT_DEMOTE_TO_HISTORICAL_EVIDENCE",
+        "F08/F09 multi-dataset/backend parity": "KEEP_AS_LEGACY_PORTABILITY_EVIDENCE",
+        "F10 robustness": "KEEP_AS_CONTROLLED_SEMANTIC_EVIDENCE",
+        "F12/F21/F22/F23": "KEEP_WITH_CORE_ONLY_SCALABILITY_LATENCY_LABEL",
+        "new R3-D table/figure": "ADD_FROM_FROZEN_D4_ONLY"
+      },
+      "authority": [
+        "A8 historical evidence",
+        "NH-R1",
+        "NH-R2",
+        "R3-B2m",
+        "R3-C",
+        "R3-D0/D3/D4",
+        "R3-E8"
+      ],
+      "boundary": "No new R3-E numeric result; no D4 recomputation; no global system-benefit claim."
+    },
+    {
+      "id": "sec-discussion",
+      "a8_lines": "701-738",
+      "a8_element": "Discussion, limites et perspectives",
+      "action": "REWRITE",
+      "keep": [
+        "construct validity limits",
+        "business-oracle dependence",
+        "human value out of scope",
+        "external superiority not established",
+        "automatic CKG construction future"
+      ],
+      "remove_or_avoid": [
+        "claims that end-to-end latency/backend cost is wholly unmeasured",
+        "future-work statement that multi-query support assembly is untested"
+      ],
+      "add": [
+        "6/8 confirmatory endpoint interpretation",
+        "I/O bytes not confirmed",
+        "no global system-benefit claim",
+        "SAFE can lose time vs UNGATED despite backend savings",
+        "R3-E measured confirmation pending",
+        "NH-R4 concurrency/scale/tail-latency/memory/break-even pending",
+        "distinguish structural semantic-core scalability from future end-to-end scalability"
+      ],
+      "authority": [
+        "A9 boundary audit",
+        "NH-R2",
+        "R3-C",
+        "R3-D4",
+        "R3-E8"
+      ],
+      "boundary": "Negative/non-confirmed results must remain visible."
+    },
+    {
+      "id": "sec-conclusion",
+      "a8_lines": "739-747",
+      "a8_element": "Conclusion",
+      "action": "REWRITE",
+      "keep": [
+        "objective/constraints/supports",
+        "canonical representation",
+        "session-relative reasoning",
+        "action policy separate"
+      ],
+      "remove_or_avoid": [
+        "conclusion centered on Delta phi contribution indicator",
+        "general statements stronger than endpoint-specific D4 evidence"
+      ],
+      "add": [
+        "safe objective-relative dispensability",
+        "preservation/deferred-contribution evidence",
+        "confirmatory SQL Direct 6/8 summary",
+        "explicit pending XMLA/R4 boundaries"
+      ],
+      "authority": [
+        "NH-R1/NH-R2",
+        "R3-A2",
+        "R3-D4",
+        "R3-E8"
+      ],
+      "boundary": "No universal backend/language/scalability generalization."
+    },
+    {
+      "id": "appendices-bib",
+      "a8_lines": "751-757",
+      "a8_element": "Appendices and bibliography",
+      "action": "KEEP_EXTEND_AUDIT",
+      "keep": [
+        "formal proof appendix where still valid",
+        "FoodMart historical formalization",
+        "pinned bibliography as A8 baseline"
+      ],
+      "remove_or_avoid": [
+        "proofs whose premises conflict with updated safe-pruning formalism without re-validation"
+      ],
+      "add": [
+        "new safe-pruning/deferred-support formal material if not already externalized",
+        "RW-Delta-2 additions and exclusions",
+        "new R3 protocol/reproducibility references only if publication style permits"
+      ],
+      "authority": [
+        "NH-R1",
+        "NH-RW-Delta-2",
+        "R3-A2"
+      ],
+      "boundary": "Bibliographic expansion must not silently reintroduce references excluded by the later selection audit."
+    }
+  ],
+  "claim_ledger": [
+    {
+      "claim": "Objective-relative analytical computability/completeness is the semantic target",
+      "status": "ALLOWED",
+      "authority": "R3-A2 + A8 core"
+    },
+    {
+      "claim": "Safe pruning preserves objective completion under frozen assumptions",
+      "status": "ALLOWED_BOUNDED",
+      "authority": "NH-R1/NH-R2"
+    },
+    {
+      "claim": "Deferred multi-query contribution is empirically exercised",
+      "status": "ALLOWED_BOUNDED",
+      "authority": "NH-R2"
+    },
+    {
+      "claim": "SQL Direct SAFE vs PERMISSIVE resource/time reductions",
+      "status": "ALLOWED_ENDPOINT_SPECIFIC",
+      "authority": "R3-D4",
+      "detail": "6/8 primary endpoints confirmed"
+    },
+    {
+      "claim": "SQL Server I/O read/write byte reductions",
+      "status": "NOT_CONFIRMED",
+      "authority": "R3-D4"
+    },
+    {
+      "claim": "Global system benefit",
+      "status": "FORBIDDEN",
+      "authority": "R3-D4 contract"
+    },
+    {
+      "claim": "SAFE universally faster than UNGATED",
+      "status": "FORBIDDEN",
+      "authority": "R3-C negative break-even evidence"
+    },
+    {
+      "claim": "R3 XMLA/eMondrian measured confirmation",
+      "status": "PENDING_NOT_CLAIMABLE",
+      "authority": "R3-E8"
+    },
+    {
+      "claim": "End-to-end concurrency/industrial scalability",
+      "status": "PENDING_NOT_CLAIMABLE",
+      "authority": "NH-R4 pending"
+    },
+    {
+      "claim": "Human decision quality improvement",
+      "status": "OUT_OF_SCOPE",
+      "authority": "A45/NH-R0 + R3-A2"
+    },
+    {
+      "claim": "First/only objective-aware/session-aware/pruning mechanism",
+      "status": "FORBIDDEN_WITHOUT_NEW_AUDIT",
+      "authority": "NH-RW-Delta-2"
+    }
+  ],
+  "d4_endpoint_summary": [
+    {
+      "metric": "backend_request_count_including_gate_probes",
+      "mean_diff_safe_minus_permissive": -16.2,
+      "holm_p": 7.99992e-05,
+      "confirmed": true
+    },
+    {
+      "metric": "full_backend_execution_count",
+      "mean_diff_safe_minus_permissive": -16.2,
+      "holm_p": 7.99992e-05,
+      "confirmed": true
+    },
+    {
+      "metric": "client_wall_ms",
+      "mean_diff_safe_minus_permissive": -913.321858403,
+      "holm_p": 7.99992e-05,
+      "confirmed": true
+    },
+    {
+      "metric": "sqlserver_cpu_usage_usec_delta",
+      "mean_diff_safe_minus_permissive": -771626.43,
+      "holm_p": 7.99992e-05,
+      "confirmed": true
+    },
+    {
+      "metric": "response_bytes",
+      "mean_diff_safe_minus_permissive": -150731.476667,
+      "holm_p": 7.99992e-05,
+      "confirmed": true
+    },
+    {
+      "metric": "time_to_analytical_objective_completion_ms",
+      "mean_diff_safe_minus_permissive": -202.580846887,
+      "holm_p": 7.99992e-05,
+      "confirmed": true
+    },
+    {
+      "metric": "sqlserver_io_rbytes_delta",
+      "mean_diff_safe_minus_permissive": -94126.08,
+      "holm_p": 0.429436,
+      "confirmed": false
+    },
+    {
+      "metric": "sqlserver_io_wbytes_delta",
+      "mean_diff_safe_minus_permissive": -2416.64,
+      "holm_p": 0.429436,
+      "confirmed": false
+    }
+  ],
+  "next_after_acceptance": "Create a separate descendant branch/worktree from E8 and materialize a new manuscript descendant without changing A8; edit only after an explicit descendant-creation gate."
+}

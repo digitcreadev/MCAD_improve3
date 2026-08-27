@@ -1,0 +1,28 @@
+\begin{table*}[!t]
+\centering
+\caption{Matrice de différenciation entre MCAD et des lignées scientifiques directement pertinentes. Les cellules décrivent le centre de gravité des travaux cités; elles ne constituent pas des affirmations d'absence exhaustive.}
+\label{tab:comparative-approaches}
+\scriptsize
+\setlength{\tabcolsep}{2.0pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{2.05cm}p{2.15cm}p{2.05cm}p{2.25cm}p{3.45cm}X@{}}
+\toprule
+Travail / lignée & Entrée / unité & État / contexte & Finalité ou critère & Mécanisme et sortie & Position relative à MCAD \\
+\midrule
+Djedaini \emph{et al.}~\cite{DjedainiEtAl2019} & requête dans une exploration OLAP & historique de l'exploration & contribution à la qualité/progression de l'exploration & caractéristiques de requête, apprentissage supervisé et suivi de compétence; évaluation automatique & MCAD dérive la contribution de contraintes explicites et de supports réalisables relatifs à l'état de session, plutôt que de l'apprendre à partir de traces. \\
+Aligon \emph{et al.}~\cite{AligonDSS2015} & session courante + journal de sessions & session et voisinage historique & pertinence d'une continuation & filtrage collaboratif, alignement et adaptation; recommandation d'une session future & MCAD évalue la requête courante; son indicateur peut ensuite alimenter une politique de recommandation. \\
+Negre, Ravat, Teste~\cite{NegreRavatTeste2018} & requête ou recommandation OLAP + contexte & contexte de recommandation et obsolescence & éviter des recommandations inappropriées ou non calculables & indicateur d'obsolescence + post-filtrage; recommandation contextuelle & MCAD partage le recours au contexte mais mesure d'abord la progression vers un objectif explicite, puis sépare cette mesure de l'action. \\
+Intentional Analytics~\cite{VassiliadisMarcelRizzi2019,FranciaPredict2026} & intention analytique + cube enrichi & session, résultats antérieurs et modèles & exprimer un besoin analytique de haut niveau & opérateurs intentionnels et modèles; réponse enrichie / insight & IAM élève l'expression de l'analyse; MCAD formalise la calculabilité de l'objectif et sa variation requête par requête. \\
+Évaluation / opérateur \emph{assess}~\cite{FranciaAssess2021} & cube cible + benchmark de référence & contexte performance observée / attendue & évaluer une mesure relativement à une attente & comparaison au benchmark + étiquetage du résultat & Voisin direct pour l'évaluation orientée KPI; MCAD évalue plutôt la complétion des supports et la calculabilité de l'objectif relative à la session. \\
+RE4DW~\cite{NasiriAhmedWrembelZimanyi2017} & objectifs stratégiques et KPI & contexte de conception du DW & dériver besoins de données et modèle multidimensionnel & ingénierie des exigences; exigences et modèle multidimensionnel & RE4DW relie stratégie et conception; MCAD prolonge ce continuum au runtime par supports suffisants et gain marginal. \\
+Résumabilité / validation sémantique~\cite{SimonAmannLiuGancarski2023} & mesure, dimension, grain, agrégation & schéma, hiérarchies, propriétés de résumabilité & correction sémantique du calcul & conditions de résumabilité et propagation; agrégation valide/invalide & Condition utile à l'admissibilité MCAD, mais non équivalente à la réalisation d'un support ni à sa contribution. \\
+Provenance des agrégats~\cite{AlOmeirLaiMilaniPottinger2023} & résultat agrégé + données sources & dépendances du calcul et origine des données & expliquer origine et influence des données & résumés de provenance; dépendances du résultat & La provenance explique l'évidence; MCAD détermine si le support associé rend une contrainte calculable. \\
+\textbf{MCAD} & \textbf{$QP_t$, objectif $O$, CKG} & \textbf{contexte de l'analyse décisionnelle + $H_t$} & \textbf{calculabilité complète/partielle et gain marginal} & \textbf{SAT / Real / $C_{eval}$ / $\varphi,\Delta\varphi$; indicateur puis politique configurable} & \textbf{unité d'évaluation : ce que la requête rend nouvellement calculable pour l'objectif compte tenu de l'état de session.} \\
+\bottomrule
+\end{tabularx}
+\vspace{0.7mm}
+\begin{minipage}{0.985\textwidth}
+\footnotesize\emph{Note --} Les travaux voisins n'ont pas été réimplémentés comme baselines concurrentes dans les campagnes rapportées; cette matrice établit une différenciation conceptuelle et mécanistique, non une supériorité expérimentale directe.
+\end{minipage}
+\normalsize
+\end{table*}

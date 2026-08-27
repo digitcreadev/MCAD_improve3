@@ -1,0 +1,9 @@
+release_id=MCAD-V8.7.6-A8-20260818T234700Z
+source_date_epoch=1787096820
+source_date_iso_utc=2026-08-18T23:47:00Z
+latexmk=Latexmk, John Collins, 11 Dec. 2024. Version 4.86
+pdftex=pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)
+bibtex=BibTeX 0.99d (TeX Live 2025/dev/Debian)
+python=Python 3.13.5
+os=Debian GNU/Linux 13 (trixie)
+kernel=Linux 6.18.35 x86_64 GNU/Linux

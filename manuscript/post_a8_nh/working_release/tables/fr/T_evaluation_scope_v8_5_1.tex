@@ -1,0 +1,21 @@
+\begin{table*}[!t]
+\centering
+\caption{Matrice claim--preuve--frontière de l'évaluation : portée soutenue et limite d'inférence pour chaque protocole existant.}
+\label{tab:evaluation-scope}
+\scriptsize
+\setlength{\tabcolsep}{2.0pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{0.55cm}p{4.25cm}p{5.25cm}X@{}}
+\toprule
+RQ & Preuve / volume & Ce que la preuve établit & Frontière d'interprétation \\
+\midrule
+RQ1 & Trace physique Q1--Q6; AdventureWorks SQL Direct; 1 session / 6 requêtes & Séparation contribution / inadmissibilité / redondance et mise à jour cumulative sur la trace instrumentée. & Réplication statistique, justesse métier indépendante de l'objectif ou bénéfice utilisateur. \\
+RQ2 & FoodMart XMLA/Mondrian; 1000 sessions / 7960 décisions & Intégrité répétée du contrat décision $\rightarrow$ effet physique sous la politique stricte. & Supériorité de BLOCK comme interaction ou validation indépendante de l'oracle métier. \\
+RQ3 & 3 entrepôts; 18 requêtes multi-DW + 12 évaluations SQL/XMLA appariées & Préservation de la sémantique de décision dans les entrepôts et chemins testés. & Comparaison de performance backend ou portabilité universelle. \\
+RQ4 & 4 familles; 240 sessions par politique; MCAD + 3 politiques de référence internes + 3 ablations ciblées & Sensibilité des maillons SAT/Real/$C_{\mathrm{eval}}$ manipulés sous la spécification de référence contrôlée. & Pas de nécessité universelle des composants; pas d'amplitude d'effet agrégée identifiée séparément pour sans Real versus $C_{\mathrm{eval}}$ relâché; pas de supériorité expérimentale sur les méthodes de la littérature. \\
+RQ5 & Facteurs structurels 1, 5, 10, 20, 40 & Croissance structurelle du CKG jusqu'à 1693 nœuds et 2406 arêtes. & Débit, concurrence ou scalabilité industrielle d'un service distribué. \\
+RQ6 & 118000 observations; contraintes, nœuds virtuels, densité d'appartenance & Caractérisation du coût MCAD dans les plages contrôlées. & Latence SQL/XMLA, contention multi-utilisateur ou performance de bout en bout. \\
+\bottomrule
+\end{tabularx}
+\normalsize
+\end{table*}

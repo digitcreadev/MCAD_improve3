@@ -1,0 +1,21 @@
+\section{Complementary Formal Proofs}
+\label{app:formal-proofs}
+
+\paragraph*{Proof of Proposition~\ref{prop:borne}}
+By definition $C_{\mathrm{eval}}(QP,O)\subseteq C^*(O)$ and $|C^*(O)|>0$. Hence $0\le |C_{\mathrm{eval}}(QP,O)|\le |C^*(O)|$, so $\varphi(QP,O)\in[0,1]$. The two equality characterizations follow directly from finite-set cardinality and the inclusion $C_{\mathrm{eval}}(QP,O)\subseteq C^*(O)$.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Proof of Proposition~\ref{prop:mono-real}}
+Assume $\mathrm{Real}(QP_a)\subseteq\mathrm{Real}(QP_b)$. If $c\in C_{\mathrm{eval}}(QP_a,O)$, some $R\in\mathcal R(c)$ satisfies $R\subseteq\mathrm{Real}(QP_a)$, hence $R\subseteq\mathrm{Real}(QP_b)$ and $c\in C_{\mathrm{eval}}(QP_b,O)$. Therefore $C_{\mathrm{eval}}(QP_a,O)\subseteq C_{\mathrm{eval}}(QP_b,O)$ and $\varphi(QP_a,O)\le\varphi(QP_b,O)$.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Proof of Proposition~\ref{prop:session}}
+Inside a fixed semantic phase, $E_{t-1}\subseteq E_t$. If $c\in C_E^{\le t-1}(O)$, a sufficient support $R\subseteq E_{t-1}$ exists, hence $R\subseteq E_t$ and $c\in C_E^{\le t}(O)$. Thus $C_E^{\le t-1}(O)\subseteq C_E^{\le t}(O)$. Dividing cardinalities by the positive constant $|C^*(O)|$ proves monotonicity and boundedness of $\varphi^{\le t}$ and therefore $\Delta\varphi_t\ge0$.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Proof of Proposition~\ref{prop:graded}}
+For finite nonempty $R$, $0\le |R\cap X|/|R|\le1$. Taking a maximum over the finite nonempty family $\mathcal R(c)$ gives $\kappa_c(X)\in[0,1]$, and averaging over finite nonempty $C^*(O)$ gives $\psi\in[0,1]$. If $c\in C_{\mathrm{eval}}(QP,O)$, at least one support is fully contained in $\mathrm{Real}(QP)$ and therefore $\kappa_c=1$; averaging yields $\varphi(QP,O)\le\psi(QP,O)$. If $E_{t-1}\subseteq E_t$, support intersections can only grow, hence each $\kappa_c(E_t)$ and their average are non-decreasing, so $\Delta\psi_t\ge0$.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Proof of Proposition~\ref{prop:session-equivalence}}
+Assume (A1) and (A2). Because evidence is retained monotonically within the phase, $C_E^{\le i}(O)\subseteq C_E^{\le t}(O)$ for $i\le t$. The initial term $C_E^{\le0}(O)$ is therefore contained in $C_E^{\le t}(O)$. Moreover, by (A1), for each $i\le t$, $C_{\mathrm{eval}}(QP_i,O)\subseteq C_E^{\le i}(O)\subseteq C_E^{\le t}(O)$. Taking the union gives $C_Q^{\le t}(O;E_0)\subseteq C_E^{\le t}(O)$.
+
+For the reverse inclusion, let $c\in C_E^{\le t}(O)$. If $c\in C_E^{\le0}(O)$, then $c\in C_Q^{\le t}(O;E_0)$ by definition. Otherwise there is a least $j\in\{1,\ldots,t\}$ such that $c\in C_E^{\le j}(O)$, hence $c\in C_E^{\le j}(O)\setminus C_E^{\le j-1}(O)$. By (A2), $c\in C_{\mathrm{eval}}(QP_j,O)$, so $c\in C_Q^{\le t}(O;E_0)$. Equality follows.
+
+If only (A1) is retained, the first inclusion remains valid. It can be strict: let one constraint have support $R=\{nv_1,nv_2\}$, $E_0=\emptyset$, $A_1=\{nv_1\}\subseteq\mathrm{Real}(QP_1)$, and $A_2=\{nv_2\}\subseteq\mathrm{Real}(QP_2)$. Then $R\subseteq E_2$ but no individual query realizes $R$, so the constraint belongs to $C_E^{\le2}(O)$ and not to $C_Q^{\le2}(O;E_0)$.\unskip\nobreak\hspace{0.5em}$\blacksquare$

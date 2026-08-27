@@ -1,0 +1,19 @@
+\begin{table*}[!t]
+\centering
+\caption{Controlled robustness: comparison with reference policies and ablations.}
+\label{tab:robustness}
+\small
+\begin{tabular}{@{}p{0.24\textwidth}rrrrr@{}}
+\toprule
+Policy & Sessions & Final $\varphi$ & False ALLOW & False BLOCK & Non-contributive exec. \\
+\midrule
+MCAD & 240 & 0.500000 & 0.000000 & 0.000000 & 0.000000 \\
+Naive & 240 & 0.500000 & 0.752083 & 0.000000 & 0.752083 \\
+Measure overlap & 240 & 0.500000 & 0.660417 & 0.000000 & 0.731250 \\
+Matched random & 240 & 0.119444 & 0.211597 & 0.185833 & 0.650556 \\
+Without $\mathrm{SAT}$ & 240 & 0.500000 & 0.041667 & 0.000000 & 0.125000 \\
+Without $\mathrm{Real}$ & 240 & 0.500000 & 0.081250 & 0.000000 & 0.187500 \\
+Relaxed $C_{\mathrm{eval}}$ & 240 & 0.500000 & 0.081250 & 0.000000 & 0.187500 \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,24 @@
+\begin{tikzpicture}[
+node distance=5mm and 6mm,
+every node/.style={font=\scriptsize,align=center},
+box/.style={draw,rounded corners=1mm,minimum width=17mm,minimum height=8mm,inner sep=2pt},
+>=Stealth
+]
+\node[box] (q) {Requête\\analytique};
+\node[box,right=of q] (qp) {$QP$\\canonique};
+\node[box,right=of qp] (sat) {$\mathrm{SAT}$\\admissibilité};
+\node[box,right=of sat] (real) {$\mathrm{Real}$\\évidence};
+\node[box,right=of real] (ceval) {$C_{\mathrm{eval}}$\\calculabilité};
+\node[box,right=of ceval] (dphi) {$\Delta\varphi_t$\\gain marginal};
+\node[box,below=of dphi,minimum width=37mm] (policy) {$\pi_{\mathrm{act}}(z_t,\mathcal C^{DA}_t)$\\exécuter / notifier / avertir / guider\\recommander / bloquer};
+\node[box,below=of real,minimum width=31mm] (ckg) {CKG + objectif + $H_{t-1}$\\contraintes / supports / NV};
+\draw[->] (q)--(qp);
+\draw[->] (qp)--(sat);
+\draw[->] (sat)--(real);
+\draw[->] (real)--(ceval);
+\draw[->] (ceval)--(dphi);
+\draw[->] (dphi)-- node[right,font=\scriptsize]{indicateur $z_t$} (policy);
+\draw[->] (ckg)--(sat);
+\draw[->] (ckg)--(real);
+\draw[->] (ckg)--(ceval);
+\end{tikzpicture}

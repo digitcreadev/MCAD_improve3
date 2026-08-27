@@ -1,0 +1,6 @@
+PDF: /mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/manuscript/fr/MCAD_FR_V8_7_6.pdf
+Pages: 21
+Encrypted: False
+Openable (PyMuPDF): True
+Likely scanned: False
+XFA present: False

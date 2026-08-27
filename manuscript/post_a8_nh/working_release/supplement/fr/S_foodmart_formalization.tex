@@ -1,0 +1,71 @@
+\section{Formalisation détaillée de l'exemple FoodMart HF/North}
+\label{app:foodmart}
+
+Nous revenons à l'exemple FoodMart utilisé pour illustrer la formalisation du mécanisme. Le cube \textit{Sales} est défini par :
+\begin{itemize}
+  \item $F=\{\textit{Sales}\}$,
+  \item trois dimensions $D=\{\textit{Time},\textit{Product},\textit{Store}\}$, et
+  \item des mesures $M=\{\mathrm{Store\ Sales},\mathrm{Store\ Cost},\mathrm{Units\ Sold}\}$ ainsi qu'un KPI dérivé $\mathrm{Margin\%}$.
+\end{itemize}
+
+Les hiérarchies de dimensions sont :
+\begin{itemize}
+  \item Time : Day $\rightarrow$ Month $\rightarrow$ Year,
+  \item Product : Product $\rightarrow$ Subcategory $\rightarrow$ Category,
+  \item Store : Store $\rightarrow$ City $\rightarrow$ Region.
+\end{itemize}
+
+L'objectif $O_{\mathrm{HF\_NORD}}$ est défini par les contraintes formalisées ci-dessous, avec $C^*(O_{\mathrm{HF\_NORD}})=\{c_1,c_2,c_3\}$. Chaque contrainte est associée à un ensemble de nœuds virtuels :
+\begin{itemize}
+  \item $N(c_1)$ contient des nœuds de la forme
+  \[
+  \begin{aligned}
+  nv_{1,m}={}&(\textit{Sales},g_m,\mathrm{Margin\%},\mathrm{avg},\%,\\
+             &S_{\mathrm{HF,North}},w_{1998}).
+  \end{aligned}
+  \]
+  où $g_m$ est un grain \{Month, Category=Health Food, Region=North\}, où $S_{\mathrm{HF,North}}$ restreint la catégorie à Health Food et la région à North, et où $w_{1998}$ est la fenêtre temporelle correspondant à l'année 1998.
+  \item $N(c_2)$ contient des nœuds de la forme
+  \[
+  \begin{aligned}
+  nv_{2,r}={}&(\textit{Sales},g_r,\mathrm{StockoutRate},\mathrm{ratio},\%,\\
+             &S_{\mathrm{HF,North}},w_{1998}).
+  \end{aligned}
+  \]
+  où $g_r$ est un grain \{Store, Category=Health Food, Region=North\} et où $\mathrm{StockoutRate}$ est un KPI dérivé de \textit{Units Sold} et d'informations de stock.
+  \item $N(c_3)$ contient des nœuds de la forme
+  \[
+  \begin{aligned}
+  nv_{3,m}={}&(\textit{Sales},g_m,\mathrm{Sales},\mathrm{sum},\text{USD},\\
+             &S_{\mathrm{HF,North}},w_{1997\_1998}).
+  \end{aligned}
+  \]
+  où $\mathrm{Sales}=\mathrm{Store\ Sales}$ et $w_{1997\_1998}$ couvre les années 1997 et 1998.
+\end{itemize}
+
+\paragraph*{Illustration de la calculabilité partielle intra-contrainte}
+Cette extension est purement formelle dans la présente version et ne réinterprète aucune campagne expérimentale. Pour illustrer $\kappa_c$, supposons que le support minimal de $c_1$ exige une cellule mensuelle pour chacun des douze mois de 1998. Si l'état courant $E_t$ contient six de ces douze nœuds et aucun autre support suffisant plus avancé pour $c_1$, alors
+\[
+\kappa_{c_1}(E_t)=\frac{6}{12}=0.5.
+\]
+La contrainte $c_1$ n'est pas encore complètement calculable, mais sa progression interne n'est plus nulle. Lorsque les douze nœuds requis sont acquis, $\kappa_{c_1}=1$ et le support de $c_1$ est complet au sens de l'extension graduée. Cet exemple distingue donc explicitement une \emph{couverture partielle de l'objectif} d'une \emph{calculabilité partielle à l'intérieur d'une même contrainte}, sans modifier les valeurs binaires rapportées dans les campagnes existantes.
+
+Considérons par exemple la requête guidée $QP'_1$ :
+\[
+\begin{aligned}
+QP'_1={}&(\textit{Sales},g_m,\{\mathrm{Margin\%}\},\{\mathrm{avg}\},\{\%\},\\
+        &S_{\mathrm{HF,North}},w_{1998}).
+\end{aligned}
+\]
+Sous des hypothèses raisonnables de compatibilité dans le CKG, on obtient
+\[
+\mathrm{Real}(QP'_1)\supseteq \{nv_{1,m}\mid m\in \text{mois de 1998}\},
+\]
+et donc $c_1\in C_{\mathrm{eval}}(QP'_1,O_{\mathrm{HF\_NORD}})$. Si aucune cellule de $N(c_2)$ ou $N(c_3)$ n'est réalisable par $QP'_1$, alors
+\[
+\begin{aligned}
+C_{\mathrm{eval}}(QP'_1,O_{\mathrm{HF\_NORD}})&=\{c_1\},\\
+\varphi(QP'_1,O_{\mathrm{HF\_NORD}})&=\frac{1}{3}.
+\end{aligned}
+\]
+De même, les requêtes $QP'_2$ et $QP'_3$ sont construites de manière à réaliser respectivement des nœuds de $N(c_2)$ et $N(c_3)$, ce qui permet à la session $(QP'_1,QP'_2,QP'_3)$ d'atteindre rapidement une couverture complète des contraintes de l'objectif.

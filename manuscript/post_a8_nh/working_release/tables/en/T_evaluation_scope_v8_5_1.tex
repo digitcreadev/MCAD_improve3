@@ -1,0 +1,21 @@
+\begin{table*}[!t]
+\centering
+\caption{Claim--evidence--boundary matrix for the evaluation: supported scope and inference limit for each existing protocol.}
+\label{tab:evaluation-scope}
+\scriptsize
+\setlength{\tabcolsep}{2.0pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{0.55cm}p{4.25cm}p{5.25cm}X@{}}
+\toprule
+RQ & Evidence / volume & What the evidence establishes & Interpretation boundary \\
+\midrule
+RQ1 & Physical Q1--Q6 trace; AdventureWorks SQL Direct; 1 session / 6 queries & Separation of contribution / inadmissibility / redundancy and cumulative updating on the instrumented trace. & Statistical replication, independent business validity of the objective, or user benefit. \\
+RQ2 & FoodMart XMLA/Mondrian; 1000 sessions / 7960 decisions & Repeated integrity of the decision $\rightarrow$ physical-effect contract under the strict policy. & Superiority of BLOCK as an interaction or independent validation of the business oracle. \\
+RQ3 & 3 warehouses; 18 multi-DW queries + 12 paired SQL/XMLA evaluations & Preservation of decision semantics across the tested warehouses and execution paths. & Backend-performance comparison or universal portability. \\
+RQ4 & 4 families; 240 sessions per policy; MCAD + 3 internal reference policies + 3 targeted ablations & Component sensitivity of the manipulated SAT/Real/$C_{\mathrm{eval}}$ links under the controlled reference specification. & Not universal component necessity; no separately identified aggregate effect magnitude for no-Real versus relaxed $C_{\mathrm{eval}}$; no experimental superiority over literature methods. \\
+RQ5 & Structural factors 1, 5, 10, 20, 40 & Structural growth of the CKG up to 1693 nodes and 2406 edges. & Throughput, concurrency, or industrial scalability of a distributed service. \\
+RQ6 & 118000 observations; constraints, virtual nodes, membership density & Characterization of MCAD cost over the controlled ranges. & SQL/XMLA latency, multi-user contention, or end-to-end performance. \\
+\bottomrule
+\end{tabularx}
+\normalsize
+\end{table*}

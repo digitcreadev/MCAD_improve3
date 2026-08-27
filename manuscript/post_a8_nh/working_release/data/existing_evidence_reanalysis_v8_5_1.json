@@ -1,0 +1,37 @@
+{
+  "source_hashes_sha256": {
+    "q1_q6": "d95dea58471171fc60f1b8befd1ff264f7b1de24f74b24325a9904d6b2e017fd",
+    "campaign_a": "9e73c44a19de74ce73346b8c5c9f7ae6a87588c24a38c0810dabfd6b7acb8198",
+    "campaign_b": "dc086cf1e1bd43245405d0fa23e961633870ecbd1cbd2b9e8efcd3ad1934dff1",
+    "campaign_c": "25fbcfbad32c326843fba250568a1819cb67e2cb36dcd0a4d652def716975fd9",
+    "robustness_policy": "3c31f40a4d4fe15e1e235bd421a20182489d13c345ca3af02bad15271251750a",
+    "robustness_scenario": "c3eadac4ae3c4d9b2a8834dc66468cc6c0f479e3d6d91c4055b74b35d10bd3f4",
+    "scalability": "23292156d4540584d18fe56b4f11325381687027831848e95c2d461d7f77cd06",
+    "latency": "fa2127e56c5e32f94c7643472a835912c38012e27df6dce43f15e43ed0151d08"
+  },
+  "campaign_a": {
+    "decision_count": 7960,
+    "allow_count": 2266,
+    "block_count": 5694,
+    "contract_violation_count": 0,
+    "redundant_block_count": 3372,
+    "redundant_pct_all_decisions": 42.36180904522613,
+    "redundant_pct_block_decisions": 59.22023182297155
+  },
+  "robustness": {
+    "mcad_zero_false_allow_false_block_noncontrib_in_each_scenario_family": true,
+    "scenario_families": [
+      "adversarial_sat",
+      "adversarial_semantic",
+      "noisy_borderline",
+      "stress_long"
+    ]
+  },
+  "latency_descriptive_endpoint_changes": {
+    "virtual_nodes_6_to_24_p50_pct": 55.176056181094026,
+    "virtual_nodes_6_to_24_p99_pct": 76.68277876753639,
+    "membership_density_25_to_100_p50_pct": 2.0033833749768304,
+    "membership_density_25_to_100_p99_pct": 4.866372035155586,
+    "interpretation": "descriptive re-aggregation of existing quantiles; not a new experiment or inferential effect estimate"
+  }
+}

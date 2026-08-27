@@ -1,0 +1,21 @@
+\begin{table*}[!t]
+\centering
+\caption{Diagnostic reading of the canonical Q1--Q6 trace from already acquired observations. The table explicitly separates admissibility, marginal computability, and physical effect; no new execution is introduced.}
+\label{tab:q1-q6-diagnostic}
+\scriptsize
+\setlength{\tabcolsep}{2.4pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{tabularx}{\textwidth}{@{}p{0.55cm}p{0.72cm}p{2.35cm}p{1.05cm}p{2.15cm}p{2.55cm}X@{}}
+\toprule
+Step & SAT & Newly computable constraint & $\Delta\varphi_t$ & Action / physical & Reason & Scientific reading \\
+\midrule
+Q1 & true & $c_1$ (sales) & $1/3$ & ALLOW / executed & new support & first newly computable constraint \\
+Q2 & true & $c_2$ (cost) & $1/3$ & ALLOW / executed & new support & second newly computable constraint \\
+Q3 & true & $c_3$ (margin) & $1/3$ & ALLOW / executed & new support & objective fully computable \\
+Q4 & true & -- & $0$ & BLOCK / not executed & outside objective scope & admissible, but no newly computable constraint \\
+Q5 & false & -- & $0$ & BLOCK / not executed & incompatible grain & inadmissible: the grain clause fails \\
+Q6 & true & -- & $0$ & BLOCK / not executed & redundancy after coverage & admissible and redundant: $\Delta\varphi=0$ \\
+\bottomrule
+\end{tabularx}
+\normalsize
+\end{table*}

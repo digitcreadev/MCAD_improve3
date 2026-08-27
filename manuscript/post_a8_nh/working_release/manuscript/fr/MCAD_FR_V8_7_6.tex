@@ -1,0 +1,760 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{placeins}
+\usepackage{balance}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes,calc,fit}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\renewcommand{\IEEEkeywordsname}{Mots-clés}
+\makeatletter
+\def\ps@plain{%
+  \def\@oddhead{}\def\@evenhead{}%
+  \def\@oddfoot{\hfil\thepage\hfil}%
+  \def\@evenfoot{\hfil\thepage\hfil}}
+\makeatother
+
+\newtheorem{proposition}{Proposition}
+
+\graphicspath{{figures/fr/}}
+\begin{document}
+
+\title{MCAD (Masque contextuel pour l'analyse décisionnelle) : évaluation de la contribution des requêtes OLAP à la calculabilité des objectifs stratégiques dans les sessions d'analyse décisionnelle}
+
+\author{}
+
+\maketitle
+\pagestyle{plain}
+\thispagestyle{plain}
+
+\begin{abstract}
+Une session d'analyse décisionnelle ne se réduit pas à une succession de requêtes exécutables : chaque requête est interprétée relativement au schéma multidimensionnel, à l'objectif stratégique actif, aux règles métier et à l'évidence déjà acquise. Nous introduisons le \emph{Masque Contextuel de l'Analyse Décisionnelle} (MCAD), qui met en correspondance sémantique le plan canonique d'une requête candidate avec ce contexte, représenté par un graphe de connaissances contextuel (CKG). Pour chaque contrainte de l'objectif, MCAD identifie les supports suffisants et évalue si la requête rend une contrainte nouvellement calculable relativement à l'état de session. Le masque induit est inspectable; son évaluation établit la contribution, tandis que l'action opérationnelle reste distincte. MCAD cible ainsi une progression vérifiable de la calculabilité de l'objectif plutôt qu'une préférence, un intérêt perçu ou une utilité utilisateur; $\Delta\varphi$ distingue admissibilité, calculabilité et progression stratégique sans servir de proxy de satisfaction.
+
+Le prototype évalue une politique stricte où l'indicateur de contribution pilote ALLOW/BLOCK avant exécution backend, alors que le même indicateur peut alimenter notification, avertissement, guidage ou recommandation. L'évaluation combine une trace de bout en bout, 1000 sessions et 7960 décisions, plusieurs entrepôts, deux chemins backend et un benchmark contrôlé de robustesse avec politiques de référence internes et ablations ciblées. Relativement à sa spécification de référence, MCAD conserve la couverture finale tout en enregistrant des taux nuls de false ALLOW et d'exécutions non contributives; la décision sémantique présente un p50 de 0,337--0,666~ms et un p99 de 0,649--1,461~ms sur les facteurs étudiés, tandis que la croissance du CKG est caractérisée séparément jusqu'à 1693 nœuds et 2406 arêtes. Ces résultats soutiennent la faisabilité dans les configurations testées, sans établir une valeur décisionnelle humaine, une supériorité externe ni une politique d'interaction universelle.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Entrepôts de données, OLAP, intelligence économique, objectifs stratégiques, calculabilité stratégique, graphes de connaissances contextuels, sémantique des KPI, contribution des requêtes, explicabilité.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:intro}
+
+Les entrepôts de données et les systèmes OLAP constituent un socle majeur de l'analyse décisionnelle, en permettant d'agréger les faits, de naviguer dans les hiérarchies et de comparer les indicateurs selon plusieurs dimensions~\cite{ChaudhuriDayal97,KimballRoss2013,ChenBI2012}. Pourtant, une session d'analyse est toujours conduite dans un \emph{contexte de l'analyse décisionnelle} plus riche que la seule structure du cube : elle est orientée par un objectif, des KPI, des contraintes métier, des scénarios, des unités, des règles de résumabilité et des fenêtres temporelles, et elle évolue à mesure que la session accumule de l'information. Une requête peut donc être syntaxiquement correcte, cohérente avec le schéma et même intéressante pour l'utilisateur sans apporter l'information requise pour rendre calculable l'objectif stratégique poursuivi.
+
+Les travaux voisins couvrent des fonctions complémentaires : préférences et personnalisation adaptent l'analytique aux utilisateurs~\cite{GolfarelliRizziBiondi2011,JacobGunklachMaedche2025}; recommandation, guidage et méthodes contextuelles orientent l'exploration~\cite{AligonDSS2015,NegreRavatTeste2018,GunklachNadj2023,RoyContextOLAP2022}; contribution et \emph{interestingness} étudient nouveauté ou utilité~\cite{DjedainiEtAl2019,GkitsakisEtAl2024,ArenasExploratory2025}; Intentional Analytics élève le niveau d'interaction~\cite{VassiliadisMarcelRizzi2019,FranciaPredict2026}; enfin, modèles objectifs/KPI, graphes de connaissances, validation et provenance structurent objectifs, sémantique et explications~\cite{Pourshahid2014,MateTrujilloMylopoulos2017,RoldanGarciaEtAl2021,DiamantiniKPISurvey2025,HoganKGSurvey2021,ZhongKGC2024,W3CSHACL2017,W3CPROVO2013}.
+
+MCAD propose une \textbf{synthèse unifiée et opérationnelle} de ces lignes de recherche autour d'un principe commun : la \textbf{calculabilité stratégique}. La personnalisation, la recommandation, le guidage, les intentions analytiques, l'\emph{interestingness}, les modèles de KPI, les graphes de connaissances et la provenance fournissent des capacités complémentaires; MCAD les relie au niveau de la requête et de la session par une question formelle commune : \emph{quelles contraintes de l'objectif cette requête rend-elle calculables maintenant, compte tenu de ce que la session permet déjà de calculer ?} La contribution de synthèse réside ainsi dans la sémantique de calculabilité, dans son caractère relatif à l'état de session et dans la chaîne formelle qui transforme cette évaluation en information exploitable par une politique d'action configurable.
+
+MCAD représente le \textbf{contexte de l'analyse décisionnelle} par un graphe de connaissances contextuel (CKG) reliant catalogue multidimensionnel, sémantique KPI, unités, règles d'agrégation et temporelles, scénarios, objectif actif et mémoire de session. L'objectif $O$ est décomposé en contraintes explicites reliées à un ou plusieurs supports suffisants, ce qui permet d'évaluer chaque requête à partir des supports nouvellement réalisés et de l'évidence déjà accumulée.
+
+Le \textbf{masque contextuel} est le résultat d'une mise en correspondance sémantique du plan canonique d'une requête candidate avec le contexte de l'analyse décisionnelle représenté dans le CKG. Cette mise en correspondance dépend de l'objectif stratégique actif, de ses contraintes et supports suffisants, des règles métier et temporelles, ainsi que de l'état de session. Elle identifie les éléments du plan qui réalisent ou peuvent réaliser les supports nécessaires aux contraintes de l'objectif.
+
+Le résultat de cette mise en correspondance est un masque sémantique; l'évaluation de ce masque produit une contribution ou une non-contribution de la requête à la calculabilité des contraintes relativement à l'état de session. La politique d'action $\pi_{\mathrm{act}}$ transforme ensuite cette évaluation en exécution, notification, avertissement, guidage, recommandation ou blocage. Ainsi, \emph{la mise en correspondance sémantique produit un masque; l'évaluation du masque produit une contribution ou une non-contribution; la politique d'action choisit ensuite l'action opérationnelle}.
+
+\paragraph*{Terminologie} Dans la suite, nous employons prioritairement l'expression \emph{contexte de l'analyse décisionnelle} pour désigner cet objet complet. L'expression plus courte \emph{contexte analytique} peut être utilisée comme synonyme rédactionnel lorsqu'aucune ambiguïté n'est possible; elle ne désigne pas seulement le schéma du cube ou les paramètres techniques d'une requête.
+
+Deux séparations sont centrales. Premièrement, \textbf{admissibilité et contribution stratégique diffèrent} : $\mathrm{SAT}(QP)=\mathrm{true}$ peut encore conduire à $\Delta\varphi=0$. Deuxièmement, \textbf{la redondance dépend de l'objectif et de la session} : une requête peut contribuer tôt puis devenir non contributive lorsque ses contraintes sont déjà calculables. MCAD distingue donc calculabilité nulle, partielle et totale aux niveaux requête et session cumulative.
+
+MCAD définit un \textbf{indicateur de contribution}, non une règle universelle de blocage. Un déploiement peut exécuter, notifier, avertir, guider, recommander ou bloquer. La politique stricte ALLOW/BLOCK utilisée dans une partie de l'évaluation est seulement une instanciation expérimentale destinée au contrôle avant backend.
+
+L'article apporte quatre contributions majeures :
+\begin{itemize}
+  \item une \textbf{sémantique de calculabilité stratégique relative à la requête et à la session}, fondée sur un contexte explicite de l'analyse décisionnelle représenté par un CKG et reliant objectifs stratégiques, contraintes, supports suffisants et évidence cumulée de session ;
+  \item un \textbf{mécanisme formel inspectable d'évaluation de contribution}, fondé sur les plans canoniques, les nœuds virtuels de support, la chaîne $QP\rightarrow\mathrm{SAT}\rightarrow\mathrm{Real}\rightarrow C_{\mathrm{eval}}\rightarrow S^*\rightarrow\varphi,\Delta\varphi$ et l'extension graduée $\kappa/\psi$, tout en maintenant distincts correction du calcul, provenance, réalisation des supports, calculabilité et contribution marginale ;
+  \item une \textbf{séparation entre contribution et action opérationnelle} : le masque contextuel et l'indicateur de contribution sont indépendants de la politique configurable $\pi_{\mathrm{act}}$, qui peut exécuter, notifier, avertir, guider, recommander ou bloquer selon le contexte de déploiement ; et
+  \item un \textbf{prototype de recherche et une vérification empirique ciblée} combinant preuve physique de bout en bout, préservation multi-configuration, politiques de référence internes et ablations ciblées de robustesse, croissance structurelle, latence de décision sémantique et traçabilité explicite des preuves, la porte stricte ALLOW/BLOCK n'étant qu'une instanciation expérimentale de politique.
+\end{itemize}
+
+\begin{figure*}[!t]
+\centering
+\resizebox{0.95\textwidth}{!}{\input{figures/fr/F_contribution_hierarchy.tex}}
+\caption{Hiérarchie conceptuelle des contributions de MCAD. Le noyau scientifique porte sur le contexte de l'analyse décisionnelle, la calculabilité stratégique et sa variation; les mécanismes formels et la politique d'action en sont des opérationnalisations.}
+\label{fig:contribution-hierarchy}
+\end{figure*}
+
+La suite de l'article examine le voisinage scientifique de MCAD, puis présente le contexte de l'analyse décisionnelle, le CKG, la formalisation et l'architecture. L'évaluation distingue ensuite la qualité de l'indicateur de contribution de la politique stricte ALLOW/BLOCK utilisée pour démontrer le contrôle avant backend.
+
+\section{Travaux connexes et voisinage scientifique}
+\label{sec:related}
+
+MCAD se situe à l'intersection de la modélisation multidimensionnelle et de la résumabilité, de la personnalisation, de la recommandation, de l'\emph{interestingness}, d'Intentional Analytics, des modèles objectifs/KPI, des graphes de connaissances, de la validation, de la provenance et de l'explicabilité. Nous mobilisons ces lignes uniquement pour délimiter les fonctions utilisées, complémentaires ou hors périmètre, en privilégiant les mécanismes les plus proches de la frontière de nouveauté.
+
+\subsection{Entrepôts de données, OLAP et résumabilité}
+
+Les travaux fondateurs sur les entrepôts et l'OLAP établissent les faits, dimensions, hiérarchies, mesures, grains et agrégations qui structurent l'espace multidimensionnel~\cite{ChaudhuriDayal97,KimballRoss2013}; la BI\&A élargit ce socle vers les architectures et usages décisionnels~\cite{ChenBI2012}. La résumabilité précise toutefois qu'une agrégation n'est correcte que sous certaines conditions sémantiques. Horner, Song et Chen caractérisent les effets des mesures additives, semi-additives et non additives ainsi que le rôle des métadonnées pour empêcher des agrégations potentiellement inexactes~\cite{HornerSongChen2004}; Niemi et Niinimäki relient la cohérence mesure--dimension à une ontologie OLAP~\cite{NiemiNiinimaki2010}. Simon \emph{et al.} étendent ce voisinage aux sessions analytiques interactives en formalisant des conditions généralisées de résumabilité et des règles de propagation pour contrôler la correction des agrégations après des opérations analytiques~\cite{SimonAmannLiuGancarski2023}. Les travaux de validation des exigences multidimensionnelles complètent cette perspective~\cite{RomeroAbello2010}.
+
+Dans MCAD, ces travaux éclairent la couche d'admissibilité sémantique, sans être confondus avec la contribution. Les clauses \texttt{grain\_ok} et \texttt{agg\_ok} vérifient les règles de grain, d'agrégation et de résumabilité effectivement encodées dans le CKG; le prototype ne revendique pas l'implémentation exhaustive du cadre généralisé de Simon \emph{et al.}. Une agrégation sémantiquement correcte peut encore ne réaliser aucun support suffisant nouveau pour l'objectif courant. La chaîne pertinente est donc : correction du calcul $\rightarrow$ support réalisable $\rightarrow$ contrainte calculable $\rightarrow$ contribution marginale, sans équivalence entre ces niveaux.
+
+La frontière récente porte aussi sur la formulation des requêtes. Les travaux Text-to-MDX produisent une requête analytique à partir d'une question utilisateur~\cite{BimonteRizziTextToMDX2026}; MCAD se situe en aval de cette génération et évalue la sémantique du plan canonique obtenu relativement à l'objectif et à l'état de session.
+
+\subsection{Préférences et personnalisation OLAP}
+
+La personnalisation adapte schémas, vues ou requêtes aux caractéristiques des utilisateurs. myOLAP formalise directement des préférences portant sur attributs, mesures et niveaux d'agrégation~\cite{GolfarelliRizziBiondi2011}, tandis qu'une revue récente synthétise les formes de personnalisation des systèmes BI\&A selon l'utilisateur, la tâche et le contexte d'usage~\cite{JacobGunklachMaedche2025}. MCAD ne remplace pas cette finalité : une préférence décrit ce qu'un utilisateur souhaite voir, alors que la calculabilité stratégique décrit quelles contraintes d'un objectif deviennent évaluables. Les deux informations peuvent être combinées sans être confondues.
+
+\subsection{Recommandation, guidage et contexte d'usage}
+
+Les systèmes de recommandation OLAP utilisent les historiques de navigation et les sessions antérieures pour proposer des requêtes ou séquences futures~\cite{AligonDSS2015}. Negre, Ravat et Teste traitent plus directement le caractère contextuel de la recommandation OLAP : certaines recommandations peuvent être inappropriées, notamment non pertinentes ou non calculables, et leur approche combine un indicateur d'obsolescence avec un post-filtrage contextuel~\cite{NegreRavatTeste2018}. Le guidage en BI\&A structure par ailleurs l'assistance selon la phase d'analyse, le degré de guidage et la forme d'interaction~\cite{GunklachNadj2023}, tandis que d'autres variantes contextuelles d'OLAP ajoutent des variables de situation à la sélection de l'information~\cite{RoyContextOLAP2022}. MCAD ne revendique donc ni la première prise en compte du contexte en OLAP, ni le premier filtrage de requêtes. Sa différence tient à la finalité évaluée : le CKG matérialise le contexte de l'analyse décisionnelle relié à un objectif stratégique explicite, le raisonneur détermine quelles contraintes deviennent calculables relativement à l'état de session, puis une politique séparée peut exploiter cette évaluation pour guider, recommander, exécuter ou bloquer.
+Ces approches ciblent surtout pertinence de continuation, obsolescence, nouveauté, intention ou prochaine action. MCAD évalue une autre propriété : l'accroissement de calculabilité d'un objectif explicite. Une requête recommandable ou surprenante peut donc avoir $\Delta\varphi=0$, tandis qu'une requête peu nouvelle peut rester nécessaire si elle complète un support suffisant.
+
+\subsection{Contribution d'une exploration, interestingness et requêtage exploratoire}
+
+Djedaini \emph{et al.} constituent un voisin conceptuel direct : ils évaluent automatiquement la contribution de requêtes au sein d'explorations OLAP à partir de caractéristiques de requêtes et de modèles d'apprentissage~\cite{DjedainiEtAl2019}. MCAD se distingue sur trois axes : sa contribution est dérivée d'un objectif explicitement modélisé plutôt qu'apprise à partir de traces comportementales; elle est définie par l'apparition de contraintes nouvellement calculables plutôt que par une mesure générale de réussite de l'exploration; et elle dépend d'un état sémantique de session qui représente ce qui est déjà calculable. Ce voisinage est important car il situe la nouveauté de MCAD dans la définition de la contribution, non dans le seul fait d'évaluer une séquence de requêtes.
+
+L'\emph{interestingness} décompose pour sa part l'intérêt d'une exploration en dimensions telles que nouveauté, pertinence, particularité et surprise~\cite{GkitsakisEtAl2024}. Le requêtage exploratoire récent souligne parallèlement le caractère itératif de la formulation, du débogage et de la réutilisation des requêtes~\cite{ArenasExploratory2025}. Ces critères sont complémentaires de MCAD : $\Delta\varphi_t=0$ n'implique ni désintérêt, ni inutilité générale, ni interdiction; il signifie seulement qu'aucune contrainte nouvelle de l'objectif ne devient calculable dans le contexte courant.
+
+\subsection{Intentional Analytics}
+
+L'\emph{Intentional Analytics Model} (IAM) élève l'interaction au-dessus de la navigation technique en introduisant des intentions analytiques de haut niveau et des cubes enrichis~\cite{VassiliadisMarcelRizzi2019}; ses extensions récentes incluent l'intégration de modèles prédictifs dans des cubes multidimensionnels~\cite{FranciaPredict2026}. Un voisin particulièrement proche est l'opérateur \emph{assess} de Francia \emph{et al.}, qui évalue un cube cible en comparant sa performance observée à un cube de référence ou benchmark puis en étiquetant le résultat de cette comparaison~\cite{FranciaAssess2021}. Le rapprochement avec MCAD est réel lorsqu'un benchmark encode une performance KPI attendue, mais la propriété évaluée reste différente : \emph{assess} juge une valeur observée par rapport à une attente, tandis que MCAD détermine si l'évidence fournie par la requête complète des supports suffisants et modifie ainsi les contraintes d'un objectif explicite qui deviennent calculables relativement à l'état de session. IAM et MCAD partagent donc l'abstraction de la syntaxe OLAP, tout en ciblant des propriétés runtime distinctes.
+
+\subsection{Objectifs, KPI et passage vers le modèle multidimensionnel}
+
+Les méthodes de BI orientée objectifs relient buts, KPI et processus de décision~\cite{Pourshahid2014}. RE4DW formalise explicitement le passage d'objectifs stratégiques et KPI vers les besoins de données et le modèle multidimensionnel~\cite{NasiriAhmedWrembelZimanyi2017}; Maté, Trujillo et Mylopoulos relient objectifs, KPI et données d'entrepôt par une spécification sémantique~\cite{MateTrujilloMylopoulos2017}, et Roldán-García \emph{et al.} ajoutent une ontologie et des règles de raisonnement pour la sélection et la validation de KPI~\cite{RoldanGarciaEtAl2021}. Les définitions formelles d'indicateurs et les synthèses récentes des modèles sémantiques de performance complètent ce socle~\cite{DiamantiniKPISurvey2025}. MCAD ne revendique donc pas la création du lien stratégie--KPI--entrepôt; il prolonge ce continuum vers l'exécution interactive : l'objectif reste stratégique, mais il est opérationnalisé en contraintes et supports suffisants afin de déterminer, à l'instant $t$, ce que la requête courante rend effectivement calculable.
+
+Les objectifs multiples ou conflictuels et les politiques dépendantes de l'état constituent des extensions naturelles du cadre; l'optimisation contextuelle fournit notamment un voisinage pertinent pour ce second axe~\cite{SadanaEJOR2025}. La version évaluée de MCAD n'optimise pas encore des objectifs conflictuels et n'apprend pas une politique d'action.
+
+\subsection{Graphes de connaissances, OLAP sémantique et provenance}
+
+Les graphes de connaissances fournissent un cadre général pour représenter entités, relations, schémas et règles~\cite{HoganKGSurvey2021}; leur construction et évolution automatiques constituent un axe de recherche actif~\cite{ZhongKGC2024}. Dans le domaine DW/BI, les ontologies soutiennent la modélisation, l'intégration et l'interopérabilité sémantiques~\cite{AntunesCardosoBarateiro2022}. QB4OLAP et le RDF Data Cube Vocabulary relient représentation sémantique et structures multidimensionnelles~\cite{Etcheverry2014,W3CDataCube2014}; KG-OLAP formalise des opérations multidimensionnelles sur des graphes contextualisés~\cite{SchuetzSerafiniBozzato2021}, tandis que Staudinger \emph{et al.} mobilisent un graphe pour conserver contexte et provenance pendant l'analyse~\cite{StaudingerSchuetzSchrefl2025}.
+
+\paragraph*{Provenance des résultats et justification des supports}
+La provenance des résultats agrégés fournit un voisinage complémentaire pour l'explicabilité. AlOmeir \emph{et al.} proposent des résumés de provenance pour des requêtes d'agrégation afin de rendre plus lisible l'influence des données sources et de comparer la provenance de résultats agrégés~\cite{AlOmeirLaiMilaniPottinger2023}. Cette question reste distincte de celle de MCAD : la provenance explique de quelles données dépend un résultat; MCAD explique pourquoi les supports associés à ce résultat rendent, ou non, une contrainte de l'objectif calculable. Une provenance résumée pourrait donc être attachée à chaque support réalisé comme justification supplémentaire, sans modifier la définition de $\Delta\varphi$. Cette intégration n'est pas évaluée comme composante indépendante du prototype actuel. La provenance justifie la dépendance du résultat aux données sources; elle ne valide pas à elle seule la pertinence métier de la contrainte ni la suffisance du support pour l'objectif.
+
+SHACL fournit un langage standard de validation de graphes~\cite{W3CSHACL2017} et PROV-O un modèle standard de provenance~\cite{W3CPROVO2013}; les travaux récents de why-provenance éclairent la justification de l'existence d'une réponse~\cite{CalauttiEtAl2024}.
+
+Dans MCAD, le CKG assume une responsabilité plus spécifique : ancrer les contraintes et supports suffisants de l'objectif et maintenir la mémoire sémantique nécessaire au calcul de contribution relatif à la session. L'inspectabilité actuelle est dérivée d'objets symboliques -- clauses de $\mathrm{SAT}$, supports réalisés, contraintes calculables, masque $S^*$ et gain marginal -- plutôt que d'une provenance fine des tuples sources. En synthèse, la provenance explique l'origine d'une évidence; la traçabilité symbolique conserve le raisonnement MCAD; MCAD détermine la contribution de cette évidence à la calculabilité de l'objectif.
+
+\subsection{Finalité de valeur et lacune ciblée}
+
+Les familles précédentes n'optimisent pas nécessairement le même objet. La personnalisation et la recommandation visent principalement l'adaptation et la continuité de l'interaction; l'\emph{interestingness} caractérise l'intérêt informationnel ou cognitif; IAM formalise l'intention analytique; l'évaluation par benchmark compare une performance observée à une référence~\cite{FranciaAssess2021}; les modèles KPI organisent l'alignement objectif--indicateur; la résumabilité contrôle la correction d'une agrégation; la provenance explique l'origine ou les raisons d'un résultat. MCAD évalue une autre propriété : la progression vérifiable de la calculabilité d'un objectif stratégique explicite, au niveau de chaque requête et relativement à l'état de session. Cette distinction est un axe de positionnement conceptuel, et non une revendication de supériorité psychologique ou une question expérimentale supplémentaire.
+
+Le gap est donc formulé avec prudence. À notre connaissance, dans le corpus examiné, ces fonctions restent principalement distribuées entre des lignes spécialisées. MCAD vise à les articuler autour d'une sémantique opérationnelle commune : objectif stratégique $\rightarrow$ contraintes explicites $\rightarrow$ supports suffisants $\rightarrow$ plan canonique $\rightarrow$ admissibilité $\rightarrow$ supports réalisables $\rightarrow$ contraintes calculables $\rightarrow$ contribution marginale, avec une mémoire de session et une politique d'action distincte. La contribution distinctive réside dans cette unité d'évaluation requête/session et dans la chaîne qui la rend calculable et explicable.
+
+\subsection{Comparaison synthétique avec les approches les plus proches}
+
+Le Tableau~\ref{tab:comparative-approaches} effectue une comparaison frontale avec les voisins qui exposent le plus directement le risque de confusion sur la nouveauté : contribution d'exploration, recommandation de sessions, recommandation OLAP sensible au contexte, Intentional Analytics et ingénierie des exigences orientée objectifs. Les dimensions retenues distinguent l'entrée et l'unité d'analyse, l'état ou le contexte mobilisé, la finalité évaluée, le mécanisme de calcul et la sortie produite. Les cellules décrivent le centre de gravité des travaux cités et non l'absence exhaustive d'une capacité.
+
+\input{tables/fr/T_comparative_approaches_v8_6_1.tex}
+
+Cette matrice isole la différence de niveau plutôt qu'une prétendue exclusivité des briques. Djedaini \emph{et al.} apprennent une contribution d'exploration; Aligon \emph{et al.} et Negre \emph{et al.} assistent ou filtrent la navigation; IAM élève l'expression de l'analyse; RE4DW relie objectifs et conception multidimensionnelle; la résumabilité contrôle la correction du calcul; et la provenance documente sa dépendance aux données sources. MCAD se place au niveau intermédiaire de l'exécution interactive : il opérationnalise un objectif en contraintes et supports suffisants, puis calcule la variation de calculabilité induite par la requête relativement à l'état de session. En synthèse : \emph{résumabilité : le calcul est-il correct ? provenance : de quelles données dépend-il ? MCAD : quelles contraintes de l'objectif ce calcul rend-il nouvellement calculables ?}
+
+\section{Vue d'ensemble de MCAD}
+\label{sec:overview}
+
+À un niveau macroscopique, MCAD peut être vu comme une couche sémantique insérée entre l'analyste et l'entrepôt. Son rôle est double : (i) contrôler la cohérence des requêtes analytiques vis-à-vis du contexte, et (ii) mesurer leur contribution à la calculabilité d'objectifs stratégiques formellement spécifiés.
+
+\subsection{Chaîne conceptuelle de la requête à l'objectif}
+
+La Figure~\ref{fig:concept-chain} résume la chaîne conceptuelle centrale de MCAD : une requête OLAP est compilée en un plan canonique $QP$, puis soumise à une mise en correspondance sémantique avec le CKG, l'objectif courant et l'état de session. Cette opération induit un masque contextuel $S_t^*$ dont l'évaluation permet de caractériser la contribution marginale avant l'application d'une politique d'action configurable.
+
+\begin{figure*}[!t]
+\centering
+\resizebox{\textwidth}{!}{\input{figures/fr/F01_conceptual_chain.tex}}
+\caption{Chaîne conceptuelle centrale de MCAD : de la requête à l'indicateur de calculabilité stratégique, puis à une politique d\'action configurable.}
+\label{fig:concept-chain}
+\end{figure*}
+
+\subsection{Composants principaux de MCAD}
+
+Le graphe de connaissances contextuel (CKG) constitue la représentation opérationnelle du \textbf{contexte de l'analyse décisionnelle}. Il regroupe, dans une structure unique, le catalogue multidimensionnel (faits, dimensions, niveaux et mesures), la sémantique des KPI, les unités et agrégateurs, les contraintes métier, les scénarios, les fenêtres temporelles, l'objectif actif et les relations nécessaires pour interpréter l'état de session. Il ne joue donc pas le rôle d'un simple catalogue : il agit comme une mémoire sémantique active reliant ce que l'entrepôt peut fournir à ce que l'objectif exige de rendre calculable.
+
+L'objectif stratégique de l'organisation est modélisé comme un ensemble fini de contraintes attachées à une sémantique explicite des KPI. Pour chaque contrainte, MCAD identifie les cellules analytiques minimales requises pour son évaluation : combinaisons de fait, grain, mesures, agrégateurs, unités, filtres et période. Ces cellules sont représentées par des \emph{nœuds virtuels}.
+
+Chaque requête analytique est traduite en un plan de requête canonique capturant sa sémantique essentielle : fait visé, grain, mesures et agrégateurs, unités, filtres et fenêtre temporelle. Cette abstraction sépare le raisonnement de la syntaxe concrète. Dans le prototype évalué, des extracteurs sont matérialisés pour MDX et SQL analytique; le même principe peut être étendu à d'autres langages dès lors qu'un extracteur fiable vers $QP$ est disponible.
+
+Une fois un plan jugé contextuellement valide, MCAD détermine quels nœuds virtuels associés à l'objectif deviennent réalisables, puis en déduit quelles contraintes deviennent calculables. La mise en correspondance sémantique entre le plan, le contexte et les supports induit alors un masque contextuel inspectable. Ce masque ne décide d'aucune action : son évaluation alimente la mesure de contribution, éventuellement pondérée, puis la politique d'action choisit la réponse opérationnelle.
+
+\subsection{Fragment illustratif du CKG et construction pratique}
+
+La Figure~\ref{fig:ckg-fragment} montre un fragment simplifié de CKG centré sur une dimension, une mesure, un KPI, une contrainte et un nœud virtuel.
+
+\begin{figure}[!t]
+\centering
+\begin{tikzpicture}[
+  node distance=6mm and 10mm,
+  every node/.style={font=\scriptsize, align=center},
+  box/.style={draw, rounded corners=1mm, minimum width=16mm, minimum height=7mm, inner sep=2pt},
+  >=Stealth
+]
+\node[box] (d) {Dimension\\Produit};
+\node[box, right=of d] (m) {Mesure\\Marge\%};
+\node[box, below=of m] (k) {KPI\\Marge BIO\\Nord 1998};
+\node[box, right=of k] (c) {Contrainte\\$c_1$};
+\node[box, below=of c] (nv) {Nœud virtuel\\(HF, Nord,\\mois 1998)};
+\draw[->] (d) -- node[above]{has\_measure} (m);
+\draw[->] (m) -- node[right]{defines\_KPI} (k);
+\draw[->] (k) -- node[above]{linked\_to} (c);
+\draw[->] (c) -- node[right]{requires\_cell} (nv);
+\end{tikzpicture}
+\caption{Fragment simplifié de CKG reliant une dimension, une mesure, un KPI, une contrainte et un nœud virtuel.}
+\label{fig:ckg-fragment}
+\end{figure}
+
+En pratique, le CKG est construit à partir de plusieurs sources : le schéma multidimensionnel (faits, dimensions, hiérarchies, mesures), les métadonnées techniques (dictionnaires de données, règles ETL, contraintes d'intégrité), la documentation métier (définitions de KPI, procédures de reporting, règles métier) et des ateliers avec experts métier pour expliciter des règles implicites (incompatibilités de filtres, scénarios, unités admissibles ou fenêtres temporelles particulières).
+
+Un déploiement pourrait amorcer le CKG depuis le schéma et les métadonnées puis l'enrichir de connaissances métier, mais les expériences utilisent des CKG préparés à partir des schémas, règles et objectifs contrôlés du protocole. La construction automatique depuis documents, logs ou règles implicites reste donc future. Les résultats portent sur le raisonnement sur un CKG spécifié, non sur l'acquisition automatique de connaissances; le graphe pourrait être stocké dans une base de graphes de propriétés ou un triple store RDF.
+
+\section{Formalisation de MCAD}
+\label{sec:formal}
+
+Cette section introduit les principaux objets formels de MCAD. Nous distinguons d'abord le schéma multidimensionnel du \emph{contexte de l'analyse décisionnelle}, puis nous montrons comment ce contexte est représenté et interrogé dans le CKG. Nous définissons ensuite les objectifs stratégiques, les nœuds virtuels, les plans de requête canoniques, le prédicat de validité contextuelle, les mesures de contribution et la politique d'action. Les preuves détaillées des propriétés sont fournies dans l'Annexe~A.
+
+Le masque contextuel ne se confond ni avec le CKG, qui fournit le référentiel sémantique, ni avec $C_{\mathrm{eval}}$, qui désigne les contraintes rendues calculables, ni avec $\Delta\varphi_t$, qui mesure le gain marginal de calculabilité. Il constitue la représentation sémantique de la mise en correspondance entre le plan de requête, le contexte, les supports et les contraintes de l'objectif.
+
+\subsection{Contexte de l'analyse décisionnelle et graphe de connaissances contextuel}
+
+Nous considérons un entrepôt structuré selon un schéma multidimensionnel classique~\cite{ChaudhuriDayal97,KimballRoss2013}, comprenant un ensemble de tables de faits $F$, un ensemble de dimensions $D$ organisées en hiérarchies de niveaux, et un ensemble de mesures $M$. Pour une dimension $D\in D$, nous notons $L(D)$ l'ensemble de ses niveaux hiérarchiques. Un \emph{grain d'analyse} est un produit cartésien de niveaux :
+\[
+g = \prod_{D\in D_g} \ell_D,\quad \ell_D\in L(D),
+\]
+où $D_g\subseteq D$ est l'ensemble des dimensions présentes dans le grain $g$.
+
+Une \emph{entité analytique élémentaire} est un triplet $(f,g,m)$ où $f\in F$ est une table de faits, $g$ un grain, et $m$ une mesure ou un KPI dérivé calculé à ce grain.
+
+Le Tableau~\ref{tab:notation} résume les principales notations utilisées dans l'article.
+
+\input{tables/fr/T_notation.tex}
+
+Au temps $t$ d'une session, nous distinguons conceptuellement le contexte de l'analyse décisionnelle
+\[
+\mathcal{C}^{DA}_t=(\mathcal{W},O,C^*(O),\mathcal{K},\Sigma,\mathcal{U},\Omega,H_t),
+\]
+où $\mathcal{W}$ représente le schéma et le catalogue multidimensionnels; $O$ et $C^*(O)$ l'objectif actif et ses contraintes; $\mathcal{K}$ la sémantique des KPI et leurs règles de calcul; $\Sigma$ les scénarios, règles de slicers et compatibilités métier; $\mathcal{U}$ les unités et règles d'agrégation; $\Omega$ les règles et fenêtres temporelles; et $H_t$ l'état de session, notamment les contraintes et supports déjà acquis. Cette écriture est une vue logique : dans MCAD, ces composantes sont reliées par une représentation graphée afin que les décisions puissent être dérivées à partir de relations explicites plutôt que d'une collection de paramètres indépendants.
+
+Le contexte de l'analyse décisionnelle est ainsi matérialisé par un graphe de connaissances contextuel
+\[
+\mathrm{CKG}_t=(V_t,E_t,L),
+\]
+où $V_t$ est l'ensemble des nœuds disponibles à l'état $t$, $E_t\subseteq V_t\times L\times V_t$ l'ensemble des arêtes étiquetées, et $L$ l'ensemble des types de relations. La composante temporelle $t$ rappelle que certains objets de mémoire de session peuvent évoluer au cours de l'analyse, tandis que le catalogue et les règles métier restent généralement plus stables. Les nœuds représentent notamment :
+\begin{itemize}
+  \item des éléments de schéma (dimensions, niveaux, membres, mesures, KPI),
+  \item des objets de calcul (unités, agrégateurs, opérateurs), et
+  \item des éléments métier (contraintes, scénarios, fenêtres temporelles).
+\end{itemize}
+La littérature sur les graphes de connaissances, les indicateurs sémantiques et la conception multidimensionnelle motive l'emploi d'une représentation graphée et de définitions formelles des objets analytiques~\cite{HoganKGSurvey2021,DiamantiniKPISurvey2025,RomeroAbello2010}. Dans MCAD, les noms de relations \textit{rolls\_up\_to}, \textit{has\_measure}, \textit{defines\_KPI}, \textit{uses\_unit}, \textit{allowed\_agg}, \textit{requires\_grain}, \textit{conflicts\_with} et \textit{applicable\_in\_scenario} sont des choix de conception propres au prototype; ils ne sont pas attribués aux travaux cités. Les règles de calcul des KPI et les contraintes métier sont encodées sous forme de nœuds et d'arêtes supplémentaires.
+
+\subsection{Objectifs stratégiques, contraintes et nœuds virtuels}
+
+Un objectif stratégique global est modélisé par un couple
+\[
+O=(K^*(O),C^*(O)),
+\]
+où $K^*(O)$ est l'ensemble des KPI pertinents pour l'objectif et $C^*(O)$ un ensemble fini de contraintes analytiques. Chaque contrainte $c\in C^*(O)$ est associée à un KPI $\mathrm{KPI}(c)\in K^*(O)$ et à un prédicat $r_c$ qui, appliqué à un ensemble approprié d'entités analytiques, retourne soit une valeur booléenne (satisfaite / non satisfaite), soit un degré de satisfaction dans $[0,1]$. MCAD distingue explicitement la \emph{calculabilité} d'une contrainte (peut-on calculer la quantité nécessaire à son évaluation ?) et sa \emph{satisfaction effective} sur les données.
+
+Pour relier les contraintes à la structure de l'entrepôt, MCAD introduit des \emph{nœuds virtuels} :
+\[
+nv=(f,g,m,\alpha,u,S,w),
+\]
+où $f\in F$ est une table de faits, $g$ un grain, $m\in M$ une mesure ou un KPI, $\alpha$ un opérateur d'agrégation, $u$ une unité, $S$ un ensemble de filtres (conditions sur des membres de dimensions) et $w$ une fenêtre temporelle. Intuitivement, un nœud virtuel décrit une cellule analytique minimale caractérisée par :
+\begin{itemize}
+  \item une position dans le cube (grain $g$, filtres $S$, fenêtre temporelle $w$), et
+  \item une quantité observée ou dérivée (mesure $m$, agrégateur $\alpha$, unité $u$).
+\end{itemize}
+
+Pour chaque contrainte $c\in C^*(O)$, nous supposons un ensemble fini $N(c)$ de nœuds virtuels nécessaires à son calcul. Nous notons
+\[
+N(O)=\bigcup_{c\in C^*(O)} N(c).
+\]
+
+\paragraph*{Nœud virtuel illustratif}
+Considérons le nœud virtuel suivant, lié à une contrainte de marge sur une famille de produits BIO dans la région Nord :
+\[
+nv_1=(\textit{SALES},g,\mathrm{Margin\%},\mathrm{avg},\%,S,w),
+\]
+où $g$ fixe le grain \{Month=2024-03, ProductFamily=BIO, Region=North\}, $S=\{\text{Channel}=\text{Physical Store}\}$, et $w=[2024\text{-}03\text{-}01,2024\text{-}03\text{-}31]$. Si la marge moyenne observée pour cette cellule analytique est de $18.7\%$, le nœud virtuel $nv_1$ représente conceptuellement cette cellule indépendamment du langage de requête utilisé pour l'obtenir.
+
+\subsection{Plans de requête canoniques et validité contextuelle}
+
+Chaque requête analytique est abstraite en un \emph{plan de requête canonique}
+\[
+QP=(f_Q,g_Q,M_Q,\alpha_Q,u_Q,S_Q,w_Q),
+\]
+où $f_Q\in F$ est la table de faits visée, $g_Q$ le grain canonique de la requête, $M_Q\subseteq M$ l'ensemble fini des mesures ou KPI demandés, $\alpha_Q: M_Q \rightarrow Agg$ associe à chaque mesure son opérateur d'agrégation ou de calcul, $u_Q: M_Q \rightarrow U$ associe à chaque mesure son unité sémantique, $S_Q$ est un ensemble fini de slicers atomiques normalisés, et $w_Q$ une description canonique de la composante temporelle (dimension temps, niveau, intervalle, mode de comparaison et retard éventuel). Le grain $g_Q$ est défini comme une application partielle des dimensions actives vers leurs niveaux hiérarchiques après normalisation via le CKG.
+
+Le plan $QP$ n'est pas la syntaxe brute de la requête, mais une représentation canonique sémantique produite par un opérateur d'extraction
+\[
+\mathcal{E}_L(q,CKG)=QP,
+\]
+où $q$ est une requête écrite dans un langage analytique $L$ (MDX, SQL analytique, DAX, etc.). En MDX, les axes, membres, ensembles nommés, membres calculés et clauses de filtre sont compilés dans les seuls composants nécessaires au raisonnement contextuel, à savoir $g_Q$, $M_Q$, $\alpha_Q$, $u_Q$, $S_Q$ et $w_Q$. Deux requêtes dont les différences sont purement présentationnelles mais qui induisent la même sélection analytique conduisent donc au même plan canonique.
+
+La validité contextuelle d'un plan $QP$ est capturée par le prédicat
+\begin{equation}
+\label{eq:sat}
+\begin{aligned}
+\mathrm{SAT}(QP) \Leftrightarrow {} & \mathrm{grain\_ok}(QP)\wedge \mathrm{agg\_ok}(QP)\wedge \mathrm{unit\_ok}(QP) \\
+& \wedge \mathrm{slc\_ok}(QP)\wedge \mathrm{time\_ok}(QP) \\
+& \wedge \mathrm{nvac\_ok}(QP).
+\end{aligned}
+\end{equation}
+Chaque clause encode une famille de contraintes dérivées du CKG :
+\begin{itemize}
+  \item $\mathrm{grain\_ok}$ vérifie la compatibilité du grain avec les hiérarchies de dimensions et les règles de résumabilité ;
+  \item $\mathrm{agg\_ok}$ vérifie que les opérateurs d'agrégation demandés sont autorisés pour les mesures considérées selon les règles de résumabilité effectivement encodées dans le CKG; cette clause porte sur la correction sémantique du calcul et ne préjuge pas de sa contribution à l'objectif ;
+  \item $\mathrm{unit\_ok}$ vérifie la cohérence des unités (par exemple, pas de mélange de monnaies sans conversion) ;
+  \item $\mathrm{slc\_ok}$ vérifie la non-contradiction et la compatibilité des filtres ;
+  \item $\mathrm{time\_ok}$ vérifie la cohérence temporelle (périodes comparables, fenêtres valides, structure de retard admissible) ;
+  \item $\mathrm{nvac\_ok}$ vérifie que le sous-espace interrogé n'est pas \emph{a priori} vide selon le CKG.
+\end{itemize}
+
+Les relations entre slicers dans le CKG, telles que \texttt{mutex}, \texttt{includes} et \texttt{coherent}, sont particulièrement importantes pour $\mathrm{slc\_ok}$. Le Tableau~\ref{tab:slicers} illustre trois types de relations typiques.
+
+\input{tables/fr/T_slicer_relations.tex}
+
+La clause $\mathrm{slc\_ok}(QP)$ exploite directement ces relations : si deux slicers sont liés par \texttt{mutex}, la combinaison est rejetée ; si un slicer en inclut un autre, le filtre peut être simplifié ou normalisé ; les relations \texttt{coherent} valident explicitement certaines combinaisons métier.
+
+L'Algorithme~\ref{alg:sat} donne une version simplifiée du calcul de $\mathrm{SAT}(QP)$.
+
+\begin{algorithm}[!t]
+\caption{Vérification de la validité contextuelle $\mathrm{SAT}(QP)$}
+\label{alg:sat}
+\begin{algorithmic}[1]
+\REQUIRE Plan de requête $QP$, graphe $CKG$
+\ENSURE $\mathrm{SAT}(QP)\in\{\texttt{true},\texttt{false}\}$
+\STATE Extraire $(f_Q,g_Q,M_Q,\alpha_Q,u_Q,S_Q,w_Q)$ depuis $QP$
+\IF{$\mathrm{grain\_ok}(QP,CKG)$ est faux} \RETURN false \ENDIF
+\IF{$\mathrm{agg\_ok}(QP,CKG)$ est faux} \RETURN false \ENDIF
+\IF{$\mathrm{unit\_ok}(QP,CKG)$ est faux} \RETURN false \ENDIF
+\IF{$\mathrm{slc\_ok}(QP,CKG)$ est faux} \RETURN false \ENDIF
+\IF{$\mathrm{time\_ok}(QP,CKG)$ est faux} \RETURN false \ENDIF
+\IF{$\mathrm{nvac\_ok}(QP,CKG)$ est faux} \RETURN false \ENDIF
+\RETURN true
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Évidence réalisable, contraintes calculables et masque contextuel}
+
+Dans le pipeline opérationnel, $\mathrm{SAT}(QP)$ constitue le premier garde-fou : si $\mathrm{SAT}(QP)=\mathrm{false}$, la requête n'est pas autorisée par la politique stricte et les objets $\mathrm{Real}$ et $C_{\mathrm{eval}}$ ne sont pas invoqués pour justifier une autorisation. Inversement, $\mathrm{SAT}(QP)=\mathrm{true}$ n'implique pas une contribution positive; une requête admissible peut conduire à $\Delta\varphi_t=0$.
+
+Étant donné un objectif $O$ et un plan de requête $QP$, l'ensemble des nœuds virtuels réalisables par $QP$ est noté
+\[
+\mathrm{Real}(QP)\subseteq N(O).
+\]
+Pour un nœud virtuel
+\[
+nv=(f,g,m,\alpha,u,S,w),
+\]
+nous disons que $nv$ est réalisable par $QP$ si et seulement si : (i) $f_Q=f$ ou $f_Q$ raffine $f$ dans le CKG ; (ii) $g_Q$ est au moins aussi détaillé que $g$ sur chaque dimension pertinente ; (iii) il existe $m'\in M_Q$ tel que $m'$ corresponde à $m$, que $\alpha_Q(m')$ soit compatible avec $\alpha$, et que $u_Q(m')$ soit compatible avec $u$ ; (iv) les slicers requis par $nv$ soient couverts ou impliqués par $S_Q$ ; et (v) la fenêtre temporelle requise par $nv$ soit couverte par $w_Q$. Formellement,
+\[
+\mathrm{Real}(QP)=\{nv\in N(O)\mid \mathrm{Realizable}(nv,QP)\}.
+\]
+
+Pour chaque contrainte $c\in C^*(O)$, nous considérons une famille finie non vide de supports suffisants
+\[
+\mathcal{R}(c)=\{R_{c,1},\dots,R_{c,p_c}\},\quad R_{c,j}\subseteq N(O),
+\]
+où chaque $R_{c,j}$ est fini, non vide et suffit à rendre la contrainte calculable. Dans toute cette section formelle, $C^*(O)$ est fini et non vide; pour tout $c\in C^*(O)$, $1\le p_c<\infty$; et chaque support $R\in\mathcal R(c)$ est fini et non vide. La relation « support suffisant » est une donnée du modèle d'objectif et du CKG; elle n'est pas inférée automatiquement par le raisonneur MCAD dans la version évaluée. MCAD vérifie la réalisation des supports spécifiés et en déduit la calculabilité correspondante. La validité de cette spécification métier constitue donc une hypothèse du mécanisme. Nous définissons alors
+\[
+C_{\mathrm{eval}}(QP,O)=\{c\in C^*(O)\mid \exists R\in \mathcal{R}(c),\ R\subseteq \mathrm{Real}(QP)\}.
+\]
+La quantification existentielle est essentielle : pour une contrainte donnée, la calculabilité complète est obtenue dès qu'au moins un support suffisant est entièrement réalisé; les supports alternatifs n'ont pas à être réalisés simultanément. $\mathrm{Real}(QP)$ désigne ici des nœuds virtuels satisfaisant l'ensemble des compatibilités canoniques requises (fait, grain, mesure, agrégateur, unité, slicers et temps), et non la simple présence d'une mesure dans la requête.
+Dans le cas particulier où chaque contrainte admet un unique support minimal $N(c)$, cela se réduit à
+\[
+C_{\mathrm{eval}}(QP,O)=\{c\in C^*(O)\mid N(c)\subseteq \mathrm{Real}(QP)\}.
+\]
+
+\paragraph*{Calculabilité partielle intra-contrainte}
+La définition précédente caractérise la \emph{calculabilité complète} d'une contrainte. Pour représenter une progression interne avant que l'un de ses supports suffisants soit entièrement réalisé, nous introduisons un degré de couverture d'un support $R\in\mathcal{R}(c)$ par un ensemble de nœuds réalisables $X\subseteq N(O)$ :
+\[
+\rho(R,X)=\frac{|R\cap X|}{|R|}\in[0,1],\qquad R\neq\emptyset.
+\]
+Le degré de calculabilité intra-contrainte de $c$ est alors
+\[
+\kappa_c(X)=\max_{R\in\mathcal{R}(c)}\rho(R,X).
+\]
+Ainsi, $\kappa_c(X)=0$ signifie qu'aucun élément d'un support suffisant n'est encore réalisé, $0<\kappa_c(X)<1$ décrit une \emph{calculabilité partielle intra-contrainte}, et $\kappa_c(X)=1$ signifie qu'au moins un support suffisant est entièrement réalisé et donc que $c$ est complètement calculable. Cette définition non pondérée attribue le même poids aux éléments d'un support; une variante pondérée peut être utilisée lorsque la sémantique métier justifie des poids explicites.
+
+Pour une requête, la calculabilité graduée correspondante est
+\[
+\psi(QP,O)=\frac{1}{|C^*(O)|}\sum_{c\in C^*(O)}\kappa_c(\mathrm{Real}(QP)).
+\]
+On a $c\in C_{\mathrm{eval}}(QP,O)$ si et seulement si $\kappa_c(\mathrm{Real}(QP))=1$; ainsi, $\varphi(QP,O)$ ne compte que les contraintes complètement calculables, tandis que $\psi(QP,O)$ conserve aussi la progression intra-contrainte.
+
+Au niveau d'une session, $E_0\subseteq N(O)$ désigne l'évidence déjà acquise et retenue au début d'une phase sémantique. Pour $t\ge1$, $A_t$ contient uniquement l'évidence effectivement acquise à l'étape $t$, avec $A_t\subseteq\mathrm{Real}(QP_t)$ et la mise à jour monotone $E_t=E_{t-1}\cup A_t$. Une requête bloquée, non exécutée ou dont l'évidence n'est pas acquise vérifie $A_t=\emptyset$. Nous définissons
+\[
+\psi^{\le t}(O)=\frac{1}{|C^*(O)|}\sum_{c\in C^*(O)}\kappa_c(E_t).
+\]
+Le gain marginal gradué est
+\[
+\Delta\psi_t=\psi^{\le t}(O)-\psi^{\le t-1}(O).
+\]
+Cette extension peut représenter l'accumulation de supports partiels à travers plusieurs requêtes. Les campagnes rapportées dans cet article utilisent toutefois la mesure binaire $\varphi/\Delta\varphi$ fondée sur les contraintes complètement calculables; $\psi/\Delta\psi$ n'est pas utilisé pour réinterpréter les décisions ALLOW/BLOCK ni les résultats expérimentaux existants.
+
+\paragraph*{Hypothèses de phase et conventions d'interprétation}
+Les propriétés précédentes et suivantes sont conditionnelles à une \emph{phase sémantique} fixée. (H1) L'objectif $O$, les contraintes $C^*(O)$, les supports suffisants $\mathcal{R}(c)$ et les règles contextuelles restent fixes pendant la phase; un changement explicite de KPI, de périmètre, de règle métier ou de support définit une nouvelle base de comparaison. (H2) Les éléments d'un support sont des unités analytiques canoniques et sémantiquement atomiques au niveau de représentation choisi; ils ne sont pas raffinés arbitrairement au cours de la phase. (H3) Lorsque plusieurs supports alternatifs sont suffisants, le maximum dans $\kappa_c$ mesure la progression vers l'alternative suffisante actuellement la plus avancée; il ne représente ni une probabilité de succès, ni le degré de satisfaction métier de la contrainte. (H4) Seule l'évidence effectivement acquise dans $E_t$ est comptée; une composante inconnue ou non observée n'est pas assimilée à une composante réalisée, de sorte que $\kappa_c$ se lit comme une couverture de l'évidence disponible. (H5) Lorsque la variante pondérée est utilisée, les poids sont des priorités exogènes, positives et fixées avec l'objectif; ils ne sont pas appris à partir des décisions MCAD. Les campagnes de cet article évaluent la version non pondérée $\varphi/\Delta\varphi$; l'extension $\kappa/\psi$ conserve ici un statut formel.
+
+La mise en correspondance sémantique est notée conceptuellement $\mathcal{M}(QP,C_t^{DA},O)$. Le masque contextuel induit $S_t^*$ représente les éléments du plan canonique retenus par cette mise en correspondance avec le contexte et les supports de l'objectif. Dans l'instanciation formelle évaluée, le masque est défini par
+\[
+S^*(QP,O)=\bigcup_{c\in C_{\mathrm{eval}}(QP,O)} \ \bigcup_{\substack{R\in \mathcal{R}(c)\\R\subseteq \mathrm{Real}(QP)}} R,
+\]
+et, dans le cas simple,
+\[
+S^*(QP,O)=\bigcup_{c\in C_{\mathrm{eval}}(QP,O)} N(c).
+\]
+Le masque $S_t^*$ ne représente pas nécessairement l'ensemble des résultats retournés par la requête et ne remplace ni les contraintes calculables ni la mesure de contribution. Dans le prototype, sa matérialisation correspond à un objet inspectable relié au CKG et à l'état de session; elle ne constitue ni une réécriture du catalogue multidimensionnel ni une provenance fine des tuples sources.
+
+La chaîne suivante fournit une vue conceptuelle complémentaire, sans modifier les équations précédentes :
+\[
+\begin{aligned}
+q_t&\rightarrow QP_t\rightarrow \mathcal{M}(QP_t,C_t^{DA},O)\rightarrow S_t^*\\
+   &\rightarrow \operatorname{Eval}(S_t^*)\rightarrow \Delta\varphi_t\rightarrow \pi_{\mathrm{act}}.
+\end{aligned}
+\]
+Ici, $\mathcal{M}$ désigne la mise en correspondance sémantique, $S_t^*$ le masque contextuel, $\operatorname{Eval}(S_t^*)$ l'évaluation de contribution, $\Delta\varphi_t$ la contribution marginale et $\pi_{\mathrm{act}}$ la politique d'action.
+
+\subsection{Mesures de contribution, progression de session et complexité}
+
+Pour un objectif $O$ tel que $|C^*(O)|\ge 1$, la contribution non pondérée de $QP$ à $O$ est définie par
+\[
+\varphi(QP,O)=\frac{|C_{\mathrm{eval}}(QP,O)|}{|C^*(O)|}\in[0,1].
+\]
+Une variante pondérée utilise des poids positifs $w_c>0$ :
+\[
+\varphi_w(QP,O)=\frac{\sum_{c\in C_{\mathrm{eval}}(QP,O)} w_c}{\sum_{c\in C^*(O)} w_c}.
+\]
+Dans cette variante, les poids $w_c$ expriment une priorisation métier exogène et restent fixes à l'intérieur d'une phase. Leur modification peut changer le classement relatif de requêtes et est alors interprétée comme un changement explicite de priorités, non comme une violation de la monotonie du modèle. Les résultats expérimentaux rapportés ci-dessous utilisent la mesure non pondérée.
+Pour la sémantique de session, l'accumulation fondée sur l'évidence est canonique :
+\[
+C_E^{\le t}(O)=\left\{c\in C^*(O)\mid \exists R\in\mathcal R(c),\ R\subseteq E_t\right\}.
+\]
+Pour la comparer à la complétion par requêtes tout en autorisant un état initial non vide, on définit
+\[
+C_Q^{\le t}(O;E_0)=C_E^{\le0}(O)\cup\bigcup_{i=1}^{t} C_{\mathrm{eval}}(QP_i,O).
+\]
+Lorsque $E_0=\emptyset$, cette expression se réduit à l'union par requêtes exercée dans les sessions historiques auditées. Nous posons
+\[
+C_{\mathrm{eval}}^{\le t}(O):=C_E^{\le t}(O),\qquad
+\varphi^{\le t}(O)=\frac{|C_{\mathrm{eval}}^{\le t}(O)|}{|C^*(O)|},
+\]
+et $\Delta\varphi_t=\varphi^{\le t}(O)-\varphi^{\le t-1}(O)$.
+
+Deux conditions par étape rendent le raccourci fondé sur les requêtes directement testable. (A1) \emph{Cohérence entre complétion par requête et acquisition} : $C_{\mathrm{eval}}(QP_i,O)\subseteq C_E^{\le i}(O)$. (A2) \emph{Complétion par une requête de toute contrainte nouvellement calculable} : $C_E^{\le i}(O)\setminus C_E^{\le i-1}(O)\subseteq C_{\mathrm{eval}}(QP_i,O)$. A2 signifie que, lorsqu'une contrainte devient calculable pour la première fois selon l'évidence, la requête courante réalise à elle seule un support suffisant complet; elle n'impose pas que le support soit singleton. Les chemins Q1--Q6, B/C et RQ4 gelé satisfont ces conditions transition par transition. Pour FoodMart-1000, les 2266 événements ALLOW effectivement acquis et leur progression cumulative sont auditables, mais les sorties brutes $C_{\mathrm{eval}}$ des 5694 candidats bloqués n'ont pas été conservées; une égalité exhaustive requête par requête sur les 7960 décisions n'est donc pas revendiquée. Aucun résultat numérique publié n'est modifié par cette clarification de frontière.
+
+Deux niveaux de partialité doivent être distingués. Au niveau de l'objectif, la couverture complète reste \emph{nulle} si $C_{\mathrm{eval}}(QP,O)=\emptyset$, \emph{partielle} si $0<|C_{\mathrm{eval}}(QP,O)|<|C^*(O)|$, et \emph{totale} si $C_{\mathrm{eval}}(QP,O)=C^*(O)$. Au niveau d'une contrainte individuelle, $0<\kappa_c(X)<1$ exprime une calculabilité partielle intra-contrainte. La contribution reste relative à la requête et à l'état de session. Reproduire une évidence déjà acquise peut donner $\Delta\varphi_t=0$ et $\Delta\psi_t=0$, mais $\Delta\varphi_t=0$ n'implique pas en général $A_t=\emptyset$ ni $\Delta\psi_t=0$ : sous une politique non stricte, une requête exécutée peut acquérir une évidence partielle autorisée sans compléter encore un support suffisant. Les campagnes strictes rapportées utilisent la mesure binaire fondée sur les supports complets et ne sont pas réinterprétées à travers ce cas gradué.
+
+Nous rappelons quelques propriétés simples; leurs preuves détaillées sont fournies dans l'Annexe~A.
+
+\begin{proposition}
+\label{prop:borne}
+Pour tout objectif $O$ et tout plan de requête $QP$ tel que $|C^*(O)|\ge 1$, on a $\varphi(QP,O)\in[0,1]$. De plus :
+\begin{itemize}
+  \item $\varphi(QP,O)=0$ si et seulement si $C_{\mathrm{eval}}(QP,O)=\emptyset$ ;
+  \item $\varphi(QP,O)=1$ si et seulement si $C_{\mathrm{eval}}(QP,O)=C^*(O)$.
+\end{itemize}
+\end{proposition}
+
+\begin{proposition}
+\label{prop:mono-real}
+Soient $QP_a$ et $QP_b$ deux plans de requête et $O$ un objectif. Si $\mathrm{Real}(QP_a)\subseteq \mathrm{Real}(QP_b)$, alors $\varphi(QP_a,O)\le \varphi(QP_b,O)$.
+\end{proposition}
+
+\begin{proposition}
+\label{prop:session}
+Pour une session $(QP_1,\dots,QP_T)$, la suite $(\varphi^{\le t}(O))_{t=1,\dots,T}$ est monotone non décroissante et bornée dans $[0,1]$. En particulier, $\Delta\varphi_t\ge 0$ pour tout $t$.
+\end{proposition}
+
+\begin{proposition}
+\label{prop:graded}
+Pour tout $QP$, $\psi(QP,O)\in[0,1]$ et $\varphi(QP,O)\le\psi(QP,O)$. Sous une accumulation monotone de l'évidence $E_{t-1}\subseteq E_t$, chaque $\kappa_c(E_t)$ et la suite $(\psi^{\le t}(O))_{t=1,\dots,T}$ sont monotones non décroissantes et bornées dans $[0,1]$; en particulier, $\Delta\psi_t\ge 0$.
+\end{proposition}
+
+\begin{proposition}
+\label{prop:session-equivalence}
+Supposons, dans une même phase sémantique, que pour toute étape $i$ : (A1) $C_{\mathrm{eval}}(QP_i,O)\subseteq C_E^{\le i}(O)$ et (A2) $C_E^{\le i}(O)\setminus C_E^{\le i-1}(O)\subseteq C_{\mathrm{eval}}(QP_i,O)$. Alors, pour tout $t$, $C_Q^{\le t}(O;E_0)=C_E^{\le t}(O)$. Si (A1) est conservée mais que (A2) est levée, alors $C_Q^{\le t}(O;E_0)\subseteq C_E^{\le t}(O)$, et l'inclusion peut être stricte.
+\end{proposition}
+
+En termes de complexité, une implémentation naïve calcule $\mathrm{Real}(QP)$ en $O(|N(O)|\cdot c_{\mathrm{ckg}})$, où $c_{\mathrm{ckg}}$ représente le coût moyen d'une vérification de compatibilité. Avec des représentations indexées des nœuds virtuels et des supports suffisants, ainsi que des tests d'appartenance/compatibilité indexés en temps constant, un parcours direct du cœur du raisonneur est borné par
+\[
+O\!\left(|N_{\mathrm{cand}}(O)|+\sum_{c\in C^*(O)}\sum_{R\in\mathcal R(c)}|R|\right),
+\]
+soit un coût linéaire dans les nœuds virtuels candidats et les éléments de supports effectivement parcourus sous ces hypothèses. Cette borne exclut l'extraction du plan canonique, la construction ou maintenance du CKG, l'accès aux données du backend et la résolution de règles métier générales non indexées; elle ne constitue donc pas une borne de bout en bout du système analytique.
+
+\subsection{Indicateur de contribution et politique d'action}
+
+Les objets précédents définissent un \emph{indicateur sémantique de contribution} indépendamment de toute stratégie d'interface ou d'exécution. Pour la requête $QP_t$, nous notons
+\[
+\begin{aligned}
+z_t=\bigl(&\mathrm{SAT}(QP_t),C_{\mathrm{eval}}(QP_t,O),S^*(QP_t,O),\\
+&\varphi^{\le t}(O),\Delta\varphi_t\bigr).
+\end{aligned}
+\]
+Dans le modèle gradué, cet indicateur peut être enrichi par le vecteur $(\kappa_c(E_t))_{c\in C^*(O)}$, $\psi^{\le t}(O)$ et $\Delta\psi_t$. La politique stricte évaluée expérimentalement dans cet article reste toutefois fondée sur la calculabilité complète $\varphi/\Delta\varphi$; aucune performance empirique supplémentaire n'est attribuée ici à l'extension graduée.
+Une application choisit ensuite une politique
+\[
+a_t=\pi_{\mathrm{act}}(z_t,\mathcal{C}^{DA}_t),\qquad
+ a_t\in\mathcal{A},
+\]
+avec, par exemple,
+\[
+\begin{aligned}
+\mathcal{A}=\{&\textsc{Exécuter},\ \textsc{Notifier},\ \textsc{Avertir},\\
+              &\textsc{Guider},\ \textsc{Recommander},\ \textsc{Bloquer}\}.
+\end{aligned}
+\]
+Dans la suite, l'expression « requête non contributive » désigne une requête admissible pour laquelle le gain marginal de calculabilité est nul relativement à l'objectif et à l'état de session considérés. Elle ne signifie ni que la requête est syntaxiquement invalide, ni qu'elle est inutile pour l'utilisateur ou pour une autre analyse. Cette séparation est importante : $\Delta\varphi_t=0$ signifie que la requête n'apporte aucune nouvelle calculabilité relativement à l'objectif et à la session; il ne signifie pas, par définition, que l'exécution doit être interdite. Une interface exploratoire peut simplement notifier la redondance, une application pédagogique peut guider l'utilisateur vers une requête plus contributive, un recommender peut proposer une alternative, et un environnement de gouvernance stricte peut bloquer la requête avant le backend.
+
+Le prototype expérimental utilise principalement une politique stricte afin de tester l'application opérationnelle de l'indicateur : les requêtes inadmissibles ou non contributives sont associées à \textsc{Block}, tandis que les requêtes contributives sont associées à \textsc{Allow} et peuvent être transmises au backend. Cette politique constitue un \emph{cas d'application} de $\pi_{\mathrm{act}}$ et non une propriété nécessaire du modèle MCAD.
+
+\subsection{Abstraction canonique et indépendance vis-à-vis du langage de requête}
+
+Le formalisme de MCAD dépend d'une représentation canonique
+$QP=(f_Q,g_Q,M_Q,\alpha_Q,u_Q,S_Q,w_Q)$, et non d'une syntaxe de requête
+particulière. L'indépendance revendiquée à ce niveau est donc une propriété
+d'interface conceptuelle : pour tout langage analytique $L$ pour lequel un
+extracteur fiable $\mathcal{E}_L(q,CKG)=QP$ est disponible, le même raisonneur
+$\mathrm{SAT}/\mathrm{Real}/C_{\mathrm{eval}}/\varphi$ peut être réutilisé sans
+modifier sa sémantique.
+
+Cette propriété ne signifie pas que des extracteurs de maturité équivalente
+existent ou ont été validés pour tous les langages analytiques. La
+Section~\ref{sec:arch} décrit séparément les chemins effectivement implémentés
+dans le prototype courant (MDX, SQL analytique et plan canonique matérialisé),
+tandis que la Section~\ref{sec:exp} borne les affirmations de préservation aux
+datasets, adaptateurs et backends effectivement exercés expérimentalement.
+
+\section{Architecture du prototype et flux de travail}
+\label{sec:arch}
+
+L'architecture sépare le contexte de l'analyse décisionnelle porté par le CKG, le raisonnement de contribution MCAD, la politique d'action et l'exécution analytique, afin de ne pas confondre le modèle de calculabilité avec la politique stricte ALLOW/BLOCK utilisée dans certaines expériences. La Figure~\ref{fig:arch-mcad} présente ces couches.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.98\columnwidth]{figures/fr/fig_mcad_architecture_v8_2_singlecol.pdf}
+\caption{Architecture monocolonne de MCAD. Le CKG matérialise le contexte de l'analyse décisionnelle; le cœur MCAD calcule l'admissibilité, les supports réalisables, les contraintes calculables et la contribution marginale; une politique d'action configurable transforme ensuite cette évaluation en interaction ou en contrôle avant l'éventuelle exécution physique.}
+\label{fig:arch-mcad}
+\end{figure}
+
+\subsection{Couche session et acquisition de la requête}
+
+L'analyste travaille dans une session associée à un objectif stratégique actif. L'interface maintient l'identité de l'objectif $O$, la requête courante $q_t$ et l'état $H_{t-1}$ de la session. Les adaptateurs d'entrée extraient depuis MDX ou SQL analytique --- ou reçoivent directement --- un plan canonique $QP_t$. La représentation canonique permet au raisonneur de travailler sur une sémantique homogène indépendamment de la syntaxe front-end effectivement implémentée.
+
+\subsection{Couche contexte de l'analyse décisionnelle / CKG}
+
+Le CKG est organisé autour de quatre familles d'objets : (i) le catalogue multidimensionnel (faits, dimensions, hiérarchies, mesures); (ii) la sémantique métier (KPI, unités, agrégateurs, scénarios et règles temporelles); (iii) le modèle d'objectif (contraintes $C^*(O)$, nœuds virtuels et supports suffisants); et (iv) la mémoire de session (contraintes déjà calculables et supports utiles observés). Cette couche fournit aux vérifications de $\mathrm{SAT}$, $\mathrm{Real}$ et $C_{\mathrm{eval}}$ les relations nécessaires pour raisonner dans le contexte de l'analyse décisionnelle plutôt que sur la seule structure syntaxique de la requête.
+
+\subsection{Cœur de raisonnement MCAD}
+
+Le pipeline sémantique conserve la chaîne formelle $QP\rightarrow\mathrm{SAT}\rightarrow\mathrm{Real}\rightarrow C_{\mathrm{eval}}\rightarrow S^*\rightarrow\varphi,\Delta\varphi$. Sur le plan conceptuel, le CKG fournit le référentiel dans lequel le plan est mis en correspondance; le masque contextuel constitue la représentation induite de cette mise en correspondance pour la requête, l'objectif et l'état de session considérés. Son évaluation alimente la mesure de contribution, puis la politique $\pi_{\mathrm{act}}$ transforme cette mesure en action opérationnelle. Les sorties sont conservées comme objets inspectables : clauses d'admissibilité, supports réalisés/manquants, contraintes calculables, masque contextuel et progression cumulative. Le prototype évalué implémente et expose la chaîne de raisonnement au niveau requête ainsi que le comportement de session exercé par les campagnes historiques gelées. La sémantique générale fondée sur l'évidence $C_E$ --- incluant l'assemblage multi-requêtes d'un support et l'accumulation arbitraire de supports alternatifs --- est spécifiée formellement et testée en régression par le modèle de référence; le présent article ne prétend pas que chacun de ces cas généralisés est entièrement implémenté par l'accumulateur de session candidat inspecté séparément.
+
+\input{tables/fr/T_prototype_formal_coverage_V8_7_6.tex}
+
+\subsection{Politique d'action et exécution physique}
+
+Le résultat du raisonnement est transmis à $\pi_{\mathrm{act}}$, qui choisit une action selon le contexte de déploiement. Une politique d'assistance peut afficher un avertissement ou une notification pour une requête redondante; une politique de guidage peut suggérer une requête dont $\Delta\varphi$ attendu est positif; une politique de recommandation peut classer des alternatives; une politique permissive peut exécuter malgré $\Delta\varphi=0$ tout en enregistrant l'indicateur de contribution; enfin, une politique stricte peut utiliser \textsc{Block} pour empêcher l'effet physique. Dans le prototype de démonstration, cette dernière configuration est utilisée pour vérifier qu'une non-contribution identifiée peut effectivement être appliquée avant SQL Direct ou XMLA/Mondrian.
+
+\subsection{Retour utilisateur, mémoire de session et traçabilité}
+
+L'interface peut restituer le résultat, les contraintes nouvellement calculables, $\varphi^{\le t}(O)$, $\Delta\varphi_t$ et une explication formelle. Sur les chemins évalués, l'état de session est mis à jour avec l'évidence créditée par le protocole; la sémantique générale $E_t/C_E$ reste la référence normative pour l'accumulation multi-requêtes future, tandis que la revendication du prototype est limitée aux chemins exercés. La traçabilité conserve plan canonique, clauses, supports, masque et action. Une provenance fine au niveau tuple n'est pas implémentée, mais des résumés de support pourraient être ajoutés sans modifier $C_{\mathrm{eval}}$ ni $\Delta\varphi$.
+Une provenance fine au niveau des tuples sources n'est pas implémentée dans le prototype évalué. Une extension future pourrait associer à chaque support réalisé un résumé de provenance du résultat qui l'a instancié, sans modifier $C_{\mathrm{eval}}$ ni $\Delta\varphi$.
+
+\subsection{Flux de travail de bout en bout}
+
+Le workflow peut être résumé comme suit :
+\begin{enumerate}
+  \item sélectionner ou définir l'objectif $O$ et initialiser son contexte dans le CKG ;
+  \item soumettre une requête $q_t$ et l'extraire en plan canonique $QP_t$ ;
+  \item effectuer la mise en correspondance sémantique, construire le masque $S_t^*$ et évaluer $\mathrm{SAT}$, $\mathrm{Real}$, $C_{\mathrm{eval}}$, $\varphi^{\le t}$ et $\Delta\varphi_t$ ;
+  \item appliquer la politique $\pi_{\mathrm{act}}$ adaptée au déploiement (exécution, notification, avertissement, guidage, recommandation ou blocage) ;
+  \item si l'action le prévoit, transmettre la requête au backend et récupérer le résultat ; et
+  \item mettre à jour $H_t$ et restituer à l'analyste l'explication et la progression de session.
+\end{enumerate}
+
+
+\section{Évaluation expérimentale}
+\label{sec:exp}
+\label{sec:experiments}
+
+\subsection{Questions d'évaluation et protocole}
+
+Les objectifs, contraintes et supports suffisants utilisés dans les workloads constituent la spécification de référence des protocoles contrôlés. Ils servent à tester la cohérence du raisonneur relativement à un CKG et à un objectif donnés; ils ne constituent pas une validation indépendante de la pertinence métier de cette décomposition. La présente étude ne mesure ni l'accord entre experts, ni la concordance entre la calculabilité formelle et l'utilité jugée par des analystes réels. Dans le benchmark de robustesse, les champs de référence \texttt{oracle\_allow} et \texttt{oracle\_ceval} sont portés par la spécification du scénario et lus avant l'appel à la politique testée; ils ne sont pas dérivés de la décision produite par cette politique.
+
+L'évaluation est structurée par six questions qui séparent l'évaluation scientifique de contribution, son instanciation opérationnelle et les propriétés du prototype :
+\begin{itemize}
+  \item \textbf{RQ1 -- Discrimination de contribution :} MCAD distingue-t-il les requêtes contributives, inadmissibles et redondantes, et met-il correctement à jour la calculabilité cumulative de la session ?
+  \item \textbf{RQ2 -- Application avant backend :} lorsqu'une politique stricte ALLOW/BLOCK exploite l'indicateur MCAD, l'action est-elle appliquée de façon cohérente avant l'exécution physique sur un volume important de sessions ?
+  \item \textbf{RQ3 -- Préservation de la sémantique :} les décisions et leurs raisons sont-elles préservées entre plusieurs entrepôts et entre les chemins SQL Direct et XMLA dans les scénarios appariés ?
+  \item \textbf{RQ4 -- Robustesse contrôlée et sensibilité des composants :} comment MCAD se compare-t-il à des politiques de référence internes et à des ablations ciblées sous scénarios adversariaux, bruités et plus longs ?
+  \item \textbf{RQ5 -- Croissance structurelle :} comment évoluent les nœuds, arêtes et nœuds virtuels du CKG lorsque la taille du problème augmente ?
+  \item \textbf{RQ6 -- Coût de la décision sémantique :} comment évoluent p50, p95 et p99 lorsque varient le nombre de contraintes, le nombre de nœuds virtuels et la densité d'appartenance ?
+\end{itemize}
+
+Le Tableau~\ref{tab:evaluation-scope} matérialise la couverture de ces questions. Il distingue trois classes de preuve qui ne doivent pas être confondues : (i) les preuves physiques de bout en bout, où la requête atteint effectivement SQL Direct ou XMLA lorsque la politique l'autorise; (ii) le benchmark contrôlé du cœur sémantique, utilisant des politiques de référence internes et des ablations ciblées; et (iii) les caractérisations structurelles et temporelles de la couche MCAD. Cette triangulation augmente la portée empirique sans transformer des tests hétérogènes en réplications interchangeables.
+
+\input{tables/fr/T_evaluation_scope_v8_5_1.tex}
+
+Les métriques sont choisies en conséquence : couverture et gain de calculabilité, cohérence entre action choisie et effet physique, taux de \emph{false ALLOW}/\emph{false BLOCK}, exécutions non contributives, taille du CKG et quantiles p50/p95/p99 de la décision sémantique. Ces quantiles ne mesurent pas le temps d'exécution SQL/XMLA. La trace Q1--Q6 est une séquence instrumentée de bout en bout et n'est pas interprétée comme six réplications indépendantes; l'étude FoodMart porte sur 1000 sessions et 7960 décisions.
+
+\subsection{Preuve de fonctionnement de bout en bout}
+
+Une trace AdventureWorks de six requêtes illustre la politique stricte de démonstration. Q1--Q3 fournissent successivement les supports de \emph{SalesAmount}, \emph{TotalProductCost} et \emph{GrossMargin}, faisant passer la calculabilité cumulative de $1/3$ à $2/3$ puis à $1$; chacune est autorisée et exécutée physiquement. Q4--Q6 testent hors-périmètre, grain incompatible et redondance après couverture complète et sont arrêtées avant le backend. Les mêmes évaluations pourraient alimenter avertissement, guidage ou recommandation.
+
+Ce scénario illustre deux propriétés centrales : l'admissibilité contextuelle est nécessaire mais non suffisante, et la contribution est relative à l'état de session. Q6 satisfait les clauses de validité mais n'ajoute aucune contrainte nouvelle; son gain marginal est nul. La politique stricte de démonstration choisit donc \textsc{Block}; ce choix opérationnel n'est pas impliqué par la seule équation $\Delta\varphi=0$.
+
+\input{tables/fr/T_q1_q6_diagnostic_v8_5_1.tex}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=0.60\textwidth]{figures/fr/F_ui_native_q1.png}\par
+\vspace{1.4mm}
+{\scriptsize (a) Q1 : contribution positive, ALLOW et exécution physique}\par
+\vspace{4.0mm}
+\includegraphics[width=0.60\textwidth]{figures/fr/F_ui_native_overview_3_3.png}\par
+\vspace{1.4mm}
+{\scriptsize (b) Après Q6 : 3 ALLOW / 3 BLOCK et objectif calculable à 100\%}\par
+\vspace{4.0mm}
+\includegraphics[width=0.60\textwidth]{figures/fr/F_ui_native_q6.png}\par
+\vspace{1.4mm}
+{\scriptsize (c) Q6 : admissible, redondante, $\Delta\varphi=0$, sans exécution physique}
+\caption{Preuve visuelle de bout en bout sous la politique stricte de démonstration. (a) Q1 apporte un support nouveau, reçoit l'action ALLOW et atteint le backend. (b) Après les six requêtes, la vue d'ensemble de la session affiche 3 ALLOW, 3 BLOCK et une calculabilité stratégique de 100\%. (c) Q6 reste contextuellement admissible mais n'ajoute aucune calculabilité; l'instanciation stricte choisit BLOCK et interrompt l'exécution avant le backend. Les trois panneaux proviennent de captures réelles de la même session instrumentée.}
+\label{fig:ui-evidence}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F04_q1_q6_coverage.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F05_q1_q6_gate_execution.tex}\end{minipage}
+\caption{Trace Q1--Q6 : (gauche) progression de la calculabilité cumulative; (droite) instanciation de l'indicateur par la politique stricte ALLOW/BLOCK et effet physique correspondant.}
+\label{fig:decision-trace}
+\end{figure*}
+
+\subsection{Exécution à grande échelle et préservation multi-configuration}
+
+Le workload FoodMart regroupe 1000 sessions analytiques et 7960 décisions. Sous la politique stricte évaluée, 2266 requêtes sont associées à ALLOW et 5694 à BLOCK. Dans ce périmètre, toutes les requêtes autorisées atteignent l'exécution physique et toutes les requêtes bloquées sont arrêtées avant le backend; les 7960 décisions respectent le contrat canonique décision--effet physique, sans violation observée. L'audit historique A1 reconstruit indépendamment les 2266 événements ALLOW acquis et leur progression cumulative. En revanche, la campagne n'a pas conservé les sorties brutes $C_{\mathrm{eval}}$ des 5694 candidats bloqués; l'article ne revendique donc pas une reconstruction exhaustive, candidat par candidat, de $C_Q^{\le t}=C_E^{\le t}$ sur les 7960 décisions. Il s'agit d'une frontière de conservation des traces, et non d'une modification des décomptes d'action ou d'exécution physique publiés.
+
+Une réagrégation secondaire des motifs enregistrés, sans nouvelle exécution, montre \texttt{BLOCK\_REDUNDANT\_DPHI\_ZERO} pour $3\,372$ décisions : 42,4\% de l'ensemble et 59,2\% des décisions BLOCK. Les sept catégories primaires mutuellement attribuées totalisent les 7960 décisions; ce nombre désigne donc le motif explicite de redondance sessionnelle, non toute occurrence numérique de $\Delta\varphi=0$. Sous cette politique stricte, une part importante des arrêts correspond ainsi à l'absence de nouvelle contrainte calculable; ce n'est pas une mesure d'utilité humaine du blocage.
+
+\input{tables/fr/T_campaign_a_reason_profile_v8_5_1.tex}
+
+L'étude multi-entrepôts combine FoodMart/XMLA avec AdventureWorks et SteelWheels/SQL Direct : 7 des 18 requêtes sont exécutées et 11 arrêtées avant backend. Une étude AdventureWorks appariée exécute six requêtes logiquement équivalentes via SQL Direct et XMLA avec ordre, décisions, motifs et politique d'exécution inchangés. Cela montre une préservation uniquement dans les entrepôts, adaptateurs et chemins exercés, non une portabilité universelle ni une équivalence de performance backend.
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F08_campaign_b_multidataset.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F09_campaign_c_backend_parity.tex}\end{minipage}
+\caption{Préservation du comportement décisionnel dans les configurations testées : (gauche) FoodMart, AdventureWorks et SteelWheels; (droite) cohérence des décisions AdventureWorks entre SQL Direct et XMLA.}
+\label{fig:portability}
+\end{figure*}
+
+\subsection{Robustesse contrôlée et ablations ciblées}
+
+La robustesse est évaluée sur quatre familles de scénarios : cas adversariaux portant sur l'admissibilité, cas adversariaux sémantiques, situations bruitées proches de la frontière et séquences plus longues. MCAD est comparé à trois politiques de référence internes---une politique naïve permissive, une heuristique de recouvrement des mesures et une politique aléatoire appariée---ainsi qu'à trois ablations ciblées qui relâchent individuellement un maillon du raisonnement. Ces politiques de référence sont des comparateurs diagnostiques, non des réimplémentations de systèmes voisins publiés. Dans ce benchmark contrôlé, un \emph{false ALLOW} désigne une requête autorisée par la politique testée alors que la spécification de référence du scénario attend un blocage; un \emph{false BLOCK} désigne l'inverse. Ces termes décrivent donc des écarts à une référence opérationnelle contrôlée, et non une vérité terrain indépendante sur l'utilité humaine des requêtes ou la qualité finale des décisions.
+
+\input{tables/fr/T_robustness.tex}
+
+Dans ce benchmark contrôlé, MCAD conserve la couverture finale des politiques déterministes permissives tout en enregistrant zéro false ALLOW, false BLOCK et exécution non contributive dans chacune des quatre familles. Retirer $\mathrm{SAT}$ porte le false ALLOW moyen à 0,0417 et l'exécution non contributive à 0,125; retirer $\mathrm{Real}$ ou relâcher $C_{\mathrm{eval}}$ les porte à 0,08125 et 0,1875. Les trois ablations sont interprétées composant par composant : chaque manipulation dégrade le comportement aligné sur la référence dans au moins une famille exercée, ce qui fournit une évidence de sensibilité montrant que le maillon manipulé est comportementalement conséquent sous cette spécification. Cela n'établit pas que tous les composants de MCAD sont nécessaires dans tout contexte. De plus, les variantes sans $\mathrm{Real}$ et avec $C_{\mathrm{eval}}$ relâché présentent ici des taux agrégés identiques de false ALLOW et d'exécutions non contributives; ce protocole n'identifie donc pas séparément l'amplitude de leur effet. Aucun de ces résultats ne constitue une supériorité directe sur des systèmes voisins.
+
+\begin{figure}[!tb]
+\centering
+\input{figures/fr/F10_robustness_false_allow.tex}
+\caption{Taux de \emph{false ALLOW} par famille de scénarios pour MCAD et les politiques de référence internes.}
+\label{fig:robustness-false-allow}
+\end{figure}
+
+\subsection{Croissance structurelle et coût de la décision sémantique}
+
+La taille du CKG évolue régulièrement lorsque le facteur d'échelle passe de 1 à 40 : le graphe atteint 1693 nœuds, 2406 arêtes et 322 nœuds virtuels au niveau maximal étudié. Cette expérience caractérise la croissance de la représentation sémantique; elle ne doit pas être interprétée comme une mesure de débit d'un déploiement industriel.
+
+\input{tables/fr/T_scalability_V8_7_6.tex}
+
+\begin{figure}[!tb]
+\centering
+\input{figures/fr/F12_scalability_structural.tex}
+\caption{Croissance structurelle du CKG selon le facteur d'échelle.}
+\label{fig:scalability}
+\end{figure}
+
+Le coût temporel propre à MCAD est caractérisé séparément sur trois dimensions de complexité disposant de mesures canoniques : nombre de contraintes, nombre de nœuds virtuels et densité d'appartenance. Le p50 représente le comportement typique, tandis que p95 et p99 exposent la queue de distribution, importante pour une couche interactive~\cite{DeanBarroso2013}; le protocole conserve aussi le nombre d'observations afin d'éviter l'interprétation d'un percentile isolé~\cite{KaliberaJones2013}.
+
+\input{tables/fr/T_semantic_latency_quantiles.tex}
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/fr/F21_latency_constraint_count.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/fr/F22_latency_virtual_node_count.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/fr/F23_latency_membership_density.tex}\end{minipage}
+\caption{p50/p95/p99 de la latence de décision sémantique lorsque varient le nombre de contraintes, le nombre de nœuds virtuels et la densité d'appartenance. Les temps du backend sont exclus.}
+\label{fig:semantic-latency}
+\end{figure*}
+
+Le nombre de nœuds virtuels présente la tendance temporelle la plus nette, la densité d'appartenance un effet faible et le nombre de contraintes une évolution non monotone. De 6 à 24 nœuds virtuels, le p50 passe de 0,3366 à 0,5223~ms (+55,2\%) et le p99 de 0,6488 à 1,1464~ms (+76,7\%); de 25\% à 100\% de densité, le p50 varie de 0,4561 à 0,4652~ms (+2,0\%) et le p99 de 1,0850 à 1,1378~ms (+4,9\%). Ces transformations sont descriptives, non inférentielles. Sur tous les facteurs publiés, p50 reste à 0,337--0,666~ms et p99 à 0,649--1,461~ms; interactions backend, contention, maintenance dynamique du CKG et portefeuilles industriels restent hors périmètre.
+
+\subsection{Synthèse des résultats}
+
+Pris ensemble, les résultats fournissent une triangulation cohérente plutôt qu'une unique preuve monolithique. La trace Q1--Q6 vérifie le mécanisme causal au niveau d'une session; le bloc de 1000 sessions vérifie l'application répétée de la politique stricte avant backend; les études multi-entrepôts et backend apparié testent la préservation de la sémantique dans plusieurs chemins d'exécution; le benchmark de robustesse vérifie la sensibilité des composants au moyen de politiques de référence internes et d'ablations ciblées; enfin, les expériences structurelles et temporelles caractérisent le coût de la couche sémantique. Dans ce périmètre, le cas clé $\mathrm{SAT}=\mathrm{true}$ et $\Delta\varphi=0$ est observé et correctement distingué d'une inadmissibilité. La réagrégation des 7960 décisions renforce cette lecture en montrant qu'une part importante des BLOCK porte le motif primaire de redondance sessionnelle, tandis que le benchmark de robustesse conserve zéro false ALLOW, false BLOCK et exécution non contributive dans chacune de ses quatre familles, relativement à sa spécification de référence. Le résultat scientifique porte donc sur la calculabilité, sa dépendance à l'état de session et la cohérence du mécanisme; l'action opérationnelle reste configurable.
+
+Cette diversité réduit le risque qu'un résultat soit propre à une seule trace ou à un seul backend, sans pour autant établir une universalité. Les interprétations sont bornées aux objectifs, entrepôts, politiques et facteurs de complexité explicitement couverts par le Tableau~\ref{tab:evaluation-scope}; les généralisations à des organisations, charges concurrentes ou objectifs dynamiques relèvent des perspectives de validation.
+
+\paragraph*{Traçabilité probatoire} Pour chaque RQ, les données canoniques, les artefacts dérivés et la frontière d'interprétation sont associés dans le paquet de reproductibilité. Les nouvelles lectures quantitatives de cette version (profil des motifs FoodMart, diagnostic Q1--Q6, lecture par famille de robustesse et variations descriptives des quantiles) sont calculées uniquement à partir des observations déjà acquises; elles n'ajoutent aucune session, requête ni mesure temporelle au protocole.
+
+
+\section{Discussion, limites et perspectives}
+\label{sec:discussion}
+
+Les résultats soutiennent une lecture centrale : la contribution d'une requête dans une session décisionnelle ne se réduit ni à la validité, ni à la similarité avec une préférence, ni à l'intérêt cognitif. MCAD mesure plutôt la variation de calculabilité de l'objectif relativement au contexte et à l'histoire de session, ce qui explique pourquoi deux requêtes admissibles peuvent contribuer différemment et pourquoi une évidence répétée peut perdre sa valeur marginale.
+
+Le CKG joue ici un rôle plus fort qu'un catalogue de métadonnées. Il rassemble le contexte de l'analyse décisionnelle nécessaire au raisonnement : structures multidimensionnelles, sémantique métier, KPI, contraintes, supports suffisants, règles, temporalité et état cumulé. La séparation entre ce contexte, le calcul de l'indicateur $z_t$ et la politique $\pi_{\mathrm{act}}$ rend le modèle compatible avec plusieurs formes d'assistance sans modifier sa sémantique centrale.
+
+Le masque contextuel ne constitue pas une politique de filtrage. Il représente la relation sémantique entre le plan de requête, le contexte et les supports de l'objectif; sa contribution est évaluée séparément, puis une politique d'action peut exploiter cette évaluation.
+
+\subsection{De l'indicateur de contribution aux stratégies d'interaction}
+
+BLOCK n'est pas la signification par défaut de la non-contribution, mais un choix strict de gouvernance. Le même $\Delta\varphi=0$ peut être affiché, transformé en avertissement, utilisé pour le guidage ou la recommandation, ou conduire au blocage selon une politique de conformité ou de coût. MCAD indique \emph{ce que la requête apporte}; la politique de déploiement décide \emph{quoi faire de cette information}.
+
+\subsection{Finalité de valeur et complémentarité avec les approches centrées utilisateur}
+
+MCAD ne remplace pas les critères centrés utilisateur. Une requête peut être préférée, nouvelle ou utile malgré $\Delta\varphi_t=0$, tandis qu'une requête peu surprenante peut être essentielle si elle complète un support stratégique. Calculabilité et valeur utilisateur sont donc complémentaires; le présent protocole ne mesure ni satisfaction, ni apprentissage, ni qualité de décision humaine.
+
+Dans une phase sémantique fixe, l'objectif, les supports et les règles contextuelles restent stables et l'évidence acquise est monotone; une simple répétition ne restaure donc pas la contribution. La même requête peut toutefois contribuer différemment dans une autre session ou après un changement explicite d'objectif, de périmètre ou de règles ouvrant une nouvelle base de comparaison.
+
+\subsection{Implications}
+
+Trois implications se dégagent. Premièrement, MCAD fournit un mécanisme de \textbf{soutien à la gouvernance analytique} fondé sur l'état de calculabilité plutôt que sur la seule exécution. Deuxièmement, $\varphi(QP,O)$ et $\Delta\varphi_t$ peuvent servir d'indicateurs explicables de calculabilité stratégique en complément de la personnalisation, du guidage ou de la recommandation; ils ne les remplacent pas. Troisièmement, la représentation explicite du contexte, des supports suffisants et des gains marginaux offre une interface avec des politiques séquentielles et d'optimisation contextuelle~\cite{SadanaEJOR2025}, où la progression stratégique peut devenir une récompense ou une contrainte interprétable.
+
+\subsection{Limites et menaces à la validité}
+
+\textbf{Validité du construit et de l'oracle métier.} MCAD mesure une \emph{calculabilité stratégique} : la capacité d'une session à disposer des supports suffisants pour évaluer les contraintes d'un objectif. Cette quantité n'est ni la valeur économique finale d'une décision ni la satisfaction d'un analyste. Une requête peut rendre un KPI calculable sans modifier la décision du manager; réciproquement, une information qualitativement importante peut rester hors du modèle si l'objectif n'a pas été correctement opérationnalisé. La décomposition de l'objectif et la spécification des supports constituent donc un oracle sémantique fourni au mécanisme; une erreur, une ambiguïté ou une omission peut se propager à $\mathrm{SAT}$, $\mathrm{Real}$, $C_{\mathrm{eval}}$, $\kappa_c$ et aux mesures de contribution. Les campagnes vérifient le prototype relativement au CKG, aux règles métier, aux contraintes et aux supports fournis; elles ne valident pas indépendamment la justesse métier de cette spécification. La résumabilité et la provenance renforcent respectivement la correction du calcul et la traçabilité du résultat, sans supprimer cette dépendance. Trois niveaux doivent donc être distingués : l'exactitude du raisonneur relativement aux règles encodées, la justesse de ces règles relativement au besoin métier et l'utilité humaine de l'action résultante. La calculabilité intra-contrainte $\kappa_c/\psi$ reste en outre une extension formalisée mais non évaluée expérimentalement dans la présente étude : les campagnes rapportées utilisent $\varphi/\Delta\varphi$ et n'établissent pas l'utilité empirique de $\Delta\psi$ comme critère d'interaction. La construction du masque dépend également de la qualité de l'extraction vers le plan canonique, de la spécification des supports suffisants et des relations encodées dans le CKG. La présente étude vérifie le raisonnement sur les représentations préparées pour les scénarios contrôlés; elle ne valide pas encore la construction automatique du masque à partir de requêtes arbitraires, de documents métier ou de sources hétérogènes.
+
+\textbf{Validité expérimentale, comparaison externe et performance.} Les preuves physiques, le benchmark contrôlé de robustesse et les caractérisations structurelles/temporelles répondent à des questions distinctes. Les politiques de référence du benchmark sont diagnostiques et les ablations fournissent une évidence de sensibilité uniquement pour les maillons $\mathrm{SAT}$, $\mathrm{Real}$ et $C_{\mathrm{eval}}$ manipulés sous la spécification contrôlée; elles n'établissent pas une nécessité universelle des composants. Les voisins Djedaini, Negre, IAM et autres approches proches n'ont pas été réimplémentés comme systèmes concurrents, de sorte qu'aucune supériorité expérimentale directe sur eux n'est revendiquée. La vérification physique couvre FoodMart, AdventureWorks et SteelWheels, deux chemins backend (SQL Direct et XMLA/Mondrian), une trace instrumentée, 1000 sessions et des scénarios contrôlés multi-configuration : elle établit une faisabilité multi-contexte et une préservation observée dans les chemins testés, non une invariance universelle. Enfin, les p50/p95/p99 portent sur 118000 observations de décision sémantique et n'incluent ni latence SQL/XMLA, ni contention, ni débit multi-utilisateur; la caractérisation structurelle décrit la croissance du CKG jusqu'au facteur 40 et ne constitue pas un benchmark de capacité industrielle.
+
+\textbf{Politique d'action et facteurs humains.} ALLOW/BLOCK est une instanciation stricte choisie pour vérifier qu'une décision issue de MCAD peut agir avant backend; elle ne définit ni la contribution ni la politique générale du cadre. Notification, avertissement, guidage, recommandation ou exécution permissive peuvent exploiter le même indicateur. Le protocole actuel ne mesure toutefois ni acceptabilité, ni satisfaction, ni apprentissage, ni qualité finale de la décision humaine; $\Delta\varphi$ n'est donc pas présenté comme un prédicteur validé de l'utilité humaine.
+
+\subsection{Perspectives}
+
+Les extensions prioritaires sont des tests plus larges et plus indépendants du même modèle : automatisation et maintenance du CKG à partir des techniques de graphes de connaissances~\cite{ZhongKGC2024}; spécification indépendante des objectifs, contraintes et supports par des experts; résumés de provenance attachés aux supports~\cite{AlOmeirLaiMilaniPottinger2023}; objectifs multiples ou conflictuels. Des études d'interaction pourraient comparer des politiques fondées sur $\Delta\varphi$/$\Delta\psi$, tandis que comparaisons directes sur tâches communes, déploiements concurrents et études utilisateurs traiteraient les principales questions empiriques restantes.
+
+\begingroup
+\raggedbottom
+\setlength{\parskip}{0pt}
+\section{Conclusion}
+\label{sec:conclusion}
+
+MCAD propose un masque contextuel obtenu par mise en correspondance sémantique des requêtes candidates avec le contexte de l'analyse décisionnelle. Un objectif explicite est décomposé en contraintes et supports suffisants; une requête est abstraite en plan canonique, mise en correspondance avec le CKG et évaluée selon les contraintes qu'elle rend nouvellement calculables relativement à l'état de session. L'évaluation du masque permet ainsi de caractériser la contribution ou la non-contribution de la requête à la calculabilité stratégique; la contribution marginale $\Delta\varphi$ distingue admissibilité, réalisation d'une évidence et progression vers l'objectif, tandis que la décision opérationnelle reste du ressort de la politique d'action. L'extension $\kappa/\psi$ formalise en complément une calculabilité partielle intra-contrainte, sans être évaluée expérimentalement dans la présente étude.
+
+Dans les configurations testées, le prototype se comporte conformément au modèle de raisonnement MCAD, préserve le comportement décisionnel dans les chemins backend exercés et présente le coût sémantique mesuré. La robustesse contrôlée et les ablations ciblées montrent que les maillons manipulés sont comportementalement conséquents sous la spécification de référence du benchmark; ALLOW/BLOCK reste une simple instanciation de politique.
+
+Ces résultats restent conditionnés par le CKG, les règles métier, les objectifs, contraintes et supports fournis. La validité métier indépendante, la valeur humaine des requêtes, l'effet des politiques d'interaction, la supériorité directe sur les méthodes voisines et la généralisation à des charges industrielles ne sont pas établis. MCAD doit donc être lu comme une couche formelle et explicable de calculabilité stratégique, non comme une mesure validée de la qualité des décisions organisationnelles.
+
+\endgroup
+
+\FloatBarrier
+\appendices
+\input{supplement/fr/S_formal_proofs_V8_7_6.tex}
+\input{supplement/fr/S_foodmart_formalization.tex}
+\FloatBarrier
+\balance
+\bibliographystyle{IEEEtran}
+\bibliography{literature/references}
+
+
+\end{document}

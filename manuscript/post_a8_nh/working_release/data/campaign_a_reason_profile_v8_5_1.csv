@@ -1,0 +1,8 @@
+reason_code,label_fr,count,pct_all_decisions,pct_block_decisions
+ALLOW_NEW_TOTAL,ALLOW : support nouveau,2266,28.4673,
+BLOCK_REDUNDANT_DPHI_ZERO,BLOCK : motif primaire de redondance $\Delta\varphi=0$,3372,42.3618,59.2202
+BLOCK_GRAIN_MISMATCH,BLOCK : grain incompatible,770,9.6734,13.5230
+BLOCK_EMPTY_SUBSPACE,BLOCK : sous-espace vide,576,7.2362,10.1159
+BLOCK_SLICER_MISMATCH,BLOCK : slicer incompatible,566,7.1106,9.9403
+BLOCK_OUT_OF_OBJECTIVE_SCOPE,BLOCK : hors objectif,300,3.7688,5.2687
+BLOCK_MEASURE_NOT_TARGETED,BLOCK : mesure non ciblée,110,1.3819,1.9319

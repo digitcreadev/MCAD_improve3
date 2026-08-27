@@ -1,0 +1,4526 @@
+Rc files read:
+  NONE
+Latexmk: This is Latexmk, John Collins, 11 Dec. 2024. Version 4.86.
+No existing .aux file, so I'll make a simple one, and require run of *latex.
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'pdflatex' forced or previously required:
+    Reason or flag: 'Initial setup'
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="build/fr"  "manuscript/fr/MCAD_FR_V8_7_6.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./manuscript/fr/MCAD_FR_V8_7_6.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-french/french.ldf))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/fr/babel-french.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.geometric.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.geometric.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.misc.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.symbols.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.symbols.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.arrows.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.arrows.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.callouts.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.callouts.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.multipart.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.multipart.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarycalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfit.code.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code
+.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_loader.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+)
+Package pgfplots: loading complementary utilities for your pgf version...
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_pgfutil-common-lists.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructure.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructureext.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatri
+x.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshare
+d.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.te
+x
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.co
+de.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.sur
+fshading.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
+shading.pgfsys-pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.
+tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.t
+ex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.cod
+e.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.
+tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
+e.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathmorphing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathmorphing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathreplacing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathreplacing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.co
+ntourlua.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryplotmarks.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
+de.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/fr/MCAD_FR_V8_7_6.aux)
+-- Lines per column: 58 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.18} (current compat level: 1.17).
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 1 undefined on input line 55
+.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 1 undefined on input line 55.
+
+
+
+LaTeX Warning: Citation `ChenBI2012' on page 1 undefined on input line 55.
+
+
+
+LaTeX Warning: Citation `GolfarelliRizziBiondi2011' on page 1 undefined on inpu
+t line 57.
+
+
+LaTeX Warning: Citation `JacobGunklachMaedche2025' on page 1 undefined on input
+ line 57.
+
+
+LaTeX Warning: Citation `AligonDSS2015' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 1 undefined on input line
+ 57.
+
+
+LaTeX Warning: Citation `GunklachNadj2023' on page 1 undefined on input line 57
+.
+
+
+LaTeX Warning: Citation `RoyContextOLAP2022' on page 1 undefined on input line 
+57.
+
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 1 undefined on input line 57
+.
+
+
+LaTeX Warning: Citation `GkitsakisEtAl2024' on page 1 undefined on input line 5
+7.
+
+
+LaTeX Warning: Citation `ArenasExploratory2025' on page 1 undefined on input li
+ne 57.
+
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 1 undefined on inp
+ut line 57.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 1 undefined on input line 
+57.
+
+
+LaTeX Warning: Citation `Pourshahid2014' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `MateTrujilloMylopoulos2017' on page 1 undefined on inp
+ut line 57.
+
+
+LaTeX Warning: Citation `RoldanGarciaEtAl2021' on page 1 undefined on input lin
+e 57.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 1 undefined on input 
+line 57.
+
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 1 undefined on input line 5
+7.
+
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `W3CSHACL2017' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `W3CPROVO2013' on page 1 undefined on input line 57.
+
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}] (./figures/fr/F_contribution_hierarchy.tex)
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 2 undefined on input line 97
+.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 2 undefined on input line 97.
+
+
+
+LaTeX Warning: Citation `ChenBI2012' on page 2 undefined on input line 97.
+
+
+LaTeX Warning: Citation `HornerSongChen2004' on page 2 undefined on input line 
+97.
+
+
+LaTeX Warning: Citation `NiemiNiinimaki2010' on page 2 undefined on input line 
+97.
+
+
+LaTeX Warning: Citation `SimonAmannLiuGancarski2023' on page 2 undefined on inp
+ut line 97.
+
+
+LaTeX Warning: Citation `RomeroAbello2010' on page 2 undefined on input line 97
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+
+LaTeX Warning: Citation `BimonteRizziTextToMDX2026' on page 2 undefined on inpu
+t line 101.
+
+
+LaTeX Warning: Citation `GolfarelliRizziBiondi2011' on page 2 undefined on inpu
+t line 105.
+
+
+LaTeX Warning: Citation `JacobGunklachMaedche2025' on page 2 undefined on input
+ line 105.
+
+
+LaTeX Warning: Citation `AligonDSS2015' on page 2 undefined on input line 109.
+
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 2 undefined on input line
+ 109.
+
+
+LaTeX Warning: Citation `GunklachNadj2023' on page 2 undefined on input line 10
+9.
+
+
+LaTeX Warning: Citation `RoyContextOLAP2022' on page 2 undefined on input line 
+109.
+
+
+[2]
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 3 undefined on input line 11
+4.
+
+
+LaTeX Warning: Citation `GkitsakisEtAl2024' on page 3 undefined on input line 1
+16.
+
+
+LaTeX Warning: Citation `ArenasExploratory2025' on page 3 undefined on input li
+ne 116.
+
+
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 3 undefined on inp
+ut line 120.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 3 undefined on input line 
+120.
+
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 3 undefined on input line 1
+20.
+
+
+LaTeX Warning: Citation `Pourshahid2014' on page 3 undefined on input line 124.
+
+
+
+LaTeX Warning: Citation `NasiriAhmedWrembelZimanyi2017' on page 3 undefined on 
+input line 124.
+
+
+LaTeX Warning: Citation `MateTrujilloMylopoulos2017' on page 3 undefined on inp
+ut line 124.
+
+
+LaTeX Warning: Citation `RoldanGarciaEtAl2021' on page 3 undefined on input lin
+e 124.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 3 undefined on input 
+line 124.
+
+
+[3]
+
+LaTeX Warning: Citation `SadanaEJOR2025' on page 4 undefined on input line 126.
+
+
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 4 undefined on input line 1
+30.
+
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 4 undefined on input line 130.
+
+
+LaTeX Warning: Citation `AntunesCardosoBarateiro2022' on page 4 undefined on in
+put line 130.
+
+
+LaTeX Warning: Citation `Etcheverry2014' on page 4 undefined on input line 130.
+
+
+
+LaTeX Warning: Citation `W3CDataCube2014' on page 4 undefined on input line 130
+.
+
+
+LaTeX Warning: Citation `SchuetzSerafiniBozzato2021' on page 4 undefined on inp
+ut line 130.
+
+
+LaTeX Warning: Citation `StaudingerSchuetzSchrefl2025' on page 4 undefined on i
+nput line 130.
+
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 4 undefined on 
+input line 133.
+
+
+LaTeX Warning: Citation `W3CSHACL2017' on page 4 undefined on input line 135.
+
+
+LaTeX Warning: Citation `W3CPROVO2013' on page 4 undefined on input line 135.
+
+
+LaTeX Warning: Citation `CalauttiEtAl2024' on page 4 undefined on input line 13
+5.
+
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 4 undefined on input line 1
+41.
+
+
+
+LaTeX Warning: Reference `tab:comparative-approaches' on page 4 undefined on in
+put line 147.
+
+(./tables/fr/T_comparative_approaches_v8_6_1.tex
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 4 undefined on input line 22
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) contribution à la
+
+LaTeX Warning: Citation `AligonDSS2015' on page 4 undefined on input line 22.
+
+
+Underfull \hbox (badness 5563) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) session cou-rante +
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 4 undefined on input line
+ 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Negre, Ra-vat,
+
+Underfull \hbox (badness 8019) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) requête ou re-com-
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 4 undefined on inp
+ut line 22.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 4 undefined on input line 
+22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Intentional
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) Ana-ly-tics [[]],
+
+Underfull \hbox (badness 4859) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) exprimer un be-soin
+
+Underfull \hbox (badness 2096) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) opérateurs in-ten-tion-nels et mo-
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 4 undefined on input line 2
+2.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) contexte
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) per-for-mance
+
+LaTeX Warning: Citation `NasiriAhmedWrembelZimanyi2017' on page 4 undefined on 
+input line 22.
+
+
+Underfull \hbox (badness 5050) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) ingénierie des exi-gences ; exi-
+
+LaTeX Warning: Citation `SimonAmannLiuGancarski2023' on page 4 undefined on inp
+ut line 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Résumabilité
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) / va-li-da-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) mesure, di-men-sion,
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 4 undefined on 
+input line 22.
+
+
+Underfull \hbox (badness 5331) in paragraph at lines 22--22
+[]|$\OML/cmm/m/it/7 QP[]$\T1/ptm/b/n/7 (+20) , ob-jec-tif $\OML/cmm/m/it/7 O$\T
+1/ptm/b/n/7 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/b/n/7 (+20) calculabilité
+)
+[4]
+
+LaTeX Warning: Reference `fig:concept-chain' on page 5 undefined on input line 
+160.
+
+(./figures/fr/F01_conceptual_chain.tex)
+
+LaTeX Warning: Reference `fig:ckg-fragment' on page 5 undefined on input line 1
+81.
+
+
+[5]
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 6 undefined on input line 21
+8.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 6 undefined on input line 218
+.
+
+
+
+LaTeX Warning: Reference `tab:notation' on page 6 undefined on input line 226.
+
+(./tables/fr/T_notation.tex)
+[6]
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 7 undefined on input line 2
+46.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 7 undefined on input 
+line 246.
+
+
+LaTeX Warning: Citation `RomeroAbello2010' on page 7 undefined on input line 24
+6.
+
+
+
+[7]
+
+LaTeX Warning: Reference `tab:slicers' on page 8 undefined on input line 311.
+
+(./tables/fr/T_slicer_relations.tex)
+
+LaTeX Warning: Reference `alg:sat' on page 8 undefined on input line 317.
+
+
+
+[8]
+
+[9]
+Underfull \hbox (badness 1648) in paragraph at lines 469--470
+[]\T1/ptm/b/n/10 (+20) Proposition 4. []\T1/ptm/m/it/10 (+20) Pour tout $\OML/c
+mm/m/it/10 QP$\T1/ptm/m/it/10 (+20) , $\OML/cmm/m/it/10  \OT1/cmr/m/n/10 (\OML/
+cmm/m/it/10 QP; O\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [0\OML/cm
+m/m/it/10 ; \OT1/cmr/m/n/10 1]$ \T1/ptm/m/it/10 (+20) et
+
+
+[10]
+
+LaTeX Warning: Reference `sec:arch' on page 11 undefined on input line 521.
+
+
+LaTeX Warning: Reference `sec:exp' on page 11 undefined on input line 523.
+
+
+LaTeX Warning: Reference `fig:arch-mcad' on page 11 undefined on input line 529
+.
+
+
+
+[11 <./figures/fr/fig_mcad_architecture_v8_2_singlecol.pdf>]
+(./tables/fr/T_prototype_formal_coverage_V8_7_6.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 /parse_mdx\T1/ptm/m/n/7 (+20) , \T1/pcr/m/n/7 /parse_sql\T1/pt
+m/m/n/7 (+20) ,
+
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) Contraintes en-tiè-re-ment cal-cu-
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 induced_mask_node_ids\T1/ptm/m/n/7 (+20) ,
+
+Overfull \hbox (3.59866pt too wide) in paragraph at lines 19--19
+\T1/pcr/m/n/7 induced_mask_constraints\T1/ptm/m/n/7 (-20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 phi\T1/ptm/m/n/7 (+20) , \T1/pcr/m/n/7 phi_weighted\T1/ptm/m/n
+/7 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\T1/ptm/m/n/7 (+20) his-to-riques
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\T1/pcr/m/n/7 phi_leq_t\T1/ptm/m/n/7 (+20) /\T1/pcr/m/n/7 delta_phi_t \T1/ptm/m
+/n/7 (+20) ;
+)
+Underfull \hbox (badness 3919) in paragraph at lines 567--568
+[]\T1/ptm/m/n/10 (+20) effectuer la mise en cor-res-pon-dance sé-man-tique,
+
+
+LaTeX Warning: Reference `tab:evaluation-scope' on page 12 undefined on input l
+ine 592.
+
+(./tables/fr/T_evaluation_scope_v8_5_1.tex)
+[12] (./tables/fr/T_q1_q6_diagnostic_v8_5_1.tex)
+(./figures/fr/F04_q1_q6_coverage.tex)
+(./figures/fr/F05_q1_q6_gate_execution.tex)
+Underfull \hbox (badness 4341) in paragraph at lines 631--631
+ \T1/ptm/m/it/10 (+20) C. Exé-cu-tion à grande échelle et pré-ser-va-tion multi
+-
+
+Underfull \vbox (badness 6220) has occurred while \output is active
+
+[13] (./tables/fr/T_campaign_a_reason_profile_v8_5_1.tex)
+(./figures/fr/F08_campaign_b_multidataset.tex)
+(./figures/fr/F09_campaign_c_backend_parity.tex) (./tables/fr/T_robustness.tex)
+
+(./figures/fr/F10_robustness_false_allow.tex)
+(./tables/fr/T_scalability_V8_7_6.tex)
+(./figures/fr/F12_scalability_structural.tex)
+
+LaTeX Warning: Citation `DeanBarroso2013' on page 14 undefined on input line 67
+7.
+
+
+LaTeX Warning: Citation `KaliberaJones2013' on page 14 undefined on input line 
+677.
+
+(./tables/fr/T_semantic_latency_quantiles.tex)
+(./figures/fr/F21_latency_constraint_count.tex)
+(./figures/fr/F22_latency_virtual_node_count.tex)
+(./figures/fr/F23_latency_membership_density.tex)
+[14]
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[15 <./figures/fr/F_ui_native_q1.png (PNG copy)> <./figures/fr/F_ui_native_over
+view_3_3.png (PNG copy)> <./figures/fr/F_ui_native_q6.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[16]
+
+LaTeX Warning: Reference `tab:evaluation-scope' on page 17 undefined on input l
+ine 696.
+
+
+[17]
+
+LaTeX Warning: Citation `SadanaEJOR2025' on page 18 undefined on input line 722
+.
+
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[18]
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 19 undefined on input line 734.
+
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 19 undefined on
+ input line 734.
+
+(./supplement/fr/S_formal_proofs_V8_7_6.tex
+
+LaTeX Warning: Reference `prop:borne' on page 19 undefined on input line 5.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+ \T1/ptm/m/it/10 (+20) Preuve de la Pro-po-si-tion []: [] \T1/ptm/m/n/10 (+20) 
+Par dé-fi-ni-tion
+
+Underfull \hbox (badness 5667) in paragraph at lines 5--6
+\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP; O\OT1/cmr/m/n/10 ) \O
+MS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 O\OT1/
+cmr/m/n/10 )$ \T1/ptm/m/n/10 (+20) et $\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 C[]\O
+T1/cmr/m/n/10 (\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j \OML/cmm/m
+/it/10 > \OT1/cmr/m/n/10 0$\T1/ptm/m/n/10 (+20) . Ainsi
+
+Underfull \hbox (badness 4832) in paragraph at lines 5--6
+\T1/ptm/m/n/10 (+20) de la car-di-na-lité d'en-sembles fi-nis et de l'in-clu-si
+on
+
+
+LaTeX Warning: Reference `prop:mono-real' on page 19 undefined on input line 8.
+
+
+
+LaTeX Warning: Reference `prop:session' on page 19 undefined on input line 11.
+
+
+LaTeX Warning: Reference `prop:graded' on page 19 undefined on input line 14.
+
+
+LaTeX Warning: Reference `prop:session-equivalence' on page 19 undefined on inp
+ut line 17.
+
+) (./supplement/fr/S_foodmart_formalization.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\T1/ptm/m/n/10 (+20) des me-sures $\OML/cmm/m/it/10 M \OT1/cmr/m/n/10 =
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+\OMS/cmsy/m/n/10 f[]\OML/cmm/m/it/10 ; []; []\OMS/cmsy/m/n/10 g$ \T1/ptm/m/n/10
+ (+20) ainsi qu'un
+
+[19])
+No file MCAD_FR_V8_7_6.bbl.
+
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+[20] (build/fr/MCAD_FR_V8_7_6.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/c
+ourier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on build/fr/MCAD_FR_V8_7_6.pdf (20 pages, 707457 bytes).
+Transcript written on build/fr/MCAD_FR_V8_7_6.log.
+Latexmk: Getting log file 'build/fr/MCAD_FR_V8_7_6.log'
+Latexmk: Examining 'build/fr/MCAD_FR_V8_7_6.fls'
+Latexmk: Examining 'build/fr/MCAD_FR_V8_7_6.log'
+Latexmk: Missing bbl file 'build/fr/MCAD_FR_V8_7_6.bbl' in following:
+ No file MCAD_FR_V8_7_6.bbl.
+Latexmk: References changed.
+Latexmk: Log file says output to 'build/fr/MCAD_FR_V8_7_6.pdf'
+Latexmk: Found bibliography file(s):
+  ./literature/references.bib
+Latexmk: applying rule 'bibtex build/fr/MCAD_FR_V8_7_6'...
+Rule 'bibtex build/fr/MCAD_FR_V8_7_6':  Reasons for rerun
+Category 'other':
+  Rerun of 'bibtex build/fr/MCAD_FR_V8_7_6' forced or previously required:
+    Reason or flag: 'Initial set up of rule'
+
+------------
+Run number 1 of rule 'bibtex build/fr/MCAD_FR_V8_7_6'
+------------
+====== ENV{BIBINPUTS} changed to '/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:build/fr:/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/build/fr:'
+Latexmk: Change directory to 'build/fr/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:build/fr:/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/build/fr:'
+  BSTINPUTS='/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:'.
+------------
+Running 'bibtex  "MCAD_FR_V8_7_6.aux"'
+------------
+This is BibTeX, Version 0.99d (TeX Live 2025/dev/Debian)
+The top-level auxiliary file: MCAD_FR_V8_7_6.aux
+The style file: IEEEtran.bst
+Database file #1: literature/references.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+Latexmk: Change directory back to '/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  build/fr/MCAD_FR_V8_7_6.aux
+  build/fr/MCAD_FR_V8_7_6.bbl
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="build/fr"  "manuscript/fr/MCAD_FR_V8_7_6.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./manuscript/fr/MCAD_FR_V8_7_6.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-french/french.ldf))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/fr/babel-french.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.geometric.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.geometric.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.misc.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.symbols.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.symbols.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.arrows.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.arrows.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.callouts.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.callouts.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.multipart.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.multipart.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarycalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfit.code.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code
+.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_loader.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+)
+Package pgfplots: loading complementary utilities for your pgf version...
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_pgfutil-common-lists.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructure.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructureext.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatri
+x.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshare
+d.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.te
+x
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.co
+de.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.sur
+fshading.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
+shading.pgfsys-pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.
+tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.t
+ex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.cod
+e.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.
+tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
+e.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathmorphing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathmorphing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathreplacing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathreplacing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.co
+ntourlua.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryplotmarks.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
+de.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/fr/MCAD_FR_V8_7_6.aux)
+-- Lines per column: 58 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.18} (current compat level: 1.17).
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 1 undefined on input line 55
+.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 1 undefined on input line 55.
+
+
+
+LaTeX Warning: Citation `ChenBI2012' on page 1 undefined on input line 55.
+
+
+
+LaTeX Warning: Citation `GolfarelliRizziBiondi2011' on page 1 undefined on inpu
+t line 57.
+
+
+LaTeX Warning: Citation `JacobGunklachMaedche2025' on page 1 undefined on input
+ line 57.
+
+
+LaTeX Warning: Citation `AligonDSS2015' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 1 undefined on input line
+ 57.
+
+
+LaTeX Warning: Citation `GunklachNadj2023' on page 1 undefined on input line 57
+.
+
+
+LaTeX Warning: Citation `RoyContextOLAP2022' on page 1 undefined on input line 
+57.
+
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 1 undefined on input line 57
+.
+
+
+LaTeX Warning: Citation `GkitsakisEtAl2024' on page 1 undefined on input line 5
+7.
+
+
+LaTeX Warning: Citation `ArenasExploratory2025' on page 1 undefined on input li
+ne 57.
+
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 1 undefined on inp
+ut line 57.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 1 undefined on input line 
+57.
+
+
+LaTeX Warning: Citation `Pourshahid2014' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `MateTrujilloMylopoulos2017' on page 1 undefined on inp
+ut line 57.
+
+
+LaTeX Warning: Citation `RoldanGarciaEtAl2021' on page 1 undefined on input lin
+e 57.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 1 undefined on input 
+line 57.
+
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 1 undefined on input line 5
+7.
+
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `W3CSHACL2017' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `W3CPROVO2013' on page 1 undefined on input line 57.
+
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}] (./figures/fr/F_contribution_hierarchy.tex)
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 2 undefined on input line 97
+.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 2 undefined on input line 97.
+
+
+
+LaTeX Warning: Citation `ChenBI2012' on page 2 undefined on input line 97.
+
+
+LaTeX Warning: Citation `HornerSongChen2004' on page 2 undefined on input line 
+97.
+
+
+LaTeX Warning: Citation `NiemiNiinimaki2010' on page 2 undefined on input line 
+97.
+
+
+LaTeX Warning: Citation `SimonAmannLiuGancarski2023' on page 2 undefined on inp
+ut line 97.
+
+
+LaTeX Warning: Citation `RomeroAbello2010' on page 2 undefined on input line 97
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+
+LaTeX Warning: Citation `BimonteRizziTextToMDX2026' on page 2 undefined on inpu
+t line 101.
+
+
+LaTeX Warning: Citation `GolfarelliRizziBiondi2011' on page 2 undefined on inpu
+t line 105.
+
+
+LaTeX Warning: Citation `JacobGunklachMaedche2025' on page 2 undefined on input
+ line 105.
+
+
+LaTeX Warning: Citation `AligonDSS2015' on page 2 undefined on input line 109.
+
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 2 undefined on input line
+ 109.
+
+
+LaTeX Warning: Citation `GunklachNadj2023' on page 2 undefined on input line 10
+9.
+
+
+LaTeX Warning: Citation `RoyContextOLAP2022' on page 2 undefined on input line 
+109.
+
+
+[2]
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 3 undefined on input line 11
+4.
+
+
+LaTeX Warning: Citation `GkitsakisEtAl2024' on page 3 undefined on input line 1
+16.
+
+
+LaTeX Warning: Citation `ArenasExploratory2025' on page 3 undefined on input li
+ne 116.
+
+
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 3 undefined on inp
+ut line 120.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 3 undefined on input line 
+120.
+
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 3 undefined on input line 1
+20.
+
+
+LaTeX Warning: Citation `Pourshahid2014' on page 3 undefined on input line 124.
+
+
+
+LaTeX Warning: Citation `NasiriAhmedWrembelZimanyi2017' on page 3 undefined on 
+input line 124.
+
+
+LaTeX Warning: Citation `MateTrujilloMylopoulos2017' on page 3 undefined on inp
+ut line 124.
+
+
+LaTeX Warning: Citation `RoldanGarciaEtAl2021' on page 3 undefined on input lin
+e 124.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 3 undefined on input 
+line 124.
+
+
+[3]
+
+LaTeX Warning: Citation `SadanaEJOR2025' on page 4 undefined on input line 126.
+
+
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 4 undefined on input line 1
+30.
+
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 4 undefined on input line 130.
+
+
+LaTeX Warning: Citation `AntunesCardosoBarateiro2022' on page 4 undefined on in
+put line 130.
+
+
+LaTeX Warning: Citation `Etcheverry2014' on page 4 undefined on input line 130.
+
+
+
+LaTeX Warning: Citation `W3CDataCube2014' on page 4 undefined on input line 130
+.
+
+
+LaTeX Warning: Citation `SchuetzSerafiniBozzato2021' on page 4 undefined on inp
+ut line 130.
+
+
+LaTeX Warning: Citation `StaudingerSchuetzSchrefl2025' on page 4 undefined on i
+nput line 130.
+
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 4 undefined on 
+input line 133.
+
+
+LaTeX Warning: Citation `W3CSHACL2017' on page 4 undefined on input line 135.
+
+
+LaTeX Warning: Citation `W3CPROVO2013' on page 4 undefined on input line 135.
+
+
+LaTeX Warning: Citation `CalauttiEtAl2024' on page 4 undefined on input line 13
+5.
+
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 4 undefined on input line 1
+41.
+
+
+(./tables/fr/T_comparative_approaches_v8_6_1.tex
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 4 undefined on input line 22
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) contribution à la
+
+LaTeX Warning: Citation `AligonDSS2015' on page 4 undefined on input line 22.
+
+
+Underfull \hbox (badness 5563) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) session cou-rante +
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 4 undefined on input line
+ 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Negre, Ra-vat,
+
+Underfull \hbox (badness 8019) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) requête ou re-com-
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 4 undefined on inp
+ut line 22.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 4 undefined on input line 
+22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Intentional
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) Ana-ly-tics [[]],
+
+Underfull \hbox (badness 4859) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) exprimer un be-soin
+
+Underfull \hbox (badness 2096) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) opérateurs in-ten-tion-nels et mo-
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 4 undefined on input line 2
+2.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) contexte
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) per-for-mance
+
+LaTeX Warning: Citation `NasiriAhmedWrembelZimanyi2017' on page 4 undefined on 
+input line 22.
+
+
+Underfull \hbox (badness 5050) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) ingénierie des exi-gences ; exi-
+
+LaTeX Warning: Citation `SimonAmannLiuGancarski2023' on page 4 undefined on inp
+ut line 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Résumabilité
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) / va-li-da-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) mesure, di-men-sion,
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 4 undefined on 
+input line 22.
+
+
+Underfull \hbox (badness 5331) in paragraph at lines 22--22
+[]|$\OML/cmm/m/it/7 QP[]$\T1/ptm/b/n/7 (+20) , ob-jec-tif $\OML/cmm/m/it/7 O$\T
+1/ptm/b/n/7 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/b/n/7 (+20) calculabilité
+)
+[4] (./figures/fr/F01_conceptual_chain.tex)
+
+[5]
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 6 undefined on input line 21
+8.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 6 undefined on input line 218
+.
+
+
+(./tables/fr/T_notation.tex)
+[6]
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 7 undefined on input line 2
+46.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 7 undefined on input 
+line 246.
+
+
+LaTeX Warning: Citation `RomeroAbello2010' on page 7 undefined on input line 24
+6.
+
+
+
+[7] (./tables/fr/T_slicer_relations.tex)
+
+[8]
+
+[9]
+Underfull \hbox (badness 1648) in paragraph at lines 469--470
+[]\T1/ptm/b/n/10 (+20) Proposition 4. []\T1/ptm/m/it/10 (+20) Pour tout $\OML/c
+mm/m/it/10 QP$\T1/ptm/m/it/10 (+20) , $\OML/cmm/m/it/10  \OT1/cmr/m/n/10 (\OML/
+cmm/m/it/10 QP; O\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [0\OML/cm
+m/m/it/10 ; \OT1/cmr/m/n/10 1]$ \T1/ptm/m/it/10 (+20) et
+
+
+[10]
+
+[11 <./figures/fr/fig_mcad_architecture_v8_2_singlecol.pdf>]
+(./tables/fr/T_prototype_formal_coverage_V8_7_6.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 /parse_mdx\T1/ptm/m/n/7 (+20) , \T1/pcr/m/n/7 /parse_sql\T1/pt
+m/m/n/7 (+20) ,
+
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) Contraintes en-tiè-re-ment cal-cu-
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 induced_mask_node_ids\T1/ptm/m/n/7 (+20) ,
+
+Overfull \hbox (3.59866pt too wide) in paragraph at lines 19--19
+\T1/pcr/m/n/7 induced_mask_constraints\T1/ptm/m/n/7 (-20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 phi\T1/ptm/m/n/7 (+20) , \T1/pcr/m/n/7 phi_weighted\T1/ptm/m/n
+/7 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\T1/ptm/m/n/7 (+20) his-to-riques
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\T1/pcr/m/n/7 phi_leq_t\T1/ptm/m/n/7 (+20) /\T1/pcr/m/n/7 delta_phi_t \T1/ptm/m
+/n/7 (+20) ;
+)
+Underfull \hbox (badness 3919) in paragraph at lines 567--568
+[]\T1/ptm/m/n/10 (+20) effectuer la mise en cor-res-pon-dance sé-man-tique,
+
+(./tables/fr/T_evaluation_scope_v8_5_1.tex)
+[12] (./tables/fr/T_q1_q6_diagnostic_v8_5_1.tex)
+(./figures/fr/F04_q1_q6_coverage.tex)
+(./figures/fr/F05_q1_q6_gate_execution.tex)
+Underfull \hbox (badness 4341) in paragraph at lines 631--631
+ \T1/ptm/m/it/10 (+20) C. Exé-cu-tion à grande échelle et pré-ser-va-tion multi
+-
+
+Underfull \vbox (badness 6220) has occurred while \output is active
+
+[13] (./tables/fr/T_campaign_a_reason_profile_v8_5_1.tex)
+(./figures/fr/F08_campaign_b_multidataset.tex)
+(./figures/fr/F09_campaign_c_backend_parity.tex) (./tables/fr/T_robustness.tex)
+
+(./figures/fr/F10_robustness_false_allow.tex)
+(./tables/fr/T_scalability_V8_7_6.tex)
+(./figures/fr/F12_scalability_structural.tex)
+
+LaTeX Warning: Citation `DeanBarroso2013' on page 14 undefined on input line 67
+7.
+
+
+LaTeX Warning: Citation `KaliberaJones2013' on page 14 undefined on input line 
+677.
+
+(./tables/fr/T_semantic_latency_quantiles.tex)
+(./figures/fr/F21_latency_constraint_count.tex)
+(./figures/fr/F22_latency_virtual_node_count.tex)
+(./figures/fr/F23_latency_membership_density.tex)
+[14]
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[15 <./figures/fr/F_ui_native_q1.png (PNG copy)> <./figures/fr/F_ui_native_over
+view_3_3.png (PNG copy)> <./figures/fr/F_ui_native_q6.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[16]
+
+[17]
+
+LaTeX Warning: Citation `SadanaEJOR2025' on page 18 undefined on input line 722
+.
+
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[18]
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 19 undefined on input line 734.
+
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 19 undefined on
+ input line 734.
+
+(./supplement/fr/S_formal_proofs_V8_7_6.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+ \T1/ptm/m/it/10 (+20) Preuve de la Pro-po-si-tion 1[]: [] \T1/ptm/m/n/10 (+20)
+ Par dé-fi-ni-tion
+
+Underfull \hbox (badness 5667) in paragraph at lines 5--6
+\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP; O\OT1/cmr/m/n/10 ) \O
+MS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 O\OT1/
+cmr/m/n/10 )$ \T1/ptm/m/n/10 (+20) et $\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 C[]\O
+T1/cmr/m/n/10 (\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j \OML/cmm/m
+/it/10 > \OT1/cmr/m/n/10 0$\T1/ptm/m/n/10 (+20) . Ainsi
+
+Underfull \hbox (badness 4832) in paragraph at lines 5--6
+\T1/ptm/m/n/10 (+20) de la car-di-na-lité d'en-sembles fi-nis et de l'in-clu-si
+on
+
+) (./supplement/fr/S_foodmart_formalization.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\T1/ptm/m/n/10 (+20) des me-sures $\OML/cmm/m/it/10 M \OT1/cmr/m/n/10 =
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+\OMS/cmsy/m/n/10 f[]\OML/cmm/m/it/10 ; []; []\OMS/cmsy/m/n/10 g$ \T1/ptm/m/n/10
+ (+20) ainsi qu'un
+
+[19])
+(build/fr/MCAD_FR_V8_7_6.bbl
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+[20])
+
+[21] (build/fr/MCAD_FR_V8_7_6.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/c
+ourier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on build/fr/MCAD_FR_V8_7_6.pdf (21 pages, 718740 bytes).
+Transcript written on build/fr/MCAD_FR_V8_7_6.log.
+Latexmk: Getting log file 'build/fr/MCAD_FR_V8_7_6.log'
+Latexmk: Examining 'build/fr/MCAD_FR_V8_7_6.fls'
+Latexmk: Examining 'build/fr/MCAD_FR_V8_7_6.log'
+Latexmk: Found input bbl file 'build/fr/MCAD_FR_V8_7_6.bbl'
+Latexmk: References changed.
+Latexmk: Log file says output to 'build/fr/MCAD_FR_V8_7_6.pdf'
+Latexmk: Found bibliography file(s):
+  ./literature/references.bib
+Latexmk: applying rule 'bibtex build/fr/MCAD_FR_V8_7_6'...
+Rule 'bibtex build/fr/MCAD_FR_V8_7_6':  Reasons for rerun
+Changed files or newly in use/created:
+  build/fr/MCAD_FR_V8_7_6.aux
+
+------------
+Run number 2 of rule 'bibtex build/fr/MCAD_FR_V8_7_6'
+------------
+====== ENV{BIBINPUTS} changed to '/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:build/fr:/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/build/fr:'
+Latexmk: Change directory to 'build/fr/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:build/fr:/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/build/fr:'
+  BSTINPUTS='/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:'.
+------------
+Running 'bibtex  "MCAD_FR_V8_7_6.aux"'
+------------
+This is BibTeX, Version 0.99d (TeX Live 2025/dev/Debian)
+The top-level auxiliary file: MCAD_FR_V8_7_6.aux
+The style file: IEEEtran.bst
+Database file #1: literature/references.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+Latexmk: Change directory back to '/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  build/fr/MCAD_FR_V8_7_6.aux
+
+------------
+Run number 3 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="build/fr"  "manuscript/fr/MCAD_FR_V8_7_6.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./manuscript/fr/MCAD_FR_V8_7_6.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-french/french.ldf))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/fr/babel-french.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.geometric.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.geometric.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.misc.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.symbols.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.symbols.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.arrows.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.arrows.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.callouts.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.callouts.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.multipart.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.multipart.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarycalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfit.code.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code
+.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_loader.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+)
+Package pgfplots: loading complementary utilities for your pgf version...
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_pgfutil-common-lists.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructure.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructureext.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatri
+x.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshare
+d.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.te
+x
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.co
+de.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.sur
+fshading.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
+shading.pgfsys-pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.
+tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.t
+ex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.cod
+e.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.
+tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
+e.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathmorphing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathmorphing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathreplacing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathreplacing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.co
+ntourlua.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryplotmarks.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
+de.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/fr/MCAD_FR_V8_7_6.aux)
+-- Lines per column: 58 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.18} (current compat level: 1.17).
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}] (./figures/fr/F_contribution_hierarchy.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+[2]
+
+[3]
+(./tables/fr/T_comparative_approaches_v8_6_1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) contribution à la
+
+Underfull \hbox (badness 5563) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) session cou-rante +
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Negre, Ra-vat,
+
+Underfull \hbox (badness 8019) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) requête ou re-com-
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Intentional
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) Ana-ly-tics [[]],
+
+Underfull \hbox (badness 4859) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) exprimer un be-soin
+
+Underfull \hbox (badness 2096) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) opérateurs in-ten-tion-nels et mo-
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) contexte
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) per-for-mance
+
+Underfull \hbox (badness 5050) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) ingénierie des exi-gences ; exi-
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Résumabilité
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) / va-li-da-tion
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) mesure, di-men-sion,
+
+Underfull \hbox (badness 5331) in paragraph at lines 22--22
+[]|$\OML/cmm/m/it/7 QP[]$\T1/ptm/b/n/7 (+20) , ob-jec-tif $\OML/cmm/m/it/7 O$\T
+1/ptm/b/n/7 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/b/n/7 (+20) calculabilité
+)
+[4] (./figures/fr/F01_conceptual_chain.tex)
+
+[5]
+(./tables/fr/T_notation.tex)
+[6]
+
+[7] (./tables/fr/T_slicer_relations.tex)
+
+[8]
+
+[9]
+Underfull \hbox (badness 1648) in paragraph at lines 469--470
+[]\T1/ptm/b/n/10 (+20) Proposition 4. []\T1/ptm/m/it/10 (+20) Pour tout $\OML/c
+mm/m/it/10 QP$\T1/ptm/m/it/10 (+20) , $\OML/cmm/m/it/10  \OT1/cmr/m/n/10 (\OML/
+cmm/m/it/10 QP; O\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [0\OML/cm
+m/m/it/10 ; \OT1/cmr/m/n/10 1]$ \T1/ptm/m/it/10 (+20) et
+
+
+[10]
+
+[11 <./figures/fr/fig_mcad_architecture_v8_2_singlecol.pdf>]
+(./tables/fr/T_prototype_formal_coverage_V8_7_6.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 /parse_mdx\T1/ptm/m/n/7 (+20) , \T1/pcr/m/n/7 /parse_sql\T1/pt
+m/m/n/7 (+20) ,
+
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) Contraintes en-tiè-re-ment cal-cu-
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 induced_mask_node_ids\T1/ptm/m/n/7 (+20) ,
+
+Overfull \hbox (3.59866pt too wide) in paragraph at lines 19--19
+\T1/pcr/m/n/7 induced_mask_constraints\T1/ptm/m/n/7 (-20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 phi\T1/ptm/m/n/7 (+20) , \T1/pcr/m/n/7 phi_weighted\T1/ptm/m/n
+/7 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\T1/ptm/m/n/7 (+20) his-to-riques
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\T1/pcr/m/n/7 phi_leq_t\T1/ptm/m/n/7 (+20) /\T1/pcr/m/n/7 delta_phi_t \T1/ptm/m
+/n/7 (+20) ;
+)
+Underfull \hbox (badness 3919) in paragraph at lines 567--568
+[]\T1/ptm/m/n/10 (+20) effectuer la mise en cor-res-pon-dance sé-man-tique,
+
+(./tables/fr/T_evaluation_scope_v8_5_1.tex)
+[12] (./tables/fr/T_q1_q6_diagnostic_v8_5_1.tex)
+(./figures/fr/F04_q1_q6_coverage.tex)
+(./figures/fr/F05_q1_q6_gate_execution.tex)
+Underfull \hbox (badness 4341) in paragraph at lines 631--631
+ \T1/ptm/m/it/10 (+20) C. Exé-cu-tion à grande échelle et pré-ser-va-tion multi
+-
+
+Underfull \vbox (badness 6220) has occurred while \output is active
+
+[13] (./tables/fr/T_campaign_a_reason_profile_v8_5_1.tex)
+(./figures/fr/F08_campaign_b_multidataset.tex)
+(./figures/fr/F09_campaign_c_backend_parity.tex) (./tables/fr/T_robustness.tex)
+
+(./figures/fr/F10_robustness_false_allow.tex)
+(./tables/fr/T_scalability_V8_7_6.tex)
+(./figures/fr/F12_scalability_structural.tex)
+(./tables/fr/T_semantic_latency_quantiles.tex)
+(./figures/fr/F21_latency_constraint_count.tex)
+(./figures/fr/F22_latency_virtual_node_count.tex)
+(./figures/fr/F23_latency_membership_density.tex)
+[14]
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[15 <./figures/fr/F_ui_native_q1.png (PNG copy)> <./figures/fr/F_ui_native_over
+view_3_3.png (PNG copy)> <./figures/fr/F_ui_native_q6.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[16]
+
+[17]
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[18] (./supplement/fr/S_formal_proofs_V8_7_6.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+ \T1/ptm/m/it/10 (+20) Preuve de la Pro-po-si-tion 1[]: [] \T1/ptm/m/n/10 (+20)
+ Par dé-fi-ni-tion
+
+Underfull \hbox (badness 5667) in paragraph at lines 5--6
+\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP; O\OT1/cmr/m/n/10 ) \O
+MS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 O\OT1/
+cmr/m/n/10 )$ \T1/ptm/m/n/10 (+20) et $\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 C[]\O
+T1/cmr/m/n/10 (\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j \OML/cmm/m
+/it/10 > \OT1/cmr/m/n/10 0$\T1/ptm/m/n/10 (+20) . Ainsi
+
+Underfull \hbox (badness 4832) in paragraph at lines 5--6
+\T1/ptm/m/n/10 (+20) de la car-di-na-lité d'en-sembles fi-nis et de l'in-clu-si
+on
+
+) (./supplement/fr/S_foodmart_formalization.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\T1/ptm/m/n/10 (+20) des me-sures $\OML/cmm/m/it/10 M \OT1/cmr/m/n/10 =
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+\OMS/cmsy/m/n/10 f[]\OML/cmm/m/it/10 ; []; []\OMS/cmsy/m/n/10 g$ \T1/ptm/m/n/10
+ (+20) ainsi qu'un
+
+[19])
+(build/fr/MCAD_FR_V8_7_6.bbl
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+[20])
+
+[21] (build/fr/MCAD_FR_V8_7_6.aux) )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/c
+ourier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on build/fr/MCAD_FR_V8_7_6.pdf (21 pages, 718258 bytes).
+Transcript written on build/fr/MCAD_FR_V8_7_6.log.
+Latexmk: Getting log file 'build/fr/MCAD_FR_V8_7_6.log'
+Latexmk: Examining 'build/fr/MCAD_FR_V8_7_6.fls'
+Latexmk: Examining 'build/fr/MCAD_FR_V8_7_6.log'
+Latexmk: Found input bbl file 'build/fr/MCAD_FR_V8_7_6.bbl'
+Latexmk: Log file says output to 'build/fr/MCAD_FR_V8_7_6.pdf'
+Latexmk: Found bibliography file(s):
+  ./literature/references.bib
+Latexmk: All targets (build/fr/MCAD_FR_V8_7_6.pdf) are up-to-date
+
+Rc files read:
+  NONE
+Latexmk: This is Latexmk, John Collins, 11 Dec. 2024. Version 4.86.
+No existing .aux file, so I'll make a simple one, and require run of *latex.
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'pdflatex' forced or previously required:
+    Reason or flag: 'Initial setup'
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="build/en"  "manuscript/en/MCAD_EN_V8_7_6.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./manuscript/en/MCAD_EN_V8_7_6.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.geometric.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.geometric.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.misc.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.symbols.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.symbols.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.arrows.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.arrows.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.callouts.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.callouts.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.multipart.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.multipart.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarycalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfit.code.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code
+.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_loader.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+)
+Package pgfplots: loading complementary utilities for your pgf version...
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_pgfutil-common-lists.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructure.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructureext.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatri
+x.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshare
+d.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.te
+x
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.co
+de.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.sur
+fshading.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
+shading.pgfsys-pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.
+tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.t
+ex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.cod
+e.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.
+tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
+e.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathmorphing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathmorphing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathreplacing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathreplacing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.co
+ntourlua.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryplotmarks.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
+de.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/en/MCAD_EN_V8_7_6.aux)
+-- Lines per column: 58 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.18} (current compat level: 1.17).
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 1 undefined on input line 55
+.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 1 undefined on input line 55.
+
+
+
+LaTeX Warning: Citation `ChenBI2012' on page 1 undefined on input line 55.
+
+
+LaTeX Warning: Citation `GolfarelliRizziBiondi2011' on page 1 undefined on inpu
+t line 57.
+
+
+LaTeX Warning: Citation `JacobGunklachMaedche2025' on page 1 undefined on input
+ line 57.
+
+
+LaTeX Warning: Citation `AligonDSS2015' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 1 undefined on input line
+ 57.
+
+
+LaTeX Warning: Citation `GunklachNadj2023' on page 1 undefined on input line 57
+.
+
+
+LaTeX Warning: Citation `RoyContextOLAP2022' on page 1 undefined on input line 
+57.
+
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 1 undefined on input line 57
+.
+
+
+LaTeX Warning: Citation `GkitsakisEtAl2024' on page 1 undefined on input line 5
+7.
+
+
+LaTeX Warning: Citation `ArenasExploratory2025' on page 1 undefined on input li
+ne 57.
+
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 1 undefined on inp
+ut line 57.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 1 undefined on input line 
+57.
+
+
+LaTeX Warning: Citation `Pourshahid2014' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `MateTrujilloMylopoulos2017' on page 1 undefined on inp
+ut line 57.
+
+
+LaTeX Warning: Citation `RoldanGarciaEtAl2021' on page 1 undefined on input lin
+e 57.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 1 undefined on input 
+line 57.
+
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 1 undefined on input line 5
+7.
+
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `W3CSHACL2017' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `W3CPROVO2013' on page 1 undefined on input line 57.
+
+
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}] (./figures/en/F_contribution_hierarchy.tex)
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 2 undefined on input line 97
+.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 2 undefined on input line 97.
+
+
+
+LaTeX Warning: Citation `ChenBI2012' on page 2 undefined on input line 97.
+
+
+LaTeX Warning: Citation `HornerSongChen2004' on page 2 undefined on input line 
+97.
+
+
+LaTeX Warning: Citation `NiemiNiinimaki2010' on page 2 undefined on input line 
+97.
+
+
+LaTeX Warning: Citation `SimonAmannLiuGancarski2023' on page 2 undefined on inp
+ut line 97.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+
+LaTeX Warning: Citation `BimonteRizziTextToMDX2026' on page 2 undefined on inpu
+t line 101.
+
+
+LaTeX Warning: Citation `GolfarelliRizziBiondi2011' on page 2 undefined on inpu
+t line 105.
+
+
+LaTeX Warning: Citation `JacobGunklachMaedche2025' on page 2 undefined on input
+ line 105.
+
+
+LaTeX Warning: Citation `AligonDSS2015' on page 2 undefined on input line 109.
+
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 2 undefined on input line
+ 109.
+
+
+LaTeX Warning: Citation `GunklachNadj2023' on page 2 undefined on input line 10
+9.
+
+
+LaTeX Warning: Citation `RoyContextOLAP2022' on page 2 undefined on input line 
+109.
+
+
+[2]
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 3 undefined on input line 11
+5.
+
+
+LaTeX Warning: Citation `GkitsakisEtAl2024' on page 3 undefined on input line 1
+15.
+
+
+LaTeX Warning: Citation `ArenasExploratory2025' on page 3 undefined on input li
+ne 115.
+
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 3 undefined on inp
+ut line 119.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 3 undefined on input line 
+119.
+
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 3 undefined on input line 1
+19.
+
+
+LaTeX Warning: Citation `Pourshahid2014' on page 3 undefined on input line 123.
+
+
+
+LaTeX Warning: Citation `MateTrujilloMylopoulos2017' on page 3 undefined on inp
+ut line 123.
+
+
+LaTeX Warning: Citation `RoldanGarciaEtAl2021' on page 3 undefined on input lin
+e 123.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 3 undefined on input 
+line 123.
+
+
+LaTeX Warning: Citation `NasiriAhmedWrembelZimanyi2017' on page 3 undefined on 
+input line 123.
+
+
+
+LaTeX Warning: Citation `SadanaEJOR2025' on page 3 undefined on input line 125.
+
+
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 3 undefined on input line 1
+29.
+
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 3 undefined on input line 129.
+
+
+LaTeX Warning: Citation `AntunesCardosoBarateiro2022' on page 3 undefined on in
+put line 129.
+
+
+LaTeX Warning: Citation `Etcheverry2014' on page 3 undefined on input line 129.
+
+
+
+LaTeX Warning: Citation `W3CDataCube2014' on page 3 undefined on input line 129
+.
+
+
+LaTeX Warning: Citation `SchuetzSerafiniBozzato2021' on page 3 undefined on inp
+ut line 129.
+
+
+LaTeX Warning: Citation `StaudingerSchuetzSchrefl2025' on page 3 undefined on i
+nput line 129.
+
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 3 undefined on 
+input line 132.
+
+
+[3]
+
+LaTeX Warning: Citation `W3CSHACL2017' on page 4 undefined on input line 134.
+
+
+LaTeX Warning: Citation `W3CPROVO2013' on page 4 undefined on input line 134.
+
+
+LaTeX Warning: Citation `CalauttiEtAl2024' on page 4 undefined on input line 13
+4.
+
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 4 undefined on input line 1
+40.
+
+
+LaTeX Warning: Reference `tab:comparative-approaches' on page 4 undefined on in
+put line 146.
+
+(./tables/en/T_comparative_approaches_v8_6_1.tex
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 4 undefined on input line 22
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) query within an
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) contribution
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) to ex-plo-ration
+
+LaTeX Warning: Citation `AligonDSS2015' on page 4 undefined on input line 22.
+
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 4 undefined on input line
+ 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Negre, Ra-vat,
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) recommendation
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) con-text and
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) avoid in-ap-pro-pri-ate
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) or non-computable
+
+Underfull \hbox (badness 3815) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) obsolescence in-di-ca-tor + post-
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 4 undefined on inp
+ut line 22.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 4 undefined on input line 
+22.
+
+
+Underfull \hbox (badness 6808) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Intentional An-a-lyt-
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 4 undefined on input line 2
+2.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) expected-
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) vs-observed
+
+LaTeX Warning: Citation `NasiriAhmedWrembelZimanyi2017' on page 4 undefined on 
+input line 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) strategic ob-jec-tives
+
+Underfull \hbox (badness 6001) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) derive data re-quire-
+
+LaTeX Warning: Citation `SimonAmannLiuGancarski2023' on page 4 undefined on inp
+ut line 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) sum-ma-riz-abil-ity
+
+Underfull \hbox (badness 5817) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) semantic cor-rect-ness
+
+Underfull \hbox (badness 3375) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) summarizability con-di-tions and
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 4 undefined on 
+input line 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Aggregate
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) aggregate re-sult +
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/b/n/7 (+20) decision-analysis
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/b/n/7 (+20) complete/partial
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/b/n/7 (+20) com-putabil-ity and
+)
+
+LaTeX Warning: Reference `fig:concept-chain' on page 4 undefined on input line 
+159.
+
+(./figures/en/F01_conceptual_chain.tex)
+
+LaTeX Warning: Reference `fig:ckg-fragment' on page 4 undefined on input line 1
+80.
+
+
+[4]
+
+[5]
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 6 undefined on input line 21
+7.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 6 undefined on input line 217
+.
+
+
+LaTeX Warning: Reference `tab:notation' on page 6 undefined on input line 225.
+
+(./tables/en/T_notation.tex)
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 6 undefined on input line 2
+38.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 6 undefined on input 
+line 238.
+
+
+LaTeX Warning: Citation `RomeroAbello2010' on page 6 undefined on input line 23
+8.
+
+
+[6]
+
+LaTeX Warning: Reference `tab:slicers' on page 7 undefined on input line 296.
+
+(./tables/en/T_slicer_relations.tex
+Underfull \hbox (badness 4266) in paragraph at lines 14--14
+[]|\T1/ptm/m/n/7 (+20) Forbidden com-bi-na-
+)
+
+LaTeX Warning: Reference `alg:sat' on page 7 undefined on input line 299.
+
+
+
+[7]
+Underfull \hbox (badness 2653) in paragraph at lines 356--358
+\T1/ptm/m/n/10 (+20) A con-straint be-longs to $\OML/cmm/m/it/10 C[]\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 QP; O\OT1/cmr/m/n/10 )$ \T1/ptm/m/n/10 (+20) if and only
+ if
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
+[]\T1/ptm/m/n/10 (+20) Semantic map-ping is de-noted con-cep-tu-ally by
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
+\OMS/cmsy/m/n/10 M\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP; C[]; O\OT1/cmr/m/n/10 )
+$\T1/ptm/m/n/10 (+20) . The in-duced con-tex-tual mask $\OML/cmm/m/it/10 S[]$
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+[]\T1/ptm/m/n/10 (+20) Two per-step con-di-tions make the query-
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+\T1/ptm/m/n/10 (+20) wise short-cut testable. (A1) \T1/ptm/m/it/10 (+20) Query-
+to-acquisition
+
+Underfull \hbox (badness 5022) in paragraph at lines 417--418
+\T1/ptm/m/it/10 (+20) con-sis-tency\T1/ptm/m/n/10 (+20) : $\OML/cmm/m/it/10 C[]
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP[]; O\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^R
+ \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 )$\T1/p
+tm/m/n/10 (+20) . (A2) \T1/ptm/m/it/10 (+20) Single-
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+\T1/ptm/m/it/10 (+20) query com-ple-tion of newly com-putable con-straints\T1/p
+tm/m/n/10 (+20) :
+
+[8]
+Underfull \hbox (badness 6910) in paragraph at lines 428--429
+[]\T1/ptm/b/n/10 (+20) Proposition 2. []\T1/ptm/m/it/10 (+20) If $[]\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 QP[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^R []\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 QP[]\OT1/cmr/m/n/10 )$\T1/ptm/m/it/10 (+20) , then
+
+Underfull \hbox (badness 1975) in paragraph at lines 446--447
+[]\T1/ptm/m/n/10 (+20) With in-dexed virtual-node/support rep-re-sen-ta-tions a
+nd
+
+
+Underfull \hbox (badness 1838) in paragraph at lines 470--471
+[]\T1/ptm/m/n/10 (+20) MCAD de-pends on canon-i-cal rep-re-sen-ta-tion $\OML/cm
+m/m/it/10 QP \OT1/cmr/m/n/10 =
+
+LaTeX Warning: Reference `fig:arch-mcad' on page 9 undefined on input line 475.
+
+
+
+[9] (./tables/en/T_prototype_formal_coverage_V8_7_6.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 /parse_mdx\T1/ptm/m/n/7 (+20) , \T1/pcr/m/n/7 /parse_sql\T1/pt
+m/m/n/7 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 induced_mask_node_ids\T1/ptm/m/n/7 (+20) ,
+
+Overfull \hbox (3.59866pt too wide) in paragraph at lines 19--19
+\T1/pcr/m/n/7 induced_mask_constraints\T1/ptm/m/n/7 (-20) ,
+)
+
+[10 <./figures/en/fig_mcad_architecture_v8_2_singlecol.pdf>]
+
+LaTeX Warning: Reference `tab:evaluation-scope' on page 11 undefined on input l
+ine 536.
+
+(./tables/en/T_evaluation_scope_v8_5_1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) Component sen-si-tiv-ity of the ma-nip-u-lated
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\T1/ptm/m/n/7 (+20) SAT/Real/$\OML/cmm/m/it/7 C[]$ \T1/ptm/m/n/7 (+20) links un
+-der the con-trolled
+) (./tables/en/T_q1_q6_diagnostic_v8_5_1.tex
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) BLOCK / not ex-e-
+
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) BLOCK / not ex-e-
+
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) BLOCK / not ex-e-
+) (./figures/en/F04_q1_q6_coverage.tex)
+(./figures/en/F05_q1_q6_gate_execution.tex)
+(./tables/en/T_campaign_a_reason_profile_v8_5_1.tex)
+(./figures/en/F08_campaign_b_multidataset.tex)
+(./figures/en/F09_campaign_c_backend_parity.tex)
+[11] (./tables/en/T_robustness.tex)
+(./figures/en/F10_robustness_false_allow.tex)
+(./tables/en/T_scalability_V8_7_6.tex)
+(./figures/en/F12_scalability_structural.tex)
+
+LaTeX Warning: Citation `DeanBarroso2013' on page 12 undefined on input line 62
+1.
+
+
+LaTeX Warning: Citation `KaliberaJones2013' on page 12 undefined on input line 
+621.
+
+(./tables/en/T_semantic_latency_quantiles.tex)
+(./figures/en/F21_latency_constraint_count.tex)
+(./figures/en/F22_latency_virtual_node_count.tex)
+(./figures/en/F23_latency_membership_density.tex)
+[12]
+Underfull \vbox (badness 10000) has occurred while \output is active
+
+[13 <./figures/en/F_ui_native_q1.png (PNG copy)> <./figures/en/F_ui_native_over
+view_3_3.png (PNG copy)> <./figures/en/F_ui_native_q6.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[14]
+Underfull \vbox (badness 1082) has occurred while \output is active
+
+LaTeX Warning: Reference `tab:evaluation-scope' on page 15 undefined on input l
+ine 640.
+
+
+[15]
+
+LaTeX Warning: Citation `SadanaEJOR2025' on page 16 undefined on input line 665
+.
+
+
+
+[16]
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 17 undefined on input line 677.
+
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 17 undefined on
+ input line 677.
+
+(./supplement/en/S_formal_proofs_V8_7_6.tex
+
+LaTeX Warning: Reference `prop:borne' on page 17 undefined on input line 5.
+
+
+LaTeX Warning: Reference `prop:mono-real' on page 17 undefined on input line 8.
+
+
+
+Underfull \hbox (badness 2753) in paragraph at lines 8--9
+ \T1/ptm/m/it/10 (+20) Proof of Propo-si-tion []: [] \T1/ptm/m/n/10 (+20) As-su
+me $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
+^^R
+
+
+LaTeX Warning: Reference `prop:session' on page 17 undefined on input line 11.
+
+
+LaTeX Warning: Reference `prop:graded' on page 17 undefined on input line 14.
+
+
+LaTeX Warning: Reference `prop:session-equivalence' on page 17 undefined on inp
+ut line 17.
+
+) (./supplement/en/S_foodmart_formalization.tex
+[17])
+No file MCAD_EN_V8_7_6.bbl.
+
+
+
+Overfull \vbox (4.21478pt too high) has occurred while \output is active
+[18] (build/en/MCAD_EN_V8_7_6.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
+tmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on build/en/MCAD_EN_V8_7_6.pdf (18 pages, 675869 bytes).
+Transcript written on build/en/MCAD_EN_V8_7_6.log.
+Latexmk: Getting log file 'build/en/MCAD_EN_V8_7_6.log'
+Latexmk: Examining 'build/en/MCAD_EN_V8_7_6.fls'
+Latexmk: Examining 'build/en/MCAD_EN_V8_7_6.log'
+Latexmk: Missing bbl file 'build/en/MCAD_EN_V8_7_6.bbl' in following:
+ No file MCAD_EN_V8_7_6.bbl.
+Latexmk: References changed.
+Latexmk: Log file says output to 'build/en/MCAD_EN_V8_7_6.pdf'
+Latexmk: Found bibliography file(s):
+  ./literature/references.bib
+Latexmk: applying rule 'bibtex build/en/MCAD_EN_V8_7_6'...
+Rule 'bibtex build/en/MCAD_EN_V8_7_6':  Reasons for rerun
+Category 'other':
+  Rerun of 'bibtex build/en/MCAD_EN_V8_7_6' forced or previously required:
+    Reason or flag: 'Initial set up of rule'
+
+------------
+Run number 1 of rule 'bibtex build/en/MCAD_EN_V8_7_6'
+------------
+====== ENV{BIBINPUTS} changed to '/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:build/en:/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/build/en:'
+Latexmk: Change directory to 'build/en/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:build/en:/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/build/en:'
+  BSTINPUTS='/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:'.
+------------
+Running 'bibtex  "MCAD_EN_V8_7_6.aux"'
+------------
+This is BibTeX, Version 0.99d (TeX Live 2025/dev/Debian)
+The top-level auxiliary file: MCAD_EN_V8_7_6.aux
+The style file: IEEEtran.bst
+Database file #1: literature/references.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+Latexmk: Change directory back to '/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  build/en/MCAD_EN_V8_7_6.aux
+  build/en/MCAD_EN_V8_7_6.bbl
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="build/en"  "manuscript/en/MCAD_EN_V8_7_6.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./manuscript/en/MCAD_EN_V8_7_6.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.geometric.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.geometric.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.misc.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.symbols.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.symbols.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.arrows.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.arrows.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.callouts.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.callouts.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.multipart.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.multipart.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarycalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfit.code.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code
+.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_loader.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+)
+Package pgfplots: loading complementary utilities for your pgf version...
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_pgfutil-common-lists.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructure.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructureext.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatri
+x.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshare
+d.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.te
+x
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.co
+de.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.sur
+fshading.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
+shading.pgfsys-pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.
+tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.t
+ex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.cod
+e.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.
+tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
+e.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathmorphing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathmorphing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathreplacing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathreplacing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.co
+ntourlua.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryplotmarks.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
+de.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/en/MCAD_EN_V8_7_6.aux)
+-- Lines per column: 58 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.18} (current compat level: 1.17).
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 1 undefined on input line 55
+.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 1 undefined on input line 55.
+
+
+
+LaTeX Warning: Citation `ChenBI2012' on page 1 undefined on input line 55.
+
+
+LaTeX Warning: Citation `GolfarelliRizziBiondi2011' on page 1 undefined on inpu
+t line 57.
+
+
+LaTeX Warning: Citation `JacobGunklachMaedche2025' on page 1 undefined on input
+ line 57.
+
+
+LaTeX Warning: Citation `AligonDSS2015' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 1 undefined on input line
+ 57.
+
+
+LaTeX Warning: Citation `GunklachNadj2023' on page 1 undefined on input line 57
+.
+
+
+LaTeX Warning: Citation `RoyContextOLAP2022' on page 1 undefined on input line 
+57.
+
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 1 undefined on input line 57
+.
+
+
+LaTeX Warning: Citation `GkitsakisEtAl2024' on page 1 undefined on input line 5
+7.
+
+
+LaTeX Warning: Citation `ArenasExploratory2025' on page 1 undefined on input li
+ne 57.
+
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 1 undefined on inp
+ut line 57.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 1 undefined on input line 
+57.
+
+
+LaTeX Warning: Citation `Pourshahid2014' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `MateTrujilloMylopoulos2017' on page 1 undefined on inp
+ut line 57.
+
+
+LaTeX Warning: Citation `RoldanGarciaEtAl2021' on page 1 undefined on input lin
+e 57.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 1 undefined on input 
+line 57.
+
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 1 undefined on input line 5
+7.
+
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `W3CSHACL2017' on page 1 undefined on input line 57.
+
+
+LaTeX Warning: Citation `W3CPROVO2013' on page 1 undefined on input line 57.
+
+
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}] (./figures/en/F_contribution_hierarchy.tex)
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 2 undefined on input line 97
+.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 2 undefined on input line 97.
+
+
+
+LaTeX Warning: Citation `ChenBI2012' on page 2 undefined on input line 97.
+
+
+LaTeX Warning: Citation `HornerSongChen2004' on page 2 undefined on input line 
+97.
+
+
+LaTeX Warning: Citation `NiemiNiinimaki2010' on page 2 undefined on input line 
+97.
+
+
+LaTeX Warning: Citation `SimonAmannLiuGancarski2023' on page 2 undefined on inp
+ut line 97.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+
+LaTeX Warning: Citation `BimonteRizziTextToMDX2026' on page 2 undefined on inpu
+t line 101.
+
+
+LaTeX Warning: Citation `GolfarelliRizziBiondi2011' on page 2 undefined on inpu
+t line 105.
+
+
+LaTeX Warning: Citation `JacobGunklachMaedche2025' on page 2 undefined on input
+ line 105.
+
+
+LaTeX Warning: Citation `AligonDSS2015' on page 2 undefined on input line 109.
+
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 2 undefined on input line
+ 109.
+
+
+LaTeX Warning: Citation `GunklachNadj2023' on page 2 undefined on input line 10
+9.
+
+
+LaTeX Warning: Citation `RoyContextOLAP2022' on page 2 undefined on input line 
+109.
+
+
+[2]
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 3 undefined on input line 11
+5.
+
+
+LaTeX Warning: Citation `GkitsakisEtAl2024' on page 3 undefined on input line 1
+15.
+
+
+LaTeX Warning: Citation `ArenasExploratory2025' on page 3 undefined on input li
+ne 115.
+
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 3 undefined on inp
+ut line 119.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 3 undefined on input line 
+119.
+
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 3 undefined on input line 1
+19.
+
+
+LaTeX Warning: Citation `Pourshahid2014' on page 3 undefined on input line 123.
+
+
+
+LaTeX Warning: Citation `MateTrujilloMylopoulos2017' on page 3 undefined on inp
+ut line 123.
+
+
+LaTeX Warning: Citation `RoldanGarciaEtAl2021' on page 3 undefined on input lin
+e 123.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 3 undefined on input 
+line 123.
+
+
+LaTeX Warning: Citation `NasiriAhmedWrembelZimanyi2017' on page 3 undefined on 
+input line 123.
+
+
+
+LaTeX Warning: Citation `SadanaEJOR2025' on page 3 undefined on input line 125.
+
+
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 3 undefined on input line 1
+29.
+
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 3 undefined on input line 129.
+
+
+LaTeX Warning: Citation `AntunesCardosoBarateiro2022' on page 3 undefined on in
+put line 129.
+
+
+LaTeX Warning: Citation `Etcheverry2014' on page 3 undefined on input line 129.
+
+
+
+LaTeX Warning: Citation `W3CDataCube2014' on page 3 undefined on input line 129
+.
+
+
+LaTeX Warning: Citation `SchuetzSerafiniBozzato2021' on page 3 undefined on inp
+ut line 129.
+
+
+LaTeX Warning: Citation `StaudingerSchuetzSchrefl2025' on page 3 undefined on i
+nput line 129.
+
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 3 undefined on 
+input line 132.
+
+
+[3]
+
+LaTeX Warning: Citation `W3CSHACL2017' on page 4 undefined on input line 134.
+
+
+LaTeX Warning: Citation `W3CPROVO2013' on page 4 undefined on input line 134.
+
+
+LaTeX Warning: Citation `CalauttiEtAl2024' on page 4 undefined on input line 13
+4.
+
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 4 undefined on input line 1
+40.
+
+(./tables/en/T_comparative_approaches_v8_6_1.tex
+
+LaTeX Warning: Citation `DjedainiEtAl2019' on page 4 undefined on input line 22
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) query within an
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) contribution
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) to ex-plo-ration
+
+LaTeX Warning: Citation `AligonDSS2015' on page 4 undefined on input line 22.
+
+
+LaTeX Warning: Citation `NegreRavatTeste2018' on page 4 undefined on input line
+ 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Negre, Ra-vat,
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) recommendation
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) con-text and
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) avoid in-ap-pro-pri-ate
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) or non-computable
+
+Underfull \hbox (badness 3815) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) obsolescence in-di-ca-tor + post-
+
+LaTeX Warning: Citation `VassiliadisMarcelRizzi2019' on page 4 undefined on inp
+ut line 22.
+
+
+LaTeX Warning: Citation `FranciaPredict2026' on page 4 undefined on input line 
+22.
+
+
+Underfull \hbox (badness 6808) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Intentional An-a-lyt-
+
+LaTeX Warning: Citation `FranciaAssess2021' on page 4 undefined on input line 2
+2.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) expected-
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) vs-observed
+
+LaTeX Warning: Citation `NasiriAhmedWrembelZimanyi2017' on page 4 undefined on 
+input line 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) strategic ob-jec-tives
+
+Underfull \hbox (badness 6001) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) derive data re-quire-
+
+LaTeX Warning: Citation `SimonAmannLiuGancarski2023' on page 4 undefined on inp
+ut line 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) sum-ma-riz-abil-ity
+
+Underfull \hbox (badness 5817) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) semantic cor-rect-ness
+
+Underfull \hbox (badness 3375) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) summarizability con-di-tions and
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 4 undefined on 
+input line 22.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Aggregate
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) aggregate re-sult +
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/b/n/7 (+20) decision-analysis
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/b/n/7 (+20) complete/partial
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/b/n/7 (+20) com-putabil-ity and
+)
+(./figures/en/F01_conceptual_chain.tex)
+[4]
+
+[5]
+
+LaTeX Warning: Citation `ChaudhuriDayal97' on page 6 undefined on input line 21
+7.
+
+
+LaTeX Warning: Citation `KimballRoss2013' on page 6 undefined on input line 217
+.
+
+(./tables/en/T_notation.tex)
+
+LaTeX Warning: Citation `HoganKGSurvey2021' on page 6 undefined on input line 2
+38.
+
+
+LaTeX Warning: Citation `DiamantiniKPISurvey2025' on page 6 undefined on input 
+line 238.
+
+
+LaTeX Warning: Citation `RomeroAbello2010' on page 6 undefined on input line 23
+8.
+
+
+[6] (./tables/en/T_slicer_relations.tex
+Underfull \hbox (badness 4266) in paragraph at lines 14--14
+[]|\T1/ptm/m/n/7 (+20) Forbidden com-bi-na-
+)
+
+[7]
+Underfull \hbox (badness 2653) in paragraph at lines 356--358
+\T1/ptm/m/n/10 (+20) A con-straint be-longs to $\OML/cmm/m/it/10 C[]\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 QP; O\OT1/cmr/m/n/10 )$ \T1/ptm/m/n/10 (+20) if and only
+ if
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
+[]\T1/ptm/m/n/10 (+20) Semantic map-ping is de-noted con-cep-tu-ally by
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
+\OMS/cmsy/m/n/10 M\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP; C[]; O\OT1/cmr/m/n/10 )
+$\T1/ptm/m/n/10 (+20) . The in-duced con-tex-tual mask $\OML/cmm/m/it/10 S[]$
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+[]\T1/ptm/m/n/10 (+20) Two per-step con-di-tions make the query-
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+\T1/ptm/m/n/10 (+20) wise short-cut testable. (A1) \T1/ptm/m/it/10 (+20) Query-
+to-acquisition
+
+Underfull \hbox (badness 5022) in paragraph at lines 417--418
+\T1/ptm/m/it/10 (+20) con-sis-tency\T1/ptm/m/n/10 (+20) : $\OML/cmm/m/it/10 C[]
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP[]; O\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^R
+ \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 )$\T1/p
+tm/m/n/10 (+20) . (A2) \T1/ptm/m/it/10 (+20) Single-
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+\T1/ptm/m/it/10 (+20) query com-ple-tion of newly com-putable con-straints\T1/p
+tm/m/n/10 (+20) :
+
+[8]
+Underfull \hbox (badness 6910) in paragraph at lines 428--429
+[]\T1/ptm/b/n/10 (+20) Proposition 2. []\T1/ptm/m/it/10 (+20) If $[]\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 QP[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^R []\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 QP[]\OT1/cmr/m/n/10 )$\T1/ptm/m/it/10 (+20) , then
+
+Underfull \hbox (badness 1975) in paragraph at lines 446--447
+[]\T1/ptm/m/n/10 (+20) With in-dexed virtual-node/support rep-re-sen-ta-tions a
+nd
+
+
+Underfull \hbox (badness 1838) in paragraph at lines 470--471
+[]\T1/ptm/m/n/10 (+20) MCAD de-pends on canon-i-cal rep-re-sen-ta-tion $\OML/cm
+m/m/it/10 QP \OT1/cmr/m/n/10 =
+
+[9] (./tables/en/T_prototype_formal_coverage_V8_7_6.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 /parse_mdx\T1/ptm/m/n/7 (+20) , \T1/pcr/m/n/7 /parse_sql\T1/pt
+m/m/n/7 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 induced_mask_node_ids\T1/ptm/m/n/7 (+20) ,
+
+Overfull \hbox (3.59866pt too wide) in paragraph at lines 19--19
+\T1/pcr/m/n/7 induced_mask_constraints\T1/ptm/m/n/7 (-20) ,
+)
+
+[10 <./figures/en/fig_mcad_architecture_v8_2_singlecol.pdf>]
+(./tables/en/T_evaluation_scope_v8_5_1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) Component sen-si-tiv-ity of the ma-nip-u-lated
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\T1/ptm/m/n/7 (+20) SAT/Real/$\OML/cmm/m/it/7 C[]$ \T1/ptm/m/n/7 (+20) links un
+-der the con-trolled
+) (./tables/en/T_q1_q6_diagnostic_v8_5_1.tex
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) BLOCK / not ex-e-
+
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) BLOCK / not ex-e-
+
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) BLOCK / not ex-e-
+) (./figures/en/F04_q1_q6_coverage.tex)
+(./figures/en/F05_q1_q6_gate_execution.tex)
+(./tables/en/T_campaign_a_reason_profile_v8_5_1.tex)
+(./figures/en/F08_campaign_b_multidataset.tex)
+(./figures/en/F09_campaign_c_backend_parity.tex)
+[11] (./tables/en/T_robustness.tex)
+(./figures/en/F10_robustness_false_allow.tex)
+(./tables/en/T_scalability_V8_7_6.tex)
+(./figures/en/F12_scalability_structural.tex)
+
+LaTeX Warning: Citation `DeanBarroso2013' on page 12 undefined on input line 62
+1.
+
+
+LaTeX Warning: Citation `KaliberaJones2013' on page 12 undefined on input line 
+621.
+
+(./tables/en/T_semantic_latency_quantiles.tex)
+(./figures/en/F21_latency_constraint_count.tex)
+(./figures/en/F22_latency_virtual_node_count.tex)
+(./figures/en/F23_latency_membership_density.tex)
+[12]
+Underfull \vbox (badness 10000) has occurred while \output is active
+
+[13 <./figures/en/F_ui_native_q1.png (PNG copy)> <./figures/en/F_ui_native_over
+view_3_3.png (PNG copy)> <./figures/en/F_ui_native_q6.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[14]
+Underfull \vbox (badness 1082) has occurred while \output is active
+
+[15]
+
+LaTeX Warning: Citation `SadanaEJOR2025' on page 16 undefined on input line 665
+.
+
+
+
+[16]
+
+LaTeX Warning: Citation `ZhongKGC2024' on page 17 undefined on input line 677.
+
+
+LaTeX Warning: Citation `AlOmeirLaiMilaniPottinger2023' on page 17 undefined on
+ input line 677.
+
+(./supplement/en/S_formal_proofs_V8_7_6.tex
+Underfull \hbox (badness 4266) in paragraph at lines 8--9
+ \T1/ptm/m/it/10 (+20) Proof of Propo-si-tion 2[]: [] \T1/ptm/m/n/10 (+20) As-s
+ume $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10
+ ^^R
+
+) (./supplement/en/S_foodmart_formalization.tex
+[17]) (build/en/MCAD_EN_V8_7_6.bbl
+
+
+Overfull \vbox (9.17836pt too high) has occurred while \output is active
+[18])
+
+
+Overfull \vbox (1.73193pt too high) has occurred while \output is active
+[19] (build/en/MCAD_EN_V8_7_6.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
+tmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on build/en/MCAD_EN_V8_7_6.pdf (19 pages, 687210 bytes).
+Transcript written on build/en/MCAD_EN_V8_7_6.log.
+Latexmk: Getting log file 'build/en/MCAD_EN_V8_7_6.log'
+Latexmk: Examining 'build/en/MCAD_EN_V8_7_6.fls'
+Latexmk: Examining 'build/en/MCAD_EN_V8_7_6.log'
+Latexmk: Found input bbl file 'build/en/MCAD_EN_V8_7_6.bbl'
+Latexmk: References changed.
+Latexmk: Log file says output to 'build/en/MCAD_EN_V8_7_6.pdf'
+Latexmk: Found bibliography file(s):
+  ./literature/references.bib
+Latexmk: applying rule 'bibtex build/en/MCAD_EN_V8_7_6'...
+Rule 'bibtex build/en/MCAD_EN_V8_7_6':  Reasons for rerun
+Changed files or newly in use/created:
+  build/en/MCAD_EN_V8_7_6.aux
+
+------------
+Run number 2 of rule 'bibtex build/en/MCAD_EN_V8_7_6'
+------------
+====== ENV{BIBINPUTS} changed to '/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:build/en:/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/build/en:'
+Latexmk: Change directory to 'build/en/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:build/en:/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/build/en:'
+  BSTINPUTS='/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE:'.
+------------
+Running 'bibtex  "MCAD_EN_V8_7_6.aux"'
+------------
+This is BibTeX, Version 0.99d (TeX Live 2025/dev/Debian)
+The top-level auxiliary file: MCAD_EN_V8_7_6.aux
+The style file: IEEEtran.bst
+Database file #1: literature/references.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+Latexmk: Change directory back to '/mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  build/en/MCAD_EN_V8_7_6.aux
+
+------------
+Run number 3 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="build/en"  "manuscript/en/MCAD_EN_V8_7_6.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./manuscript/en/MCAD_EN_V8_7_6.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.geometric.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.geometric.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.misc.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.symbols.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.symbols.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.arrows.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.arrows.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.callouts.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.callouts.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.multipart.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.multipart.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarycalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfit.code.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code
+.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_loader.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+)
+Package pgfplots: loading complementary utilities for your pgf version...
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
+gfsupp_pgfutil-common-lists.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructure.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
+tructureext.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatri
+x.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshare
+d.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.te
+x
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.co
+de.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.sur
+fshading.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
+shading.pgfsys-pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.
+tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.t
+ex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.cod
+e.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.
+tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
+e.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathmorphing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathmorphing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathreplacing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathreplacing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.co
+ntourlua.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryplotmarks.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
+de.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/en/MCAD_EN_V8_7_6.aux)
+-- Lines per column: 58 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.18} (current compat level: 1.17).
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}] (./figures/en/F_contribution_hierarchy.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd)
+[2]
+
+[3] (./tables/en/T_comparative_approaches_v8_6_1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) query within an
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) contribution
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) to ex-plo-ration
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Negre, Ra-vat,
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) recommendation
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) con-text and
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) avoid in-ap-pro-pri-ate
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) or non-computable
+
+Underfull \hbox (badness 3815) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) obsolescence in-di-ca-tor + post-
+
+Underfull \hbox (badness 6808) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Intentional An-a-lyt-
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) expected-
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) vs-observed
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) strategic ob-jec-tives
+
+Underfull \hbox (badness 6001) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) derive data re-quire-
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Summarizability
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) / se-man-tic
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/m/n/7 (+20) sum-ma-riz-abil-ity
+
+Underfull \hbox (badness 5817) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) semantic cor-rect-ness
+
+Underfull \hbox (badness 3375) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) summarizability con-di-tions and
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) Aggregate
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/m/n/7 (+20) aggregate re-sult +
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/b/n/7 (+20) decision-analysis
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\T1/ptm/b/n/7 (+20) complete/partial
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T1/ptm/b/n/7 (+20) com-putabil-ity and
+)
+(./figures/en/F01_conceptual_chain.tex)
+[4]
+
+[5] (./tables/en/T_notation.tex)
+
+[6] (./tables/en/T_slicer_relations.tex
+Underfull \hbox (badness 4266) in paragraph at lines 14--14
+[]|\T1/ptm/m/n/7 (+20) Forbidden com-bi-na-
+)
+
+[7]
+Underfull \hbox (badness 2653) in paragraph at lines 356--358
+\T1/ptm/m/n/10 (+20) A con-straint be-longs to $\OML/cmm/m/it/10 C[]\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 QP; O\OT1/cmr/m/n/10 )$ \T1/ptm/m/n/10 (+20) if and only
+ if
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
+[]\T1/ptm/m/n/10 (+20) Semantic map-ping is de-noted con-cep-tu-ally by
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
+\OMS/cmsy/m/n/10 M\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP; C[]; O\OT1/cmr/m/n/10 )
+$\T1/ptm/m/n/10 (+20) . The in-duced con-tex-tual mask $\OML/cmm/m/it/10 S[]$
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+[]\T1/ptm/m/n/10 (+20) Two per-step con-di-tions make the query-
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+\T1/ptm/m/n/10 (+20) wise short-cut testable. (A1) \T1/ptm/m/it/10 (+20) Query-
+to-acquisition
+
+Underfull \hbox (badness 5022) in paragraph at lines 417--418
+\T1/ptm/m/it/10 (+20) con-sis-tency\T1/ptm/m/n/10 (+20) : $\OML/cmm/m/it/10 C[]
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP[]; O\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^R
+ \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 )$\T1/p
+tm/m/n/10 (+20) . (A2) \T1/ptm/m/it/10 (+20) Single-
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+\T1/ptm/m/it/10 (+20) query com-ple-tion of newly com-putable con-straints\T1/p
+tm/m/n/10 (+20) :
+
+[8]
+Underfull \hbox (badness 6910) in paragraph at lines 428--429
+[]\T1/ptm/b/n/10 (+20) Proposition 2. []\T1/ptm/m/it/10 (+20) If $[]\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 QP[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^R []\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 QP[]\OT1/cmr/m/n/10 )$\T1/ptm/m/it/10 (+20) , then
+
+Underfull \hbox (badness 1975) in paragraph at lines 446--447
+[]\T1/ptm/m/n/10 (+20) With in-dexed virtual-node/support rep-re-sen-ta-tions a
+nd
+
+
+Underfull \hbox (badness 1838) in paragraph at lines 470--471
+[]\T1/ptm/m/n/10 (+20) MCAD de-pends on canon-i-cal rep-re-sen-ta-tion $\OML/cm
+m/m/it/10 QP \OT1/cmr/m/n/10 =
+
+[9] (./tables/en/T_prototype_formal_coverage_V8_7_6.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 /parse_mdx\T1/ptm/m/n/7 (+20) , \T1/pcr/m/n/7 /parse_sql\T1/pt
+m/m/n/7 (+20) ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/pcr/m/n/7 induced_mask_node_ids\T1/ptm/m/n/7 (+20) ,
+
+Overfull \hbox (3.59866pt too wide) in paragraph at lines 19--19
+\T1/pcr/m/n/7 induced_mask_constraints\T1/ptm/m/n/7 (-20) ,
+)
+
+[10 <./figures/en/fig_mcad_architecture_v8_2_singlecol.pdf>]
+(./tables/en/T_evaluation_scope_v8_5_1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) Component sen-si-tiv-ity of the ma-nip-u-lated
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\T1/ptm/m/n/7 (+20) SAT/Real/$\OML/cmm/m/it/7 C[]$ \T1/ptm/m/n/7 (+20) links un
+-der the con-trolled
+) (./tables/en/T_q1_q6_diagnostic_v8_5_1.tex
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) BLOCK / not ex-e-
+
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) BLOCK / not ex-e-
+
+Underfull \hbox (badness 1400) in paragraph at lines 19--19
+[]|\T1/ptm/m/n/7 (+20) BLOCK / not ex-e-
+) (./figures/en/F04_q1_q6_coverage.tex)
+(./figures/en/F05_q1_q6_gate_execution.tex)
+(./tables/en/T_campaign_a_reason_profile_v8_5_1.tex)
+(./figures/en/F08_campaign_b_multidataset.tex)
+(./figures/en/F09_campaign_c_backend_parity.tex)
+[11] (./tables/en/T_robustness.tex)
+(./figures/en/F10_robustness_false_allow.tex)
+(./tables/en/T_scalability_V8_7_6.tex)
+(./figures/en/F12_scalability_structural.tex)
+(./tables/en/T_semantic_latency_quantiles.tex)
+(./figures/en/F21_latency_constraint_count.tex)
+(./figures/en/F22_latency_virtual_node_count.tex)
+(./figures/en/F23_latency_membership_density.tex)
+[12]
+Underfull \vbox (badness 10000) has occurred while \output is active
+
+[13 <./figures/en/F_ui_native_q1.png (PNG copy)> <./figures/en/F_ui_native_over
+view_3_3.png (PNG copy)> <./figures/en/F_ui_native_q6.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+[14]
+Underfull \vbox (badness 1082) has occurred while \output is active
+
+[15]
+
+[16] (./supplement/en/S_formal_proofs_V8_7_6.tex
+Underfull \hbox (badness 4266) in paragraph at lines 8--9
+ \T1/ptm/m/it/10 (+20) Proof of Propo-si-tion 2[]: [] \T1/ptm/m/n/10 (+20) As-s
+ume $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 QP[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10
+ ^^R
+
+) (./supplement/en/S_foodmart_formalization.tex
+[17]) (build/en/MCAD_EN_V8_7_6.bbl
+
+
+Overfull \vbox (9.17836pt too high) has occurred while \output is active
+[18])
+
+
+Overfull \vbox (1.73193pt too high) has occurred while \output is active
+[19] (build/en/MCAD_EN_V8_7_6.aux) )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
+tmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on build/en/MCAD_EN_V8_7_6.pdf (19 pages, 686742 bytes).
+Transcript written on build/en/MCAD_EN_V8_7_6.log.
+Latexmk: Getting log file 'build/en/MCAD_EN_V8_7_6.log'
+Latexmk: Examining 'build/en/MCAD_EN_V8_7_6.fls'
+Latexmk: Examining 'build/en/MCAD_EN_V8_7_6.log'
+Latexmk: Found input bbl file 'build/en/MCAD_EN_V8_7_6.bbl'
+Latexmk: Log file says output to 'build/en/MCAD_EN_V8_7_6.pdf'
+Latexmk: Found bibliography file(s):
+  ./literature/references.bib
+Latexmk: All targets (build/en/MCAD_EN_V8_7_6.pdf) are up-to-date
+
+Built reproducibly with SOURCE_DATE_EPOCH=1787096820:
+  /mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/manuscript/fr/MCAD_FR_V8_7_6.pdf
+  /mnt/data/MCAD_V8_7_6_IMMUTABLE_RELEASE/manuscript/en/MCAD_EN_V8_7_6.pdf
