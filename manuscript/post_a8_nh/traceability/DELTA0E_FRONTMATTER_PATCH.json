@@ -1,0 +1,52 @@
+{
+  "station": "NH-MANUSCRIPT-DELTA-0e",
+  "role": "POST_A8_FIRST_CONTROLLED_MANUSCRIPT_PATCH_FRONTMATTER",
+  "parent_commit": "5fb759ded029868ac74198b039e5ceb367b480ca",
+  "branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+  "source_file": "manuscript/post_a8_nh/working_release/manuscript/fr/MCAD_FR_POST_A8_NH.tex",
+  "source_before_sha256": "c013a6f1e3f84a2e6e898a07106c5e5f4bb0cd9227e3b6763caf6e2186c2060c",
+  "source_after_sha256": "e99e043080f97338ca363f55b3503d0a556b2fd114a61572b5a2d0ff4751a2a8",
+  "modified_units": [
+    "title",
+    "abstract",
+    "IEEEkeywords"
+  ],
+  "title_after": "MCAD : complétion analytique relative à l'objectif et élagage sûr des requêtes OLAP dans les sessions d'analyse décisionnelle",
+  "authority_bindings": {
+    "formal_scope": [
+      "A45/NH-R0",
+      "NH-R1",
+      "NH-R2",
+      "NH-RW-Delta-2",
+      "R3-A2"
+    ],
+    "confirmatory_sql_direct": [
+      "R3-D0",
+      "R3-D3",
+      "R3-D4"
+    ],
+    "xmla_boundary": [
+      "R3-E8"
+    ]
+  },
+  "claim_boundaries": {
+    "safe_pruning_completion_preservation": "BOUNDED_ALLOWED",
+    "deferred_multi_query_contribution": "BOUNDED_ALLOWED",
+    "sql_direct_primary_endpoints_confirmed": "6_OF_8",
+    "sqlserver_io_read_write_bytes": "NOT_CONFIRMED",
+    "global_system_benefit_claim_authorized": false,
+    "xmla_measured_confirmation_complete": false,
+    "human_decision_value_claim_authorized": false,
+    "universal_superiority_claim_authorized": false
+  },
+  "A8_parent_copy_modified": false,
+  "canonical_A8_source_modified": false,
+  "historical_artifact_edit_performed": false,
+  "manuscript_content_edit_performed": true,
+  "first_real_manuscript_byte_change": true,
+  "build_executed": false,
+  "docker_executed": false,
+  "backend_query_executed": false,
+  "measurement_executed": false,
+  "next": "NH-MANUSCRIPT-DELTA-0f_INTRODUCTION_AND_CONTRIBUTION_BLOCK_CONTROLLED_PATCH"
+}

@@ -31,7 +31,7 @@
 \graphicspath{{figures/fr/}}
 \begin{document}
 
-\title{MCAD (Masque contextuel pour l'analyse décisionnelle) : évaluation de la contribution des requêtes OLAP à la calculabilité des objectifs stratégiques dans les sessions d'analyse décisionnelle}
+\title{MCAD : complétion analytique relative à l'objectif et élagage sûr des requêtes OLAP dans les sessions d'analyse décisionnelle}
 
 \author{}
 
@@ -40,13 +40,13 @@
 \thispagestyle{plain}
 
 \begin{abstract}
-Une session d'analyse décisionnelle ne se réduit pas à une succession de requêtes exécutables : chaque requête est interprétée relativement au schéma multidimensionnel, à l'objectif stratégique actif, aux règles métier et à l'évidence déjà acquise. Nous introduisons le \emph{Masque Contextuel de l'Analyse Décisionnelle} (MCAD), qui met en correspondance sémantique le plan canonique d'une requête candidate avec ce contexte, représenté par un graphe de connaissances contextuel (CKG). Pour chaque contrainte de l'objectif, MCAD identifie les supports suffisants et évalue si la requête rend une contrainte nouvellement calculable relativement à l'état de session. Le masque induit est inspectable; son évaluation établit la contribution, tandis que l'action opérationnelle reste distincte. MCAD cible ainsi une progression vérifiable de la calculabilité de l'objectif plutôt qu'une préférence, un intérêt perçu ou une utilité utilisateur; $\Delta\varphi$ distingue admissibilité, calculabilité et progression stratégique sans servir de proxy de satisfaction.
+Une session d'analyse décisionnelle ne se réduit pas à une succession de requêtes exécutables. MCAD opérationnalise un objectif organisationnel $O$ sous forme de contraintes et de supports suffisants, puis suit au niveau session l'évidence analytique effectivement acquise. Chaque requête candidate est d'abord représentée par un profil canonique; le raisonnement distingue admissibilité sémantique, réalisabilité de l'évidence, évidence acquise, calculabilité/contribution et action. Une requête non contributive à l'instant courant n'est donc pas automatiquement dispensable : MCAD ne l'élague avant exécution complète que lorsqu'une condition de sûreté relative à la frontière résiduelle de l'objectif est satisfaite; sinon, il exécute en \emph{fail-open}. Le cadre vise la complétion analytique relative à $O$, non la qualité de la décision humaine.
 
-Le prototype évalue une politique stricte où l'indicateur de contribution pilote ALLOW/BLOCK avant exécution backend, alors que le même indicateur peut alimenter notification, avertissement, guidage ou recommandation. L'évaluation combine une trace de bout en bout, 1000 sessions et 7960 décisions, plusieurs entrepôts, deux chemins backend et un benchmark contrôlé de robustesse avec politiques de référence internes et ablations ciblées. Relativement à sa spécification de référence, MCAD conserve la couverture finale tout en enregistrant des taux nuls de false ALLOW et d'exécutions non contributives; la décision sémantique présente un p50 de 0,337--0,666~ms et un p99 de 0,649--1,461~ms sur les facteurs étudiés, tandis que la croissance du CKG est caractérisée séparément jusqu'à 1693 nœuds et 2406 arêtes. Ces résultats soutiennent la faisabilité dans les configurations testées, sans établir une valeur décisionnelle humaine, une supériorité externe ni une politique d'interaction universelle.
+Nous évaluons séparément la préservation sémantique et le coût système. Les campagnes contrôlées de préservation et de contribution différée n'observent aucune violation de complétion dans leur périmètre gelé et montrent qu'une politique strictement immédiate peut perdre des contributions différées multi-requêtes. Sur SQL Server Direct, une campagne confirmatoire préspécifiée de 300 sessions et 900 bras compare \texttt{SAFE\_PRUNING} à \texttt{PERMISSIVE\_GATED} sur huit endpoints primaires avec correction de Holm. Six endpoints sont confirmés en faveur de \texttt{SAFE\_PRUNING} : requêtes backend incluant les probes, exécutions backend complètes, temps client, CPU SQL Server, octets de réponse et temps jusqu'à complétion analytique. Les lectures et écritures I/O en octets ne sont pas confirmées; le protocole n'autorise donc aucun claim global indivisible de bénéfice système. La réplication XMLA/eMondrian est préparée statiquement jusqu'à R3-E8, mais n'a encore produit ni mesure ni inférence réelle. Ces résultats délimitent un mécanisme de contrôle analytique objectif-relatif, sans claim de valeur décisionnelle humaine ni de supériorité universelle.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Entrepôts de données, OLAP, intelligence économique, objectifs stratégiques, calculabilité stratégique, graphes de connaissances contextuels, sémantique des KPI, contribution des requêtes, explicabilité.
+Entrepôts de données, OLAP, objectifs analytiques, graphes de connaissances contextuels, profil canonique de requête, évidence de session, complétion analytique, élagage sûr, contrôle pré-backend, reproductibilité.
 \end{IEEEkeywords}
 
 \section{Introduction}
