@@ -1,0 +1,68 @@
+{
+  "station": "NH-MANUSCRIPT-DELTA-0f",
+  "role": "POST_A8_CONTROLLED_INTRODUCTION_AND_CONTRIBUTION_BLOCK_PATCH",
+  "parent_commit": "9d332b775610413698c9ef31ce6a75aaae36617a",
+  "branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+  "source_file": "manuscript/post_a8_nh/working_release/manuscript/fr/MCAD_FR_POST_A8_NH.tex",
+  "source_before_sha256": "e99e043080f97338ca363f55b3503d0a556b2fd114a61572b5a2d0ff4751a2a8",
+  "source_after_sha256": "90cbc11786dd0153219169b3c574d79249ba54c3790072916320412426d5ac0f",
+  "introduction_before_sha256": "272135eeb23ffed2569d3423c3c2389257dd129f3e84b11f0bd8820f622bcbc8",
+  "introduction_after_sha256": "a0046d724642c4b0492a9818cf1805f99f8ac5e1565f3dc5dd23b9022c691076",
+  "modified_units": [
+    "Introduction",
+    "contribution_itemize",
+    "article_roadmap"
+  ],
+  "removed_from_introduction": [
+    "figures/fr/F_contribution_hierarchy.tex inclusion"
+  ],
+  "preserved_units": [
+    "title",
+    "abstract",
+    "IEEEkeywords",
+    "Related Work and all later sections"
+  ],
+  "authority_bindings": {
+    "formal_scope": [
+      "A45/NH-R0",
+      "NH-R1",
+      "NH-R2",
+      "NH-RW-Delta-2",
+      "R3-A2"
+    ],
+    "system_validation": [
+      "R3-B2m",
+      "R3-C"
+    ],
+    "confirmatory_sql_direct": [
+      "R3-D0",
+      "R3-D3",
+      "R3-D4"
+    ],
+    "xmla_boundary": [
+      "R3-E8"
+    ]
+  },
+  "claim_boundaries": {
+    "noncontributive_now_implies_safe_to_prune": false,
+    "safe_pruning_completion_preservation": "BOUNDED_ALLOWED",
+    "deferred_multi_query_contribution": "BOUNDED_ALLOWED",
+    "safe_universally_faster_than_ungated": false,
+    "sql_direct_primary_endpoints_confirmed": "6_OF_8",
+    "sqlserver_io_read_write_bytes": "NOT_CONFIRMED",
+    "global_system_benefit_claim_authorized": false,
+    "xmla_measured_confirmation_complete": false,
+    "human_decision_value_claim_authorized": false,
+    "universal_superiority_claim_authorized": false,
+    "first_or_only_claim_authorized": false
+  },
+  "A8_parent_copy_modified": false,
+  "canonical_A8_source_modified": false,
+  "historical_artifact_edit_performed": false,
+  "manuscript_content_edit_performed": true,
+  "build_executed": false,
+  "docker_executed": false,
+  "backend_query_executed": false,
+  "measurement_executed": false,
+  "next": "NH-MANUSCRIPT-DELTA-0g_RELATED_WORK_AND_NOVELTY_BOUNDARY_CONTROLLED_PATCH"
+}
