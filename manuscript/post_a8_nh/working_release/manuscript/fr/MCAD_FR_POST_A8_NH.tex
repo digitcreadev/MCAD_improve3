@@ -143,58 +143,85 @@ Nous ne comparons donc pas expérimentalement MCAD à Calcite, Substrait, aux sy
 \section{Vue d'ensemble de MCAD}
 \label{sec:overview}
 
-À un niveau macroscopique, MCAD peut être vu comme une couche sémantique insérée entre l'analyste et l'entrepôt. Son rôle est double : (i) contrôler la cohérence des requêtes analytiques vis-à-vis du contexte, et (ii) mesurer leur contribution à la calculabilité d'objectifs stratégiques formellement spécifiés.
+À un niveau macroscopique, MCAD est une couche de contrôle analytique \emph{pré-backend} placée entre une requête candidate et son exécution complète. Elle ne remplace ni le moteur OLAP, ni l'optimiseur du SGBD, ni la politique de décision humaine. Elle reçoit un objectif $O$, un contexte sémantique typé, l'état d'évidence de la session et une requête candidate; elle cherche alors à déterminer si l'exécution complète de cette requête reste nécessaire à la \emph{complétion analytique} de $O$. Lorsque la preuve de dispensabilité est insuffisante, MCAD exécute en \emph{fail-open}.
 
-\subsection{Chaîne conceptuelle de la requête à l'objectif}
+\subsection{Chaîne conceptuelle objectif--évidence--action}
 
-La Figure~\ref{fig:concept-chain} résume la chaîne conceptuelle centrale de MCAD : une requête OLAP est compilée en un plan canonique $QP$, puis soumise à une mise en correspondance sémantique avec le CKG, l'objectif courant et l'état de session. Cette opération induit un masque contextuel $S_t^*$ dont l'évaluation permet de caractériser la contribution marginale avant l'application d'une politique d'action configurable.
+La Figure~\ref{fig:concept-chain} résume la chaîne post-A8. Une requête $q$ est d'abord projetée vers un \emph{Canonical Query Profile} (CQP), c'est-à-dire une représentation canonique des propriétés nécessaires au raisonnement : source/fait, grain, mesures, agrégations, unités, filtres, temporalité, contexte et correspondances d'évidence. Le CQP est soumis à l'admissibilité sémantique. Lorsque la décision l'exige, un probe de non-vacuité peut ensuite établir une forme de réalisabilité; ce probe est comptabilisé comme interaction backend mais ne crédite pas l'évidence analytique dans l'état de session.
 
 \begin{figure*}[!t]
 \centering
-\resizebox{\textwidth}{!}{\input{figures/fr/F01_conceptual_chain.tex}}
-\caption{Chaîne conceptuelle centrale de MCAD : de la requête à l'indicateur de calculabilité stratégique, puis à une politique d\'action configurable.}
+\resizebox{\textwidth}{!}{\input{figures/fr/F01_conceptual_chain_post_a8_nh.tex}}
+\caption{Chaîne conceptuelle post-A8 de MCAD. Le CQP alimente l'admissibilité et, si nécessaire, un probe de réalisabilité. La décision d'élagage est relative à la frontière résiduelle de l'objectif et échoue en \emph{fail-open}. Un probe réussi n'est pas assimilé à de l'évidence acquise; seule une exécution complète réussie peut enrichir l'état de session.}
 \label{fig:concept-chain}
 \end{figure*}
 
-\subsection{Composants principaux de MCAD}
+Soit $N_E(q)$ l'ensemble d'évidence que $q$ pourrait encore fournir sous le profil et les correspondances considérés, et $U(\mathcal{E}_t)$ la frontière d'évidence encore utile à la complétion de l'objectif au temps $t$. Une condition suffisante d'élagage sûr, formalisée plus loin, prend la forme
+\[
+N_E(q)\cap U(\mathcal{E}_t)=\emptyset.
+\]
+Cette condition exprime une propriété de sûreté, pas une simple absence de contribution immédiate. En particulier,
+\[
+\text{NONCONTRIBUTIVE\_NOW}\;\not\Rightarrow\;\text{SAFE\_TO\_PRUNE}.
+\]
+Si la condition de sûreté est établie sous les hypothèses gelées, MCAD peut choisir \texttt{PRUNE}. Sinon, ou si la fidélité du CQP, le mapping d'évidence ou la réalisabilité restent incertains, la branche sûre est l'exécution complète.
 
-Le graphe de connaissances contextuel (CKG) constitue la représentation opérationnelle du \textbf{contexte de l'analyse décisionnelle}. Il regroupe, dans une structure unique, le catalogue multidimensionnel (faits, dimensions, niveaux et mesures), la sémantique des KPI, les unités et agrégateurs, les contraintes métier, les scénarios, les fenêtres temporelles, l'objectif actif et les relations nécessaires pour interpréter l'état de session. Il ne joue donc pas le rôle d'un simple catalogue : il agit comme une mémoire sémantique active reliant ce que l'entrepôt peut fournir à ce que l'objectif exige de rendre calculable.
+\subsection{Objets principaux : objectif, contexte, CQP et évidence de session}
 
-L'objectif stratégique de l'organisation est modélisé comme un ensemble fini de contraintes attachées à une sémantique explicite des KPI. Pour chaque contrainte, MCAD identifie les cellules analytiques minimales requises pour son évaluation : combinaisons de fait, grain, mesures, agrégateurs, unités, filtres et période. Ces cellules sont représentées par des \emph{nœuds virtuels}.
+L'objectif $O$ est représenté par un graphe objectif--évidence $G_O$ qui distingue trois rôles : les contraintes à rendre calculables, les supports suffisants alternatifs de ces contraintes et les atomes d'évidence analytique dont ces supports dépendent. Une contrainte est calculable lorsqu'au moins un de ses supports suffisants est entièrement couvert par l'évidence effectivement acquise. Cette représentation évite de confondre une cellule potentiellement pertinente avec une obligation unique : plusieurs supports alternatifs peuvent conduire à la même calculabilité.
 
-Chaque requête analytique est traduite en un plan de requête canonique capturant sa sémantique essentielle : fait visé, grain, mesures et agrégateurs, unités, filtres et fenêtre temporelle. Cette abstraction sépare le raisonnement de la syntaxe concrète. Dans le prototype évalué, des extracteurs sont matérialisés pour MDX et SQL analytique; le même principe peut être étendu à d'autres langages dès lors qu'un extracteur fiable vers $QP$ est disponible.
+Le graphe de connaissances contextuel (CKG) porte, pour sa part, la sémantique nécessaire à l'interprétation : schéma multidimensionnel, KPI, grains, unités, agrégateurs, relations de slicers, scénarios, fenêtres temporelles et règles métier. Il fournit le référentiel typé qui permet de construire $G_O$, de canonicaliser la requête et d'évaluer l'admissibilité. Le CKG n'est cependant pas assimilé à l'état d'évidence de session. Les relations relativement stables du contexte et l'évidence effectivement acquise au cours de la session sont traitées comme des objets distincts.
 
-Une fois un plan jugé contextuellement valide, MCAD détermine quels nœuds virtuels associés à l'objectif deviennent réalisables, puis en déduit quelles contraintes deviennent calculables. La mise en correspondance sémantique entre le plan, le contexte et les supports induit alors un masque contextuel inspectable. Ce masque ne décide d'aucune action : son évaluation alimente la mesure de contribution, éventuellement pondérée, puis la politique d'action choisit la réponse opérationnelle.
+L'état $\mathcal{E}_t$ mémorise l'évidence analytique effectivement acquise avant le traitement de la requête candidate. MCAD distingue alors : (i) l'évidence \emph{potentielle} décrite par le CQP et ses correspondances; (ii) l'évidence \emph{réalisable}, éventuellement établie par un probe; et (iii) l'évidence \emph{acquise}, issue d'une exécution complète réussie et pouvant faire progresser les supports de $G_O$. Cette distinction est centrale pour les sessions multi-requêtes et la contribution différée.
 
-\subsection{Fragment illustratif du CKG et construction pratique}
+\subsection{Contrôle pré-backend, probes et mise à jour de l'état}
 
-La Figure~\ref{fig:ckg-fragment} montre un fragment simplifié de CKG centré sur une dimension, une mesure, un KPI, une contrainte et un nœud virtuel.
+Le contrôle suit quatre étapes opérationnelles. Premièrement, la requête est canonicalisée et soumise à l'admissibilité sémantique sans créditer d'évidence. Deuxièmement, lorsqu'une propriété de non-vacuité ou de présence physique est nécessaire, MCAD peut lancer un probe ciblé. Troisièmement, le raisonneur confronte l'évidence potentielle/réalisable de la requête à la frontière résiduelle de $O$ et cherche une preuve de dispensabilité sûre. Quatrièmement, la politique applique l'action autorisée par cette preuve.
+
+Si la requête est élaguée, aucune exécution complète n'a lieu et l'état acquis reste inchangé :
+\[
+\mathcal{E}_{t+1}=\mathcal{E}_t\qquad\text{après \texttt{PRUNE}}.
+\]
+Cette égalité n'implique pas un coût backend nul : un probe antérieur peut avoir été exécuté et son coût est attribué à la session. Si la requête n'est pas sûre à élaguer, MCAD exécute en \emph{fail-open}; une exécution complète réussie peut alors enrichir $\mathcal{E}_{t+1}$ avec l'évidence réellement retournée et faire évoluer l'état des supports et contraintes.
+
+La séparation entre raisonnement et politique reste explicite. Le noyau établit admissibilité, réalisabilité, évidence acquise, progression de l'objectif et sûreté de l'élagage. La couche d'action décide ensuite de \texttt{PRUNE}, d'exécuter, de notifier ou de guider selon le mode de déploiement. Les politiques expérimentales \texttt{STRICT\_IMMEDIATE}, \texttt{PERMISSIVE\_GATED}, \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} et \texttt{SAFE\_PRUNING} ne sont donc pas des définitions concurrentes du noyau sémantique.
+
+\subsection{Fragment illustratif du graphe objectif--évidence et rôle du CKG}
+
+La Figure~\ref{fig:ckg-fragment} illustre une contrainte $c_1$ disposant de deux supports suffisants alternatifs. Le support $s_1$ dépend de deux atomes d'évidence, tandis que $s_2$ fournit une autre voie de calculabilité. Le CKG annote ces atomes par les informations de grain, mesure, unité, agrégation, filtres et temporalité nécessaires à leur interprétation.
 
 \begin{figure}[!t]
 \centering
 \begin{tikzpicture}[
-  node distance=6mm and 10mm,
+  node distance=5mm and 7mm,
   every node/.style={font=\scriptsize, align=center},
   box/.style={draw, rounded corners=1mm, minimum width=16mm, minimum height=7mm, inner sep=2pt},
   >=Stealth
 ]
-\node[box] (d) {Dimension\\Produit};
-\node[box, right=of d] (m) {Mesure\\Marge\%};
-\node[box, below=of m] (k) {KPI\\Marge BIO\\Nord 1998};
-\node[box, right=of k] (c) {Contrainte\\$c_1$};
-\node[box, below=of c] (nv) {Nœud virtuel\\(HF, Nord,\\mois 1998)};
-\draw[->] (d) -- node[above]{has\_measure} (m);
-\draw[->] (m) -- node[right]{defines\_KPI} (k);
-\draw[->] (k) -- node[above]{linked\_to} (c);
-\draw[->] (c) -- node[right]{requires\_cell} (nv);
+\node[box] (o) {Objectif\\$O$};
+\node[box, right=of o] (c) {Contrainte\\$c_1$};
+\node[box, above right=of c] (s1) {Support\\$s_1$};
+\node[box, below right=of c] (s2) {Support\\$s_2$};
+\node[box, right=of s1] (e1) {Évidence\\$e_1$};
+\node[box, below=of e1] (e2) {Évidence\\$e_2$};
+\node[box, right=of s2] (e3) {Évidence\\$e_3$};
+\draw[->] (o) -- node[above]{requiert} (c);
+\draw[->] (c) -- node[above left]{support} (s1);
+\draw[->] (c) -- node[below left]{support} (s2);
+\draw[->] (s1) -- node[above]{dépend de} (e1);
+\draw[->] (s1) -- (e2);
+\draw[->] (s2) -- node[below]{dépend de} (e3);
 \end{tikzpicture}
-\caption{Fragment simplifié de CKG reliant une dimension, une mesure, un KPI, une contrainte et un nœud virtuel.}
+\caption{Fragment simplifié du graphe objectif--évidence. La calculabilité de $c_1$ peut être obtenue par $s_1$ ou $s_2$; l'évidence acquise est suivie au niveau session, tandis que le CKG fournit la sémantique permettant d'interpréter chaque atome.}
 \label{fig:ckg-fragment}
 \end{figure}
 
-En pratique, le CKG est construit à partir de plusieurs sources : le schéma multidimensionnel (faits, dimensions, hiérarchies, mesures), les métadonnées techniques (dictionnaires de données, règles ETL, contraintes d'intégrité), la documentation métier (définitions de KPI, procédures de reporting, règles métier) et des ateliers avec experts métier pour expliciter des règles implicites (incompatibilités de filtres, scénarios, unités admissibles ou fenêtres temporelles particulières).
+\subsection{Portabilité et frontières de construction}
 
-Un déploiement pourrait amorcer le CKG depuis le schéma et les métadonnées puis l'enrichir de connaissances métier, mais les expériences utilisent des CKG préparés à partir des schémas, règles et objectifs contrôlés du protocole. La construction automatique depuis documents, logs ou règles implicites reste donc future. Les résultats portent sur le raisonnement sur un CKG spécifié, non sur l'acquisition automatique de connaissances; le graphe pourrait être stocké dans une base de graphes de propriétés ou un triple store RDF.
+Le CQP rend le raisonnement indépendant de la syntaxe source dans la mesure où un extracteur fidèle est disponible. Le prototype dispose de chemins SQL analytique et MDX/XMLA vers cette représentation; cela établit une portabilité de représentation bornée, et non l'équivalence de tous les backends ni une confirmation expérimentale XMLA de R3. La réplication R3-E reste au checkpoint statique E8 tant que le bundle n'a pas été récupéré et que la revalidation hôte E2 puis les mesures autorisées n'ont pas été exécutées. DAX et d'autres langages restent des extensions futures du contrat CQP.
+
+Enfin, les expériences utilisent des CKG, objectifs, contraintes, supports et mappings d'évidence préparés à partir des schémas et règles contrôlés du protocole. La construction automatique de ces objets depuis documents, logs ou règles implicites n'est pas évaluée. Les résultats portent donc sur le raisonnement et le contrôle à partir d'un contexte spécifié, non sur l'acquisition automatique de connaissances ni sur la validité métier indépendante de ce contexte.
+
 
 \section{Formalisation de MCAD}
 \label{sec:formal}

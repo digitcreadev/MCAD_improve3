@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+  node distance=5mm and 6mm,
+  every node/.style={font=\scriptsize, align=center},
+  box/.style={draw, rounded corners=1mm, minimum height=8mm, inner sep=3pt},
+  decision/.style={draw, diamond, aspect=2.3, inner sep=2pt},
+  >=Stealth
+]
+\node[box] (q) {Requête\\candidate $q$};
+\node[box, right=of q] (cqp) {CQP\\canonique};
+\node[box, right=of cqp] (sat) {Admissibilité\\sémantique};
+\node[box, right=of sat] (probe) {Probe\\si requis};
+\node[box, right=of probe] (pot) {Évidence potentielle /\\réalisable $N_E(q)$};
+\node[box, below=of pot] (frontier) {Frontière résiduelle\\$U(\mathcal{E}_t)$};
+\node[decision, right=9mm of pot] (safe) {preuve\\de sûreté ?};
+\node[box, above right=6mm and 9mm of safe] (prune) {\texttt{PRUNE}\\$\mathcal{E}_{t+1}=\mathcal{E}_t$};
+\node[box, below right=6mm and 9mm of safe] (exec) {\emph{fail-open}\\EXECUTE};
+\node[box, right=of exec] (result) {Résultat complet\\réussi};
+\node[box, right=of result] (update) {Mise à jour\\$\mathcal{E}_{t+1}$};
+
+\draw[->] (q) -- (cqp);
+\draw[->] (cqp) -- (sat);
+\draw[->] (sat) -- node[above]{admissible} (probe);
+\draw[->] (probe) -- (pot);
+\draw[->] (pot) -- (safe);
+\draw[->] (frontier) -- (safe);
+\draw[->] (safe) -- node[above left]{oui} (prune);
+\draw[->] (safe) -- node[below left]{non / incertain} (exec);
+\draw[->] (exec) -- (result);
+\draw[->] (result) -- (update);
+\draw[->, dashed] (probe) to[bend right=28] node[below]{ne crédite pas $\mathcal{E}_t$} (frontier);
+\end{tikzpicture}

@@ -1,0 +1,44 @@
+{
+  "station": "NH-MANUSCRIPT-DELTA-0h",
+  "role": "POST_A8_OVERVIEW_AND_CONCEPTUAL_CHAIN_CONTROLLED_PATCH",
+  "parent_commit": "a6797d698aa17408dcb7a747f6091bb3bf07bf70",
+  "branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+  "source_file": "manuscript/post_a8_nh/working_release/manuscript/fr/MCAD_FR_POST_A8_NH.tex",
+  "source_before_sha256": "85183f70833c4f134d02af5c23072923f3be198d1a27eb71c45b7bd4a5ca1d3a",
+  "source_after_sha256": "6cc3c3ec176cc111de4c16f17f4cd7ae1f64670840229b964ec223de9a640f24",
+  "new_conceptual_chain_figure": "manuscript/post_a8_nh/working_release/figures/fr/F01_conceptual_chain_post_a8_nh.tex",
+  "new_conceptual_chain_figure_sha256": "9604ffb547215dc1f1cae1b906e7d741f81555210d2adae68dd92d393270854e",
+  "old_A8_conceptual_chain_figure_sha256": "308a19e05e9dfdba5ebd274179610f8b4ebd4193d1c2a07cf7639ab25682c14d",
+  "modified_units": [
+    "Vue d'ensemble de MCAD",
+    "conceptual chain reference",
+    "illustrative objective-evidence fragment"
+  ],
+  "preserved_units": [
+    "frontmatter",
+    "Introduction",
+    "Related Work",
+    "Formalization and all later sections"
+  ],
+  "overview_contract": {
+    "objective_evidence_graph": true,
+    "canonical_query_profile": true,
+    "realizability_separate_from_acquired_evidence": true,
+    "probe_updates_acquired_evidence": false,
+    "noncontributive_now_implies_safe_to_prune": false,
+    "safe_pruning_sufficient_condition": "N_E(q) intersect U(E_t) is empty under frozen assumptions",
+    "fail_open_on_uncertainty": true,
+    "prune_implies_zero_backend_interaction": false,
+    "prune_updates_acquired_evidence": false,
+    "xmla_r3_measured_confirmation_complete": false,
+    "automatic_CKG_or_objective_construction_evaluated": false
+  },
+  "A8_parent_copy_modified": false,
+  "canonical_A8_source_modified": false,
+  "old_A8_F01_modified": false,
+  "build_executed": false,
+  "docker_executed": false,
+  "backend_query_executed": false,
+  "measurement_executed": false,
+  "next": "NH-MANUSCRIPT-DELTA-0i_FORMALIZATION_CORE_SAFE_PRUNING_CONTROLLED_PATCH"
+}
