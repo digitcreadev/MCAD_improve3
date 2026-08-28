@@ -1,0 +1,61 @@
+\section{Preuves formelles complémentaires post-A8}
+\label{app:formal-proofs-post-a8}
+
+Cette annexe développe les propriétés utilisées par le noyau formel post-A8 sans réintroduire les objets et relations abandonnés de la formalisation antérieure. Les hypothèses sont celles de la Section~\ref{sec:formal} : objectif $O$, graphe objectif--évidence $G_O$, supports suffisants gelés pendant la phase considérée, évidence acquise $\mathcal{E}_t$, CQP fidèle ou traitement \emph{fail-open}, et sur-approximation sûre $N_E(q)$ de l'évidence pertinente que l'exécution complète de $q$ pourrait acquérir.
+
+\paragraph*{Lemme 1 -- Monotonie de la calculabilité sous accumulation d'évidence.}
+Supposons $\mathcal{E}_{t-1}\subseteq\mathcal{E}_t$. Pour toute contrainte $c\in O$, si $\operatorname{Comp}(c,\mathcal{E}_{t-1})$ est vraie, alors il existe, par l'Éq.~\eqref{eq:comp}, un support $s\in\operatorname{Supp}(c)$ tel que $\operatorname{Req}(s)\subseteq\mathcal{E}_{t-1}$. L'inclusion $\mathcal{E}_{t-1}\subseteq\mathcal{E}_t$ implique alors $\operatorname{Req}(s)\subseteq\mathcal{E}_t$, donc $\operatorname{Comp}(c,\mathcal{E}_t)$. Par conséquent,
+\[
+C_{\mathcal{E}}^{\le t-1}(O)\subseteq C_{\mathcal{E}}^{\le t}(O).
+\]
+Cette propriété ne requiert aucune hypothèse sur la requête qui a produit l'évidence, seulement la conservation monotone de l'évidence acquise dans la phase.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Lemme 2 -- Un probe seul ne peut pas faire progresser la calculabilité acquise.}
+Un probe de réalisabilité peut établir $R_E(q)\subseteq N_E(q)$, mais il ne produit pas d'ensemble d'évidence acquise $A_t$. Ainsi $A_t=\emptyset$ et l'Éq.~\eqref{eq:evidence-update} donne
+\[
+\mathcal{E}_t=\mathcal{E}_{t-1}.
+\]
+Le Lemme~1 implique alors
+\[
+C_{\mathcal{E}}^{\le t}(O)=C_{\mathcal{E}}^{\le t-1}(O).
+\]
+Le coût du probe peut être attribué à la session, mais son succès ne doit donc jamais être interprété comme l'acquisition du résultat analytique.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Preuve détaillée de la Proposition~\ref{prop:safe-pruning}.}
+Considérons une requête candidate $q$ à l'état $\mathcal{E}_t$ et supposons
+\[
+N_E(q)\cap U(\mathcal{E}_t)=\emptyset.
+\]
+Soit $A(q)\subseteq N_E(q)$ l'ensemble d'évidence qui serait effectivement acquis si $q$ était exécutée complètement avec succès. Pour toute contrainte active $c\in C_t^{\mathrm{act}}$ et tout support $s\in\operatorname{Supp}(c)$, les atomes encore manquants sont
+\[
+M_s=\operatorname{Req}(s)\setminus\mathcal{E}_t.
+\]
+Par définition de la frontière résiduelle à l'Éq.~\eqref{eq:frontier}, $M_s\subseteq U(\mathcal{E}_t)$. L'hypothèse de disjonction implique donc
+\[
+A(q)\cap M_s=\emptyset.
+\]
+Après exécution hypothétique, l'état serait $\mathcal{E}'=\mathcal{E}_t\cup A(q)$. On a alors
+\[
+\operatorname{Req}(s)\setminus\mathcal{E}'
+=
+\operatorname{Req}(s)\setminus\mathcal{E}_t
+=
+M_s.
+\]
+Aucun support actif ne gagne donc un atome qui lui manquait. Une contrainte déjà calculable reste calculable par monotonie, et aucune contrainte active ne devient calculable par l'effet de $q$. L'exécution complète de $q$ ne modifie ainsi ni la complétion déjà acquise ni la progression des supports actifs relativement à $O$; l'élagage préserve la complétion analytique sous les hypothèses gelées.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Corollaire -- Préservation immédiate après \texttt{PRUNE}.}
+Lorsque la politique retourne \texttt{PRUNE}, l'Éq.~\eqref{eq:prune-no-evidence} impose $A_t=\emptyset$ puis $\mathcal{E}_t=\mathcal{E}_{t-1}$. Par application directe de l'Éq.~\eqref{eq:comp}, l'ensemble des contraintes calculables reste donc exactement inchangé. Ce corollaire concerne l'état d'évidence; il n'implique pas un coût backend nul si un probe a précédé la décision.\unskip\nobreak\hspace{0.5em}$\blacksquare$
+
+\paragraph*{Contre-exemple à la règle ``non contributif maintenant $\Rightarrow$ élagable''.}
+Considérons une contrainte $c$ ayant un support unique $s$ tel que
+\[
+\operatorname{Req}(s)=\{e_1,e_2\},\qquad \mathcal{E}_0=\emptyset.
+\]
+Une première requête $q_1$ peut acquérir $A_1=\{e_1\}$ et une seconde $q_2$ peut acquérir $A_2=\{e_2\}$. Après $q_1$, aucune contrainte nouvelle n'est encore calculable, mais $N_E(q_1)$ intersecte la frontière $U(\mathcal{E}_0)=\{e_1,e_2\}$. La condition suffisante d'élagage sûr échoue donc, ce qui conduit à l'exécution \emph{fail-open}. Après l'acquisition de $e_1$, $q_2$ complète le support et rend $c$ calculable. Cet exemple formalise le mécanisme de contribution différée exercé dans NH-R2 et montre pourquoi
+\[
+\text{NONCONTRIBUTIVE\_NOW}\not\Rightarrow\text{SAFE\_TO\_PRUNE}.
+\]
+
+\paragraph*{Portée des preuves.}
+Ces résultats sont relatifs à la spécification encodée. Ils supposent en particulier que les supports suffisants et les mappings d'évidence sont corrects, que $N_E(q)$ constitue une sur-approximation sûre de l'évidence pertinente et que la phase n'altère pas silencieusement l'objectif ou ses supports. Si ces hypothèses ne peuvent pas être établies, la conclusion opérationnelle est l'exécution \emph{fail-open}, non l'élagage.

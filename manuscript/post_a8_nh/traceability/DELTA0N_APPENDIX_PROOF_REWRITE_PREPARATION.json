@@ -1,0 +1,40 @@
+{
+  "station": "NH-MANUSCRIPT-DELTA-0n",
+  "role": "POST_A8_APPENDIX_PROOF_CONTROLLED_REWRITE_PREPARATION",
+  "parent_commit": "922704902682c75448bfb281d1d56ff54ac59549",
+  "branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+  "source_before_sha256": "a82793c7e1d58b9c271e26a0a179adf4fcf0110be1170cee77a00275533936fb",
+  "source_after_sha256": "7c46c448db92395b28088efccd00c8fb60f3d5d99deff951bd6b252ce6f5213c",
+  "legacy_formal_supplement_sha256": "dc6d472a16fdc33fae6ee51076ce8ae605e561af4708e1ed7e76e807532dce3e",
+  "legacy_foodmart_supplement_sha256": "92669438ea1ad26059a09104b157a58312a596490d41f521ce3d046f9f437b68",
+  "new_formal_supplement": "manuscript/post_a8_nh/working_release/supplement/fr/S_formal_proofs_post_a8_nh.tex",
+  "new_formal_supplement_sha256": "5f8003c111bbadca00dd0123f195bb894f4d98c2564cd23b3b0fd310d33cfe0e",
+  "new_foodmart_supplement": "manuscript/post_a8_nh/working_release/supplement/fr/S_foodmart_formalization_post_a8_nh.tex",
+  "new_foodmart_supplement_sha256": "d8968af40957281b69a6c520eaea77a1558a8a4958dd3495ca4be52f6298207b",
+  "binding_switch": {
+    "legacy_formal_binding_present_after": false,
+    "legacy_foodmart_binding_present_after": false,
+    "post_A8_formal_binding_present_after": true,
+    "post_A8_foodmart_binding_present_after": true,
+    "bibliography_binding_modified": false
+  },
+  "formal_contract": {
+    "safe_pruning_proof_aligned_to_prop_safe_pruning": true,
+    "probe_updates_acquired_evidence": false,
+    "prune_updates_acquired_evidence": false,
+    "deferred_contribution_counterexample_present": true,
+    "legacy_QP_Real_Ceval_varphi_kappa_psi_removed": true,
+    "fail_open_boundary_preserved": true
+  },
+  "preservation": {
+    "frontmatter_through_conclusion_modified": false,
+    "legacy_appendix_files_modified": false,
+    "A8_parent_copy_modified": false,
+    "canonical_A8_source_modified": false
+  },
+  "build_executed": false,
+  "docker_executed": false,
+  "backend_query_executed": false,
+  "measurement_executed": false,
+  "next": "NH-MANUSCRIPT-DELTA-0o_STATIC_BUILD_READINESS_READONLY_AUDIT"
+}

@@ -1,0 +1,73 @@
+\section{Exemple FoodMart HF/North reformulé dans le contrat post-A8}
+\label{app:foodmart-post-a8}
+
+Cette annexe conserve l'exemple FoodMart historique comme illustration formelle, mais le reformule avec le graphe objectif--évidence, le CQP et l'évidence acquise du modèle post-A8. Elle ne réinterprète aucune campagne expérimentale historique comme preuve confirmatoire de \texttt{SAFE\_PRUNING}.
+
+Le cube \textit{Sales} comporte notamment les dimensions \textit{Time}, \textit{Product} et \textit{Store}, les mesures \textit{Store Sales}, \textit{Store Cost} et \textit{Units Sold}, ainsi qu'un KPI dérivé de marge. Nous considérons l'objectif illustratif
+\[
+O_{\mathrm{HF\_North}}=\{c_1,c_2,c_3\},
+\]
+relatif à la catégorie Health Food, à la région North et aux fenêtres temporelles utilisées dans l'exemple historique.
+
+\paragraph*{Graphe objectif--évidence.}
+Le graphe $G_{O_{\mathrm{HF\_North}}}$ contient trois contraintes, leurs supports suffisants et des atomes d'évidence typés. Pour $c_1$, un support illustratif $s_1$ exige les douze valeurs mensuelles du KPI de marge pour 1998 :
+\[
+\operatorname{Req}(s_1)=\{e_{1,1},\ldots,e_{1,12}\}.
+\]
+Chaque $e_{1,m}$ encode la source \textit{Sales}, le grain Month, la catégorie Health Food, la région North, le KPI de marge, son agrégation, son unité et le mois concerné. De façon analogue, $c_2$ est reliée à un support $s_2$ portant sur l'évidence de taux de rupture au grain Store, et $c_3$ à un support $s_3$ portant sur l'évidence de ventes agrégées sur la fenêtre 1997--1998. L'exemple n'impose pas qu'une contrainte n'ait qu'un seul support : d'autres supports suffisants peuvent être ajoutés au graphe si la spécification métier l'autorise.
+
+La calculabilité suit directement l'Éq.~\eqref{eq:comp}. Ainsi,
+\[
+\operatorname{Comp}(c_1,\mathcal{E}_t)
+\Longleftrightarrow
+\operatorname{Req}(s_1)\subseteq\mathcal{E}_t
+\]
+dans la variante illustrative à support unique pour $c_1$.
+
+\paragraph*{Canonical Query Profile (CQP) d'une requête de marge.}
+Soit $q_1$ une requête analytique demandant la marge mensuelle de Health Food dans North pour 1998. Son profil canonique peut être résumé par
+\[
+P_{q_1}=\operatorname{CQP}(q_1)
+=(\textit{Sales},\textit{Month},\{\mathrm{Margin\%}\},\mathrm{avg},\%,S_{\mathrm{HF,North}},w_{1998},\Gamma_{q_1},\eta_{q_1}).
+\]
+Si le mapping est fidèle,
+\[
+N_E(q_1)\supseteq\{e_{1,1},\ldots,e_{1,12}\}.
+\]
+L'admissibilité de $P_{q_1}$ vérifie les propriétés de grain, agrégation, unité, slicers, temps et mapping. Une éventuelle vérification de non-vacuité reste un probe de réalisabilité séparé et ne modifie pas $\mathcal{E}_t$.
+
+\paragraph*{Acquisition complète d'un support.}
+Si $q_1$ est exécutée complètement avec succès et que son résultat fournit les douze atomes du support, alors
+\[
+A_1\supseteq\operatorname{Req}(s_1),
+\qquad
+\mathcal{E}_1=\mathcal{E}_0\cup A_1,
+\]
+et $c_1$ devient calculable. La même logique s'applique aux supports de $c_2$ et $c_3$ : la calculabilité dépend de l'évidence effectivement acquise, pas de la seule description potentielle de la requête.
+
+\paragraph*{Contribution différée intra-support.}
+Pour illustrer le cas multi-requêtes, divisons le support $s_1$ en deux acquisitions successives. La requête $q_{1a}$ couvre les six premiers mois et $q_{1b}$ les six derniers :
+\[
+A_{1a}=\{e_{1,1},\ldots,e_{1,6}\},
+\qquad
+A_{1b}=\{e_{1,7},\ldots,e_{1,12}\}.
+\]
+Avec $\mathcal{E}_0=\emptyset$, l'exécution de $q_{1a}$ ne rend pas encore $c_1$ calculable. Elle est néanmoins contributive au support résiduel car
+\[
+N_E(q_{1a})\cap U(\mathcal{E}_0)\neq\emptyset.
+\]
+Après cette première acquisition,
+\[
+\mathcal{E}_1=A_{1a},
+\]
+puis $q_{1b}$ complète $s_1$ et rend $c_1$ calculable. Une politique qui élaguerait $q_{1a}$ uniquement parce qu'elle ne complète aucune contrainte immédiatement perdrait donc la contribution différée.
+
+\paragraph*{Exemple d'élagage sûr relatif à l'objectif.}
+Considérons maintenant une requête $q_x$ dont le CQP fidèle ne mappe que vers des atomes d'évidence extérieurs aux supports encore actifs de $O_{\mathrm{HF\_North}}$. Si
+\[
+N_E(q_x)\cap U(\mathcal{E}_t)=\emptyset,
+\]
+alors la Proposition~\ref{prop:safe-pruning} autorise l'élagage sous les hypothèses gelées. L'exemple est relatif à l'objectif : la même requête pourrait redevenir pertinente dans une autre session, pour un autre objectif ou après modification explicite des supports.
+
+\paragraph*{Limite de l'illustration.}
+Le présent exemple démontre la cohérence du raisonnement sur une spécification contrôlée. Il n'établit ni la construction automatique correcte de $G_O$, ni la validité métier indépendante des supports choisis, ni un résultat de performance XMLA/eMondrian. Les campagnes historiques FoodMart restent des preuves de fonctionnement du prototype; la réplication confirmatoire R3-E demeure distincte et pendante.
