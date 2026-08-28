@@ -593,127 +593,76 @@ Cette architecture maintient ainsi une séparation inspectable entre sémantique
 \label{sec:exp}
 \label{sec:experiments}
 
-\subsection{Questions d'évaluation et protocole}
+L'évaluation post-A8 est organisée comme une \emph{échelle d'évidence} plutôt que comme une collection de RQ historiques placées au même niveau probatoire. Les campagnes n'ont pas toutes la même fonction : les traces historiques établissent la réalité du prototype et sa diversité de chemins; NH-R2 cible la préservation sémantique et la contribution différée multi-requêtes; R3-C teste le comportement de bout en bout face à une exécution admissible non filtrée; R3-D constitue la campagne confirmatoire SQL Server Direct pour les coûts système et le temps jusqu'à complétion analytique; R3-E prépare la réplication XMLA/eMondrian mais reste sans mesure ni inférence réelle au checkpoint E8.
 
-Les objectifs, contraintes et supports suffisants utilisés dans les workloads constituent la spécification de référence des protocoles contrôlés. Ils servent à tester la cohérence du raisonneur relativement à un CKG et à un objectif donnés; ils ne constituent pas une validation indépendante de la pertinence métier de cette décomposition. La présente étude ne mesure ni l'accord entre experts, ni la concordance entre la calculabilité formelle et l'utilité jugée par des analystes réels. Dans le benchmark de robustesse, les champs de référence \texttt{oracle\_allow} et \texttt{oracle\_ceval} sont portés par la spécification du scénario et lus avant l'appel à la politique testée; ils ne sont pas dérivés de la décision produite par cette politique.
+\subsection{Questions d'évaluation et hiérarchie probatoire}
 
-L'évaluation est structurée par six questions qui séparent l'évaluation scientifique de contribution, son instanciation opérationnelle et les propriétés du prototype :
+Nous formulons cinq questions correspondant au mécanisme post-A8 :
 \begin{itemize}
-  \item \textbf{RQ1 -- Discrimination de contribution :} MCAD distingue-t-il les requêtes contributives, inadmissibles et redondantes, et met-il correctement à jour la calculabilité cumulative de la session ?
-  \item \textbf{RQ2 -- Application avant backend :} lorsqu'une politique stricte ALLOW/BLOCK exploite l'indicateur MCAD, l'action est-elle appliquée de façon cohérente avant l'exécution physique sur un volume important de sessions ?
-  \item \textbf{RQ3 -- Préservation de la sémantique :} les décisions et leurs raisons sont-elles préservées entre plusieurs entrepôts et entre les chemins SQL Direct et XMLA dans les scénarios appariés ?
-  \item \textbf{RQ4 -- Robustesse contrôlée et sensibilité des composants :} comment MCAD se compare-t-il à des politiques de référence internes et à des ablations ciblées sous scénarios adversariaux, bruités et plus longs ?
-  \item \textbf{RQ5 -- Croissance structurelle :} comment évoluent les nœuds, arêtes et nœuds virtuels du CKG lorsque la taille du problème augmente ?
-  \item \textbf{RQ6 -- Coût de la décision sémantique :} comment évoluent p50, p95 et p99 lorsque varient le nombre de contraintes, le nombre de nœuds virtuels et la densité d'appartenance ?
+  \item \textbf{EQ1 -- Préservation de complétion :} une politique d'élagage sûr préserve-t-elle la complétion analytique de l'objectif dans les scénarios contrôlés où ses hypothèses sont gelées ?
+  \item \textbf{EQ2 -- Contribution différée :} une politique strictement immédiate peut-elle perdre une contribution distribuée sur plusieurs requêtes alors qu'une politique tenant compte de la frontière résiduelle la conserve ?
+  \item \textbf{EQ3 -- Coût système confirmatoire :} relativement à \texttt{PERMISSIVE\_GATED}, quels endpoints préspécifiés sont réduits par \texttt{SAFE\_PRUNING} sur SQL Server Direct ?
+  \item \textbf{EQ4 -- Break-even pratique :} les économies de travail backend suffisent-elles à rendre \texttt{SAFE\_PRUNING} plus rapide que \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} dans la campagne contrôlée correspondante ?
+  \item \textbf{EQ5 -- Réplication backend :} quelles conclusions sont déjà confirmées sur SQL Direct, et lesquelles restent encore à mesurer sur XMLA/eMondrian ?
 \end{itemize}
 
-Le Tableau~\ref{tab:evaluation-scope} matérialise la couverture de ces questions. Il distingue trois classes de preuve qui ne doivent pas être confondues : (i) les preuves physiques de bout en bout, où la requête atteint effectivement SQL Direct ou XMLA lorsque la politique l'autorise; (ii) le benchmark contrôlé du cœur sémantique, utilisant des politiques de référence internes et des ablations ciblées; et (iii) les caractérisations structurelles et temporelles de la couche MCAD. Cette triangulation augmente la portée empirique sans transformer des tests hétérogènes en réplications interchangeables.
+Le Tableau~\ref{tab:evidence-ladder} synthétise la hiérarchie des campagnes et empêche de promouvoir un résultat descriptif ou historique au rang de confirmation inférentielle.
 
-\input{tables/fr/T_evaluation_scope_v8_5_1.tex}
+\input{tables/fr/T_evaluation_evidence_ladder_post_a8_nh.tex}
 
-Les métriques sont choisies en conséquence : couverture et gain de calculabilité, cohérence entre action choisie et effet physique, taux de \emph{false ALLOW}/\emph{false BLOCK}, exécutions non contributives, taille du CKG et quantiles p50/p95/p99 de la décision sémantique. Ces quantiles ne mesurent pas le temps d'exécution SQL/XMLA. La trace Q1--Q6 est une séquence instrumentée de bout en bout et n'est pas interprétée comme six réplications indépendantes; l'étude FoodMart porte sur 1000 sessions et 7960 décisions.
+\subsection{Évidence historique : fonctionnement, portée et limites}
 
-\subsection{Preuve de fonctionnement de bout en bout}
+Les campagnes historiques restent utiles comme preuves de fonctionnement et de diversité de configuration. La trace AdventureWorks Q1--Q6 établit qu'une politique peut appliquer une décision avant backend; la campagne FoodMart historique exerce 1000 sessions et 7960 décisions; les campagnes multi-entrepôts et backend apparié montrent que des décisions et motifs peuvent être préservés dans plusieurs chemins exercés; les benchmarks historiques de robustesse, de croissance structurelle et de latence sémantique caractérisent le prototype et certaines sensibilités internes.
 
-Une trace AdventureWorks de six requêtes illustre la politique stricte de démonstration. Q1--Q3 fournissent successivement les supports de \emph{SalesAmount}, \emph{TotalProductCost} et \emph{GrossMargin}, faisant passer la calculabilité cumulative de $1/3$ à $2/3$ puis à $1$; chacune est autorisée et exécutée physiquement. Q4--Q6 testent hors-périmètre, grain incompatible et redondance après couverture complète et sont arrêtées avant le backend. Les mêmes évaluations pourraient alimenter avertissement, guidage ou recommandation.
+Ces résultats ne sont toutefois pas réinterprétés comme preuve du nouveau prédicat d'élagage sûr. En particulier, les anciennes politiques strictes basées sur la contribution immédiate et les anciennes lectures en $\Delta\varphi$ sont conservées comme contexte historique, mais elles ne définissent plus le contrat normatif post-A8. De même, les quantiles historiques de latence sémantique n'incluaient pas nécessairement le coût complet du backend; ils ne sont donc pas utilisés pour conclure sur le temps de bout en bout de R3.
 
-Ce scénario illustre deux propriétés centrales : l'admissibilité contextuelle est nécessaire mais non suffisante, et la contribution est relative à l'état de session. Q6 satisfait les clauses de validité mais n'ajoute aucune contrainte nouvelle; son gain marginal est nul. La politique stricte de démonstration choisit donc \textsc{Block}; ce choix opérationnel n'est pas impliqué par la seule équation $\Delta\varphi=0$.
+\subsection{NH-R2 : préservation et contribution différée multi-requêtes}
 
-\input{tables/fr/T_q1_q6_diagnostic_v8_5_1.tex}
+NH-R2 exerce explicitement des scénarios où l'évidence utile à un support est répartie sur plusieurs requêtes. L'observation centrale est qu'une requête peut ne rendre immédiatement aucune nouvelle contrainte calculable tout en apportant une partie d'un support qui deviendra suffisant après une requête ultérieure. Une politique strictement immédiate peut donc supprimer une étape nécessaire à la complétion future.
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=0.60\textwidth]{figures/fr/F_ui_native_q1.png}\par
-\vspace{1.4mm}
-{\scriptsize (a) Q1 : contribution positive, ALLOW et exécution physique}\par
-\vspace{4.0mm}
-\includegraphics[width=0.60\textwidth]{figures/fr/F_ui_native_overview_3_3.png}\par
-\vspace{1.4mm}
-{\scriptsize (b) Après Q6 : 3 ALLOW / 3 BLOCK et objectif calculable à 100\%}\par
-\vspace{4.0mm}
-\includegraphics[width=0.60\textwidth]{figures/fr/F_ui_native_q6.png}\par
-\vspace{1.4mm}
-{\scriptsize (c) Q6 : admissible, redondante, $\Delta\varphi=0$, sans exécution physique}
-\caption{Preuve visuelle de bout en bout sous la politique stricte de démonstration. (a) Q1 apporte un support nouveau, reçoit l'action ALLOW et atteint le backend. (b) Après les six requêtes, la vue d'ensemble de la session affiche 3 ALLOW, 3 BLOCK et une calculabilité stratégique de 100\%. (c) Q6 reste contextuellement admissible mais n'ajoute aucune calculabilité; l'instanciation stricte choisit BLOCK et interrompt l'exécution avant le backend. Les trois panneaux proviennent de captures réelles de la même session instrumentée.}
-\label{fig:ui-evidence}
-\end{figure*}
+Dans le périmètre gelé de NH-R2, la politique fondée sur la frontière résiduelle ne présente pas de violation observée de complétion, tandis que le baseline \texttt{STRICT\_IMMEDIATE} expose la perte de contributions différées dans les cas préspécifiés. Ce résultat soutient la distinction
+\[
+\text{NONCONTRIBUTIVE\_NOW}\not\Rightarrow\text{SAFE\_TO\_PRUNE},
+\]
+mais ne constitue ni une preuve universelle pour toute forme de session, ni une validation automatique de tout mapping d'évidence possible.
 
-\begin{figure*}[!t]
-\centering
-\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F04_q1_q6_coverage.tex}\end{minipage}\hfill
-\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F05_q1_q6_gate_execution.tex}\end{minipage}
-\caption{Trace Q1--Q6 : (gauche) progression de la calculabilité cumulative; (droite) instanciation de l'indicateur par la politique stricte ALLOW/BLOCK et effet physique correspondant.}
-\label{fig:decision-trace}
-\end{figure*}
+\subsection{R3-C : exécution contrôlée et absence de break-even établi face à UNGATED}
 
-\subsection{Exécution à grande échelle et préservation multi-configuration}
+R3-C confronte la politique sûre à \texttt{UNGATED\_EXECUTE\_ADMISSIBLE}, qui exécute les requêtes admissibles sans rechercher de preuve d'élagage. Ce comparateur répond à une question différente de la comparaison confirmatoire primaire : il demande si le coût du contrôle pré-backend est amorti par les exécutions évitées dans les scénarios testés.
 
-Le workload FoodMart regroupe 1000 sessions analytiques et 7960 décisions. Sous la politique stricte évaluée, 2266 requêtes sont associées à ALLOW et 5694 à BLOCK. Dans ce périmètre, toutes les requêtes autorisées atteignent l'exécution physique et toutes les requêtes bloquées sont arrêtées avant le backend; les 7960 décisions respectent le contrat canonique décision--effet physique, sans violation observée. L'audit historique A1 reconstruit indépendamment les 2266 événements ALLOW acquis et leur progression cumulative. En revanche, la campagne n'a pas conservé les sorties brutes $C_{\mathrm{eval}}$ des 5694 candidats bloqués; l'article ne revendique donc pas une reconstruction exhaustive, candidat par candidat, de $C_Q^{\le t}=C_E^{\le t}$ sur les 7960 décisions. Il s'agit d'une frontière de conservation des traces, et non d'une modification des décomptes d'action ou d'exécution physique publiés.
+Dans les 40 sessions contrôlées de ce protocole, \texttt{SAFE\_PRUNING} est plus lent que \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} pour le temps observé de session, soit 40/40 cas dans le même sens. Le break-even temporel n'est donc pas établi dans ce périmètre. Cette observation n'annule pas les réductions de travail backend mesurées plus tard contre \texttt{PERMISSIVE\_GATED}; elle montre simplement que \emph{moins de travail backend} et \emph{temps de session inférieur à une exécution non instrumentée} sont deux claims distincts.
 
-Une réagrégation secondaire des motifs enregistrés, sans nouvelle exécution, montre \texttt{BLOCK\_REDUNDANT\_DPHI\_ZERO} pour $3\,372$ décisions : 42,4\% de l'ensemble et 59,2\% des décisions BLOCK. Les sept catégories primaires mutuellement attribuées totalisent les 7960 décisions; ce nombre désigne donc le motif explicite de redondance sessionnelle, non toute occurrence numérique de $\Delta\varphi=0$. Sous cette politique stricte, une part importante des arrêts correspond ainsi à l'absence de nouvelle contrainte calculable; ce n'est pas une mesure d'utilité humaine du blocage.
+\subsection{R3-D : campagne confirmatoire SQL Server Direct}
 
-\input{tables/fr/T_campaign_a_reason_profile_v8_5_1.tex}
+R3-D constitue la campagne confirmatoire préspécifiée de coût système. Le plan comprend 300 sessions, soit 900 exécutions de bras au total, organisées en 20 strates de 15 sessions. La comparaison primaire est
+\[
+\texttt{SAFE\_PRUNING}-\texttt{PERMISSIVE\_GATED},
+\]
+et les huit endpoints primaires sont orientés \emph{lower-is-better}. Le test principal est un test de permutation apparié unilatéral par inversion de signes avec 100000 permutations; les huit $p$-values sont corrigées par Holm pour contrôler la FWER à 0,05. Les intervalles descriptifs complémentaires utilisent un bootstrap percentile stratifié à 95\% avec 20000 réplications et une graine gelée par le protocole.
 
-L'étude multi-entrepôts combine FoodMart/XMLA avec AdventureWorks et SteelWheels/SQL Direct : 7 des 18 requêtes sont exécutées et 11 arrêtées avant backend. Une étude AdventureWorks appariée exécute six requêtes logiquement équivalentes via SQL Direct et XMLA avec ordre, décisions, motifs et politique d'exécution inchangés. Cela montre une préservation uniquement dans les entrepôts, adaptateurs et chemins exercés, non une portabilité universelle ni une équivalence de performance backend.
+Les huit endpoints primaires et leur statut confirmatoire sont reportés dans le Tableau~\ref{tab:r3d-primary-endpoints}.
 
-\begin{figure*}[!t]
-\centering
-\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F08_campaign_b_multidataset.tex}\end{minipage}\hfill
-\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F09_campaign_c_backend_parity.tex}\end{minipage}
-\caption{Préservation du comportement décisionnel dans les configurations testées : (gauche) FoodMart, AdventureWorks et SteelWheels; (droite) cohérence des décisions AdventureWorks entre SQL Direct et XMLA.}
-\label{fig:portability}
-\end{figure*}
+\input{tables/fr/T_r3d_primary_endpoints_post_a8_nh.tex}
 
-\subsection{Robustesse contrôlée et ablations ciblées}
+Six endpoints sur huit sont confirmés en faveur de \texttt{SAFE\_PRUNING}. La différence moyenne est de $-16.2$ pour le nombre de requêtes backend incluant les probes, et de $-16.2$ pour le nombre d'exécutions backend complètes. Le temps client diminue de $913.321858403$~ms en moyenne, les octets de réponse de $150731.476667$, le CPU SQL Server de $771626.43$~$\mu$s, et le temps jusqu'à complétion analytique de $202.580846887$~ms. Pour ces six endpoints, le test apparié atteint la résolution minimale du protocole ($p\approx 9.9999\times 10^{-6}$) et la correction de Holm reste significative ($p_{\mathrm{Holm}}\approx 7.99992\times 10^{-5}$).
 
-La robustesse est évaluée sur quatre familles de scénarios : cas adversariaux portant sur l'admissibilité, cas adversariaux sémantiques, situations bruitées proches de la frontière et séquences plus longues. MCAD est comparé à trois politiques de référence internes---une politique naïve permissive, une heuristique de recouvrement des mesures et une politique aléatoire appariée---ainsi qu'à trois ablations ciblées qui relâchent individuellement un maillon du raisonnement. Ces politiques de référence sont des comparateurs diagnostiques, non des réimplémentations de systèmes voisins publiés. Dans ce benchmark contrôlé, un \emph{false ALLOW} désigne une requête autorisée par la politique testée alors que la spécification de référence du scénario attend un blocage; un \emph{false BLOCK} désigne l'inverse. Ces termes décrivent donc des écarts à une référence opérationnelle contrôlée, et non une vérité terrain indépendante sur l'utilité humaine des requêtes ou la qualité finale des décisions.
+Les deux endpoints d'I/O en octets ne sont pas confirmés. Les lectures SQL Server présentent une différence moyenne de $-94126.08$~octets et les écritures de $-2416.64$~octets, mais leur $p_{\mathrm{Holm}}$ vaut $0.429436$. Ces directions descriptives ne sont donc pas promues en résultats confirmatoires.
 
-\input{tables/fr/T_robustness.tex}
+La conclusion R3-D est volontairement endpoint-spécifique : le protocole autorise à dire que six endpoints primaires sur huit sont confirmés, mais n'autorise pas un claim indivisible du type ``bénéfice système global''. De même, cette comparaison primaire n'implique pas que \texttt{SAFE\_PRUNING} soit universellement plus rapide que \texttt{UNGATED\_EXECUTE\_ADMISSIBLE}; R3-C fournit précisément une borne négative sur cette lecture.
 
-Dans ce benchmark contrôlé, MCAD conserve la couverture finale des politiques déterministes permissives tout en enregistrant zéro false ALLOW, false BLOCK et exécution non contributive dans chacune des quatre familles. Retirer $\mathrm{SAT}$ porte le false ALLOW moyen à 0,0417 et l'exécution non contributive à 0,125; retirer $\mathrm{Real}$ ou relâcher $C_{\mathrm{eval}}$ les porte à 0,08125 et 0,1875. Les trois ablations sont interprétées composant par composant : chaque manipulation dégrade le comportement aligné sur la référence dans au moins une famille exercée, ce qui fournit une évidence de sensibilité montrant que le maillon manipulé est comportementalement conséquent sous cette spécification. Cela n'établit pas que tous les composants de MCAD sont nécessaires dans tout contexte. De plus, les variantes sans $\mathrm{Real}$ et avec $C_{\mathrm{eval}}$ relâché présentent ici des taux agrégés identiques de false ALLOW et d'exécutions non contributives; ce protocole n'identifie donc pas séparément l'amplitude de leur effet. Aucun de ces résultats ne constitue une supériorité directe sur des systèmes voisins.
+\subsection{R3-E : réplication XMLA/eMondrian préparée, résultats encore pendants}
 
-\begin{figure}[!tb]
-\centering
-\input{figures/fr/F10_robustness_false_allow.tex}
-\caption{Taux de \emph{false ALLOW} par famille de scénarios pour MCAD et les politiques de référence internes.}
-\label{fig:robustness-false-allow}
-\end{figure}
+La voie XMLA/eMondrian a été reconstruite comme une réplication R3 distincte. La préparation statique est fermée jusqu'au checkpoint E8 : contrats, wrappers, ressources et barrières pré-bundle ont été gelés, sans exécution de mesure réelle. Tant que le bundle de runtime n'a pas été récupéré et vérifié puis que la revalidation hôte E2 n'a pas été effectuée, aucune exécution R3-E, aucune statistique confirmatoire et aucun effet XMLA ne sont autorisés.
 
-\subsection{Croissance structurelle et coût de la décision sémantique}
+R3-E ne peut donc pas être utilisé pour revendiquer une réplication backend des effets R3-D à ce stade. Les résultats historiques XMLA établissent seulement que le prototype possède un chemin fonctionnel déjà exercé dans des campagnes antérieures; ils ne remplacent pas la réplication confirmatoire encore pendante.
 
-La taille du CKG évolue régulièrement lorsque le facteur d'échelle passe de 1 à 40 : le graphe atteint 1693 nœuds, 2406 arêtes et 322 nœuds virtuels au niveau maximal étudié. Cette expérience caractérise la croissance de la représentation sémantique; elle ne doit pas être interprétée comme une mesure de débit d'un déploiement industriel.
+\subsection{Interprétation intégrée et frontières de claim}
 
-\input{tables/fr/T_scalability_V8_7_6.tex}
+L'échelle d'évidence conduit à quatre conclusions bornées. Premièrement, les campagnes contrôlées soutiennent la nécessité de distinguer contribution immédiate et sûreté d'élagage, notamment en présence de supports multi-requêtes. Deuxièmement, R3-D confirme des réductions de travail backend, de temps client, de CPU, d'octets de réponse et de temps jusqu'à complétion analytique relativement à \texttt{PERMISSIVE\_GATED}. Troisièmement, les I/O SQL Server en octets restent non confirmées et aucun bénéfice système global indivisible n'est autorisé. Quatrièmement, le break-even temporel face à \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} n'est pas établi par R3-C, et la réplication XMLA/eMondrian reste à mesurer.
 
-\begin{figure}[!tb]
-\centering
-\input{figures/fr/F12_scalability_structural.tex}
-\caption{Croissance structurelle du CKG selon le facteur d'échelle.}
-\label{fig:scalability}
-\end{figure}
+Ces résultats portent sur la complétion analytique et le coût système du contrôle. Ils ne mesurent ni la qualité d'une décision humaine, ni la satisfaction d'un analyste, ni un avantage organisationnel final. Ils n'établissent pas non plus une supériorité universelle sur des systèmes externes, une scalabilité industrielle sous concurrence, ou la validité automatique de CKG, objectifs et mappings construits hors du protocole.
 
-Le coût temporel propre à MCAD est caractérisé séparément sur trois dimensions de complexité disposant de mesures canoniques : nombre de contraintes, nombre de nœuds virtuels et densité d'appartenance. Le p50 représente le comportement typique, tandis que p95 et p99 exposent la queue de distribution, importante pour une couche interactive~\cite{DeanBarroso2013}; le protocole conserve aussi le nombre d'observations afin d'éviter l'interprétation d'un percentile isolé~\cite{KaliberaJones2013}.
-
-\input{tables/fr/T_semantic_latency_quantiles.tex}
-
-\begin{figure*}[!t]
-\centering
-\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/fr/F21_latency_constraint_count.tex}\end{minipage}\hfill
-\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/fr/F22_latency_virtual_node_count.tex}\end{minipage}\hfill
-\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/fr/F23_latency_membership_density.tex}\end{minipage}
-\caption{p50/p95/p99 de la latence de décision sémantique lorsque varient le nombre de contraintes, le nombre de nœuds virtuels et la densité d'appartenance. Les temps du backend sont exclus.}
-\label{fig:semantic-latency}
-\end{figure*}
-
-Le nombre de nœuds virtuels présente la tendance temporelle la plus nette, la densité d'appartenance un effet faible et le nombre de contraintes une évolution non monotone. De 6 à 24 nœuds virtuels, le p50 passe de 0,3366 à 0,5223~ms (+55,2\%) et le p99 de 0,6488 à 1,1464~ms (+76,7\%); de 25\% à 100\% de densité, le p50 varie de 0,4561 à 0,4652~ms (+2,0\%) et le p99 de 1,0850 à 1,1378~ms (+4,9\%). Ces transformations sont descriptives, non inférentielles. Sur tous les facteurs publiés, p50 reste à 0,337--0,666~ms et p99 à 0,649--1,461~ms; interactions backend, contention, maintenance dynamique du CKG et portefeuilles industriels restent hors périmètre.
-
-\subsection{Synthèse des résultats}
-
-Pris ensemble, les résultats fournissent une triangulation cohérente plutôt qu'une unique preuve monolithique. La trace Q1--Q6 vérifie le mécanisme causal au niveau d'une session; le bloc de 1000 sessions vérifie l'application répétée de la politique stricte avant backend; les études multi-entrepôts et backend apparié testent la préservation de la sémantique dans plusieurs chemins d'exécution; le benchmark de robustesse vérifie la sensibilité des composants au moyen de politiques de référence internes et d'ablations ciblées; enfin, les expériences structurelles et temporelles caractérisent le coût de la couche sémantique. Dans ce périmètre, le cas clé $\mathrm{SAT}=\mathrm{true}$ et $\Delta\varphi=0$ est observé et correctement distingué d'une inadmissibilité. La réagrégation des 7960 décisions renforce cette lecture en montrant qu'une part importante des BLOCK porte le motif primaire de redondance sessionnelle, tandis que le benchmark de robustesse conserve zéro false ALLOW, false BLOCK et exécution non contributive dans chacune de ses quatre familles, relativement à sa spécification de référence. Le résultat scientifique porte donc sur la calculabilité, sa dépendance à l'état de session et la cohérence du mécanisme; l'action opérationnelle reste configurable.
-
-Cette diversité réduit le risque qu'un résultat soit propre à une seule trace ou à un seul backend, sans pour autant établir une universalité. Les interprétations sont bornées aux objectifs, entrepôts, politiques et facteurs de complexité explicitement couverts par le Tableau~\ref{tab:evaluation-scope}; les généralisations à des organisations, charges concurrentes ou objectifs dynamiques relèvent des perspectives de validation.
-
-\paragraph*{Traçabilité probatoire} Pour chaque RQ, les données canoniques, les artefacts dérivés et la frontière d'interprétation sont associés dans le paquet de reproductibilité. Les nouvelles lectures quantitatives de cette version (profil des motifs FoodMart, diagnostic Q1--Q6, lecture par famille de robustesse et variations descriptives des quantiles) sont calculées uniquement à partir des observations déjà acquises; elles n'ajoutent aucune session, requête ni mesure temporelle au protocole.
+\paragraph*{Traçabilité probatoire.} Les claims post-A8 sont liés aux campagnes qui les autorisent : NH-R2 pour la contribution différée et la préservation contrôlée; R3-C pour le break-even pratique face à UNGATED; R3-D pour la confirmation SQL Direct endpoint par endpoint; R3-E pour la réplication XMLA encore pendante. Cette séparation empêche de combiner des niveaux de preuve hétérogènes en une conclusion plus forte que leurs protocoles respectifs.
 
 
 \section{Discussion, limites et perspectives}

@@ -1,0 +1,59 @@
+{
+  "station": "NH-MANUSCRIPT-DELTA-0k",
+  "role": "POST_A8_EVALUATION_EVIDENCE_LADDER_CONTROLLED_REBUILD",
+  "parent_commit": "7fddaa86b47c2da1e1fa2e26907e40f35372d4ed",
+  "branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+  "source_file": "manuscript/post_a8_nh/working_release/manuscript/fr/MCAD_FR_POST_A8_NH.tex",
+  "source_before_sha256": "02ec4769ca45758adcf48875e2349aa28035a51f5bcb29921b721af5e666bd72",
+  "source_after_sha256": "7b4282804ae78e8eac31c3bd4054a0da91900960d3b3b2e8f16336283f052193",
+  "evidence_ladder_table_sha256": "56981c1d6a968740112d8d2899cfdb71e35fe293d2b7a105ac78c5052b8f8a0b",
+  "r3d_primary_endpoints_table_sha256": "3feefb7e3d9f3aa95116634e91e64391e4af5c1ad183593e6da27cde7ef44144",
+  "evidence_ladder": {
+    "historical": "FUNCTIONAL_AND_DESCRIPTIVE_CONTEXT",
+    "NH_R2": "CONTROLLED_DEFERRED_CONTRIBUTION_AND_PRESERVATION",
+    "R3_C": "CONTROLLED_UNGATED_BREAK_EVEN_BOUND",
+    "R3_D": "CONFIRMATORY_SQL_DIRECT_ENDPOINT_SPECIFIC",
+    "R3_E": "STATIC_E8_PENDING_MEASUREMENT"
+  },
+  "R3_D": {
+    "sessions": 300,
+    "arm_runs": 900,
+    "strata": 20,
+    "sessions_per_stratum": 15,
+    "primary_endpoints": 8,
+    "confirmed_endpoints": 6,
+    "sign_flip_permutations": 100000,
+    "Holm_FWER": 0.05,
+    "bootstrap_replicates": 20000,
+    "global_system_benefit_claim_authorized": false,
+    "sqlserver_io_read_write_confirmed": false
+  },
+  "R3_C": {
+    "safe_slower_than_ungated_sessions": "40_OF_40",
+    "temporal_break_even_established": false
+  },
+  "R3_E": {
+    "static_checkpoint": "E8",
+    "measured_execution_performed": false,
+    "confirmatory_inference_performed": false
+  },
+  "claim_boundaries": {
+    "human_decision_quality_in_scope": false,
+    "external_universal_superiority_authorized": false,
+    "industrial_concurrency_scalability_established": false,
+    "first_or_only_claim_authorized": false
+  },
+  "preservation": {
+    "frontmatter_through_architecture_modified": false,
+    "discussion_and_later_modified": false,
+    "A8_parent_copy_modified": false,
+    "canonical_A8_source_modified": false
+  },
+  "appendix_proofs_modified": false,
+  "build_executed": false,
+  "docker_executed": false,
+  "backend_query_executed": false,
+  "measurement_executed": false,
+  "R3D_recomputed": false,
+  "next": "NH-MANUSCRIPT-DELTA-0l_DISCUSSION_LIMITS_AND_CONCLUSION_CONTROLLED_REWRITE"
+}

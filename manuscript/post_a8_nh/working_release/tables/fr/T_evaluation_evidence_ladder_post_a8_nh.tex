@@ -1,0 +1,19 @@
+\begin{table*}[!t]
+\centering
+\caption{Échelle d'évidence post-A8 et rôle probatoire de chaque campagne.}
+\label{tab:evidence-ladder}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{0.12\textwidth}p{0.21\textwidth}p{0.23\textwidth}X@{}}
+\toprule
+Niveau & Campagne / comparateur & Ce que la campagne autorise & Ce qu'elle n'autorise pas \\
+\midrule
+Historique & Q1--Q6, FoodMart, multi-entrepôts, parité backend, robustesse, scalabilité/latence & Fonctionnement du prototype, variété de chemins, diagnostics et caractérisations descriptives & Preuve confirmatoire du safe pruning post-A8, performance end-to-end universelle ou valeur décisionnelle humaine \\
+NH-R2 & SAFE vs politique strictement immédiate dans des scénarios multi-requêtes contrôlés & Contribution différée, préservation de complétion dans le périmètre gelé, borne contre la règle ``non contributif maintenant = dispensable'' & Universalité sur toute session, tout objectif ou tout mapping d'évidence \\
+R3-C & \texttt{SAFE\_PRUNING} vs \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} & Test pratique de break-even; 40/40 sessions observées plus lentes sous SAFE dans ce protocole & Claim que SAFE est universellement plus rapide que l'exécution admissible non instrumentée \\
+R3-D & \texttt{SAFE\_PRUNING} vs \texttt{PERMISSIVE\_GATED}, SQL Server Direct & Confirmation endpoint-spécifique sur 300 sessions / 900 bras, 8 endpoints primaires, correction de Holm & Bénéfice système global indivisible, confirmation des I/O non significatives, réplication XMLA \\
+R3-E & XMLA/eMondrian, checkpoint statique E8 & Préparation reproductible de la future réplication backend & Toute mesure, inférence, effet confirmatoire ou équivalence avec R3-D avant récupération du bundle et revalidation E2 \\
+\bottomrule
+\end{tabularx}
+\end{table*}

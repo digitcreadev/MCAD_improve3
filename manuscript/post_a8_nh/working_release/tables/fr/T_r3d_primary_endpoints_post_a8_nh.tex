@@ -1,0 +1,22 @@
+\begin{table*}[!t]
+\centering
+\caption{R3-D : endpoints primaires préspécifiés pour \texttt{SAFE\_PRUNING} $-$ \texttt{PERMISSIVE\_GATED}. Les huit endpoints sont \emph{lower-is-better}; une différence négative favorise SAFE.}
+\label{tab:r3d-primary-endpoints}
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}X r r l@{}}
+\toprule
+Endpoint primaire & Différence moyenne & $p_{\mathrm{Holm}}$ & Statut \\
+\midrule
+Requêtes backend, probes inclus & $-16.2$ & $\approx 7.99992\times10^{-5}$ & Confirmé \\
+Exécutions backend complètes & $-16.2$ & $\approx 7.99992\times10^{-5}$ & Confirmé \\
+Temps client (ms) & $-913.321858403$ & $\approx 7.99992\times10^{-5}$ & Confirmé \\
+Octets de réponse & $-150731.476667$ & $\approx 7.99992\times10^{-5}$ & Confirmé \\
+CPU SQL Server ($\mu$s) & $-771626.43$ & $\approx 7.99992\times10^{-5}$ & Confirmé \\
+Temps jusqu'à complétion analytique (ms) & $-202.580846887$ & $\approx 7.99992\times10^{-5}$ & Confirmé \\
+Lectures I/O SQL Server (octets) & $-94126.08$ & $0.429436$ & Non confirmé \\
+Écritures I/O SQL Server (octets) & $-2416.64$ & $0.429436$ & Non confirmé \\
+\bottomrule
+\end{tabularx}
+\end{table*}
