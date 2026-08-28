@@ -1,0 +1,28 @@
+{
+  "station": "NH-MANUSCRIPT-DELTA-0p",
+  "role": "POST_A8_DESCENDANT_BUILD_HARNESS_CONTROLLED_PREPARATION",
+  "parent_commit": "2302371acdfcab1d5f8c3daea690099f8c87734a",
+  "branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+  "descendant_source_sha256": "7c46c448db92395b28088efccd00c8fb60f3d5d99deff951bd6b252ce6f5213c",
+  "legacy_BUILD_sha256": "1648d37127c53f227451a880c7f00503e51e2124cd3dd752755118226d190a22",
+  "descendant_BUILD": "manuscript/post_a8_nh/working_release/BUILD_POST_A8_NH.sh",
+  "descendant_BUILD_sha256": "e130923bbd35b642ff75b49e2183ca03e58f425147ae69057eb001295e2179ae",
+  "descendant_BUILD_target": "manuscript/fr/MCAD_FR_POST_A8_NH.tex",
+  "descendant_PDF_target": "manuscript/fr/MCAD_FR_POST_A8_NH.pdf",
+  "build_output_dir": "build/post_a8_nh/fr",
+  "toolchain_requirements": [
+    "latexmk",
+    "pdflatex",
+    "bibtex"
+  ],
+  "toolchain_visible_at_DELTA0o": false,
+  "legacy_BUILD_modified": false,
+  "manuscript_modified": false,
+  "appendix_modified": false,
+  "build_executed": false,
+  "toolchain_installed": false,
+  "docker_executed": false,
+  "backend_query_executed": false,
+  "measurement_executed": false,
+  "next": "NH-MANUSCRIPT-DELTA-0q_TOOLCHAIN_CAPABILITY_AND_FIRST_BUILD_PRECHECK_READONLY_AUDIT"
+}
