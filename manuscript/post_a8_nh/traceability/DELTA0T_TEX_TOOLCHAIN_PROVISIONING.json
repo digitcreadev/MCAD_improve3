@@ -1,0 +1,50 @@
+{
+  "station": "NH-MANUSCRIPT-DELTA-0t",
+  "role": "CONTROLLED_TEX_TOOLCHAIN_PROVISIONING",
+  "parent_commit": "e7eece4e5ecfc1e1dcab8d587a66c8b0e5eb4124",
+  "branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+  "descendant_source_sha256": "7c46c448db92395b28088efccd00c8fb60f3d5d99deff951bd6b252ce6f5213c",
+  "legacy_BUILD_sha256": "1648d37127c53f227451a880c7f00503e51e2124cd3dd752755118226d190a22",
+  "descendant_BUILD_sha256": "e130923bbd35b642ff75b49e2183ca03e58f425147ae69057eb001295e2179ae",
+  "apt_source_fingerprints": {
+    "/etc/apt/sources.list": "8ce6407d5487bed332b5fcb4aab26dacf3f516d811c26792efb0c67f06f1958b",
+    "/etc/apt/sources.list.d/microsoft.list": "50439a29edd5ad1eb25ad0865eb7e6db642b8b7d50c984720bde158549039050",
+    "/etc/apt/sources.list.d/ubuntu.sources": "9a4af756e974a7a6b0a447705d1d12366cfa4d860d8722b652d69d8e1b44e34f"
+  },
+  "top_level_packages": {
+    "latexmk": "1:4.83-1",
+    "texlive-latex-base": "2023.20240207-1",
+    "texlive-latex-recommended": "2023.20240207-1",
+    "texlive-latex-extra": "2023.20240207-1",
+    "texlive-publishers": "2023.20240207-1",
+    "texlive-pictures": "2023.20240207-1",
+    "texlive-science": "2023.20240207-1",
+    "texlive-lang-french": "2023.20240207-1",
+    "texlive-fonts-recommended": "2023.20240207-1"
+  },
+  "tool_paths": {
+    "latexmk": "/usr/bin/latexmk",
+    "pdflatex": "/usr/bin/pdflatex",
+    "bibtex": "/usr/bin/bibtex",
+    "kpsewhich": "/usr/bin/kpsewhich"
+  },
+  "install_flags": [
+    "-y",
+    "--no-install-recommends"
+  ],
+  "apt_update_executed_in_delta0t": false,
+  "apt_install_executed": true,
+  "apt_source_files_modified": false,
+  "manuscript_modified": false,
+  "build_harness_modified": false,
+  "legacy_BUILD_modified": false,
+  "build_executed": false,
+  "docker_executed": false,
+  "backend_query_executed": false,
+  "measurement_executed": false,
+  "bundle_recovery_performed": false,
+  "R3E_host_E2_revalidation_performed": false,
+  "R3E_measurement_performed": false,
+  "scientific_final_freeze_allowed": false,
+  "next": "NH-MANUSCRIPT-DELTA-0u_CONTROLLED_FIRST_POST_A8_BUILD"
+}
