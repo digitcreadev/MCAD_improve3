@@ -1,0 +1,46 @@
+{
+  "station": "NH-MANUSCRIPT-DELTA-0u",
+  "role": "CONTROLLED_FIRST_POST_A8_FR_BUILD",
+  "parent_commit": "3df767942b8c70352cbed707cda9d4a983c81c12",
+  "branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+  "descendant_source_sha256": "7c46c448db92395b28088efccd00c8fb60f3d5d99deff951bd6b252ce6f5213c",
+  "descendant_BUILD_sha256": "e130923bbd35b642ff75b49e2183ca03e58f425147ae69057eb001295e2179ae",
+  "delta0t_receipt_sha256": "a236c377f0e2f9320892e99ea28378b462c49ae4745a55f18f7a2ba5ce32462f",
+  "SOURCE_DATE_EPOCH": "1787096820",
+  "build_executed": true,
+  "build_exit_status": 0,
+  "first_build_pdf": {
+    "external_evidence_path": "/workspaces/MCAD_NH_MANUSCRIPT_DELTA0U_FIRST_BUILD_EVIDENCE/MCAD_FR_POST_A8_NH_DELTA0U_FIRST_BUILD.pdf",
+    "sha256": "279cb01062fba68cde451b6455351f2fb3087b2d11da9640eeb49124476eb100",
+    "size_bytes": 384712,
+    "page_count": null
+  },
+  "logs": {
+    "harness_stdout_stderr_sha256": "7400bf84692cf3e3008bc5da872b698c49bb6d55a241de886dc85731043b474a",
+    "tex_log_sha256": "4697255c158427e60f3976f88b792bef4f2dc5c52216e295dbf58ee43570a3dd",
+    "bib_log_sha256": "280e1721f564db6873694e2c3117344ffd6475c9664f46428c8952835bf86b17"
+  },
+  "warnings": {
+    "overfull_hbox_count": 4,
+    "underfull_hbox_count": 29,
+    "overfull_vbox_count": 1,
+    "underfull_vbox_count": 2,
+    "bibtex_warning_count": 0,
+    "undefined_reference_or_citation_count": 0
+  },
+  "evidence_manifest_sha256": "4952291dfca4b98b12ee32df9cbe431c5bbcdaaf8806384f6720545c0c8e3e4e",
+  "generated_repo_build_outputs_cleaned_after_capture": true,
+  "manuscript_source_modified": false,
+  "build_harness_modified": false,
+  "legacy_BUILD_modified": false,
+  "apt_update_executed": false,
+  "apt_install_executed": false,
+  "docker_executed": false,
+  "backend_query_executed": false,
+  "measurement_executed": false,
+  "bundle_recovery_performed": false,
+  "R3E_host_E2_revalidation_performed": false,
+  "R3E_measurement_performed": false,
+  "scientific_final_freeze_allowed": false,
+  "next": "NH-MANUSCRIPT-DELTA-0v_FIRST_BUILD_PDF_VISUAL_AND_TYPOGRAPHIC_QA"
+}
