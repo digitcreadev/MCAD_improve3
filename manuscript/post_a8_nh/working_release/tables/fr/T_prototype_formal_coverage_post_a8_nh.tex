@@ -1,0 +1,23 @@
+\begin{table*}[!t]
+\centering
+\caption{Couverture post-A8 du contrat formel par le prototype et frontière des preuves empiriques.}
+\label{tab:prototype-formal-coverage}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{0.18\textwidth}p{0.23\textwidth}X p{0.20\textwidth}@{}}
+\toprule
+Composant & Rôle normatif & Réalisation / chemin exercé & Frontière de revendication \\
+\midrule
+CKG + $G_O$ préparés & Fournir contexte, contraintes, supports et mappings d'évidence & Ressources de scénario explicitement chargées par les campagnes contrôlées & Construction automatique et validité métier indépendante non évaluées \\
+CQP & Abstraction canonique nécessaire au raisonnement & Adaptateurs SQL analytique et MDX/XMLA vers des propriétés normalisées & Portabilité bornée aux extracteurs fidèles; DAX non validé \\
+$\operatorname{ADM}(P_q)$ & Vérifier l'admissibilité sémantique hors non-vacuité & Clauses de grain, agrégation, unité, slicers, temps et mapping exposées dans les traces & Un probe n'est pas une clause d'ADM \\
+Probe / $R_E(q)$ & Établir une réalisabilité lorsque requise & Interaction backend ciblée instrumentée sur les chemins où le protocole l'exige & Coût compté; aucune mise à jour de $\mathcal{E}_t$ par le probe seul \\
+$U(\mathcal{E}_t)$ + gate sûr & Déterminer si l'évidence potentielle peut encore servir un support actif & Politique \texttt{SAFE\_PRUNING} et condition suffisante conservatrice & Échec de la preuve $\neq$ autorisation d'élaguer; \emph{fail-open} \\
+Injection de politique & Isoler le mécanisme sans redéfinir la sémantique & \texttt{STRICT\_IMMEDIATE}, \texttt{PERMISSIVE\_GATED}, \texttt{UNGATED\_EXECUTE\_ADMISSIBLE}, \texttt{SAFE\_PRUNING} & Baselines internes, pas équivalents des systèmes externes de la littérature \\
+Exécution complète & Produire un résultat analytique et éventuellement $A_t$ & SQL Server Direct mesuré en R3-D; chemin XMLA/eMondrian matériellement préparé & R3-E est statique jusqu'à E8 : aucune mesure/inférence confirmatoire XMLA à ce stade \\
+Accumulateur de session & Mettre à jour $\mathcal{E}_t$ après exécution complète réussie & Assemblage multi-requêtes et contribution différée exercés en NH-R2 & Pas de généralisation à toutes les formes de session/objectifs \\
+Traçabilité / compteurs & Relier décision, effet physique et coût de session & Receipts de décision, probes, requêtes backend, exécutions complètes, temps, octets et compteurs backend disponibles selon le chemin & Les endpoints sont interprétés séparément; pas de bénéfice système global indivisible \\
+\bottomrule
+\end{tabularx}
+\end{table*}

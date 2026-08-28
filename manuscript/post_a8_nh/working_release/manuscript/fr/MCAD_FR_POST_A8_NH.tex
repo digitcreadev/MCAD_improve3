@@ -509,49 +509,84 @@ Enfin, le formalisme suppose que le CKG, $G_O$, les supports et les mappings d'�
 \section{Architecture du prototype et flux de travail}
 \label{sec:arch}
 
-L'architecture sépare le contexte de l'analyse décisionnelle porté par le CKG, le raisonnement de contribution MCAD, la politique d'action et l'exécution analytique, afin de ne pas confondre le modèle de calculabilité avec la politique stricte ALLOW/BLOCK utilisée dans certaines expériences. La Figure~\ref{fig:arch-mcad} présente ces couches.
+L'architecture post-A8 traduit directement le contrat formel de la Section~\ref{sec:formal} en un contrôle pré-backend instrumenté. Elle sépare quatre catégories d'état qui ne doivent pas être confondues : (i) les ressources préparées relativement stables, notamment le CKG et le graphe objectif--évidence $G_O$; (ii) le profil canonique et les propriétés déduites de la requête candidate; (iii) la réalisabilité éventuellement établie par un probe; et (iv) l'évidence effectivement acquise après une exécution complète réussie. La politique d'action est injectée après le raisonnement afin que les baselines expérimentales ne redéfinissent pas le noyau sémantique.
 
-\begin{figure}[!t]
+\begin{figure*}[!t]
 \centering
-\includegraphics[width=0.98\columnwidth]{figures/fr/fig_mcad_architecture_v8_2_singlecol.pdf}
-\caption{Architecture monocolonne de MCAD. Le CKG matérialise le contexte de l'analyse décisionnelle; le cœur MCAD calcule l'admissibilité, les supports réalisables, les contraintes calculables et la contribution marginale; une politique d'action configurable transforme ensuite cette évaluation en interaction ou en contrôle avant l'éventuelle exécution physique.}
+\resizebox{\textwidth}{!}{\input{figures/fr/F02_architecture_prebackend_post_a8_nh.tex}}
+\caption{Architecture pré-backend post-A8. Les ressources objectif/contexte et l'état d'évidence de session alimentent le raisonneur; le CQP est contrôlé pour sa fidélité et son admissibilité; un probe de réalisabilité est optionnel et ne crédite jamais l'évidence acquise; la preuve de sûreté décide ensuite entre \texttt{PRUNE} et exécution \emph{fail-open}. Seule une exécution complète réussie peut produire $A_t$ et mettre à jour $\mathcal{E}_t$.}
 \label{fig:arch-mcad}
-\end{figure}
+\end{figure*}
 
-\subsection{Couche session et acquisition de la requête}
+\subsection{Ressources préparées : CKG, objectif et état de session}
 
-L'analyste travaille dans une session associée à un objectif stratégique actif. L'interface maintient l'identité de l'objectif $O$, la requête courante $q_t$ et l'état $H_{t-1}$ de la session. Les adaptateurs d'entrée extraient depuis MDX ou SQL analytique --- ou reçoivent directement --- un plan canonique $QP_t$. La représentation canonique permet au raisonneur de travailler sur une sémantique homogène indépendamment de la syntaxe front-end effectivement implémentée.
+Le prototype reçoit un CKG typé, un objectif $O$, son graphe objectif--évidence $G_O$, les supports suffisants et les mappings vers les atomes d'évidence. Ces objets sont chargés comme ressources du scénario ou du déploiement; MCAD ne prétend pas les découvrir automatiquement à partir de documents, de journaux ou de règles implicites. Le CKG porte le catalogue et la sémantique relativement stables, tandis que $\mathcal{E}_{t-1}$ porte exclusivement l'évidence acquise avant la requête courante.
 
-\subsection{Couche contexte de l'analyse décisionnelle / CKG}
+Cette séparation est matérialisée dans le chemin de contrôle : la frontière résiduelle $U(\mathcal{E}_{t-1})$ est recalculée à partir de l'objectif et de l'évidence de session, sans ajouter d'information simplement parce qu'un support est décrit dans le CKG ou dans $G_O$.
 
-Le CKG est organisé autour de quatre familles d'objets : (i) le catalogue multidimensionnel (faits, dimensions, hiérarchies, mesures); (ii) la sémantique métier (KPI, unités, agrégateurs, scénarios et règles temporelles); (iii) le modèle d'objectif (contraintes $C^*(O)$, nœuds virtuels et supports suffisants); et (iv) la mémoire de session (contraintes déjà calculables et supports utiles observés). Cette couche fournit aux vérifications de $\mathrm{SAT}$, $\mathrm{Real}$ et $C_{\mathrm{eval}}$ les relations nécessaires pour raisonner dans le contexte de l'analyse décisionnelle plutôt que sur la seule structure syntaxique de la requête.
+\subsection{Adaptateurs de requête, CQP et gate de fidélité}
 
-\subsection{Cœur de raisonnement MCAD}
+Une requête candidate $q_t$ arrive par un adaptateur de langage. Les chemins exercés par le prototype comprennent SQL analytique et MDX/XMLA; l'adaptateur projette la syntaxe source vers un \emph{Canonical Query Profile} $P_{q_t}$. Le CQP expose les propriétés nécessaires au raisonnement -- fait/source, grain, mesures, agrégations, unités, slicers, temporalité et correspondances d'évidence -- ainsi que les métadonnées permettant d'évaluer la fidélité de l'extraction.
 
-Le pipeline sémantique conserve la chaîne formelle $QP\rightarrow\mathrm{SAT}\rightarrow\mathrm{Real}\rightarrow C_{\mathrm{eval}}\rightarrow S^*\rightarrow\varphi,\Delta\varphi$. Sur le plan conceptuel, le CKG fournit le référentiel dans lequel le plan est mis en correspondance; le masque contextuel constitue la représentation induite de cette mise en correspondance pour la requête, l'objectif et l'état de session considérés. Son évaluation alimente la mesure de contribution, puis la politique $\pi_{\mathrm{act}}$ transforme cette mesure en action opérationnelle. Les sorties sont conservées comme objets inspectables : clauses d'admissibilité, supports réalisés/manquants, contraintes calculables, masque contextuel et progression cumulative. Le prototype évalué implémente et expose la chaîne de raisonnement au niveau requête ainsi que le comportement de session exercé par les campagnes historiques gelées. La sémantique générale fondée sur l'évidence $C_E$ --- incluant l'assemblage multi-requêtes d'un support et l'accumulation arbitraire de supports alternatifs --- est spécifiée formellement et testée en régression par le modèle de référence; le présent article ne prétend pas que chacun de ces cas généralisés est entièrement implémenté par l'accumulateur de session candidat inspecté séparément.
+Le premier contrôle est un gate de fidélité. Si l'adaptateur ne peut pas établir une représentation suffisamment sûre de l'évidence potentielle $N_E(q_t)$, MCAD n'autorise pas l'élagage et transmet la requête vers la branche \emph{fail-open}. Cette règle est volontairement asymétrique : une incertitude de canonicalisation peut réduire les opportunités d'élagage, mais ne doit pas créer un faux \texttt{PRUNE}.
 
-\input{tables/fr/T_prototype_formal_coverage_V8_7_6.tex}
+\subsection{Admissibilité sémantique et probe optionnel de réalisabilité}
 
-\subsection{Politique d'action et exécution physique}
+Lorsque le CQP est suffisamment fidèle, le raisonneur évalue $\operatorname{ADM}(P_{q_t})$. Cette étape couvre grain/résumabilité, agrégation, unité, slicers, temporalité et validité structurelle des mappings d'évidence. La non-vacuité n'est pas une clause d'admissibilité.
 
-Le résultat du raisonnement est transmis à $\pi_{\mathrm{act}}$, qui choisit une action selon le contexte de déploiement. Une politique d'assistance peut afficher un avertissement ou une notification pour une requête redondante; une politique de guidage peut suggérer une requête dont $\Delta\varphi$ attendu est positif; une politique de recommandation peut classer des alternatives; une politique permissive peut exécuter malgré $\Delta\varphi=0$ tout en enregistrant l'indicateur de contribution; enfin, une politique stricte peut utiliser \textsc{Block} pour empêcher l'effet physique. Dans le prototype de démonstration, cette dernière configuration est utilisée pour vérifier qu'une non-contribution identifiée peut effectivement être appliquée avant SQL Direct ou XMLA/Mondrian.
+Si une propriété de présence physique est requise pour le contrôle, un composant de probe peut effectuer une interaction backend ciblée et produire une information $R_E(q_t)\subseteq N_E(q_t)$. Le probe est explicitement séparé de l'exécution complète : il peut établir la réalisabilité, mais il ne produit pas $A_t$ et ne modifie pas $\mathcal{E}_{t-1}$. Son coût est néanmoins enregistré comme interaction backend attribuable à la session.
 
-\subsection{Retour utilisateur, mémoire de session et traçabilité}
+\subsection{Moteur de frontière résiduelle et preuve de safe pruning}
 
-L'interface peut restituer le résultat, les contraintes nouvellement calculables, $\varphi^{\le t}(O)$, $\Delta\varphi_t$ et une explication formelle. Sur les chemins évalués, l'état de session est mis à jour avec l'évidence créditée par le protocole; la sémantique générale $E_t/C_E$ reste la référence normative pour l'accumulation multi-requêtes future, tandis que la revendication du prototype est limitée aux chemins exercés. La traçabilité conserve plan canonique, clauses, supports, masque et action. Une provenance fine au niveau tuple n'est pas implémentée, mais des résumés de support pourraient être ajoutés sans modifier $C_{\mathrm{eval}}$ ni $\Delta\varphi$.
-Une provenance fine au niveau des tuples sources n'est pas implémentée dans le prototype évalué. Une extension future pourrait associer à chaque support réalisé un résumé de provenance du résultat qui l'a instancié, sans modifier $C_{\mathrm{eval}}$ ni $\Delta\varphi$.
+Le moteur de contrôle confronte l'évidence potentielle sûre $N_E(q_t)$ à la frontière résiduelle $U(\mathcal{E}_{t-1})$. Sous les hypothèses de fidélité gelées, la politique \texttt{SAFE\_PRUNING} peut retourner \texttt{PRUNE} lorsque
+\[
+N_E(q_t)\cap U(\mathcal{E}_{t-1})=\emptyset.
+\]
+Le prototype traite l'échec de cette condition comme une absence de preuve, pas comme une preuve inverse : si l'intersection est non vide, ou si le mapping/fidélité est incertain, la requête suit la branche \texttt{EXECUTE}. Ainsi, la chaîne opérationnelle respecte
+\[
+\text{NONCONTRIBUTIVE\_NOW}\not\Rightarrow\text{SAFE\_TO\_PRUNE}.
+\]
 
-\subsection{Flux de travail de bout en bout}
+Le point d'injection de politique permet également d'exécuter les comparateurs internes sans modifier le raisonneur. \texttt{PERMISSIVE\_GATED} constitue le comparateur causal primaire de la campagne confirmatoire SQL Direct; \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} sert de comparateur pratique secondaire de \emph{break-even}; \texttt{STRICT\_IMMEDIATE} reste un baseline sémantique/historique utile pour exposer la perte de contribution différée. Ces politiques ne sont pas des systèmes externes concurrents.
 
-Le workflow peut être résumé comme suit :
+\subsection{Exécution backend et commit de l'évidence acquise}
+
+Si l'action est \texttt{PRUNE}, aucune exécution complète n'est envoyée au backend et l'état acquis reste inchangé. Si l'action est \texttt{EXECUTE}, le composant d'exécution transmet la requête originale au backend sélectionné, attend la réponse complète et collecte les compteurs attribuables à la session. Une exécution complète réussie peut alors produire l'ensemble $A_t$ d'évidence effectivement acquise et appliquer
+\[
+\mathcal{E}_t=\mathcal{E}_{t-1}\cup A_t.
+\]
+
+L'architecture interdit donc deux raccourcis : un probe réussi n'est jamais committé comme résultat analytique, et une requête élaguée ne met jamais à jour l'évidence. L'accumulateur de session peut assembler des contributions réparties sur plusieurs requêtes; ce comportement de contribution différée a été exercé dans la campagne contrôlée NH-R2, sans prétendre couvrir toutes les formes possibles de sessions analytiques.
+
+\subsection{Traçabilité, compteurs et temps jusqu'à l'objectif}
+
+Chaque traitement produit une trace structurée reliant le CQP, les clauses d'admissibilité, les éventuels probes, la frontière résiduelle, l'action de politique, les interactions backend et la mise à jour d'évidence. Les campagnes end-to-end instrumentent séparément le nombre de requêtes backend incluant les probes, le nombre d'exécutions backend complètes, le temps client, les octets de réponse et, lorsque le backend le permet, les compteurs CPU et I/O.
+
+Le temps jusqu'à complétion analytique est calculé à partir de la même trace de session et inclut les coûts de gate, probes, exécutions complètes et attente attribuables à la session. Il n'inclut pas par construction la qualité de la décision humaine et ne transforme pas une réduction d'un compteur intermédiaire en claim global de bénéfice système.
+
+\subsection{Couverture du prototype et frontières empiriques}
+
+Le Tableau~\ref{tab:prototype-formal-coverage} relie les composants du modèle post-A8 aux chemins effectivement exercés. Il distingue soigneusement implémentation, preuve de fonctionnement et confirmation expérimentale.
+
+\input{tables/fr/T_prototype_formal_coverage_post_a8_nh.tex}
+
+Le chemin SQL Server Direct dispose d'une campagne confirmatoire R3-D pour la comparaison primaire \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}. Le chemin XMLA/eMondrian dispose de l'infrastructure et de la préparation statique R3-E jusqu'au checkpoint E8, mais aucune mesure ni inférence confirmatoire R3-E n'est encore autorisée. Les résultats XMLA historiques ne sont donc pas promus en réplication confirmatoire de R3.
+
+\subsection{Workflow de bout en bout}
+
+Le workflow opérationnel post-A8 est le suivant :
 \begin{enumerate}
-  \item sélectionner ou définir l'objectif $O$ et initialiser son contexte dans le CKG ;
-  \item soumettre une requête $q_t$ et l'extraire en plan canonique $QP_t$ ;
-  \item effectuer la mise en correspondance sémantique, construire le masque $S_t^*$ et évaluer $\mathrm{SAT}$, $\mathrm{Real}$, $C_{\mathrm{eval}}$, $\varphi^{\le t}$ et $\Delta\varphi_t$ ;
-  \item appliquer la politique $\pi_{\mathrm{act}}$ adaptée au déploiement (exécution, notification, avertissement, guidage, recommandation ou blocage) ;
-  \item si l'action le prévoit, transmettre la requête au backend et récupérer le résultat ; et
-  \item mettre à jour $H_t$ et restituer à l'analyste l'explication et la progression de session.
+  \item charger l'objectif $O$, $G_O$, le CKG et l'évidence acquise $\mathcal{E}_{t-1}$ ;
+  \item recevoir $q_t$, construire le CQP $P_{q_t}$ et vérifier la fidélité de l'abstraction ;
+  \item évaluer $\operatorname{ADM}(P_{q_t})$ sans créditer d'évidence ;
+  \item si nécessaire, exécuter un probe de réalisabilité, enregistrer son coût et laisser $\mathcal{E}_{t-1}$ inchangé ;
+  \item calculer $N_E(q_t)$, la frontière $U(\mathcal{E}_{t-1})$ et appliquer la politique choisie ;
+  \item si la sûreté est prouvée sous \texttt{SAFE\_PRUNING}, retourner \texttt{PRUNE}; sinon exécuter en \emph{fail-open} selon le protocole ;
+  \item après une exécution complète réussie, dériver $A_t$ et mettre à jour $\mathcal{E}_t=\mathcal{E}_{t-1}\cup A_t$ ; et
+  \item produire la trace explicative et les compteurs de session, puis réévaluer la progression vers la complétion de $O$.
 \end{enumerate}
+
+Cette architecture maintient ainsi une séparation inspectable entre sémantique, réalisabilité, acquisition d'évidence, politique d'action et effet physique. Elle permet d'évaluer la préservation de la complétion séparément des coûts système, ce qui est nécessaire pour interpréter correctement les campagnes contrôlées et confirmatoires.
 
 
 \section{Évaluation expérimentale}

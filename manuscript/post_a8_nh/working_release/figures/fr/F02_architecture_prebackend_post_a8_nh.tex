@@ -1,0 +1,41 @@
+\begin{tikzpicture}[
+  node distance=6mm and 7mm,
+  every node/.style={font=\scriptsize, align=center},
+  box/.style={draw, rounded corners=1mm, minimum height=8mm, inner sep=3pt},
+  decision/.style={draw, diamond, aspect=2.2, inner sep=2pt},
+  store/.style={draw, cylinder, shape border rotate=90, aspect=0.22, minimum height=9mm, minimum width=18mm},
+  >=Stealth
+]
+\node[store] (ctx) {CKG + $G_O$};
+\node[store, below=of ctx] (ev) {$\mathcal{E}_{t-1}$};
+\node[box, right=10mm of ctx] (input) {Requête $q_t$\\adaptateur SQL / MDX};
+\node[box, right=of input] (cqp) {CQP $P_{q_t}$\\+ fidélité};
+\node[decision, right=of cqp] (fid) {fidélité\\suffisante ?};
+\node[box, above right=6mm and 8mm of fid] (adm) {$\operatorname{ADM}(P_{q_t})$};
+\node[box, right=of adm] (probe) {probe\\si requis};
+\node[box, right=of probe] (front) {$N_E(q_t)$\\vs\\$U(\mathcal{E}_{t-1})$};
+\node[decision, right=of front] (safe) {preuve\\de sûreté ?};
+\node[box, above right=6mm and 8mm of safe] (prune) {\texttt{PRUNE}\\pas d'exécution complète};
+\node[box, below right=6mm and 8mm of safe] (exec) {\emph{fail-open}\\\texttt{EXECUTE}};
+\node[box, right=of exec] (backend) {backend\\SQL Direct / XMLA};
+\node[box, right=of backend] (commit) {$A_t$ puis\\$\mathcal{E}_t\leftarrow\mathcal{E}_{t-1}\cup A_t$};
+\node[box, below=10mm of front] (trace) {trace / receipt\\probes, backend, temps, octets, CPU/I/O};
+
+\draw[->] (ctx) -- (input);
+\draw[->] (ev) -| (front);
+\draw[->] (input) -- (cqp);
+\draw[->] (cqp) -- (fid);
+\draw[->] (fid) -- node[above left]{oui} (adm);
+\draw[->] (fid) |- node[below]{non} (exec);
+\draw[->] (adm) -- (probe);
+\draw[->] (probe) -- (front);
+\draw[->] (front) -- (safe);
+\draw[->] (safe) -- node[above left]{oui} (prune);
+\draw[->] (safe) -- node[below left]{non / incertain} (exec);
+\draw[->] (exec) -- (backend);
+\draw[->] (backend) -- (commit);
+\draw[->, dashed] (probe) -- node[right]{coût compté\\pas d'évidence acquise} (trace);
+\draw[->, dashed] (prune) |- (trace);
+\draw[->, dashed] (backend) |- (trace);
+\draw[->, dashed] (commit) |- (trace);
+\end{tikzpicture}
