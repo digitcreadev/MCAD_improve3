@@ -1,0 +1,42 @@
+{
+  "station": "NH-MANUSCRIPT-DELTA-0l",
+  "role": "POST_A8_DISCUSSION_LIMITS_AND_CONCLUSION_CONTROLLED_REWRITE",
+  "parent_commit": "48d8ccaa67791ae4507f0892e6ae46ee80b36f78",
+  "branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+  "source_file": "manuscript/post_a8_nh/working_release/manuscript/fr/MCAD_FR_POST_A8_NH.tex",
+  "source_before_sha256": "7b4282804ae78e8eac31c3bd4054a0da91900960d3b3b2e8f16336283f052193",
+  "source_after_sha256": "a82793c7e1d58b9c271e26a0a179adf4fcf0110be1170cee77a00275533936fb",
+  "discussion_conclusion_contract": {
+    "noncontributive_now_implies_safe_to_prune": false,
+    "safe_pruning_condition_sufficient_conservative": true,
+    "fail_open_on_uncertainty": true,
+    "semantic_policy_system_cost_separated": true,
+    "r3d_confirmed_primary_endpoints": "6_OF_8",
+    "sqlserver_io_read_write_confirmed": false,
+    "global_system_benefit_claim_authorized": false,
+    "r3c_safe_faster_than_ungated_established": false,
+    "r3c_safe_slower_sessions": "40_OF_40",
+    "r3e_static_checkpoint": "E8",
+    "r3e_measured_confirmation_complete": false,
+    "automatic_CKG_objective_support_construction_evaluated": false,
+    "industrial_concurrency_scalability_established": false,
+    "DAX_validated": false,
+    "human_decision_quality_in_scope": false,
+    "external_universal_superiority_authorized": false,
+    "first_or_only_claim_authorized": false
+  },
+  "preservation": {
+    "frontmatter_through_evaluation_modified": false,
+    "appendices_modified": false,
+    "bibliography_binding_modified": false,
+    "A8_parent_copy_modified": false,
+    "canonical_A8_source_modified": false
+  },
+  "build_executed": false,
+  "docker_executed": false,
+  "backend_query_executed": false,
+  "measurement_executed": false,
+  "R3D_recomputed": false,
+  "R3E_measured_inference_created": false,
+  "next": "NH-MANUSCRIPT-DELTA-0m_APPENDIX_AND_PROOF_COMPATIBILITY_READONLY_AUDIT"
+}
