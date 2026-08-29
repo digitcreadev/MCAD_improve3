@@ -7,16 +7,16 @@
 \toprule
 \textbf{Famille} & \textbf{Fonction dominante / exemples} & \textbf{Objet principalement évalué} & \textbf{Frontière avec MCAD} \\
 \midrule
-F1 & Objectifs et KPI~\cite{Pourshahid2014,MateTrujilloMylopoulos2017} & Alignement buts--indicateurs--données & MCAD part d'un objectif instancié et raisonne sur sa complétion en session. \\
-F2 & Graphes et contexte sémantique~\cite{HoganKGSurvey2021,SchuetzSerafiniBozzato2021} & Représentation de connaissances et relations & Le CKG est utilisé pour un raisonnement objectif--évidence typé. \\
+F1 & Objectifs et KPI~\cite{Pourshahid2014,MateTrujilloMylopoulos2017,DiamantiniKPISurvey2025} & Alignement buts--indicateurs--données & MCAD part d'un objectif instancié et raisonne sur sa complétion en session. \\
+F2 & Graphes et contexte sémantique~\cite{HoganKGSurvey2021,SchuetzSerafiniBozzato2021,StaudingerSchuetzSchrefl2025,HuangZaslavsky2024} & Représentation de connaissances et relations & Le CKG est utilisé pour un raisonnement objectif--évidence typé. \\
 F3 & IR / plans canoniques~\cite{BegoliCalcite2018,SubstraitSpec2026} & Optimisation, portabilité et interchange de plans & Le CQP est une projection de fidélité destinée au raisonnement MCAD, pas un IR universel. \\
 F4 & Personnalisation~\cite{GolfarelliRizziBiondi2011} & Préférences et adaptation utilisateur & MCAD n'infère pas de préférence ni de satisfaction. \\
-F5 & Intentions, contribution, interestingness~\cite{VassiliadisMarcelRizzi2019,DjedainiEtAl2019,GkitsakisEtAl2024} & Intention, intérêt, nouveauté ou contribution d'exploration & MCAD mesure nécessité relative à une frontière d'objectif, non intérêt général. \\
-F6 & Sessions et navigation~\cite{AligonDSS2015,DjedainiEtAl2019} & Continuation et historique de session & $\mathcal{E}_t$ porte l'évidence acquise et permet la contribution différée. \\
-F7 & Optimisation sémantique~\cite{BertinoMusto1992} & Réécriture équivalente sous contraintes & MCAD décide de l'exécution complète selon une obligation de sûreté objectif-relative. \\
+F5 & Intentions, contribution, interestingness~\cite{VassiliadisMarcelRizzi2019,DjedainiEtAl2019,GkitsakisEtAl2024,FranciaPredict2026,IakovidisVassiliadis2026} & Intention, intérêt, nouveauté ou contribution d'exploration & MCAD mesure nécessité relative à une frontière d'objectif, non intérêt général. \\
+F6 & Sessions et navigation~\cite{AligonDSS2015,DjedainiEtAl2019,IakovidisVassiliadis2026} & Continuation et historique de session & $\mathcal{E}_t$ porte l'évidence acquise et permet la contribution différée. \\
+F7 & Optimisation sémantique~\cite{BertinoMusto1992,KossmannPapenbrockNaumann2022} & Réécriture équivalente sous contraintes & MCAD décide de l'exécution complète selon une obligation de sûreté objectif-relative. \\
 F8 & Requêtes vides / non-vacuité~\cite{LuoEmptyResult2006} & Détection précoce d'un résultat vide & Un probe MCAD informe la réalisabilité mais ne met pas à jour l'évidence acquise. \\
 F9 & Résumabilité et provenance~\cite{SimonAmannLiuGancarski2023,AlOmeirLaiMilaniPottinger2023} & Correction d'agrégat et origine du résultat & Ces propriétés soutiennent admissibilité/justification sans établir la dispensabilité. \\
-F10 & Admission et ordonnancement~\cite{KraftWIQ2012} & Charge, concurrence, capacité et performance & MCAD contrôle une nécessité analytique, pas une admission fondée sur la charge. \\
+F10 & Admission et ordonnancement~\cite{KraftWIQ2012,KrompassDayalKunoKemper2007,PowleyMartinGruskaBirdKalmuk2014,SafeLoad2025} & Charge, concurrence, capacité et performance & MCAD contrôle une nécessité analytique, pas une admission fondée sur la charge. \\
 F11 & Data skipping / pruning physique~\cite{NiuDataSkipping2021} & Réduction des données lues pendant l'exécution & MCAD peut supprimer l'exécution complète d'une requête sous condition de sûreté. \\
 F12 & Aide à la décision~\cite{ChenBI2012,Pourshahid2014} & Soutien aux processus décisionnels & La valeur ou correction de la décision humaine reste hors scope empirique. \\
 \bottomrule

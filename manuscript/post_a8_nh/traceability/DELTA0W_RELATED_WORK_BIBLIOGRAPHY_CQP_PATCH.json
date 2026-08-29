@@ -1,0 +1,62 @@
+{
+  "after_sha256": {
+    "bibliography": "4c3bcaac377be417b2d1f4c2f2fdbe900109c689f306a13c1459e9eec220a63b",
+    "foodmart": "932debdf21e22e9bea058bb4f111c6b13e034bb827d0e9b214f4887a3478ed60",
+    "main": "089b5af22b944333be1ee1909047fc6c04a94e3f64a18975a0137f4c36378068",
+    "table": "34cea8f39340c6307bb8445e618807f189e9debf7d92a5940b0142e983e67a6b"
+  },
+  "backend_query_executed": false,
+  "before_sha256": {
+    "bibliography": "08a43d4d71275d947332e7cdda7087895939f47ce0ac9d272063dca25bee5e0f",
+    "foodmart": "d8968af40957281b69a6c520eaea77a1558a8a4958dd3495ca4be52f6298207b",
+    "main": "7c46c448db92395b28088efccd00c8fb60f3d5d99deff951bd6b252ce6f5213c",
+    "table": "7810e7f85a42981bf656a2c3e4dbcd898cfce36dc9e93b171f57fece8fbab217"
+  },
+  "build_executed": false,
+  "bundle_recovery_performed": false,
+  "citation_reconciliation": {
+    "all_current_citations_preserved": true,
+    "external_superiority_claim_added": false,
+    "external_system_as_R3_baseline": false,
+    "first_or_only_claim_added": false,
+    "new_bibliography_keys": [
+      "HuangZaslavsky2024",
+      "IakovidisVassiliadis2026",
+      "KossmannPapenbrockNaumann2022",
+      "KrompassDayalKunoKemper2007",
+      "PowleyMartinGruskaBirdKalmuk2014",
+      "SafeLoad2025"
+    ],
+    "reactivated_existing_keys": [
+      "DiamantiniKPISurvey2025",
+      "StaudingerSchuetzSchrefl2025",
+      "FranciaPredict2026"
+    ],
+    "related_work_unique_citation_count_after": 36
+  },
+  "claim_ledger_unchanged": true,
+  "docker_executed": false,
+  "foodmart_cqp": {
+    "display_body_byte_identical_to_prepatch": true,
+    "display_body_normalized_sha256": "b2ea51d305911a7a78129c25f1172d199d7dff068a53b7d8cd46b290c20f2d72",
+    "display_body_raw_sha256": "85ccf7dfea6776daf45a9ee7f1f603a9623f45d1cac2711754111105c6266f44",
+    "frozen_metadata_initial_layout_note": "split/aligned line wrap only",
+    "implementation_rationale": "A forced aligned/\\ line break would alter the frozen normalized display token stream; the external wrapper is a narrower typography-only change that preserves the exact display body.",
+    "implemented_layout_strategy": "external_scriptsize_wrapper_around_byte_identical_display_body",
+    "semantic_change": false
+  },
+  "measurement_executed": false,
+  "metadata_freeze_sha256": "80a68e93019294ae019ba0eff7e54806227188753510793aa6632e6dd5316a2a",
+  "operation": "controlled_related_work_bibliography_table_cqp_layout_patch",
+  "parent_commit": "2fcbcf465b93170377b2d29d4dc44593aa3748cc",
+  "planned_commit_message": "docs(manuscript): reconcile related work and CQP layout",
+  "protected_regions": {
+    "prefix_and_suffix_unchanged": true,
+    "prefix_sha256": "68250f7636fe0992b9c0101dd2447c8f2b7eda3902e66ccd3d6ff138a68aa534",
+    "suffix_sha256": "c9fc5f09417d6296484c8499cbbf1325f820c5f89d1d8c812adcbbff8bfcb815"
+  },
+  "scientific_final_freeze_allowed": false,
+  "source_E8_commit": "e9b48f5f7fab90932d428ff0277c1454c7e5dc05",
+  "station": "NH-MANUSCRIPT-DELTA-0w",
+  "validation_end_to_end_lexical_change": false
+}
