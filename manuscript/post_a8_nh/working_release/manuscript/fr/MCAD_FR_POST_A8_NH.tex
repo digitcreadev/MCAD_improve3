@@ -313,12 +313,15 @@ Pour une contrainte $c$, nous distinguons trois états sémantiques :
 \begin{cases}
 \mathsf{COMPUTABLE},
 & \operatorname{Comp}(c,\mathcal{E}_t),\\[2mm]
-\mathsf{PARTIALLY\_SUPPORTED},
+\begin{gathered}
+\mathsf{PARTIALLY}\\[-0.5mm]
+\mathsf{\_SUPPORTED}
+\end{gathered},
 &
 \begin{aligned}
 &\exists s\in\operatorname{Supp}(c):\\[-0.5mm]
-&0<|\operatorname{Req}(s)\cap\mathcal{E}_t|
- <|\operatorname{Req}(s)|
+&0<|\operatorname{Req}(s)\cap\mathcal{E}_t|\\[-0.5mm]
+&\phantom{0}<|\operatorname{Req}(s)|
 \end{aligned},\\[2mm]
 \mathsf{UNRESOLVED},
 & \text{sinon}.
