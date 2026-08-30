@@ -77,11 +77,11 @@ L'article apporte quatre contributions principales :
   \item une \textbf{évaluation système contrôlée et traçable} qui mesure séparément préservation sémantique, requêtes backend incluant les probes, exécutions complètes, temps client, CPU, octets de réponse et temps jusqu'à complétion analytique, sans transformer un résultat partiel en claim global de bénéfice système.
 \end{itemize}
 
-L'évaluation fournit trois niveaux d'évidence complémentaires. Premièrement, les campagnes contrôlées de préservation et de contribution différée n'observent aucune violation de complétion dans leur périmètre gelé et montrent qu'une politique strictement immédiate peut perdre des contributions différées multi-requêtes. Deuxièmement, une phase de validation end-to-end montre que la réduction du travail backend peut coexister avec un coût temporel supérieur à une exécution non contrôlée, ce qui exclut un claim universel de \emph{break-even}. Troisièmement, la campagne confirmatoire SQL Server Direct préspécifiée comprend 300 sessions et 900 bras. Pour la comparaison primaire \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}, six des huit endpoints primaires sont confirmés après correction de Holm : nombre de requêtes backend incluant les probes, nombre d'exécutions backend complètes, temps client, CPU SQL Server, octets de réponse et temps jusqu'à complétion analytique. Les octets de lecture et d'écriture I/O ne sont pas confirmés. Le protocole n'autorise donc pas de claim global indivisible de bénéfice système.
+L'évaluation fournit trois niveaux d'évidence complémentaires. Premièrement, les campagnes contrôlées de préservation et de contribution différée n'observent aucune violation de complétion dans leur périmètre gelé et montrent qu'une politique strictement immédiate peut perdre des contributions différées multi-requêtes. Deuxièmement, une phase d'évaluation end-to-end montre que la réduction du travail backend peut coexister avec un coût temporel supérieur à une exécution non contrôlée, ce qui exclut un claim universel de \emph{break-even}. Troisièmement, la campagne confirmatoire SQL Server Direct préspécifiée comprend 300 sessions et 900 bras. Pour la comparaison primaire \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}, six des huit endpoints primaires sont confirmés après correction de Holm : nombre de requêtes backend incluant les probes, nombre d'exécutions backend complètes, temps client, CPU SQL Server, octets de réponse et temps jusqu'à complétion analytique. Les octets de lecture et d'écriture I/O ne sont pas confirmés. Le protocole n'autorise donc pas de claim global indivisible de bénéfice système.
 
 La portée de ces résultats est volontairement bornée. MCAD suppose qu'un objectif et ses supports ont été correctement instanciés en amont; cette adéquation est une hypothèse de construction et une menace à la validité, non un résultat du mécanisme. De même, la correction et l'efficacité de MCAD ne constituent pas une preuve de correction d'une décision humaine ou organisationnelle. La réplication confirmatoire XMLA/eMondrian est préparée statiquement jusqu'à R3-E8 mais reste, à ce stade, sans exécution mesurée ni inférence réelle; l'évaluation de concurrence, de mémoire, de latence de queue et de changement d'échelle end-to-end reste également hors du périmètre confirmé.
 
-La suite de l'article situe d'abord MCAD par rapport aux travaux sur objectifs, représentations canoniques, sessions analytiques, optimisation sémantique, non-vacuité, provenance, admission et élagage physique. Nous présentons ensuite le modèle objectif--évidence, le CQP, les états de session et la condition d'élagage sûr, puis l'architecture qui sépare probes, exécution complète et mise à jour de l'évidence acquise. Enfin, l'évaluation distingue les preuves historiques héritées, les campagnes de préservation et de contribution différée, la validation end-to-end et l'analyse confirmatoire des ressources, avant de discuter explicitement les résultats non confirmés et les frontières encore ouvertes.
+La suite de l'article situe d'abord MCAD par rapport aux travaux sur objectifs, représentations canoniques, sessions analytiques, optimisation sémantique, non-vacuité, provenance, admission et élagage physique. Nous présentons ensuite le modèle objectif--évidence, le CQP, les états de session et la condition d'élagage sûr, puis l'architecture qui sépare probes, exécution complète et mise à jour de l'évidence acquise. Enfin, l'évaluation distingue les preuves historiques héritées, les campagnes de préservation et de contribution différée, l'évaluation end-to-end et l'analyse confirmatoire des ressources, avant de discuter explicitement les résultats non confirmés et les frontières encore ouvertes.
 
 
 \section{Travaux connexes et frontière de nouveauté}
@@ -127,7 +127,7 @@ MCAD se situe à un niveau distinct. Il ne choisit pas une requête parce que le
 
 \subsection{F12 -- Systèmes d'aide à la décision et valeur de la décision}
 
-La BI\&A et les méthodes orientées objectifs servent des processus décisionnels organisationnels~\cite{ChenBI2012,Pourshahid2014}. Cela ne signifie pas qu'une amélioration d'un mécanisme analytique prouve une amélioration de la décision humaine. MCAD évalue la complétion analytique d'un objectif formalisé et le coût système du contrôle correspondant. La correction de la décision humaine, la qualité d'un choix organisationnel, la satisfaction ou la valeur métier finale restent hors du périmètre empirique actuel.
+La BI\&A et les méthodes orientées objectifs servent des processus décisionnels organisationnels~\cite{ChenBI2012,Pourshahid2014}. Les méthodes d'optimisation contextuelle abordent explicitement la prise de décision sous incertitude~\cite{SadanaEJOR2025}. MCAD traite une question différente : il ne prescrit pas l'action décisionnelle et n'optimise pas directement la décision; il détermine si l'exécution complète d'une requête reste nécessaire à la complétion analytique d'un objectif formalisé. Cela ne signifie pas qu'une amélioration d'un mécanisme analytique prouve une amélioration de la décision humaine. MCAD évalue la complétion analytique d'un objectif formalisé et le coût système du contrôle correspondant. La correction de la décision humaine, la qualité d'un choix organisationnel, la satisfaction ou la valeur métier finale restent hors du périmètre empirique actuel.
 
 \subsection{Synthèse F1--F12 et frontière de nouveauté}
 
@@ -314,8 +314,12 @@ Pour une contrainte $c$, nous distinguons trois états sémantiques :
 \mathsf{COMPUTABLE},
 & \operatorname{Comp}(c,\mathcal{E}_t),\\[2mm]
 \mathsf{PARTIALLY\_SUPPORTED},
-& \exists s\in\operatorname{Supp}(c):
-0<|\operatorname{Req}(s)\cap\mathcal{E}_t|<|\operatorname{Req}(s)|,\\[2mm]
+&
+\begin{aligned}
+&\exists s\in\operatorname{Supp}(c):\\[-0.5mm]
+&0<|\operatorname{Req}(s)\cap\mathcal{E}_t|
+ <|\operatorname{Req}(s)|
+\end{aligned},\\[2mm]
 \mathsf{UNRESOLVED},
 & \text{sinon}.
 \end{cases}

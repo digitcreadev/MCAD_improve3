@@ -1,0 +1,59 @@
+{
+  "after_sha256": {
+    "bibliography": "4c3bcaac377be417b2d1f4c2f2fdbe900109c689f306a13c1459e9eec220a63b",
+    "foodmart": "932debdf21e22e9bea058bb4f111c6b13e034bb827d0e9b214f4887a3478ed60",
+    "main": "5f18ed118dc3b2a6a0a03f84b0804e519993a5c3f096ccab29897c6b3709abfb",
+    "table": "fcbdf664b67a80ff2370caf6a54f38355cdcda277c01bf0bf7dc9fa816950987"
+  },
+  "backend_query_executed": false,
+  "before_sha256": {
+    "bibliography": "4c3bcaac377be417b2d1f4c2f2fdbe900109c689f306a13c1459e9eec220a63b",
+    "foodmart": "932debdf21e22e9bea058bb4f111c6b13e034bb827d0e9b214f4887a3478ed60",
+    "main": "089b5af22b944333be1ee1909047fc6c04a94e3f64a18975a0137f4c36378068",
+    "table": "34cea8f39340c6307bb8445e618807f189e9debf7d92a5940b0142e983e67a6b"
+  },
+  "benabib2_critical_bundle_recovery_still_required": true,
+  "bibliography_edited": false,
+  "build_executed": false,
+  "claim_ledger_unchanged": true,
+  "delta0x_visual_evidence": {
+    "benabib3_six_logs_status": "PENDING_RECOVERY",
+    "rebuild_executed_on_benabib4": false,
+    "user_held_pdf_sha256": "268576c5daa27968dd80ede1b5d52a56119b7998585f7020d2c4f0b5a19314c6",
+    "user_held_pdf_size_bytes": 391072
+  },
+  "docker_executed": false,
+  "foodmart": {
+    "edited": false,
+    "status": "PASS_PROVISIONAL_VISUALLY_READABLE_NO_CHANGE_IN_DELTA0Y"
+  },
+  "freeze_sha256": "128a7e3cdcbe7faea31286c57c509c4df7fdd9b74ff3f40d86498c6cf67b6403",
+  "host": "benabib4",
+  "lexical": {
+    "evaluation_end_to_end_count": 2,
+    "scientific_claim_change": false,
+    "validation_end_to_end_remaining_count": 0
+  },
+  "measurement_executed": false,
+  "next": "DELTA0Z_POST_DELTA0Y_REBUILD_AND_VISUAL_QA",
+  "operation": "controlled_page7_layout_sadana_F12_two_lexical_replacements",
+  "page7_state_equation": {
+    "blocking_visual_defect_targeted": "PAGE_7_PARTIALLY_SUPPORTED_EQUATION_INTERCOLUMN_OVERFLOW",
+    "postpatch_visual_status": "PENDING_REBUILD_AND_QA",
+    "scope": "LAYOUT_ONLY",
+    "semantic_change": false
+  },
+  "parent_commit": "7a516c52ad9adf6af0c551c40ef32da2da3ad6d5",
+  "sadana": {
+    "bib_key": "SadanaEJOR2025",
+    "bibliography_edited": false,
+    "experimental_baseline": false,
+    "main_F12_citation_added": true,
+    "priority_or_superiority_claim_added": false,
+    "role": "F12_DECISION_SUPPORT_AND_DECISION_UNDER_UNCERTAINTY_BOUNDARY",
+    "table_F12_citation_added": true
+  },
+  "scientific_final_freeze_allowed": false,
+  "source_E8_commit": "e9b48f5f7fab90932d428ff0277c1454c7e5dc05",
+  "station": "NH-MANUSCRIPT-DELTA-0y"
+}
