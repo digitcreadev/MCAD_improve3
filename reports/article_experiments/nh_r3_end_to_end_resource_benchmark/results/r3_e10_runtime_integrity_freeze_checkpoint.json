@@ -1,0 +1,128 @@
+{
+  "contract_version": "mcad.nh_r3.e10.runtime_integrity_freeze.v1",
+  "created_utc": "2026-09-01T23:26:40.981446Z",
+  "e10_execution": {
+    "build_log": {
+      "bytes": 2289,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/R3E_E10_materialization.log",
+      "sha256": "aa7f5240ce46a0136b58f8cc1521f0fa8f0a4941ebb07d75ec37ae7e0f327c09"
+    },
+    "external_receipt": {
+      "bytes": 2390,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/R3E_E10_MATERIALIZATION_MECHANICAL_VALIDATION_RECEIPT.json",
+      "sha256": "eeaeeb19671d622e889512ff11173f53615ec6070ee65b2bfb56a8461b70ff6f"
+    },
+    "pinned_emondrian_war": {
+      "bytes": 52732089,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/build/emondrian/emondrian.war",
+      "sha256": "100895f17acd4e4d3e3af58c2fbd442d95ca71fb969169d4c1a66acb974c52db"
+    },
+    "pinned_mssql_jdbc": {
+      "bytes": 1470328,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/build/emondrian/mssql-jdbc-12.6.1.jre11.jar",
+      "sha256": "3b1a70145dbaff98daa70022791e15becfb2b9534cc9e8cfaa1bdba6a3edeb8e"
+    },
+    "runtime_build_dockerfile": {
+      "bytes": 599,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/build/emondrian/Dockerfile",
+      "sha256": "cb383101c586039fe22148b6e26ac89796d0e72c78d9bf240ac4c97ed7fe7ec0"
+    },
+    "runtime_compose": {
+      "bytes": 1380,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/compose.yml",
+      "sha256": "8debd1211b50b1f298159f8e452ff38e26624cfd64980da927f4ee38d1d5d98e"
+    },
+    "script": {
+      "bytes": 29116,
+      "path": "/workspaces/run_r3e_e10_controlled_materialization_and_xmla_mechanical_validation.sh",
+      "sha256": "323455db39b4da0ea631ba65ba26ed0b34a00d715c10b76f54497df2c76dfac5"
+    },
+    "static_executor_dry_run": {
+      "bytes": 1436,
+      "path": "/workspaces/MCAD_R3E_E10_STATIC_EXECUTOR_DRYRUN_3847c3f.txt",
+      "sha256": "94e637ffdfbacf27a415541f22af01ad3f815c57f1bc4e21554f5d87e143520f"
+    },
+    "xmla_discover_request": {
+      "bytes": 661,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/xmla_discover_catalogs_request.xml",
+      "sha256": "66eb2860b00bda8f4322020f9c4e3e908c67fdb45c1b234435706846900b04f4"
+    },
+    "xmla_discover_response": {
+      "bytes": 2152,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/xmla_discover_catalogs_response.xml",
+      "sha256": "3d5bfc1d049e7417caab77eaf3137e6dc64bea09b49626c904344c7686d7769a"
+    }
+  },
+  "frozen_measurement_authorities": {
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e5_xmla_arm_receipt_schema.json": {
+      "bytes": 4570,
+      "sha256": "7624d0ed5f206ee2aefb142e2b1a79f591e1150620ec5d06d69f91e5bd0b468c"
+    },
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e5_xmla_executor_receipt_static_contract.json": {
+      "bytes": 5358,
+      "sha256": "243558e64e352f7c37ec7b50f5cf7ffa17ee9ac5866a8e013d616b6cb2acd1cd"
+    },
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e6_xmla_replication_inference_protocol.json": {
+      "bytes": 9447,
+      "sha256": "2d08df7d7c30c1cf1edf3ab07c643bbe439e4a476ac2f21e420c73e41ff420f4"
+    },
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e7_xmla_inference_engine_static_contract.json": {
+      "bytes": 5112,
+      "sha256": "20f67fbb3570b7ff694dcf72adf3c9af14071e5a80fa28fb62adbc1028806aee"
+    },
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e5_xmla_executor_static.py": {
+      "bytes": 5882,
+      "sha256": "c2ecdbb3c847a20f3ddd535e1bcb01a2bf63192677e3d4b1f843e2c010754497"
+    }
+  },
+  "measurement_shape_static_dry_run": {
+    "arm_runs": 900,
+    "candidate_actions": 21600,
+    "candidates_per_arm_run": 24,
+    "fixed_warmup_template_count": 7,
+    "semantic_sessions": 300,
+    "sha256": "94e637ffdfbacf27a415541f22af01ad3f815c57f1bc4e21554f5d87e143520f",
+    "status": "PASS_NO_BACKEND_IO"
+  },
+  "mechanical_validation": {
+    "database": "AdventureWorksDW2022",
+    "database_restore_performed": true,
+    "database_state_from_e10_receipt": "ONLINE",
+    "historical_xmla_q1_q6_rerun": false,
+    "measured_execution": false,
+    "response_contains_adventureworksdw": true,
+    "xmla_http_status": 200,
+    "xmla_request_type": "DBSCHEMA_CATALOGS"
+  },
+  "next": "R3-E11_LIVE_XMLA_EXECUTOR_IMPLEMENTATION_AND_STATIC_VERIFICATION_NO_MEASUREMENT",
+  "parent_e9_head": "3847c3fe33d6c1b98be1f9683e113248a9a1a6a1",
+  "readiness_boundary": {
+    "effect_analysis_authorized": false,
+    "live_xmla_measured_executor_implemented": false,
+    "measured_receipt_ingestion_authorized": false,
+    "measurement_authorized": false,
+    "mechanical_xmla_validation_complete": true,
+    "real_inference_authorized": false,
+    "runtime_materialization_complete": true,
+    "scientific_final_freeze_authorized": false
+  },
+  "runtime_identity": {
+    "emondrian_container_id": "01091951115bfc8a924fbc3e54b57531b235ad5b5c3c3c1abb042318e4a24c6b",
+    "emondrian_image_id": "sha256:77d2d5395e902b28368bdc0357d9a1a6d928c415af160425248df5d2d0697a69",
+    "emondrian_running_at_freeze": true,
+    "mcad_api_container_created_or_started": false,
+    "mcad_api_image_id": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+    "mcad_proxy_container_created_or_started": false,
+    "mcad_proxy_image_id": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+    "network_id": "bccdaa7d3989351726eb75d260a6a4083ee057bfee50063884b51ba427323f33",
+    "network_name": "mcad-r3e-xmla1_r3e_internal",
+    "project_name": "mcad-r3e-xmla1",
+    "sql_volume_name": "mcad-r3e-xmla1_r3e_sql_data",
+    "sqlserver_container_id": "d2261a8631dc101de0db0ae125e1fa639852678ccbf5ef88057decd5a34d9ce0",
+    "sqlserver_image_id": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+    "sqlserver_running_at_freeze": true
+  },
+  "stage": "R3-E_XMLA_EMONDRIAN_END_TO_END_REPLICATION",
+  "station": "MCAD-NH-R3",
+  "substage": "R3-E10_POST_MATERIALIZATION_INTEGRITY_FREEZE_NO_MEASUREMENT"
+}
