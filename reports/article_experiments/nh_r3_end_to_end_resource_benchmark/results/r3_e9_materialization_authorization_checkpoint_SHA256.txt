@@ -1,0 +1,1 @@
+27dcc3f221576d959e5a02da6909515dfb840a3035bb3e709fb33ca91ef3adf8  r3_e9_materialization_authorization_checkpoint.json

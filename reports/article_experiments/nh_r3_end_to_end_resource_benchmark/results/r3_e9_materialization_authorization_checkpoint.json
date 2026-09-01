@@ -1,0 +1,242 @@
+{
+  "active_host_e2_facts": {
+    "credentials": {
+      "proxy_material_present": true,
+      "proxy_source_container_found": true,
+      "sql_material_present": true,
+      "sql_source_container_found": true,
+      "value_or_hash_recorded": false,
+      "value_printed": false,
+      "values_match": true
+    },
+    "docker_client_version": "29.3.0-1",
+    "docker_driver": "overlayfs",
+    "docker_driver_status": [
+      [
+        "driver-type",
+        "io.containerd.snapshotter.v1"
+      ]
+    ],
+    "docker_server_version": "29.3.0-1",
+    "emondrian_adventureworks_candidate_container_count": 0,
+    "exact_local_emondrian_image_discovery": "NONE",
+    "host_role": "REOPENED_BENABIB2_CODESPACE_USED_AS_ACTIVE_HOST",
+    "planned_network_name": "mcad-r3e-xmla1_r3e_internal",
+    "planned_network_preexisting_count": 0,
+    "planned_port_conflict_count": 0,
+    "planned_ports": [
+      25333,
+      18182,
+      18100,
+      19100
+    ],
+    "planned_ports_free": {
+      "18100": true,
+      "18182": true,
+      "19100": true,
+      "25333": true
+    },
+    "planned_project_name": "mcad-r3e-xmla1",
+    "planned_project_preexisting_container_count": 0,
+    "planned_runtime_root": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54",
+    "planned_sql_volume_name": "mcad-r3e-xmla1_r3e_sql_data",
+    "planned_volume_preexisting_count": 0,
+    "workspaces_disk": {
+      "available_kb": 13666192,
+      "capacity": "57%",
+      "filesystem": "/dev/loop4",
+      "minimum_operational_available_kb": 5242880,
+      "total_kb": 32847680,
+      "used_kb": 17487392
+    }
+  },
+  "authorization": {
+    "adventureworks_restore_from_exact_backup": true,
+    "d4_recomputation": false,
+    "docker_load_exact_recovered_archive_if_future_host_lacks_images": true,
+    "docker_load_exact_recovered_archive_required_now": false,
+    "effect_analysis": false,
+    "effective_only_after_checkpoint_is_committed_and_pushed": true,
+    "historical_xmla_q1_q6_rerun": false,
+    "isolated_network_volume_container_creation": true,
+    "mechanical_xmla_path_validation": true,
+    "pinned_r3_only_emondrian_build": true,
+    "r3e_measured_300_session_900_arm_execution": false,
+    "real_inference": false,
+    "runtime_start_for_mechanical_validation": true,
+    "scientific_final_freeze": false,
+    "sql_direct_rerun": false,
+    "use_exact_resident_sql_api_proxy_images": true
+  },
+  "authorization_basis": {
+    "active_host_e2_revalidated_again_inside_authorization_script": true,
+    "active_host_e2_v2_revalidation_user_returned_gate": "PASS_READY_FOR_DISTINCT_MATERIALIZATION_AUTHORIZATION_CHECKPOINT",
+    "bundle_recovered_and_external_copy_verified_by_user_returned_execution": true,
+    "frozen_e3c_through_e8_authorities_bound": true
+  },
+  "contract_version": "mcad.nh_r3.e9.materialization_authorization_checkpoint.v1",
+  "created_utc": "2026-09-01T22:34:07.589658Z",
+  "execution_boundary_for_next_station": {
+    "allowed": [
+      "bind exact resident SQL/API/proxy image IDs",
+      "materialize pinned R3-only eMondrian build from frozen inputs",
+      "restore AdventureWorksDW2022 from exact recovered backup",
+      "create/start isolated mcad-r3e-xmla1 runtime",
+      "run mechanical readiness and XMLA path validation only"
+    ],
+    "prohibited": [
+      "historical XMLA Q1-Q6 rerun",
+      "R3-D SQL Direct rerun",
+      "D4 recomputation",
+      "R3-E 300-session / 900-arm measured execution",
+      "effect analysis",
+      "real inference",
+      "scientific final freeze",
+      "historical artifact mutation or replacement"
+    ]
+  },
+  "frozen_authorities": {
+    "emondrian": {
+      "historical_emondrian_byte_identity_claim_authorized": false,
+      "mssql_jdbc_sha256": "3b1a70145dbaff98daa70022791e15becfb2b9534cc9e8cfaa1bdba6a3edeb8e",
+      "mssql_jdbc_version": "12.6.1.jre11",
+      "release_tag": "v9.3.0.6",
+      "tag_commit": "d2006c162fcc6c4e7ec90a0c03485056696134ad",
+      "tomcat_linux_amd64_digest": "sha256:81be7f8d435228148a6419d5e967e6c31f094ec3a492055b42c66d2bb775627c",
+      "war_bytes": 52732089,
+      "war_sha256": "100895f17acd4e4d3e3af58c2fbd442d95ca71fb969169d4c1a66acb974c52db",
+      "web_inf_manifest_sha256": "cb2b90d9627202df6063cb61037b161de231d9f91630b835dd514f141f8abb50"
+    },
+    "exact_runtime_image_ids": {
+      "mcad_api": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+      "mcad_proxy": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+      "sqlserver": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89"
+    },
+    "files": {
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e3c_emondrian_pinned_build_inputs.json": {
+        "bytes": 3966,
+        "sha256": "75f0fafeb0f39db1f559ba3a4b537a18c7ad71acef125b13e1cde3791b0a01a2"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e4_xmla_external_overlay_static_contract.json": {
+        "bytes": 4597,
+        "sha256": "54f89ac439ea9ff0a6c34f26daa95219aa5c0bf1d2d26558ecf9130a2ff27eff"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e5_xmla_arm_receipt_schema.json": {
+        "bytes": 4570,
+        "sha256": "7624d0ed5f206ee2aefb142e2b1a79f591e1150620ec5d06d69f91e5bd0b468c"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e5_xmla_executor_receipt_static_contract.json": {
+        "bytes": 5358,
+        "sha256": "243558e64e352f7c37ec7b50f5cf7ffa17ee9ac5866a8e013d616b6cb2acd1cd"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e6_xmla_replication_inference_protocol.json": {
+        "bytes": 9447,
+        "sha256": "2d08df7d7c30c1cf1edf3ab07c643bbe439e4a476ac2f21e420c73e41ff420f4"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e6_xmla_replication_seed_manifest.json": {
+        "bytes": 6277,
+        "sha256": "a2aa59b7b1682a7b4ad841981c1c266a2d09bf1287f1996780c8908099176e6e"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e7_xmla_inference_engine_static_contract.json": {
+        "bytes": 5112,
+        "sha256": "20f67fbb3570b7ff694dcf72adf3c9af14071e5a80fa28fb62adbc1028806aee"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e7_xmla_inference_synthetic_test_vectors.json": {
+        "bytes": 1688,
+        "sha256": "982f48dd4ce5c0842935418f08af8249f36ade4a6d83600a8ce3ac62c66fc4d3"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/results/e2_read_only_discovery_before_codespace_migration_20260824.json": {
+        "bytes": 4882,
+        "sha256": "98a37fb640558cec200956a2d77f201f1673e1715aeb593d68687c406a9f4a93"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/results/e3b_emondrian_pinning_discovery_freeze.json": {
+        "bytes": 1356,
+        "sha256": "0b0b5b707d59f830031dabeae6e78d8a7597075dcd83c862da3e3effe058115e"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/results/e8_pre_bundle_static_completion_snapshot.json": {
+        "bytes": 1222,
+        "sha256": "5cc584667928079108e5c8ecad7d60be7886c762fc0785a7cd003cbe7d29ded3"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e4_datasources.xml.template": {
+        "bytes": 1195,
+        "sha256": "44b14d9267905bb99e4a3169f0c63e7e64f48face9d375cf0342ac1415773e30"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e4_emondrian_pinned.Dockerfile": {
+        "bytes": 599,
+        "sha256": "cb383101c586039fe22148b6e26ac89796d0e72c78d9bf240ac4c97ed7fe7ec0"
+      },
+      "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e4_xmla_isolated_compose.template.yml": {
+        "bytes": 1380,
+        "sha256": "8debd1211b50b1f298159f8e452ff38e26624cfd64980da927f4ee38d1d5d98e"
+      }
+    }
+  },
+  "next": "R3-E10_CONTROLLED_RUNTIME_MATERIALIZATION_AND_MECHANICAL_XMLA_VALIDATION_NO_MEASUREMENT",
+  "parent_e8_head": "e9b48f5f7fab90932d428ff0277c1454c7e5dc05",
+  "recovered_bundle": {
+    "adventureworks_backup": {
+      "bytes": 101834752,
+      "path": "/workspaces/MCAD_R3E_CODESPACE_MIGRATION_BUNDLE_20260824/AdventureWorksDW2022.bak",
+      "sha256": "ac4a39502645c31f114331be28ce671ac5f70b0645f2aa59d8dccfbaae081c05"
+    },
+    "directory": "/workspaces/MCAD_R3E_CODESPACE_MIGRATION_BUNDLE_20260824",
+    "external_export_handoff_receipt": {
+      "path": "/workspaces/BENABIB2_R3E_EXTERNAL_EXPORT_HANDOFF_20260901.txt",
+      "sha256": "22b8292985414b06023401f1e6ec742cdb62b34e555d74ad547fe6070a955644"
+    },
+    "git_branch_bundle": {
+      "bytes": 114228979,
+      "path": "/workspaces/MCAD_R3E_CODESPACE_MIGRATION_BUNDLE_20260824/MCAD_improve3_branch.bundle",
+      "role": "HISTORICAL_RECOVERY_SNAPSHOT_NOT_CURRENT_GIT_AUTHORITY",
+      "sha256": "99d27dd4dcba9768471dff97d6b510a871a138ff08e228d9a93236723e03dead"
+    },
+    "runtime_image_archive": {
+      "bytes": 794181632,
+      "exact_frozen_image_linkage_proven": true,
+      "oci_target_to_platform_manifest_to_config_linkage": {
+        "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4": {
+          "architecture": "amd64",
+          "config_digest": "sha256:d7c82b0506a556858dbef7543f43cd5f4ddad579066c45e263a72b99d382ec75",
+          "created": "2026-08-22T22:17:08.631317494Z",
+          "oci_target_digest": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+          "os": "linux",
+          "platform_manifest_digest": "sha256:2476a5cd8e81037a8362ae38c8b72618e3afc54e155f30f7415f828227e8a2ea",
+          "resident_descriptor_digest": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+          "resident_identity_and_rootfs_match": true,
+          "rootfs_diff_id_count": 16
+        },
+        "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840": {
+          "architecture": "amd64",
+          "config_digest": "sha256:1f43b282157f9c7a049637bee0ba647a385c8268355b88f22b40926c0565281d",
+          "created": "2026-08-23T10:09:06.371579881Z",
+          "oci_target_digest": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+          "os": "linux",
+          "platform_manifest_digest": "sha256:53d87c6ba43b9fc63b6641ceb72c1b64d1d1bff8cb6f0d13e53784543382f477",
+          "resident_descriptor_digest": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+          "resident_identity_and_rootfs_match": true,
+          "rootfs_diff_id_count": 10
+        },
+        "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89": {
+          "architecture": "amd64",
+          "config_digest": "sha256:90488d58c6a5c19f24ff716e14330b85b5b26ee54b44a36ea24e6206533e7edd",
+          "created": "2026-07-08T06:44:23.764648349Z",
+          "oci_target_digest": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+          "os": "linux",
+          "platform_manifest_digest": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+          "resident_descriptor_digest": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+          "resident_identity_and_rootfs_match": true,
+          "rootfs_diff_id_count": 3
+        }
+      },
+      "path": "/workspaces/MCAD_R3E_CODESPACE_MIGRATION_BUNDLE_20260824/exact_runtime_images.tar",
+      "reexport_required": false,
+      "replacement_required": false,
+      "sha256": "22eba9990c871c0fb719757d0310d2e1609f4d9bddcb0b0665f35c1f8f02a7fd"
+    }
+  },
+  "scientific_role": "SECONDARY_END_TO_END_CONFIRMATION",
+  "source_branch": "paper/nh-r3-end-to-end-resource-benchmark-20260820T193919Z",
+  "stage": "R3-E_XMLA_EMONDRIAN_END_TO_END_REPLICATION",
+  "station": "MCAD-NH-R3",
+  "substage": "R3-E9_POST_BUNDLE_ACTIVE_HOST_MATERIALIZATION_AUTHORIZATION"
+}
