@@ -1,0 +1,90 @@
+{
+  "classification": "PASS_RUNTIME_READY_NO_MEASUREMENT",
+  "contract_version": "mcad.nh_r3.e12.v4_2_1.resume_mechanical.v1",
+  "created_utc": "2026-09-02T19:15:00.989690Z",
+  "parent_e11_head": "c0f91e8f727bd1485e7d28394d4c946f9004bc7c",
+  "recovery_from_v4_2": {
+    "blind_cleanup_performed": false,
+    "missing_authority_repaired": "compose interpolation env binding",
+    "v4_2_api_recreated": false,
+    "v4_2_failure_phase": "compose_config_interpolation_before_api_recreate",
+    "v4_2_http_executed": false,
+    "v4_2_override_reused": true,
+    "v4_2_seed_directory_reused": true
+  },
+  "repair": {
+    "api_only_recreate_log": {
+      "bytes": 204,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/R3E_E12_V4_2_1_api_recreate.log",
+      "sha256": "b8e6328fb3a6a11ae51c90e6c4dec9d87b7c8153c792e95e5b7e3905166505f3"
+    },
+    "binding_granularity": "directory",
+    "fix_class": "A_RESTORE_RUNTIME_OBJECTIVE_DATA_BINDING",
+    "fresh_external_runtime_data": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/r3_e12_v4_2_mcad-api-data",
+    "historical_repo_data_directory_mounted": false,
+    "override": {
+      "bytes": 485,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/r3_e12_v4_2_api_data_binding.override.yml",
+      "sha256": "e42e2f7c5f37e84e78996f9311d1a353b8f69d3b11ad280538be4fafedb4b762"
+    },
+    "seeded_files_initially": [
+      "imported_objectives.json"
+    ],
+    "target": "/app/data"
+  },
+  "runtime_identity": {
+    "api_container_id_after": "7af54b420f9348163d0a68ebc19804cd9b367d5771ad6cb85861ae97936a4dff",
+    "api_image_id": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+    "emondrian_container_id_unchanged": "01091951115bfc8a924fbc3e54b57531b235ad5b5c3c3c1abb042318e4a24c6b",
+    "proxy_container_id_unchanged": "21924b8ec521a0c769120d403c6b46e911341e9aeed77df391e313a21b7bdccc",
+    "sql_container_id_unchanged": "d2261a8631dc101de0db0ae125e1fa639852678ccbf5ef88057decd5a34d9ce0"
+  },
+  "scientific_boundary": {
+    "e13_authorized": false,
+    "effect_analysis_executed": false,
+    "measured_campaign_executed": false,
+    "measurement_result_produced": false,
+    "repository_publication_performed": false,
+    "scientific_final_freeze_allowed": false
+  },
+  "validation": {
+    "api_health": {
+      "bytes": 249,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/R3E_E12_V4_2_1_api_health.json",
+      "sha256": "5b17252ade027047be13218e99390a1998d9eea6602ebe484b8ab84eb22a3aa4"
+    },
+    "full_xmla_probe": {
+      "bytes": 723,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/R3E_E12_V4_2_1_full_xmla_probe.json",
+      "sha256": "c031c9b85ca1c4fef6ca44e743c098de4e3020d23e8782ae898484d192732421"
+    },
+    "full_xmla_probe_count": 1,
+    "gate_probe": {
+      "bytes": 18250,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/R3E_E12_V4_2_1_gate_probe.json",
+      "sha256": "5078a847cfd1fe40d3d5b4d4de5659ef2dc542f02d876f3597128514f1d6729f"
+    },
+    "gate_probe_count": 1,
+    "mechanical_meta": {
+      "bytes": 431,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/R3E_E12_V4_2_1_mechanical_meta.json",
+      "sha256": "04ad580cd127ed37625f413cdcbdbbbbdecfb9716e252ee47bb7fce190bf006d"
+    },
+    "objective_get": {
+      "bytes": 3964,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/R3E_E12_V4_2_1_objective_get.json",
+      "sha256": "0d4634bb2b402853d29840495db8a2f454cd409d64333c1d288e3c4d508f5756"
+    },
+    "proxy_health": {
+      "bytes": 4678,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/R3E_E12_V4_2_1_proxy_health.json",
+      "sha256": "2e1667a6afd9260da6541a9fc20cb2913d1f33ac7bf3395f72810064510dd1de"
+    },
+    "session_create": {
+      "bytes": 199,
+      "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/R3E_E12_V4_2_1_sessions_create.json",
+      "sha256": "f9f64f92e9aa1e0e6c57fa9aeb10b1f87b224ceddff83996ad923b0834024f69"
+    },
+    "session_create_count": 1
+  }
+}

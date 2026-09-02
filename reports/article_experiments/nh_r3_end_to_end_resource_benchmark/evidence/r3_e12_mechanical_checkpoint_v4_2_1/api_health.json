@@ -1,0 +1,1 @@
+{"ok":true,"service":"mcad-api","threshold_default":0.6,"bi_decision_mode":"formal_contributive","objectives":{"loaded":true,"count":3,"yaml_primary":"/app/backend/objectives.yaml","yaml_fallback":"/app/backend/config/objectives.yaml","error":null}}

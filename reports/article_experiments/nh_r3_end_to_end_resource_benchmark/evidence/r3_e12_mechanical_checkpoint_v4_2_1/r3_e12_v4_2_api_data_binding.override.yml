@@ -1,0 +1,13 @@
+# R3-E12 V4.2 API-ONLY runtime repair.
+# External/fresh DATA_DIR: seeded only with authoritative imported_objectives.json.
+# Historical repository files are never mounted writable.
+services:
+  r3e-mcad-api:
+    volumes:
+      - type: bind
+        source: /workspaces/MCAD_improve3/backend
+        target: /app/backend
+        read_only: true
+      - type: bind
+        source: /workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/r3_e12_v4_2_mcad-api-data
+        target: /app/data

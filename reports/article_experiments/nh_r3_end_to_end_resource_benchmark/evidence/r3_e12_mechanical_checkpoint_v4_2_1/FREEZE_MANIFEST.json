@@ -1,0 +1,78 @@
+{
+  "adapter_id": "xmla_mondrian",
+  "authoritative_objective_seed": {
+    "copied_into_freeze": false,
+    "reason": "avoid duplicating historical tracked authority; freeze records exact hash only",
+    "repository_path": "bi-stack/mcad-api-data/imported_objectives.json",
+    "sha256": "939f666c3d4c1e2467b478719e8b097369e434b0e950da03a19801c3d4a67261"
+  },
+  "classification": "E12_MECHANICAL_CHECKPOINT_PASS_FROZEN_NO_MEASUREMENT",
+  "contract_version": "mcad.nh_r3.e12.mechanical_freeze.v1",
+  "created_utc": "2026-09-02T19:20:31.756242Z",
+  "mechanical_probe_counts": {
+    "full_xmla": 1,
+    "gate_only": 1,
+    "sessions_create": 1
+  },
+  "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "parent_e11_head": "c0f91e8f727bd1485e7d28394d4c946f9004bc7c",
+  "published_artifacts": {
+    "R3E_E12_V4_2_1_RESUME_MECHANICAL_RECEIPT.json": {
+      "bytes": 4081,
+      "sha256": "f8d3af2fb44696fa52083b6717108658c6ee8c43b6ebab03666da7232e958c60"
+    },
+    "api_health.json": {
+      "bytes": 249,
+      "sha256": "5b17252ade027047be13218e99390a1998d9eea6602ebe484b8ab84eb22a3aa4"
+    },
+    "api_recreate.log": {
+      "bytes": 204,
+      "sha256": "b8e6328fb3a6a11ae51c90e6c4dec9d87b7c8153c792e95e5b7e3905166505f3"
+    },
+    "full_xmla_probe.json": {
+      "bytes": 723,
+      "sha256": "c031c9b85ca1c4fef6ca44e743c098de4e3020d23e8782ae898484d192732421"
+    },
+    "gate_probe.json": {
+      "bytes": 18250,
+      "sha256": "5078a847cfd1fe40d3d5b4d4de5659ef2dc542f02d876f3597128514f1d6729f"
+    },
+    "mechanical_meta.json": {
+      "bytes": 431,
+      "sha256": "04ad580cd127ed37625f413cdcbdbbbbdecfb9716e252ee47bb7fce190bf006d"
+    },
+    "objective_get.json": {
+      "bytes": 3964,
+      "sha256": "0d4634bb2b402853d29840495db8a2f454cd409d64333c1d288e3c4d508f5756"
+    },
+    "proxy_health.json": {
+      "bytes": 4678,
+      "sha256": "2e1667a6afd9260da6541a9fc20cb2913d1f33ac7bf3395f72810064510dd1de"
+    },
+    "r3_e12_v4_2_api_data_binding.override.yml": {
+      "bytes": 485,
+      "sha256": "e42e2f7c5f37e84e78996f9311d1a353b8f69d3b11ad280538be4fafedb4b762"
+    },
+    "sessions_create.json": {
+      "bytes": 199,
+      "sha256": "f9f64f92e9aa1e0e6c57fa9aeb10b1f87b224ceddff83996ad923b0834024f69"
+    }
+  },
+  "runtime_dw_id": "adventureworks_xmla",
+  "runtime_identity_at_freeze_gate": {
+    "api_container_id": "7af54b420f9348163d0a68ebc19804cd9b367d5771ad6cb85861ae97936a4dff",
+    "api_image_id": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+    "emondrian_container_id": "01091951115bfc8a924fbc3e54b57531b235ad5b5c3c3c1abb042318e4a24c6b",
+    "proxy_container_id": "21924b8ec521a0c769120d403c6b46e911341e9aeed77df391e313a21b7bdccc",
+    "sql_container_id": "d2261a8631dc101de0db0ae125e1fa639852678ccbf5ef88057decd5a34d9ce0"
+  },
+  "scientific_boundary": {
+    "e13_authorized_by_this_freeze": false,
+    "effect_analysis_executed": false,
+    "measured_campaign_executed": false,
+    "measurement_result_produced": false,
+    "mechanical_evidence_only": true,
+    "scientific_final_freeze": false
+  },
+  "source_external_receipt_sha256": "f8d3af2fb44696fa52083b6717108658c6ee8c43b6ebab03666da7232e958c60"
+}

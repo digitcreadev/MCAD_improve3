@@ -1,0 +1,13 @@
+{
+  "adapter_id": "xmla_mondrian",
+  "contract_version": "mcad.nh_r3.e12.v4_2_1.mechanical_probe.v1",
+  "dw_id": "adventureworks_xmla",
+  "full_xmla_probe_count": 1,
+  "gate_live_action_authoritative": false,
+  "gate_probe_count": 1,
+  "measured_campaign_executed": false,
+  "measurement_result_produced": false,
+  "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "session_create_count": 1,
+  "session_id": "S_0001"
+}
