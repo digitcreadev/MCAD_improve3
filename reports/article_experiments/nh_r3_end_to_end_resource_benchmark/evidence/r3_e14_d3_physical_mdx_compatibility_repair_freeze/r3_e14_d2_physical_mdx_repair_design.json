@@ -1,0 +1,38 @@
+{
+  "authority_head": "76f705d89c45be7ba5d758946bb811e55d6886ea",
+  "backend_io_performed": false,
+  "contract_version": "mcad.nh_r3.e14.d2.physical_mdx_repair_design.v1",
+  "created_utc": "2026-09-02T20:54:01.322051Z",
+  "d1_diagnostic_receipt_sha256": "e0c77e37b69e15b92e5ab59208f39c721b8cc15216d09a96dba81b6f6e315bed",
+  "design": {
+    "coverage": "7_of_7",
+    "historical_4_of_7_physical_output_preserved_byte_for_byte": true,
+    "logical_gate_mdx_remains_frozen": true,
+    "month_grain_mapping": "[Date.Calendar].[2013].Children",
+    "physical_full_execute_mdx_is_translated": true,
+    "product_mapping": {
+      "Accessories": "[Product].[Accessories]",
+      "Bikes": "[Product].[Bikes]"
+    },
+    "territory_mapping": "Descendants([Sales Territory].[Europe], [Sales Territory].[Sales Territory Region])",
+    "translation_key": "EXACT_LOGICAL_TEMPLATE_SHA256",
+    "type": "NEW_E14_EXECUTOR_OVERLAY_NO_HISTORICAL_FILE_MODIFICATION",
+    "unknown_logical_mdx_policy": "FAIL_CLOSED",
+    "year_grain_mapping": "{[Date.Calendar].[2013]}"
+  },
+  "effect_analysis_performed": false,
+  "failed_attempt_console_sha256": "bfc3dc35003eb27874526d265edd047e585d4b0212bd43869cfd77f7647d9372",
+  "failed_attempt_run_id": "r3e_e14_xmla_primary300_20260902T202527Z",
+  "measurement_performed": false,
+  "proposed_new_files": {
+    "r3_e14_xmla_live_executor_compat.py": "ba338cfb3291f652658d1fb141881dd45c029ee2b83be7ab051dc7512ca239ed",
+    "r3_e14_xmla_physical_mdx_compat.py": "dd8db8ffffc571a9c393015383cce01411d35dcbcc6a334e53d4db3d2080a8ed"
+  },
+  "protected_historical_files": [
+    "bi-stack/mcad-proxy/execution/adapters/xmla_mondrian_adapter.py",
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py",
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/templates/mdx/*.mdx",
+    "bi-stack/emondrian-adventureworks/WEB-INF/schema/AdventureWorksDW.xml"
+  ],
+  "root_cause_class": "CROSS_BACKEND_PHYSICAL_MDX_NORMALIZER_COVERAGE_GAP"
+}

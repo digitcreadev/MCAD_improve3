@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspaces/MCAD_improve3/reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py", line 721, in <module>
+    main()
+  File "/workspaces/MCAD_improve3/reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py", line 709, in main
+    run_primary(
+  File "/workspaces/MCAD_improve3/reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py", line 491, in run_primary
+    warmup(repo, p, proxy_base)
+  File "/workspaces/MCAD_improve3/reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py", line 457, in warmup
+    data = post_json(
+           ^^^^^^^^^^
+  File "/workspaces/MCAD_improve3/reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py", line 286, in post_json
+    raise RuntimeError(f"POST {url} -> HTTP {r.status_code}: {r.text[:1200]}")
+RuntimeError: POST http://127.0.0.1:19100/bi/r3/e11/measurement/full-execute -> HTTP 502: {"ok":false,"contract_version":"mcad.nh_r3.e11.measurement_runtime.v1","mode":"full_execute","dw_id":"adventureworks_xmla","adapter_id":"xmla_mondrian","query_id":"WARMUP::AW_BAD_GRAIN_YEAR","physical_execution":false,"backend_request_count":0,"elapsed_ms":141,"client_endpoint_elapsed_ms":142.412131,"response_bytes":784,"response_digest":"99a7dda12f3f8367","result_digest":"99a7dda12f3f8367","row_count":null,"xmla_valid_response":false,"xmla_response_type":"Fault","xmla_has_fault":true,"fallback_allowed":false,"fallback_used":false,"mcad_eval_performed":false,"ckg_update_performed":false,"error":"XMLA response contains a real SOAP/XMLA fault: SOAP-ENV:Server.00HSBB01 XMLA SOAP Body processing error Mondrian Error:MDX object '[Date].[Calendar].[Calendar Year]' not found in cube 'Adventure Works DW'","contract_violation":"invalid_xmla_response"}

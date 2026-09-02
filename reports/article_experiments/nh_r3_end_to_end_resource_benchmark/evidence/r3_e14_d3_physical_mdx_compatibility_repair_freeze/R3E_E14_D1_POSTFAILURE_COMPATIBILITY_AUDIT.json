@@ -1,0 +1,49 @@
+{
+  "authority_head": "76f705d89c45be7ba5d758946bb811e55d6886ea",
+  "classification": "E14_FAILED_IN_NONMEASURED_WARMUP_BEFORE_FIRST_ARM_CROSS_BACKEND_NORMALIZER_COVERAGE_GAP",
+  "contract_version": "mcad.nh_r3.e14.d1.postfailure_compatibility_audit.v1",
+  "created_utc": "2026-09-02T20:41:51.613750Z",
+  "failed_attempt": {
+    "arm_receipts": 0,
+    "candidate_traces": 0,
+    "console_log_sha256": "bfc3dc35003eb27874526d265edd047e585d4b0212bd43869cfd77f7647d9372",
+    "failed_template": "AW_BAD_GRAIN_YEAR",
+    "failure_phase": "fixed_seven_template_warmup_before_measured_arm_loop",
+    "measurement_result_produced": false,
+    "primary_summary_present": false,
+    "run_id": "r3e_e14_xmla_primary300_20260902T202527Z"
+  },
+  "next": "RETURN_FULL_OUTPUT_FOR_E14_PHYSICAL_MDX_COMPATIBILITY_REPAIR_DESIGN_AND_AUTHORIZATION_NO_MEASUREMENT",
+  "root_cause": {
+    "class": "CROSS_BACKEND_PHYSICAL_MDX_NORMALIZER_COVERAGE_GAP",
+    "covered_templates": [
+      "AW_ATOM_COST",
+      "AW_ATOM_MARGIN",
+      "AW_ATOM_SALES",
+      "AW_PAIR_SALES_COST"
+    ],
+    "current_normalizer_coverage": "4_of_7",
+    "live_emondrian_schema_drift_detected": false,
+    "live_emondrian_schema_sha256": "dbfe1cd549e125358339c1ac971acf4909b371485529a70b570d1ae8505902dd",
+    "live_proxy_adapter_drift_detected": false,
+    "live_proxy_xmla_adapter_sha256": "cf7e23d104f84ae55fd8e080335838410fff33a9bb8319aed03e1b4df21de00d",
+    "logical_templates_modified": false,
+    "repo_schema_sha256": "dbfe1cd549e125358339c1ac971acf4909b371485529a70b570d1ae8505902dd",
+    "repo_xmla_adapter_sha256": "cf7e23d104f84ae55fd8e080335838410fff33a9bb8319aed03e1b4df21de00d",
+    "uncovered_templates": [
+      "AW_BAD_GRAIN_YEAR",
+      "AW_DISTRACTOR_ACCESSORIES_SALES",
+      "AW_MIX_ACCESSORIES_SALES_COST"
+    ]
+  },
+  "scientific_boundary": {
+    "automatic_fallback_authorized": false,
+    "automatic_resume_authorized": false,
+    "e13_authorization_revoked": false,
+    "e14_rerun_authorized": false,
+    "effect_analysis_authorized": false,
+    "failed_attempt_must_be_preserved": true,
+    "physical_dialect_compatibility_repair_requires_separate_authorization_and_freeze": true,
+    "scientific_final_freeze_authorized": false
+  }
+}

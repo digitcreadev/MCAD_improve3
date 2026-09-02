@@ -1,0 +1,37 @@
+{
+  "authorization": {
+    "create_exactly_two_new_implementation_files_in_repository": true,
+    "database_query": false,
+    "docker_mutation": false,
+    "e14_measured_rerun": false,
+    "effect_analysis": false,
+    "frozen_e11_executor_modification": false,
+    "frozen_template_modification": false,
+    "git_commit_push_of_exact_new_files_and_d3_freeze_artifacts": true,
+    "historical_adapter_modification": false,
+    "historical_file_modification": false,
+    "http_request": false,
+    "image_build_pull_tag": false,
+    "measurement": false,
+    "new_file_1": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e14_xmla_physical_mdx_compat.py",
+    "new_file_1_required_sha256": "dd8db8ffffc571a9c393015383cce01411d35dcbcc6a334e53d4db3d2080a8ed",
+    "new_file_2": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e14_xmla_live_executor_compat.py",
+    "new_file_2_required_sha256": "ba338cfb3291f652658d1fb141881dd45c029ee2b83be7ab051dc7512ca239ed",
+    "nonmeasured_xmla_preflight": false,
+    "scientific_final_freeze": false,
+    "xmla_query": false
+  },
+  "authorized_next_step": "R3-E14-D3_NEW_FILES_ONLY_REPAIR_MATERIALIZATION_AND_FREEZE_NO_MEASUREMENT",
+  "contract_version": "mcad.nh_r3.e14.d2.repair_materialization_authorization.v1",
+  "created_utc": "2026-09-02T20:54:01.322051Z",
+  "d1_diagnostic_receipt_sha256": "e0c77e37b69e15b92e5ab59208f39c721b8cc15216d09a96dba81b6f6e315bed",
+  "d2_design_manifest_sha256": "dd85bd318a5ad59e0fa0dba20387fb49cc8f890b3df3c4d0b4a1257d7aff8f2c",
+  "failure_policy": {
+    "automatic_cleanup": false,
+    "automatic_rerun": false,
+    "automatic_resume": false,
+    "preserve_failed_e14_attempt": true
+  },
+  "next_after_d3": "SEPARATE_NONMEASURED_7_TEMPLATE_XMLA_COMPATIBILITY_PREFLIGHT_AUTHORIZATION_REQUIRED",
+  "parent_head": "76f705d89c45be7ba5d758946bb811e55d6886ea"
+}
