@@ -1,0 +1,73 @@
+{
+  "contract_version": "mcad.nh_r3.e11.xmla_live_executor_static.v1",
+  "station": "MCAD-NH-R3",
+  "stage": "R3-E_XMLA_EMONDRIAN_END_TO_END_REPLICATION",
+  "substage": "R3-E11_LIVE_XMLA_EXECUTOR_IMPLEMENTATION_AND_STATIC_VERIFICATION_NO_MEASUREMENT",
+  "parent_e10_head": "7e12c7d831a7dd0bf2893dcf73ea87f676ec6514",
+  "scientific_role": "SECONDARY_END_TO_END_CONFIRMATION",
+  "backend": {
+    "warehouse_id": "adventureworks_xmla",
+    "adapter": "xmla_mondrian",
+    "catalog": "AdventureWorksDW",
+    "cube": "Adventure Works DW",
+    "gate_endpoint": "/bi/r3/e11/measurement/gate-only",
+    "full_execute_endpoint": "/bi/r3/e11/measurement/full-execute"
+  },
+  "frozen_plan": {
+    "selection_role": "CONFIRMATORY_PRIMARY",
+    "semantic_sessions": 300,
+    "arm_runs": 900,
+    "candidate_actions": 21600,
+    "candidates_per_arm_run": 24,
+    "gate_evaluations_planned": 14400,
+    "full_backend_executions_planned": 14580,
+    "fixed_warmup_template_count": 7,
+    "reuse_primary_arm_order_schedule": true,
+    "reuse_sql_direct_confirmatory_cohort": true,
+    "scientific_redesign_performed": false,
+    "effect_size_tuning_performed": false
+  },
+  "resource_accounting": {
+    "sqlserver_cgroup_counted": true,
+    "emondrian_cgroup_counted": true,
+    "gate_probe_backend_requests_counted": true,
+    "gate_probe_response_bytes_counted": true,
+    "negative_delta_policy": "INVALIDATE_ARM_RUN_NEVER_CLAMP_TO_ZERO",
+    "xmla_specific_metrics_are_secondary_diagnostics": true,
+    "xmla_specific_confirmatory_p_values_authorized": false
+  },
+  "runtime_overlay": {
+    "historical_proxy_image_mutated": false,
+    "derived_proxy_image_required": true,
+    "derived_proxy_base_must_equal_exact_frozen_proxy_image_id": "sha256:2494827f7dda2769fcd80e1659bbb2520b0aafe52fdefdc79e6fff07db0fe6b4",
+    "historical_datawarehouses_yaml_mutated": false,
+    "overlay_changes_exactly_adventureworks_xmla_url": true,
+    "xmla_upstream": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla",
+    "proxy_overlay_build_authorized_in_e11": false,
+    "api_proxy_start_authorized_in_e11": false
+  },
+  "implementation": {
+    "measurement_app": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e11_xmla_measurement_app.py",
+    "overlay_renderer": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e11_render_datawarehouses_overlay.py",
+    "proxy_overlay_dockerfile": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e11_proxy_overlay.Dockerfile",
+    "measurement_compose_override_template": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e11_measurement.compose.override.template.yml",
+    "live_executor": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py",
+    "live_executor_complete_but_authorization_gated": true,
+    "future_campaign_authorization_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e13_xmla_measured_execution_authorization.json"
+  },
+  "execution_boundary": {
+    "docker_allowed": false,
+    "container_start_stop_restart_allowed": false,
+    "http_or_backend_query_allowed": false,
+    "measurement_allowed": false,
+    "measurement_authorization_allowed": false,
+    "effect_analysis_allowed": false,
+    "measured_receipt_ingestion_allowed": false,
+    "real_inference_allowed": false,
+    "historical_xmla_q1_q6_rerun_allowed": false,
+    "sql_direct_rerun_allowed": false,
+    "d4_recomputation_allowed": false,
+    "scientific_final_freeze_allowed": false
+  },
+  "next": "R3-E12_RUNTIME_OVERLAY_MATERIALIZATION_AND_MECHANICAL_ENDPOINT_VALIDATION_NO_MEASUREMENT"
+}

@@ -1,0 +1,40 @@
+# STATIC E11 TEMPLATE ONLY.
+# DO NOT RUN before R3-E12 runtime-overlay materialization/mechanical authorization.
+services:
+  r3e-mcad-api:
+    image: ${R3E_MCAD_API_IMAGE_REF:?exact frozen API image required}
+    environment:
+      MCAD_THRESHOLD_DEFAULT: "0.60"
+      MCAD_OBJECTIVE_ID_DEFAULT: O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN
+      MCAD_DW_ID_DEFAULT: adventureworks_xmla
+      MCAD_BI_DECISION_MODE: formal_contributive
+      MCAD_NVAC_MODE: hybrid
+      MCAD_NVAC_PROBE_URL: http://r3e-mcad-proxy:9000/bi/nvac-probe
+      MCAD_NVAC_PROBE_TIMEOUT_S: "180.0"
+      PYTHONPATH: /app/backend:/app
+      MCAD_OBJECTIVES_YAML: /app/backend/objectives.yaml
+      MCAD_OBJECTIVES_FALLBACK_YAML: /app/backend/config/objectives.yaml
+      MCAD_DATAWAREHOUSES_YAML: /app/backend/config/datawarehouses.yaml
+
+  r3e-mcad-proxy:
+    image: ${R3E_E11_PROXY_IMAGE_REF:?authorized derived E11 proxy image required}
+    command:
+      - uvicorn
+      - r3_e11_xmla_measurement_app:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "9000"
+      - --log-level
+      - info
+      - --access-log
+    environment:
+      MCAD_API_BASE: http://r3e-mcad-api:8000
+      MCAD_EVAL_URL: http://r3e-mcad-api:8000/eval
+      MCAD_CKG_URL: http://r3e-mcad-api:8000/ckg/update
+      MCAD_OBJECTIVE_ID_DEFAULT: O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN
+      MCAD_DW_ID_DEFAULT: adventureworks_xmla
+      MCAD_BI_MODE: hybrid
+      MCAD_DW_REGISTRY: /app/datawarehouses.yaml
+      UPSTREAM_XMLA: http://r3e-emondrian-adventureworks:8080/emondrian/xmla
+      EMONDRIAN_XMLA_URL: http://r3e-emondrian-adventureworks:8080/emondrian/xmla

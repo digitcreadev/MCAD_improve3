@@ -1,0 +1,85 @@
+{
+  "authorization_refusal_reason": "R3-E13 measured-execution authorization file absent; R3-E measured execution remains forbidden",
+  "backend_query_executed": false,
+  "contract_version": "mcad.nh_r3.e11.xmla_live_executor_static_verification.v1",
+  "docker_command_executed": false,
+  "effect_analysis_performed": false,
+  "executor_dry_run": {
+    "adapter": "xmla_mondrian",
+    "arm_runs": 900,
+    "backend_id": "adventureworks_xmla",
+    "backend_query_executed": false,
+    "candidate_actions": 21600,
+    "contract_version": "mcad.nh_r3.e11.xmla_live_executor_dry_run.v1",
+    "docker_command_executed": false,
+    "effect_analysis_performed": false,
+    "expected_receipts": 900,
+    "full_backend_executions_planned": 14580,
+    "full_execute_path": "/bi/r3/e11/measurement/full-execute",
+    "gate_evaluations_planned": 14400,
+    "gate_path": "/bi/r3/e11/measurement/gate-only",
+    "grouped_arm_runs": 900,
+    "http_request_executed": false,
+    "measurement_authorized": false,
+    "measurement_executed": false,
+    "semantic_sessions": 300,
+    "warmup_template_count": 7
+  },
+  "frozen_git_blob_authorities": {
+    "bi-stack/mcad-proxy/datawarehouses.yaml": "e0584b8d349b3faea53b857ebc2d3f98a0a95ca2",
+    "bi-stack/mcad-proxy/execution/adapters/xmla_mondrian_adapter.py": "1e6ab0c1f3fb7bdb710d16cf214c6c845fcb667c",
+    "bi-stack/mcad-proxy/r3_measurement_app.py": "376c1c16960565dec35648af8e9d24f136579ff4",
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_d0_confirmatory_primary_arm_order_schedule.csv": "6b53ab6d271425b9e5113bdd405775f05c6d65df",
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_d0_confirmatory_plan.py": "54750b314717dc370ca65f84ca765c338b4abb2c"
+  },
+  "frozen_sha256_authorities": {
+    "e10_checkpoint": "31707c99daa88f2fc30cb982a0bb90d909e0a2eb46b99831d7ace22615efd453",
+    "e5_contract": "243558e64e352f7c37ec7b50f5cf7ffa17ee9ac5866a8e013d616b6cb2acd1cd",
+    "e5_schema": "7624d0ed5f206ee2aefb142e2b1a79f591e1150620ec5d06d69f91e5bd0b468c",
+    "e6": "2d08df7d7c30c1cf1edf3ab07c643bbe439e4a476ac2f21e420c73e41ff420f4",
+    "e7": "20f67fbb3570b7ff694dcf72adf3c9af14071e5a80fa28fb62adbc1028806aee"
+  },
+  "http_request_executed": false,
+  "measurement_authorized": false,
+  "measurement_executed": false,
+  "new_files": {
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/config/r3_e11_xmla_live_executor_static_contract.json": {
+      "bytes": 3696,
+      "sha256": "12db02baedc225c79b3f618dc55b9be57681333e01013c595afe8bd3307ccbd3"
+    },
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py": {
+      "bytes": 28827,
+      "sha256": "e2bd0a914fa628c80a605fdf685eea1e3bf0f985a840a5c6b3089283262c4e65"
+    },
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e11_measurement.compose.override.template.yml": {
+      "bytes": 1619,
+      "sha256": "fc0d1c7612a237e32660c0bb08081d1a00c16a0a94247174a172b7c58f65eeff"
+    },
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e11_proxy_overlay.Dockerfile": {
+      "bytes": 432,
+      "sha256": "0d59016e5afc225f7119e1ba15915c420f2a7df70973926516101a6d151eef43"
+    },
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e11_render_datawarehouses_overlay.py": {
+      "bytes": 1569,
+      "sha256": "78419932e6c458dd0d6d2b07cc72f9ad7f2d43d5ffffb07e02520612c9c2ce55"
+    },
+    "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/runtime/r3_e11_xmla_measurement_app.py": {
+      "bytes": 8122,
+      "sha256": "dddc06be544aa630550fad3e6120ac9763b1ccf58db1f0cd2d7d40830762f9eb"
+    }
+  },
+  "next": "R3-E12_RUNTIME_OVERLAY_MATERIALIZATION_AND_MECHANICAL_ENDPOINT_VALIDATION_NO_MEASUREMENT",
+  "parent_e10_head": "7e12c7d831a7dd0bf2893dcf73ea87f676ec6514",
+  "runtime_overlay": {
+    "api_proxy_started": false,
+    "derived_proxy_build_executed": false,
+    "historical_registry_mutated": false,
+    "semantic_diff": {
+      "field": "xmla_url",
+      "new_value": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla",
+      "warehouse_id": "adventureworks_xmla"
+    },
+    "semantic_diff_count": 1
+  },
+  "scientific_final_freeze_authorized": false
+}
