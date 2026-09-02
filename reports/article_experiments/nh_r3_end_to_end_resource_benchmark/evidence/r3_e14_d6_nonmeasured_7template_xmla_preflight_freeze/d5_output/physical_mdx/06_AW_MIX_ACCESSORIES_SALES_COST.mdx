@@ -1,0 +1,10 @@
+SELECT {[Measures].[SalesAmount],[Measures].[TotalProductCost]} ON COLUMNS,
+NonEmpty(
+  CrossJoin(
+    [Date.Calendar].[2013].Children,
+    Descendants([Sales Territory].[Europe], [Sales Territory].[Sales Territory Region])
+  ),
+  {[Measures].[SalesAmount],[Measures].[TotalProductCost]}
+) ON ROWS
+FROM [Adventure Works DW]
+WHERE ([Product].[Accessories])

@@ -1,0 +1,20 @@
+{
+  "authorized_full_execute_requests": 7,
+  "automatic_retry": false,
+  "contract_version": "mcad.nh_r3.e14.d5.nonmeasured_xmla_preflight.request_manifest.v1",
+  "effect_analysis": false,
+  "endpoint": "http://127.0.0.1:19100/bi/r3/e11/measurement/full-execute",
+  "gate_only_requests": 0,
+  "measurement": false,
+  "scientific_role": "PRE_MEASUREMENT_PHYSICAL_DIALECT_COMPATIBILITY_VALIDATION",
+  "session_create_requests": 0,
+  "template_order": [
+    "AW_ATOM_COST",
+    "AW_ATOM_MARGIN",
+    "AW_ATOM_SALES",
+    "AW_BAD_GRAIN_YEAR",
+    "AW_DISTRACTOR_ACCESSORIES_SALES",
+    "AW_MIX_ACCESSORIES_SALES_COST",
+    "AW_PAIR_SALES_COST"
+  ]
+}

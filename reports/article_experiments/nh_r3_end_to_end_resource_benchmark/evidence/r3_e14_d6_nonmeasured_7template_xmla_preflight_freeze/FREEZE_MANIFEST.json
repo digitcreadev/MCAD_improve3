@@ -1,0 +1,58 @@
+{
+  "authority": {
+    "compat_runner_sha256": "ba338cfb3291f652658d1fb141881dd45c029ee2b83be7ab051dc7512ca239ed",
+    "d3_freeze_manifest_sha256": "d8d798ef39c4525279032e7c3d9577db96c79b3397433de5ed9d41be8b9e7552",
+    "d4_authorization_sha256": "e50197d615c789762d71fea2ce31e50bfdd53ace95364491606d3f21a0971495",
+    "failed_e14_v1_console_sha256": "bfc3dc35003eb27874526d265edd047e585d4b0212bd43869cfd77f7647d9372",
+    "physicalizer_sha256": "dd8db8ffffc571a9c393015383cce01411d35dcbcc6a334e53d4db3d2080a8ed"
+  },
+  "classification": "PASS_ALL_7_PHYSICAL_XMLA_COMPATIBLE_FROZEN_NO_MEASUREMENT",
+  "contract_version": "mcad.nh_r3.e14.d6.nonmeasured_7template_xmla_preflight_freeze.v1",
+  "created_utc": "2026-09-02T21:20:59.746806Z",
+  "evidence_scope": {
+    "d5_console_log_included": true,
+    "d5_output_file_count": 25,
+    "d5_physical_mdx_count": 7,
+    "d5_response_body_count": 7,
+    "d5_response_meta_count": 7,
+    "physical_mdx_included": true,
+    "response_bodies_included": true,
+    "runtime_pre_post_included": true
+  },
+  "next": "SEPARATE_R3_E14_PRIMARY300_RERUN_AUTHORIZATION_DECISION_REQUIRED_NO_MEASUREMENT",
+  "parent_d4_head": "2beef788124d28c1caa6811ee3737c58994a343a",
+  "preflight": {
+    "all_responses_execute_response": true,
+    "all_responses_physical_execution": true,
+    "all_responses_valid_nonfault_xmla": true,
+    "backend_request_count": 7,
+    "ckg_update_count": 0,
+    "console_log_sha256": "a17b3bba32d0c03d2da936425fc1ff8ac572edf9cd8def28a392a829d7f3d9f7",
+    "fallback_used_anywhere": false,
+    "full_execute_http_attempts": 7,
+    "gate_only_request_count": 0,
+    "mcad_eval_request_count": 0,
+    "preflight_id": "r3e_e14_d5_nonmeasured_7template_xmla_preflight_20260902T211434Z",
+    "preflight_latency_is_scientific_outcome": false,
+    "runtime_restart_or_recreate_detected": false,
+    "session_create_request_count": 0,
+    "summary_sha256": "5bac33d168fa17a9329f2d389924b01c479ff8b820c0e4e464f8ace518b7d79e",
+    "template_attempts": 7,
+    "template_failures": 0,
+    "template_passes": 7
+  },
+  "scientific_boundary": {
+    "automatic_rerun_authorized": false,
+    "automatic_resume_authorized": false,
+    "e14_primary300_rerun_authorized": false,
+    "effect_analysis_executed": false,
+    "historical_xmla_q1_q6_rerun_authorized": false,
+    "interim_effect_look_executed": false,
+    "measured_receipt_ingestion_executed": false,
+    "measurement_executed": false,
+    "measurement_result_produced": false,
+    "new_backend_io_executed_by_d6": false,
+    "scientific_final_freeze_authorized": false,
+    "sql_direct_rerun_authorized": false
+  }
+}
