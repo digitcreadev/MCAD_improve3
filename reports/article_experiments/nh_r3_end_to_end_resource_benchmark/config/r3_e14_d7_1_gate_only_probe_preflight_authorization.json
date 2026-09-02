@@ -1,0 +1,136 @@
+{
+  "authority": {
+    "d3_compat_runner_sha256": "ba338cfb3291f652658d1fb141881dd45c029ee2b83be7ab051dc7512ca239ed",
+    "d3_physicalizer_sha256": "dd8db8ffffc571a9c393015383cce01411d35dcbcc6a334e53d4db3d2080a8ed",
+    "d7_primary300_fresh_execution_authorization_sha256": "d81030dd33417707ff8f3d2643d764e1896f1da968c640ae9c82e3609ca167fe",
+    "e11_measurement_app_sha256": "dddc06be544aa630550fad3e6120ac9763b1ccf58db1f0cd2d7d40830762f9eb",
+    "e11_static_contract_sha256": "12db02baedc225c79b3f618dc55b9be57681333e01013c595afe8bd3307ccbd3",
+    "frozen_e11_executor_sha256": "e2bd0a914fa628c80a605fdf685eea1e3bf0f985a840a5c6b3089283262c4e65",
+    "mcad_api_app_sha256": "f5b4ab5e41ac416f51e1db5649836ed2046b0243b80ce6ceb53444b01cb66c28",
+    "mcad_proxy_app_sha256": "9c376b9fd28da9ef017090abd09926a424deb9b9905451979dcfc2c0ce92d326"
+  },
+  "classification": "AUTHORIZED_NONMEASURED_GATE_ONLY_AND_NVAC_PROBE_COMPATIBILITY_PREFLIGHT",
+  "contract_version": "mcad.nh_r3.e14.d7_1.gate_only_probe_preflight_authorization.v1",
+  "created_utc": "2026-09-02T22:19:06Z",
+  "next": "R3-E14-D7.2_GATE_ONLY_NVAC_PROBE_PREFLIGHT_ONE_SHOT_NO_MEASUREMENT",
+  "parent_d7_head": "bba038cf8467beb44f4351daeda470b6f7c09299",
+  "preflight": {
+    "automatic_fallback_authorized": false,
+    "automatic_rerun_authorized": false,
+    "automatic_resume_authorized": false,
+    "automatic_retry_authorized": false,
+    "consumes_d7_fresh_measured_attempt": false,
+    "direct_nvac_probe_endpoint": "/bi/nvac-probe",
+    "direct_nvac_probe_requests_authorized": 7,
+    "direct_probe_cube": "Adventure Works DW",
+    "direct_probe_dw_id": "adventureworks_xmla",
+    "direct_probe_payload_must_use_exact_logical_template": true,
+    "fresh_gate_sessions_authorized": 7,
+    "full_execute_requests_authorized": 0,
+    "gate_only_endpoint": "/bi/r3/e11/measurement/gate-only",
+    "gate_only_requests_authorized": 7,
+    "logical_gate_payload_must_remain_unmodified": true,
+    "measured_arm_receipts_authorized": 0,
+    "measured_arm_runs_authorized": 0,
+    "measured_candidate_actions_authorized": 0,
+    "measured_candidate_traces_authorized": 0,
+    "new_output_directory_must_not_preexist": true,
+    "output_must_be_outside_repository": true,
+    "preflight_output_must_be_preserved_on_failure": true,
+    "primary_summary_authorized": false,
+    "run_primary_authorized": false,
+    "scientific_role": "MECHANICAL_COMPATIBILITY_PREFLIGHT_NOT_MEASUREMENT",
+    "session_create_endpoint": "/sessions/create",
+    "templates": [
+      {
+        "logical_sha256": "071b2b794a255198e80cdfc6637241379abeaf7af54b90e9af59633d418269ce",
+        "template_id": "AW_ATOM_COST"
+      },
+      {
+        "logical_sha256": "18c1b6f720b21d8df5014848a0f14854dc65dbe2d550656cdc7772fa41225fb1",
+        "template_id": "AW_ATOM_MARGIN"
+      },
+      {
+        "logical_sha256": "636f9472760e9dd80366d58b6af3547c9cd1b6c961b33b005d3cf7afb0114bea",
+        "template_id": "AW_ATOM_SALES"
+      },
+      {
+        "logical_sha256": "149043d18621295ea264cd9da6a58f79affe249cb64d19d6c0b746b03aa22172",
+        "template_id": "AW_BAD_GRAIN_YEAR"
+      },
+      {
+        "logical_sha256": "fe1e6f4a076f7e63e0408ee5cb43f923e517046b3aba1bad48e462946497003f",
+        "template_id": "AW_DISTRACTOR_ACCESSORIES_SALES"
+      },
+      {
+        "logical_sha256": "b536e8c4f30c69f17c2a87332a5d2c9cf9cd318931548ef10cc989aa7dde4133",
+        "template_id": "AW_MIX_ACCESSORIES_SALES_COST"
+      },
+      {
+        "logical_sha256": "f7f79c1b84a526910a423062ff35fd9f0aed5cdd588818e53fa9176cca9c8361",
+        "template_id": "AW_PAIR_SALES_COST"
+      }
+    ]
+  },
+  "preflight_pass_contract": {
+    "all_7_direct_nvac_probe_dw_exact_required": true,
+    "all_7_direct_nvac_probe_http_ok_required": true,
+    "all_7_gate_only_full_candidate_execution_false_required": true,
+    "all_7_gate_only_full_result_ckg_update_false_required": true,
+    "all_7_gate_only_http_ok_required": true,
+    "all_7_gate_only_live_gate_action_authoritative_false_required": true,
+    "all_7_gate_only_mode_gate_only_required": true,
+    "all_attempted_direct_probe_adapter_xmla_mondrian_required": true,
+    "all_attempted_direct_probe_no_xmla_fault_required": true,
+    "gate_decision_allow_or_block_both_acceptable_for_compatibility_preflight": true,
+    "no_effect_statistics_computed": true,
+    "nvac_backend_request_count_recorded_not_forced_positive": true
+  },
+  "runtime": {
+    "container_recreate_authorized": false,
+    "container_restart_authorized": false,
+    "database_restore_authorized": false,
+    "docker_inspect_for_preflight_authorized": true,
+    "emondrian_container_id": "01091951115bfc8a924fbc3e54b57531b235ad5b5c3c3c1abb042318e4a24c6b",
+    "emondrian_image_id": "sha256:77d2d5395e902b28368bdc0357d9a1a6d928c415af160425248df5d2d0697a69",
+    "historical_runtime_mutation_authorized": false,
+    "image_build_authorized": false,
+    "image_pull_authorized": false,
+    "mcad_api_container_id": "7af54b420f9348163d0a68ebc19804cd9b367d5771ad6cb85861ae97936a4dff",
+    "mcad_api_image_id": "sha256:7648c28b5e974a9a1e972c7d42fbfb3d20a181f821a97197f460ed77662b7840",
+    "mcad_base": "http://127.0.0.1:18100",
+    "mcad_proxy_container_id": "21924b8ec521a0c769120d403c6b46e911341e9aeed77df391e313a21b7bdccc",
+    "mcad_proxy_image_id": "sha256:492ebe93459255dd81a836503dc376e46c4b29a12eb3f5f549d83943e93fe14a",
+    "network_id": "bccdaa7d3989351726eb75d260a6a4083ee057bfee50063884b51ba427323f33",
+    "project_name": "mcad-r3e-xmla1",
+    "proxy_base": "http://127.0.0.1:19100",
+    "runtime_root": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54",
+    "same_exact_container_start_if_stopped_for_preflight_authorized": true,
+    "sql_volume": "mcad-r3e-xmla1_r3e_sql_data",
+    "sqlserver_container_id": "d2261a8631dc101de0db0ae125e1fa639852678ccbf5ef88057decd5a34d9ce0",
+    "sqlserver_image_id": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89"
+  },
+  "scientific_boundary": {
+    "d7_fresh_measured_attempt_consumed_by_preflight": false,
+    "d7_measured_authorization_remains_published_and_unmodified": true,
+    "d8_measured_execution_blocked_until_preflight_pass_is_separately_frozen": true,
+    "effect_analysis_authorized": false,
+    "failed_e14_v1_output_reuse_authorized": false,
+    "failed_e14_v1_resume_authorized": false,
+    "historical_xmla_q1_q6_rerun_authorized": false,
+    "interim_effect_look_authorized": false,
+    "measured_receipt_ingestion_authorized": false,
+    "scientific_final_freeze_authorized": false,
+    "sql_direct_rerun_authorized": false
+  },
+  "static_finding": {
+    "compat_runner_physicalization_scope": "FULL_EXECUTE_PAYLOAD_ONLY",
+    "conclusion": "D8_REQUIRES_SEPARATE_NONMEASURED_GATE_PATH_PREFLIGHT_BEFORE_MEASURED_EXECUTION",
+    "d5_gate_only_requests": 0,
+    "gate_only_posts_logical_mdx_to_mcad_eval": true,
+    "gate_payload_physicalized_by_d3_compat_runner": false,
+    "mcad_eval_can_call_nvac_probe": true,
+    "nvac_probe_executes_gateway_query_for_requested_dw": true,
+    "requested_dw_id": "adventureworks_xmla"
+  }
+}
