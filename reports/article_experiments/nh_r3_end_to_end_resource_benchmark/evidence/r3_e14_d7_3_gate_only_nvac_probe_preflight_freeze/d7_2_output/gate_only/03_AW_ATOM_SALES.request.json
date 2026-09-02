@@ -1,0 +1,9 @@
+{
+  "dw_id": "adventureworks_xmla",
+  "logical_gate_payload_unmodified": true,
+  "mdx_sha256": "636f9472760e9dd80366d58b6af3547c9cd1b6c961b33b005d3cf7afb0114bea",
+  "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "query_id": "D7.2::AW_ATOM_SALES",
+  "query_type": "mdx",
+  "session_id": "S_0004"
+}

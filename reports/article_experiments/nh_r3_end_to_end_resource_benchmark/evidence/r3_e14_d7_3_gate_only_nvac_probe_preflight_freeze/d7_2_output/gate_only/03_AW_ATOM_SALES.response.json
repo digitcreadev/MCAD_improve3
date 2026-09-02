@@ -1,0 +1,532 @@
+{
+  "contract_version": "mcad.nh_r3.e11.measurement_runtime.v1",
+  "decision": {
+    "ceval": 0.3333333333333333,
+    "decision": "ALLOW",
+    "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+    "decision_reason_code": "ALLOW_NEW_TOTAL",
+    "details": {
+      "calculable_constraints": [
+        "aw_real_c1_sales_amount"
+      ],
+      "calculable_constraints_partial": [],
+      "calculable_constraints_total": [
+        "aw_real_c1_sales_amount"
+      ],
+      "covered_constraints": [
+        "aw_real_c1_sales_amount"
+      ],
+      "decision_policy": "formal_contributive_session_marginal+contract_contributive",
+      "decision_reason": "Contract-driven contribution: the QP matches pending constraint(s) of the active objective.",
+      "decision_reason_code": "ALLOW_NEW_TOTAL",
+      "delta_phi_t": 0.3333333333333333,
+      "engine": "evaluate_with_objective_and_session(payload)",
+      "eval_ms": 89,
+      "formal_sat": true,
+      "formal_sat_source": "formal_sat_eval.checks",
+      "gained_resource_ids": [
+        "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+      ],
+      "gained_resource_ids_count": 1,
+      "graph_update": {
+        "contract_version": "mcad.graph_update.v1",
+        "covered_constraints": [
+          "aw_real_c1_sales_amount"
+        ],
+        "decision": "ALLOW",
+        "nvac_evidence": {
+          "empty_reason": null,
+          "estimated_cells": 1,
+          "known_empty": false,
+          "method": "hybrid_probe",
+          "probe": {
+            "count": 1,
+            "elapsed_ms": 86,
+            "non_empty": true,
+            "probe_attempted": true,
+            "probe_measure": "SalesAmount",
+            "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes],\n       [Sales Territory].[Sales Territory Group].[Europe],\n       [Date].[Calendar Year].[2013])",
+            "probe_url": "http://r3e-mcad-proxy:9000/bi/nvac-probe",
+            "raw_probe_summary": {
+              "adapter_family": "xmla_mondrian",
+              "adapter_id": "xmla_mondrian",
+              "axis_count": 2,
+              "axis_samples": [
+                {
+                  "name": "Axis0",
+                  "sample_tuples": [
+                    [
+                      "SalesAmount"
+                    ]
+                  ],
+                  "tuple_count": 1
+                },
+                {
+                  "name": "SlicerAxis",
+                  "sample_tuples": [
+                    [
+                      "Bikes",
+                      "Europe",
+                      "2013"
+                    ]
+                  ],
+                  "tuple_count": 1
+                }
+              ],
+              "catalog": "AdventureWorksDW",
+              "cell_count": 1,
+              "cube": "Adventure Works DW",
+              "dataset": "AdventureWorksDW",
+              "dw_id": "adventureworks_xmla",
+              "elapsed_ms": 82,
+              "execution_mode": "real",
+              "execution_source_enforced": true,
+              "forwarded_to": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla",
+              "kind": "dataset",
+              "logical_query_language": "mdx",
+              "ok": true,
+              "physical_execution": true,
+              "physical_query_language": "xmla_mdx",
+              "preview_cell_count": 1,
+              "preview_cells": [
+                {
+                  "axis_context": [
+                    [
+                      "SalesAmount"
+                    ],
+                    [
+                      "Bikes",
+                      "Europe",
+                      "2013"
+                    ]
+                  ],
+                  "formatted": "5,190,828.09",
+                  "ordinal": "0",
+                  "value": "5190828.09"
+                }
+              ],
+              "response_bytes": 5007,
+              "response_digest": "cc7d429667147b2f",
+              "result_digest": "cc7d429667147b2f",
+              "status_code": 200,
+              "tuple_count": 2,
+              "xmla_fault_excerpt": null,
+              "xmla_has_fault": false,
+              "xmla_response_type": "ExecuteResponse",
+              "xmla_url": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla",
+              "xmla_valid_response": true
+            }
+          },
+          "rule": "probe_count_drives_nvac_ok",
+          "slicers": {
+            "Date.Calendar Year": "2013",
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe"
+          }
+        },
+        "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+        "observed_resources": [
+          "SalesAmount"
+        ],
+        "realized_virtual_nodes": [
+          "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+        ],
+        "sat_checks": {
+          "agg_ok": true,
+          "grain_ok": true,
+          "nvac_ok": true,
+          "slc_ok": true,
+          "time_ok": true,
+          "unit_ok": true
+        },
+        "session_id": "S_0004",
+        "step_index": 1
+      },
+      "has_marginal_gain": true,
+      "is_redundant": false,
+      "legacy_engine_clauses_debug": [
+        {
+          "details": {},
+          "name": "measures_present",
+          "ok": true
+        },
+        {
+          "details": {},
+          "name": "cube_present",
+          "ok": true
+        },
+        {
+          "details": {
+            "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN"
+          },
+          "name": "objective_known",
+          "ok": false
+        },
+        {
+          "details": {},
+          "name": "slc_ok",
+          "ok": true
+        },
+        {
+          "details": {},
+          "name": "time_ok",
+          "ok": true
+        },
+        {
+          "details": {},
+          "name": "grain_ok",
+          "ok": true
+        },
+        {
+          "details": {},
+          "name": "agg_ok",
+          "ok": true
+        },
+        {
+          "details": {},
+          "name": "unit_ok",
+          "ok": true
+        },
+        {
+          "details": {},
+          "name": "nvac_ok",
+          "ok": true
+        }
+      ],
+      "legacy_engine_sat_debug": false,
+      "newly_contributed_constraints_partial": [],
+      "newly_contributed_constraints_total": [
+        "aw_real_c1_sales_amount"
+      ],
+      "nvac_evidence": {
+        "empty_reason": null,
+        "estimated_cells": 1,
+        "known_empty": false,
+        "method": "hybrid_probe",
+        "probe": {
+          "count": 1,
+          "elapsed_ms": 86,
+          "non_empty": true,
+          "probe_attempted": true,
+          "probe_measure": "SalesAmount",
+          "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes],\n       [Sales Territory].[Sales Territory Group].[Europe],\n       [Date].[Calendar Year].[2013])",
+          "probe_url": "http://r3e-mcad-proxy:9000/bi/nvac-probe",
+          "raw_probe_summary": {
+            "adapter_family": "xmla_mondrian",
+            "adapter_id": "xmla_mondrian",
+            "axis_count": 2,
+            "axis_samples": [
+              {
+                "name": "Axis0",
+                "sample_tuples": [
+                  [
+                    "SalesAmount"
+                  ]
+                ],
+                "tuple_count": 1
+              },
+              {
+                "name": "SlicerAxis",
+                "sample_tuples": [
+                  [
+                    "Bikes",
+                    "Europe",
+                    "2013"
+                  ]
+                ],
+                "tuple_count": 1
+              }
+            ],
+            "catalog": "AdventureWorksDW",
+            "cell_count": 1,
+            "cube": "Adventure Works DW",
+            "dataset": "AdventureWorksDW",
+            "dw_id": "adventureworks_xmla",
+            "elapsed_ms": 82,
+            "execution_mode": "real",
+            "execution_source_enforced": true,
+            "forwarded_to": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla",
+            "kind": "dataset",
+            "logical_query_language": "mdx",
+            "ok": true,
+            "physical_execution": true,
+            "physical_query_language": "xmla_mdx",
+            "preview_cell_count": 1,
+            "preview_cells": [
+              {
+                "axis_context": [
+                  [
+                    "SalesAmount"
+                  ],
+                  [
+                    "Bikes",
+                    "Europe",
+                    "2013"
+                  ]
+                ],
+                "formatted": "5,190,828.09",
+                "ordinal": "0",
+                "value": "5190828.09"
+              }
+            ],
+            "response_bytes": 5007,
+            "response_digest": "cc7d429667147b2f",
+            "result_digest": "cc7d429667147b2f",
+            "status_code": 200,
+            "tuple_count": 2,
+            "xmla_fault_excerpt": null,
+            "xmla_has_fault": false,
+            "xmla_response_type": "ExecuteResponse",
+            "xmla_url": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla",
+            "xmla_valid_response": true
+          }
+        },
+        "rule": "probe_count_drives_nvac_ok",
+        "slicers": {
+          "Date.Calendar Year": "2013",
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe"
+        }
+      },
+      "nvac_ok": true,
+      "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+      "observed_resources": [
+        "SalesAmount"
+      ],
+      "phi_leq_t": 0.3333333333333333,
+      "phi_weighted": 0.0,
+      "query_spec": {
+        "analytics": [],
+        "axes": [
+          {
+            "axis": "COLUMNS",
+            "expression": "{[Measures].[SalesAmount]}"
+          },
+          {
+            "axis": "ROWS",
+            "expression": ", CrossJoin([Date].[Calendar].[Month].Members, [Sales Territory].[Sales Territory].[Sales Territory Region].Members)"
+          }
+        ],
+        "calculated_members": [],
+        "cube": "Adventure Works DW",
+        "dataset": null,
+        "dw_id": "adventureworks_xmla",
+        "fingerprint": "636f9472760e9dd8",
+        "group_by": [
+          "Date.Calendar",
+          "Date.Month",
+          "Measures.SalesAmount",
+          "Sales Territory.Sales Territory",
+          "Sales Territory.Sales Territory Region"
+        ],
+        "language": "mdx",
+        "mdx": "SELECT {[Measures].[SalesAmount]} ON COLUMNS,\nCrossJoin([Date].[Calendar].[Month].Members,\n          [Sales Territory].[Sales Territory].[Sales Territory Region].Members) ON ROWS\nFROM [Adventure Works DW]\nWHERE ([Product].[Product Category].[Bikes],\n       [Sales Territory].[Sales Territory Group].[Europe],\n       [Date].[Calendar Year].[2013])\n",
+        "measures": [
+          "SalesAmount"
+        ],
+        "named_sets": [],
+        "slicers": {
+          "Date.Calendar Year": "2013",
+          "Product.Product Category": "Bikes",
+          "Sales Territory.Sales Territory Group": "Europe"
+        },
+        "time_members": [],
+        "window_end": "2013-12-31",
+        "window_start": "2013-01-01"
+      },
+      "real_node_ids": [],
+      "realized_virtual_nodes": [
+        "NV_AW_BIKES_EUROPE_2013_MONTH_TERRITORY_SALES"
+      ],
+      "sat_checks": {
+        "agg_ok": true,
+        "grain_ok": true,
+        "nvac_ok": true,
+        "slc_ok": true,
+        "time_ok": true,
+        "unit_ok": true
+      },
+      "sat_evidence": {
+        "agg_ok": {
+          "aggregators": [
+            "implicit cube aggregator"
+          ],
+          "reason": "no forbidden aggregation detected"
+        },
+        "grain_ok": {
+          "compatible_constraints": [
+            "aw_real_c1_sales_amount"
+          ],
+          "recognized_grain": [
+            "Date.Calendar",
+            "Date.Month",
+            "Measures.SalesAmount",
+            "Sales Territory.Sales Territory",
+            "Sales Territory.Sales Territory Region"
+          ]
+        },
+        "nvac_ok": {
+          "empty_reason": null,
+          "estimated_cells": 1,
+          "known_empty": false,
+          "method": "hybrid_probe",
+          "probe": {
+            "count": 1,
+            "elapsed_ms": 86,
+            "non_empty": true,
+            "probe_attempted": true,
+            "probe_measure": "SalesAmount",
+            "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes],\n       [Sales Territory].[Sales Territory Group].[Europe],\n       [Date].[Calendar Year].[2013])",
+            "probe_url": "http://r3e-mcad-proxy:9000/bi/nvac-probe",
+            "raw_probe_summary": {
+              "adapter_family": "xmla_mondrian",
+              "adapter_id": "xmla_mondrian",
+              "axis_count": 2,
+              "axis_samples": [
+                {
+                  "name": "Axis0",
+                  "sample_tuples": [
+                    [
+                      "SalesAmount"
+                    ]
+                  ],
+                  "tuple_count": 1
+                },
+                {
+                  "name": "SlicerAxis",
+                  "sample_tuples": [
+                    [
+                      "Bikes",
+                      "Europe",
+                      "2013"
+                    ]
+                  ],
+                  "tuple_count": 1
+                }
+              ],
+              "catalog": "AdventureWorksDW",
+              "cell_count": 1,
+              "cube": "Adventure Works DW",
+              "dataset": "AdventureWorksDW",
+              "dw_id": "adventureworks_xmla",
+              "elapsed_ms": 82,
+              "execution_mode": "real",
+              "execution_source_enforced": true,
+              "forwarded_to": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla",
+              "kind": "dataset",
+              "logical_query_language": "mdx",
+              "ok": true,
+              "physical_execution": true,
+              "physical_query_language": "xmla_mdx",
+              "preview_cell_count": 1,
+              "preview_cells": [
+                {
+                  "axis_context": [
+                    [
+                      "SalesAmount"
+                    ],
+                    [
+                      "Bikes",
+                      "Europe",
+                      "2013"
+                    ]
+                  ],
+                  "formatted": "5,190,828.09",
+                  "ordinal": "0",
+                  "value": "5190828.09"
+                }
+              ],
+              "response_bytes": 5007,
+              "response_digest": "cc7d429667147b2f",
+              "result_digest": "cc7d429667147b2f",
+              "status_code": 200,
+              "tuple_count": 2,
+              "xmla_fault_excerpt": null,
+              "xmla_has_fault": false,
+              "xmla_response_type": "ExecuteResponse",
+              "xmla_url": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla",
+              "xmla_valid_response": true
+            }
+          },
+          "rule": "probe_count_drives_nvac_ok",
+          "slicers": {
+            "Date.Calendar Year": "2013",
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe"
+          }
+        },
+        "slc_ok": {
+          "errors": [],
+          "member_dictionary": "AdventureWorksDW",
+          "recognized_slicers": {
+            "Date.Calendar Year": "2013",
+            "Product.Product Category": "Bikes",
+            "Sales Territory.Sales Territory Group": "Europe"
+          }
+        },
+        "time_ok": {
+          "reason": "time level/window coherent",
+          "time_grains": [],
+          "window": {
+            "end": "2013-12-31",
+            "start": "2013-01-01"
+          }
+        },
+        "unit_ok": {
+          "checked_units": {},
+          "method": "no explicit unit conflict in QP"
+        }
+      },
+      "scenario": {
+        "scenario_query_id": "D7.2::AW_ATOM_SALES"
+      },
+      "session_id": "S_0004",
+      "step_index": 1,
+      "threshold_used_for_ranking": 0.6
+    },
+    "explain": "ENGINE=real mode=formal_contributive_session_marginal+contract_contributive formal_sat=True legacy_engine_sat=False phi=0.333 theta=0.600 Ceval=0/3 RealNV=0/3 phi_leq_t=0.333 dphi=0.333 => ALLOW",
+    "has_marginal_gain": true,
+    "is_redundant": false,
+    "phi": 0.3333333333333333,
+    "real": 0.3333333333333333,
+    "sat": 1.0,
+    "threshold": 0.6
+  },
+  "dw_id": "adventureworks_xmla",
+  "frozen_action_authority": "NH_R2_R3_BINDING",
+  "full_candidate_execution_performed": false,
+  "full_result_ckg_update_performed": false,
+  "gate_elapsed_ms": 102.549059,
+  "live_gate_action_authoritative": false,
+  "mode": "gate_only",
+  "nvac": {
+    "backend_request_count_including_gate_probes": 1,
+    "cache_hit_count": 0,
+    "canonical_evidence_source": "details.nvac_evidence",
+    "duplicate_probe_representation_count": 0,
+    "physical_uncached_probe_count": 1,
+    "physical_uncached_probe_elapsed_ms": 82,
+    "physical_uncached_probe_response_bytes": 5007,
+    "probe_attempted_count": 1,
+    "probe_record_count": 1,
+    "records": [
+      {
+        "adapter_id": "xmla_mondrian",
+        "cache_hit": false,
+        "dw_id": "adventureworks_xmla",
+        "elapsed_ms": 86,
+        "physical_execution": true,
+        "physical_uncached": true,
+        "probe_attempted": true,
+        "probe_measure": "SalesAmount",
+        "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes],\n       [Sales Territory].[Sales Territory Group].[Europe],\n       [Date].[Calendar Year].[2013])",
+        "response_bytes": 5007
+      }
+    ],
+    "represented_probe_record_count": 1
+  },
+  "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "ok": true,
+  "query_id": "D7.2::AW_ATOM_SALES",
+  "session_id": "S_0004"
+}

@@ -1,0 +1,9 @@
+{
+  "dw_id": "adventureworks_xmla",
+  "logical_gate_payload_unmodified": true,
+  "mdx_sha256": "b536e8c4f30c69f17c2a87332a5d2c9cf9cd318931548ef10cc989aa7dde4133",
+  "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "query_id": "D7.2::AW_MIX_ACCESSORIES_SALES_COST",
+  "query_type": "mdx",
+  "session_id": "S_0007"
+}

@@ -1,0 +1,9 @@
+{
+  "dw_id": "adventureworks_xmla",
+  "logical_gate_payload_unmodified": true,
+  "mdx_sha256": "fe1e6f4a076f7e63e0408ee5cb43f923e517046b3aba1bad48e462946497003f",
+  "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "query_id": "D7.2::AW_DISTRACTOR_ACCESSORIES_SALES",
+  "query_type": "mdx",
+  "session_id": "S_0006"
+}

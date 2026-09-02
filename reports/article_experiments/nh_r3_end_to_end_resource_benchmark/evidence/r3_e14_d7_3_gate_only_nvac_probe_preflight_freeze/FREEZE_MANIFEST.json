@@ -1,0 +1,81 @@
+{
+  "authority": {
+    "d7_1_preflight_authorization_sha256": "397a554036fe450c90f139b9d59362341fb447074d0f5ef263864412246a0d58",
+    "d7_2_console_log_sha256": "654feb8bbc55a993fecdb7daac9de250a7ad6b5b50d2572f741859af54cfd34a",
+    "d7_2_preflight_summary_sha256": "62b4efe847e2b010dcdf149b30fc3c3524f5a74ae99fc8f4ae7191e72f1b7bc8",
+    "d7_2_request_manifest_sha256": "1feafe6091d7991765a40e204cba34ac670b18426534126fc482021efbd4acd9",
+    "d7_primary300_fresh_execution_authorization_sha256": "d81030dd33417707ff8f3d2643d764e1896f1da968c640ae9c82e3609ca167fe"
+  },
+  "classification": "PASS_GATE_ONLY_NVAC_PROBE_COMPATIBILITY_PREFLIGHT_FROZEN_NO_MEASUREMENT",
+  "codespaces_quota_policy": {
+    "d8_must_not_start_if_quota_gate_is_not_PASS": true,
+    "github_user": "benabib2",
+    "mandatory_before_any_measured_campaign": true,
+    "purpose": "prevent_codespace_compute_quota_exhaustion_and_lock_during_campaign",
+    "quota_gate_must_fail_closed_if_remaining_compute_cannot_be_verified": true,
+    "quota_gate_must_include_safety_margin": true,
+    "quota_gate_must_run_after_this_freeze_and_immediately_before_D8": true
+  },
+  "contract_version": "mcad.nh_r3.e14.d7_3.gate_only_nvac_probe_preflight_freeze.v1",
+  "created_utc": "2026-09-02T22:46:59.836418Z",
+  "evidence_scope": {
+    "d7_2_console_log_included": true,
+    "d7_2_output_file_count": 66,
+    "direct_probe_meta_files": 7,
+    "direct_probe_request_files": 7,
+    "direct_probe_response_files": 7,
+    "gate_meta_files": 7,
+    "gate_request_files": 7,
+    "gate_response_files": 7,
+    "logical_mdx_files": 7,
+    "session_meta_files": 7,
+    "session_response_files": 7
+  },
+  "next": "R3-E14-D7.4_CODESPACES_QUOTA_GATE_BEFORE_D8_NO_MEASUREMENT",
+  "parent_d7_1_head": "6a02b47019f7c74f4bdb17226cbf1e74cd6f1380",
+  "preflight": {
+    "direct_nvac_probe_requests": 7,
+    "direct_probe_adapter": "xmla_mondrian",
+    "direct_probe_dw": "adventureworks_xmla",
+    "direct_probe_xmla_fault_any": false,
+    "fresh_session_create_requests": 7,
+    "fresh_session_ids_unique": true,
+    "full_candidate_execution_performed_any": false,
+    "full_execute_requests": 0,
+    "full_result_ckg_update_performed_any": false,
+    "gate_decisions": {
+      "ALLOW": 4,
+      "BLOCK": 3
+    },
+    "gate_only_requests": 7,
+    "gate_payload_physicalized": false,
+    "live_gate_action_authoritative_any": false,
+    "logical_gate_payload_unmodified": true,
+    "nvac_backend_request_count_zero_is_allowed": true,
+    "nvac_backend_request_counts_in_template_order": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "pass": true,
+    "run_id": "r3e_e14_d7_2_gate_probe_preflight_20260902T222725Z",
+    "templates_completed": 7
+  },
+  "scientific_boundary": {
+    "automatic_retry_rerun_resume_executed": false,
+    "d7_fresh_measured_attempt_consumed": false,
+    "d7_measured_authorization_preserved": true,
+    "d8_launch_still_blocked_pending_codespaces_quota_gate": true,
+    "d8_measured_execution_cleared_by_gate_path_compatibility": true,
+    "effect_analysis_executed": false,
+    "measured_receipt_ingestion_executed": false,
+    "measurement_executed": false,
+    "measurement_result_produced": false,
+    "new_backend_io_executed_by_d7_3": false,
+    "scientific_final_freeze_authorized": false
+  }
+}

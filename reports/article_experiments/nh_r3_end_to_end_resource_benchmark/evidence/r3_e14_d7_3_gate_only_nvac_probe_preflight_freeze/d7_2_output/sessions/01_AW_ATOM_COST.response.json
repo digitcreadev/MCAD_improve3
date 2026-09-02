@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "session": {
+    "dw_id": "adventureworks_xmla",
+    "history_length": 0,
+    "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+    "phi_leq_t": 0.0,
+    "session_id": "S_0002",
+    "status": "open",
+    "step_index": 0
+  }
+}

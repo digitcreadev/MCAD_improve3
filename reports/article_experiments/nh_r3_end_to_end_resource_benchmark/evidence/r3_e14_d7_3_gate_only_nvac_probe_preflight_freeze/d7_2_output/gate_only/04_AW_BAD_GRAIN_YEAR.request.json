@@ -1,0 +1,9 @@
+{
+  "dw_id": "adventureworks_xmla",
+  "logical_gate_payload_unmodified": true,
+  "mdx_sha256": "149043d18621295ea264cd9da6a58f79affe249cb64d19d6c0b746b03aa22172",
+  "objective_id": "O_AW_BIKES_EUROPE_MONTH_TERRITORY_MARGIN",
+  "query_id": "D7.2::AW_BAD_GRAIN_YEAR",
+  "query_type": "mdx",
+  "session_id": "S_0005"
+}

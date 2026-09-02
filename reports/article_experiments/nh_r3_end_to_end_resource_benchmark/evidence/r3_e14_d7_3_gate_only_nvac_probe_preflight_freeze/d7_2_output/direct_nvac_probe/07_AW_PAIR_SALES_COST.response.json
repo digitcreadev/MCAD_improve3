@@ -1,0 +1,80 @@
+{
+  "adapter_id": "xmla_mondrian",
+  "count": 1,
+  "dw_id": "adventureworks_xmla",
+  "elapsed_ms": 84,
+  "non_empty": true,
+  "ok": true,
+  "probe_measure": "SalesAmount",
+  "probe_query": "SELECT {[Measures].[SalesAmount]} ON COLUMNS FROM [Adventure Works DW] WHERE ([Product].[Product Category].[Bikes],\n       [Sales Territory].[Sales Territory Group].[Europe],\n       [Date].[Calendar Year].[2013])",
+  "status_code": 200,
+  "summary": {
+    "adapter_family": "xmla_mondrian",
+    "adapter_id": "xmla_mondrian",
+    "axis_count": 2,
+    "axis_samples": [
+      {
+        "name": "Axis0",
+        "sample_tuples": [
+          [
+            "SalesAmount"
+          ]
+        ],
+        "tuple_count": 1
+      },
+      {
+        "name": "SlicerAxis",
+        "sample_tuples": [
+          [
+            "Bikes",
+            "Europe",
+            "2013"
+          ]
+        ],
+        "tuple_count": 1
+      }
+    ],
+    "catalog": "AdventureWorksDW",
+    "cell_count": 1,
+    "cube": "Adventure Works DW",
+    "dataset": "AdventureWorksDW",
+    "dw_id": "adventureworks_xmla",
+    "elapsed_ms": 84,
+    "execution_mode": "real",
+    "execution_source_enforced": true,
+    "forwarded_to": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla",
+    "kind": "dataset",
+    "logical_query_language": "mdx",
+    "ok": true,
+    "physical_execution": true,
+    "physical_query_language": "xmla_mdx",
+    "preview_cell_count": 1,
+    "preview_cells": [
+      {
+        "axis_context": [
+          [
+            "SalesAmount"
+          ],
+          [
+            "Bikes",
+            "Europe",
+            "2013"
+          ]
+        ],
+        "formatted": "5,190,828.09",
+        "ordinal": "0",
+        "value": "5190828.09"
+      }
+    ],
+    "response_bytes": 5007,
+    "response_digest": "cc7d429667147b2f",
+    "result_digest": "cc7d429667147b2f",
+    "status_code": 200,
+    "tuple_count": 2,
+    "xmla_fault_excerpt": null,
+    "xmla_has_fault": false,
+    "xmla_response_type": "ExecuteResponse",
+    "xmla_url": "http://r3e-emondrian-adventureworks:8080/emondrian/xmla",
+    "xmla_valid_response": true
+  }
+}
