@@ -1,0 +1,32 @@
+{
+  "analysis_id": "r3e_e14_d11_a2_preregistered_inference_20260903T170933Z",
+  "classification": "RAW_INFERENCE_RESULTS_FROZEN_BEFORE_RESULT_INTERPRETATION",
+  "contract_version": "mcad.nh_r3.e14.d12.raw_inference_result_freeze.v1",
+  "created_utc": "2026-09-03T18:50:21.394424Z",
+  "next": "R3-E14-D13_SEPARATE_RESULT_INTERPRETATION_AUTHORIZATION",
+  "parent_git_head": "9c4168f65a5ec6f7a734aa9028916d8821f498c7",
+  "scientific_boundary": {
+    "D13_result_interpretation_requires_separate_authorization": true,
+    "candidate_trace_ingestion_executed_by_D12": false,
+    "claim_reporting_executed": false,
+    "cross_backend_synthesis_executed": false,
+    "docker_command_executed": false,
+    "http_request_executed": false,
+    "measurement_reexecution_executed": false,
+    "raw_result_byte_hashing_executed": true,
+    "raw_result_semantic_content_read": false,
+    "result_interpretation_executed": false,
+    "result_values_printed": false,
+    "xmla_query_executed": false
+  },
+  "source_hashes": {
+    "D11_A2_analysis_program_sha256": "3cc644aab9b34c5347d76f95ebe2dfbe8f43a0ba3d59f46d0d35239aa8c1afdb",
+    "D11_A2_recovery_authorization_sha256": "db1c81bb05ac8dee5b2af71574b581777e21adae41998be2e06f037a015c7643",
+    "D11_A2_wrapper_sha256": "86b7eec083faf520ecece4039c1dcb2b65e14d767a7e97260fd40435210fa10c",
+    "D11_console_sha256": "f4fe20ff30f96662a4e62e5c0a505ef82ccb76843bc94e4cb3a5b0a9c2630e67",
+    "D11_execution_receipt_sha256": "2b6a464a100d8472c88d6bebb5e43fd5d3dff15ce4ed675d598407c59f9656ef",
+    "D11_measurement_integrity_receipt_sha256": "532f39a5b1c4b000e744ba523fa21bb2d22459ae5c4d8e6bf359cd539e4e8377",
+    "D11_raw_inference_results_sha256": "671859825d9e625c7399b591530649bc3ee39051809956488311f51ef0cfe75c",
+    "D11_state_sha256": "8dfc43a5cf05c0bfad2ca116b75a384dfaed40ad5965ba56d111c8454a511dfd"
+  }
+}

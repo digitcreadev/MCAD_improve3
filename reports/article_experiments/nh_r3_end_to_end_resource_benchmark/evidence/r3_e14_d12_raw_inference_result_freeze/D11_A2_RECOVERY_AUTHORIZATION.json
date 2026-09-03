@@ -1,0 +1,99 @@
+{
+  "authority": {
+    "D0_schedule_git_blob": "6b53ab6d271425b9e5113bdd405775f05c6d65df",
+    "D10_authorization_git_blob": "d1a986c28af678b1160d466fee9c93b2ac9115d4",
+    "D10_authorization_sha256": "a311d75e58a0fb4e7ea34aab7fb5836ce7b69a1264600a8163d8212f33446929",
+    "D11_A1_readonly_audit_sha256": "a8582e00b9d2b1450f7c7933c750694f4bc464d6cc44a0567611436ffd032fea",
+    "D9_freeze_manifest_sha256": "141d954c2f4e707653732aaa556847a34bc6bb5117128b5913093599f416a7df",
+    "E5_receipt_schema_git_blob": "9dd353e1495e677c1d75cb0ccb8adfa2920c335e",
+    "E6_protocol_git_blob": "a49d00a38c2c62c6d7bff26a474d3e5662e8e301",
+    "E6_seed_manifest_git_blob": "c0c412e83cffcddcda62d8354571fa9fea9c04ba",
+    "E7_engine_git_blob": "8a77d336d66ea292dfb728ce55beb607f65128db"
+  },
+  "classification": "AUTHORIZED_SINGLE_FRESH_D11_PREREGISTERED_INFERENCE_RECOVERY_AFTER_PRE_INGESTION_STATIC_AUDIT_FALSE_POSITIVE",
+  "contract_version": "mcad.nh_r3.e14.d11_a2.inference_recovery_authorization.v1",
+  "created_utc": "2026-09-03T17:09:33.688882Z",
+  "execution_boundary": {
+    "automatic_rerun_authorized": false,
+    "automatic_resume_authorized": false,
+    "automatic_retry_authorized": false,
+    "backend_query_authorized": false,
+    "claim_reporting_authorized": false,
+    "cross_backend_synthesis_authorized": false,
+    "docker_command_authorized": false,
+    "effect_based_reseed_authorized": false,
+    "http_request_authorized": false,
+    "measurement_reexecution_authorized": false,
+    "result_interpretation_authorized": false,
+    "xmla_query_authorized": false
+  },
+  "failed_D11_v1": {
+    "D9_archive_opened": false,
+    "analysis_id": "r3e_e14_d11_preregistered_inference_20260903T164348Z",
+    "analysis_program_sha256": "8d5cf0b9693a5896b08d46691c6cf83df200e87cd107b149681cf051a216d416",
+    "classification": "SELF_REFERENTIAL_STATIC_AUDIT_FALSE_POSITIVE_PRE_INGESTION",
+    "effect_computation_started": false,
+    "failure_receipt_sha256": "c1b074f06b938c60202410a99efcd21afcc1349152672371bb1277d6d976449b",
+    "measured_receipt_ingestion_executed": false,
+    "measurement_integrity_executed": false,
+    "output_delete_authorized": false,
+    "output_preservation_required": true,
+    "output_reuse_authorized": false,
+    "rerun_authorized": false,
+    "result_interpretation_executed": false,
+    "wrapper_sha256": "0aefb1819d2d41cf7c2b7d64c47c802e1f5454fc7862467290933d74095b7ba7"
+  },
+  "fresh_recovery": {
+    "D9_ARM_RUNS_receipt_ingestion_authorized": true,
+    "analysis_id": "r3e_e14_d11_a2_preregistered_inference_20260903T170933Z",
+    "analysis_program_sha256": "3cc644aab9b34c5347d76f95ebe2dfbe8f43a0ba3d59f46d0d35239aa8c1afdb",
+    "attempt_cardinality_authorized": 1,
+    "candidate_trace_ingestion_authorized": false,
+    "failed_D11_v1_output_reuse_authorized": false,
+    "output_dir": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/r3e_e14_d11_a2_preregistered_inference_20260903T170933Z",
+    "output_dir_must_not_preexist": true,
+    "scientific_plan_changed": false,
+    "static_audit_completed_before_D9_archive_open": true,
+    "wrapper_sha256": "86b7eec083faf520ecece4039c1dcb2b65e14d767a7e97260fd40435210fa10c"
+  },
+  "inferential_scope": {
+    "bootstrap_replicates": 20000,
+    "exact_E6_outcome_independent_seeds_required": true,
+    "familywise_alpha": 0.05,
+    "multiplicity": "Holm step-down across all 8 frozen primary metrics",
+    "permutation_replicates": 100000,
+    "primary_comparison": "SAFE_PRUNING - PERMISSIVE_GATED",
+    "primary_metrics": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "secondary_break_even_comparison": "SAFE_PRUNING - UNGATED_EXECUTE_ADMISSIBLE",
+    "secondary_confirmatory_p_values_authorized": false,
+    "xmla_specific_confirmatory_p_values_authorized": false
+  },
+  "measurement_integrity": {
+    "frozen_requirement_count": 11,
+    "imputation_authorized": false,
+    "missing_primary_metric_policy": "FAIL_INTEGRITY_STOP_NO_EFFECT_COMPUTATION",
+    "must_pass_before_any_effect_computation": true,
+    "negative_cgroup_delta_policy": "FAIL_INTEGRITY_STOP_NO_EFFECT_COMPUTATION",
+    "posthoc_outlier_exclusion_authorized": false,
+    "required_arm_receipts": 900,
+    "required_arms_per_session": 3,
+    "required_candidate_actions_per_receipt": 24,
+    "required_semantic_sessions": 300
+  },
+  "next": "R3-E14-D12_RAW_INFERENCE_RESULT_FREEZE_NO_INTERPRETATION",
+  "parent_D10_authorization_head": "cccd1bb2f7b4089f38c5d927311dea7c6e8a3850",
+  "post_success_boundary": {
+    "D12_must_freeze_exact_wrapper_analysis_code_integrity_receipt_raw_results_and_execution_receipt": true,
+    "D12_raw_inference_result_freeze_required": true,
+    "D13_result_interpretation_requires_separate_authorization": true
+  }
+}

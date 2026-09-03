@@ -1,0 +1,12 @@
+{
+  "analysis_id": "r3e_e14_d11_a2_preregistered_inference_20260903T170933Z",
+  "claim_reporting_executed": false,
+  "contract_version": "mcad.nh_r3.e14.d11.analysis_state.v1",
+  "d9_archive_opened": true,
+  "effect_computation_completed": true,
+  "effect_computation_started": true,
+  "measured_receipt_ingestion_executed": true,
+  "measurement_integrity_executed": true,
+  "measurement_integrity_pass": true,
+  "result_interpretation_executed": false
+}

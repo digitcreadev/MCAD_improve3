@@ -1,0 +1,29 @@
+{
+  "all_frozen_session_ids_present": true,
+  "archive": {
+    "archive_member_count": 900,
+    "archive_member_hashes_verified": 900,
+    "archive_part_count": 1
+  },
+  "arm_positions_match_frozen_schedule": true,
+  "arm_receipts": 900,
+  "arms_per_session": 3,
+  "candidate_actions_per_receipt": 24,
+  "classification": "PASS_ALL_11_FROZEN_E6_INTEGRITY_REQUIREMENTS",
+  "completion_candidate_reached_all": true,
+  "completion_candidate_unique_all": true,
+  "contract_version": "mcad.nh_r3.e14.d11.measurement_integrity_receipt.v1",
+  "effect_computation_started_before_integrity_pass": false,
+  "frozen_requirement_count": 11,
+  "historical_runtime_targeted_false_all": true,
+  "imputation_performed": false,
+  "missing_primary_metric_values": 0,
+  "negative_cgroup_delta_detected_false_all": true,
+  "negative_cgroup_delta_values_present": false,
+  "posthoc_outlier_exclusion_performed": false,
+  "result_interpretation_executed": false,
+  "run_id": "r3e_e14_d8_a3_replacement_primary300_20260903T105543Z",
+  "runtime_identity_exact_match_all": true,
+  "secret_value_recorded_false_all": true,
+  "semantic_sessions": 300
+}
