@@ -1,0 +1,92 @@
+{
+  "authority": {
+    "B7_A1_undefined_citation_audit_sha256": "42f6cffdd3aa84e6f27de3d9877691ee724b1f9dba5fddffccad1b44e8cebeed",
+    "D17_live_section_git_blob": "f5163c8fcd535790b7b61b306d7b7a99356dedbc",
+    "D17_live_section_sha256": "1c9f84fca46870e4d61f320daa0dbaa06329c6197b7add5198f5a72ac92ba2b9",
+    "bibliography_key_provenance_sha256": "0c628fb836c9617accdf8634fa9afd2b3340febc977b82dc91cd13acf9d15e78",
+    "main_article_git_blob": "8d177bb5be760f0091b8f37354422d102961911f",
+    "main_article_sha256": "3a26ee4d8e9172933167c692a9a1e03a376098f63ab27eded9bfe8d89c97c20b"
+  },
+  "authorized_A3_source_hygiene": {
+    "D17_live_section_mutation_authorized": false,
+    "allowed_file": "MCAD_audited_real_main_fr.tex",
+    "apt_install_authorized": false,
+    "apt_update_authorized": false,
+    "article_compile_authorized": false,
+    "attempt_cardinality": 1,
+    "authorized": true,
+    "bibitem_addition_authorized": false,
+    "bibitem_deletion_authorized": false,
+    "bibitem_text_mutation_authorized": false,
+    "exact_substitution_count": 3,
+    "exact_substitutions": [
+      {
+        "from": "SHACL2017",
+        "to": "W3CSHACL2017"
+      },
+      {
+        "from": "PROVO2013",
+        "to": "W3CPROVO2013"
+      },
+      {
+        "from": "TaramadIntent2022",
+        "to": "FarihaMeliou2019"
+      }
+    ],
+    "forbidden_file": "article_update/generated_sections/section_experimentale_finale.tex",
+    "git_commit_authorized": true,
+    "git_push_authorized": true,
+    "other_article_source_mutation_authorized": false,
+    "package_network_access_authorized": false,
+    "pdf_render_authorized": false,
+    "pdf_text_extraction_authorized": false,
+    "prose_mutation_authorized": false,
+    "required_commit_scope": "EXACTLY_ONE_MODIFIED_FILE_MCAD_audited_real_main_fr.tex",
+    "substitution_scope": "ONLY_CITATION_KEY_TOKENS_INSIDE_EXISTING_CITE_COMMANDS"
+  },
+  "classification": "AUTHORIZED_EXACT_THREE_CITATION_KEY_SUBSTITUTIONS_TO_EXISTING_INLINE_BIBITEMS_NO_PROSE_CHANGE_NO_COMPILE",
+  "contract_version": "mcad.nh_r3.e14.d18_a2.b7_a2.bibliography_key_hygiene_authorization.v1",
+  "created_utc": "2026-09-03T23:48:52.611441Z",
+  "current_A2_boundary": {
+    "apt_install_executed": false,
+    "apt_update_executed": false,
+    "article_compile_executed": false,
+    "article_source_mutated": false,
+    "network_request_executed": false,
+    "pdf_render_executed": false,
+    "pdf_text_extraction_executed": false
+  },
+  "next": "R3-E14-D18-A2-B7-A3_APPLY_EXACT_THREE_CITATION_KEY_SUBSTITUTIONS_COMMIT_PUSH_NO_COMPILE",
+  "parent_head": "20e12c22ff4b5e9b23bac3663dc32bf2613df8bc",
+  "post_A3_boundary": {
+    "B7_original_authority_remains_consumed": true,
+    "B8_success_evidence_freeze_authorized": false,
+    "new_compile_authorization_required": true,
+    "scientific_final_freeze_authorized": false
+  },
+  "required_A3_validation": {
+    "must_publish_source_hygiene_commit_before_any_new_compile_authorization": true,
+    "must_replace_each_old_key_exactly_once": true,
+    "must_require_D17_live_section_sha256_unchanged": "1c9f84fca46870e4d61f320daa0dbaa06329c6197b7add5198f5a72ac92ba2b9",
+    "must_require_diff_contains_only_three_key_token_replacements": true,
+    "must_require_inline_bibliography_entry_count_unchanged": true,
+    "must_require_no_line_addition_or_deletion": true,
+    "must_require_old_key_citation_count_after": 0,
+    "must_require_preimage_main_git_blob": "8d177bb5be760f0091b8f37354422d102961911f",
+    "must_require_preimage_main_sha256": "3a26ee4d8e9172933167c692a9a1e03a376098f63ab27eded9bfe8d89c97c20b",
+    "must_require_replacement_key_bibitem_count_exactly_once": true,
+    "must_return_output_before_new_compile_authorization": true
+  },
+  "scientific_boundary": {
+    "backend_http_request_authorized": false,
+    "confidence_interval_recomputation_authorized": false,
+    "cross_backend_synthesis_authorized": false,
+    "docker_command_authorized": false,
+    "effect_recomputation_authorized": false,
+    "measurement_reexecution_authorized": false,
+    "new_claim_assignment_authorized": false,
+    "new_result_interpretation_authorized": false,
+    "p_value_recomputation_authorized": false,
+    "xmla_query_authorized": false
+  }
+}
