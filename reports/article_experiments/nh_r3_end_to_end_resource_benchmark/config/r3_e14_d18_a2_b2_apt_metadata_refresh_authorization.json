@@ -1,0 +1,70 @@
+{
+  "authority": {
+    "D17_article_integration_receipt_sha256": "28a1451bb1da45aaa38bbe3a8a4bee3115687be9a03add1e3070b767e19cd282",
+    "D18_A1_toolchain_audit_sha256": "3509c7f3e7002e11579e1f7bddb3a1ea47b149a42f3937f2d3c5e1e70cbddc00",
+    "D18_A2_B1_apt_index_audit_sha256": "943c08e07c4057ed317f7d0eb51e25ff84575fe8a5d166c51ded56b0d3dff72d",
+    "failed_A2_package_plan_sha256": "2977703bb7bdbf42c3678fe14545122c1fae590f718a248cbd6534047f4f4dda",
+    "failed_A2_package_state_before_sha256": "e3afd8015987e08373d65bb76b37debab4b8eff06eeacaf95c15b1241e626926",
+    "failed_A2_simulation_sha256": "e5c0c3b93fe3a87b22ba24445a112ce21499eec4d52ccb6351a623af9c9fde9a",
+    "failed_D18_A2_v1_wrapper_sha256": "c9686a302e27e2ff2a1d3c1106aca3b58fd74367e37ef0349d00f26c025cdccc"
+  },
+  "authorized_B3_operation": {
+    "apt_install_authorized": false,
+    "apt_metadata_refresh_authorized": true,
+    "apt_network_access_authorized": true,
+    "apt_network_access_scope": "APT_REPOSITORY_METADATA_REFRESH_ONLY",
+    "apt_source_edit_authorized": false,
+    "apt_update_exact_semantics": "sudo -n env DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Use-Pty=0 update",
+    "arbitrary_network_request_authorized": false,
+    "attempt_cardinality": 1,
+    "authorized": true,
+    "distribution_upgrade_authorized": false,
+    "package_removal_authorized": false,
+    "target_environment": "CURRENT_CODESPACE_ONLY"
+  },
+  "classification": "AUTHORIZED_SINGLE_APT_METADATA_REFRESH_ONLY_AFTER_EMPTY_INDEX_AUDIT",
+  "contract_version": "mcad.nh_r3.e14.d18_a2_b2.apt_metadata_refresh_authorization.v1",
+  "created_utc": "2026-09-03T20:26:27.408814Z",
+  "current_B2_boundary": {
+    "apt_install_executed": false,
+    "apt_update_executed": false,
+    "article_compile_executed": false,
+    "article_source_mutated": false,
+    "network_request_executed": false
+  },
+  "failure_context": {
+    "B1_classification": "APT_SOURCES_PRESENT_PACKAGE_INDEX_ABSENT_OR_UNPOPULATED",
+    "failed_A2_v1_apt_install_executed": false,
+    "failed_A2_v1_apt_update_executed": false,
+    "failed_A2_v1_article_compile_executed": false,
+    "failed_A2_v1_authorization_commit_created": false,
+    "failed_A2_v1_classification": "APT_SIMULATION_PACKAGE_LOOKUP_FAILED_BEFORE_AUTHORIZATION",
+    "failed_A2_v1_repository_mutated": false,
+    "failed_A2_v1_rerun_authorized": false
+  },
+  "next": "R3-E14-D18-A2-B3_EXECUTE_SINGLE_AUTHORIZED_APT_METADATA_REFRESH_AND_READONLY_PACKAGE_CANDIDATE_SIMULATION",
+  "parent_D17_head": "7cfd37ea676ad6afbf0f153180191d72a1c53a24",
+  "required_B3_post_refresh_audit": {
+    "must_not_compile_article": true,
+    "must_not_install_packages": true,
+    "must_recheck_exact_10_package_candidates": true,
+    "must_reinventory_var_lib_apt_lists": true,
+    "must_return_output_before_any_install_authorization": true,
+    "must_run_read_only_apt_install_simulation_for_exact_10_package_plan": true,
+    "must_write_external_B3_receipt": true
+  },
+  "scientific_and_repository_boundary": {
+    "article_compile_authorized": false,
+    "article_source_mutation_authorized": false,
+    "backend_http_request_authorized": false,
+    "confidence_interval_recomputation_authorized": false,
+    "cross_backend_synthesis_authorized": false,
+    "docker_command_authorized": false,
+    "effect_recomputation_authorized": false,
+    "measurement_reexecution_authorized": false,
+    "new_claim_assignment_authorized": false,
+    "new_result_interpretation_authorized": false,
+    "p_value_recomputation_authorized": false,
+    "xmla_query_authorized": false
+  }
+}
