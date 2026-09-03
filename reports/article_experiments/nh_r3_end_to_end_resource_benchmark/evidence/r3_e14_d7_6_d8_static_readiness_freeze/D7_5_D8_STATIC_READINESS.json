@@ -1,0 +1,47 @@
+{
+  "classification": "PASS_ALL_NONQUOTA_D8_GATES_READY_NO_MEASUREMENT",
+  "contract_version": "mcad.nh_r3.e14.d7_5.d8_static_readiness.v1",
+  "created_utc": "2026-09-03T09:32:46.626821Z",
+  "d8_clearance": "BLOCKED_PENDING_FRESH_CODESPACES_QUOTA_RECHECK",
+  "d8_plan": {
+    "arm_runs": 900,
+    "candidate_actions": 21600,
+    "expected_arm_receipts": 900,
+    "expected_candidate_trace_files": 900,
+    "full_backend_executions": 14580,
+    "gate_evaluations": 14400,
+    "mcad_api_restarts": 900,
+    "semantic_sessions": 300,
+    "warmup_templates": 7
+  },
+  "diagnostic_runtime_budget_not_scientific_outcome": {
+    "current_machine_cpus_expected": 2,
+    "full_latency_max_ms": 454.879,
+    "full_latency_median_ms": 236.674,
+    "gate_latency_max_ms": 200.164,
+    "gate_latency_median_ms": 115.909,
+    "operational_budget_core_hours_on_current_machine": 20.0,
+    "operational_budget_wall_hours": 10.0,
+    "request_only_median_wall_hours": 1.422,
+    "request_only_observed_max_wall_hours": 2.643
+  },
+  "next": "FINAL_CODESPACES_QUOTA_RECHECK_THEN_D8_ONE_SHOT_IF_PASS",
+  "quota_policy_for_final_pre_D8_decision": {
+    "fresh_manual_or_programmatic_recheck_required": true,
+    "migration_mandatory_or_D8_blocked_if_remaining_core_hours_lt": 10.0,
+    "prefer_migration_to_digitcreadev_if_remaining_core_hours_lt": 20.0,
+    "programmatic_billing_api_currently_unavailable_403": true,
+    "quota_recheck_must_be_immediately_before_D8": true,
+    "stay_on_benabib2_if_remaining_core_hours_gte": 20.0,
+    "unknown_remaining_quota_blocks_D8": true
+  },
+  "repo_head": "a5191e5446bb113d62ec33a8ab6a41fc1861a85d",
+  "scientific_boundary": {
+    "backend_io_executed": false,
+    "d7_fresh_measured_attempt_consumed": false,
+    "effect_analysis_executed": false,
+    "measurement_executed": false,
+    "measurement_result_produced": false,
+    "repository_mutated": false
+  }
+}

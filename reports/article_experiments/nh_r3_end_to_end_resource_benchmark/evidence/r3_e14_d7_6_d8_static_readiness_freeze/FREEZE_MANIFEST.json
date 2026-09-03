@@ -1,0 +1,42 @@
+{
+  "authority": {
+    "d7_3_freeze_manifest_sha256": "2cf9f33c1316303fee4878c51824d46b473d24c87324c240c7d96d02905852bf",
+    "d7_5_readiness_receipt_sha256": "eb451d31d4ecd83dacaf3899666b8efe3abd4205e99d6a1a1a2720bbf59b2c46",
+    "d7_primary300_authorization_sha256": "d81030dd33417707ff8f3d2643d764e1896f1da968c640ae9c82e3609ca167fe"
+  },
+  "classification": "PASS_D8_NONQUOTA_STATIC_READINESS_FROZEN_NO_MEASUREMENT",
+  "contract_version": "mcad.nh_r3.e14.d7_6.d8_static_readiness_freeze.v1",
+  "created_utc": "2026-09-03T09:41:27.126206Z",
+  "d8_clearance": "BLOCKED_PENDING_FRESH_CODESPACES_QUOTA_RECHECK",
+  "next": "FINAL_CODESPACES_QUOTA_RECHECK_THEN_D8_ONE_SHOT_IF_PASS",
+  "parent_d7_3_head": "a5191e5446bb113d62ec33a8ab6a41fc1861a85d",
+  "quota_policy": {
+    "current_machine_cpus": 2,
+    "fresh_quota_recheck_immediately_before_d8_required": true,
+    "github_user": "benabib2",
+    "migration_mandatory_or_d8_blocked_if_remaining_core_hours_lt": 10.0,
+    "migration_to_digitcreadev_preferred_if_remaining_core_hours_lt": 20.0,
+    "programmatic_billing_api_currently_unavailable_403": true,
+    "stay_on_benabib2_if_remaining_core_hours_gte": 20.0,
+    "unknown_quota_blocks_d8": true
+  },
+  "readiness": {
+    "all_nonquota_d8_gates_pass": true,
+    "diagnostic_timings_are_scientific_outcome": false,
+    "executor_dry_run_pass": true,
+    "full_execute_compatibility_pass": true,
+    "gate_path_compatibility_pass": true,
+    "operational_budget_core_hours_on_2_core_machine": 20.0,
+    "operational_budget_wall_hours": 10.0,
+    "request_only_median_wall_hours": 1.422,
+    "request_only_observed_max_wall_hours": 2.643
+  },
+  "scientific_boundary": {
+    "d7_fresh_measured_attempt_consumed": false,
+    "d8_not_started": true,
+    "effect_analysis_executed": false,
+    "measurement_executed": false,
+    "measurement_result_produced": false,
+    "repository_mutated_by_d7_5": false
+  }
+}
