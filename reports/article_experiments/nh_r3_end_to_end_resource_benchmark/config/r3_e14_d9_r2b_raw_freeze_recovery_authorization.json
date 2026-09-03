@@ -1,0 +1,51 @@
+{
+  "authority": {
+    "d9_raw_freeze_authorization_sha256": "f7ad79ac52c388fa1bb891a6b58513db5c7f8ec0bf6cb2fde1fd079b25ef641e",
+    "r1_recovery_authorization_sha256": "0343caeb673b448b3de8fcecf293f39751ad8ce429853455d01622522657b4dd",
+    "r2a_tar_failure_readonly_audit_sha256": "26d090c390c2e335193651081d3f1bda4c1f571e971a82d7f10a0b6960b84bb6"
+  },
+  "classification": "AUTHORIZED_SINGLE_FRESH_STAGING_RAW_FREEZE_RECOVERY_AFTER_GNU_TAR_ORDER_BUG",
+  "contract_version": "mcad.nh_r3.e14.d9_r2b.raw_freeze_recovery_authorization.v1",
+  "created_utc": "2026-09-03T13:54:57.355537Z",
+  "failed_R1": {
+    "classification": "GNU_TAR_POSITIONAL_OPTION_ORDER_BUG",
+    "freeze_commit_created": false,
+    "freeze_pushed": false,
+    "partial_archive_reuse_authorized": false,
+    "partial_staging_delete_authorized": false,
+    "partial_staging_preserved": true
+  },
+  "next_after_successful_freeze": "R3-E14-D10_SEPARATE_INFERENCE_AUTHORIZATION_BEFORE_ANY_EFFECT_ANALYSIS",
+  "parent_r1_recovery_authorization_head": "a664ecbd8f6d351b7d55b694b295982c3fe9ca39",
+  "recovery_scope": {
+    "all_archive_member_hashes_must_match_original": true,
+    "archive_splitting_authorized": true,
+    "attempt_cardinality_authorized": 1,
+    "corrected_tar_order_required": true,
+    "corrected_tar_shape": "tar --null --no-recursion --mtime=@0 --owner=0 --group=0 --numeric-owner -cf - -T -",
+    "cross_arm_comparison_authorized": false,
+    "deterministic_lossless_archiving_authorized": true,
+    "effect_computation_authorized": false,
+    "fresh_staging_must_not_preexist": true,
+    "fresh_staging_required": true,
+    "new_D9_base_authorization_forbidden": true,
+    "raw_byte_copy_authorized": true,
+    "raw_byte_hashing_authorized": true,
+    "reuse_existing_D9_raw_freeze_authorization": true,
+    "scientific_inference_authorized": false
+  },
+  "repository_scope": {
+    "existing_config_modification_authorized": false,
+    "historical_artifact_modification_authorized": false,
+    "implementation_modification_authorized": false,
+    "raw_freeze_new_evidence_directory_only": true,
+    "recovery_authorization_new_config_file_only": true
+  },
+  "scientific_boundary": {
+    "cross_arm_comparison_authorized": false,
+    "effect_analysis_authorized": false,
+    "interim_effect_look_authorized": false,
+    "measurement_reexecution_authorized": false,
+    "scientific_inference_authorized": false
+  }
+}
