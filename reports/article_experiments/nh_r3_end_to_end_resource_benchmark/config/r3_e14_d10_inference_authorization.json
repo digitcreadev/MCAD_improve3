@@ -1,0 +1,178 @@
+{
+  "D10_execution_boundary": {
+    "interim_effect_look_executed": false,
+    "measured_receipt_ingestion_executed": false,
+    "measured_scientific_content_read": false,
+    "real_confidence_interval_computation_executed": false,
+    "real_effect_analysis_executed": false,
+    "real_p_value_computation_executed": false,
+    "scientific_claim_interpretation_executed": false
+  },
+  "D11_execution_authorization": {
+    "analysis_output_directory_must_not_preexist": true,
+    "analysis_output_must_be_outside_repository": true,
+    "automatic_rerun_authorized": false,
+    "automatic_resume_authorized": false,
+    "automatic_retry_authorized": false,
+    "effect_based_retry_rerun_or_reseed_authorized": false,
+    "holm_adjustment_authorized": true,
+    "measured_receipt_ingestion_authorized": true,
+    "new_measured_inference_wrapper_authorized": true,
+    "only_after_integrity_gate_pass": true,
+    "real_confidence_interval_computation_authorized": true,
+    "real_effect_analysis_authorized": true,
+    "real_p_value_computation_authorized": true,
+    "result_freeze_required_before_interpretation": true,
+    "result_interpretation_or_claim_reporting_authorized_in_D11": false,
+    "wrapper_must_be_static_audited_before_opening_D9_archives": true,
+    "wrapper_must_import_frozen_E7_functions_without_modifying_E7": true,
+    "wrapper_must_not_change_alpha_tests_replicates_strata_or_estimands": true,
+    "wrapper_must_not_execute_backend_or_docker_io": true,
+    "wrapper_must_not_rerun_measurement": true,
+    "wrapper_must_not_select_endpoints_based_on_results": true,
+    "wrapper_must_use_all_8_primary_metrics": true,
+    "wrapper_must_use_exact_E6_seeds": true
+  },
+  "authority": {
+    "d0_inference_protocol_git_blob": "cd3c64c4e7c67226b8f635953e5a17bc5eca37eb",
+    "d9_freeze_manifest_sha256": "141d954c2f4e707653732aaa556847a34bc6bb5117128b5913093599f416a7df",
+    "d9_raw_source_sha256s_sha256": "686b9681005e192e4e9a07e3bf791484c1dc1cd3630de921f56f65c766ad8cf8",
+    "d9_sha256s_sha256": "a4bd87bd5a6ec89f3e8bc85e987c3d9b3f803a456761a2152f1a4f69a640af49",
+    "e5_receipt_schema_git_blob": "9dd353e1495e677c1d75cb0ccb8adfa2920c335e",
+    "e6_xmla_replication_inference_protocol_git_blob": "a49d00a38c2c62c6d7bff26a474d3e5662e8e301",
+    "e6_xmla_seed_manifest_git_blob": "c0c412e83cffcddcda62d8354571fa9fea9c04ba",
+    "e7_inference_engine_git_blob": "8a77d336d66ea292dfb728ce55beb607f65128db",
+    "e7_inference_engine_static_contract_git_blob": "caea2ca1f4d704d6c76a5e16d4ecf670094505b4",
+    "e8_static_completion_contract_git_blob": "962b10c4fa9a4fdbdc895163b8744847472b67d7"
+  },
+  "claim_boundary": {
+    "backend_equivalence_claim_authorized": false,
+    "cross_backend_effect_difference_test_authorized": false,
+    "cross_backend_synthesis_authorized": false,
+    "effect_homogeneity_claim_authorized": false,
+    "new_global_system_benefit_claim_authorized": false,
+    "r3_f_cross_backend_synthesis_remains_separate": true,
+    "xmla_metric_specific_replication_claims_authorized": true
+  },
+  "classification": "AUTHORIZED_PRE_SPECIFIED_XMLA_REPLICATION_INFERENCE_AFTER_RAW_FREEZE",
+  "contract_version": "mcad.nh_r3.e14.d10.inference_authorization.v1",
+  "created_utc": "2026-09-03T14:21:39.366570Z",
+  "input_boundary": {
+    "authorized_measured_source": "D9_FROZEN_RAW_EVIDENCE_ONLY",
+    "backend_query_authorized": false,
+    "d9_evidence_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/evidence/r3_e14_d9_raw_measured_evidence_freeze",
+    "docker_command_authorized": false,
+    "http_request_authorized": false,
+    "measurement_reexecution_authorized": false,
+    "runtime_live_output_as_inference_source_authorized": false,
+    "xmla_query_authorized": false
+  },
+  "measurement_integrity_gate": {
+    "frozen_e6_requirement_count": 11,
+    "imputation_authorized": false,
+    "integrity_failure_policy": "STOP_NO_EFFECT_COMPUTATION_NO_CLAIM_RETURN_FOR_SEPARATE_AUDIT",
+    "posthoc_outlier_exclusion_authorized": false,
+    "require_all_frozen_session_ids": true,
+    "require_arm_position_matches_frozen_schedule": true,
+    "require_completion_candidate_reached": true,
+    "require_completion_candidate_unique": true,
+    "require_historical_runtime_targeted_false": true,
+    "require_negative_cgroup_delta_detected_false": true,
+    "require_no_missing_primary_metric_values": true,
+    "require_runtime_identity_match": true,
+    "require_secret_value_recorded_false": true,
+    "required_arm_receipts": 900,
+    "required_arms_per_session": 3,
+    "required_before_any_effect_computation": true,
+    "required_candidate_actions_per_receipt": 24,
+    "required_semantic_sessions": 300
+  },
+  "next": "R3-E14-D11_PREREGISTERED_XMLA_INFERENCE_EXECUTION_NO_RESULT_INTERPRETATION",
+  "parent_d9_freeze_head": "332bee959911232505c99f2fa1a4fa2aa6e03cf5",
+  "post_D11_boundary": {
+    "D12_must_freeze_exact_D11_code_and_outputs_before_result_interpretation": true,
+    "D12_raw_inference_result_freeze_required": true,
+    "D13_result_interpretation_requires_separate_authorization": true,
+    "scientific_final_freeze_authorized_by_D10": false
+  },
+  "primary_replication_family": {
+    "alternative": "mean paired difference < 0",
+    "comparison": "SAFE_PRUNING - PERMISSIVE_GATED",
+    "confidence_interval": {
+      "confidence": 0.95,
+      "kind": "stratified percentile bootstrap for mean paired difference",
+      "replicates": 20000,
+      "resampling": "within each of 20 frozen strata resample 15 paired sessions with replacement; combine 300 with equal session weight",
+      "seeds": "EXACT_E6_OUTCOME_INDEPENDENT_SEED_MANIFEST"
+    },
+    "estimand": "equal-weight mean paired difference over frozen 300-session cohort; 20 strata x 15 paired sessions",
+    "family_size": 8,
+    "familywise_alpha": 0.05,
+    "global_system_benefit_claim_authorized": false,
+    "lower_is_better": true,
+    "metric_specific_confirmation_rule": "measurement_integrity PASS AND observed mean paired difference < 0 AND Holm-adjusted one-sided p <= 0.05",
+    "metrics": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "multiplicity": "Holm step-down across all 8 frozen primary metrics",
+    "permutation_test": {
+      "kind": "paired sign-flip randomization test of mean paired difference",
+      "monte_carlo_p": "(1 + count(T_perm <= T_obs)) / (B + 1)",
+      "replicates": 100000,
+      "seeds": "EXACT_E6_OUTCOME_INDEPENDENT_SEED_MANIFEST"
+    },
+    "status": "PRE_SPECIFIED_SECONDARY_BACKEND_CONFIRMATORY_REPLICATION_FAMILY"
+  },
+  "recovery_context": {
+    "actual_frozen_e6_requirement_count": 11,
+    "d10_v1_failed_assertion": "measurement_integrity_requirements_expected_10_actual_11",
+    "d10_v1_failed_wrapper_sha256": "d6d002db3d0ddfc0fea629c344d3912a78b605e6bf6a73f6b6b06f49a201cb09",
+    "d10_v1_failure_reason": "frozen_inference_plan_semantic_gate_failed",
+    "d10_v1_measured_scientific_content_read": false,
+    "d10_v1_repository_mutated": false,
+    "d10_v1_rerun_authorized": false,
+    "recovery_changes_scientific_plan": false
+  },
+  "scientific_role": "SECONDARY_END_TO_END_CONFIRMATION",
+  "secondary_break_even_family": {
+    "bootstrap_replicates": 20000,
+    "comparison": "SAFE_PRUNING - UNGATED_EXECUTE_ADMISSIBLE",
+    "confirmatory_p_value_authorized": false,
+    "holm_family_membership": false,
+    "metrics": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "report": [
+      "paired mean difference",
+      "percent change of means",
+      "95% stratified bootstrap confidence interval",
+      "direction counts"
+    ]
+  },
+  "xmla_specific_resource_diagnostics": {
+    "bootstrap_replicates": 20000,
+    "confirmatory_p_values_authorized": false,
+    "global_claim_authorized": false,
+    "holm_family_membership": false,
+    "metric_specific_confirmatory_reduction_claim_authorized": false,
+    "metrics": [
+      "emondrian_cpu_usage_usec_delta",
+      "emondrian_io_rbytes_delta",
+      "emondrian_io_wbytes_delta"
+    ]
+  }
+}
