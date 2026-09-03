@@ -1,0 +1,89 @@
+{
+  "authority": {
+    "compose_binding_preflight_sha256": "c40e5d0a57c4621c70f15310b612a9e37afd5524ef7c98bb3df09b2c891c90a2",
+    "d8_a2_failed_attempt_audit_freeze_manifest_sha256": "2afd34b6801af6eebd1ff72726ff25fe9fad3af64c0ebac964877ac3dc2fa775",
+    "original_d7_authorization_sha256": "d81030dd33417707ff8f3d2643d764e1896f1da968c640ae9c82e3609ca167fe"
+  },
+  "classification": "AUTHORIZED_ONE_REPLACEMENT_FRESH_PRIMARY300_ATTEMPT_AFTER_ZERO_MEASURED_ARMS",
+  "compose_binding_contract": {
+    "R3E_EMONDRIAN_IMAGE_REF": "mcad-r3e/emondrian-adventureworks:e10-3847c3f",
+    "R3E_MCAD_API_IMAGE_REF": "mcad-r3e-e11-api-base:c0f91e8",
+    "R3E_MCAD_PROXY_IMAGE_REF": "mcad-r3e-e11-proxy:c0f91e8",
+    "R3E_SQLSERVER_IMAGE_REF": "mcad-r3e/sqlserver:e9-ba4c8329f48f",
+    "R3_AW_SA_PASSWORD": {
+      "source": "exact_existing_sqlserver_container_Config.Env",
+      "value_must_not_be_hashed": true,
+      "value_must_not_be_persisted": true,
+      "value_must_not_be_printed": true
+    },
+    "compose_file_modification_authorized": false,
+    "container_recreate_authorized": false,
+    "docker_compose_config_preflight_pass": true,
+    "image_build_pull_tag_authorized": false,
+    "override_file_modification_authorized": false,
+    "scope": "PROCESS_ENVIRONMENT_ONLY_NO_FILE_MUTATION"
+  },
+  "contract_version": "mcad.nh_r3.e14.d8_a2.replacement_fresh_execution_authorization.v1",
+  "created_utc": "2026-09-03T10:44:28.015525Z",
+  "decision": {
+    "basis": "D8_V2_FAILED_AFTER_NONMEASURED_WARMUP_BEFORE_FIRST_MEASURED_ARM_TIMER_WITH_ZERO_MEASURED_ARM_ARTIFACTS",
+    "d8_v2_counts_as_consumed_measured_attempt": false,
+    "d8_v2_first_measured_arm_timer_reached": false,
+    "d8_v2_measured_arm_runs_completed": 0,
+    "d8_v2_measurement_result_produced": false,
+    "d8_v2_nonmeasured_warmup_completed": true,
+    "d8_v2_run_primary_invoked": true,
+    "decision_is_effect_outcome_independent": true,
+    "measured_effect_data_seen_before_decision": false,
+    "positive_replacement_authorization": true,
+    "replacement_is_continuation": false,
+    "replacement_is_resume": false,
+    "replacement_reuses_failed_output": false
+  },
+  "failure_policy": {
+    "any_failure_after_replacement_run_primary_invocation_requires_new_separate_audit": true,
+    "automatic_fallback_authorized": false,
+    "automatic_rerun_authorized": false,
+    "automatic_resume_authorized": false,
+    "automatic_retry_authorized": false,
+    "partial_attempt_must_be_preserved": true
+  },
+  "next": "R3-E14-D8-A3_REPLACEMENT_FRESH_PRIMARY300_ONE_SHOT_WITH_EXACT_COMPOSE_BINDINGS",
+  "parent_audit_freeze_head": "45cb2d3a37d5d8948eb7ccc0faa989529f5e66af",
+  "quota_policy": {
+    "fresh_codespaces_quota_recheck_immediately_before_replacement_required": true,
+    "stay_on_benabib2_threshold_core_hours": 20.0,
+    "unknown_or_insufficient_quota_blocks_execution": true
+  },
+  "replacement_execution": {
+    "arm_runs": 900,
+    "attempt_cardinality_authorized": 1,
+    "candidate_actions": 21600,
+    "failed_d8_v2_continuation_authorized": false,
+    "failed_d8_v2_output_must_be_preserved": true,
+    "failed_d8_v2_output_reuse_authorized": false,
+    "failed_d8_v2_resume_authorized": false,
+    "fixed_warmup_template_count": 7,
+    "fresh_primary300_attempt_authorized": true,
+    "full_backend_executions": 14580,
+    "gate_evaluations": 14400,
+    "mcad_api_restarts_before_arms": 900,
+    "new_output_directory_must_not_preexist": true,
+    "new_output_directory_required": true,
+    "new_run_id_required": true,
+    "output_must_be_outside_repository": true,
+    "reuse_original_compat_physicalizer": true,
+    "reuse_original_fixed_arm_schedule": true,
+    "reuse_original_frozen_candidate_plan": true,
+    "reuse_original_frozen_executor": true,
+    "semantic_sessions": 300
+  },
+  "scientific_boundary": {
+    "effect_analysis_authorized": false,
+    "interim_effect_look_authorized": false,
+    "measured_receipt_ingestion_authorized": false,
+    "measurement_execution_authorized_by_a2": true,
+    "measurement_result_production_authorized": true,
+    "scientific_final_freeze_authorized": false
+  }
+}
