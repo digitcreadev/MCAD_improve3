@@ -1,0 +1,46 @@
+{
+  "authority": {
+    "d9_raw_freeze_authorization_sha256": "f7ad79ac52c388fa1bb891a6b58513db5c7f8ec0bf6cb2fde1fd079b25ef641e",
+    "failed_d9_r0_script_sha256": "79154cf719a45ac74b7e9e38403b0dd75e7735807f7159f269cbe42a7a749b8e"
+  },
+  "classification": "AUTHORIZED_SINGLE_MECHANICAL_RAW_FREEZE_RECOVERY_AFTER_VALIDATOR_ESCAPE_BUG",
+  "contract_version": "mcad.nh_r3.e14.d9_r1.raw_freeze_recovery_authorization.v1",
+  "created_utc": "2026-09-03T13:36:33.606854Z",
+  "failed_D9_R0": {
+    "authorization_commit_created": true,
+    "authorization_commit_pushed": true,
+    "classification": "NON_SCIENTIFIC_VALIDATOR_REGEX_OVERESCAPED",
+    "effect_analysis_executed": false,
+    "freeze_commit_created": false,
+    "freeze_pushed": false,
+    "interim_effect_look_executed": false,
+    "measurement_reexecution_executed": false,
+    "observed_assertion": "AssertionError: 0",
+    "root_cause": "two literal backslashes before d in a raw regex, producing a false zero ordinal count",
+    "scientific_inference_executed": false,
+    "staging_creation_reached": false
+  },
+  "next_after_successful_freeze": "R3-E14-D10_SEPARATE_INFERENCE_AUTHORIZATION_BEFORE_ANY_EFFECT_ANALYSIS",
+  "parent_d9_authorization_head": "f1ef19698113dd4e600a60cce4b9dfc8137b7f1e",
+  "recovery_scope": {
+    "archive_byte_hash_verification_authorized": true,
+    "attempt_cardinality_authorized": 1,
+    "corrected_console_ordinal_validation_authorized": true,
+    "cross_arm_comparison_authorized": false,
+    "deterministic_lossless_archiving_authorized": true,
+    "effect_computation_authorized": false,
+    "mechanical_receipt_validation_authorized": true,
+    "new_D9_raw_freeze_authorization_forbidden": true,
+    "raw_byte_copy_authorized": true,
+    "raw_byte_hashing_authorized": true,
+    "reuse_existing_D9_raw_freeze_authorization": true,
+    "scientific_inference_authorized": false
+  },
+  "repository_scope": {
+    "existing_config_modification_authorized": false,
+    "historical_artifact_modification_authorized": false,
+    "implementation_modification_authorized": false,
+    "raw_freeze_new_evidence_directory_only": true,
+    "recovery_authorization_new_config_file_only": true
+  }
+}
