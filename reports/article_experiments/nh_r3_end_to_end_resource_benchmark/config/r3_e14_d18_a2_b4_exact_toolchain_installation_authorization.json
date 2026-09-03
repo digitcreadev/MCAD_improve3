@@ -1,0 +1,97 @@
+{
+  "authority": {
+    "B2_authorization_git_blob": "cfaa8b0f2f99bdef5a27c12110cda599944a4273",
+    "B2_authorization_sha256": "d55452cb3f30307fdf82c8f25cf2ec792f92b5252f2de5260658741f8f2519e9",
+    "B3_exact_install_simulation_sha256": "0b3a253c7dedbb86ee664fb9e00a0001582d4004e215a2c8b3866bdf0f3c1536",
+    "B3_exact_package_plan_sha256": "71483ea5ea4b1f72e9502f80f5965bd25c185e338e654dba4baae1b13b300f1e",
+    "B3_lists_inventory_sha256": "66420aa6e1e94d7283de7656bab158dfd5c557a5375035aeb5b5bf081cae0d70",
+    "B3_metadata_refresh_receipt_sha256": "ce4f26b8ee9246ad1224584d5d35271fbf547ae9ef8b592144ce99059b547572",
+    "B3_policy_snapshot_sha256": "a57b50ebe37b976f1b9963080202e36bf1d24056404148acf85990c69b99fa03",
+    "B3_source_manifest_sha256": "afd0131e36819ace6796f4baf56ad1c1713535b0b602f7f2daa81f502d6a7c56",
+    "B4_current_policy_snapshot_sha256": "a57b50ebe37b976f1b9963080202e36bf1d24056404148acf85990c69b99fa03",
+    "B4_current_requested_package_state_sha256": "6a99cb80aabe34dc99c90e63ae91f09c974aa5526960e339df3c518985b3743e"
+  },
+  "authorized_B5_operation": {
+    "apt_network_access_authorized": true,
+    "apt_network_access_scope": "PACKAGE_DOWNLOADS_REQUIRED_BY_EXACT_FROZEN_INSTALL_PLAN_ONLY",
+    "apt_source_edit_authorized": false,
+    "apt_update_authorized": false,
+    "arbitrary_network_request_authorized": false,
+    "arbitrary_package_install_authorized": false,
+    "attempt_cardinality": 1,
+    "authorized": true,
+    "distribution_upgrade_authorized": false,
+    "exact_command_semantics": "sudo -n env DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Use-Pty=0 install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-french texlive-pictures texlive-publishers texlive-science lmodern poppler-utils",
+    "exact_requested_packages": [
+      "texlive-latex-base",
+      "texlive-latex-recommended",
+      "texlive-latex-extra",
+      "texlive-fonts-recommended",
+      "texlive-lang-french",
+      "texlive-pictures",
+      "texlive-publishers",
+      "texlive-science",
+      "lmodern",
+      "poppler-utils"
+    ],
+    "expected_simulation_configure_action_count": 47,
+    "expected_simulation_install_action_count": 47,
+    "expected_simulation_remove_action_count": 0,
+    "must_preverify_exact_B3_simulation_sha256": "0b3a253c7dedbb86ee664fb9e00a0001582d4004e215a2c8b3866bdf0f3c1536",
+    "package_removal_authorized": false,
+    "target_environment": "CURRENT_CODESPACE_ONLY"
+  },
+  "classification": "AUTHORIZED_SINGLE_EXACT_TOOLCHAIN_INSTALLATION_ONLY_NO_COMPILE",
+  "contract_version": "mcad.nh_r3.e14.d18_a2_b4.exact_toolchain_installation_authorization.v1",
+  "created_utc": "2026-09-03T20:54:12.766954Z",
+  "current_B4_boundary": {
+    "apt_install_executed": false,
+    "apt_update_executed": false,
+    "article_compile_executed": false,
+    "article_source_mutated": false,
+    "network_request_executed": false
+  },
+  "next": "R3-E14-D18-A2-B5_EXECUTE_SINGLE_AUTHORIZED_EXACT_TOOLCHAIN_INSTALLATION_AND_POSTINSTALL_AUDIT_NO_COMPILE",
+  "parent_B2_head": "6a0b12afbb12d5df3ecc1a49d8d0360c8927aabe",
+  "required_B5_post_install_audit": {
+    "must_not_compile_article": true,
+    "must_prove_apt_sources_byte_preserved": true,
+    "must_prove_article_sources_byte_preserved": true,
+    "must_record_requested_and_transitive_package_versions": true,
+    "must_return_output_before_any_compile_authorization": true,
+    "must_verify_binaries": [
+      "pdflatex",
+      "pdftotext",
+      "pdfinfo",
+      "pdftoppm",
+      "kpsewhich"
+    ],
+    "must_verify_exact_10_requested_packages_installed": true,
+    "must_verify_tex_files": [
+      "IEEEtran.cls",
+      "algorithm.sty",
+      "algorithmic.sty",
+      "microtype.sty",
+      "booktabs.sty",
+      "tikz.sty",
+      "pgfplots.sty",
+      "babel.sty"
+    ],
+    "must_write_external_B5_receipt": true
+  },
+  "scientific_and_repository_boundary": {
+    "article_compile_authorized": false,
+    "article_source_mutation_authorized": false,
+    "backend_http_request_authorized": false,
+    "confidence_interval_recomputation_authorized": false,
+    "cross_backend_synthesis_authorized": false,
+    "docker_command_authorized": false,
+    "effect_recomputation_authorized": false,
+    "measurement_reexecution_authorized": false,
+    "new_claim_assignment_authorized": false,
+    "new_result_interpretation_authorized": false,
+    "p_value_recomputation_authorized": false,
+    "repository_mutation_authorized": false,
+    "xmla_query_authorized": false
+  }
+}
