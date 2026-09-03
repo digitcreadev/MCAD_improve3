@@ -1,0 +1,143 @@
+=== R3-E14 D14 FROZEN result interpretation execution ===
+PURPOSE=interpret_exact_D12_frozen_D11_results_under_published_D13_claim_boundaries_without_recomputation
+PARENT_HEAD=b878cd8d4a70510328df94c5d4e7458c2466a306
+ANALYSIS_ID=r3e_e14_d14_frozen_result_interpretation_20260903T190602Z
+OUTPUT_DIR=/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/r3e_e14_d14_frozen_result_interpretation_20260903T190602Z
+CONSOLE_LOG=/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/r3e_e14_d14_frozen_result_interpretation_20260903T190602Z.console.log
+RAW_RESULT_SEMANTIC_READING_ALLOWED=true
+RESULT_VALUE_REPORTING_ALLOWED=true
+METRIC_SPECIFIC_XMLA_REPLICATION_CLAIM_REPORTING_ALLOWED=true
+NEW_GLOBAL_SYSTEM_BENEFIT_CLAIM_ALLOWED=false
+CROSS_BACKEND_SYNTHESIS_ALLOWED=false
+BACKEND_EQUIVALENCE_CLAIM_ALLOWED=false
+EFFECT_HOMOGENEITY_CLAIM_ALLOWED=false
+EFFECT_RECOMPUTATION_ALLOWED=false
+P_VALUE_RECOMPUTATION_ALLOWED=false
+CONFIDENCE_INTERVAL_RECOMPUTATION_ALLOWED=false
+MEASUREMENT_REEXECUTION_ALLOWED=false
+AUTOMATIC_RETRY_ALLOWED=false
+AUTOMATIC_RERUN_ALLOWED=false
+AUTOMATIC_RESUME_ALLOWED=false
+DOCKER_COMMAND_ALLOWED=false
+HTTP_REQUEST_ALLOWED=false
+XMLA_QUERY_ALLOWED=false
+REPOSITORY_MUTATION_ALLOWED=false
+D15_INTERPRETATION_FREEZE_REQUIRED_BEFORE_ARTICLE_CLAIM_INTEGRATION=true
+
+=== 1. Exact post-D13 Git authority / clean repository ===
+current_branch=paper/nh-r3-end-to-end-resource-benchmark-20260820T193919Z
+local_head=b878cd8d4a70510328df94c5d4e7458c2466a306
+remote_head=b878cd8d4a70510328df94c5d4e7458c2466a306
+git_authority_gate=PASS
+
+=== 2. Authenticate D13 authorization byte and semantics BEFORE result open ===
+d13_authorization_sha256=ae617ddce326f960665f85d04094955639bbc0c88886acb3e45f7f39f6369e98
+d13_interpretation_authority_gate=PASS_EXACT_LIMITED_SCOPE
+
+=== 3. Authenticate exact D12 frozen bytes BEFORE semantic result read ===
+d12_freeze_manifest_sha256=91f3da5b0708744c0e409525edde262c005ad6cc33af00c263745d2bde27a477
+d12_sha256s_sha256=f56d1ae6951076b3ef0777efe9e3b9f104abccf2cb07a23c1e34e92a15bd236b
+d12_source_byte_manifest_sha256=7853978e92c3cb35b1f6329a4fdc50b8a4f31217d2fb46693563cd1861cf8d89
+d11_raw_inference_results_sha256=671859825d9e625c7399b591530649bc3ee39051809956488311f51ef0cfe75c
+d11_integrity_receipt_sha256=532f39a5b1c4b000e744ba523fa21bb2d22459ae5c4d8e6bf359cd539e4e8377
+d11_execution_receipt_sha256=2b6a464a100d8472c88d6bebb5e43fd5d3dff15ce4ed675d598407c59f9656ef
+D11_A2_ANALYSIS_PROGRAM.py: OK
+D11_A2_RECOVERY_AUTHORIZATION.json: OK
+D11_A2_WRAPPER.sh: OK
+D11_CONSOLE.log: OK
+D11_EXECUTION_RECEIPT.json: OK
+D11_MEASUREMENT_INTEGRITY_RECEIPT.json: OK
+D11_RAW_INFERENCE_RESULTS.json: OK
+D11_STATE.json: OK
+FREEZE_MANIFEST.json: OK
+README.md: OK
+SOURCE_BYTE_MANIFEST.tsv: OK
+d12_byte_authentication_gate=PASS
+raw_result_semantic_content_read=false
+
+=== 4. Authenticate integrity/execution receipts; still NO raw-result semantic read ===
+d11_integrity_execution_gate=PASS_READY_FOR_AUTHORIZED_INTERPRETATION
+
+=== 5. Fresh external interpretation output boundary ===
+fresh_interpretation_output_gate=PASS
+
+=== 6. AUTHORIZED semantic read + interpretation of exact D12 result bytes ===
+No effect, p-value, confidence-interval, measurement, or backend recomputation is performed.
+D14_AUTHORIZED_RESULT_OPEN=TRUE
+D14_MEASUREMENT_INTEGRITY=PASS
+D14_PRIMARY_METRIC_COUNT=8
+D14_PRIMARY_METRIC_SPECIFIC_CONFIRMED_COUNT=8
+D14_PRIMARY_RESULT|metric=full_backend_execution_count|status=CONFIRMED_METRIC_SPECIFIC_REPLICATION|mean_safe=5.4|mean_permissive=21.6|mean_diff=-16.2|pct_change=-75|ci95=[-16.3066666667,-16.0933333333]|holm_p=7.9999200008e-05
+D14_PRIMARY_RESULT|metric=backend_request_count_including_gate_probes|status=CONFIRMED_METRIC_SPECIFIC_REPLICATION|mean_safe=11.4966666667|mean_permissive=27.6966666667|mean_diff=-16.2|pct_change=-58.4907931159|ci95=[-16.3066666667,-16.09]|holm_p=7.9999200008e-05
+D14_PRIMARY_RESULT|metric=client_wall_ms|status=CONFIRMED_METRIC_SPECIFIC_REPLICATION|mean_safe=2991.1395391|mean_permissive=5484.80662523|mean_diff=-2493.66708613|pct_change=-45.4649955143|ci95=[-2519.14638305,-2469.5754365]|holm_p=7.9999200008e-05
+D14_PRIMARY_RESULT|metric=sqlserver_cpu_usage_usec_delta|status=CONFIRMED_METRIC_SPECIFIC_REPLICATION|mean_safe=1054876.39667|mean_permissive=3112025.15667|mean_diff=-2057148.76|pct_change=-66.1032175654|ci95=[-2073075.16008,-2041404.65108]|holm_p=7.9999200008e-05
+D14_PRIMARY_RESULT|metric=sqlserver_io_rbytes_delta|status=CONFIRMED_METRIC_SPECIFIC_REPLICATION|mean_safe=179200|mean_permissive=416358.4|mean_diff=-237158.4|pct_change=-56.9601574029|ci95=[-276957.866667,-193754.112]|holm_p=7.9999200008e-05
+D14_PRIMARY_RESULT|metric=sqlserver_io_wbytes_delta|status=CONFIRMED_METRIC_SPECIFIC_REPLICATION|mean_safe=693186.56|mean_permissive=1223191.89333|mean_diff=-530005.333333|pct_change=-43.3296963642|ci95=[-841742.037333,-23389.0133333]|holm_p=7.9999200008e-05
+D14_PRIMARY_RESULT|metric=response_bytes|status=CONFIRMED_METRIC_SPECIFIC_REPLICATION|mean_safe=225339.546667|mean_permissive=810012.513333|mean_diff=-584672.966667|pct_change=-72.1807326483|ci95=[-588492.829167,-580817.67225]|holm_p=7.9999200008e-05
+D14_PRIMARY_RESULT|metric=time_to_analytical_objective_completion_ms|status=CONFIRMED_METRIC_SPECIFIC_REPLICATION|mean_safe=1577.87608175|mean_permissive=2098.16437876|mean_diff=-520.288297013|pct_change=-24.7973086513|ci95=[-563.934413621,-477.241027867]|holm_p=7.9999200008e-05
+D14_GLOBAL_SYSTEM_BENEFIT_CLAIM=NOT_AUTHORIZED_NOT_EXECUTED
+D14_SECONDARY_BREAK_EVEN|metric=full_backend_execution_count|direction=SAFE_LOWER_MEAN|mean_safe=5.4|mean_ungated=21.6|mean_diff=-16.2|pct_change=-75|ci95=[-16.3066666667,-16.0933333333]|ci_relation=ENTIRELY_BELOW_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_SECONDARY_BREAK_EVEN|metric=backend_request_count_including_gate_probes|direction=SAFE_LOWER_MEAN|mean_safe=11.4966666667|mean_ungated=21.6|mean_diff=-10.1033333333|pct_change=-46.774691358|ci95=[-10.23,-9.97666666667]|ci_relation=ENTIRELY_BELOW_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_SECONDARY_BREAK_EVEN|metric=client_wall_ms|direction=SAFE_LOWER_MEAN|mean_safe=2991.1395391|mean_ungated=3180.11887911|mean_diff=-188.97934001|pct_change=-5.94252438962|ci95=[-211.412630089,-165.738573976]|ci_relation=ENTIRELY_BELOW_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_SECONDARY_BREAK_EVEN|metric=sqlserver_cpu_usage_usec_delta|direction=SAFE_LOWER_MEAN|mean_safe=1054876.39667|mean_ungated=2713404.52333|mean_diff=-1658528.12667|pct_change=-61.1235115297|ci95=[-1674156.87742,-1642716.40542]|ci_relation=ENTIRELY_BELOW_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_SECONDARY_BREAK_EVEN|metric=sqlserver_io_rbytes_delta|direction=SAFE_LOWER_MEAN|mean_safe=179200|mean_ungated=303076.693333|mean_diff=-123876.693333|pct_change=-40.8730516263|ci95=[-152808.106667,-87640.064]|ci_relation=ENTIRELY_BELOW_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_SECONDARY_BREAK_EVEN|metric=sqlserver_io_wbytes_delta|direction=SAFE_LOWER_MEAN|mean_safe=693186.56|mean_ungated=881660.586667|mean_diff=-188474.026667|pct_change=-21.3771636747|ci95=[-420224.042667,264453.248]|ci_relation=INCLUDES_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_SECONDARY_BREAK_EVEN|metric=response_bytes|direction=SAFE_LOWER_MEAN|mean_safe=225339.546667|mean_ungated=779470.97|mean_diff=-554131.423333|pct_change=-71.0907069872|ci95=[-557947.689083,-550327.72475]|ci_relation=ENTIRELY_BELOW_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_SECONDARY_BREAK_EVEN|metric=time_to_analytical_objective_completion_ms|direction=SAFE_HIGHER_MEAN|mean_safe=1577.87608175|mean_ungated=1193.37117747|mean_diff=384.504904277|pct_change=32.2200595703|ci95=[362.649555842,406.244273021]|ci_relation=ENTIRELY_ABOVE_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_XMLA_DIAGNOSTIC|metric=emondrian_cpu_usage_usec_delta|comparator=PERMISSIVE_GATED|direction=SAFE_LOWER_MEAN|mean_safe=232480.626667|mean_comparator=509758.45|mean_diff=-277277.823333|pct_change=-54.3939631277|ci95=[-299054.768667,-257295.900917]|ci_relation=ENTIRELY_BELOW_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_XMLA_DIAGNOSTIC|metric=emondrian_cpu_usage_usec_delta|comparator=UNGATED_EXECUTE_ADMISSIBLE|direction=SAFE_LOWER_MEAN|mean_safe=232480.626667|mean_comparator=430633.023333|mean_diff=-198152.396667|pct_change=-46.0142130143|ci95=[-218764.4065,-179020.252833]|ci_relation=ENTIRELY_BELOW_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_XMLA_DIAGNOSTIC|metric=emondrian_io_rbytes_delta|comparator=PERMISSIVE_GATED|direction=SAFE_LOWER_MEAN|mean_safe=1693.01333333|mean_comparator=4874.24|mean_diff=-3181.22666667|pct_change=-65.2661064426|ci95=[-10949.9733333,1488.21333333]|ci_relation=INCLUDES_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_XMLA_DIAGNOSTIC|metric=emondrian_io_rbytes_delta|comparator=UNGATED_EXECUTE_ADMISSIBLE|direction=SAFE_LOWER_MEAN|mean_safe=1693.01333333|mean_comparator=2908.16|mean_diff=-1215.14666667|pct_change=-41.7840375587|ci95=[-6225.92,2362.02666667]|ci_relation=INCLUDES_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_XMLA_DIAGNOSTIC|metric=emondrian_io_wbytes_delta|comparator=PERMISSIVE_GATED|direction=SAFE_HIGHER_MEAN|mean_safe=1696221.86667|mean_comparator=1547223.04|mean_diff=148998.826667|pct_change=9.63008065512|ci95=[-610099.882667,922219.178667]|ci_relation=INCLUDES_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_XMLA_DIAGNOSTIC|metric=emondrian_io_wbytes_delta|comparator=UNGATED_EXECUTE_ADMISSIBLE|direction=SAFE_HIGHER_MEAN|mean_safe=1696221.86667|mean_comparator=266786.133333|mean_diff=1429435.73333|pct_change=535.798362334|ci95=[862425.429333,2053025.45067]|ci_relation=ENTIRELY_ABOVE_ZERO|confirmatory_claim=NOT_AUTHORIZED
+D14_RESULT_INTERPRETATION_JSON_SHA256=b84b0de9420a7ae36e97cb20a4945a2ae4c03e827003bea807ff9d85d8efd759
+D14_RESULT_INTERPRETATION_MD_SHA256=5946ef010189e6bdd0dc51389a682b87648e6494ce1bfb9d76c9781055db8fda
+D14_EXECUTION_RECEIPT_SHA256=d7a524eed9ca870776b86cde48a1a685cac0e3a1de9a7bb0b6ffd5958311b919
+D14_RESULT_INTERPRETATION_EXECUTED=true
+D14_METRIC_SPECIFIC_CLAIM_REPORTING_EXECUTED=true
+D14_EFFECT_RECOMPUTATION_EXECUTED=false
+D14_P_VALUE_RECOMPUTATION_EXECUTED=false
+D14_CONFIDENCE_INTERVAL_RECOMPUTATION_EXECUTED=false
+D14_CROSS_BACKEND_SYNTHESIS_EXECUTED=false
+D14_ANALYSIS_PROGRAM_STATUS=PASS
+
+=== 7. Mechanical postvalidation of D14 outputs; NO recomputation ===
+d14_mechanical_postvalidation_gate=PASS
+d14_result_interpretation_json_sha256=b84b0de9420a7ae36e97cb20a4945a2ae4c03e827003bea807ff9d85d8efd759
+d14_result_interpretation_md_sha256=5946ef010189e6bdd0dc51389a682b87648e6494ce1bfb9d76c9781055db8fda
+d14_execution_receipt_sha256=d7a524eed9ca870776b86cde48a1a685cac0e3a1de9a7bb0b6ffd5958311b919
+
+=== 8. Re-prove repository unchanged / final D14 scientific boundary ===
+repository_unchanged_gate=PASS
+analysis_id=r3e_e14_d14_frozen_result_interpretation_20260903T190602Z
+output_dir=/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/r3e_e14_d14_frozen_result_interpretation_20260903T190602Z
+console_log=/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/r3e_e14_d14_frozen_result_interpretation_20260903T190602Z.console.log
+D13_authorization_sha256=ae617ddce326f960665f85d04094955639bbc0c88886acb3e45f7f39f6369e98
+D12_raw_inference_results_sha256=671859825d9e625c7399b591530649bc3ee39051809956488311f51ef0cfe75c
+D14_result_interpretation_json_sha256=b84b0de9420a7ae36e97cb20a4945a2ae4c03e827003bea807ff9d85d8efd759
+D14_result_interpretation_md_sha256=5946ef010189e6bdd0dc51389a682b87648e6494ce1bfb9d76c9781055db8fda
+D14_execution_receipt_sha256=d7a524eed9ca870776b86cde48a1a685cac0e3a1de9a7bb0b6ffd5958311b919
+raw_result_semantic_content_read=true
+result_values_printed=true
+result_interpretation_executed=true
+metric_specific_claim_reporting_executed=true
+global_system_benefit_claim_executed=false
+backend_equivalence_claim_executed=false
+effect_homogeneity_claim_executed=false
+cross_backend_effect_difference_test_executed=false
+cross_backend_synthesis_executed=false
+effect_recomputation_executed=false
+p_value_recomputation_executed=false
+confidence_interval_recomputation_executed=false
+measurement_reexecution_executed=false
+docker_command_executed=false
+http_request_executed=false
+xmla_query_executed=false
+repository_mutated=false
+D15_INTERPRETATION_RESULT_FREEZE_REQUIRED=true
+ARTICLE_CLAIM_INTEGRATION_AUTHORIZED_BEFORE_D15=false
+SCIENTIFIC_FINAL_FREEZE_AUTHORIZED=false
+CONSOLE_FINAL_SHA256_DEFERRED_TO_D15_AFTER_TEE_CLOSE=true
+R3E_E14_D14_FROZEN_RESULT_INTERPRETATION=PASS_INTERPRETATION_COMPLETE_PENDING_D15_FREEZE
+NEXT=RETURN_FULL_OUTPUT_FOR_D15_FREEZE_FROZEN_RESULT_INTERPRETATION
+=== STOP ===

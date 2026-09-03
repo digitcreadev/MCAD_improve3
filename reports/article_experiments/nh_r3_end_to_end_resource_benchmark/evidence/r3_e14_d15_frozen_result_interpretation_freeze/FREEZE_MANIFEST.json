@@ -1,0 +1,47 @@
+{
+  "classification": "D14_FROZEN_RESULT_INTERPRETATION_BYTE_FREEZE",
+  "contract_version": "mcad.nh_r3.e14.d15.frozen_result_interpretation_freeze.v1",
+  "created_utc": "2026-09-03T19:12:30.303327Z",
+  "execution_boundary": {
+    "article_claim_integration_executed_in_D15": false,
+    "confidence_interval_recomputation_executed_in_D15": false,
+    "docker_command_executed_in_D15": false,
+    "effect_recomputation_executed_in_D15": false,
+    "http_request_executed_in_D15": false,
+    "measurement_reexecution_executed_in_D15": false,
+    "new_claim_assignment_executed_in_D15": false,
+    "new_result_interpretation_executed_in_D15": false,
+    "p_value_recomputation_executed_in_D15": false,
+    "xmla_query_executed_in_D15": false
+  },
+  "frozen_scientific_state": {
+    "backend_equivalence_claim_executed": false,
+    "cross_backend_effect_difference_test_executed": false,
+    "cross_backend_synthesis_executed": false,
+    "effect_homogeneity_claim_executed": false,
+    "measurement_integrity_pass": true,
+    "new_global_system_benefit_claim_executed": false,
+    "primary_metric_count": 8,
+    "primary_metric_specific_confirmed_count": 8,
+    "xmla_metric_specific_replication_claims_frozen": true
+  },
+  "next": "R3-E14-D16_SEPARATE_ARTICLE_CLAIM_INTEGRATION_AUTHORIZATION_NO_INTEGRATION",
+  "parent_D13_head": "b878cd8d4a70510328df94c5d4e7458c2466a306",
+  "post_D15_boundary": {
+    "D14_interpretation_frozen": true,
+    "article_claim_integration_requires_separate_authorization": true,
+    "cross_backend_synthesis_requires_separate_authorization": true,
+    "scientific_final_freeze_authorized": false
+  },
+  "source_D14_analysis_id": "r3e_e14_d14_frozen_result_interpretation_20260903T190602Z",
+  "source_hashes": {
+    "D11_execution_receipt_sha256": "2b6a464a100d8472c88d6bebb5e43fd5d3dff15ce4ed675d598407c59f9656ef",
+    "D11_measurement_integrity_receipt_sha256": "532f39a5b1c4b000e744ba523fa21bb2d22459ae5c4d8e6bf359cd539e4e8377",
+    "D12_raw_inference_results_sha256": "671859825d9e625c7399b591530649bc3ee39051809956488311f51ef0cfe75c",
+    "D13_authorization_sha256": "ae617ddce326f960665f85d04094955639bbc0c88886acb3e45f7f39f6369e98",
+    "D14_CONSOLE.log": "d9c500c91652b6742eca7293dd94d6d42f921dbdc8cc24abd2f3167f0815bf3e",
+    "D14_EXECUTION_RECEIPT.json": "d7a524eed9ca870776b86cde48a1a685cac0e3a1de9a7bb0b6ffd5958311b919",
+    "D14_RESULT_INTERPRETATION.json": "b84b0de9420a7ae36e97cb20a4945a2ae4c03e827003bea807ff9d85d8efd759",
+    "D14_RESULT_INTERPRETATION.md": "5946ef010189e6bdd0dc51389a682b87648e6494ce1bfb9d76c9781055db8fda"
+  }
+}

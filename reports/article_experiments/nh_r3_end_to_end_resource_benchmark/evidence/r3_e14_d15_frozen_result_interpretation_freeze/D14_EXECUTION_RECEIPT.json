@@ -1,0 +1,57 @@
+{
+  "analysis_id": "r3e_e14_d14_frozen_result_interpretation_20260903T190602Z",
+  "classification": "PASS_FROZEN_RESULT_INTERPRETATION_COMPLETE_PENDING_D15_FREEZE",
+  "contract_version": "mcad.nh_r3.e14.d14.interpretation_execution_receipt.v1",
+  "created_utc": "2026-09-03T19:06:02.723477Z",
+  "execution_boundary": {
+    "automatic_rerun_executed": false,
+    "automatic_resume_executed": false,
+    "automatic_retry_executed": false,
+    "backend_query_executed": false,
+    "confidence_interval_recomputation_executed": false,
+    "docker_command_executed": false,
+    "effect_recomputation_executed": false,
+    "http_request_executed": false,
+    "measurement_reexecution_executed": false,
+    "p_value_recomputation_executed": false,
+    "xmla_query_executed": false
+  },
+  "mechanical_completion": {
+    "measurement_integrity_pass": true,
+    "metric_specific_claim_reporting_executed": true,
+    "primary_metric_count": 8,
+    "primary_metric_specific_confirmed_count": 8,
+    "primary_metric_specific_decisions_assigned": 8,
+    "result_interpretation_completed": true,
+    "result_values_reported": true,
+    "secondary_break_even_metric_count": 8,
+    "xmla_diagnostic_metric_count": 3
+  },
+  "next": "R3-E14-D15_FREEZE_FROZEN_RESULT_INTERPRETATION",
+  "output_hashes": {
+    "D14_RESULT_INTERPRETATION.json": "b84b0de9420a7ae36e97cb20a4945a2ae4c03e827003bea807ff9d85d8efd759",
+    "D14_RESULT_INTERPRETATION.md": "5946ef010189e6bdd0dc51389a682b87648e6494ce1bfb9d76c9781055db8fda"
+  },
+  "post_D14_boundary": {
+    "D15_interpretation_result_freeze_required": true,
+    "article_claim_integration_authorized_before_D15": false,
+    "cross_backend_synthesis_still_requires_separate_authorization": true,
+    "scientific_final_freeze_authorized": false
+  },
+  "scientific_boundary": {
+    "backend_equivalence_claim_executed": false,
+    "cross_backend_effect_difference_test_executed": false,
+    "cross_backend_synthesis_executed": false,
+    "effect_homogeneity_claim_executed": false,
+    "new_global_system_benefit_claim_executed": false,
+    "xmla_metric_specific_replication_claims_executed": true
+  },
+  "source_hashes": {
+    "D11_execution_receipt_sha256": "2b6a464a100d8472c88d6bebb5e43fd5d3dff15ce4ed675d598407c59f9656ef",
+    "D11_measurement_integrity_receipt_sha256": "532f39a5b1c4b000e744ba523fa21bb2d22459ae5c4d8e6bf359cd539e4e8377",
+    "D11_raw_inference_results_sha256": "671859825d9e625c7399b591530649bc3ee39051809956488311f51ef0cfe75c",
+    "D13_authorization_sha256": "ae617ddce326f960665f85d04094955639bbc0c88886acb3e45f7f39f6369e98",
+    "source_analysis_id": "r3e_e14_d11_a2_preregistered_inference_20260903T170933Z",
+    "source_run_id": "r3e_e14_d8_a3_replacement_primary300_20260903T105543Z"
+  }
+}
