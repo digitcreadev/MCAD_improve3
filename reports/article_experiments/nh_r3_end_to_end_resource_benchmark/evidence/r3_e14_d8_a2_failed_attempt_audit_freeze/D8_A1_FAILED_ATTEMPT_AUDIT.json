@@ -1,0 +1,39 @@
+{
+  "authorization_boundary": {
+    "d7_requires_separate_audit_before_any_further_execution": true,
+    "further_measurement_execution_authorized_by_this_audit": false,
+    "separate_post_audit_authorization_decision_required": true,
+    "this_receipt_is_that_readonly_audit": true
+  },
+  "classification": "FAILED_AFTER_NONMEASURED_WARMUP_BEFORE_FIRST_MEASURED_ARM_TIMER",
+  "contract_version": "mcad.nh_r3.e14.d8_a1.failed_attempt_audit.v1",
+  "created_utc": "2026-09-03T10:34:05.951852Z",
+  "failure": {
+    "cause": "docker_compose_interpolation_missing_R3E_SQLSERVER_IMAGE_REF",
+    "nonmeasured_warmup_completed": true,
+    "run_primary_invoked": true,
+    "stage": "first_mcad_api_restart_before_first_arm_timer",
+    "warmup_template_count": 7
+  },
+  "next": "R3-E14-D8-A2_FREEZE_FAILED_ATTEMPT_AUDIT_AND_SEPARATE_FRESH_EXECUTION_AUTHORIZATION_DECISION",
+  "partial_artifacts": {
+    "arm_receipt_file_count": 0,
+    "candidate_trace_file_count": 0,
+    "console_log_sha256": "190369fb845da0f8501e6b75e0fc8543e5faeaac012754a9568fd199054e2be5",
+    "console_log_size_bytes": 1710,
+    "execution_receipt_present": false,
+    "primary_summary_present": false,
+    "total_output_file_count": 0
+  },
+  "run_id": "r3e_e14_d8_v2_xmla_primary300_20260903T102715Z",
+  "scientific_boundary": {
+    "automatic_rerun_executed": false,
+    "automatic_resume_executed": false,
+    "automatic_retry_executed": false,
+    "effect_analysis_executed": false,
+    "fallback_executed": false,
+    "first_measured_arm_timer_reached": false,
+    "measured_arm_runs_completed": 0,
+    "measurement_result_produced": false
+  }
+}

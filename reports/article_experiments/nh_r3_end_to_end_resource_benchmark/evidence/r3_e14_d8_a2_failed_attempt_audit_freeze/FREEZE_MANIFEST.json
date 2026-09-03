@@ -1,0 +1,42 @@
+{
+  "authority": {
+    "compose_binding_preflight_sha256": "c40e5d0a57c4621c70f15310b612a9e37afd5524ef7c98bb3df09b2c891c90a2",
+    "d8_a1_audit_sha256": "9db2673f3646da68f54cf51d0ddc4598d0f27f9a04d567fbb864289e425f4927",
+    "d8_v2_console_sha256": "190369fb845da0f8501e6b75e0fc8543e5faeaac012754a9568fd199054e2be5",
+    "d8_v2_pre_execution_quota_sha256": "3f8b2e839834a94374d213de294288af69aaa61d93770dc7ebc718e6fb0d1d01"
+  },
+  "classification": "PASS_ZERO_MEASURED_ARMS_FAILED_ATTEMPT_AUDIT_FROZEN_NO_MEASUREMENT",
+  "compose_binding_repair": {
+    "compose_file_modified": false,
+    "docker_compose_config_preflight_pass": true,
+    "docker_mutation_executed": false,
+    "historical_runtime_artifact_modified": false,
+    "measurement_override_modified": false,
+    "scope": "PROCESS_ENVIRONMENT_BINDING_ONLY",
+    "secret_value_persisted": false
+  },
+  "contract_version": "mcad.nh_r3.e14.d8_a2.failed_attempt_audit_freeze.v1",
+  "created_utc": "2026-09-03T10:44:24.572502Z",
+  "failed_run_id": "r3e_e14_d8_v2_xmla_primary300_20260903T102715Z",
+  "failure_classification": {
+    "failure_cause": "DOCKER_COMPOSE_INTERPOLATION_ENVIRONMENT_NOT_BOUND",
+    "first_measured_arm_timer_reached": false,
+    "measured_arm_runs_completed": 0,
+    "measurement_result_produced": false,
+    "nonmeasured_warmup_completed": true,
+    "run_primary_invoked": true,
+    "warmup_template_count": 7
+  },
+  "next": "SEPARATE_REPLACEMENT_FRESH_EXECUTION_AUTHORIZATION_DECISION",
+  "preservation": {
+    "continuation_authorized": false,
+    "failed_output_directory_preserved": true,
+    "output_reuse_authorized": false,
+    "resume_authorized": false
+  },
+  "scientific_boundary": {
+    "effect_analysis_executed": false,
+    "measurement_executed_by_a2": false,
+    "scientific_final_freeze_executed": false
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "compute": {
+    "billing_lag_buffer_core_hours": 4.0,
+    "conservative_remaining_core_hours": 62.79546,
+    "d8_operational_budget_core_hours": 20.0,
+    "headroom_after_d8_budget_core_hours": 42.79546,
+    "included_core_hours": 120.0,
+    "pass": true,
+    "reported_compute_wall_hours_used": 26.60227,
+    "reported_remaining_core_hours": 66.79546,
+    "used_core_hours": 53.20454
+  },
+  "contract_version": "mcad.nh_r3.e14.d8.pre_execution_codespaces_quota_receipt.v1",
+  "created_utc": "2026-09-03T10:27:17.513585Z",
+  "decision": {
+    "d8_quota_clearance": "PASS",
+    "migrate_to_digitcreadev": false,
+    "stay_on_benabib2": true
+  },
+  "repo_head": "44d842cb7f46ea0ca3d56f6daf0a974a120af066",
+  "run_id": "r3e_e14_d8_v2_xmla_primary300_20260903T102715Z",
+  "scientific_boundary": {
+    "d7_fresh_measured_attempt_consumed": false,
+    "effect_analysis_executed": false,
+    "measurement_started": false
+  },
+  "source": {
+    "billing_period": "2026-09-01..2026-09-30",
+    "compute_machine_cores": 2,
+    "compute_sku": "codespaces_compute_d2",
+    "github_billing_export_sha256": "1372dc00e21d3bd2daa66f39985a83eea7ecc97dfc5ac0e9f4b90b3c5a617114",
+    "github_billing_ui_plan": "GitHub Free",
+    "latest_usage_date": "2026-09-03"
+  },
+  "storage": {
+    "headroom_after_conservative_d8_buffer_gb_hours": 10478.89588479,
+    "included_gb_month": 15.0,
+    "pass": true,
+    "reported_storage_gb_hours_used": 1.10411521
+  }
+}

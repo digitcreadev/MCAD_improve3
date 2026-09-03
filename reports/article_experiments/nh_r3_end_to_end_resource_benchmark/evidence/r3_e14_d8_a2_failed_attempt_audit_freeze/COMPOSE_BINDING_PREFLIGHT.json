@@ -1,0 +1,29 @@
+{
+  "bindings": {
+    "R3E_EMONDRIAN_IMAGE_REF": "mcad-r3e/emondrian-adventureworks:e10-3847c3f",
+    "R3E_MCAD_API_IMAGE_REF": "mcad-r3e-e11-api-base:c0f91e8",
+    "R3E_MCAD_PROXY_IMAGE_REF": "mcad-r3e-e11-proxy:c0f91e8",
+    "R3E_SQLSERVER_IMAGE_REF": "mcad-r3e/sqlserver:e9-ba4c8329f48f",
+    "R3_AW_SA_PASSWORD": {
+      "secret_value_hashed": false,
+      "secret_value_printed": false,
+      "secret_value_recorded": false,
+      "source": "existing_exact_sqlserver_container_Config.Env",
+      "source_container_id": "d2261a8631dc101de0db0ae125e1fa639852678ccbf5ef88057decd5a34d9ce0",
+      "source_environment_key": "MSSQL_SA_PASSWORD"
+    }
+  },
+  "classification": "PASS_EXACT_EXISTING_RUNTIME_COMPOSE_BINDINGS_NO_MUTATION",
+  "compose_sha256": "8debd1211b50b1f298159f8e452ff38e26624cfd64980da927f4ee38d1d5d98e",
+  "contract_version": "mcad.nh_r3.e14.d8_a2.compose_binding_preflight.v1",
+  "created_utc": "2026-09-03T10:44:23.424126Z",
+  "measurement_override_sha256": "2bad4fe82e24bc97fd07f62b3148791639e6056e90a3b5c93a7e0b1530513db5",
+  "preflight": {
+    "container_recreate_executed": false,
+    "container_restart_executed": false,
+    "docker_compose_config_images_exact_4_of_4": true,
+    "docker_compose_config_quiet_pass": true,
+    "docker_mutation_executed": false,
+    "image_pull_build_tag_executed": false
+  }
+}

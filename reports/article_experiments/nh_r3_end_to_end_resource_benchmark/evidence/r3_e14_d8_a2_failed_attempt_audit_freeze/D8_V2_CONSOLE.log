@@ -1,0 +1,15 @@
+error while interpolating services.r3e-adventureworks-sqlserver.image: required variable R3E_SQLSERVER_IMAGE_REF is missing a value: bind exact image after verified bundle docker-load authorization
+Traceback (most recent call last):
+  File "/workspaces/MCAD_improve3/reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e14_xmla_live_executor_compat.py", line 40, in <module>
+    main()
+  File "/workspaces/MCAD_improve3/reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e14_xmla_live_executor_compat.py", line 36, in main
+    frozen_e11.main()
+  File "/workspaces/MCAD_improve3/reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py", line 709, in main
+    run_primary(
+  File "/workspaces/MCAD_improve3/reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py", line 501, in run_primary
+    restart_api(runtime_root, mcad_base)
+  File "/workspaces/MCAD_improve3/reports/article_experiments/nh_r3_end_to_end_resource_benchmark/implementation/r3_e11_xmla_live_executor.py", line 325, in restart_api
+    subprocess.run(compose_cmd(runtime_root, "restart", "r3e-mcad-api"), check=True)
+  File "/home/codespace/.python/current/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['docker', 'compose', '-p', 'mcad-r3e-xmla1', '-f', '/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/compose.yml', '-f', '/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/r3_e12_measurement.override.yml', 'restart', 'r3e-mcad-api']' returned non-zero exit status 1.
