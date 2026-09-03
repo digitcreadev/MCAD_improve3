@@ -1,0 +1,18 @@
+{
+  "contract_version": "mcad.nh_r3.e14.d17.article_target_resolution.v1",
+  "created_utc": "2026-09-03T19:33:28.101796Z",
+  "historical_experimental_artifact_selected": false,
+  "parent_head": "ff3f977e81bdbd242f9326fb4399cea71fd7a76a",
+  "resolution": {
+    "generated_section_tex_unique": true,
+    "main_article_git_blob": "8d177bb5be760f0091b8f37354422d102961911f",
+    "main_article_path": "MCAD_audited_real_main_fr.tex",
+    "main_article_pre_sha256": "3a26ee4d8e9172933167c692a9a1e03a376098f63ab27eded9bfe8d89c97c20b",
+    "main_inputs_target_exactly_once": true,
+    "resolved_live_article_target": "article_update/generated_sections/section_experimentale_finale.tex",
+    "resolved_target_git_blob": "76542cc8f437ecdba305a0611c4d35d4db16ab65",
+    "resolved_target_pre_sha256": "d11049bc10d710165bcb8ecee8a36f245bfb6f17f49a7885c455641dcdf1fbe8",
+    "root_tex_unique": true,
+    "target_role": "LIVE_INCLUDED_GENERATED_EXPERIMENTAL_SECTION"
+  }
+}

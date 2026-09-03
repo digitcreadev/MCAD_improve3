@@ -1,0 +1,54 @@
+{
+  "article_target": "article_update/generated_sections/section_experimentale_finale.tex",
+  "article_target_post_sha256": "1c9f84fca46870e4d61f320daa0dbaa06329c6197b7add5198f5a72ac92ba2b9",
+  "article_target_pre_sha256": "d11049bc10d710165bcb8ecee8a36f245bfb6f17f49a7885c455641dcdf1fbe8",
+  "contract_version": "mcad.nh_r3.e14.d17.article_claim_integration_freeze.v1",
+  "created_utc": "2026-09-03T19:33:28.161210Z",
+  "cross_backend_synthesis_authorized": false,
+  "evidence_files_before_manifest_and_sha256s": [
+    {
+      "bytes": 4571,
+      "name": "D16_AUTHORIZATION.json",
+      "sha256": "73a48819641cb4ffbd2bdaec729d445c786e0d3adfc26755bb42082cc02c6e90"
+    },
+    {
+      "bytes": 26586,
+      "name": "D15_D14_RESULT_INTERPRETATION.json",
+      "sha256": "b84b0de9420a7ae36e97cb20a4945a2ae4c03e827003bea807ff9d85d8efd759"
+    },
+    {
+      "bytes": 5508,
+      "name": "D15_D14_RESULT_INTERPRETATION.md",
+      "sha256": "5946ef010189e6bdd0dc51389a682b87648e6494ce1bfb9d76c9781055db8fda"
+    },
+    {
+      "bytes": 958,
+      "name": "ARTICLE_TARGET_PRE.json",
+      "sha256": "f2b4d7d89a229000212a73fe602b4d8cd0fe33e7e085cb33df55f1b8e5ddc2d1"
+    },
+    {
+      "bytes": 4186,
+      "name": "ARTICLE_INTEGRATION_BLOCK.tex",
+      "sha256": "7c83f991a2e889ae989cb16584f30249bb3481e5e7ea4ee3bef9eb6d9e0c9c56"
+    },
+    {
+      "bytes": 4742,
+      "name": "ARTICLE_PATCH.diff",
+      "sha256": "e8585fd2a671d7d162cc351cb40a21361b0aaa825bed30dfb847290a1587fa1a"
+    },
+    {
+      "bytes": 1863,
+      "name": "ARTICLE_INTEGRATION_RECEIPT.json",
+      "sha256": "28a1451bb1da45aaa38bbe3a8a4bee3115687be9a03add1e3070b767e19cd282"
+    },
+    {
+      "bytes": 1159,
+      "name": "README.md",
+      "sha256": "c5c6b4dbd015f53243e89c770368b7df8be568f2abb0862d1a54eaf367b4d539"
+    }
+  ],
+  "integration_block_sha256": "7c83f991a2e889ae989cb16584f30249bb3481e5e7ea4ee3bef9eb6d9e0c9c56",
+  "next": "R3-E14-D18_COMPILE_VALIDATE_AND_FREEZE_ARTICLE_INTEGRATION_NO_NEW_CLAIMS",
+  "parent_head": "ff3f977e81bdbd242f9326fb4399cea71fd7a76a",
+  "scientific_final_freeze_authorized": false
+}

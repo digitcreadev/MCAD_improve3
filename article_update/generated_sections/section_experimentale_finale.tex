@@ -98,6 +98,76 @@ Campagne C
 \end{tabular}
 \end{table*}
 
+% R3E14-D17-XMLA-CLAIM-INTEGRATION-BEGIN
+\subsection{Confirmation secondaire end-to-end sur XMLA/eMondrian}
+\label{subsec:r3e14-xmla-resource-confirmation}
+
+Un bloc confirmatoire secondaire complète les campagnes opérationnelles précédentes sur le
+chemin AdventureWorks via XMLA/eMondrian. L'analyse préenregistrée porte sur 300 sessions
+sémantiques et 900 \emph{arm-runs}; l'intégrité de mesure satisfait les 11 exigences gelées
+du protocole. La comparaison primaire est \texttt{SAFE\_PRUNING} $-$
+\texttt{PERMISSIVE\_GATED}. Chaque métrique repose sur 300 paires, avec correction de Holm
+sur une famille de huit métriques et un niveau familial $\alpha=0.05$.
+
+Les huit décisions primaires sont confirmées au niveau métrique. Le Tableau~\ref{tab:r3e14-xmla-primary}
+reporte les valeurs déjà interprétées puis gelées avant intégration dans l'article; aucun effet,
+aucune valeur de $p$ et aucun intervalle de confiance n'est recalculé ici. Le décompte 8/8
+décrit les décisions métrique-spécifiques préenregistrées et ne constitue pas une nouvelle
+revendication globale de bénéfice système.
+
+\begin{table*}[t]
+\centering
+\caption{Confirmation métrique-spécifique sur XMLA/eMondrian:
+\texttt{SAFE\_PRUNING} $-$ \texttt{PERMISSIVE\_GATED}. Les différences et variations
+négatives indiquent une moyenne plus faible pour \texttt{SAFE\_PRUNING}; $p_{\mathrm{Holm}}$
+est la valeur unilatérale ajustée dans la famille préenregistrée de huit métriques.}
+\label{tab:r3e14-xmla-primary}
+\scriptsize
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabular}{p{0.245\textwidth}rrrrp{0.205\textwidth}r}
+\toprule
+Métrique & Moy. safe & Moy. permissive & $\Delta$ & Var. (\%) & IC95\% de $\Delta$ & $p_{\mathrm{Holm}}$ \\
+\midrule
+Exécutions backend complètes
+& 5.4 & 21.6 & -16.2 & -75.0000 & $[-16.3066667,-16.0933333]$ & $7.99992{\times}10^{-5}$ \\
+Requêtes backend, probes incluses
+& 11.4966667 & 27.6966667 & -16.2 & -58.4908 & $[-16.3066667,-16.09]$ & $7.99992{\times}10^{-5}$ \\
+Temps client (ms)
+& 2991.13954 & 5484.80663 & -2493.66709 & -45.4650 & $[-2519.14638,-2469.57544]$ & $7.99992{\times}10^{-5}$ \\
+CPU SQL Server ($\mu$s)
+& 1054876.4 & 3112025.16 & -2057148.76 & -66.1032 & $[-2073075.16,-2041404.65]$ & $7.99992{\times}10^{-5}$ \\
+I/O lecture SQL Server (octets)
+& 179200 & 416358.4 & -237158.4 & -56.9602 & $[-276957.867,-193754.112]$ & $7.99992{\times}10^{-5}$ \\
+I/O écriture SQL Server (octets)
+& 693186.56 & 1223191.89 & -530005.333 & -43.3297 & $[-841742.037,-23389.0133]$ & $7.99992{\times}10^{-5}$ \\
+Taille de réponse (octets)
+& 225339.547 & 810012.513 & -584672.967 & -72.1807 & $[-588492.829,-580817.672]$ & $7.99992{\times}10^{-5}$ \\
+Temps jusqu'à complétion de l'objectif (ms)
+& 1577.87608 & 2098.16438 & -520.288297 & -24.7973 & $[-563.934414,-477.241028]$ & $7.99992{\times}10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Le contraste secondaire \texttt{SAFE\_PRUNING} $-$
+\texttt{UNGATED\_EXECUTE\_ADMISSIBLE} reste strictement descriptif et ne reçoit ni
+valeur de $p$ confirmatoire ni revendication confirmatoire. Dans les valeurs gelées, le temps
+client présente une différence moyenne de $-188.97934$~ms ($-5.94252\%$,
+IC95\% $[-211.41263,-165.738574]$), l'I/O d'écriture SQL Server une différence moyenne
+de $-188474.027$ octets avec un IC95\% incluant zéro
+($[-420224.043,264453.248]$), tandis que le temps jusqu'à complétion de l'objectif est
+plus élevé de $384.504904$~ms sous \texttt{SAFE\_PRUNING} ($+32.2201\%$,
+IC95\% $[362.649556,406.244273]$). Ces éléments sont rapportés uniquement comme
+diagnostic de \emph{break-even}.
+
+Les diagnostics de ressources propres à eMondrian restent eux aussi descriptifs: aucun
+$p$ confirmatoire ni revendication confirmatoire de réduction de ressources n'est attribué.
+En particulier, les intervalles de lecture I/O eMondrian incluent zéro pour les deux
+comparateurs, et l'intervalle d'écriture I/O inclut zéro face à
+\texttt{PERMISSIVE\_GATED}. Aucune équivalence de backend, aucune homogénéité d'effet,
+aucun test de différence d'effet entre backends et aucune synthèse cross-backend ne sont
+déduits de ce bloc.
+% R3E14-D17-XMLA-CLAIM-INTEGRATION-END
+
 \begin{table*}[t]
 \centering
 \caption{Bilan terminal des facteurs de sensibilité contrôlée.}

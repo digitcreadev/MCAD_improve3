@@ -1,0 +1,41 @@
+{
+  "authority": {
+    "D15_D14_result_interpretation_sha256": "b84b0de9420a7ae36e97cb20a4945a2ae4c03e827003bea807ff9d85d8efd759",
+    "D16_authorization_sha256": "73a48819641cb4ffbd2bdaec729d445c786e0d3adfc26755bb42082cc02c6e90"
+  },
+  "claim_boundary": {
+    "backend_equivalence_claim_executed": false,
+    "cross_backend_effect_difference_test_executed": false,
+    "cross_backend_synthesis_executed": false,
+    "effect_homogeneity_claim_executed": false,
+    "new_global_system_benefit_claim_executed": false
+  },
+  "classification": "PASS_D15_FROZEN_XMLA_CLAIMS_INTEGRATED_INTO_LIVE_ARTICLE_SECTION",
+  "contract_version": "mcad.nh_r3.e14.d17.article_claim_integration_receipt.v1",
+  "created_utc": "2026-09-03T19:33:28.130420Z",
+  "execution_boundary": {
+    "backend_query_executed": false,
+    "confidence_interval_recomputation_executed": false,
+    "effect_recomputation_executed": false,
+    "measurement_reexecution_executed": false,
+    "new_claim_assignment_executed": false,
+    "new_result_interpretation_executed": false,
+    "p_value_recomputation_executed": false
+  },
+  "integrated_scope": {
+    "primary_comparison": "SAFE_PRUNING - PERMISSIVE_GATED",
+    "primary_xmla_metric_specific_confirmed_count": 8,
+    "secondary_break_even_reporting": "DESCRIPTIVE_ONLY",
+    "xmla_resource_diagnostic_reporting": "DESCRIPTIVE_ONLY"
+  },
+  "parent_head": "ff3f977e81bdbd242f9326fb4399cea71fd7a76a",
+  "target": {
+    "added_lines": 70,
+    "additive_only": true,
+    "deleted_lines": 0,
+    "integration_block_sha256": "7c83f991a2e889ae989cb16584f30249bb3481e5e7ea4ee3bef9eb6d9e0c9c56",
+    "path": "article_update/generated_sections/section_experimentale_finale.tex",
+    "post_sha256": "1c9f84fca46870e4d61f320daa0dbaa06329c6197b7add5198f5a72ac92ba2b9",
+    "pre_sha256": "d11049bc10d710165bcb8ecee8a36f245bfb6f17f49a7885c455641dcdf1fbe8"
+  }
+}

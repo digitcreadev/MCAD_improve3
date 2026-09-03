@@ -1,0 +1,94 @@
+{
+  "D17_authorized_article_content": {
+    "primary_xmla_metric_specific_replication": {
+      "authorized": true,
+      "comparison": "SAFE_PRUNING_MINUS_PERMISSIVE_GATED",
+      "confirmed_metric_count": 8,
+      "may_report_exact_frozen_means_differences_percent_changes_CIs_and_Holm_p_values": true,
+      "metric_count": 8,
+      "metric_ids": [
+        "full_backend_execution_count",
+        "backend_request_count_including_gate_probes",
+        "client_wall_ms",
+        "sqlserver_cpu_usage_usec_delta",
+        "sqlserver_io_rbytes_delta",
+        "sqlserver_io_wbytes_delta",
+        "response_bytes",
+        "time_to_analytical_objective_completion_ms"
+      ],
+      "must_report_as_metric_specific_replication": true,
+      "new_global_system_benefit_claim_authorized": false
+    },
+    "secondary_break_even": {
+      "authorized_for_descriptive_reporting": true,
+      "confirmatory_claim_authorized": false,
+      "confirmatory_p_value_authorized": false,
+      "must_be_labeled_descriptive": true
+    },
+    "xmla_specific_resource_diagnostics": {
+      "authorized_for_descriptive_reporting": true,
+      "confirmatory_claim_authorized": false,
+      "confirmatory_p_values_authorized": false,
+      "must_be_labeled_descriptive": true
+    }
+  },
+  "D17_authorized_source": {
+    "must_not_recompute_confidence_intervals": true,
+    "must_not_recompute_effects": true,
+    "must_not_recompute_p_values": true,
+    "must_not_reexecute_measurement": true,
+    "must_use_exact_D15_frozen_interpretation": true
+  },
+  "D17_repository_mutation_boundary": {
+    "D16_does_not_authorize_article_mutation_itself": true,
+    "D17_must_authenticate_target_git_bytes_before_mutation": true,
+    "D17_must_not_modify_D9_D12_D15_frozen_evidence": true,
+    "D17_must_not_modify_frozen_execution_or_inference_implementation": true,
+    "D17_must_preserve_historical_experimental_artifacts": true,
+    "D17_must_publish_separate_integration_evidence": true,
+    "D17_must_separately_resolve_exact_article_target_before_mutation": true
+  },
+  "authority": {
+    "D13_authorization_sha256": "ae617ddce326f960665f85d04094955639bbc0c88886acb3e45f7f39f6369e98",
+    "D14_console_final_sha256": "d9c500c91652b6742eca7293dd94d6d42f921dbdc8cc24abd2f3167f0815bf3e",
+    "D14_execution_receipt_sha256": "d7a524eed9ca870776b86cde48a1a685cac0e3a1de9a7bb0b6ffd5958311b919",
+    "D14_result_interpretation_json_sha256": "b84b0de9420a7ae36e97cb20a4945a2ae4c03e827003bea807ff9d85d8efd759",
+    "D14_result_interpretation_md_sha256": "5946ef010189e6bdd0dc51389a682b87648e6494ce1bfb9d76c9781055db8fda",
+    "D15_evidence_path": "reports/article_experiments/nh_r3_end_to_end_resource_benchmark/evidence/r3_e14_d15_frozen_result_interpretation_freeze",
+    "D15_freeze_manifest_sha256": "8b5ecd5f72358a145b3a7fd9723744cfc60801f4dcb8f6ca2c8c648011be51a1",
+    "D15_sha256s_sha256": "607384e4983b58995a4d3dbebf4871e92302c3ea46842edd21b0312651bbfb85",
+    "D15_source_byte_manifest_sha256": "44a9aee9f7478017ab1bd742353d4659def1888d708bcef89bda9c05825d66bd"
+  },
+  "classification": "ARTICLE_CLAIM_INTEGRATION_AUTHORIZED_FOR_LATER_D17_ONLY",
+  "contract_version": "mcad.nh_r3.e14.d16.article_claim_integration_authorization.v1",
+  "created_utc": "2026-09-03T19:17:50.994762Z",
+  "current_D16_boundary": {
+    "article_claim_integration_executed": false,
+    "article_source_mutated": false,
+    "article_source_read_for_integration": false,
+    "confidence_interval_recomputation_executed": false,
+    "cross_backend_synthesis_executed": false,
+    "effect_recomputation_executed": false,
+    "measurement_reexecution_executed": false,
+    "new_claim_assignment_executed": false,
+    "new_result_interpretation_executed": false,
+    "p_value_recomputation_executed": false
+  },
+  "next": "R3-E14-D17_RESOLVE_EXACT_ARTICLE_TARGET_AND_INTEGRATE_D15_FROZEN_XMLA_CLAIMS_WITH_SEPARATE_EVIDENCE",
+  "parent_D15_head": "2512408cc5b61dba4eb3eade6f09c7f1876c33fb",
+  "post_D16_boundary": {
+    "D17_article_claim_integration_authorized": true,
+    "D17_exact_article_target_resolution_required": true,
+    "cross_backend_synthesis_still_requires_separate_authorization": true,
+    "scientific_final_freeze_authorized": false
+  },
+  "strictly_forbidden_claims": {
+    "backend_equivalence_claim": true,
+    "confirmatory_claim_for_secondary_break_even": true,
+    "confirmatory_claim_for_xmla_resource_diagnostics": true,
+    "cross_backend_effect_difference_test": true,
+    "cross_backend_synthesis": true,
+    "effect_homogeneity_claim": true,
+    "new_global_system_benefit_claim": true
+  }
+}
