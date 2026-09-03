@@ -1,0 +1,64 @@
+{
+  "archives": {
+    "all_1800_archive_member_hashes_verified_against_original": true,
+    "arm_archive_member_count": 900,
+    "arm_archive_part_count": 1,
+    "candidate_trace_archive_member_count": 900,
+    "candidate_trace_archive_part_count": 1,
+    "corrected_tar_shape": "tar --null --no-recursion --mtime=@0 --owner=0 --group=0 --numeric-owner -cf - -T -",
+    "format": "deterministic tar + gzip -n -9 + lexical 40MiB split",
+    "total_archive_bytes": 792835
+  },
+  "authorization": {
+    "d9_base_authorization_commit": "f1ef19698113dd4e600a60cce4b9dfc8137b7f1e",
+    "d9_base_authorization_sha256": "f7ad79ac52c388fa1bb891a6b58513db5c7f8ec0bf6cb2fde1fd079b25ef641e",
+    "d9_r1_recovery_authorization_commit": "a664ecbd8f6d351b7d55b694b295982c3fe9ca39",
+    "d9_r1_recovery_authorization_sha256": "0343caeb673b448b3de8fcecf293f39751ad8ce429853455d01622522657b4dd",
+    "d9_r2a_tar_failure_audit_sha256": "26d090c390c2e335193651081d3f1bda4c1f571e971a82d7f10a0b6960b84bb6",
+    "d9_r2b_recovery_authorization_commit": "c4b731eea42ed89b24eb8f074566d69f832222d2",
+    "d9_r2b_recovery_authorization_sha256": "a563222c5a3dca3ee42d5a4b31644e098090934db946ff55ce786253f1f89521"
+  },
+  "classification": "PASS_RAW_MEASURED_EVIDENCE_FROZEN_NO_EFFECT_ANALYSIS",
+  "contract_version": "mcad.nh_r3.e14.d9.raw_measured_evidence_freeze.v1",
+  "created_utc": "2026-09-03T13:55:01.853923Z",
+  "mechanical_completion": {
+    "archive_member_hashes_verified": 1800,
+    "arm_receipts": 900,
+    "candidate_traces": 900,
+    "raw_source_manifest_entries": 1801,
+    "replacement_attempt_consumed": true
+  },
+  "next": "R3-E14-D10_SEPARATE_INFERENCE_AUTHORIZATION_BEFORE_ANY_EFFECT_ANALYSIS",
+  "recovery_provenance": {
+    "corrected_tar_order": true,
+    "r0_failure": "OVERESCAPED_MECHANICAL_ORDINAL_REGEX",
+    "r1_failure": "GNU_TAR_POSITIONAL_OPTION_ORDER_BUG",
+    "r1_partial_archive_reused": false,
+    "r1_partial_staging_preserved": true,
+    "r2b_fresh_staging_used": true
+  },
+  "repository_boundary": {
+    "existing_config_files_modified": false,
+    "historical_artifacts_modified": false,
+    "implementation_files_modified": false,
+    "new_d9_evidence_directory_only": true
+  },
+  "run_id": "r3e_e14_d8_a3_replacement_primary300_20260903T105543Z",
+  "scientific_boundary": {
+    "cross_arm_comparison_executed": false,
+    "effect_analysis_executed": false,
+    "interim_effect_look_executed": false,
+    "measurement_reexecuted": false,
+    "raw_measured_evidence_frozen": true,
+    "scientific_inference_executed": false,
+    "separate_D10_inference_authorization_required": true
+  },
+  "source_authentication": {
+    "compose_binding_receipt_sha256": "dff39d0689bc43bfaa65c78219154f6992fd94d720fab44f888d33a4bf47a443",
+    "console_log_sha256": "75b0d17e319234650d2b60cbef2acb13e79394de699979bc3110d20381f03c00",
+    "execution_receipt_sha256": "9cedcb6e3cc2273d89a9cb966084c0086a9273a32d75b7a2ab7719f320fbfb12",
+    "pre_execution_quota_receipt_sha256": "4e736350fde686f04ad423a6175ca5ca4684ad308deb313dd41af6640bbd748b",
+    "primary_summary_sha256": "870c38e71a890ac7017851969942d7e1a9a5016922cf5735e4ae929afe994308",
+    "raw_source_sha256s_sha256": "686b9681005e192e4e9a07e3bf791484c1dc1cd3630de921f56f65c766ad8cf8"
+  }
+}

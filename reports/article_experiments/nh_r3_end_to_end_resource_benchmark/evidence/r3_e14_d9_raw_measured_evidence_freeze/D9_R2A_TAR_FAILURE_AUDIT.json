@@ -1,0 +1,81 @@
+{
+  "classification": "PASS_R1_FAILURE_CLASSIFIED_GNU_TAR_POSITIONAL_OPTION_ORDER_BUG",
+  "contract_version": "mcad.nh_r3.e14.d9_r2a.tar_failure_readonly_audit.v1",
+  "corrected_tar_contract": {
+    "canary_pass": true,
+    "shape": "tar --null --no-recursion --mtime=@0 --owner=0 --group=0 --numeric-owner -cf - -T -"
+  },
+  "created_utc": "2026-09-03T13:46:26.840662Z",
+  "failed_recovery": {
+    "effect_analysis_executed": false,
+    "failed_script_sha256": "bd6d4db64e77ad4dccc1db04fc1d5cf65773adb2951a6acab2b66cde48de9215",
+    "failure": "GNU tar positional option ordering: --no-recursion placed after -T -",
+    "freeze_commit_created": false,
+    "freeze_pushed": false,
+    "measurement_reexecution_executed": false,
+    "recovery_authorization_commit": "a664ecbd8f6d351b7d55b694b295982c3fe9ca39",
+    "recovery_authorization_sha256": "0343caeb673b448b3de8fcecf293f39751ad8ce429853455d01622522657b4dd",
+    "scientific_inference_executed": false
+  },
+  "next": "D9-R2B_SEPARATE_RECOVERY_AUTHORIZATION_THEN_FRESH_STAGING_REBUILD_WITH_CORRECTED_TAR_ORDER",
+  "repo_head": "a664ecbd8f6d351b7d55b694b295982c3fe9ca39",
+  "scientific_boundary": {
+    "cross_arm_comparison_executed": false,
+    "effect_analysis_executed": false,
+    "interim_effect_look_executed": false,
+    "raw_scientific_values_interpreted": false,
+    "scientific_inference_executed": false
+  },
+  "staging": {
+    "arm_partial_archive_part_count": 1,
+    "candidate_trace_archive_part_count": 0,
+    "delete_or_overwrite_authorized_by_this_audit": false,
+    "file_count": 8,
+    "files": [
+      {
+        "bytes": 70581,
+        "name": "ARM_RUNS.tar.gz.part-000",
+        "sha256": "bb7722476f2e4f0183fb0bcca6ed89b7107098ec53024ae04b64685912fbd25a"
+      },
+      {
+        "bytes": 1276,
+        "name": "D8_A3_COMPOSE_BINDING_RECEIPT.json",
+        "sha256": "dff39d0689bc43bfaa65c78219154f6992fd94d720fab44f888d33a4bf47a443"
+      },
+      {
+        "bytes": 210903,
+        "name": "D8_A3_CONSOLE.log",
+        "sha256": "75b0d17e319234650d2b60cbef2acb13e79394de699979bc3110d20381f03c00"
+      },
+      {
+        "bytes": 2280,
+        "name": "D8_A3_EXECUTION_RECEIPT.json",
+        "sha256": "9cedcb6e3cc2273d89a9cb966084c0086a9273a32d75b7a2ab7719f320fbfb12"
+      },
+      {
+        "bytes": 1462,
+        "name": "D8_A3_PRE_EXECUTION_QUOTA.json",
+        "sha256": "4e736350fde686f04ad423a6175ca5ca4684ad308deb313dd41af6640bbd748b"
+      },
+      {
+        "bytes": 1934875,
+        "name": "D8_A3_PRIMARY_SUMMARY.json",
+        "sha256": "870c38e71a890ac7017851969942d7e1a9a5016922cf5735e4ae929afe994308"
+      },
+      {
+        "bytes": 1107,
+        "name": "D9_R0_VALIDATOR_INCIDENT.json",
+        "sha256": "87971db49036d2152f955baa3c88a0fc70625e2905f238621a8c0586a75d26e5"
+      },
+      {
+        "bytes": 246151,
+        "name": "RAW_SOURCE_SHA256SUMS",
+        "sha256": "686b9681005e192e4e9a07e3bf791484c1dc1cd3630de921f56f65c766ad8cf8"
+      }
+    ],
+    "path": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/r3_e14_d9_r1_raw_measured_evidence_freeze_staging",
+    "preserved": true,
+    "raw_source_sha256_line_count": 1801,
+    "reuse_partial_archive_authorized": false
+  }
+}
