@@ -1,0 +1,51 @@
+{
+  "P6_audit_attempt_count_expected_before_and_after": 0,
+  "P6_audit_authority_consumed_expected_before_and_after": false,
+  "P7_authorized": false,
+  "authorized_future_action": {
+    "P6_audit_execution_authorized": false,
+    "apt_install_authorized": false,
+    "apt_update_authorized": true,
+    "article_compile_authorized": false,
+    "article_source_mutation_authorized": false,
+    "attempt_cardinality": 1,
+    "authorized": true,
+    "autoremove_authorized": false,
+    "dist_upgrade_authorized": false,
+    "exact_command": [
+      "sudo",
+      "apt-get",
+      "update"
+    ],
+    "historical_experiment_regeneration_authorized": false,
+    "measurement_reexecution_authorized": false,
+    "network_access_authorized_only_for_this_command": true,
+    "package_install_authorized": false,
+    "package_upgrade_authorized": false,
+    "pdf_render_authorized": false,
+    "pdf_text_reextraction_authorized": false,
+    "repository_mutation_authorized": false,
+    "working_release_mutation_authorized": false
+  },
+  "classification": "AUTHORIZE_ONE_APT_GET_UPDATE_ONLY_FOR_P6_POPPLER_CANDIDATE_DISCOVERY",
+  "contract_version": "mcad.post_a8.p6_a2_a0.apt_update_authorization.v1",
+  "created_utc": "2026-09-04T22:14:56.881431Z",
+  "parent_commit": "57f60d77039ee2139559c3582f0484a693bd10b9",
+  "recovery_basis": {
+    "P6_A1_R1_audit_sha256": "fa6436123885820c005e40c79e8f91c12532c2d920761bc5dff2d1610d3d45d7",
+    "P6_A1_R1_receipt_sha256": "ad891839576424f01432cfce00ada7c5b72434e83f2f0fffdc67b5468e078e26",
+    "apt_sources_configured": true,
+    "local_package_indexes_absent": true,
+    "pdftoppm_absent": true,
+    "poppler_utils_not_installed": true,
+    "toolchain_classification": "PDFTOPPM_ABSENT_POPPLER_UTILS_NOT_INSTALLED_APT_SOURCES_CONFIGURED_BUT_LOCAL_PACKAGE_INDEXES_ABSENT_FRESH_APT_UPDATE_AUTHORIZATION_REQUIRED_BEFORE_VERSION_PIN"
+  },
+  "required_post_update_state": {
+    "P6_authority_must_remain_unconsumed": true,
+    "discover_poppler_utils_candidate_in_separate_readonly_station": true,
+    "exact_version_pin_required_before_install_authorization": true,
+    "install_must_not_occur_in_update_station": true
+  },
+  "scientific_final_freeze_authorized": false,
+  "working_release_git_tree": "5204d6c6b525cdc4d3c06a6d2783c201315ed89f"
+}
