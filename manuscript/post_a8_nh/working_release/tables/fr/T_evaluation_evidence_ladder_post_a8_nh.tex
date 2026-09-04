@@ -13,7 +13,7 @@ Historique & Q1--Q6, FoodMart, multi-entrepôts, parité backend, robustesse, sc
 NH-R2 & SAFE vs politique strictement immédiate dans des scénarios multi-requêtes contrôlés & Contribution différée, préservation de complétion dans le périmètre gelé, borne contre la règle ``non contributif maintenant = dispensable'' & Universalité sur toute session, tout objectif ou tout mapping d'évidence \\
 R3-C & \texttt{SAFE\_PRUNING} vs \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} & Test pratique de break-even; 40/40 sessions observées plus lentes sous SAFE dans ce protocole & Claim que SAFE est universellement plus rapide que l'exécution admissible non instrumentée \\
 R3-D & \texttt{SAFE\_PRUNING} vs \texttt{PERMISSIVE\_GATED}, SQL Server Direct & Confirmation endpoint-spécifique sur 300 sessions / 900 bras, 8 endpoints primaires, correction de Holm & Bénéfice système global indivisible, confirmation des I/O non significatives, réplication XMLA \\
-R3-E & XMLA/eMondrian, checkpoint statique E8 & Préparation reproductible de la future réplication backend & Toute mesure, inférence, effet confirmatoire ou équivalence avec R3-D avant récupération du bundle et revalidation E2 \\
+R3-E14 & \texttt{SAFE\_PRUNING} vs \texttt{PERMISSIVE\_GATED}, XMLA/eMondrian & Réplication secondaire mesurée sur 300 sessions / 900 bras; 8/8 endpoints primaires confirmés avec correction de Holm & Équivalence backend, homogénéité d'effet, synthèse cross-backend, bénéfice système global ou promotion confirmatoire de SAFE vs UNGATED \\
 \bottomrule
 \end{tabularx}
 \end{table*}

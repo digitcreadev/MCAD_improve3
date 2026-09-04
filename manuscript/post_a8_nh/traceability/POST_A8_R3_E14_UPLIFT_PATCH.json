@@ -1,0 +1,90 @@
+{
+  "P1_A1_amendment_path": "manuscript/post_a8_nh/specs/POST_A8_R3_E14_P1_A1_TRACE_SELF_DIGEST_AMENDMENT_20260904.json",
+  "P1_authorization_path": "manuscript/post_a8_nh/specs/POST_A8_R3_E14_UPLIFT_AUTHORIZATION_20260904.json",
+  "changed_file_contract": {
+    "added_file_count": 2,
+    "added_files": [
+      "manuscript/post_a8_nh/working_release/tables/fr/T_r3e_primary_endpoints_post_a8_nh.tex",
+      "manuscript/post_a8_nh/traceability/POST_A8_R3_E14_UPLIFT_PATCH.json"
+    ],
+    "modified_existing_file_count": 4,
+    "modified_existing_files": [
+      "manuscript/post_a8_nh/working_release/manuscript/fr/MCAD_FR_POST_A8_NH.tex",
+      "manuscript/post_a8_nh/working_release/tables/fr/T_evaluation_evidence_ladder_post_a8_nh.tex",
+      "manuscript/post_a8_nh/working_release/tables/fr/T_prototype_formal_coverage_post_a8_nh.tex",
+      "manuscript/post_a8_nh/working_release/supplement/fr/S_foodmart_formalization_post_a8_nh.tex"
+    ],
+    "total_changed_file_count": 6
+  },
+  "claim_boundaries": {
+    "R3D_SQL_Direct_confirmed_endpoint_count": 6,
+    "R3E14_XMLA_confirmed_endpoint_count": 8,
+    "SAFE_vs_UNGATED_XMLA_confirmatory_claim": false,
+    "backend_equivalence_claim": false,
+    "cross_backend_effect_difference_test": false,
+    "cross_backend_synthesis": false,
+    "effect_homogeneity_claim": false,
+    "human_decision_quality_improvement_claim": false,
+    "new_global_system_benefit_claim": false
+  },
+  "classification": "POST_A8_R3_E14_UPLIFT_APPLIED_NO_COMPILE",
+  "contract_version": "mcad.post_a8.p2.r3_e14_uplift_trace.v1",
+  "created_utc": "2026-09-04T12:50:30.456583Z",
+  "execution_boundary": {
+    "R3D_table_mutated": false,
+    "article_compile_executed": false,
+    "bibliography_mutated": false,
+    "build_harness_mutated": false,
+    "confidence_interval_recomputation_executed": false,
+    "effect_recomputation_executed": false,
+    "figures_mutated": false,
+    "measurement_reexecution_executed": false,
+    "p_value_recomputation_executed": false
+  },
+  "execution_parent_commit": "b2c1db7a20649164232b8619f184e33e4ccfa961",
+  "frozen_scientific_authority": {
+    "D15_recomputation_performed": false,
+    "arm_runs": 900,
+    "cross_backend_synthesis_authorized": false,
+    "new_global_system_benefit_claim_authorized": false,
+    "primary_metric_count": 8,
+    "primary_metric_specific_confirmed_count": 8,
+    "sessions": 300
+  },
+  "modified_existing_file_hashes": {
+    "manuscript/post_a8_nh/working_release/manuscript/fr/MCAD_FR_POST_A8_NH.tex": {
+      "post_bytes": 82106,
+      "post_sha256": "449d0b608214ae99a259ed6fc9e75a1d25ec00f0c825879666e2d9f019389849",
+      "pre_bytes": 80847,
+      "pre_sha256": "9cff413f21d74de13c4514d7182d303c9a3a545600a1c1c31e7be5340a84348c"
+    },
+    "manuscript/post_a8_nh/working_release/supplement/fr/S_foodmart_formalization_post_a8_nh.tex": {
+      "post_bytes": 5157,
+      "post_sha256": "c62fa1b156f4388cd583941dd2af69cef48465643ad7e24e31d707642ab0bf06",
+      "pre_bytes": 5024,
+      "pre_sha256": "2b869296befc5fdd29d3386a5f29ac59e51c428b28cb904caa5d3e9d7ce298ae"
+    },
+    "manuscript/post_a8_nh/working_release/tables/fr/T_evaluation_evidence_ladder_post_a8_nh.tex": {
+      "post_bytes": 2003,
+      "post_sha256": "15943121d0efd52e3d45426cf68fab43b5c516e357a5aa75d7f1c4be622943c1",
+      "pre_bytes": 1889,
+      "pre_sha256": "56981c1d6a968740112d8d2899cfdb71e35fe293d2b7a105ac78c5052b8f8a0b"
+    },
+    "manuscript/post_a8_nh/working_release/tables/fr/T_prototype_formal_coverage_post_a8_nh.tex": {
+      "post_bytes": 2778,
+      "post_sha256": "160312ae819c1dd42fc35acf0d75bdc827639b8015e91dda89f23aa43192f828",
+      "pre_bytes": 2732,
+      "pre_sha256": "d8f1b580b848c00a2d1a45f743a624cb86b481d9092b365e661271a35d7bb2c9"
+    }
+  },
+  "new_R3E_table": {
+    "all_rows_confirmed": true,
+    "comparison": "SAFE_PRUNING_MINUS_PERMISSIVE_GATED",
+    "path": "manuscript/post_a8_nh/working_release/tables/fr/T_r3e_primary_endpoints_post_a8_nh.tex",
+    "row_count": 8,
+    "sha256": "5cad0b3821c71c6b8312d526a94395c9c006ca759e3669e8219b4512642acda6"
+  },
+  "self_payload_sha256": "71105a4d51882854d785ec4081ff92140c897fec8767b75611d2acc98b563e10",
+  "self_payload_sha256_definition": "SHA256 of canonical UTF-8 JSON payload before adding self_payload_sha256 and self_payload_sha256_definition",
+  "source_preimage_head": "069cb0f396f902563085398a6661d158971a0081"
+}

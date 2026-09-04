@@ -1,0 +1,22 @@
+\begin{table*}[!t]
+\centering
+\caption{R3-E14 XMLA/eMondrian : endpoints primaires de la comparaison \texttt{SAFE\_PRUNING} $-$ \texttt{PERMISSIVE\_GATED}. Les huit endpoints sont préspécifiés \emph{lower-is-better}; les valeurs sont les différences moyennes gelées et les $p$ ajustés de Holm.}
+\label{tab:r3e14-primary-endpoints}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}X r r l@{}}
+\toprule
+Endpoint primaire & Différence moyenne & $p_{\mathrm{Holm}}$ & Statut \\
+\midrule
+Exécutions backend complètes & \texttt{-16.2} & \texttt{7.9999200008e-05} & Confirmé \\
+Requêtes backend, probes inclus & \texttt{-16.2} & \texttt{7.9999200008e-05} & Confirmé \\
+Temps client (ms) & \texttt{-2493.66708613} & \texttt{7.9999200008e-05} & Confirmé \\
+CPU SQL Server ($\mu$s) & \texttt{-2057148.76} & \texttt{7.9999200008e-05} & Confirmé \\
+Lectures I/O SQL Server (octets) & \texttt{-237158.4} & \texttt{7.9999200008e-05} & Confirmé \\
+Écritures I/O SQL Server (octets) & \texttt{-530005.333333} & \texttt{7.9999200008e-05} & Confirmé \\
+Octets de réponse & \texttt{-584672.966667} & \texttt{7.9999200008e-05} & Confirmé \\
+Temps jusqu'à complétion analytique (ms) & \texttt{-520.288297013} & \texttt{7.9999200008e-05} & Confirmé \\
+\bottomrule
+\end{tabularx}
+\end{table*}
