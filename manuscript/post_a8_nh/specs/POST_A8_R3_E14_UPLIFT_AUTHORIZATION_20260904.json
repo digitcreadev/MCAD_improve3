@@ -1,0 +1,377 @@
+{
+  "authorized_E14_frozen_content": {
+    "arm_run_count": 900,
+    "comparison": "SAFE_PRUNING_MINUS_PERMISSIVE_GATED",
+    "may_report_exact_frozen_means_differences_percent_changes_CIs_and_Holm_p_values": true,
+    "must_report_as_metric_specific_secondary_backend_replication": true,
+    "new_global_system_benefit_claim_authorized": false,
+    "post_A8_R3E_table_rows": [
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Exécutions backend complètes",
+        "mean_diff": "-16.2",
+        "metric": "full_backend_execution_count",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Requêtes backend, probes inclus",
+        "mean_diff": "-16.2",
+        "metric": "backend_request_count_including_gate_probes",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Temps client (ms)",
+        "mean_diff": "-2493.66708613",
+        "metric": "client_wall_ms",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "CPU SQL Server (µs)",
+        "mean_diff": "-2057148.76",
+        "metric": "sqlserver_cpu_usage_usec_delta",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Lectures I/O SQL Server (octets)",
+        "mean_diff": "-237158.4",
+        "metric": "sqlserver_io_rbytes_delta",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Écritures I/O SQL Server (octets)",
+        "mean_diff": "-530005.333333",
+        "metric": "sqlserver_io_wbytes_delta",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Octets de réponse",
+        "mean_diff": "-584672.966667",
+        "metric": "response_bytes",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Temps jusqu'à complétion analytique (ms)",
+        "mean_diff": "-520.288297013",
+        "metric": "time_to_analytical_objective_completion_ms",
+        "status_fr": "Confirmé"
+      }
+    ],
+    "primary_metric_count": 8,
+    "primary_metric_specific_confirmed_count": 8,
+    "primary_rows_exact": [
+      {
+        "ci95": "[-16.3066666667,-16.0933333333]",
+        "holm_p": "7.9999200008e-05",
+        "mean_diff": "-16.2",
+        "mean_permissive": "21.6",
+        "mean_safe": "5.4",
+        "metric": "full_backend_execution_count",
+        "pct_change": "-75",
+        "status": "CONFIRMED_METRIC_SPECIFIC_REPLICATION"
+      },
+      {
+        "ci95": "[-16.3066666667,-16.09]",
+        "holm_p": "7.9999200008e-05",
+        "mean_diff": "-16.2",
+        "mean_permissive": "27.6966666667",
+        "mean_safe": "11.4966666667",
+        "metric": "backend_request_count_including_gate_probes",
+        "pct_change": "-58.4907931159",
+        "status": "CONFIRMED_METRIC_SPECIFIC_REPLICATION"
+      },
+      {
+        "ci95": "[-2519.14638305,-2469.5754365]",
+        "holm_p": "7.9999200008e-05",
+        "mean_diff": "-2493.66708613",
+        "mean_permissive": "5484.80662523",
+        "mean_safe": "2991.1395391",
+        "metric": "client_wall_ms",
+        "pct_change": "-45.4649955143",
+        "status": "CONFIRMED_METRIC_SPECIFIC_REPLICATION"
+      },
+      {
+        "ci95": "[-2073075.16008,-2041404.65108]",
+        "holm_p": "7.9999200008e-05",
+        "mean_diff": "-2057148.76",
+        "mean_permissive": "3112025.15667",
+        "mean_safe": "1054876.39667",
+        "metric": "sqlserver_cpu_usage_usec_delta",
+        "pct_change": "-66.1032175654",
+        "status": "CONFIRMED_METRIC_SPECIFIC_REPLICATION"
+      },
+      {
+        "ci95": "[-276957.866667,-193754.112]",
+        "holm_p": "7.9999200008e-05",
+        "mean_diff": "-237158.4",
+        "mean_permissive": "416358.4",
+        "mean_safe": "179200",
+        "metric": "sqlserver_io_rbytes_delta",
+        "pct_change": "-56.9601574029",
+        "status": "CONFIRMED_METRIC_SPECIFIC_REPLICATION"
+      },
+      {
+        "ci95": "[-841742.037333,-23389.0133333]",
+        "holm_p": "7.9999200008e-05",
+        "mean_diff": "-530005.333333",
+        "mean_permissive": "1223191.89333",
+        "mean_safe": "693186.56",
+        "metric": "sqlserver_io_wbytes_delta",
+        "pct_change": "-43.3296963642",
+        "status": "CONFIRMED_METRIC_SPECIFIC_REPLICATION"
+      },
+      {
+        "ci95": "[-588492.829167,-580817.67225]",
+        "holm_p": "7.9999200008e-05",
+        "mean_diff": "-584672.966667",
+        "mean_permissive": "810012.513333",
+        "mean_safe": "225339.546667",
+        "metric": "response_bytes",
+        "pct_change": "-72.1807326483",
+        "status": "CONFIRMED_METRIC_SPECIFIC_REPLICATION"
+      },
+      {
+        "ci95": "[-563.934413621,-477.241027867]",
+        "holm_p": "7.9999200008e-05",
+        "mean_diff": "-520.288297013",
+        "mean_permissive": "2098.16437876",
+        "mean_safe": "1577.87608175",
+        "metric": "time_to_analytical_objective_completion_ms",
+        "pct_change": "-24.7973086513",
+        "status": "CONFIRMED_METRIC_SPECIFIC_REPLICATION"
+      }
+    ],
+    "secondary_SAFE_vs_UNGATED": {
+      "authorized_for_descriptive_reporting": true,
+      "confirmatory_claim_authorized": false,
+      "confirmatory_p_value_authorized": false,
+      "must_be_labeled_descriptive": true
+    },
+    "session_count": 300,
+    "xmla_specific_resource_diagnostics": {
+      "authorized_for_descriptive_reporting": true,
+      "confirmatory_claim_authorized": false,
+      "confirmatory_p_values_authorized": false,
+      "must_be_labeled_descriptive": true
+    }
+  },
+  "authorized_P2_scope": {
+    "A8_parent_mutation_authorized": false,
+    "added_files": [
+      "manuscript/post_a8_nh/working_release/tables/fr/T_r3e_primary_endpoints_post_a8_nh.tex",
+      "manuscript/post_a8_nh/traceability/POST_A8_R3_E14_UPLIFT_PATCH.json"
+    ],
+    "article_compile_authorized": false,
+    "attempt_cardinality": 1,
+    "authorized": true,
+    "bibliography_mutation_authorized": false,
+    "build_harness_mutation_authorized": false,
+    "exact_added_file_count": 2,
+    "exact_modified_existing_file_count": 4,
+    "exact_total_changed_file_count": 6,
+    "figure_mutation_authorized": false,
+    "forbidden_existing_files": [
+      "manuscript/post_a8_nh/working_release/tables/fr/T_r3d_primary_endpoints_post_a8_nh.tex",
+      "manuscript/post_a8_nh/working_release/BUILD_POST_A8_NH.sh"
+    ],
+    "git_commit_authorized": true,
+    "git_push_authorized": true,
+    "modified_existing_files": [
+      "manuscript/post_a8_nh/working_release/manuscript/fr/MCAD_FR_POST_A8_NH.tex",
+      "manuscript/post_a8_nh/working_release/tables/fr/T_evaluation_evidence_ladder_post_a8_nh.tex",
+      "manuscript/post_a8_nh/working_release/tables/fr/T_prototype_formal_coverage_post_a8_nh.tex",
+      "manuscript/post_a8_nh/working_release/supplement/fr/S_foodmart_formalization_post_a8_nh.tex"
+    ]
+  },
+  "classification": "AUTHORIZED_TARGETED_POST_A8_E8_TO_E14_UPLIFT_ON_NEW_DESCENDANT_BRANCH_NO_COMPILE",
+  "contract_version": "mcad.post_a8.p1.r3_e14_uplift_authorization.v1",
+  "created_utc": "2026-09-04T11:13:38.828111Z",
+  "editorial_lineage": {
+    "immutable_parent_branch": "paper/nh-manuscript-post-a8-delta0d-20260827",
+    "immutable_parent_head": "069cb0f396f902563085398a6661d158971a0081",
+    "legacy_A3_cherry_pick_authorized": false,
+    "legacy_D17_cherry_pick_authorized": false,
+    "legacy_MCAD_audited_real_main_fr_as_target": false,
+    "new_descendant_branch": "paper/post-a8-r3-e14-uplift-20260904T105200Z"
+  },
+  "next": "POST_A8_P2_APPLY_EXACT_R3_E14_UPLIFT_COMMIT_PUSH_NO_COMPILE",
+  "post_P2_boundary": {
+    "P3_post_A8_build_authorization_required": true,
+    "R3_F_cross_backend_synthesis_required_for_current_manuscript_freeze": false,
+    "scientific_final_freeze_authorized": false
+  },
+  "required_P2_semantic_uplift": {
+    "DAX_claim_must_remain_unvalidated_future_extension": true,
+    "FoodMart_supplement_must_not_claim_R3E_still_pending": true,
+    "R3E_subsection_must_input_new_R3E_primary_endpoint_table": true,
+    "R3E_subsection_must_report_300_sessions_900_arm_runs": true,
+    "abstract_must_report_XMLA_8_of_8_metric_specific_replication": true,
+    "conclusion_must_report_R3E14_as_completed_secondary_replication": true,
+    "discussion_must_remove_R3E_as_pending_future_work": true,
+    "evaluation_ladder_R3E_row_must_become_measured_E14_replication": true,
+    "human_decision_quality_claim_must_remain_absent": true,
+    "industrial_concurrency_claim_must_remain_unconfirmed": true,
+    "integrated_interpretation_must_keep_SQL_6_of_8_and_XMLA_8_of_8_separate": true,
+    "preserve_R3C_break_even_negative_boundary": true,
+    "preserve_R3D_SQL_Direct_6_of_8_endpoint_specific_result": true,
+    "prototype_coverage_XMLA_execution_row_must_become_measured_E14": true,
+    "replace_active_R3E_E8_pending_claims_in_authorized_four_files": true
+  },
+  "required_P2_traceability": {
+    "must_record_P1_authorization_path": "manuscript/post_a8_nh/specs/POST_A8_R3_E14_UPLIFT_AUTHORIZATION_20260904.json",
+    "must_record_article_compile_executed_false": true,
+    "must_record_effect_pvalue_CI_recomputation_false": true,
+    "must_record_exact_changed_file_count": 6,
+    "must_record_measurement_reexecution_executed_false": true,
+    "must_record_parent_head": "069cb0f396f902563085398a6661d158971a0081",
+    "must_record_pre_and_post_sha256_for_all_four_modified_existing_files": true,
+    "must_record_sha256_for_two_added_files": true,
+    "path": "manuscript/post_a8_nh/traceability/POST_A8_R3_E14_UPLIFT_PATCH.json"
+  },
+  "required_P2_validation": {
+    "must_authenticate_all_source_preimages": true,
+    "must_authenticate_exact_parent_head": "069cb0f396f902563085398a6661d158971a0081",
+    "must_commit_and_push_exact_source_uplift_before_any_build_authorization": true,
+    "must_not_compile": true,
+    "must_not_recompute_effects_pvalues_or_CIs": true,
+    "must_not_reexecute_measurements": true,
+    "must_require_R3D_table_byte_preserved": true,
+    "must_require_build_harness_byte_preserved": true,
+    "must_require_changed_file_scope_exactly_authorized_six": true,
+    "must_require_new_table_exact_8_rows_all_confirmed": true,
+    "must_require_no_active_claim_that_R3E_is_unmeasured_or_pending_in_the_four_authorized_files": true,
+    "must_require_no_bibliography_or_figure_changes": true,
+    "must_require_no_forbidden_claim_string_or_semantic_assignment": true,
+    "must_return_full_output_before_P3_build_authorization": true
+  },
+  "required_new_R3E_table_contract": {
+    "caption_scope": "R3-E14 XMLA/eMondrian, SAFE_PRUNING - PERMISSIVE_GATED, 8 lower-is-better primary endpoints",
+    "columns": [
+      "Endpoint primaire",
+      "Différence moyenne",
+      "p_Holm",
+      "Statut"
+    ],
+    "label": "tab:r3e14-primary-endpoints",
+    "no_cross_backend_column": true,
+    "no_global_composite_row": true,
+    "path": "manuscript/post_a8_nh/working_release/tables/fr/T_r3e_primary_endpoints_post_a8_nh.tex",
+    "row_order": [
+      "full_backend_execution_count",
+      "backend_request_count_including_gate_probes",
+      "client_wall_ms",
+      "sqlserver_cpu_usage_usec_delta",
+      "sqlserver_io_rbytes_delta",
+      "sqlserver_io_wbytes_delta",
+      "response_bytes",
+      "time_to_analytical_objective_completion_ms"
+    ],
+    "rows": [
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Exécutions backend complètes",
+        "mean_diff": "-16.2",
+        "metric": "full_backend_execution_count",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Requêtes backend, probes inclus",
+        "mean_diff": "-16.2",
+        "metric": "backend_request_count_including_gate_probes",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Temps client (ms)",
+        "mean_diff": "-2493.66708613",
+        "metric": "client_wall_ms",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "CPU SQL Server (µs)",
+        "mean_diff": "-2057148.76",
+        "metric": "sqlserver_cpu_usage_usec_delta",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Lectures I/O SQL Server (octets)",
+        "mean_diff": "-237158.4",
+        "metric": "sqlserver_io_rbytes_delta",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Écritures I/O SQL Server (octets)",
+        "mean_diff": "-530005.333333",
+        "metric": "sqlserver_io_wbytes_delta",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Octets de réponse",
+        "mean_diff": "-584672.966667",
+        "metric": "response_bytes",
+        "status_fr": "Confirmé"
+      },
+      {
+        "holm_p": "7.9999200008e-05",
+        "label_fr": "Temps jusqu'à complétion analytique (ms)",
+        "mean_diff": "-520.288297013",
+        "metric": "time_to_analytical_objective_completion_ms",
+        "status_fr": "Confirmé"
+      }
+    ]
+  },
+  "source_preimages": {
+    "manuscript/post_a8_nh/working_release/BUILD_POST_A8_NH.sh": {
+      "bytes": 1395,
+      "git_blob": "40daed6000244c00287129516b963d1c0df0ae4f",
+      "sha256": "e130923bbd35b642ff75b49e2183ca03e58f425147ae69057eb001295e2179ae"
+    },
+    "manuscript/post_a8_nh/working_release/manuscript/fr/MCAD_FR_POST_A8_NH.tex": {
+      "bytes": 80847,
+      "git_blob": "88b447466724f29dbe5e7fea3c5a9d86ae987df9",
+      "sha256": "9cff413f21d74de13c4514d7182d303c9a3a545600a1c1c31e7be5340a84348c"
+    },
+    "manuscript/post_a8_nh/working_release/supplement/fr/S_foodmart_formalization_post_a8_nh.tex": {
+      "bytes": 5024,
+      "git_blob": "74ed2f12798efca20b59c9b1e2fcf02465f6de87",
+      "sha256": "2b869296befc5fdd29d3386a5f29ac59e51c428b28cb904caa5d3e9d7ce298ae"
+    },
+    "manuscript/post_a8_nh/working_release/tables/fr/T_evaluation_evidence_ladder_post_a8_nh.tex": {
+      "bytes": 1889,
+      "git_blob": "e0ad73894abb137e9b6f13a8275ed7045be13d1f",
+      "sha256": "56981c1d6a968740112d8d2899cfdb71e35fe293d2b7a105ac78c5052b8f8a0b"
+    },
+    "manuscript/post_a8_nh/working_release/tables/fr/T_prototype_formal_coverage_post_a8_nh.tex": {
+      "bytes": 2732,
+      "git_blob": "d6d243203cc414cd8988eaad61fb3c542bec8f75",
+      "sha256": "d8f1b580b848c00a2d1a45f743a624cb86b481d9092b365e661271a35d7bb2c9"
+    },
+    "manuscript/post_a8_nh/working_release/tables/fr/T_r3d_primary_endpoints_post_a8_nh.tex": {
+      "bytes": 1226,
+      "git_blob": "21cd1078d54536ec6779de62bd8e906c6bcbd829",
+      "sha256": "3feefb7e3d9f3aa95116634e91e64391e4af5c1ad183593e6da27cde7ef44144"
+    }
+  },
+  "strictly_forbidden_claims": {
+    "backend_equivalence_claim": true,
+    "confirmatory_claim_for_XMLA_resource_diagnostics": true,
+    "confirmatory_claim_for_secondary_SAFE_vs_UNGATED": true,
+    "cross_backend_effect_difference_test": true,
+    "cross_backend_synthesis": true,
+    "effect_homogeneity_claim": true,
+    "human_decision_quality_improvement_claim": true,
+    "new_global_system_benefit_claim": true,
+    "universal_superiority_claim": true
+  }
+}
