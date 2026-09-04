@@ -1,0 +1,72 @@
+{
+  "P6_audit_attempt_count_expected_before_and_after": 0,
+  "P6_audit_authority_consumed_expected_before_and_after": false,
+  "P7_authorized": false,
+  "authorized_future_action": {
+    "P6_audit_execution_authorized": false,
+    "apt_install_authorized": true,
+    "apt_update_authorized": false,
+    "article_compile_authorized": false,
+    "article_source_mutation_authorized": false,
+    "attempt_cardinality": 1,
+    "authorized": true,
+    "autoremove_authorized": false,
+    "dist_upgrade_authorized": false,
+    "exact_command": [
+      "sudo",
+      "apt-get",
+      "install",
+      "-y",
+      "--no-install-recommends",
+      "poppler-utils=24.02.0-1ubuntu9.9"
+    ],
+    "exact_version": "24.02.0-1ubuntu9.9",
+    "historical_experiment_regeneration_authorized": false,
+    "measurement_reexecution_authorized": false,
+    "native_architecture": "amd64",
+    "network_access_authorized_for_exact_package_and_required_dependency_downloads": true,
+    "no_install_recommends": true,
+    "package": "poppler-utils",
+    "package_downgrade_authorized": false,
+    "package_removal_authorized": false,
+    "package_upgrade_authorized": false,
+    "pdf_render_authorized": false,
+    "pdf_text_reextraction_authorized": false,
+    "repository_mutation_authorized": false,
+    "working_release_mutation_authorized": false
+  },
+  "candidate_provenance": {
+    "A2_A2_receipt_sha256": "6142514cde505957bebe31d50c2e242f89b87bf8a29ac02b18d1ca04a5636a2b",
+    "architecture": "amd64",
+    "candidate_json_sha256": "665eb60d982f51a3b9b54f6029aab4418793871bfd42d6b0f3f0af63334e1c66",
+    "package": "poppler-utils",
+    "package_filename": "pool/main/p/poppler/poppler-utils_24.02.0-1ubuntu9.9_amd64.deb",
+    "package_sha256": "fb936375b183a9d8ecb5b1fc5665a44110ca130c445946fb575c0b800b1dc0f4",
+    "version": "24.02.0-1ubuntu9.9"
+  },
+  "classification": "AUTHORIZE_ONE_FUTURE_EXACT_PINNED_POPPLER_UTILS_INSTALL_WITH_PREINSTALL_SIMULATION_GATE",
+  "contract_version": "mcad.post_a8.p6_a2_a3.pinned_poppler_install_authorization.v1",
+  "created_utc": "2026-09-04T22:39:52.975046Z",
+  "parent_commit": "c168d2fb7780e2a929d7e81f56b4232cab4391af",
+  "required_postinstall_gate": {
+    "P6_audit_authority_must_remain_unconsumed": true,
+    "dpkg_package_version_must_equal": "24.02.0-1ubuntu9.9",
+    "no_pdf_render_in_install_station": true,
+    "pdftoppm_must_resolve": true,
+    "pdftoppm_sha256_must_be_recorded": true,
+    "pdftoppm_version_must_be_recorded": true,
+    "repository_and_working_release_must_remain_unchanged": true
+  },
+  "required_preinstall_simulation_gate": {
+    "downgrade_count_must_be_zero": true,
+    "if_gate_fails_install_authority_must_remain_unconsumed": true,
+    "must_execute_before_install_authority_consumption": true,
+    "removal_count_must_be_zero": true,
+    "requested_package_must_be_exact_version": "24.02.0-1ubuntu9.9",
+    "required": true,
+    "simulation_uses_same_package_version_and_no_install_recommends": true,
+    "unrelated_upgrade_count_must_be_zero": true
+  },
+  "scientific_final_freeze_authorized": false,
+  "working_release_git_tree": "5204d6c6b525cdc4d3c06a6d2783c201315ed89f"
+}
