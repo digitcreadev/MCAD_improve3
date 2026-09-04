@@ -1,0 +1,38 @@
+{
+  "A3_required_post_install_validation": {
+    "P3_R2_fresh_build_authorization_required": true,
+    "dpkg_package_required": "latexmk",
+    "dpkg_version_required": "1:4.83-1",
+    "full_required_toolchain_reaudit_required": true,
+    "latexmk_command_required": true,
+    "latexmk_version_query_authorized": true
+  },
+  "P4_build_authority_published": false,
+  "authority": {
+    "P2_R1_source_head": "8821369b8081b0aa486cb910bde3cbcdd0736c68",
+    "P3_R1_A1_R1_audit_sha256": "0c795adfdd42595c65cc18b155a26152f58f13e433c217c87e0905445e2bbc7c",
+    "P3_R1_A1_R1_receipt_sha256": "c8552829f31c66786a44a9d98b1b0e2aee79f7dc27d6be148c86162527023f3a"
+  },
+  "authorized_A3_installation": {
+    "apt_update_authorized": false,
+    "article_compile_authorized": false,
+    "article_source_mutation_authorized": false,
+    "attempt_cardinality": 1,
+    "authorized": true,
+    "cross_backend_synthesis_authorized": false,
+    "exact_command": "sudo apt-get install -y --no-install-recommends latexmk=1:4.83-1",
+    "exact_version": "1:4.83-1",
+    "expected_simulated_install_count": 1,
+    "expected_simulated_remove_count": 0,
+    "measurement_reexecution_authorized": false,
+    "package": "latexmk",
+    "package_network_access_authorized": true,
+    "repository_mutation_authorized": false,
+    "simulation_sha256": "885be82ec7323ad03bc9c55e8b0d4acab62fed21cd7ac13c3e0ba0a8992ee32f"
+  },
+  "classification": "AUTHORIZED_SINGLE_EXACT_LATEXMK_INSTALLATION_NO_APT_UPDATE_NO_COMPILE",
+  "contract_version": "mcad.post_a8.p3_r1_a2.latexmk_installation_authorization.v1",
+  "created_utc": "2026-09-04T13:36:00.614536Z",
+  "next": "POST_A8_P3_R1_A3_INSTALL_EXACT_LATEXMK_NO_COMPILE",
+  "scientific_final_freeze_authorized": false
+}
