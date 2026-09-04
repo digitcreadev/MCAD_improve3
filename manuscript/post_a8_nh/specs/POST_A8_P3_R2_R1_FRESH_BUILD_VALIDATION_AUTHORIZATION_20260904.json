@@ -1,0 +1,93 @@
+{
+  "P4_build_contract": {
+    "FORCE_SOURCE_DATE": "1",
+    "LC_ALL": "C.UTF-8",
+    "SOURCE_DATE_EPOCH": 1788526887,
+    "TZ": "UTC",
+    "apt_install_authorized": false,
+    "apt_update_authorized": false,
+    "attempt_cardinality": 1,
+    "authorized": true,
+    "execution_location": "external immutable git-archive snapshot only",
+    "network_access_authorized": false,
+    "official_build_harness": "manuscript/post_a8_nh/working_release/BUILD_POST_A8_NH.sh",
+    "official_build_harness_invocation_count": 1,
+    "pdf_render_authorized": true,
+    "pdf_text_extraction_authorized": true,
+    "repository_build_output_mutation_authorized": false,
+    "repository_source_mutation_authorized": false,
+    "snapshot_commit_rule": "P3-R2 authorization commit; working_release git tree must equal authenticated P2-R1 working_release tree"
+  },
+  "P4_required_validation": {
+    "R3D_6_of_8_normalized_pdf_text_required": true,
+    "R3E14_8_of_8_normalized_pdf_text_required": true,
+    "R3E14_normalized_pdf_text_required": true,
+    "build_exit_status_required": 0,
+    "build_pass_marker_required": "POST_A8_BUILD=PASS",
+    "final_pdf_page_count_min": 1,
+    "final_pdf_required": true,
+    "latex_fatal_error_count_required": 0,
+    "multiply_defined_label_warning_count_required": 0,
+    "pending_R3E_E8_normalized_pdf_text_forbidden": true,
+    "positive_backend_equivalence_claim_forbidden": true,
+    "positive_cross_backend_synthesis_claim_forbidden": true,
+    "positive_effect_homogeneity_claim_forbidden": true,
+    "positive_global_system_benefit_claim_forbidden": true,
+    "render_every_pdf_page_required": true,
+    "rendered_page_nonempty_required": true,
+    "source_repository_must_remain_clean_and_at_P3_R2_commit": true,
+    "undefined_citation_count_required": 0,
+    "undefined_reference_count_required": 0
+  },
+  "authenticated_source": {
+    "R3D_table_git_blob": "21cd1078d54536ec6779de62bd8e906c6bcbd829",
+    "R3D_table_sha256": "3feefb7e3d9f3aa95116634e91e64391e4af5c1ad183593e6da27cde7ef44144",
+    "R3E_table_git_blob": "d27d65631edbd2279f2f51717b5ec614af438d40",
+    "R3E_table_sha256": "5cad0b3821c71c6b8312d526a94395c9c006ca759e3669e8219b4512642acda6",
+    "build_harness_git_blob": "40daed6000244c00287129516b963d1c0df0ae4f",
+    "build_harness_sha256": "e130923bbd35b642ff75b49e2183ca03e58f425147ae69057eb001295e2179ae",
+    "root_git_blob": "1b0953778bc897da6a5b449fcd2fd52ba51aa416",
+    "root_sha256": "449d0b608214ae99a259ed6fc9e75a1d25ec00f0c825879666e2d9f019389849",
+    "source_readiness_audit_sha256": "5953d37ecaa7b6550c871bb74d38e16eb23fbc63ea960119697d4963ebbdb083",
+    "trace_git_blob": "861e94e2b8c7caed934994690bc96a610ab54e70",
+    "trace_sha256": "5c01ddf63751cb60dd14cd69fdce67c314efb4ba54946f58ab54c5fb65c529fc",
+    "working_release_git_tree": "5204d6c6b525cdc4d3c06a6d2783c201315ed89f"
+  },
+  "authenticated_toolchain": {
+    "latexmk_dpkg_version": "1:4.83-1",
+    "must_be_reauthenticated_before_P4_build": true,
+    "required_command_count": 7,
+    "required_tex_dependency_count": 11,
+    "tex_dependency_manifest_sha256": "2f85ebb4385ffff4e79e909136fb81ac0ebd13c0e6e023ca5f82ae6d5d7adb49",
+    "toolchain_manifest_sha256": "874b23c3e583b4bd208f476342ee39d1ade6b7806494e09b8dbe6f39f95cbe45"
+  },
+  "authority": {
+    "A2_commit": "de9c991f1bbd10dd6e7ab54aa97338753622ada7",
+    "A3_installation_receipt_sha256": "2007c08cfd3bf72002a154a3e45f1eed6540c124b26d184b0c27e55d20ef9b2d",
+    "P2_R1_source_commit": "8821369b8081b0aa486cb910bde3cbcdd0736c68",
+    "P3_R2_A1_recovery_receipt_sha256": "ca267597e27ce804dbfcd058da7a66fbd08a3d7cc6c39466b51eb5a1ae17fc77",
+    "authorization_path": "manuscript/post_a8_nh/specs/POST_A8_P3_R2_R1_FRESH_BUILD_VALIDATION_AUTHORIZATION_20260904.json",
+    "branch": "paper/post-a8-r3-e14-uplift-20260904T105200Z",
+    "only_validator_logic_change": "replace only the two over-escaped build-harness regex assertions with single-backslash-aware matchers",
+    "recovery_classification": "REGEX_OVERESCAPING_EXPECTED_TWO_BACKSLASHES_INSTEAD_OF_ONE_SHELL_CONTINUATION_BACKSLASH"
+  },
+  "classification": "AUTHORIZED_SINGLE_FRESH_EXTERNAL_SNAPSHOT_POST_A8_BUILD_AFTER_P3_R2_A1_MATCHER_RECOVERY",
+  "contract_version": "mcad.post_a8.p3_r2_r1.fresh_build_validation_authorization.v1",
+  "created_utc": "2026-09-04T13:59:44.634776Z",
+  "next": "POST_A8_P4_EXECUTE_SINGLE_FRESH_EXTERNAL_SNAPSHOT_BUILD_AND_VALIDATE",
+  "post_P4_boundary": {
+    "P5_evidence_freeze_required_after_success": true,
+    "scientific_final_freeze_authorized": false
+  },
+  "scientific_boundary": {
+    "R3D_SQL_Direct_confirmed_endpoint_count": 6,
+    "R3E14_XMLA_confirmed_endpoint_count": 8,
+    "SAFE_vs_UNGATED_XMLA_confirmatory_claim_authorized": false,
+    "backend_equivalence_claim_authorized": false,
+    "cross_backend_effect_difference_test_authorized": false,
+    "cross_backend_synthesis_authorized": false,
+    "effect_homogeneity_claim_authorized": false,
+    "new_global_system_benefit_claim_authorized": false,
+    "new_result_interpretation_authorized": false
+  }
+}
