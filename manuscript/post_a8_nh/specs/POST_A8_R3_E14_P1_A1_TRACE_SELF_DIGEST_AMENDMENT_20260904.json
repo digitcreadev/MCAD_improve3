@@ -1,0 +1,54 @@
+{
+  "P2_execution_parent_rule": {
+    "P2_must_start_from_the_HEAD_that_contains_this_amendment": true,
+    "post_A8_source_preimages_remain_anchored_to": "069cb0f396f902563085398a6661d158971a0081"
+  },
+  "amended_P2_trace_digest_contract": {
+    "P2_added_file_count_remains": 2,
+    "P2_commit_must_record_traceability_json_git_blob_via_console_and_receipt": true,
+    "P2_exact_total_changed_file_count_remains": 6,
+    "P2_external_receipt_and_console_must_record_full_final_byte_sha256_of_new_R3E_table": true,
+    "P2_external_receipt_and_console_must_record_full_final_byte_sha256_of_traceability_json": true,
+    "P2_modified_existing_file_count_remains": 4,
+    "no_self_referential_full_file_digest_field_inside_traceability_json": true,
+    "traceability_json_must_record_full_sha256_of_new_R3E_table": true,
+    "traceability_json_must_record_pre_and_post_sha256_for_all_four_modified_existing_files": true,
+    "traceability_json_must_record_self_payload_sha256": {
+      "definition": "SHA256 of canonical UTF-8 JSON payload before adding the self_payload_sha256 field itself",
+      "required": true
+    }
+  },
+  "classification": "AUTHORIZED_NONSELFREFERENTIAL_TRACE_DIGEST_CLARIFICATION_ONLY_NO_SOURCE_MUTATION_NO_COMPILE",
+  "contract_version": "mcad.post_a8.p1_a1.trace_self_digest_contract_amendment.v1",
+  "created_utc": "2026-09-04T11:20:21.597019Z",
+  "defect_classification": {
+    "editorial_scope_defect": false,
+    "full_byte_sha256_of_a_file_cannot_be_stored_inside_that_same_file_as_its_own_final_byte_digest": true,
+    "only_trace_digest_contract_needs_clarification": true,
+    "original_requirement": "required_P2_traceability.must_record_sha256_for_two_added_files=true",
+    "scientific_scope_defect": false,
+    "traceability_file_is_itself_one_of_the_two_added_files": true
+  },
+  "next": "POST_A8_P2_APPLY_EXACT_R3_E14_UPLIFT_COMMIT_PUSH_NO_COMPILE",
+  "parent_P1_authority": {
+    "P1_authorization_path": "manuscript/post_a8_nh/specs/POST_A8_R3_E14_UPLIFT_AUTHORIZATION_20260904.json",
+    "P1_authorization_sha256": "920be14780a1ac0566b22b9e6cf2604c3d3e3aa5322da8b3319a5000ddb3912c",
+    "P1_commit": "e925a7e66ba38ff364da6a05a2660343f0c9a9cd"
+  },
+  "unchanged_P2_scientific_and_editorial_scope": {
+    "A8_parent_mutation_authorized": false,
+    "R3D_table_mutation_authorized": false,
+    "article_compile_authorized": false,
+    "bibliography_mutation_authorized": false,
+    "build_harness_mutation_authorized": false,
+    "cross_backend_synthesis_authorized": false,
+    "exact_added_file_count": 2,
+    "exact_modified_existing_file_count": 4,
+    "exact_total_changed_file_count": 6,
+    "figure_mutation_authorized": false,
+    "legacy_A3_cherry_pick_authorized": false,
+    "legacy_D17_cherry_pick_authorized": false,
+    "measurement_reexecution_authorized": false,
+    "new_global_system_benefit_claim_authorized": false
+  }
+}
