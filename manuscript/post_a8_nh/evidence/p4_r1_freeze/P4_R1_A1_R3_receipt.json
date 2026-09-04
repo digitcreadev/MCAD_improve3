@@ -1,0 +1,48 @@
+{
+  "authority": {
+    "A1_R2_forensic_receipt_sha256": "3baedc7b162233ff559f33bf80bcca1d11a6832702dced37a11fa68dbed91e94",
+    "P4_R1_build_authority_consumed": true,
+    "P4_R1_rerun_authorized": false
+  },
+  "boundary": {
+    "apt_install_executed": false,
+    "apt_update_executed": false,
+    "article_compile_executed": false,
+    "article_source_mutated": false,
+    "confidence_interval_recomputation_executed": false,
+    "cross_backend_synthesis_executed": false,
+    "effect_recomputation_executed": false,
+    "git_commit_executed": false,
+    "git_fetch_executed": false,
+    "git_push_executed": false,
+    "measurement_reexecution_executed": false,
+    "network_read_executed": false,
+    "new_claim_assignment_executed": false,
+    "new_result_interpretation_executed": false,
+    "p_value_recomputation_executed": false,
+    "package_network_request_executed": false,
+    "pdf_render_executed": false,
+    "pdf_text_extraction_executed": false,
+    "repository_mutated": false
+  },
+  "classification": "PASS_TWO_COLUMN_LAYOUT_AND_NEGATED_FORBIDDEN_HIT_CLASSIFIED_FROZEN_BUILD_SCIENTIFIC_BOUNDARIES_PRESERVED_NO_REBUILD",
+  "classification_evidence": {
+    "R3E14_8_of_8_semantic_boundary_preserved": true,
+    "audit_sha256": "adde80c10399d92ad53d918609675fce319ce627b815fba6b21451d110f9772f",
+    "effective_positive_forbidden_claim_count": 0,
+    "forbidden_evidence_sha256": "93bd508e184381dcfb121e0dfa40698b844af417cb69df9625cf723949a20ca8",
+    "layout_evidence_sha256": "d5f64c73859fbeaa2621c2371ebcc4543c2d05386189b8c22db72131b1d5ca03",
+    "rebuild_required": false,
+    "scientific_content_defect": false,
+    "validator_defect_classified": true
+  },
+  "contract_version": "mcad.post_a8.p4_r1_a1_r3.layout_negation_classification_receipt.v1",
+  "created_utc": "2026-09-04T17:44:01.338477Z",
+  "frozen_build": {
+    "final_pdf_sha256": "75d1c55b8d5966951ff0784ec91dd18cc298264b756bbcc569fbd1af59fbd573",
+    "normalized_pdf_text_sha256": "54d9902927221b043612a0d2ec0caf025144d862875ce376adb943f3a6547f06",
+    "pdftotext_sha256": "256f92b5d9537755e66076264a960f6d1b5644bf33494d81c4295f6b20b29ea5"
+  },
+  "next": "POST_A8_P4_R1_A2_COMPLETE_REMAINING_FLS_RENDER_AND_CONSOLIDATED_VALIDATION_ON_FROZEN_BUILD_NO_REBUILD",
+  "work_dir": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/post_a8_p4_r1_a1_r3_layout_negation_classification_20260904T174401Z"
+}

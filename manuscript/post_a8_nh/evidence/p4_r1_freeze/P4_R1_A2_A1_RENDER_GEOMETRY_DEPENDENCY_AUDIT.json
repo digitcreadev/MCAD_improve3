@@ -1,0 +1,42 @@
+{
+  "classification": "PASS_FAILED_A2_POST_RENDER_PIL_DEPENDENCY_GAP_CLASSIFIED_EXISTING_17_PNGS_VALID_NO_RERENDER",
+  "classification_detail": {
+    "PIL_install_required": false,
+    "missing_optional_validator_dependency": "PIL",
+    "render_artifact_failure": false,
+    "renderer_failure": false,
+    "scientific_content_defect": false,
+    "validator_dependency_defect": true
+  },
+  "contract_version": "mcad.post_a8.p4_r1_a2_a1.render_geometry_dependency_readonly_audit.v1",
+  "created_utc": "2026-09-04T18:06:16.903380Z",
+  "existing_validation": {
+    "FLS_provenance_audit_sha256": "bab8ae7bb214a0535b9efe2e3e7a418a533e93ff44da1c690d662ad35f5e6d8b",
+    "FLS_provenance_pass": true,
+    "PNG_stdlib_integrity_audit_sha256": "7aac5b9e4763b47600b6959379d3682219e029b18c5a59b76cc72c0fecc9629a",
+    "existing_17_rendered_pages_valid": true,
+    "existing_render_manifest_sha256": "9f35cb2eaadb5f42455f7427bfdb3e2da56f4c9787c27b6a32f71cb095a11c21"
+  },
+  "failed_A2": {
+    "failure_exception": "ModuleNotFoundError: No module named 'PIL'",
+    "failure_stage": "post-render geometry validator import",
+    "pdftoppm_exit_status": 0,
+    "render_attempt_count": 1,
+    "render_authority_consumed": true,
+    "rendered_page_count": 17,
+    "reported_work_dir": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/post_a8_p4_r1_a2_remaining_validation_20260904T175553Z",
+    "rerun_authorized": false,
+    "wrapper_sha256": "c514e9de46c2d8e67e70b22c1700f003799d40e440833a0b0b6f47f1cf46ad1a"
+  },
+  "frozen_build": {
+    "final_pdf_sha256": "75d1c55b8d5966951ff0784ec91dd18cc298264b756bbcc569fbd1af59fbd573",
+    "pdf_rerender_required": false,
+    "pdf_text_reextraction_required": false,
+    "rebuild_required": false
+  },
+  "remaining_recovery_required": [
+    "fresh recovery station consuming existing render artifacts without pdftoppm",
+    "materialize canonical render manifest from existing pages",
+    "consolidated recovered P4 validation and receipt"
+  ]
+}

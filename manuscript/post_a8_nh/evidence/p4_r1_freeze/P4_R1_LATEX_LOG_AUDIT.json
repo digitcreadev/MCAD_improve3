@@ -1,0 +1,9 @@
+{
+  "classification": "PASS_LATEX_CONVERGED_ZERO_FATAL_UNDEFINED_CITATION_REFERENCE_MULTIPLY_DEFINED_LABEL",
+  "fatal_error_count": 0,
+  "multiply_defined_label_warning_count": 0,
+  "r3e14_aux_label_present": true,
+  "rerun_cross_reference_warning_count": 0,
+  "undefined_citation_count": 0,
+  "undefined_reference_count": 0
+}

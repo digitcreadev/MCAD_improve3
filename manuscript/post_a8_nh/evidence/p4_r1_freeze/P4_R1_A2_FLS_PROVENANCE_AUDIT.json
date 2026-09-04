@@ -1,0 +1,12 @@
+{
+  "PWD_entries": [
+    "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/post_a8_p4_r1_fresh_external_snapshot_build_validation_20260904T142407Z/snapshot/manuscript/post_a8_nh/working_release"
+  ],
+  "classification": "PASS_FLS_BUILD_PROVENANCE_SNAPSHOT_SOURCE_NO_LIVE_REPO_INPUT",
+  "contract_version": "mcad.post_a8.p4_r1_a2.fls_provenance.v1",
+  "input_count": 539,
+  "live_repository_input_count": 0,
+  "root_source_input_count": 1,
+  "root_source_input_present": true,
+  "snapshot": "/workspaces/MCAD_R3E_XMLA_ISOLATED_RUNTIME_b88cc576ec54/post_a8_p4_r1_fresh_external_snapshot_build_validation_20260904T142407Z/snapshot"
+}

@@ -1,0 +1,80 @@
+{
+  "P5_evidence_freeze_required": true,
+  "all_required_recovered_P4_gates_passed": true,
+  "boundary": {
+    "apt_install_executed": false,
+    "apt_update_executed": false,
+    "article_source_mutated": false,
+    "confidence_interval_recomputation_executed": false,
+    "cross_backend_synthesis_executed": false,
+    "effect_recomputation_executed": false,
+    "git_fetch_executed": false,
+    "measurement_reexecution_executed": false,
+    "network_access_executed": false,
+    "new_claim_assignment_executed": false,
+    "new_result_interpretation_executed": false,
+    "p_value_recomputation_executed": false,
+    "pdf_rerender_executed": false,
+    "pdf_text_reextraction_executed": false,
+    "rebuild_executed": false,
+    "repository_mutated": false
+  },
+  "classification": "PASS_P4_R1_FULL_RECOVERED_VALIDATION_EXISTING_RENDER_FLS_SCIENTIFIC_BOUNDARIES_NO_REBUILD_NO_REEXTRACT_NO_RERENDER",
+  "contract_version": "mcad.post_a8.p4_r1_a2_r1.consolidated_recovered_validation.v1",
+  "frozen_build": {
+    "aux_sha256": "0ec05a1f0e694a21d93c338eb98f298ff1f702acd29f4e441600b2335c54d614",
+    "build_console_sha256": "267d33c397622e0f603b9d8a2d60c9cd9a2713a26c51ad6de39cec8b9dc7941e",
+    "build_exit_status": 0,
+    "build_pass_marker_present": true,
+    "final_pdf_page_count": 17,
+    "final_pdf_sha256": "75d1c55b8d5966951ff0784ec91dd18cc298264b756bbcc569fbd1af59fbd573",
+    "fls_sha256": "f4ed1b4fe1037da59ef0fc80b6336bcb027426be2672211cd975836d71ffdb3a",
+    "latex_audit_sha256": "4bf69205fa5539d9b4f6282ca9292043ba702303773b8e97d0508e24cdc6b642",
+    "latex_converged_zero_fatal_undefined_citation_reference_multiply_defined_label": true,
+    "latex_log_sha256": "a25ba76e839f47a3523b91ce7b3b7ea8a8e424475595f8a34b8dbf69030f1c5b",
+    "normalized_pdf_text_sha256": "54d9902927221b043612a0d2ec0caf025144d862875ce376adb943f3a6547f06",
+    "pdfinfo_sha256": "b7e2e341d6baf31f628de552c0cb81731787aebbeaf75e7ae9aa23e2b14ae22f",
+    "pdftotext_sha256": "256f92b5d9537755e66076264a960f6d1b5644bf33494d81c4295f6b20b29ea5",
+    "tex_dependency_manifest_sha256": "2f85ebb4385ffff4e79e909136fb81ac0ebd13c0e6e023ca5f82ae6d5d7adb49",
+    "toolchain_manifest_sha256": "874b23c3e583b4bd208f476342ee39d1ade6b7806494e09b8dbe6f39f95cbe45"
+  },
+  "provenance_validation": {
+    "FLS_provenance_audit_sha256": "bab8ae7bb214a0535b9efe2e3e7a418a533e93ff44da1c690d662ad35f5e6d8b",
+    "snapshot_source_no_live_repository_input": true
+  },
+  "render_validation": {
+    "A2_A1_receipt_sha256": "9fba61357cdb9d2b431634b345cfb8dc9b5a740be1f896a6f736d6ae6c0481ba",
+    "A2_A1_render_geometry_dependency_audit_sha256": "fd2f71a62e284171ba9194e4ad74cccd3399d2de83abd5f0487e51b76aa985d9",
+    "PIL_dependency_gap_classified": true,
+    "PIL_install_required": false,
+    "PNG_stdlib_integrity_audit_sha256": "7aac5b9e4763b47600b6959379d3682219e029b18c5a59b76cc72c0fecc9629a",
+    "all_IEND_present": true,
+    "all_IHDR_present": true,
+    "all_dimensions_positive": true,
+    "all_files_at_least_1000_bytes": true,
+    "all_png_chunk_crcs_valid": true,
+    "all_png_signatures_valid": true,
+    "canonical_render_manifest_sha256": "9f35cb2eaadb5f42455f7427bfdb3e2da56f4c9787c27b6a32f71cb095a11c21",
+    "every_pdf_page_rendered": true,
+    "pdftoppm_exit_status": 0,
+    "render_artifact_failure": false,
+    "rendered_page_count": 17,
+    "uniform_geometry": {
+      "height": 1320,
+      "width": 1020
+    }
+  },
+  "scientific_final_freeze_authorized": false,
+  "scientific_text_validation": {
+    "A1_R3_receipt_sha256": "9bce16d1239e3b4944798dacb891243558323549f8f4f614b19e17efe513e616",
+    "R3D_6_of_8_present": true,
+    "R3E14_8_of_8_semantic_boundary_preserved": true,
+    "effective_positive_forbidden_claim_count": 0,
+    "pending_R3E_E8_present": false,
+    "raw_forbidden_claim_hit_grammatically_negated": true,
+    "raw_forbidden_claim_regex_hit_count": 1,
+    "results_interpreted_separately": true,
+    "scientific_content_defect": false,
+    "two_column_pdftotext_reading_order_validator_defect_classified": true
+  }
+}

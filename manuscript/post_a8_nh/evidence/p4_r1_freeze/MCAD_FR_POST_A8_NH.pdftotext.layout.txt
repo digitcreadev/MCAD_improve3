@@ -1,0 +1,1214 @@
+MCAD : complétion analytique relative à l’objectif
+et élagage sûr des requêtes OLAP dans les sessions
+               d’analyse décisionnelle
+
+    Résumé—Une session d’analyse décisionnelle ne se réduit pas à             complétion analytique de l’objectif compte tenu de ce que la
+une succession de requêtes exécutables. MCAD opérationnalise un               session a déjà acquis.
+objectif organisationnel O sous forme de contraintes et de supports              Cette distinction devient critique dans les sessions multi-
+suffisants, puis suit au niveau session l’évidence analytique
+effectivement acquise. Chaque requête candidate est d’abord                   requêtes. Une requête peut être admissible sans contribuer à
+représentée par un profil canonique ; le raisonnement distingue               l’objectif courant ; inversement, une requête qui ne complète
+admissibilité sémantique, réalisabilité de l’évidence, évidence               aucune contrainte à l’instant où elle est candidate peut fournir
+acquise, calculabilité/contribution et action. Une requête non                une partie d’un support qui ne deviendra suffisant qu’après une
+contributive à l’instant courant n’est donc pas automatiquement               requête ultérieure. Une politique qui confond non-contribution
+dispensable : MCAD ne l’élague avant exécution complète que
+lorsqu’une condition de sûreté relative à la frontière résiduelle             immédiate et dispensabilité sûre peut ainsi supprimer une
+de l’objectif est satisfaite ; sinon, il exécute en fail-open. Le cadre       information utile à la progression future de la session. Nous
+vise la complétion analytique relative à O, non la qualité de la              partons donc de la séparation suivante :
+décision humaine.
+    Nous évaluons séparément la préservation sémantique et                       NONCONTRIBUTIVE_NOW ̸⇒ SAFE_TO_PRUNE.
+le coût système. Les campagnes contrôlées de préservation
+et de contribution différée n’observent aucune violation de                       Les travaux voisins apportent des briques essentielles mais
+complétion dans leur périmètre gelé et montrent qu’une po-                    poursuivent des finalités distinctes. La personnalisation adapte
+litique strictement immédiate peut perdre des contributions                   l’analytique aux préférences et au contexte d’usage [4], [5] ;
+différées multi-requêtes. Sur SQL Server Direct, une campagne                 recommandation et guidage organisent l’exploration [6], [7] ;
+confirmatoire préspécifiée de 300 sessions et 900 bras compare                interestingness et contribution caractérisent nouveauté ou utilité
+SAFE_PRUNING à PERMISSIVE_GATED sur huit endpoints
+primaires avec correction de Holm. Six endpoints sont confirmés               analytique [8], [9] ; Intentional Analytics élève l’interaction
+en faveur de SAFE_PRUNING : requêtes backend incluant les                     vers les intentions [10] ; modèles objectifs/KPI et graphes
+probes, exécutions backend complètes, temps client, CPU SQL                   de connaissances structurent enfin les relations entre buts,
+Server, octets de réponse et temps jusqu’à complétion analytique.             indicateurs et sémantique [11], [12], [13]. MCAD se positionne
+Les lectures et écritures I/O en octets ne sont pas confirmées ;              à l’intersection de ces familles sans revendiquer la nouveauté
+le protocole n’autorise donc aucun claim global indivisible de
+bénéfice système. Sur XMLA/eMondrian, la réplication secondaire               de chacune de leurs primitives : sa contribution réside dans
+R3-E14, préspécifiée sur 300 sessions et 900 bras, confirme les huit          leur intégration autour d’un problème précis, celui de déter-
+endpoints primaires en faveur de SAFE_PRUNING relativement                    miner avant exécution complète si une requête candidate peut
+à PERMISSIVE_GATED ; ce résultat reste endpoint-spécifique                    être écartée sans compromettre la complétion analytique de
+et n’autorise ni bénéfice système global, ni équivalence ou                   l’objectif de session.
+homogénéité inter-backend. Ces résultats délimitent un mécanisme
+de contrôle analytique objectif-relatif, sans claim de valeur                     Nous modélisons l’objectif O par un graphe objectif–
+décisionnelle humaine ni de supériorité universelle.                          évidence GO reliant des contraintes requises à un ou plusieurs
+                                                                              supports suffisants, eux-mêmes reliés à des atomes d’évidence
+   Mots-clés—Entrepôts de données, OLAP, objectifs analytiques,
+graphes de connaissances contextuels, profil canonique de requête,            analytique. Une contrainte devient calculable dès qu’au moins
+évidence de session, complétion analytique, élagage sûr, contrôle             un de ses supports suffisants est entièrement couvert par l’évi-
+pré-backend, reproductibilité.                                                dence acquise par la session. L’état de session Et est cumulatif :
+                                                                              une exécution complète réussie peut l’enrichir, tandis qu’une
+                                                                              requête élaguée ne l’enrichit pas. Cette formulation permet de
+                        I. I NTRODUCTION
+                                                                              distinguer contraintes non résolues, partiellement supportées et
+   Les entrepôts de données et les systèmes OLAP structurent                  calculables, ainsi que la frontière résiduelle de l’objectif qui
+l’analyse multidimensionnelle autour de faits, de dimensions, de              reste à satisfaire.
+hiérarchies, de mesures et d’agrégations [1], [2], [3]. Cependant,                Chaque requête candidate est ensuite représentée par un Ca-
+une session d’analyse décisionnelle ne poursuit pas seulement                 nonical Query Profile (CQP), interface canonique indépendante
+l’exécution correcte de requêtes : elle vise progressivement                  de la syntaxe source utilisée par le raisonneur. Le CQP expose
+à réunir l’évidence nécessaire pour répondre à un objectif                    notamment mesures, dimensions, grain, agrégations, filtres,
+explicite. Cet objectif peut mobiliser des KPI, des contraintes               contexte, provenance et correspondances d’évidence. MCAD
+métier, des unités, des règles de résumabilité, des fenêtres                  sépare alors cinq niveaux qui ne doivent pas être confondus :
+temporelles et des scénarios. La question pertinente n’est                    (i) l’admissibilité sémantique du CQP ; (ii) la réalisabilité de
+donc pas uniquement de savoir si une requête est valide                       l’évidence, éventuellement établie par un probe de non-vacuité ;
+ou intéressante, mais si son exécution reste nécessaire à la                  (iii) l’évidence effectivement acquise après exécution complète ;
+
+                                                                          1
+(iv) la calculabilité et la contribution relatives à l’état de session ; comprend 300 sessions et 900 bras. Pour la comparaison
+et (v) l’action opérationnelle. Cette décomposition évite qu’un primaire SAFE_PRUNING versus PERMISSIVE_GATED, six
+probe réussi soit traité comme si le résultat analytique avait des huit endpoints primaires sont confirmés après correction
+déjà été acquis.                                                         de Holm : nombre de requêtes backend incluant les probes,
+   Le contrôle pré-backend est fondé sur une obligation de nombre d’exécutions backend complètes, temps client, CPU
+sûreté et non sur la seule contribution marginale immédiate. SQL Server, octets de réponse et temps jusqu’à complé-
+Une requête n’est élaguée que si, sous les hypothèses gelées du tion analytique. Les octets de lecture et d’écriture I/O ne
+modèle et avec un CQP suffisamment fidèle, aucune évidence sont pas confirmés. Quatrièmement, la réplication secondaire
+qu’elle pourrait encore fournir n’intersecte la frontière rési- XMLA/eMondrian R3-E14 comprend elle aussi 300 sessions
+duelle nécessaire à la complétion de O. Si la canonicalisation, et 900 bras et confirme, pour le même comparateur primaire,
+la correspondance d’évidence ou la preuve sont insuffisantes, les huit endpoints préspécifiés après correction de Holm. Les
+MCAD exécute en fail-open. Cette règle implique aussi résultats SQL Direct et XMLA restent interprétés séparément ;
+que PRUNE ne signifie pas nécessairement “zéro interaction le protocole n’autorise ni composite global ni synthèse cross-
+backend” : un probe peut être requis pour établir la réalisabilité backend.
+et son coût appartient alors au traitement mesuré, même si                  La portée de ces résultats est volontairement bornée. MCAD
+Et+1 = Et après élagage.                                                 suppose qu’un objectif et ses supports ont été correctement
+   MCAD conserve par ailleurs une séparation stricte entre instanciés en amont ; cette adéquation est une hypothèse de
+sémantique et action. Le raisonneur établit ce qui est construction et une menace à la validité, non un résultat
+admissible, réalisable, acquis, calculable et sûr à éla- du mécanisme. De même, la correction et l’efficacité de
+guer ; une politique de déploiement décide ensuite d’exécu- MCAD ne constituent pas une preuve de correction d’une
+ter, notifier, avertir, guider, recommander ou bloquer. Les décision humaine ou organisationnelle. La réplication se-
+politiques STRICT_IMMEDIATE, PERMISSIVE_GATED, condaire XMLA/eMondrian R3-E14 est désormais mesurée
+UNGATED_EXECUTE_ADMISSIBLE et SAFE_PRUNING et confirme 8/8 endpoints primaires pour SAFE_PRUNING
+utilisées dans nos campagnes sont donc des instruments versus PERMISSIVE_GATED, sans autoriser de synthèse
+expérimentaux ou opérationnels distincts du noyau sémantique. cross-backend ni de claim global ; l’évaluation de concurrence,
+   L’article apporte quatre contributions principales :                  de mémoire, de latence de queue et de changement d’échelle
+   — un modèle objectif–évidence de complétion analy- end-to-end reste également hors du périmètre confirmé.
+        tique qui représente explicitement contraintes, supports            La suite de l’article situe d’abord MCAD par rapport aux
+        suffisants alternatifs, évidence cumulative de session et travaux sur objectifs, représentations canoniques, sessions
+        frontière résiduelle de l’objectif, afin de raisonner sur analytiques, optimisation sémantique, non-vacuité, provenance,
+        ce qui reste nécessaire plutôt que sur la seule nouveauté admission et élagage physique. Nous présentons ensuite le
+        d’une requête ;                                                  modèle objectif–évidence, le CQP, les états de session et
+   — un profil canonique de requête (CQP) et une décom- la condition d’élagage sûr, puis l’architecture qui sépare
+        position épistémique séparant admissibilité sémantique, probes, exécution complète et mise à jour de l’évidence
+        réalisabilité, évidence acquise, calculabilité/contribution acquise. Enfin, l’évaluation distingue les preuves historiques
+        et action, avec une politique fail-open lorsque la fidélité héritées, les campagnes de préservation et de contribution
+        du profil ou la preuve de sûreté est insuffisante ;              différée, l’évaluation end-to-end et l’analyse confirmatoire des
+   — une règle d’élagage sûr relative à l’objectif et à ressources, avant de discuter explicitement les résultats non
+        la session, qui distingue non-contribution immédiate, confirmés et les frontières encore ouvertes.
+        contribution différée et dispensabilité sûre, et dont la
+        préservation est évaluée dans des campagnes contrôlées
+        multi-requêtes ;
+   — une évaluation système contrôlée et traçable qui                      II. T RAVAUX CONNEXES ET FRONTIÈRE DE NOUVEAUTÉ
+        mesure séparément préservation sémantique, requêtes
+        backend incluant les probes, exécutions complètes, temps            Le positionnement de MCAD est établi par fonction plutôt
+        client, CPU, octets de réponse et temps jusqu’à complé- que par proximité terminologique. La revue gelée distingue
+        tion analytique, sans transformer un résultat partiel en douze familles de travaux (F1–F12) qui couvrent, séparément
+        claim global de bénéfice système.                                ou par sous-ensembles, la formalisation d’objectifs, le contexte
+   L’évaluation fournit quatre niveaux d’évidence complémen- sémantique, les représentations intermédiaires de requêtes,
+taires. Premièrement, les campagnes contrôlées de préservation la personnalisation, les intentions analytiques, les sessions,
+et de contribution différée n’observent aucune violation de com- l’optimisation sémantique, la non-vacuité, la provenance, l’ad-
+plétion dans leur périmètre gelé et montrent qu’une politique mission de charge, l’élagage physique et la décision. Nous ne
+strictement immédiate peut perdre des contributions différées formulons aucune revendication de priorité sur ces primitives
+multi-requêtes. Deuxièmement, une phase d’évaluation end-to- prises isolément. La frontière de nouveauté porte sur leur
+end montre que la réduction du travail backend peut coexister articulation dans une chaîne objectif–évidence–session qui
+avec un coût temporel supérieur à une exécution non contrôlée, permet de décider, avant exécution complète, si une requête
+ce qui exclut un claim universel de break-even. Troisièmement, peut être élaguée sans compromettre la complétion analytique
+la campagne confirmatoire SQL Server Direct préspécifiée de l’objectif.
+
+                                                                   2
+A. F1 – Objectifs, KPI et ingénierie orientée buts                          évaluent nouveauté, intérêt ou réussite d’une séquence [8], [9].
+   Les approches de BI orientée objectifs relient buts, KPI,                Intentional Analytics élève enfin l’interaction vers des inten-
+besoins informationnels et conception multidimensionnelle [11],             tions analytiques de haut niveau [10], [28]. Des prolongements
+[14], [12], [15], [16]. Elles motivent directement la forma-                récents étudient la prédiction de cubes multidimensionnels
+lisation de l’objectif O, mais leur unité principale est la                 et l’optimisation multi-requête de l’opérateur A NALYZE [29],
+spécification ou la conception. MCAD se place plus tard dans le             [30] ; ils renforcent le voisinage sur l’intention et les ensembles
+cycle : un objectif déjà spécifié est projeté vers des contraintes et       de requêtes sans être assimilés à la sémantique de complétion
+des supports suffisants afin de raisonner sur la progression d’une          de MCAD.
+session d’exécution. La qualité métier de cette instanciation                  Ces finalités sont complémentaires mais différentes. MCAD
+reste une hypothèse d’entrée et non un résultat de MCAD.                    n’infère ni préférence, ni satisfaction, ni intention humaine ; il
+                                                                            ne remplace pas non plus une mesure générale d’interestingness.
+                                                                            Son état sémantique décrit l’évidence déjà acquise pour
+B. F2 et F9 – Contexte sémantique, graphes, résumabilité et                 un objectif explicitement instancié. Une requête peut être
+provenance                                                                  intéressante ou recommandable tout en étant dispensable pour
+   Les graphes de connaissances fournissent une représentation              cet objectif ; inversement, une requête peu nouvelle peut rester
+explicite d’entités, de relations et de règles [13] ; les ontologies        nécessaire à un support encore incomplet.
+et vocabulaires multidimensionnels relient sémantique et struc-
+tures OLAP [17], [18], [19]. La résumabilité borne la correction            E. F6 – Sessions analytiques et contribution différée
+des agrégations, y compris dans des sessions interactives [20],                Les systèmes de recommandation de sessions et les travaux
+[21]. La provenance explique quant à elle de quelles données                sur l’exploration séquentielle exploitent l’historique de naviga-
+ou transformations dépend un résultat [22], [23]. Des travaux               tion pour proposer ou évaluer des requêtes ultérieures [6], [8].
+récents relient explicitement graphes de connaissances, contexte            L’optimisation multi-requête de l’opérateur A NALYZE constitue
+et analytique décisionnelle [24], [25]. Ils constituent des                 aussi un voisin récent pour l’exploitation coordonnée de
+voisins directs pour la représentation contextuelle ; la frontière          plusieurs requêtes facilitatrices [30]. MCAD utilise également
+examinée ici porte sur le rôle runtime de l’évidence acquise et             une mémoire de session, mais avec une sémantique différente :
+de la frontière résiduelle de l’objectif.                                   l’état Et représente l’évidence analytique effectivement acquise
+   MCAD réutilise ces fonctions sans les confondre. Le CKG                  et les supports partiellement ou entièrement couverts. Cette
+porte les relations nécessaires au raisonnement objectif-relatif ;          distinction rend possible la contribution différée : une requête
+la résumabilité contribue à l’admissibilité sémantique ; la                 non contributive immédiatement peut fournir une partie d’un
+provenance peut justifier l’origine d’une évidence. Aucune de               support qui deviendra suffisant après une requête future. Les
+ces propriétés ne suffit à établir que l’évidence a effectivement           campagnes NH-R2 exercent explicitement ce cas ; elles ne
+été acquise par la session, qu’elle complète un support de O,               justifient toutefois aucune généralisation à toutes les formes
+ou qu’une requête est sûre à élaguer.                                       de sessions ou d’objectifs.
+
+C. F3 – Représentations canoniques et interchange de plans                  F. F7 et F8 – Optimisation sémantique, satisfiabilité et non-
+                                                                            vacuité
+   Les infrastructures de traitement de requêtes disposent déjà
+de représentations intermédiaires générales. Apache Calcite                    L’optimisation sémantique de requêtes exploite des
+fournit une algèbre et une architecture extensible de traitement            contraintes d’intégrité et des connaissances sur les données
+et d’optimisation sur des sources hétérogènes [26] ; Substrait              pour transformer une requête en une forme équivalente po-
+définit une sérialisation inter-langages de plans relationnels              tentiellement moins coûteuse ; elle peut notamment permettre
+destinée à l’échange entre producteurs et consommateurs de                  élimination de jointures ou tests de requêtes vides [31]. Une
+plans [27]. Le CQP (Canonical Query Profile) de MCAD n’est                  synthèse plus récente systématise le rôle des dépendances de
+ni un remplaçant d’optimiseur ni un format universel d’in-                  données dans l’optimisation de requêtes [32]. Des travaux
+terchange. Il constitue une projection canonique, plus étroite,             dédiés détectent aussi des requêtes à résultat vide avant leur
+des propriétés nécessaires au raisonnement objectif–évidence :              exécution complète, par réutilisation d’information sur des
+mesures, dimensions, grain, agrégations, filtres, temporalité,              résultats vides antérieurs [33].
+                                                                               MCAD partage l’idée qu’une propriété sémantique peut être
+contexte et correspondances d’évidence. La contribution est
+                                                                            utile avant exécution, mais le prédicat de décision est différent.
+donc dans le contrat de fidélité requis pour la décision MCAD
+                                                                            Un test de non-vacuité ou un probe établit seulement une forme
+et dans son usage objectif-relatif, non dans l’idée générale de
+                                                                            de réalisabilité de l’évidence. Il ne crédite pas cette évidence
+canonicaliser une requête.
+                                                                            dans Et et n’établit pas à lui seul la dispensabilité. L’élagage
+                                                                            sûr dépend de la frontière résiduelle de O et échoue en mode
+D. F4 et F5 – Personnalisation, exploration et Intentional                  fail-open lorsque la preuve est insuffisante.
+Analytics
+   La personnalisation adapte vues et requêtes aux préférences              G. F10 et F11 – Admission de charge, ordonnancement et
+de l’utilisateur [4], [5] ; la recommandation et le guidage                 élagage physique
+structurent la continuation d’une exploration [6], [7]. Les                    L’admission control et l’ordonnancement de requêtes traitent
+travaux sur la contribution d’exploration et l’interestingness              des interférences, de la capacité et des objectifs de perfor-
+
+                                                                        3
+mance du système ; WIQ, par exemple, décide quelles classes               fonction et la nouveauté conceptuelle ; les résultats empiriques
+de requêtes admettre en fonction de mesures de charge et                  de MCAD ne constituent ni une preuve de supériorité externe,
+d’interférence [34]. Des travaux de workload management et                ni une revendication de priorité, ni une validation de valeur
+d’ordonnancement resource-aware traitent aussi explicitement              décisionnelle humaine.
+objectifs de service et besoins de ressources [35], [36] ;
+SafeLoad cible plus spécifiquement l’identification précoce de                         III. V UE D ’ ENSEMBLE DE MCAD
+requêtes susceptibles de surcharger la mémoire [37]. Le data
+                                                                             À un niveau macroscopique, MCAD est une couche de
+skipping réduit les données physiquement lues en exploitant
+                                                                          contrôle analytique pré-backend placée entre une requête
+métadonnées, index ou résumés de provenance ; PBDS utilise
+                                                                          candidate et son exécution complète. Elle ne remplace ni
+ainsi des esquisses de provenance pour accélérer des requêtes
+                                                                          le moteur OLAP, ni l’optimiseur du SGBD, ni la politique
+ultérieures [38].
+                                                                          de décision humaine. Elle reçoit un objectif O, un contexte
+   MCAD se situe à un niveau distinct. Il ne choisit pas une
+                                                                          sémantique typé, l’état d’évidence de la session et une requête
+requête parce que le système est chargé et ne saute pas des blocs
+                                                                          candidate ; elle cherche alors à déterminer si l’exécution
+physiques à l’intérieur d’une requête déjà admise. Il détermine
+                                                                          complète de cette requête reste nécessaire à la complétion
+si l’exécution complète de la requête est encore nécessaire à
+                                                                          analytique de O. Lorsque la preuve de dispensabilité est
+la complétion analytique de l’objectif. Les gains de requêtes
+                                                                          insuffisante, MCAD exécute en fail-open.
+backend, d’exécutions complètes ou de ressources observés
+en R3-D4 sont des conséquences mesurées de cette décision
+sémantique dans un protocole donné, et non une assimilation               A. Chaîne conceptuelle objectif–évidence–action
+de MCAD à une technique d’admission ou de data skipping.                     La Figure 1 résume la chaîne post-A8. Une requête q est
+                                                                          d’abord projetée vers un Canonical Query Profile (CQP), c’est-
+H. F12 – Systèmes d’aide à la décision et valeur de la décision           à-dire une représentation canonique des propriétés nécessaires
+                                                                          au raisonnement : source/fait, grain, mesures, agrégations, uni-
+   La BI&A et les méthodes orientées objectifs servent des
+                                                                          tés, filtres, temporalité, contexte et correspondances d’évidence.
+processus décisionnels organisationnels [3], [11]. Les méthodes
+                                                                          Le CQP est soumis à l’admissibilité sémantique. Lorsque la
+d’optimisation contextuelle abordent explicitement la prise de
+                                                                          décision l’exige, un probe de non-vacuité peut ensuite établir
+décision sous incertitude [39]. MCAD traite une question diffé-
+                                                                          une forme de réalisabilité ; ce probe est comptabilisé comme
+rente : il ne prescrit pas l’action décisionnelle et n’optimise pas
+                                                                          interaction backend mais ne crédite pas l’évidence analytique
+directement la décision ; il détermine si l’exécution complète
+                                                                          dans l’état de session.
+d’une requête reste nécessaire à la complétion analytique d’un
+                                                                             Soit NE (q) l’ensemble d’évidence que q pourrait encore
+objectif formalisé. Cela ne signifie pas qu’une amélioration
+                                                                          fournir sous le profil et les correspondances considérés, et
+d’un mécanisme analytique prouve une amélioration de la
+                                                                          U (Et ) la frontière d’évidence encore utile à la complétion de
+décision humaine. MCAD évalue la complétion analytique d’un
+                                                                          l’objectif au temps t. Une condition suffisante d’élagage sûr,
+objectif formalisé et le coût système du contrôle correspondant.
+                                                                          formalisée plus loin, prend la forme
+La correction de la décision humaine, la qualité d’un choix
+organisationnel, la satisfaction ou la valeur métier finale restent                            NE (q) ∩ U (Et ) = ∅.
+hors du périmètre empirique actuel.
+                                                                          Cette condition exprime une propriété de sûreté, pas une simple
+                                                                          absence de contribution immédiate. En particulier,
+I. Synthèse F1–F12 et frontière de nouveauté
+   Le Tableau I résume la frontière fonctionnelle. Les cellules              NONCONTRIBUTIVE_NOW ̸⇒ SAFE_TO_PRUNE.
+indiquent le centre de gravité de chaque famille et non l’absence         Si la condition de sûreté est établie sous les hypothèses gelées,
+exhaustive d’une capacité dans chaque système cité.                       MCAD peut choisir PRUNE. Sinon, ou si la fidélité du CQP,
+   La différence revendiquée par MCAD est donc intégrative et             le mapping d’évidence ou la réalisabilité restent incertains, la
+bornée. Le cadre relie (1) un objectif explicitement formalisé,           branche sûre est l’exécution complète.
+(2) un graphe objectif–évidence et un contexte sémantique typé,
+(3) un CQP suffisamment fidèle, (4) l’admissibilité sémantique,
+(5) la réalisabilité éventuellement sondée, (6) l’évidence effecti-       B. Objets principaux : objectif, contexte, CQP et évidence de
+vement acquise, (7) la frontière résiduelle de l’objectif, puis (8)       session
+une décision d’élagage sûr ou d’exécution en fail-open. Cette                L’objectif O est représenté par un graphe objectif–évidence
+chaîne est distincte d’une recommandation, d’un optimiseur                GO qui distingue trois rôles : les contraintes à rendre calcu-
+relationnel, d’un test de vacuité, d’un admission controller ou           lables, les supports suffisants alternatifs de ces contraintes et
+d’une technique d’élagage physique pris isolément.                        les atomes d’évidence analytique dont ces supports dépendent.
+   Nous ne comparons donc pas expérimentalement MCAD à                    Une contrainte est calculable lorsqu’au moins un de ses
+Calcite, Substrait, aux systèmes de recommandation ou aux                 supports suffisants est entièrement couvert par l’évidence
+techniques de data skipping comme s’il s’agissait de baselines            effectivement acquise. Cette représentation évite de confondre
+interchangeables. Les baselines expérimentales de R3 sont                 une cellule potentiellement pertinente avec une obligation
+des politiques internes qui isolent la question causale propre            unique : plusieurs supports alternatifs peuvent conduire à la
+au mécanisme d’élagage. La littérature sert ici à délimiter la            même calculabilité.
+
+                                                                      4
+                                                              TABLE I
+      C ARTOGRAPHIE FONCTIONNELLE DES TRAVAUX CONNEXES (F1–F12) ET FRONTIÈRE AVEC MCAD. L ES FAMILLES INDIQUENT DES FONCTIONS
+                                           DOMINANTES , NON DES EXCLUSIONS EXHAUSTIVES .
+
+
+ Famille        Fonction dominante / exemples                       Objet principalement évalué                                Frontière avec MCAD
+ F1             Objectifs et KPI [11], [12], [16]                   Alignement buts–indicateurs–données                        MCAD part d’un objectif instancié et raisonne sur sa
+                                                                                                                               complétion en session.
+ F2             Graphes et contexte sémantique [13], [19],          Représentation de connaissances et relations               Le CKG est utilisé pour un raisonnement objectif–
+                [24], [25]                                                                                                     évidence typé.
+ F3             IR / plans canoniques [26], [27]                    Optimisation, portabilité et interchange de plans          Le CQP est une projection de fidélité destinée au
+                                                                                                                               raisonnement MCAD, pas un IR universel.
+ F4             Personnalisation [4]                                Préférences et adaptation utilisateur                      MCAD n’infère pas de préférence ni de satisfaction.
+ F5             Intentions, contribution, interestingness [10],     Intention, intérêt, nouveauté ou contribution d’explo-     MCAD mesure nécessité relative à une frontière
+                [8], [9], [29], [30]                                ration                                                     d’objectif, non intérêt général.
+ F6             Sessions et navigation [6], [8], [30]               Continuation et historique de session                      Et porte l’évidence acquise et permet la contribution
+                                                                                                                               différée.
+ F7             Optimisation sémantique [31], [32]                  Réécriture équivalente sous contraintes                    MCAD décide de l’exécution complète selon une
+                                                                                                                               obligation de sûreté objectif-relative.
+ F8             Requêtes vides / non-vacuité [33]                   Détection précoce d’un résultat vide                       Un probe MCAD informe la réalisabilité mais ne met
+                                                                                                                               pas à jour l’évidence acquise.
+ F9             Résumabilité et provenance [21], [22]               Correction d’agrégat et origine du résultat                Ces propriétés soutiennent admissibilité/justification
+                                                                                                                               sans établir la dispensabilité.
+ F10            Admission et ordonnancement [34], [35], [36],       Charge, concurrence, capacité et performance               MCAD contrôle une nécessité analytique, pas une
+                [37]                                                                                                           admission fondée sur la charge.
+ F11            Data skipping / pruning physique [38]               Réduction des données lues pendant l’exécution             MCAD peut supprimer l’exécution complète d’une
+                                                                                                                               requête sous condition de sûreté.
+ F12            Aide à la décision [3], [11], [39]                  Soutien aux processus décisionnels                         La valeur ou correction de la décision humaine reste
+                                                                                                                               hors scope empirique.
+
+
+                                                                                                                                  PRUNE
+                                                                                                                                Et+1 = Et
+                                                                                                                         oui
+
+  Requête          CQP           Admissibilitéadmissible Probe          Évidence potentielle /               preuve
+candidate q      canonique        sémantique           si requis         réalisable NE (q)                 de sûreté ?
+
+                                                                                                           non / incertain
+                                                         ne crédite pas EFrontière résiduelle                                    fail-open        Résultat complet       Mise à jour
+                                                                         t
+                                                                               U (Et )                                          EXECUTE                réussi              Et+1
+
+
+F IGURE 1. Chaîne conceptuelle post-A8 de MCAD. Le CQP alimente l’admissibilité et, si nécessaire, un probe de réalisabilité. La décision d’élagage est
+relative à la frontière résiduelle de l’objectif et échoue en fail-open. Un probe réussi n’est pas assimilé à de l’évidence acquise ; seule une exécution complète
+réussie peut enrichir l’état de session.
+
+
+
+   Le graphe de connaissances contextuel (CKG) porte, pour                                       MCAD peut lancer un probe ciblé. Troisièmement, le raisonneur
+sa part, la sémantique nécessaire à l’interprétation : schéma                                    confronte l’évidence potentielle/réalisable de la requête à la
+multidimensionnel, KPI, grains, unités, agrégateurs, relations                                   frontière résiduelle de O et cherche une preuve de dispensabilité
+de slicers, scénarios, fenêtres temporelles et règles métier. Il                                 sûre. Quatrièmement, la politique applique l’action autorisée
+fournit le référentiel typé qui permet de construire GO , de                                     par cette preuve.
+canonicaliser la requête et d’évaluer l’admissibilité. Le CKG                                       Si la requête est élaguée, aucune exécution complète n’a
+n’est cependant pas assimilé à l’état d’évidence de session.                                     lieu et l’état acquis reste inchangé :
+Les relations relativement stables du contexte et l’évidence
+effectivement acquise au cours de la session sont traitées comme                                                     Et+1 = Et               après PRUNE.
+des objets distincts.                                                                            Cette égalité n’implique pas un coût backend nul : un probe
+   L’état Et mémorise l’évidence analytique effectivement                                        antérieur peut avoir été exécuté et son coût est attribué à la
+acquise avant le traitement de la requête candidate. MCAD                                        session. Si la requête n’est pas sûre à élaguer, MCAD exécute
+distingue alors : (i) l’évidence potentielle décrite par le CQP et                               en fail-open ; une exécution complète réussie peut alors enrichir
+ses correspondances ; (ii) l’évidence réalisable, éventuellement                                 Et+1 avec l’évidence réellement retournée et faire évoluer l’état
+établie par un probe ; et (iii) l’évidence acquise, issue d’une                                  des supports et contraintes.
+exécution complète réussie et pouvant faire progresser les                                          La séparation entre raisonnement et politique reste explicite.
+supports de GO . Cette distinction est centrale pour les sessions                                Le noyau établit admissibilité, réalisabilité, évidence acquise,
+multi-requêtes et la contribution différée.                                                      progression de l’objectif et sûreté de l’élagage. La couche
+                                                                                                 d’action décide ensuite de PRUNE, d’exécuter, de notifier ou
+C. Contrôle pré-backend, probes et mise à jour de l’état                                         de guider selon le mode de déploiement. Les politiques ex-
+   Le contrôle suit quatre étapes opérationnelles. Premièrement,                                 périmentales STRICT_IMMEDIATE, PERMISSIVE_GATED,
+la requête est canonicalisée et soumise à l’admissibilité sé-                                    UNGATED_EXECUTE_ADMISSIBLE et SAFE_PRUNING ne
+mantique sans créditer d’évidence. Deuxièmement, lorsqu’une                                      sont donc pas des définitions concurrentes du noyau séman-
+propriété de non-vacuité ou de présence physique est nécessaire,                                 tique.
+
+                                                                                            5
+                                             Support   dépend de
+                                                                   Évidence                                        TABLE II
+                                               s1                     e1                       P RINCIPALES NOTATIONS POST-A8 DU MODÈLE MCAD.
+                                 support
+                                                                                     Symbole                 Description
+    Objectif   requiert   Contrainte                               Évidence
+                             c1                                                      CKG                     Graphe de connaissances contextuel relativement stable
+      O                                                               e2
+                                                                                     V K , AK , τ K          Nœuds, arêtes et typage du CKG
+                                                                                     O                       Ensemble fini des contraintes de l’objectif analytique actif
+                                 support                                             GO                      Graphe objectif–évidence
+                                             Support               Évidence          CO , SO , EO            Contraintes, supports suffisants et atomes d’évidence de GO
+                                               s2      dépend de      e3             Supp(c)                 Supports suffisants alternatifs de la contrainte c
+                                                                                     Req(s)                  Atomes d’évidence requis par le support s
+                                                                                     Et                      Évidence analytique effectivement acquise par la session
+F IGURE 2. Fragment simplifié du graphe objectif–évidence. La calculabilité          Comp(c, Et )            Calculabilité de c à partir de l’évidence acquise
+de c1 peut être obtenue par s1 ou s2 ; l’évidence acquise est suivie au niveau         ≤t
+                                                                                     CE (O)                  Contraintes calculables cumulativement au temps t
+session, tandis que le CKG fournit la sémantique permettant d’interpréter            U (Et )                 Frontière résiduelle d’évidence encore utile à l’objectif
+chaque atome.                                                                        Pq / CQP                Profil canonique de la requête candidate q
+                                                                                     NE (q)                  Sur-ensemble sûr de l’évidence potentielle pertinente de q
+                                                                                     RE (q)                  Évidence potentielle dont la réalisabilité a été établie
+                                                                                     At                      Évidence effectivement acquise à l’étape t
+D. Fragment illustratif du graphe objectif–évidence et rôle du                       ADM(Pq )                Admissibilité sémantique du CQP, hors non-vacuité
+                                                                                     ϕt , ∆ϕt                Progression et gain immédiat de calculabilité
+CKG                                                                                  NE (q) ∩ U (Et )        Test suffisant utilisé pour l’élagage sûr
+   La Figure 2 illustre une contrainte c1 disposant de deux
+supports suffisants alternatifs. Le support s1 dépend de deux
+atomes d’évidence, tandis que s2 fournit une autre voie de                           A. Contexte sémantique typé et conventions de notation
+calculabilité. Le CKG annote ces atomes par les informations
+                                                                                       Nous considérons un entrepôt multidimensionnel comprenant
+de grain, mesure, unité, agrégation, filtres et temporalité
+                                                                                     des faits F , des dimensions D, des niveaux L(D), des mesures
+nécessaires à leur interprétation.
+                                                                                     M , des unités, des agrégateurs, des scénarios et des règles
+                                                                                     temporelles. Le contexte sémantique est représenté par un
+E. Portabilité et frontières de construction                                         graphe de connaissances contextuel
+
+   Le CQP rend le raisonnement indépendant de la syntaxe                                                    CKG = (V K , AK , τ K ),
+source dans la mesure où un extracteur fidèle est disponible. Le
+prototype dispose de chemins SQL analytique et MDX/XMLA                              où V K est l’ensemble des nœuds, AK l’ensemble des arêtes
+vers cette représentation ; cela établit une portabilité de repré-                   étiquetées et τ K leur typage. La lettre AK est volontairement
+sentation bornée, et non l’équivalence de tous les backends.                         utilisée pour les arêtes : le symbole Et est réservé, dans toute
+La réplication R3-E14 apporte désormais une confirmation                             la suite, à l’évidence analytique effectivement acquise par la
+metric-specific sur XMLA/eMondrian, mais elle ne transforme                          session.
+pas cette portabilité de représentation en claim d’équivalence                          Le CKG contient les relations nécessaires pour interpréter
+ou d’homogénéité inter-backend. DAX et d’autres langages                             grains, mesures, KPI, unités, agrégateurs, slicers, scénarios et
+restent des extensions futures du contrat CQP.                                       fenêtres temporelles. Il ne constitue pas à lui seul la mémoire
+   Enfin, les expériences utilisent des CKG, objectifs,                              d’exécution de la session. Les informations relativement stables
+contraintes, supports et mappings d’évidence préparés à partir                       du contexte et l’évidence acquise au fil des requêtes sont donc
+des schémas et règles contrôlés du protocole. La construction                        des objets distincts.
+automatique de ces objets depuis documents, logs ou règles                              Le Tableau II résume les notations post-A8.
+implicites n’est pas évaluée. Les résultats portent donc sur
+le raisonnement et le contrôle à partir d’un contexte spécifié,
+non sur l’acquisition automatique de connaissances ni sur la                         B. Objectif, supports suffisants et graphe objectif–évidence
+validité métier indépendante de ce contexte.                                            Soit un objectif analytique
+
+                                                                                                        O = {c1 , . . . , cm },          m ≥ 1,
+                 IV. F ORMALISATION DE MCAD
+                                                                                     où chaque c ∈ O est une contrainte dont nous cherchons la
+   Cette section fixe le noyau formel post-A8 de MCAD.
+                                                                                     calculabilité. La satisfaction métier de la contrainte sur des
+Le modèle sépare explicitement : (i) le contexte sémantique
+                                                                                     valeurs observées est une étape distincte : MCAD raisonne ici
+relativement stable ; (ii) la structure objectif–évidence qui
+                                                                                     sur la disponibilité de l’évidence nécessaire à son calcul, pas
+définit ce qu’il faut rendre calculable ; (iii) le profil canonique
+                                                                                     sur la vérité finale de la décision métier.
+de la requête candidate ; (iv) la réalisabilité de l’évidence ; (v)
+                                                                                       L’objectif est matérialisé par un graphe objectif–évidence
+l’évidence effectivement acquise dans la session ; et (vi) la
+décision opérationnelle. Cette séparation évite trois confusions                                              GO = (VO , AO , τO ),
+de l’ancien formalisme : utiliser le même symbole pour les
+arêtes du graphe et l’évidence de session, assimiler la non-                         avec une partition typée
+vacuité à l’admissibilité sémantique, et déduire une action
+d’élagage de la seule contribution marginale immédiate.                                                      VO = CO ∪˙ SO ∪˙ EO ,
+
+                                                                                 6
+où CO contient les contraintes, SO les supports suffisants et             Cette union est volontairement conservatrice : lorsque plusieurs
+EO les atomes d’évidence analytique. Les arêtes sont limitées             supports sont alternatifs, elle conserve les atomes manquants de
+aux relations                                                             chacun d’eux. Elle évite donc d’élaguer une requête simplement
+                                                                          parce qu’elle ne complète pas immédiatement le support
+               AO ⊆ (CO × SO ) ∪ (SO × EO ).
+                                                                          actuellement le plus avancé.
+  Pour une contrainte c, nous notons
+              Supp(c) = {s ∈ SO | (c, s) ∈ AO },                          D. Canonical Query Profile et fidélité de l’abstraction
+et, pour un support s,                                                      Une requête candidate q écrite dans un langage analytique
+                                                                          L est projetée vers un Canonical Query Profile
+              Req(s) = {e ∈ EO | (s, e) ∈ AO }.
+                                                                              Pq = CQPL (q) = (fq , gq , Mq , αq , uq , Sq , wq , Γq , ηq ),
+Chaque support est fini et non vide ; une contrainte peut
+posséder plusieurs supports suffisants alternatifs. Cette structure       où fq décrit la source ou le fait, gq le grain, Mq les mesures/KPI,
+est une donnée du modèle d’objectif. Sa pertinence métier et              αq les agrégations, uq les unités, Sq les slicers normalisés, wq la
+sa construction correcte sont des hypothèses d’entrée ; elles ne          composante temporelle, Γq les correspondances vers les atomes
+sont pas inférées automatiquement par le mécanisme MCAD                   d’évidence et ηq les métadonnées de fidélité/provenance de
+évalué.                                                                   l’extraction.
+   Au temps t, l’évidence acquise par la session est un ensemble             Le CQP n’est pas un plan d’exécution physique ni un format
+                            Et ⊆ EO .                                     universel d’interchange. Il expose seulement les propriétés
+                                                                          nécessaires au raisonnement MCAD. L’indépendance vis-à-
+Une contrainte est calculable si et seulement si au moins un              vis de la syntaxe est donc conditionnelle : elle vaut pour les
+support suffisant est entièrement couvert :                               langages disposant d’un extracteur suffisamment fidèle vers ce
+                                                                          contrat.
+       Comp(c, Et ) ⇐⇒ ∃s ∈ Supp(c) : Req(s) ⊆ Et .             (1)
+                                                                             L’évidence potentielle attribuée à la requête est
+Par abus de notation, lorsque le support est identifié à son
+ensemble d’atomes requis, l’Éq. (1) s’écrit simplement                                    NE (q) = {e ∈ EO | Γq (e) = 1}.
+
+          Comp(c, Et ) ⇐⇒ ∃s ∈ Supp(c) : s ⊆ Et .                         Pour être utilisé dans une preuve d’élagage, NE (q) doit être un
+                                                                          sur-ensemble sûr de toute évidence pertinente que l’exécution
+  L’ensemble cumulatif des contraintes calculables est
+                                                                          complète de q pourrait acquérir relativement à l’objectif courant.
+              CE≤t (O) = {c ∈ O | Comp(c, Et )}.                          Si cette propriété de fidélité ne peut pas être établie, l’élagage
+                                                                          n’est pas autorisé et le contrôle passe en fail-open.
+La calculabilité est monotone tant que l’objectif et ses supports
+restent gelés et que l’évidence n’est pas retirée :
+                                                                          E. Admissibilité sémantique séparée de la non-vacuité
+            Et−1 ⊆ Et =⇒ CE≤t−1 (O) ⊆ CE≤t (O).
+                                                                            L’admissibilité sémantique du CQP est définie par
+C. États de contrainte et frontière résiduelle de l’objectif     ADM(Pq ) ⇐⇒ grain_ok(Pq ) ∧ agg_ok(Pq ) ∧ unit_ok(Pq )
+   Pour une contrainte c, nous distinguons trois états séman-                      ∧ slc_ok(Pq ) ∧ time_ok(Pq ) ∧ map_ok(Pq ).
+tiques :                                                                                                                         (3)
+                                                                Aucun prédicat de non-vacuité n’apparaît dans l’Éq. (3). Les
+                   COMPUTABLE, Comp(c, Et ),
+                   
+                                                                clauses portent respectivement sur le grain et la résumabilité, les
+                   
+                                         ∃s ∈ Supp(c) :          agrégateurs, les unités, les combinaisons de slicers, la cohérence
+                   
+                   
+                   
+   state(c, Et ) =     PARTIALLY                                 temporelle et la validité structurelle des correspondances
+                                     , 0 < | Req(s) ∩ Et |,
+                    _SUPPORTED                                  d’évidence.
+                                           < | Req(s)|
+                   
+                   
+                   
+                                                                    La non-vacuité et la présence physique relèvent d’un second
+                   
+                   
+                     UNRESOLVED, sinon.
+                   
+                                                                 niveau. Un probe optionnel peut produire une information de
+Une contrainte calculable devient opérationnellement satisfaite- réalisabilité
+inactive pour le problème de complétion ; les autres restent                              RE (q) ⊆ NE (q).
+actives-requises. Nous posons
+                                                                 Le probe peut confirmer que certains atomes potentiels sont
+                      Ctact = O \ CE≤t (O).
+                                                                 physiquement réalisables, ou au contraire réduire l’ensemble
+   La frontière résiduelle d’évidence est l’ensemble conserva- considéré lorsque cette réduction est prouvée sûre. Il ne
+teur de tous les atomes encore manquants dans au moins un transforme toutefois pas ces atomes en évidence acquise :
+support d’une contrainte active :
+                       [        [                                             Et reste inchangé après le probe seul.
+           U (Et ) =                   (Req(s) \ Et ) .     (2)
+                     c∈Ctact s∈Supp(c)                           Cette séparation est normative pour le reste du formalisme.
+
+                                                                      7
+F. Évidence acquise et transition de session                             Algorithm 1 Contrôle objectif-relatif avec élagage sûr
+  Soit qt la requête candidate à l’étape t. Nous notons                  Require: Requête q, objectif O, CKG, évidence acquise Et
+At ⊆ EO l’évidence effectivement acquise à cette étape. Une              Ensure: REJECT_SEMANTIC, PRUNE ou EXECUTE
+exécution complète réussie peut produire                                  1: Construire Pq = CQPL (q)
+                                                                          2: if la fidélité de Pq ou de NE (q) n’est pas établie then
+                          At ⊆ NE (qt ),                                  3:    return EXECUTE {fail-open}
+                                                                          4: end if
+et, lorsqu’un ensemble de réalisabilité RE (qt ) a été établi de
+                                                                          5: if ADM(Pq ) = false then
+façon sûre,
+                  At ⊆ RE (qt ) ⊆ NE (qt ).                               6:    return REJECT_SEMANTIC
+                                                                          7: end if
+La mise à jour normative de la session est                                8: Effectuer un probe seulement s’il est requis par le contrôle
+
+                         Et = Et−1 ∪ At .                      (4)           de réalisabilité
+                                                                          9: Ne pas modifier Et à partir du probe seul
+   Un probe sans exécution complète vérifie At = ∅. De même,             10: if NE (q) ∩ U (Et ) = ∅ then
+si la requête est élaguée,                                               11:    return PRUNE
+                                                                         12: end if
+             PRUNE =⇒ At = ∅ =⇒ Et = Et−1 .                    (5)
+                                                                         13: return EXECUTE {fail-open}
+L’Éq. (5) ne signifie pas que le coût backend est nul : un probe
+peut avoir été exécuté avant la décision d’élagage et son coût
+reste attribuable à la session.                                               Justification.: Par définition de U (Et ), tout atome man-
+                                                                         quant d’un support d’une contrainte active appartient à cette
+G. Contribution immédiate, contribution différée et progression          frontière. L’Éq. (6) implique qu’aucun atome que q pourrait
+  Nous conservons un indicateur de progression binaire                   acquérir n’est un de ces atomes manquants. Toute évidence
+                                                                         acquise par q est donc soit déjà présente dans Et , soit extérieure
+                |CE≤t (O)|                                               aux besoins résiduels de O. Aucun support actif ne peut ainsi
+     ϕt (O) =              ,    ∆ϕt = ϕt (O) − ϕt−1 (O).
+                   |O|                                                   gagner un élément manquant par l’exécution de q.
+Cet indicateur décrit la progression de calculabilité ; il ne               La condition de la Proposition 1 est suffisante et conser-
+définit pas, à lui seul, l’action. Une requête peut acquérir une         vatrice ; elle n’est pas présentée comme une caractérisation
+partie d’un support sans rendre immédiatement une nouvelle               nécessaire de toute dispensabilité possible. Surtout, son échec
+contrainte calculable. Dans ce cas, ∆ϕt = 0 alors que                    n’autorise pas l’élagage : il signifie seulement que la sûreté
+l’évidence acquise peut être nécessaire à une contribution               n’est pas établie par ce test.
+différée ultérieure.
+   Nous distinguons donc :                                               I. Politique de contrôle sûre et fail-open
+   NONCONTRIBUTIVE_NOW ̸⇒ SAFE_TO_PRUNE.                                    Le noyau distingue trois sorties de contrôle : rejet sémantique,
+                                                                         élagage sûr et exécution. Une version abstraite est donnée par
+La contribution différée correspond précisément au cas où                l’Algorithme 1.
+NE (qt ) intersecte la frontière résiduelle, sans compléter encore          Une politique de déploiement peut traduire ces sor-
+un support suffisant. L’expérience NH-R2 exerce ce phénomène             ties en notification, avertissement, recommandation ou
+dans un périmètre contrôlé ; le formalisme n’en déduit pas une           blocage, mais cette couche d’action ne change pas
+généralisation à toute session analytique imaginable.                    la sémantique de la preuve. Les politiques expéri-
+                                                                         mentales STRICT_IMMEDIATE, PERMISSIVE_GATED,
+H. Condition suffisante d’élagage sûr                                    UNGATED_EXECUTE_ADMISSIBLE et SAFE_PRUNING
+   Nous considérons une phase pendant laquelle les hypothèses            sont utilisées pour isoler des mécanismes différents ; elles ne
+suivantes sont gelées : l’objectif O, le graphe GO , les supports        doivent pas être confondues avec des définitions concurrentes
+suffisants et les règles contextuelles ne changent pas ; le CQP          de l’objectif.
+est fidèle ou traité en fail-open ; NE (q) sur-approxime toute
+évidence pertinente que q pourrait acquérir ; et l’exécution de          J. Temps jusqu’à complétion analytique
+q n’a pas d’effet caché sur la définition de l’objectif ou des
+                                                                           Le temps jusqu’à complétion analytique est défini relative-
+supports.
+                                                                         ment au premier instant où toutes les contraintes de l’objectif
+Proposition 1. Sous ces hypothèses, si                                   deviennent calculables :
+                      NE (q) ∩ U (Et ) = ∅,                    (6)                         t∗O = inf{t | CE≤t (O) = O}.
+alors l’exécution complète de q ne peut ni compléter ni faire            Dans les campagnes end-to-end, le temps mesuré jusqu’à
+progresser un support encore actif relativement à l’objectif             cette complétion inclut les coûts attribuables à la session :
+O. L’élagage de q préserve donc l’ensemble des contraintes               contrôle/gate, probes, exécutions backend complètes et attente
+calculables et ne supprime aucune évidence encore nécessaire             associée. Les coûts de démarrage ou restauration de l’environ-
+à un support actif.                                                      nement, de warm-up global et de décision humaine sont exclus
+
+                                                                     8
+lorsqu’ils ne sont pas attribuables à la session mesurée. Cette             Le premier contrôle est un gate de fidélité. Si l’adaptateur
+métrique évalue la complétion analytique du protocole, non la            ne peut pas établir une représentation suffisamment sûre de
+qualité de la décision humaine.                                          l’évidence potentielle NE (qt ), MCAD n’autorise pas l’élagage
+                                                                         et transmet la requête vers la branche fail-open. Cette règle
+K. Portabilité bornée du CQP                                             est volontairement asymétrique : une incertitude de canonica-
+                                                                         lisation peut réduire les opportunités d’élagage, mais ne doit
+   Le raisonneur dépend du CQP et des relations objectif–
+                                                                         pas créer un faux PRUNE.
+évidence, non de la syntaxe source. Le prototype matérialise
+des chemins SQL analytique et MDX/XMLA vers cette
+représentation. Cette observation établit une portabilité de C. Admissibilité sémantique et probe optionnel de réalisabilité
+représentation bornée à ces extracteurs et aux cas exercés ;        Lorsque le CQP est suffisamment fidèle, le raisonneur évalue
+elle ne prouve ni l’équivalence de tous les backends ni la ADM(P ). Cette étape couvre grain/résumabilité, agrégation,
+                                                                          qt
+validité d’un extracteur pour DAX ou pour tout langage futur. unité, slicers, temporalité et validité structurelle des mappings
+DAX reste une extension à évaluer.                               d’évidence. La non-vacuité n’est pas une clause d’admissibilité.
+   Enfin, le formalisme suppose que le CKG, GO , les supports       Si une propriété de présence physique est requise pour le
+et les mappings d’évidence ont été préparés correctement. La contrôle, un composant de probe peut effectuer une interaction
+construction automatique de ces objets, l’accord entre experts backend ciblée et produire une information R (q ) ⊆ N (q ).
+                                                                                                                  E t       E t
+sur leur contenu et la valeur décisionnelle humaine qui en Le probe est explicitement séparé de l’exécution complète :
+découle restent hors du périmètre empirique actuel.              il peut établir la réalisabilité, mais il ne produit pas At et ne
+                                                                 modifie pas Et−1 . Son coût est néanmoins enregistré comme
+  V. A RCHITECTURE DU PROTOTYPE ET FLUX DE TRAVAIL               interaction backend attribuable à la session.
+   L’architecture post-A8 traduit directement le contrat formel
+de la Section IV en un contrôle pré-backend instrumenté.
+                                                                 D. Moteur de frontière résiduelle et preuve de safe pruning
+Elle sépare quatre catégories d’état qui ne doivent pas être
+confondues : (i) les ressources préparées relativement stables,     Le moteur de contrôle confronte l’évidence potentielle sûre
+notamment le CKG et le graphe objectif–évidence GO ; (ii) NE (qt ) à la frontière résiduelle U (Et−1 ). Sous les hypothèses
+le profil canonique et les propriétés déduites de la requête de fidélité gelées, la politique SAFE_PRUNING peut retourner
+candidate ; (iii) la réalisabilité éventuellement établie par un PRUNE lorsque
+probe ; et (iv) l’évidence effectivement acquise après une
+                                                                                      NE (qt ) ∩ U (Et−1 ) = ∅.
+exécution complète réussie. La politique d’action est injectée
+après le raisonnement afin que les baselines expérimentales ne Le prototype traite l’échec de cette condition comme une
+redéfinissent pas le noyau sémantique.                           absence de preuve, pas comme une preuve inverse : si
+                                                                 l’intersection est non vide, ou si le mapping/fidélité est
+A. Ressources préparées : CKG, objectif et état de session       incertain, la requête suit la branche EXECUTE. Ainsi, la chaîne
+   Le prototype reçoit un CKG typé, un objectif O, son graphe opérationnelle respecte
+objectif–évidence GO , les supports suffisants et les mappings              NONCONTRIBUTIVE_NOW ̸⇒ SAFE_TO_PRUNE.
+vers les atomes d’évidence. Ces objets sont chargés comme
+ressources du scénario ou du déploiement ; MCAD ne prétend                  Le point d’injection de politique permet également d’exé-
+pas les découvrir automatiquement à partir de documents, de              cuter les comparateurs internes sans modifier le raison-
+journaux ou de règles implicites. Le CKG porte le catalogue              neur. PERMISSIVE_GATED constitue le comparateur cau-
+et la sémantique relativement stables, tandis que Et−1 porte             sal primaire de la campagne confirmatoire SQL Direct ;
+exclusivement l’évidence acquise avant la requête courante.              UNGATED_EXECUTE_ADMISSIBLE sert de comparateur pra-
+   Cette séparation est matérialisée dans le chemin de contrôle :        tique secondaire de break-even ; STRICT_IMMEDIATE reste
+la frontière résiduelle U (Et−1 ) est recalculée à partir de             un baseline sémantique/historique utile pour exposer la perte de
+l’objectif et de l’évidence de session, sans ajouter d’information       contribution différée. Ces politiques ne sont pas des systèmes
+simplement parce qu’un support est décrit dans le CKG ou                 externes concurrents.
+dans GO .
+                                                                         E. Exécution backend et commit de l’évidence acquise
+B. Adaptateurs de requête, CQP et gate de fidélité
+                                                                            Si l’action est PRUNE, aucune exécution complète n’est
+   Une requête candidate qt arrive par un adaptateur de                  envoyée au backend et l’état acquis reste inchangé. Si l’action
+langage. Les chemins exercés par le prototype comprennent                est EXECUTE, le composant d’exécution transmet la requête
+SQL analytique et MDX/XMLA ; l’adaptateur projette la                    originale au backend sélectionné, attend la réponse complète et
+syntaxe source vers un Canonical Query Profile Pqt . Le CQP              collecte les compteurs attribuables à la session. Une exécution
+expose les propriétés nécessaires au raisonnement – fait/source,         complète réussie peut alors produire l’ensemble At d’évidence
+grain, mesures, agrégations, unités, slicers, temporalité et             effectivement acquise et appliquer
+correspondances d’évidence – ainsi que les métadonnées
+permettant d’évaluer la fidélité de l’extraction.                                               Et = Et−1 ∪ At .
+
+                                                                     9
+                                                                                                                                                         PRUNE
+                                                                                                                                                pas d’exécution complète
+                                                                                                                                          oui
+                                                                                                    NE (qt )
+                                                                                      probe                                   preuve
+                                                                        ADM(Pqt )                      vs
+                                                                                    si requis                               de sûreté ?
+                                                                                                    U (Et−1 )
+                                                                  oui
+                                                                                                      coût compté          non / incertain
+                       Requête qt       CQP Pqt        fidélité                                  pas d’évidence acquise                         fail-open              backend            At puis
+ CKG + GO                                                                                                                                                         SQL Direct / XMLA   Et ← Et−1 ∪ At
+                 adaptateur SQL / MDX   + fidélité       non ?
+                                                     suffisante                                                                                 EXECUTE
+                                                                                                   trace / receipt
+                                                                                      probes, backend, temps, octets, CPU/I/O
+
+   Et−1
+
+
+
+
+F IGURE 3. Architecture pré-backend post-A8. Les ressources objectif/contexte et l’état d’évidence de session alimentent le raisonneur ; le CQP est contrôlé
+pour sa fidélité et son admissibilité ; un probe de réalisabilité est optionnel et ne crédite jamais l’évidence acquise ; la preuve de sûreté décide ensuite entre
+PRUNE et exécution fail-open. Seule une exécution complète réussie peut produire At et mettre à jour Et .
+
+
+
+   L’architecture interdit donc deux raccourcis : un probe réussi                               2) recevoir qt , construire le CQP Pqt et vérifier la fidélité
+n’est jamais committé comme résultat analytique, et une requête                                    de l’abstraction ;
+élaguée ne met jamais à jour l’évidence. L’accumulateur de                                      3) évaluer ADM(Pqt ) sans créditer d’évidence ;
+session peut assembler des contributions réparties sur plusieurs
+requêtes ; ce comportement de contribution différée a été exercé                                4) si nécessaire, exécuter un probe de réalisabilité, enregis-
+dans la campagne contrôlée NH-R2, sans prétendre couvrir                                           trer son coût et laisser Et−1 inchangé ;
+toutes les formes possibles de sessions analytiques.                                            5) calculer NE (qt ), la frontière U (Et−1 ) et appliquer la
+                                                                                                   politique choisie ;
+F. Traçabilité, compteurs et temps jusqu’à l’objectif                                           6) si la sûreté est prouvée sous SAFE_PRUNING, retourner
+   Chaque traitement produit une trace structurée reliant le                                       PRUNE ; sinon exécuter en fail-open selon le protocole ;
+CQP, les clauses d’admissibilité, les éventuels probes, la                                      7) après une exécution complète réussie, dériver At et
+frontière résiduelle, l’action de politique, les interactions                                      mettre à jour Et = Et−1 ∪ At ; et
+backend et la mise à jour d’évidence. Les campagnes end-to-                                     8) produire la trace explicative et les compteurs de session,
+end instrumentent séparément le nombre de requêtes backend                                         puis réévaluer la progression vers la complétion de O.
+incluant les probes, le nombre d’exécutions backend complètes,
+                                                                                            Cette architecture maintient ainsi une séparation inspectable
+le temps client, les octets de réponse et, lorsque le backend le
+                                                                                         entre sémantique, réalisabilité, acquisition d’évidence, politique
+permet, les compteurs CPU et I/O.
+                                                                                         d’action et effet physique. Elle permet d’évaluer la préservation
+   Le temps jusqu’à complétion analytique est calculé à partir
+                                                                                         de la complétion séparément des coûts système, ce qui
+de la même trace de session et inclut les coûts de gate, probes,
+                                                                                         est nécessaire pour interpréter correctement les campagnes
+exécutions complètes et attente attribuables à la session. Il
+                                                                                         contrôlées et confirmatoires.
+n’inclut pas par construction la qualité de la décision humaine
+et ne transforme pas une réduction d’un compteur intermédiaire
+en claim global de bénéfice système.                                                                             VI. É VALUATION EXPÉRIMENTALE
+                                                                                            L’évaluation post-A8 est organisée comme une échelle
+G. Couverture du prototype et frontières empiriques                                      d’évidence plutôt que comme une collection de RQ historiques
+                                                                                         placées au même niveau probatoire. Les campagnes n’ont pas
+   Le Tableau III relie les composants du modèle post-A8                                 toutes la même fonction : les traces historiques établissent
+aux chemins effectivement exercés. Il distingue soigneusement                            la réalité du prototype et sa diversité de chemins ; NH-R2
+implémentation, preuve de fonctionnement et confirmation                                 cible la préservation sémantique et la contribution différée
+expérimentale.                                                                           multi-requêtes ; R3-C teste le comportement de bout en bout
+   Le chemin SQL Server Direct dispose d’une campagne confir-                            face à une exécution admissible non filtrée ; R3-D constitue
+matoire R3-D pour la comparaison primaire SAFE_PRUNING                                   la campagne confirmatoire SQL Server Direct pour les coûts
+versus PERMISSIVE_GATED. Le chemin XMLA/eMondrian                                        système et le temps jusqu’à complétion analytique ; R3-E14
+dispose désormais d’une réplication secondaire R3-E14 mesu-                              constitue la réplication secondaire XMLA/eMondrian, mesurée
+rée sur 300 sessions et 900 bras ; les 8 endpoints primaires de                          sur 300 sessions et 900 bras, avec 8/8 endpoints primaires
+la même comparaison sont confirmés endpoint par endpoint.                                confirmés.
+Cette confirmation reste distincte de R3-D et n’autorise ni
+équivalence backend, ni synthèse cross-backend, ni bénéfice
+système global.                                                                          A. Questions d’évaluation et hiérarchie probatoire
+                                                                                           Nous formulons cinq questions correspondant au mécanisme
+H. Workflow de bout en bout                                                              post-A8 :
+                                                                                           — EQ1 – Préservation de complétion : une politique
+   Le workflow opérationnel post-A8 est le suivant :                                           d’élagage sûr préserve-t-elle la complétion analytique de
+   1) charger l’objectif O, GO , le CKG et l’évidence acquise                                  l’objectif dans les scénarios contrôlés où ses hypothèses
+      Et−1 ;                                                                                   sont gelées ?
+
+                                                                                    10
+                                                                  TABLE III
+                          C OUVERTURE POST-A8 DU CONTRAT FORMEL PAR LE PROTOTYPE ET FRONTIÈRE DES PREUVES EMPIRIQUES .
+
+Composant                       Rôle normatif                              Réalisation / chemin exercé                                       Frontière de revendication
+CKG + GO préparés               Fournir contexte, contraintes, supports et Ressources de scénario explicitement chargées par les campagnes Construction automatique et validité
+                                mappings d’évidence                          contrôlées                                                    métier indépendante non évaluées
+CQP                             Abstraction canonique nécessaire au rai- Adaptateurs SQL analytique et MDX/XMLA vers des propriétés        Portabilité bornée aux extracteurs
+                                sonnement                                    normalisées                                                   fidèles ; DAX non validé
+ADM(Pq )                        Vérifier l’admissibilité sémantique hors Clauses de grain, agrégation, unité, slicers, temps et mapping    Un probe n’est pas une clause
+                                non-vacuité                                  exposées dans les traces                                      d’ADM
+Probe / RE (q)                  Établir une réalisabilité lorsque requise    Interaction backend ciblée instrumentée sur les chemins où le Coût compté ; aucune mise à jour de
+                                                                             protocole l’exige                                             Et par le probe seul
+U (Et ) + gate sûr              Déterminer si l’évidence potentielle peut Politique SAFE_PRUNING et condition suffisante conservatrice     Échec de la preuve ̸= autorisation
+                                encore servir un support actif                                                                             d’élaguer ; fail-open
+Injection de politique          Isoler le mécanisme sans redéfinir la sé- STRICT_IMMEDIATE,                        PERMISSIVE_GATED,       Baselines internes, pas équivalents
+                                mantique                                     UNGATED_EXECUTE_ADMISSIBLE, SAFE_PRUNING                      des systèmes externes de la littérature
+Exécution complète              Produire un résultat analytique et éventuel- SQL Server Direct mesuré en R3-D ; XMLA/eMondrian mesuré      R3-D confirme 6/8 endpoints pri-
+                                lement At                                    en R3-E14                                                     maires et R3-E14 en confirme 8/8,
+                                                                                                                                           séparément ; aucune équivalence ba-
+                                                                                                                                           ckend ni synthèse cross-backend
+                                                                                                                                           n’est établie
+Accumulateur de session         Mettre à jour Et après exécution complète Assemblage multi-requêtes et contribution différée exercés en Pas de généralisation à toutes les
+                                réussie                                    NH-R2                                                           formes de session/objectifs
+Traçabilité / compteurs         Relier décision, effet physique et coût de Receipts de décision, probes, requêtes backend, exécutions Les endpoints sont interprétés séparé-
+                                session                                    complètes, temps, octets et compteurs backend disponibles selon ment ; pas de bénéfice système global
+                                                                           le chemin                                                       indivisible
+
+
+
+
+  — EQ2 – Contribution différée : une politique strictement                               contrat normatif post-A8. De même, les quantiles historiques
+      immédiate peut-elle perdre une contribution distribuée sur                          de latence sémantique n’incluaient pas nécessairement le coût
+      plusieurs requêtes alors qu’une politique tenant compte                             complet du backend ; ils ne sont donc pas utilisés pour conclure
+      de la frontière résiduelle la conserve ?                                            sur le temps de bout en bout de R3.
+  — EQ3 – Coût système confirmatoire : relativement
+      à PERMISSIVE_GATED, quels endpoints préspécifiés                                    C. NH-R2 : préservation et contribution différée multi-requêtes
+      sont réduits par SAFE_PRUNING sur SQL Server Di-                                       NH-R2 exerce explicitement des scénarios où l’évidence utile
+      rect ?                                                                              à un support est répartie sur plusieurs requêtes. L’observation
+  — EQ4 – Break-even pratique : les économies de travail                                  centrale est qu’une requête peut ne rendre immédiatement
+      backend suffisent-elles à rendre SAFE_PRUNING plus                                  aucune nouvelle contrainte calculable tout en apportant une
+      rapide que UNGATED_EXECUTE_ADMISSIBLE dans                                          partie d’un support qui deviendra suffisant après une requête
+      la campagne contrôlée correspondante ?                                              ultérieure. Une politique strictement immédiate peut donc
+  — EQ5 – Réplication backend : quelles conclusions                                       supprimer une étape nécessaire à la complétion future.
+      endpoint-spécifiques sont confirmées séparément sur SQL                                Dans le périmètre gelé de NH-R2, la politique fondée sur
+      Direct et sur XMLA/eMondrian, et quelles comparaisons                               la frontière résiduelle ne présente pas de violation observée de
+      cross-backend restent non autorisées ?                                              complétion, tandis que le baseline STRICT_IMMEDIATE ex-
+  Le Tableau IV synthétise la hiérarchie des campagnes et                                 pose la perte de contributions différées dans les cas préspécifiés.
+empêche de promouvoir un résultat descriptif ou historique au                             Ce résultat soutient la distinction
+rang de confirmation inférentielle.
+                                                                                              NONCONTRIBUTIVE_NOW ̸⇒ SAFE_TO_PRUNE,
+B. Évidence historique : fonctionnement, portée et limites                                mais ne constitue ni une preuve universelle pour toute forme
+   Les campagnes historiques restent utiles comme preuves                                 de session, ni une validation automatique de tout mapping
+de fonctionnement et de diversité de configuration. La trace                              d’évidence possible.
+AdventureWorks Q1–Q6 établit qu’une politique peut appliquer
+une décision avant backend ; la campagne FoodMart historique                              D. R3-C : exécution contrôlée et absence de break-even établi
+exerce 1000 sessions et 7960 décisions ; les campagnes multi-                             face à UNGATED
+entrepôts et backend apparié montrent que des décisions et                                  R3-C        confronte       la     politique     sûre     à
+motifs peuvent être préservés dans plusieurs chemins exercés ;                            UNGATED_EXECUTE_ADMISSIBLE, qui exécute les
+les benchmarks historiques de robustesse, de croissance struc-                            requêtes admissibles sans rechercher de preuve d’élagage.
+turelle et de latence sémantique caractérisent le prototype et                            Ce comparateur répond à une question différente de la
+certaines sensibilités internes.                                                          comparaison confirmatoire primaire : il demande si le coût
+   Ces résultats ne sont toutefois pas réinterprétés comme                                du contrôle pré-backend est amorti par les exécutions évitées
+preuve du nouveau prédicat d’élagage sûr. En particulier,                                 dans les scénarios testés.
+les anciennes politiques strictes basées sur la contribution                                Dans      les    40      sessions    contrôlées    de    ce
+immédiate et les anciennes lectures en ∆φ sont conservées                                 protocole,    SAFE_PRUNING          est     plus  lent   que
+comme contexte historique, mais elles ne définissent plus le                              UNGATED_EXECUTE_ADMISSIBLE pour le temps observé
+
+                                                                                     11
+                                                                    TABLE IV
+                                     É CHELLE D ’ ÉVIDENCE POST-A8 ET RÔLE PROBATOIRE DE CHAQUE CAMPAGNE .
+
+Niveau            Campagne / comparateur                  Ce que la campagne autorise                 Ce qu’elle n’autorise pas
+Historique        Q1–Q6, FoodMart, multi-entrepôts, Fonctionnement du prototype, variété de Preuve confirmatoire du safe pruning post-A8, performance end-to-end
+                  parité backend, robustesse, scalabi- chemins, diagnostics et caractérisations universelle ou valeur décisionnelle humaine
+                  lité/latence                            descriptives
+NH-R2             SAFE vs politique strictement immé- Contribution différée, préservation de com- Universalité sur toute session, tout objectif ou tout mapping d’évidence
+                  diate dans des scénarios multi-requêtes plétion dans le périmètre gelé, borne contre
+                  contrôlés                               la règle “non contributif maintenant =
+                                                          dispensable”
+R3-C              SAFE_PRUNING                         vs Test pratique de break-even ; 40/40 ses- Claim que SAFE est universellement plus rapide que l’exécution admissible
+                  UNGATED_EXECUTE_ADMISSIBLE sions observées plus lentes sous SAFE non instrumentée
+                                                          dans ce protocole
+R3-D              SAFE_PRUNING                         vs Confirmation endpoint-spécifique sur 300 Bénéfice système global indivisible, confirmation des I/O non significatives,
+                  PERMISSIVE_GATED, SQL Server sessions / 900 bras, 8 endpoints primaires, réplication XMLA
+                  Direct                                  correction de Holm
+R3-E14            SAFE_PRUNING                         vs Réplication secondaire mesurée sur 300 Équivalence backend, homogénéité d’effet, synthèse cross-backend, béné-
+                  PERMISSIVE_GATED,                       sessions / 900 bras ; 8/8 endpoints pri- fice système global ou promotion confirmatoire de SAFE vs UNGATED
+                  XMLA/eMondrian                          maires confirmés avec correction de Holm
+
+
+
+
+de session, soit 40/40 cas dans le même sens. Le break-even                                La conclusion R3-D est volontairement endpoint-spécifique :
+temporel n’est donc pas établi dans ce périmètre. Cette                                 le protocole autorise à dire que six endpoints primaires sur huit
+observation n’annule pas les réductions de travail backend                              sont confirmés, mais n’autorise pas un claim indivisible du
+mesurées plus tard contre PERMISSIVE_GATED ; elle montre                                type “bénéfice système global”. De même, cette comparaison
+simplement que moins de travail backend et temps de session                             primaire n’implique pas que SAFE_PRUNING soit universelle-
+inférieur à une exécution non instrumentée sont deux claims                             ment plus rapide que UNGATED_EXECUTE_ADMISSIBLE ;
+distincts.                                                                              R3-C fournit précisément une borne négative sur cette lecture.
+
+E. R3-D : campagne confirmatoire SQL Server Direct                                      F. R3-E14 : réplication secondaire XMLA/eMondrian mesurée
+  R3-D constitue la campagne confirmatoire préspécifiée                                    La voie XMLA/eMondrian a été exécutée comme une
+de coût système. Le plan comprend 300 sessions, soit 900                                réplication R3 distincte après fermeture de la préparation et
+exécutions de bras au total, organisées en 20 strates de 15                             des barrières de runtime. La campagne R3-E14 comprend
+sessions. La comparaison primaire est                                                   300 sessions appariées et 900 bras. La comparaison primaire
+                                                                                        SAFE_PRUNING versus PERMISSIVE_GATED reprend les
+             SAFE_PRUNING − PERMISSIVE_GATED,                                           huit endpoints lower-is-better préspécifiés et la même cor-
+                                                                                        rection de Holm. Les huit endpoints sont confirmés dans la
+et les huit endpoints primaires sont orientés lower-is-better.
+                                                                                        direction favorable à SAFE_PRUNING ; pour chacun, pHolm =
+Le test principal est un test de permutation apparié unilatéral
+                                                                                        7.9999200008 × 10−5 .
+par inversion de signes avec 100000 permutations ; les huit
+                                                                                           Cette réplication est interprétée endpoint par endpoint
+p-values sont corrigées par Holm pour contrôler la FWER à
+                                                                                        et comme rôle backend secondaire. Elle n’autorise ni
+0,05. Les intervalles descriptifs complémentaires utilisent un
+                                                                                        équivalence des backends, ni homogénéité des effets,
+bootstrap percentile stratifié à 95% avec 20000 réplications et
+                                                                                        ni test de différence d’effet cross-backend, ni synthèse
+une graine gelée par le protocole.
+                                                                                        cross-backend, ni nouveau claim global de bénéfice sys-
+   Les huit endpoints primaires et leur statut confirmatoire sont
+                                                                                        tème. La comparaison secondaire SAFE_PRUNING versus
+reportés dans le Tableau V.
+                                                                                        UNGATED_EXECUTE_ADMISSIBLE et les diagnostics de
+   Six endpoints sur huit sont confirmés en faveur de
+                                                                                        ressources spécifiques à XMLA restent descriptifs seulement.
+SAFE_PRUNING. La différence moyenne est de −16.2 pour
+le nombre de requêtes backend incluant les probes, et de
+−16.2 pour le nombre d’exécutions backend complètes. Le G. Interprétation intégrée et frontières de claim
+temps client diminue de 913.321858403 ms en moyenne, les            L’échelle d’évidence conduit à cinq conclusions bornées.
+octets de réponse de 150731.476667, le CPU SQL Server Premièrement, les campagnes contrôlées soutiennent la néces-
+de 771626.43 µs, et le temps jusqu’à complétion analytique sité de distinguer contribution immédiate et sûreté d’élagage,
+de 202.580846887 ms. Pour ces six endpoints, le test apparié notamment en présence de supports multi-requêtes. Deuxiè-
+atteint la résolution minimale du protocole (p ≈ 9.9999×10−6 ) mement, R3-D confirme des réductions de travail backend, de
+et la correction de Holm reste significative (pHolm ≈ 7.99992× temps client, de CPU, d’octets de réponse et de temps jusqu’à
+10−5 ).                                                           complétion analytique relativement à PERMISSIVE_GATED.
+   Les deux endpoints d’I/O en octets ne sont pas confirmés. Troisièmement, les I/O SQL Server en octets restent non
+Les lectures SQL Server présentent une différence moyenne confirmées et aucun bénéfice système global indivisible n’est
+de −94126.08 octets et les écritures de −2416.64 octets, mais autorisé. Quatrièmement, R3-E14 confirme séparément 8/8
+leur pHolm vaut 0.429436. Ces directions descriptives ne sont endpoints primaires sur XMLA/eMondrian relativement à
+donc pas promues en résultats confirmatoires.                     PERMISSIVE_GATED, sans transformer cette réplication
+
+                                                                                   12
+                                                              TABLE V
+    R3-D : ENDPOINTS PRIMAIRES PRÉSPÉCIFIÉS POUR SAFE_PRUNING − PERMISSIVE_GATED. L ES HUIT ENDPOINTS SONT lower-is-better ; UNE
+                                                 DIFFÉRENCE NÉGATIVE FAVORISE SAFE.
+
+
+Endpoint primaire                                                                             Différence moyenne              pHolm Statut
+
+Requêtes backend, probes inclus                                                                        −16.2        ≈ 7.99992 × 10−5   Confirmé
+Exécutions backend complètes                                                                           −16.2        ≈ 7.99992 × 10−5   Confirmé
+Temps client (ms)                                                                             −913.321858403        ≈ 7.99992 × 10−5   Confirmé
+Octets de réponse                                                                             −150731.476667        ≈ 7.99992 × 10−5   Confirmé
+CPU SQL Server (µs)                                                                              −771626.43         ≈ 7.99992 × 10−5   Confirmé
+Temps jusqu’à complétion analytique (ms)                                                      −202.580846887        ≈ 7.99992 × 10−5   Confirmé
+Lectures I/O SQL Server (octets)                                                                   −94126.08                0.429436   Non confirmé
+Écritures I/O SQL Server (octets)                                                                   −2416.64                0.429436   Non confirmé
+
+
+                                                               TABLE VI
+ R3-E14 XMLA/ E M ONDRIAN : ENDPOINTS PRIMAIRES DE LA COMPARAISON SAFE_PRUNING − PERMISSIVE_GATED. L ES HUIT ENDPOINTS SONT
+            PRÉSPÉCIFIÉS lower-is-better ; LES VALEURS SONT LES DIFFÉRENCES MOYENNES GELÉES ET LES p AJUSTÉS DE H OLM .
+
+
+Endpoint primaire                                                                              Différence moyenne                pHolm    Statut
+Exécutions backend complètes                                                                            -16.2        7.9999200008e-05     Confirmé
+Requêtes backend, probes inclus                                                                         -16.2        7.9999200008e-05     Confirmé
+Temps client (ms)                                                                              -2493.66708613        7.9999200008e-05     Confirmé
+CPU SQL Server (µs)                                                                               -2057148.76        7.9999200008e-05     Confirmé
+Lectures I/O SQL Server (octets)                                                                    -237158.4        7.9999200008e-05     Confirmé
+Écritures I/O SQL Server (octets)                                                              -530005.333333        7.9999200008e-05     Confirmé
+Octets de réponse                                                                              -584672.966667        7.9999200008e-05     Confirmé
+Temps jusqu’à complétion analytique (ms)                                                       -520.288297013        7.9999200008e-05     Confirmé
+
+
+
+
+en équivalence inter-backend. Cinquièmement, le break-even                comme condition suffisante et conservatrice permettant d’au-
+temporel face à UNGATED_EXECUTE_ADMISSIBLE n’est                          toriser l’élagage. Cette formulation déplace le centre de
+pas établi par R3-C et la comparaison XMLA SAFE versus                    gravité de MCAD : le système n’est plus présenté comme
+UNGATED reste descriptive.                                                un classifieur universel de “bonnes” et “mauvaises” requêtes,
+   Ces résultats portent sur la complétion analytique et le               mais comme un contrôle objectif-relatif qui cherche à préserver
+coût système du contrôle. Ils ne mesurent ni la qualité d’une             la complétion analytique tout en évitant certaines exécutions
+décision humaine, ni la satisfaction d’un analyste, ni un                 devenues dispensables.
+avantage organisationnel final. Ils n’établissent pas non plus une
+supériorité universelle sur des systèmes externes, une scalabilité
+industrielle sous concurrence, ou la validité automatique de
+CKG, objectifs et mappings construits hors du protocole.                  A. Sémantique, politique et coût système sont trois objets
+      Traçabilité probatoire.: Les claims post-A8 sont liés aux           distincts
+campagnes qui les autorisent : NH-R2 pour la contribution
+                                                                             Le premier enseignement est méthodologique. L’admissi-
+différée et la préservation contrôlée ; R3-C pour le break-even
+                                                                          bilité sémantique, la réalisabilité d’une évidence, l’évidence
+pratique face à UNGATED ; R3-D pour la confirmation SQL
+                                                                          effectivement acquise, la calculabilité d’une contrainte et
+Direct endpoint par endpoint ; R3-E14 pour la réplication
+                                                                          l’action opérationnelle doivent rester distinctes. Un probe peut
+secondaire XMLA endpoint par endpoint. Cette séparation
+                                                                          établir une propriété de réalisabilité sans créditer l’état de
+empêche de combiner des niveaux de preuve hétérogènes en
+                                                                          session ; une exécution complète réussie peut enrichir Et ; une
+une conclusion plus forte que leurs protocoles respectifs et
+                                                                          politique peut enfin transformer la preuve disponible en PRUNE,
+n’autorise aucune synthèse cross-backend.
+                                                                          EXECUTE, avertissement ou guidage. En cas d’incertitude de
+                                                                          canonicalisation, de mapping ou de preuve, le mécanisme
+         VII. D ISCUSSION , LIMITES ET PERSPECTIVES                       retourne vers l’exécution fail-open plutôt que de créer un faux
+   Le résultat central de cette étude n’est pas qu’une requête            élagage.
+“sans contribution immédiate” doive être supprimée. Il est au                Cette séparation permet également d’interpréter cor-
+contraire que la décision d’élagage doit être séparée de la simple        rectement les comparateurs. PERMISSIVE_GATED est
+contribution marginale et formulée relativement à ce qui reste            le comparateur causal primaire de R3-D pour isoler
+nécessaire pour compléter l’objectif. Le contrat post-A8 peut             l’effet du safe pruning à instrumentation comparable.
+ainsi se résumer par deux relations complémentaires :                     UNGATED_EXECUTE_ADMISSIBLE répond à une ques-
+                                                                          tion pratique différente : le coût du contrôle est-il
+    NONCONTRIBUTIVE_NOW ̸⇒ SAFE_TO_PRUNE,                                 amorti face à une exécution admissible non filtrée ? Enfin,
+et, sous les hypothèses gelées du modèle,                                 STRICT_IMMEDIATE reste utile comme baseline sémantique
+                                                                          pour exposer la perte de contribution différée. Aucun de ces
+                           NE (q) ∩ U (Et ) = ∅                           modes ne redéfinit le noyau sémantique.
+
+                                                                     13
+B. Ce que les résultats système établissent – et ce qu’ils               La construction automatique du CKG, de GO , des supports
+n’établissent pas                                                      suffisants et des mappings d’évidence n’est pas évaluée. Les
+   R3-D fournit une évidence confirmatoire endpoint-                   campagnes utilisent des objets préparés et audités pour le
+spécifique. Six des huit endpoints primaires préspécifiés              protocole. L’automatisation de cette construction, sa mainte-
+sont confirmés en faveur de SAFE_PRUNING relativement à                nance face à l’évolution du schéma et l’accord entre experts
+PERMISSIVE_GATED : requêtes backend incluant les probes,               constituent donc des travaux futurs plutôt que des résultats
+exécutions backend complètes, temps client, CPU SQL Server,            implicites de MCAD.
+octets de réponse et temps jusqu’à complétion analytique. Les
+lectures et écritures I/O SQL Server en octets ne sont pas
+                                                                       E. Validité externe, backends et changement d’échelle
+confirmées (pHolm = 0.429436 pour les deux endpoints). Ils
+n’établissent donc aucun bénéfice système global indivisible.             La confirmation R3-D porte sur SQL Server Direct. Les
+   R3-C fournit une borne complémentaire : dans les 40/40              expériences historiques montrent que le prototype avait déjà
+sessions contrôlées de ce protocole, SAFE_PRUNING est                  exercé des chemins XMLA/Mondrian et plusieurs entrepôts ;
+plus lent que UNGATED_EXECUTE_ADMISSIBLE. Le break-                    R3-E14 ajoute désormais une réplication secondaire mesurée
+even temporel face à UNGATED n’est donc pas établi. Ces                sur XMLA/eMondrian, avec 8/8 endpoints primaires confirmés
+deux résultats ne sont pas contradictoires : réduire le travail        pour SAFE_PRUNING versus PERMISSIVE_GATED. Ce
+backend relativement à un comparateur instrumenté et battre            résultat ne constitue cependant ni une preuve d’équivalence
+en temps mur une exécution admissible non contrôlée sont               des backends, ni une homogénéité des effets, ni un test direct
+deux hypothèses différentes. L’article maintient volontairement        de différence d’effet entre SQL Direct et XMLA.
+cette dissociation plutôt que de choisir seulement le résultat            Le protocole courant n’établit pas non plus une scalabilité
+favorable.                                                             industrielle sous concurrence. Débit multi-utilisateur, files
+                                                                       d’attente, mémoire, contention, changements de charge, main-
+C. Contribution différée et portée de la preuve de sûreté              tenance dynamique du CKG et grands portefeuilles d’objectifs
+   NH-R2 montre pourquoi l’état de session ne peut pas                 restent à caractériser de bout en bout. Les anciennes mesures
+être réduit à la dernière requête exécutée. Une requête peut           de croissance structurelle et de latence sémantique restent
+fournir une partie d’un support sans rendre immédiatement une          informatives sur le prototype historique mais ne se substituent
+nouvelle contrainte calculable ; une requête ultérieure complète       pas à ces expériences système.
+alors le support. Une politique strictement immédiate peut
+perdre cette contribution différée. La frontière résiduelle U (Et )
+                                                                       F. Portabilité de représentation et extension à d’autres langages
+évite ce raccourci en conservant les atomes encore nécessaires
+à l’ensemble des supports actifs.                                         Le CQP découple le raisonneur de la syntaxe source
+   La condition d’élagage utilisée ici demeure toutefois une           lorsque l’extracteur est fidèle. SQL analytique et MDX/XMLA
+condition suffisante, non une caractérisation nécessaire de toute      disposent de chemins exercés vers cette représentation. Cette
+dispensabilité possible. Elle dépend notamment de la fidélité          propriété est une portabilité bornée d’interface, non une preuve
+du CQP, de la sûreté de NE (q) comme sur-approximation                 que tous les langages ou moteurs exposent la même sémantique
+de l’évidence pertinente, du caractère correct des mappings            ni qu’un adaptateur est automatiquement correct. DAX reste
+d’évidence et du gel des objectifs/supports pendant la phase           notamment une extension future à implémenter, auditer et tester
+considérée. Si ces hypothèses sont violées ou inconnues, la            avant toute revendication de portabilité supplémentaire.
+conclusion correcte est “preuve insuffisante” et non “requête
+dispensable”.
+                                                                       G. Facteurs humains et politique de déploiement
+D. Validité du construit et dépendance à la spécification                 Le temps jusqu’à complétion analytique mesure l’atteinte
+objectif–évidence                                                      de l’objectif formel du protocole, pas la qualité d’une déci-
+   MCAD raisonne relativement à un objectif O, à un graphe             sion organisationnelle. L’étude ne mesure ni satisfaction, ni
+objectif–évidence GO et à des supports suffisants fournis              apprentissage, ni confiance, ni amélioration économique, et
+au système. La cohérence du raisonneur relativement à ces              ne permet pas de conclure qu’un PRUNE sûr du point de
+objets ne valide pas automatiquement leur pertinence métier.           vue de la complétion est préférable pour un analyste dans
+Une contrainte mal formulée, un support incomplet ou un                toutes les situations. Des études utilisateurs restent nécessaires
+mapping d’évidence erroné peut conduire à un raisonnement              pour comparer exécution silencieuse, notification, avertissement,
+cohérent sur une spécification inadéquate. L’étude distingue           guidage et recommandation lorsque plusieurs actions sont
+donc : (i) la correction du raisonnement sous la spécification         sémantiquement admissibles.
+encodée ; (ii) la justesse de cette spécification relativement            De même, l’article ne revendique ni supériorité universelle
+au besoin métier ; et (iii) la valeur de la décision humaine           sur les systèmes voisins, ni claim de priorité “first/only”. Le
+produite à partir des résultats. Seul le premier niveau est            positionnement scientifique porte sur l’intégration contrôlée de
+directement testé par le mécanisme, avec des campagnes                 l’objectif, de l’évidence de session, du CQP, de la frontière
+contrôlées qui exercent certaines propriétés du deuxième sans          résiduelle et d’une preuve d’élagage sûr, dans les limites
+l’établir indépendamment.                                              empiriques explicitement exercées.
+
+                                                                  14
+H. Perspectives                                                      évidence acquise Et , CQP fidèle ou traitement fail-open, et
+   Les priorités expérimentales et méthodologiques suivent           sur-approximation sûre NE (q) de l’évidence pertinente que
+directement les frontières précédentes : (i) mesurer concurrence,    l’exécution complète de q pourrait acquérir.
+mémoire, files d’attente et changement d’échelle end-to-end ;             Lemme 1 – Monotonie de la calculabilité sous accumula-
+(ii) étudier la construction et la validation indépendantes          tion d’évidence.: Supposons Et−1 ⊆ Et . Pour toute contrainte
+de CKG/GO /supports/mappings ; (iii) étendre puis auditer le         c ∈ O, si Comp(c, Et−1 ) est vraie, alors il existe, par l’Éq. (1),
+contrat CQP pour DAX et d’autres langages ; (iv) confronter          un support s ∈ Supp(c) tel que Req(s) ⊆ Et−1 . L’inclusion
+plusieurs politiques d’interaction dans des études utilisateurs ;    Et−1 ⊆ Et implique alors Req(s) ⊆ Et , donc Comp(c, Et ). Par
+et (v) étudier des conditions de sûreté moins conservatrices         conséquent,
+tout en préservant le comportement fail-open lorsque la preuve                          CE≤t−1 (O) ⊆ CE≤t (O).
+devient insuffisante.
+                                                                     Cette propriété ne requiert aucune hypothèse sur la requête qui
+                                                                     a produit l’évidence, seulement la conservation monotone de
+                     VIII. C ONCLUSION                               l’évidence acquise dans la phase. ■
+   MCAD est présenté dans cette version comme une couche                  Lemme 2 – Un probe seul ne peut pas faire progresser la
+de contrôle analytique objectif-relative placée avant l’exécution    calculabilité acquise.: Un probe de réalisabilité peut établir
+complète. Un objectif O est décomposé en contraintes, supports       RE (q) ⊆ NE (q), mais il ne produit pas d’ensemble d’évidence
+suffisants et atomes d’évidence dans GO ; la requête candidate       acquise At . Ainsi At = ∅ et l’Éq. (4) donne
+est projetée vers un Canonical Query Profile ; le raisonneur
+sépare admissibilité, réalisabilité et évidence acquise ; puis                              Et = Et−1 .
+une preuve de sûreté confronte NE (q) à la frontière résiduelle
+                                                                  Le Lemme 1 implique alors
+U (Et ). Une requête n’est élaguée que lorsque sa dispensabilité
+est établie sous les hypothèses gelées ; sinon, MCAD exécute en                       CE≤t (O) = CE≤t−1 (O).
+fail-open. Un probe réussi ne vaut pas acquisition d’évidence,
+et PRUNE laisse l’état acquis inchangé.                           Le coût du probe peut être attribué à la session, mais son
+   Les campagnes contrôlées montrent l’importance de cette succès ne doit donc jamais être interprété comme l’acquisition
+distinction dans les sessions multi-requêtes : NH-R2 exerce des du résultat analytique. ■
+contributions différées que la règle strictement immédiate peut        Preuve détaillée de la Proposition 1.: Considérons une
+perdre. La campagne confirmatoire SQL Server Direct R3-D          requête candidate q à l’état Et et supposons
+compare SAFE_PRUNING à PERMISSIVE_GATED sur huit                                       NE (q) ∩ U (Et ) = ∅.
+endpoints primaires ; six sont confirmés en faveur de SAFE,
+tandis que les lectures et écritures I/O en octets ne le sont Soit A(q) ⊆ NE (q) l’ensemble d’évidence qui serait effective-
+pas. R3-C montre en parallèle que le break-even temporel ment acquis si q était exécutée complètement avec succès. Pour
+face à UNGATED_EXECUTE_ADMISSIBLE n’est pas établi. toute contrainte active c ∈ Ctact et tout support s ∈ Supp(c),
+Ces résultats autorisent donc des claims endpoint-spécifiques, les atomes encore manquants sont
+pas un bénéfice système global indivisible ni une supériorité
+universelle.                                                                            Ms = Req(s) \ Et .
+   La réplication secondaire XMLA/eMondrian R3- Par définition de la frontière résiduelle à l’Éq. (2), M ⊆ U (E ).
+                                                                                                                       s        t
+E14 confirme 8/8 endpoints primaires relativement à L’hypothèse de disjonction implique donc
+PERMISSIVE_GATED, tandis que R3-D en confirme 6/8
+sur SQL Direct ; ces résultats restent séparés et n’établissent                          A(q) ∩ Ms = ∅.
+ni équivalence backend, ni homogénéité d’effet, ni bénéfice                                                    ′
+système global. La qualité de la décision humaine, la Après exécution hypothétique, l’état serait E = Et ∪ A(q). On
+construction automatique des objectifs et graphes d’évidence, a alors
+la concurrence industrielle et la portabilité vers DAX restent                  Req(s) \ E ′ = Req(s) \ Et = Ms .
+également hors du périmètre confirmé. Dans ces limites, Aucun support actif ne gagne donc un atome qui lui manquait.
+MCAD fournit un mécanisme explicable de préservation de la Une contrainte déjà calculable reste calculable par monotonie,
+complétion analytique et d’élagage sûr relatif à l’objectif, dont et aucune contrainte active ne devient calculable par l’effet de
+les bénéfices et coûts doivent être interprétés séparément selon q. L’exécution complète de q ne modifie ainsi ni la complétion
+le backend, la politique et l’endpoint considérés.                déjà acquise ni la progression des supports actifs relativement
+                                                                  à O ; l’élagage préserve la complétion analytique sous les
+                           A NNEXE A                              hypothèses gelées. ■
+     P REUVES FORMELLES COMPLÉMENTAIRES POST-A8                        Corollaire – Préservation immédiate après PRUNE.:
+   Cette annexe développe les propriétés utilisées par le Lorsque la politique retourne PRUNE, l’Éq. (5) impose At = ∅
+noyau formel post-A8 sans réintroduire les objets et relations puis Et = Et−1 . Par application directe de l’Éq. (1), l’ensemble
+abandonnés de la formalisation antérieure. Les hypothèses sont des contraintes calculables reste donc exactement inchangé.
+celles de la Section IV : objectif O, graphe objectif–évidence Ce corollaire concerne l’état d’évidence ; il n’implique pas un
+GO , supports suffisants gelés pendant la phase considérée, coût backend nul si un probe a précédé la décision. ■
+
+                                                                15
+    Contre-exemple à la règle “non contributif maintenant                     Canonical Query Profile (CQP) d’une requête de marge.:
+⇒ élagable”.: Considérons une contrainte c ayant un support              Soit q1 une requête analytique demandant la marge mensuelle
+                                                                         de Health Food dans North pour 1998. Son profil canonique
+unique s tel que                                                         peut être résumé par
+                Req(s) = {e1 , e2 },         E0 = ∅.                                     Pq1 = CQP(q1 )
+                                                                                             = (Sales, Month, {Margin%}, avg, %,
+Une première requête q1 peut acquérir A1 = {e1 } et une                                         SHF,North , w1998 , Γq1 , ηq1 ).
+seconde q2 peut acquérir A2 = {e2 }. Après q1 , aucune                   Si le mapping est fidèle,
+contrainte nouvelle n’est encore calculable, mais NE (q1 )
+intersecte la frontière U (E0 ) = {e1 , e2 }. La condition suffisante                       NE (q1 ) ⊇ {e1,1 , . . . , e1,12 }.
+d’élagage sûr échoue donc, ce qui conduit à l’exécution fail-            L’admissibilité de Pq1 vérifie les propriétés de grain, agrégation,
+open. Après l’acquisition de e1 , q2 complète le support et              unité, slicers, temps et mapping. Une éventuelle vérification de
+rend c calculable. Cet exemple formalise le mécanisme de                 non-vacuité reste un probe de réalisabilité séparé et ne modifie
+contribution différée exercé dans NH-R2 et montre pourquoi               pas Et .
+    NONCONTRIBUTIVE_NOW ̸⇒ SAFE_TO_PRUNE.                                     Acquisition complète d’un support.: Si q1 est exécutée
+                                                                         complètement avec succès et que son résultat fournit les douze
+     Portée des preuves.: Ces résultats sont relatifs à la               atomes du support, alors
+spécification encodée. Ils supposent en particulier que les
+supports suffisants et les mappings d’évidence sont corrects,                           A1 ⊇ Req(s1 ),           E1 = E0 ∪ A1 ,
+que NE (q) constitue une sur-approximation sûre de l’évidence            et c1 devient calculable. La même logique s’applique aux
+pertinente et que la phase n’altère pas silencieusement l’objectif       supports de c2 et c3 : la calculabilité dépend de l’évidence
+ou ses supports. Si ces hypothèses ne peuvent pas être établies,         effectivement acquise, pas de la seule description potentielle
+la conclusion opérationnelle est l’exécution fail-open, non              de la requête.
+l’élagage.                                                                    Contribution différée intra-support.: Pour illustrer le cas
+                                                                         multi-requêtes, divisons le support s1 en deux acquisitions
+                          A NNEXE B
+                                                                         successives. La requête q1a couvre les six premiers mois et
+  E XEMPLE F OOD M ART HF/N ORTH REFORMULÉ DANS LE
+                                                                         q1b les six derniers :
+                       CONTRAT POST-A8
+   Cette annexe conserve l’exemple FoodMart historique                       A1a = {e1,1 , . . . , e1,6 },      A1b = {e1,7 , . . . , e1,12 }.
+comme illustration formelle, mais le reformule avec le graphe            Avec E0 = ∅, l’exécution de q1a ne rend pas encore c1
+objectif–évidence, le CQP et l’évidence acquise du modèle                calculable. Elle est néanmoins contributive au support résiduel
+post-A8. Elle ne réinterprète aucune campagne expérimentale              car
+historique comme preuve confirmatoire de SAFE_PRUNING.                                        NE (q1a ) ∩ U (E0 ) ̸= ∅.
+   Le cube Sales comporte notamment les dimensions Time,
+Product et Store, les mesures Store Sales, Store Cost et Units           Après cette première acquisition,
+Sold, ainsi qu’un KPI dérivé de marge. Nous considérons                                                E1 = A1a ,
+l’objectif illustratif
+                                                                         puis q1b complète s1 et rend c1 calculable. Une politique qui
+                    OHF_North = {c1 , c2 , c3 },                         élaguerait q1a uniquement parce qu’elle ne complète aucune
+relatif à la catégorie Health Food, à la région North et aux             contrainte immédiatement perdrait donc la contribution différée.
+fenêtres temporelles utilisées dans l’exemple historique.                      Exemple d’élagage sûr relatif à l’objectif.: Considérons
+      Graphe objectif–évidence.: Le graphe GOHF_North contient           maintenant une requête qx dont le CQP fidèle ne mappe que
+trois contraintes, leurs supports suffisants et des atomes               vers des atomes d’évidence extérieurs aux supports encore
+d’évidence typés. Pour c1 , un support illustratif s1 exige les          actifs de OHF_North . Si
+douze valeurs mensuelles du KPI de marge pour 1998 :                                            NE (qx ) ∩ U (Et ) = ∅,
+                  Req(s1 ) = {e1,1 , . . . , e1,12 }.                    alors la Proposition 1 autorise l’élagage sous les hypothèses
+Chaque e1,m encode la source Sales, le grain Month, la                   gelées. L’exemple est relatif à l’objectif : la même requête
+catégorie Health Food, la région North, le KPI de marge, son             pourrait redevenir pertinente dans une autre session, pour un
+agrégation, son unité et le mois concerné. De façon analogue,            autre objectif ou après modification explicite des supports.
+c2 est reliée à un support s2 portant sur l’évidence de taux                   Limite de l’illustration.: Le présent exemple démontre
+de rupture au grain Store, et c3 à un support s3 portant                 la cohérence du raisonnement sur une spécification contrôlée.
+sur l’évidence de ventes agrégées sur la fenêtre 1997–1998.              Il n’établit ni la construction automatique correcte de GO , ni
+L’exemple n’impose pas qu’une contrainte n’ait qu’un seul                la validité métier indépendante des supports choisis, ni un
+support : d’autres supports suffisants peuvent être ajoutés au           résultat de performance XMLA/eMondrian pour ce scénario
+graphe si la spécification métier l’autorise.                            illustratif. Les campagnes historiques FoodMart restent des
+  La calculabilité suit directement l’Éq. (1). Ainsi,                    preuves de fonctionnement du prototype ; la réplication se-
+                                                                         condaire R3-E14 est désormais mesurée séparément dans son
+               Comp(c1 , Et ) ⇐⇒ Req(s1 ) ⊆ Et
+                                                                         protocole XMLA/eMondrian et ne doit pas être attribuée à
+dans la variante illustrative à support unique pour c1 .                 cette illustration FoodMart.
+
+                                                                    16
+                               R ÉFÉRENCES                                            [21] E. Simon, B. Amann, R. Liu, and S. Gançarski, “Controlling the
+                                                                                           correctness of aggregation operations during sessions of interactive
+ [1] S. Chaudhuri and U. Dayal, “An overview of data warehousing and
+                                                                                           analytic queries,” ACM Journal of Data and Information Quality, vol. 15,
+     OLAP technology,” ACM SIGMOD Record, vol. 26, no. 1, pp. 65–74,
+                                                                                           no. 2, pp. 12 :1–12 :41, 2023, art. no. 12. doi : 10.1145/3575812.
+     1997, doi : 10.1145/248603.248616.
+                                                                                      [22] O. AlOmeir, E. Y. Lai, M. Milani, and R. Pottinger, “Summarizing
+ [2] R. Kimball and M. Ross, The Data Warehouse Toolkit : The Definitive
+                                                                                           provenance of aggregate query results in relational databases,” IEEE
+     Guide to Dimensional Modeling, 3rd ed. Hoboken, NJ, USA : Wiley,
+                                                                                           Transactions on Knowledge and Data Engineering, vol. 35, no. 10, pp.
+     2013.
+                                                                                           10 695–10 709, 2023, doi : 10.1109/TKDE.2023.3265840.
+ [3] H. Chen, R. H. L. Chiang, and V. C. Storey, “Business intelligence and
+     analytics : From big data to big impact,” MIS Quarterly, vol. 36, no. 4,         [23] W3C, “PROV-O : The PROV ontology,” 2013, W3C Recommendation.
+     pp. 1165–1188, 2012, doi : 10.2307/41703503.                                          [Online]. Available : https://www.w3.org/TR/prov-o/
+ [4] M. Golfarelli, S. Rizzi, and P. Biondi, “myOLAP : An approach to express         [24] S. Staudinger, C. G. Schuetz, M. Schrefl, and T. Neuböck, “Knowledge
+     and evaluate OLAP preferences,” IEEE Transactions on Knowledge and                    graph support for descriptive business analytics,” DECISION, vol. 52,
+     Data Engineering, vol. 23, no. 7, pp. 1050–1064, 2011, doi : 10.1109/                 no. 3, pp. 285–306, 2025, doi : 10.1007/s40622-025-00432-4.
+     TKDE.2010.196.                                                                   [25] G.-L. Huang and A. Zaslavsky, “Contextual knowledge graph approach
+ [5] K. Jacob, J. Gunklach, and A. Mädche, “Personalization in business                    to bias-reduced decision support systems,” Journal of Decision Systems,
+     intelligence and analytics systems : A state-of-the-art review and                    vol. 33, no. sup1, pp. 29–46, 2024.
+     conceptualization,” in ECIS 2025 Proceedings, 2025.                              [26] E. Begoli, J. Camacho-Rodríguez, J. Hyde, M. J. Mior, and D. Lemire,
+ [6] J. Aligon, E. Gallinucci, M. Golfarelli, P. Marcel, and S. Rizzi, “A                  “Apache calcite : A foundational framework for optimized query pro-
+     collaborative filtering approach for recommending OLAP sessions,”                     cessing over heterogeneous data sources,” in Proceedings of the 2018
+     Decision Support Systems, vol. 69, pp. 20–30, 2015, doi : 10.1016/                    International Conference on Management of Data. ACM, 2018, pp.
+     j.dss.2014.11.003.                                                                    221–230.
+ [7] J. Gunklach and M. Nadj, “Guidance in business intelligence & analytics          [27] Substrait Community, “Substrait : Cross-language serialization for
+     systems : A review and research agenda,” in ECIS 2023 Research Papers,                relational algebra — specification,” Online specification, 2026, accessed
+     2023.                                                                                 2026-08-27. [Online]. Available : https://substrait.io/spec/specification/
+ [8] M. Djedaini, K. Drushku, N. Labroche, P. Marcel, V. Peralta, and                 [28] M. Francia, M. Golfarelli, P. Marcel, S. Rizzi, and P. Vassiliadis, “Assess
+     W. Verdeaux, “Automatic assessment of interactive OLAP explorations,”                 queries for interactive analysis of data cubes,” in Proceedings of the 24th
+     Information Systems, vol. 82, pp. 148–163, 2019, doi : 10.1016/j.is.2018.             International Conference on Extending Database Technology (EDBT).
+     06.008.                                                                               OpenProceedings.org, 2021, pp. 121–132, doi : 10.5441/002/edbt.2021.
+ [9] D. Gkitsakis, S. Kaloudis, E. Mouselli, V. Peralta, P. Marcel, and                    12.
+     P. Vassiliadis, “Cube query interestingness : Novelty, relevance, peculiarity    [29] M. Francia, S. Rizzi, M. Golfarelli, and P. Marcel, “Predicting multidi-
+     and surprise,” Information Systems, vol. 123, 2024, art. no. 102381. doi :            mensional cubes through intentional analytics,” Information Systems, vol.
+     10.1016/j.is.2024.102381.                                                             136, 2026, art. no. 102628. doi : 10.1016/j.is.2025.102628.
+[10] P. Vassiliadis, P. Marcel, and S. Rizzi, “Beyond roll-ups and drill-downs :      [30] M. Iakovidis and P. Vassiliadis, “Multi-query optimization for the novel
+     An intentional analytics model to reinvent OLAP,” Information Systems,                analyze operator,” in Proceedings of the 28th International Workshop on
+     vol. 85, pp. 68–91, 2019, doi : 10.1016/j.is.2019.03.011.                             Design, Optimization, Languages and Analytical Processing of Big Data
+[11] A. Pourshahid, I. Johari, G. Richards, D. Amyot, and O. Akhigbe, “A                   (DOLAP 2026), ser. CEUR Workshop Proceedings, vol. 4186, 2026, pp.
+     goal-oriented, business intelligence-supported decision-making metho-                 65–79. [Online]. Available : https://ceur-ws.org/Vol-4186/paper5.pdf
+     dology,” Decision Analytics, vol. 1, 2014, art. no. 9. doi : 10.1186/            [31] E. Bertino and D. Musto, “Query optimization by using knowledge
+     s40165-014-0009-8.                                                                    about data semantics,” Data & Knowledge Engineering, vol. 9, no. 2,
+[12] A. Maté, J. Trujillo, and J. Mylopoulos, “Specification and derivation of             pp. 121–155, 1992.
+     key performance indicators for business analytics : A semantic approach,”        [32] J. Kossmann, T. Papenbrock, and F. Naumann, “Data dependencies for
+     Data & Knowledge Engineering, vol. 108, pp. 30–49, 2017, doi : 10.                    query optimization : a survey,” The VLDB Journal, vol. 31, no. 1, pp.
+     1016/j.datak.2016.12.004.                                                             1–22, 2022.
+[13] A. Hogan et al., “Knowledge graphs,” ACM Computing Surveys, vol. 54,             [33] G. Luo, “Efficient detection of empty-result queries,” in Proceedings of
+     no. 4, pp. 1–37, 2021, doi : 10.1145/3447772.                                         the 32nd International Conference on Very Large Data Bases (VLDB),
+[14] A. Nasiri, W. Ahmed, R. Wrembel, and E. Zimányi, “Requirements                        2006, pp. 1015–1025.
+     engineering for data warehouses (RE4DW) : From strategic goals                   [34] S. Kraft, G. Casale, A. Jula, P. Kilpatrick, and D. Greer, “Wiq : Work-
+     to multidimensional model,” in Advances in Conceptual Modeling –                      intensive query scheduling for in-memory database systems,” in 2012
+     ER 2017 Workshops, ser. Lecture Notes in Computer Science, vol.                       IEEE 5th International Conference on Cloud Computing, 2012, pp. 33–
+     10651.      Cham, Switzerland : Springer, 2017, pp. 133–143, doi :                    40.
+     10.1007/978-3-319-70625-2_13.                                                    [35] S. Krompass, U. Dayal, H. A. Kuno, and A. Kemper, “Dynamic workload
+[15] M. d. M. Roldán-García, J. García-Nieto, A. Maté, J. Trujillo, and J. F.              management for very large data warehouses : Juggling feathers and
+     Aldana-Montes, “Ontology-driven approach for KPI meta-modelling, se-                  bowling balls,” in Proceedings of the 33rd International Conference on
+     lection and reasoning,” International Journal of Information Management,              Very Large Data Bases (VLDB 2007), 2007, pp. 1105–1115.
+     vol. 58, 2021, art. no. 102018. doi : 10.1016/j.ijinfomgt.2019.10.003.
+                                                                                      [36] W. Powley, P. Martin, N. Gruska, P. Bird, and D. Kalmuk, “Resource
+[16] C. Diamantini, T. Khan, D. Potena, and E. Storti, “Semantic models of                 aware workload management for autonomic database management
+     performance indicators : A systematic survey,” ACM Computing Surveys,                 systems,” in Proceedings of the Tenth International Conference on
+     vol. 57, no. 8, pp. 1–37, 2025, doi : 10.1145/3719291.                                Autonomic and Autonomous Systems (ICAS 2014), 2014, pp. 31–36.
+[17] L. Etcheverry, A. Vaisman, and E. Zimányi, “Modeling and querying data           [37] Y. Wu, Y. Li, Z. Wang, Z. Xie, D. Yang, K. Chen, L. Shou, B. Tang,
+     warehouses on the semantic web using QB4OLAP,” in Data Warehousing                    L. Lin, H. Li, and G. Chen, “Safeload : Efficient admission control
+     and Knowledge Discovery, ser. Lecture Notes in Computer Science,                      framework for identifying memory-overloading queries in cloud data
+     vol. 8646.       Cham, Switzerland : Springer, 2014, pp. 45–56, doi :                 warehouses,” Proceedings of the VLDB Endowment, vol. 19, no. 4, pp.
+     10.1007/978-3-319-10160-6_5.                                                          713–725, 2025, pVLDB bibliographic year 2025 ; presented in the VLDB
+[18] W3C, “The RDF data cube vocabulary,” 2014, W3C Recommendation.                        2026 conference cycle.
+     [Online]. Available : https://www.w3.org/TR/vocab-data-cube/
+                                                                                      [38] X. Niu, Z. Liu, P. Li, B. Glavic, D. Gawlick, V. Krishnaswamy, Z. H.
+[19] C. G. Schuetz, L. Bozzato, B. Neumayr, M. Schrefl, and L. Serafini,                   Liu, and D. Porobic, “Provenance-based data skipping,” Proceedings of
+     “Knowledge graph OLAP : A multidimensional model and query                            the VLDB Endowment, vol. 15, no. 3, pp. 451–464, 2021.
+     operations for contextualized knowledge graphs,” Semantic Web, vol. 12,
+                                                                                      [39] U. Sadana, A. Chenreddy, E. Delage, A. Forel, E. Frejinger, and T. Vidal,
+     no. 4, pp. 649–683, 2021, doi : 10.3233/SW-200419.
+                                                                                           “A survey of contextual optimization methods for decision-making under
+[20] J. Horner, I.-Y. Song, and P. P. Chen, “An analysis of additivity in
+                                                                                           uncertainty,” European Journal of Operational Research, vol. 320, no. 2,
+     OLAP systems,” in Proceedings of the 7th ACM International Workshop
+                                                                                           pp. 271–289, 2025, doi : 10.1016/j.ejor.2024.03.020.
+     on Data Warehousing and OLAP (DOLAP), 2004, pp. 83–91, doi :
+     10.1145/1031763.1031779.
+
+
+
+                                                                                 17
+

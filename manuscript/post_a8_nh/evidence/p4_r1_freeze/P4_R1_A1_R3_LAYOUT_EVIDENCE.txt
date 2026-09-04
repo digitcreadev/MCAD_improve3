@@ -1,0 +1,10 @@
+R3E14_VARIANT_LINE_964: plus lent que UNGATED_EXECUTE_ADMISSIBLE. Le break-                    R3-E14 ajoute désormais une réplication secondaire mesurée
+R3E14_VARIANT_LINE_965: even temporel face à UNGATED n’est donc pas établi. Ces                sur XMLA/eMondrian, avec 8/8 endpoints primaires confirmés
+R3E14_VARIANT_LINE_966: deux résultats ne sont pas contradictoires : réduire le travail        pour SAFE_PRUNING versus PERMISSIVE_GATED. Ce
+
+SOURCE_EXACT_TWO_COLUMN_SPLIT_WINDOW:
+001050:    La réplication secondaire XMLA/eMondrian R3- Par définition de la frontière résiduelle à l’Éq. (2), M ⊆ U (E ).
+001051:                                                                                                                        s        t
+001052: E14 confirme 8/8 endpoints primaires relativement à L’hypothèse de disjonction implique donc
+001053: PERMISSIVE_GATED, tandis que R3-D en confirme 6/8
+

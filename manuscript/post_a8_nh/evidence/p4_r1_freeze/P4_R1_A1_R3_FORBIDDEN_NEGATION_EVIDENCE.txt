@@ -1,0 +1,8 @@
+{
+  "category": "cross_backend_synthesis_positive",
+  "context": "RUNING des systèmes externes de la littérature Exécution complète Produire un résultat analytique et éventuel- SQL Server Direct mesuré en R3-D ; XMLA/eMondrian mesuré R3-D confirme 6/8 endpoints pri- lement At en R3-E14 maires et R3-E14 en confirme 8/8, séparément ; aucune équivalence ba- ckend ni synthèse cross-backend n’est établie Accumulateur de session Mettre à jour Et après exécution complète Assemblage multi-requêtes et contribution différée exercés en Pas de généralisation à toutes les réussie NH-R2 formes de session/objectifs Traçabilité / compteurs Relier décision, effet physique et coût de Receipts de décision, probe",
+  "end": 56482,
+  "matched_text": "synthèse cross-backend n’est établie",
+  "pattern": "\\bsynthèse\\s+(?:cross-backend|inter-backend).{0,80}\\b(?:confirmée|démontrée|établie)\\b",
+  "start": 56446
+}

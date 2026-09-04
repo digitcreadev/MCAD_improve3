@@ -1,0 +1,34 @@
+{
+  "R3E14_validation": {
+    "R3E14_present": true,
+    "right_column_variant_binds_R3E14_XMLA_8_of_8_confirmed_and_primary_comparator": true,
+    "semantic_R3E14_8_of_8_boundary_preserved": true,
+    "source_exact_sentence_present": true,
+    "source_exact_sentence_split_by_two_column_pdftotext_reading_order": true
+  },
+  "classification": "PASS_PDF_TEXT_VALIDATOR_FALSE_NEGATIVES_CLASSIFIED_TWO_COLUMN_READING_ORDER_AND_NEGATION_BLIND_FORBIDDEN_REGEX",
+  "contract_version": "mcad.post_a8.p4_r1_a1_r3.layout_negation_classification.v1",
+  "created_utc": "2026-09-04T17:44:01.296207Z",
+  "forbidden_claim_validation": {
+    "effective_positive_forbidden_claim_count": 0,
+    "grammatically_negated": true,
+    "raw_hit_category": "cross_backend_synthesis_positive",
+    "raw_hit_count": 1,
+    "raw_hit_text": "synthèse cross-backend n’est établie"
+  },
+  "latex_build_defect": false,
+  "other_boundaries": {
+    "R3D_6_of_8_present": true,
+    "pending_R3E_E8_pattern_hit_count": 0,
+    "separate_interpretation_present": true
+  },
+  "pdf_generation_defect": false,
+  "rebuild_required": false,
+  "remaining_validation_required": [
+    "FLS provenance validation on frozen P4-R1 build",
+    "render every page of frozen 17-page PDF",
+    "consolidated recovered P4 validation and receipt"
+  ],
+  "scientific_content_defect": false,
+  "validator_defect": true
+}
