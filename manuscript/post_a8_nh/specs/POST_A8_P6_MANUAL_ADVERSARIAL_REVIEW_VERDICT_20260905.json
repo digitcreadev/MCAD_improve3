@@ -1,0 +1,45 @@
+{
+  "P6_R1_rerun_authorized": false,
+  "P6_audit_attempt_count": 1,
+  "P6_audit_authority_consumed": true,
+  "P7_authorized": false,
+  "classification": "P6_MANUAL_ADVERSARIAL_REVIEW_RECORDED",
+  "contract_version": "mcad.post_a8.p6_r2_a0.manual_review_verdict_record.v1",
+  "created_utc": "2026-09-05T10:45:00.228447Z",
+  "machine_rescan_authorized": false,
+  "manual_review": {
+    "blocking_visual_defect": false,
+    "editorial_lineage_completeness_status": "REPAIR_REQUIRED",
+    "forbidden_claim_found": false,
+    "non_scientific_editorial_repair_required": true,
+    "scientific_claim_status": "PASS",
+    "scientific_content_defect": false,
+    "visual_pages_reviewed": 17,
+    "visual_status": "PASS"
+  },
+  "next": "POST_A8_P6_R2_A1_AUTHORIZE_EDITORIAL_LINEAGE_COMPLETENESS_REPAIR_NO_MEASUREMENT_NO_HISTORICAL_REGEN_NO_BUILD",
+  "parent_commit": "fe29e1c63d847c5cb17048307514c6e5ebde132e",
+  "repair_boundary": {
+    "V9_synthetic_specification_interaction_field_must_not_be_promoted_as_human_or_field_evidence": true,
+    "historical_experiment_regeneration_required": false,
+    "historical_frozen_figures_tables_values_may_be_reused_under_future_explicit_authority": true,
+    "measurement_rerun_required": false,
+    "old_immediate_contribution_rule_must_not_be_restored_as_safe_pruning_normative_rule": true,
+    "repair_authorized_in_this_station": false,
+    "repair_executed_in_this_station": false,
+    "separate_editorial_lineage_repair_authorization_required": true
+  },
+  "rerender_authorized": false,
+  "review_provenance": {
+    "A3_recovered_execution_receipt_sha256": "7b51b0dadcb9fcdb6c8f1c3fd3bd26505fda7b2cfa20ce7d1a4a887029490c50",
+    "A3_recovered_review_bundle_manifest_sha256": "d1dcc57cdbe859a7a5953de8ee41b2c151af0a6882673769e274697fdf9cba84",
+    "A3_recovered_review_bundle_sha256": "eda319f853895fcca4df73add797e0068798a10dd8a8f38731f41b8e098097bd",
+    "external_manual_review_report_sha256": "3b3b6ec3f5d9f76bb8f0cec9c6d7779bf1cefa5d1771c720e88be36870ad17e8",
+    "machine_scan_sha256": "abfe096554a456ae6cadaa91674a9d555570f4c09821fe870e8c326c4ad39c86",
+    "original_P6_attempt_marker_sha256": "d839cb84927710e218b3fceeef323e61d018c60159dcb078e3bfefe5af0cb5c7",
+    "render_manifest_sha256": "2c3cb66567fc0a60b8fb825ed077c3f7eb3f6bee0b95254e743a52fed8dcc047"
+  },
+  "scientific_final_freeze_authorized": false,
+  "verdict": "PASS_WITH_NONSCIENTIFIC_REPAIR_REQUIRED",
+  "working_release_git_tree": "5204d6c6b525cdc4d3c06a6d2783c201315ed89f"
+}
