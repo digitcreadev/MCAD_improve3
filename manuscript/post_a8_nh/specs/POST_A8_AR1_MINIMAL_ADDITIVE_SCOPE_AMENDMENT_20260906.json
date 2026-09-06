@@ -1,0 +1,160 @@
+{
+  "additive_scope_families": [
+    {
+      "family": "V8.8-R1",
+      "placement": "TRACEABILITY",
+      "role": "reference-model lineage only"
+    },
+    {
+      "family": "V8.8-R2",
+      "placement": "SUPPLEMENT_PLUS_COMPACT_BRIDGE",
+      "role": "controlled empirical multi-query evidence-wise campaign"
+    },
+    {
+      "family": "V8.8-R3",
+      "placement": "MAIN_COMPACT_PLUS_SUPPLEMENT",
+      "role": "support-specification sensitivity; fail-open boundary"
+    },
+    {
+      "family": "V8.8-R4",
+      "placement": "MAIN_COMPACT_PLUS_SUPPLEMENT",
+      "role": "controlled CKG perturbation robustness"
+    },
+    {
+      "family": "V8.8-R5",
+      "placement": "TRACEABILITY",
+      "role": "baseline admission/preregistration"
+    },
+    {
+      "family": "V8.8-R6",
+      "placement": "SUPPLEMENT",
+      "role": "internal common-task comparison; preserve exact B4 tie"
+    },
+    {
+      "family": "V8.8-R7",
+      "placement": "SUPPLEMENT_PLUS_MAIN_LIMITATION",
+      "role": "bounded semantic-core scale/concurrency; preserve negative thread-scaling result"
+    },
+    {
+      "family": "V8.8-R8",
+      "placement": "TRACEABILITY",
+      "role": "final claim register; no new observation"
+    },
+    {
+      "family": "NH-R1",
+      "placement": "MAIN_PLUS_SUPPLEMENT",
+      "role": "current safe-pruning semantic/proof foundation"
+    },
+    {
+      "family": "NH-R2",
+      "placement": "MAIN_PLUS_SUPPLEMENT",
+      "role": "objective-preserving multi-query contribution-differed campaign; package-level authority"
+    },
+    {
+      "family": "terminal_sensitivities",
+      "placement": "SUPPLEMENT_PLUS_OBJECTIVE_COUNT_MAIN_LIMITATION",
+      "role": "constraint/virtual/density/objective terminal decisions; preserve 17/192 limit"
+    },
+    {
+      "family": "Phase6_evidence_usefulness",
+      "placement": "OPTIONAL_SUPPLEMENT",
+      "role": "secondary controlled evidence only"
+    },
+    {
+      "family": "Phase7_May",
+      "placement": "TRACEABILITY_EXCLUDE_CURRENT_NUMERIC_AUTHORITY",
+      "role": "superseded statistics/timing/proxies"
+    },
+    {
+      "family": "V8.7.6_A_R_A_R2_A8_A9_science_gate",
+      "placement": "TRACEABILITY_GUARDRAILS",
+      "role": "historical correction/filter authority for restored artifacts"
+    }
+  ],
+  "amendment_semantics": {
+    "a1_authority_consumed_by_this_station": false,
+    "a1_future_repair_attempt_cardinality_remains": 1,
+    "a1_repair_executed_by_this_station": false,
+    "additive_only": true,
+    "article_compile_allowed_in_ar1": false,
+    "base_authorization_remains_valid": true,
+    "confidence_interval_recomputation_allowed": false,
+    "cross_backend_synthesis_allowed": false,
+    "global_system_benefit_claim_allowed": false,
+    "historical_experiment_regeneration_allowed": false,
+    "measurement_reexecution_allowed": false,
+    "new_scientific_claim_assignment_allowed": false,
+    "p_value_recomputation_allowed": false,
+    "pdf_render_allowed_in_ar1": false,
+    "result_recomputation_allowed": false,
+    "working_release_mutation_allowed_in_ar1": false
+  },
+  "ar0": {
+    "receipt_sha256": "f9bebecd245b47a60a3aeafd3b94422b3ced2028760842d83bf6a7bb86f416a5",
+    "review_bundle_sha256": "21fa9072e720e2887a4e7663ac376a360c24660ce61f4ce6c50e4a6d2e38ed7c",
+    "status": "PASS_READ_ONLY_RECONCILIATION_COMPLETE"
+  },
+  "archive_reuse_policy": {
+    "checksum_verified_external_archive_exact_file_reuse_allowed_for_future_A1": true,
+    "requirements": [
+      "archive/package identity recorded by SHA-256",
+      "selected child artifact copied byte-exactly or frozen value transcribed exactly",
+      "source family and provenance recorded in working_release/traceability",
+      "no regeneration, no recomputation, no silent reinterpretation"
+    ]
+  },
+  "base_authorization": {
+    "commit": "96af2a82052ede6bb10a3fd16649c74fbb7a2040",
+    "git_blob": "ee310b6dfffe0bfbf907967b5d1e4c54e5e824c0",
+    "parent": "eaea75f787dd2348387da48590ae147757a1c5e5",
+    "path": "manuscript/post_a8_nh/specs/POST_A8_P6_R2_A1_COMBINED_EDITORIAL_LINEAGE_REPAIR_AUTHORIZATION_20260905.json",
+    "sha256": "f52acd606e34214d98cdf83776c0870523addaaf2c049e7803f15a6c63b1ca76",
+    "working_release_tree": "5204d6c6b525cdc4d3c06a6d2783c201315ed89f"
+  },
+  "contract_version": "mcad.post_a8.ar1.minimal_additive_scope_amendment.v1",
+  "created_utc": "2026-09-06T19:28:00Z",
+  "explicit_forbidden_restorations": [
+    "Delta_phi=0 implies SAFE_TO_PRUNE",
+    "exhaustive FoodMart C_Q=C_E reconstruction for all 7960 candidates",
+    "universal component necessity",
+    "experimental superiority over Djedaini/Negre/IAM/assess",
+    "independent business-oracle validation",
+    "human decision/acceptability/ROI claims",
+    "production scalability or broad positive break-even region",
+    "backend equivalence/homogeneity/cross-backend synthesis",
+    "DAX empirical support",
+    "legacy Phase7 May statistics/timings/proxy figures as current authority"
+  ],
+  "future_A1_requirements": [
+    "create one dedicated editorial-repair descendant branch from the AR1 authorization commit",
+    "consume the single A1 repair attempt only on that descendant branch",
+    "mutate only prefixes already authorized by A0",
+    "create/update a reviewer-advisor response ledger in working_release/traceability",
+    "create/update the claim-evidence map and explicit exclusion ledger",
+    "use semantic reader-facing names rather than opaque station IDs",
+    "do not build or render during A1"
+  ],
+  "next": "A1_CREATE_DEDICATED_EDITORIAL_REPAIR_DESCENDANT_AND_EXECUTE_ONE_CUMULATIVE_NO_BUILD_REPAIR",
+  "reference_state": {
+    "advisor_ai_response_csv_sha256": "332aeaa515d21cda322ea4e012522ba4ac5292752a1a5c77c3150b94c75318b3",
+    "advisor_ai_response_json_sha256": "12a38cce0062df0dc47fc0e257008ce0576697979be5d3396254b4e68e39b0bc",
+    "global_state_json_sha256": "16edc5ba8852b992548dc95541f1f7a6cc68f670c2178f793d213cc0d1ceb1cf",
+    "input_reviews_sha256": {
+      "Avis global sur V8.7.5(2).md": "074e602e7f92d949c081626c45a0454ce195751b0b6681a28bf5082d0c04d44a",
+      "MCAD_FR_V8_7_5(4).pdf": "a059fed91d2c5afc17394ac3f9a6cefe30792f78d6dbb7fd5aa8e2fbc0032bc6",
+      "MCAD_global_state_and_rescoped_roadmap_20260906.json": "16edc5ba8852b992548dc95541f1f7a6cc68f670c2178f793d213cc0d1ceb1cf",
+      "Remarques.docx": "c23b016118822cf78880ccb5b2854d1c348bbbb756c0e043dd3ec08c7efd8a9e"
+    }
+  },
+  "reviewer_advisor_guardrails": [
+    "novelty must remain integrative, objective-evidence-session and safe-pruning specific; no first/only or universal superiority",
+    "semantic-oracle expert validation remains unexecuted; present as construct/external-validity limitation",
+    "literature systems were not reimplemented as direct baselines; no external superiority claim",
+    "human decision quality and field value remain untested; V8.9/V9 shadows must never be promoted",
+    "ablations support controlled component sensitivity, not universal necessity",
+    "DAX remains future; portability is bounded to exercised SQL and MDX/XMLA CQP paths",
+    "kappa/psi remains historical/formal and must not be restored as current empirical authority",
+    "A1 must restore evidence richness without restoring defensive repetition",
+    "all equations, citations, numbers, figures and references must be re-audited after A1 at B1/B2"
+  ]
+}
