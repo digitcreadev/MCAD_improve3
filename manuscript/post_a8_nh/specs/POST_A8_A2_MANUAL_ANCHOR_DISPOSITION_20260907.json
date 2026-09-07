@@ -1,0 +1,76 @@
+{
+  "a1_head": "2642eded53b64e5ec213cbb04fb68e921732a0ed",
+  "a2_r1_rerun_required": false,
+  "anchor_dispositions": [
+    {
+      "anchor_name": "safe_pruning_rule",
+      "disposition": "VALIDATOR_EXACT_LITERAL_FALSE_NEGATIVE_DUE_TO_LATEX_ESCAPED_UNDERSCORES",
+      "editorial_content_missing": false,
+      "expected_token": "SAFE_TO_PRUNE",
+      "observed_latex_form": "SAFE\\_TO\\_PRUNE",
+      "scientific_content_missing": false,
+      "target_normalized_present": true,
+      "target_path": "manuscript/fr/MCAD_FR_POST_A8_NH.tex"
+    },
+    {
+      "anchor_name": "sql_confirmatory",
+      "disposition": "VALIDATOR_EXACT_LITERAL_FALSE_NEGATIVE_DUE_TO_LATEX_ESCAPED_UNDERSCORES",
+      "editorial_content_missing": false,
+      "expected_tokens": [
+        "SAFE_PRUNING",
+        "PERMISSIVE_GATED"
+      ],
+      "observed_latex_forms": [
+        "SAFE\\_PRUNING",
+        "PERMISSIVE\\_GATED"
+      ],
+      "scientific_content_missing": false,
+      "target_normalized_present_for_all": true,
+      "target_path": "tables/fr/T_r3d_primary_endpoints_post_a8_nh.tex"
+    },
+    {
+      "anchor_name": "xmla_replication",
+      "disposition": "VALIDATOR_EXACT_LITERAL_FALSE_NEGATIVE_DUE_TO_LATEX_ESCAPED_UNDERSCORES",
+      "editorial_content_missing": false,
+      "expected_tokens": [
+        "SAFE_PRUNING",
+        "PERMISSIVE_GATED"
+      ],
+      "observed_latex_forms": [
+        "SAFE\\_PRUNING",
+        "PERMISSIVE\\_GATED"
+      ],
+      "scientific_content_missing": false,
+      "target_normalized_present_for_all": true,
+      "target_path": "tables/fr/T_r3e_primary_endpoints_post_a8_nh.tex"
+    }
+  ],
+  "build_authorized": false,
+  "claim_evidence_loss": false,
+  "classification": "ALL_THREE_FAILED_ANCHORS_ARE_PRESENT_IN_THEIR_REQUIRED_TARGET_FILES_AFTER_LATEX_UNDERSCORE_NORMALIZATION",
+  "contract_version": "mcad.post_a8.a2.repository_manual_anchor_disposition.v1",
+  "editorial_content_defect": false,
+  "final_a2_readonly_audit_status": "PASS_WITH_VALIDATOR_EXACT_LITERAL_FALSE_NEGATIVES_CLASSIFIED",
+  "manual_disposition": "PASS_WITH_VALIDATOR_EXACT_LITERAL_FALSE_NEGATIVES_CLASSIFIED",
+  "manuscript_repair_required": false,
+  "next": "RETURN_FULL_OUTPUT_FOR_A2_CLOSURE_REVIEW_AND_SEPARATE_FIRST_CUMULATIVE_BUILD_AUTHORIZATION",
+  "nonanchor_gates": {
+    "candidate_byte_mismatch_count": 0,
+    "claim_row_count": 20,
+    "commit_add_count": 31,
+    "commit_file_count": 40,
+    "commit_modify_count": 9,
+    "exclusion_row_count": 12,
+    "missing_critical_claim_id_count": 0,
+    "missing_evidence_file_count": 0,
+    "missing_exclusion_id_count": 0,
+    "missing_required_traceability_ledger_count": 0,
+    "orphan_new_reader_facing_tex_count": 0,
+    "reader_facing_opaque_label_hit_count": 0,
+    "semantic_nomenclature_entry_count": 21
+  },
+  "recorded_utc": "2026-09-07T12:26:21.381860+00:00",
+  "scientific_content_defect": false,
+  "validator_overconstraint": true,
+  "working_release_tree": "107b201ee3bfc77bf0de12d6da3b92c834cd2584"
+}
