@@ -1,0 +1,22 @@
+technical_id	publication_name	reader_facing_policy	traceability_policy
+post-A8	contrat actuel de complétion analytique et d'élagage sûr	replace in prose/headings/captions	technical path/id retained where needed
+NH-R1	validation contrôlée de préservation de l'élagage sûr et du fail-open	replace in prose/headings/captions	retain NH-R1 in provenance/claim ledgers
+NH-R2	préservation de complétion et contribution différée multi-requêtes	replace in prose/headings/captions	retain NH-R2 in provenance/claim ledgers
+R3-B DEV	pilote descriptif d'instrumentation end-to-end	replace if reader-facing; do not promote as confirmatory	retain technical id in historical traceability
+R3-C	calibration end-to-end et test pratique de break-even face à l'exécution admissible non contrôlée	replace in prose/headings/captions	retain R3-C in provenance/claim ledgers
+R3-D	campagne confirmatoire SQL Server Direct	replace in prose/headings/captions	retain R3-D in provenance/claim ledgers
+R3-E	réplication end-to-end XMLA/eMondrian	replace if reader-facing	retain technical family id in provenance
+R3-E14	réplication secondaire XMLA/eMondrian mesurée	replace in prose/headings/captions	retain R3-E14 in provenance/claim ledgers
+V8.8	lignée de robustesse sémantique contrôlée	replace in reader-facing narrative	retain version id in provenance
+V8.8-R1	modèle de référence multi-requêtes et contrôle de propriétés	replace in reader-facing narrative	retain id in provenance
+V8.8-R2	évaluation contrôlée multi-requêtes fondée sur l'évidence acquise	replace in prose/headings/captions	retain id in provenance/claim ledgers
+V8.8-R3	sensibilité contrôlée à la spécification des supports	replace in prose/headings/captions	retain id in provenance/claim ledgers
+V8.8-R4	robustesse contrôlée aux perturbations du graphe contextuel	replace in prose/headings/captions	retain id in provenance/claim ledgers
+V8.8-R5	préparation et calibration de la comparaison sur tâche commune	replace if reader-facing	retain id in provenance
+V8.8-R6	comparaison interne contrôlée sur tâche commune	replace in prose/headings/captions	retain id in provenance/claim ledgers
+V8.8-R7	caractérisation bornée du cœur sémantique sous concurrence in-process	replace in prose/headings/captions	retain id in provenance/claim ledgers
+V8.8-R8	registre final des claims contrôlés de robustesse	replace in prose/headings/captions	retain id in provenance/claim ledgers
+Phase-6	campagne historique de réutilisation secondaire de l'évidence	replace in narrative; numeric evidence preserved	retain technical id in provenance
+Phase-7	ancienne campagne historique de caractérisation	avoid as current authority; replace in narrative	retain technical id only in exclusion/provenance ledgers
+NH-R3	campagnes système end-to-end de coût et préservation	replace broad family code in publication text	retain technical family id in experimental repository
+NH-R4	future validation de capacité, concurrence et changement d'échelle	do not present as completed evidence	retain roadmap id in planning traceability

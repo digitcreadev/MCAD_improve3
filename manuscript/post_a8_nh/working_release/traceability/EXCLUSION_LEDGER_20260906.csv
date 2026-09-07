@@ -1,0 +1,13 @@
+id,excluded_claim_or_source,status,reason
+EX01,Delta_phi=0 implies SAFE_TO_PRUNE,SUPERSEDED_SEMANTICS,Post-A8 requires sufficient future-irrelevance proof; NONCONTRIBUTIVE_NOW != SAFE_TO_PRUNE
+EX02,Exhaustive FoodMart C_Q=C_E reconstruction for all 7960 candidates,NOT_SUPPORTED_BY_RETAINED_RAW_TRACES,Blocked-candidate raw C_eval not retained
+EX03,Universal component necessity,OVERCLAIM,Ablations support controlled component sensitivity only
+EX04,Experimental superiority over Djedaini/Negre/IAM/assess,NOT_TESTED,Literature systems not reimplemented on common task
+EX05,Independent business-oracle validation,NOT_TESTED_REAL_EXPERT,Objective/support validity remains construct/external-validity limitation
+EX06,Human decision/acceptability/ROI claims,NOT_TESTED_REAL_HUMAN_FIELD,V8.9/V9 are synthetic/provisional shadows only
+EX07,Production scalability or broad positive break-even region,NOT_TESTED_INTEGRATED,NH-R4 integrated station not found closed; V8.8-R7 is in-process core only
+EX08,Backend equivalence/homogeneity/cross-backend synthesis,NOT_TESTED,SQL Direct and XMLA/eMondrian remain separate evidence families
+EX09,DAX empirical support,NOT_TESTED,DAX remains future adapter path
+EX10,Legacy Phase7 May statistics/timings/proxies as current authority,SUPERSEDED_NONCANONICAL,Final evidence chain excluded them as-is; no recomputation
+EX11,kappa/psi as current empirical authority,FORMAL_HISTORICAL_ONLY,No later empirical validation; current post-A8 claim uses acquired evidence/frontier
+EX12,Legacy table_campaign_a_block_reasons as additional reader-facing table,EDITORIAL_DUPLICATE,Canonical T_campaign_a_reason_profile_v8_5_1 contains the same seven counts plus percentages and qualified interpretation; legacy source remains in PRE-R2 traceability

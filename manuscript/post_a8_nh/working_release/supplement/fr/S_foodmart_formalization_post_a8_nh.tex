@@ -1,7 +1,7 @@
-\section{Exemple FoodMart HF/North reformulé dans le contrat post-A8}
+\section{Exemple FoodMart HF/North reformulé dans le contrat actuel}
 \label{app:foodmart-post-a8}
 
-Cette annexe conserve l'exemple FoodMart historique comme illustration formelle, mais le reformule avec le graphe objectif--évidence, le CQP et l'évidence acquise du modèle post-A8. Elle ne réinterprète aucune campagne expérimentale historique comme preuve confirmatoire de \texttt{SAFE\_PRUNING}.
+Cette annexe conserve l'exemple FoodMart historique comme illustration formelle, mais le reformule avec le graphe objectif--évidence, le CQP et l'évidence acquise du modèle actuel. Elle ne réinterprète aucune campagne expérimentale historique comme preuve confirmatoire de \texttt{SAFE\_PRUNING}.
 
 Le cube \textit{Sales} comporte notamment les dimensions \textit{Time}, \textit{Product} et \textit{Store}, les mesures \textit{Store Sales}, \textit{Store Cost} et \textit{Units Sold}, ainsi qu'un KPI dérivé de marge. Nous considérons l'objectif illustratif
 \[
@@ -75,4 +75,4 @@ N_E(q_x)\cap U(\mathcal{E}_t)=\emptyset,
 alors la Proposition~\ref{prop:safe-pruning} autorise l'élagage sous les hypothèses gelées. L'exemple est relatif à l'objectif : la même requête pourrait redevenir pertinente dans une autre session, pour un autre objectif ou après modification explicite des supports.
 
 \paragraph*{Limite de l'illustration.}
-Le présent exemple démontre la cohérence du raisonnement sur une spécification contrôlée. Il n'établit ni la construction automatique correcte de $G_O$, ni la validité métier indépendante des supports choisis, ni un résultat de performance XMLA/eMondrian pour ce scénario illustratif. Les campagnes historiques FoodMart restent des preuves de fonctionnement du prototype; la réplication secondaire R3-E14 est désormais mesurée séparément dans son protocole XMLA/eMondrian et ne doit pas être attribuée à cette illustration FoodMart.
+Le présent exemple démontre la cohérence du raisonnement sur une spécification contrôlée. Il n'établit ni la construction automatique correcte de $G_O$, ni la validité métier indépendante des supports choisis, ni un résultat de performance XMLA/eMondrian pour ce scénario illustratif. Les campagnes historiques FoodMart restent des preuves de fonctionnement du prototype; la réplication secondaire XMLA/eMondrian est désormais mesurée séparément dans son propre protocole et ne doit pas être attribuée à cette illustration FoodMart.

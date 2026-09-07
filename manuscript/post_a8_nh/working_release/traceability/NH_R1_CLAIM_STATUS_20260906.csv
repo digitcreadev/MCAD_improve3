@@ -1,0 +1,9 @@
+claim_id,claim,status,evidence,boundary
+NH-C01,"MCAD can distinguish inadmissible, immediate, deferred-support, redundant-dispensable and distractor-dispensable candidates relative to objective/session state",PASS_REFERENCE_MODEL,20/20 curated classification fixtures,"Controlled semantic contract only"
+NH-C02,"An admissible candidate with no novel evidence in the residual objective frontier is future-irrelevant to objective computability",PASS_FORMAL_PLUS_EXHAUSTIVE_SMALL_UNIVERSE,"Theorem T1; 60,480 future-continuation comparisons; 0 failures","Conditional on A1-A9"
+NH-C03,"Safe pruning retains deferred-support contributors and preserves completion on adversarial multi-query fixtures",PASS_CONTROLLED_REFERENCE_MODEL,"5/5 safe scenarios preserve permissive final phi","Not yet large campaign"
+NH-C04,"Strict immediate-contribution pruning can destroy later objective completion",PASS_CONTROLLED_PLUS_PRIOR_V88,"4/5 R1 adversarial scenarios lose completion; prior V8.8 controlled loss 192/240","Protocol-designed controlled incidence, not field prevalence"
+NH-C05,"Semantic-contract uncertainty fails open rather than producing optimistic pruning",PASS_REFERENCE_MODEL,"4/4 fail-open fixtures","Production contract validation still future work"
+NH-C06,"Safe pruning avoids backend resource consumption",PENDING_NH_R3,"No backend resource campaign at R1","No resource-saving claim"
+NH-C07,"Safe pruning accelerates time to objective completion",PENDING_NH_R3,"No paired end-to-end campaign at R1","No acceleration claim"
+NH-C08,"MCAD has positive break-even benefit under scale/concurrency",PENDING_NH_R4,"No scale/break-even campaign at R1","No scalability/net-benefit claim"

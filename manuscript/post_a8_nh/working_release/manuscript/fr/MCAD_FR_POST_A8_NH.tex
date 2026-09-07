@@ -42,7 +42,7 @@
 \begin{abstract}
 Une session d'analyse décisionnelle ne se réduit pas à une succession de requêtes exécutables. MCAD opérationnalise un objectif organisationnel $O$ sous forme de contraintes et de supports suffisants, puis suit au niveau session l'évidence analytique effectivement acquise. Chaque requête candidate est d'abord représentée par un profil canonique; le raisonnement distingue admissibilité sémantique, réalisabilité de l'évidence, évidence acquise, calculabilité/contribution et action. Une requête non contributive à l'instant courant n'est donc pas automatiquement dispensable : MCAD ne l'élague avant exécution complète que lorsqu'une condition de sûreté relative à la frontière résiduelle de l'objectif est satisfaite; sinon, il exécute en \emph{fail-open}. Le cadre vise la complétion analytique relative à $O$, non la qualité de la décision humaine.
 
-Nous évaluons séparément la préservation sémantique et le coût système. Les campagnes contrôlées de préservation et de contribution différée n'observent aucune violation de complétion dans leur périmètre gelé et montrent qu'une politique strictement immédiate peut perdre des contributions différées multi-requêtes. Sur SQL Server Direct, une campagne confirmatoire préspécifiée de 300 sessions et 900 bras compare \texttt{SAFE\_PRUNING} à \texttt{PERMISSIVE\_GATED} sur huit endpoints primaires avec correction de Holm. Six endpoints sont confirmés en faveur de \texttt{SAFE\_PRUNING} : requêtes backend incluant les probes, exécutions backend complètes, temps client, CPU SQL Server, octets de réponse et temps jusqu'à complétion analytique. Les lectures et écritures I/O en octets ne sont pas confirmées; le protocole n'autorise donc aucun claim global indivisible de bénéfice système. Sur XMLA/eMondrian, la réplication secondaire R3-E14, préspécifiée sur 300 sessions et 900 bras, confirme les huit endpoints primaires en faveur de \texttt{SAFE\_PRUNING} relativement à \texttt{PERMISSIVE\_GATED}; ce résultat reste endpoint-spécifique et n'autorise ni bénéfice système global, ni équivalence ou homogénéité inter-backend. Ces résultats délimitent un mécanisme de contrôle analytique objectif-relatif, sans claim de valeur décisionnelle humaine ni de supériorité universelle.
+Nous évaluons séparément la préservation sémantique et le coût système. Les campagnes contrôlées de préservation et de contribution différée n'observent aucune violation de complétion dans leur périmètre gelé et montrent qu'une politique strictement immédiate peut perdre des contributions différées multi-requêtes. Sur SQL Server Direct, une campagne confirmatoire préspécifiée de 300 sessions et 900 bras compare \texttt{SAFE\_PRUNING} à \texttt{PERMISSIVE\_GATED} sur huit endpoints primaires avec correction de Holm. Six endpoints sont confirmés en faveur de \texttt{SAFE\_PRUNING} : requêtes backend incluant les probes, exécutions backend complètes, temps client, CPU SQL Server, octets de réponse et temps jusqu'à complétion analytique. Les lectures et écritures I/O en octets ne sont pas confirmées; le protocole n'autorise donc aucun claim global indivisible de bénéfice système. Sur XMLA/eMondrian, la réplication secondaire, préspécifiée sur 300 sessions et 900 bras, confirme les huit endpoints primaires en faveur de \texttt{SAFE\_PRUNING} relativement à \texttt{PERMISSIVE\_GATED}; ce résultat reste endpoint-spécifique et n'autorise ni bénéfice système global, ni équivalence ou homogénéité inter-backend. Ces résultats délimitent un mécanisme de contrôle analytique objectif-relatif, sans claim de valeur décisionnelle humaine ni de supériorité universelle.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -77,9 +77,9 @@ L'article apporte quatre contributions principales :
   \item une \textbf{évaluation système contrôlée et traçable} qui mesure séparément préservation sémantique, requêtes backend incluant les probes, exécutions complètes, temps client, CPU, octets de réponse et temps jusqu'à complétion analytique, sans transformer un résultat partiel en claim global de bénéfice système.
 \end{itemize}
 
-L'évaluation fournit quatre niveaux d'évidence complémentaires. Premièrement, les campagnes contrôlées de préservation et de contribution différée n'observent aucune violation de complétion dans leur périmètre gelé et montrent qu'une politique strictement immédiate peut perdre des contributions différées multi-requêtes. Deuxièmement, une phase d'évaluation end-to-end montre que la réduction du travail backend peut coexister avec un coût temporel supérieur à une exécution non contrôlée, ce qui exclut un claim universel de \emph{break-even}. Troisièmement, la campagne confirmatoire SQL Server Direct préspécifiée comprend 300 sessions et 900 bras. Pour la comparaison primaire \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}, six des huit endpoints primaires sont confirmés après correction de Holm : nombre de requêtes backend incluant les probes, nombre d'exécutions backend complètes, temps client, CPU SQL Server, octets de réponse et temps jusqu'à complétion analytique. Les octets de lecture et d'écriture I/O ne sont pas confirmés. Quatrièmement, la réplication secondaire XMLA/eMondrian R3-E14 comprend elle aussi 300 sessions et 900 bras et confirme, pour le même comparateur primaire, les huit endpoints préspécifiés après correction de Holm. Les résultats SQL Direct et XMLA restent interprétés séparément; le protocole n'autorise ni composite global ni synthèse cross-backend.
+L'évaluation fournit quatre niveaux d'évidence complémentaires. Premièrement, les campagnes contrôlées de préservation et de contribution différée n'observent aucune violation de complétion dans leur périmètre gelé et montrent qu'une politique strictement immédiate peut perdre des contributions différées multi-requêtes. Deuxièmement, une phase d'évaluation end-to-end montre que la réduction du travail backend peut coexister avec un coût temporel supérieur à une exécution non contrôlée, ce qui exclut un claim universel de \emph{break-even}. Troisièmement, la campagne confirmatoire SQL Server Direct préspécifiée comprend 300 sessions et 900 bras. Pour la comparaison primaire \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}, six des huit endpoints primaires sont confirmés après correction de Holm : nombre de requêtes backend incluant les probes, nombre d'exécutions backend complètes, temps client, CPU SQL Server, octets de réponse et temps jusqu'à complétion analytique. Les octets de lecture et d'écriture I/O ne sont pas confirmés. Quatrièmement, la réplication secondaire XMLA/eMondrian comprend elle aussi 300 sessions et 900 bras et confirme, pour le même comparateur primaire, les huit endpoints préspécifiés après correction de Holm. Les résultats SQL Direct et XMLA restent interprétés séparément; le protocole n'autorise ni composite global ni synthèse cross-backend.
 
-La portée de ces résultats est volontairement bornée. MCAD suppose qu'un objectif et ses supports ont été correctement instanciés en amont; cette adéquation est une hypothèse de construction et une menace à la validité, non un résultat du mécanisme. De même, la correction et l'efficacité de MCAD ne constituent pas une preuve de correction d'une décision humaine ou organisationnelle. La réplication secondaire XMLA/eMondrian R3-E14 est désormais mesurée et confirme 8/8 endpoints primaires pour \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}, sans autoriser de synthèse cross-backend ni de claim global; l'évaluation de concurrence, de mémoire, de latence de queue et de changement d'échelle end-to-end reste également hors du périmètre confirmé.
+La portée de ces résultats est volontairement bornée. MCAD suppose qu'un objectif et ses supports ont été correctement instanciés en amont; cette adéquation est une hypothèse de construction et une menace à la validité, non un résultat du mécanisme. De même, la correction et l'efficacité de MCAD ne constituent pas une preuve de correction d'une décision humaine ou organisationnelle. La réplication secondaire XMLA/eMondrian est désormais mesurée et confirme 8/8 endpoints primaires pour \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}, sans autoriser de synthèse cross-backend ni de claim global; l'évaluation de concurrence, de mémoire, de latence de queue et de changement d'échelle end-to-end reste également hors du périmètre confirmé.
 
 La suite de l'article situe d'abord MCAD par rapport aux travaux sur objectifs, représentations canoniques, sessions analytiques, optimisation sémantique, non-vacuité, provenance, admission et élagage physique. Nous présentons ensuite le modèle objectif--évidence, le CQP, les états de session et la condition d'élagage sûr, puis l'architecture qui sépare probes, exécution complète et mise à jour de l'évidence acquise. Enfin, l'évaluation distingue les preuves historiques héritées, les campagnes de préservation et de contribution différée, l'évaluation end-to-end et l'analyse confirmatoire des ressources, avant de discuter explicitement les résultats non confirmés et les frontières encore ouvertes.
 
@@ -111,7 +111,7 @@ Ces finalités sont complémentaires mais différentes. MCAD n'infère ni préf�
 
 \subsection{F6 -- Sessions analytiques et contribution différée}
 
-Les systèmes de recommandation de sessions et les travaux sur l'exploration séquentielle exploitent l'historique de navigation pour proposer ou évaluer des requêtes ultérieures~\cite{AligonDSS2015,DjedainiEtAl2019}. L'optimisation multi-requête de l'opérateur \textsc{Analyze} constitue aussi un voisin récent pour l'exploitation coordonnée de plusieurs requêtes facilitatrices~\cite{IakovidisVassiliadis2026}. MCAD utilise également une mémoire de session, mais avec une sémantique différente : l'état $\mathcal{E}_t$ représente l'évidence analytique effectivement acquise et les supports partiellement ou entièrement couverts. Cette distinction rend possible la contribution différée : une requête non contributive immédiatement peut fournir une partie d'un support qui deviendra suffisant après une requête future. Les campagnes NH-R2 exercent explicitement ce cas; elles ne justifient toutefois aucune généralisation à toutes les formes de sessions ou d'objectifs.
+Les systèmes de recommandation de sessions et les travaux sur l'exploration séquentielle exploitent l'historique de navigation pour proposer ou évaluer des requêtes ultérieures~\cite{AligonDSS2015,DjedainiEtAl2019}. L'optimisation multi-requête de l'opérateur \textsc{Analyze} constitue aussi un voisin récent pour l'exploitation coordonnée de plusieurs requêtes facilitatrices~\cite{IakovidisVassiliadis2026}. MCAD utilise également une mémoire de session, mais avec une sémantique différente : l'état $\mathcal{E}_t$ représente l'évidence analytique effectivement acquise et les supports partiellement ou entièrement couverts. Cette distinction rend possible la contribution différée : une requête non contributive immédiatement peut fournir une partie d'un support qui deviendra suffisant après une requête future. La campagne de préservation de complétion et de contribution différée multi-requêtes exerce explicitement ce cas; elle ne justifie toutefois aucune généralisation à toutes les formes de sessions ou d'objectifs.
 
 \subsection{F7 et F8 -- Optimisation sémantique, satisfiabilité et non-vacuité}
 
@@ -123,7 +123,7 @@ MCAD partage l'idée qu'une propriété sémantique peut être utile avant exéc
 
 L'admission control et l'ordonnancement de requêtes traitent des interférences, de la capacité et des objectifs de performance du système; WIQ, par exemple, décide quelles classes de requêtes admettre en fonction de mesures de charge et d'interférence~\cite{KraftWIQ2012}. Des travaux de workload management et d'ordonnancement resource-aware traitent aussi explicitement objectifs de service et besoins de ressources~\cite{KrompassDayalKunoKemper2007,PowleyMartinGruskaBirdKalmuk2014}; SafeLoad cible plus spécifiquement l'identification précoce de requêtes susceptibles de surcharger la mémoire~\cite{SafeLoad2025}. Le \emph{data skipping} réduit les données physiquement lues en exploitant métadonnées, index ou résumés de provenance; PBDS utilise ainsi des esquisses de provenance pour accélérer des requêtes ultérieures~\cite{NiuDataSkipping2021}.
 
-MCAD se situe à un niveau distinct. Il ne choisit pas une requête parce que le système est chargé et ne saute pas des blocs physiques à l'intérieur d'une requête déjà admise. Il détermine si l'exécution complète de la requête est encore nécessaire à la complétion analytique de l'objectif. Les gains de requêtes backend, d'exécutions complètes ou de ressources observés en R3-D4 sont des conséquences mesurées de cette décision sémantique dans un protocole donné, et non une assimilation de MCAD à une technique d'admission ou de \emph{data skipping}.
+MCAD se situe à un niveau distinct. Il ne choisit pas une requête parce que le système est chargé et ne saute pas des blocs physiques à l'intérieur d'une requête déjà admise. Il détermine si l'exécution complète de la requête est encore nécessaire à la complétion analytique de l'objectif. Les gains de requêtes backend, d'exécutions complètes ou de ressources observés en la campagne confirmatoire SQL Server Direct sont des conséquences mesurées de cette décision sémantique dans un protocole donné, et non une assimilation de MCAD à une technique d'admission ou de \emph{data skipping}.
 
 \subsection{F12 -- Systèmes d'aide à la décision et valeur de la décision}
 
@@ -137,7 +137,7 @@ Le Tableau~\ref{tab:related-work-landscape-post-a8} résume la frontière foncti
 
 La différence revendiquée par MCAD est donc intégrative et bornée. Le cadre relie (1) un objectif explicitement formalisé, (2) un graphe objectif--évidence et un contexte sémantique typé, (3) un CQP suffisamment fidèle, (4) l'admissibilité sémantique, (5) la réalisabilité éventuellement sondée, (6) l'évidence effectivement acquise, (7) la frontière résiduelle de l'objectif, puis (8) une décision d'élagage sûr ou d'exécution en \emph{fail-open}. Cette chaîne est distincte d'une recommandation, d'un optimiseur relationnel, d'un test de vacuité, d'un admission controller ou d'une technique d'élagage physique pris isolément.
 
-Nous ne comparons donc pas expérimentalement MCAD à Calcite, Substrait, aux systèmes de recommandation ou aux techniques de \emph{data skipping} comme s'il s'agissait de baselines interchangeables. Les baselines expérimentales de R3 sont des politiques internes qui isolent la question causale propre au mécanisme d'élagage. La littérature sert ici à délimiter la fonction et la nouveauté conceptuelle; les résultats empiriques de MCAD ne constituent ni une preuve de supériorité externe, ni une revendication de priorité, ni une validation de valeur décisionnelle humaine.
+Nous ne comparons donc pas expérimentalement MCAD à Calcite, Substrait, aux systèmes de recommandation ou aux techniques de \emph{data skipping} comme s'il s'agissait de baselines interchangeables. Les baselines expérimentales des campagnes système end-to-end sont des politiques internes qui isolent la question causale propre au mécanisme d'élagage. La littérature sert ici à délimiter la fonction et la nouveauté conceptuelle; les résultats empiriques de MCAD ne constituent ni une preuve de supériorité externe, ni une revendication de priorité, ni une validation de valeur décisionnelle humaine.
 
 
 \section{Vue d'ensemble de MCAD}
@@ -147,12 +147,12 @@ Nous ne comparons donc pas expérimentalement MCAD à Calcite, Substrait, aux sy
 
 \subsection{Chaîne conceptuelle objectif--évidence--action}
 
-La Figure~\ref{fig:concept-chain} résume la chaîne post-A8. Une requête $q$ est d'abord projetée vers un \emph{Canonical Query Profile} (CQP), c'est-à-dire une représentation canonique des propriétés nécessaires au raisonnement : source/fait, grain, mesures, agrégations, unités, filtres, temporalité, contexte et correspondances d'évidence. Le CQP est soumis à l'admissibilité sémantique. Lorsque la décision l'exige, un probe de non-vacuité peut ensuite établir une forme de réalisabilité; ce probe est comptabilisé comme interaction backend mais ne crédite pas l'évidence analytique dans l'état de session.
+La Figure~\ref{fig:concept-chain} résume la chaîne conceptuelle actuelle. Une requête $q$ est d'abord projetée vers un \emph{Canonical Query Profile} (CQP), c'est-à-dire une représentation canonique des propriétés nécessaires au raisonnement : source/fait, grain, mesures, agrégations, unités, filtres, temporalité, contexte et correspondances d'évidence. Le CQP est soumis à l'admissibilité sémantique. Lorsque la décision l'exige, un probe de non-vacuité peut ensuite établir une forme de réalisabilité; ce probe est comptabilisé comme interaction backend mais ne crédite pas l'évidence analytique dans l'état de session.
 
 \begin{figure*}[!t]
 \centering
 \resizebox{\textwidth}{!}{\input{figures/fr/F01_conceptual_chain_post_a8_nh.tex}}
-\caption{Chaîne conceptuelle post-A8 de MCAD. Le CQP alimente l'admissibilité et, si nécessaire, un probe de réalisabilité. La décision d'élagage est relative à la frontière résiduelle de l'objectif et échoue en \emph{fail-open}. Un probe réussi n'est pas assimilé à de l'évidence acquise; seule une exécution complète réussie peut enrichir l'état de session.}
+\caption{Chaîne conceptuelle actuelle de MCAD. Le CQP alimente l'admissibilité et, si nécessaire, un probe de réalisabilité. La décision d'élagage est relative à la frontière résiduelle de l'objectif et échoue en \emph{fail-open}. Un probe réussi n'est pas assimilé à de l'évidence acquise; seule une exécution complète réussie peut enrichir l'état de session.}
 \label{fig:concept-chain}
 \end{figure*}
 
@@ -218,7 +218,7 @@ La Figure~\ref{fig:ckg-fragment} illustre une contrainte $c_1$ disposant de deux
 
 \subsection{Portabilité et frontières de construction}
 
-Le CQP rend le raisonnement indépendant de la syntaxe source dans la mesure où un extracteur fidèle est disponible. Le prototype dispose de chemins SQL analytique et MDX/XMLA vers cette représentation; cela établit une portabilité de représentation bornée, et non l'équivalence de tous les backends. La réplication R3-E14 apporte désormais une confirmation metric-specific sur XMLA/eMondrian, mais elle ne transforme pas cette portabilité de représentation en claim d'équivalence ou d'homogénéité inter-backend. DAX et d'autres langages restent des extensions futures du contrat CQP.
+Le CQP rend le raisonnement indépendant de la syntaxe source dans la mesure où un extracteur fidèle est disponible. Le prototype dispose de chemins SQL analytique et MDX/XMLA vers cette représentation; cela établit une portabilité de représentation bornée, et non l'équivalence de tous les backends. La réplication secondaire XMLA/eMondrian apporte désormais une confirmation metric-specific sur XMLA/eMondrian, mais elle ne transforme pas cette portabilité de représentation en claim d'équivalence ou d'homogénéité inter-backend. DAX et d'autres langages restent des extensions futures du contrat CQP.
 
 Enfin, les expériences utilisent des CKG, objectifs, contraintes, supports et mappings d'évidence préparés à partir des schémas et règles contrôlés du protocole. La construction automatique de ces objets depuis documents, logs ou règles implicites n'est pas évaluée. Les résultats portent donc sur le raisonnement et le contrôle à partir d'un contexte spécifié, non sur l'acquisition automatique de connaissances ni sur la validité métier indépendante de ce contexte.
 
@@ -226,7 +226,7 @@ Enfin, les expériences utilisent des CKG, objectifs, contraintes, supports et m
 \section{Formalisation de MCAD}
 \label{sec:formal}
 
-Cette section fixe le noyau formel post-A8 de MCAD. Le modèle sépare explicitement : (i) le contexte sémantique relativement stable; (ii) la structure objectif--évidence qui définit ce qu'il faut rendre calculable; (iii) le profil canonique de la requête candidate; (iv) la réalisabilité de l'évidence; (v) l'évidence effectivement acquise dans la session; et (vi) la décision opérationnelle. Cette séparation évite trois confusions de l'ancien formalisme : utiliser le même symbole pour les arêtes du graphe et l'évidence de session, assimiler la non-vacuité à l'admissibilité sémantique, et déduire une action d'élagage de la seule contribution marginale immédiate.
+Cette section fixe le noyau formel actuel de MCAD. Le modèle sépare explicitement : (i) le contexte sémantique relativement stable; (ii) la structure objectif--évidence qui définit ce qu'il faut rendre calculable; (iii) le profil canonique de la requête candidate; (iv) la réalisabilité de l'évidence; (v) l'évidence effectivement acquise dans la session; et (vi) la décision opérationnelle. Cette séparation évite trois confusions de l'ancien formalisme : utiliser le même symbole pour les arêtes du graphe et l'évidence de session, assimiler la non-vacuité à l'admissibilité sémantique, et déduire une action d'élagage de la seule contribution marginale immédiate.
 
 \subsection{Contexte sémantique typé et conventions de notation}
 
@@ -238,7 +238,7 @@ où $V^{K}$ est l'ensemble des nœuds, $A^{K}$ l'ensemble des arêtes étiqueté
 
 Le CKG contient les relations nécessaires pour interpréter grains, mesures, KPI, unités, agrégateurs, slicers, scénarios et fenêtres temporelles. Il ne constitue pas à lui seul la mémoire d'exécution de la session. Les informations relativement stables du contexte et l'évidence acquise au fil des requêtes sont donc des objets distincts.
 
-Le Tableau~\ref{tab:notation} résume les notations post-A8.
+Le Tableau~\ref{tab:notation} résume les notations du modèle actuel.
 
 \input{tables/fr/T_notation_post_a8_nh.tex}
 
@@ -447,7 +447,7 @@ Nous distinguons donc :
 \;\not\Rightarrow\;
 \text{SAFE\_TO\_PRUNE}.
 \]
-La contribution différée correspond précisément au cas où $N_E(q_t)$ intersecte la frontière résiduelle, sans compléter encore un support suffisant. L'expérience NH-R2 exerce ce phénomène dans un périmètre contrôlé; le formalisme n'en déduit pas une généralisation à toute session analytique imaginable.
+La contribution différée correspond précisément au cas où $N_E(q_t)$ intersecte la frontière résiduelle, sans compléter encore un support suffisant. La campagne de préservation de complétion et de contribution différée multi-requêtes exerce ce phénomène dans un périmètre contrôlé; le formalisme n'en déduit pas une généralisation à toute session analytique imaginable.
 
 \subsection{Condition suffisante d'élagage sûr}
 
@@ -516,12 +516,12 @@ Enfin, le formalisme suppose que le CKG, $G_O$, les supports et les mappings d'�
 \section{Architecture du prototype et flux de travail}
 \label{sec:arch}
 
-L'architecture post-A8 traduit directement le contrat formel de la Section~\ref{sec:formal} en un contrôle pré-backend instrumenté. Elle sépare quatre catégories d'état qui ne doivent pas être confondues : (i) les ressources préparées relativement stables, notamment le CKG et le graphe objectif--évidence $G_O$; (ii) le profil canonique et les propriétés déduites de la requête candidate; (iii) la réalisabilité éventuellement établie par un probe; et (iv) l'évidence effectivement acquise après une exécution complète réussie. La politique d'action est injectée après le raisonnement afin que les baselines expérimentales ne redéfinissent pas le noyau sémantique.
+L'architecture actuelle traduit directement le contrat formel de la Section~\ref{sec:formal} en un contrôle pré-backend instrumenté. Elle sépare quatre catégories d'état qui ne doivent pas être confondues : (i) les ressources préparées relativement stables, notamment le CKG et le graphe objectif--évidence $G_O$; (ii) le profil canonique et les propriétés déduites de la requête candidate; (iii) la réalisabilité éventuellement établie par un probe; et (iv) l'évidence effectivement acquise après une exécution complète réussie. La politique d'action est injectée après le raisonnement afin que les baselines expérimentales ne redéfinissent pas le noyau sémantique.
 
 \begin{figure*}[!t]
 \centering
 \resizebox{\textwidth}{!}{\input{figures/fr/F02_architecture_prebackend_post_a8_nh.tex}}
-\caption{Architecture pré-backend post-A8. Les ressources objectif/contexte et l'état d'évidence de session alimentent le raisonneur; le CQP est contrôlé pour sa fidélité et son admissibilité; un probe de réalisabilité est optionnel et ne crédite jamais l'évidence acquise; la preuve de sûreté décide ensuite entre \texttt{PRUNE} et exécution \emph{fail-open}. Seule une exécution complète réussie peut produire $A_t$ et mettre à jour $\mathcal{E}_t$.}
+\caption{Architecture pré-backend actuelle. Les ressources objectif/contexte et l'état d'évidence de session alimentent le raisonneur; le CQP est contrôlé pour sa fidélité et son admissibilité; un probe de réalisabilité est optionnel et ne crédite jamais l'évidence acquise; la preuve de sûreté décide ensuite entre \texttt{PRUNE} et exécution \emph{fail-open}. Seule une exécution complète réussie peut produire $A_t$ et mettre à jour $\mathcal{E}_t$.}
 \label{fig:arch-mcad}
 \end{figure*}
 
@@ -563,7 +563,7 @@ Si l'action est \texttt{PRUNE}, aucune exécution complète n'est envoyée au ba
 \mathcal{E}_t=\mathcal{E}_{t-1}\cup A_t.
 \]
 
-L'architecture interdit donc deux raccourcis : un probe réussi n'est jamais committé comme résultat analytique, et une requête élaguée ne met jamais à jour l'évidence. L'accumulateur de session peut assembler des contributions réparties sur plusieurs requêtes; ce comportement de contribution différée a été exercé dans la campagne contrôlée NH-R2, sans prétendre couvrir toutes les formes possibles de sessions analytiques.
+L'architecture interdit donc deux raccourcis : un probe réussi n'est jamais committé comme résultat analytique, et une requête élaguée ne met jamais à jour l'évidence. L'accumulateur de session peut assembler des contributions réparties sur plusieurs requêtes; ce comportement de contribution différée a été exercé dans la campagne contrôlée de préservation multi-requêtes, sans prétendre couvrir toutes les formes possibles de sessions analytiques.
 
 \subsection{Traçabilité, compteurs et temps jusqu'à l'objectif}
 
@@ -573,15 +573,15 @@ Le temps jusqu'à complétion analytique est calculé à partir de la même trac
 
 \subsection{Couverture du prototype et frontières empiriques}
 
-Le Tableau~\ref{tab:prototype-formal-coverage} relie les composants du modèle post-A8 aux chemins effectivement exercés. Il distingue soigneusement implémentation, preuve de fonctionnement et confirmation expérimentale.
+Le Tableau~\ref{tab:prototype-formal-coverage} relie les composants du modèle actuel aux chemins effectivement exercés. Il distingue soigneusement implémentation, preuve de fonctionnement et confirmation expérimentale.
 
 \input{tables/fr/T_prototype_formal_coverage_post_a8_nh.tex}
 
-Le chemin SQL Server Direct dispose d'une campagne confirmatoire R3-D pour la comparaison primaire \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}. Le chemin XMLA/eMondrian dispose désormais d'une réplication secondaire R3-E14 mesurée sur 300 sessions et 900 bras; les 8 endpoints primaires de la même comparaison sont confirmés endpoint par endpoint. Cette confirmation reste distincte de R3-D et n'autorise ni équivalence backend, ni synthèse cross-backend, ni bénéfice système global.
+Le chemin SQL Server Direct dispose d'une campagne confirmatoire SQL Server Direct pour la comparaison primaire \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}. Le chemin XMLA/eMondrian dispose désormais d'une réplication secondaire XMLA/eMondrian mesurée sur 300 sessions et 900 bras; les 8 endpoints primaires de la même comparaison sont confirmés endpoint par endpoint. Cette confirmation reste distincte de la campagne confirmatoire SQL Server Direct et n'autorise ni équivalence backend, ni synthèse cross-backend, ni bénéfice système global.
 
 \subsection{Workflow de bout en bout}
 
-Le workflow opérationnel post-A8 est le suivant :
+Le workflow opérationnel actuel est le suivant :
 \begin{enumerate}
   \item charger l'objectif $O$, $G_O$, le CKG et l'évidence acquise $\mathcal{E}_{t-1}$ ;
   \item recevoir $q_t$, construire le CQP $P_{q_t}$ et vérifier la fidélité de l'abstraction ;
@@ -600,11 +600,11 @@ Cette architecture maintient ainsi une séparation inspectable entre sémantique
 \label{sec:exp}
 \label{sec:experiments}
 
-L'évaluation post-A8 est organisée comme une \emph{échelle d'évidence} plutôt que comme une collection de RQ historiques placées au même niveau probatoire. Les campagnes n'ont pas toutes la même fonction : les traces historiques établissent la réalité du prototype et sa diversité de chemins; NH-R2 cible la préservation sémantique et la contribution différée multi-requêtes; R3-C teste le comportement de bout en bout face à une exécution admissible non filtrée; R3-D constitue la campagne confirmatoire SQL Server Direct pour les coûts système et le temps jusqu'à complétion analytique; R3-E14 constitue la réplication secondaire XMLA/eMondrian, mesurée sur 300 sessions et 900 bras, avec 8/8 endpoints primaires confirmés.
+L'évaluation du contrat actuel est organisée comme une \emph{échelle d'évidence} plutôt que comme une collection de RQ historiques placées au même niveau probatoire. Les campagnes n'ont pas toutes la même fonction : les traces historiques établissent la réalité du prototype et sa diversité de chemins; la campagne de préservation multi-requêtes cible la préservation sémantique et la contribution différée; la calibration end-to-end teste le comportement face à une exécution admissible non filtrée; la campagne confirmatoire SQL Server Direct couvre les coûts système et le temps jusqu'à complétion analytique; la réplication secondaire XMLA/eMondrian est mesurée sur 300 sessions et 900 bras, avec 8/8 endpoints primaires confirmés.
 
 \subsection{Questions d'évaluation et hiérarchie probatoire}
 
-Nous formulons cinq questions correspondant au mécanisme post-A8 :
+Nous formulons cinq questions correspondant au mécanisme actuel :
 \begin{itemize}
   \item \textbf{EQ1 -- Préservation de complétion :} une politique d'élagage sûr préserve-t-elle la complétion analytique de l'objectif dans les scénarios contrôlés où ses hypothèses sont gelées ?
   \item \textbf{EQ2 -- Contribution différée :} une politique strictement immédiate peut-elle perdre une contribution distribuée sur plusieurs requêtes alors qu'une politique tenant compte de la frontière résiduelle la conserve ?
@@ -617,31 +617,113 @@ Le Tableau~\ref{tab:evidence-ladder} synthétise la hiérarchie des campagnes et
 
 \input{tables/fr/T_evaluation_evidence_ladder_post_a8_nh.tex}
 
-\subsection{Évidence historique : fonctionnement, portée et limites}
+\subsection{Évidence historique : fonctionnement, diversité des chemins et limites}
 
-Les campagnes historiques restent utiles comme preuves de fonctionnement et de diversité de configuration. La trace AdventureWorks Q1--Q6 établit qu'une politique peut appliquer une décision avant backend; la campagne FoodMart historique exerce 1000 sessions et 7960 décisions; les campagnes multi-entrepôts et backend apparié montrent que des décisions et motifs peuvent être préservés dans plusieurs chemins exercés; les benchmarks historiques de robustesse, de croissance structurelle et de latence sémantique caractérisent le prototype et certaines sensibilités internes.
+Les campagnes antérieures au pivot vers le contrat actuel d'élagage sûr restent des preuves importantes de fonctionnement, de diversité de configuration et de comportement interne du prototype. Elles sont réintégrées ici comme une couche historique explicitement distincte de la preuve moderne d'élagage sûr : aucune décision ancienne fondée sur la seule contribution immédiate n'est requalifiée rétrospectivement en \texttt{SAFE\_TO\_PRUNE}.
 
-Ces résultats ne sont toutefois pas réinterprétés comme preuve du nouveau prédicat d'élagage sûr. En particulier, les anciennes politiques strictes basées sur la contribution immédiate et les anciennes lectures en $\Delta\varphi$ sont conservées comme contexte historique, mais elles ne définissent plus le contrat normatif post-A8. De même, les quantiles historiques de latence sémantique n'incluaient pas nécessairement le coût complet du backend; ils ne sont donc pas utilisés pour conclure sur le temps de bout en bout de R3.
+\paragraph{Trace instrumentée AdventureWorks en six étapes.}
+La trace Q1--Q6 est une session instrumentée, non six réplications indépendantes. Q1--Q3 fournissent successivement les supports nécessaires à trois contraintes et atteignent le backend; Q4--Q6 exercent respectivement un cas hors périmètre de l'objectif, un grain incompatible et une redondance après couverture complète. Sous la politique stricte historique de démonstration, Q4--Q6 sont arrêtées avant exécution complète. Cette trace prouve que la décision sémantique pouvait être reliée à un effet physique; elle ne prouve pas que $\Delta\varphi=0$ suffit, dans le contrat actuel de complétion analytique et d'élagage sûr, à établir la dispensabilité sûre.
 
-\subsection{NH-R2 : préservation et contribution différée multi-requêtes}
+\input{tables/fr/T_q1_q6_diagnostic_v8_5_1.tex}
 
-NH-R2 exerce explicitement des scénarios où l'évidence utile à un support est répartie sur plusieurs requêtes. L'observation centrale est qu'une requête peut ne rendre immédiatement aucune nouvelle contrainte calculable tout en apportant une partie d'un support qui deviendra suffisant après une requête ultérieure. Une politique strictement immédiate peut donc supprimer une étape nécessaire à la complétion future.
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=0.60\textwidth]{figures/fr/F_ui_native_q1.png}\par
+\vspace{1.1mm}{\scriptsize (a) Q1 : contribution positive, ALLOW et exécution physique}\par
+\vspace{2.6mm}
+\includegraphics[width=0.60\textwidth]{figures/fr/F_ui_native_overview_3_3.png}\par
+\vspace{1.1mm}{\scriptsize (b) Après Q6 : 3 ALLOW / 3 BLOCK et objectif calculable à 100\%}\par
+\vspace{2.6mm}
+\includegraphics[width=0.60\textwidth]{figures/fr/F_ui_native_q6.png}\par
+\vspace{1.1mm}{\scriptsize (c) Q6 : admissible, redondante, $\Delta\varphi=0$, sans exécution physique}
+\caption{Trace visuelle AdventureWorks héritée. Les captures proviennent de la même session instrumentée et documentent la liaison décision--effet physique de la politique stricte historique. Elles ne sont pas réinterprétées comme preuve du prédicat actuel d'élagage sûr.}
+\label{fig:ui-evidence-historical}
+\end{figure*}
 
-Dans le périmètre gelé de NH-R2, la politique fondée sur la frontière résiduelle ne présente pas de violation observée de complétion, tandis que le baseline \texttt{STRICT\_IMMEDIATE} expose la perte de contributions différées dans les cas préspécifiés. Ce résultat soutient la distinction
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F04_q1_q6_coverage.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F05_q1_q6_gate_execution.tex}\end{minipage}
+\caption{Trace Q1--Q6 historique : progression cumulative de la calculabilité et effet physique de la politique stricte de démonstration.}
+\label{fig:q1q6-historical-curves}
+\end{figure*}
+
+\paragraph{FoodMart : répétition du contrat décision--effet physique.}
+La campagne FoodMart comprend 1000 sessions et 7960 décisions : 2266 ALLOW et 5694 BLOCK. Les 2266 ALLOW atteignent le backend et les BLOCK sont arrêtés avant exécution complète sous la politique historique. Le motif primaire explicite de redondance sessionnelle apparaît pour 3372 décisions, soit 42,4\% de toutes les décisions et 59,2\% des BLOCK. Ce décompte n'est pas une reconstruction exhaustive de toutes les occurrences numériques de $\Delta\varphi=0$ et ne permet pas de reconstruire $C_Q=C_E$ pour chaque candidat bloqué, car les sorties brutes correspondantes n'ont pas toutes été conservées.
+
+\input{tables/fr/T_campaign_a_reason_profile_v8_5_1.tex}
+
+\paragraph{Préservation multi-entrepôts et chemins backend.}
+Une étude historique sur FoodMart, AdventureWorks et SteelWheels exerce 18 requêtes, dont 7 ALLOW/exécutées et 11 BLOCK. Une seconde étude appariée AdventureWorks conserve l'ordre, les décisions et les motifs entre SQL Direct et XMLA sur 12 évaluations. Cette evidence soutient uniquement la préservation du comportement décisionnel dans les configurations exercées; elle n'établit ni portabilité universelle ni équivalence de performance backend.
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F08_campaign_b_multidataset.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}\centering\input{figures/fr/F09_campaign_c_backend_parity.tex}\end{minipage}
+\caption{Préservation historique du comportement décisionnel dans les entrepôts et chemins backend testés; aucune équivalence de performance inter-backend n'est revendiquée.}
+\label{fig:historical-multi-config}
+\end{figure*}
+
+\paragraph{Robustesse interne, structure CKG et latence sémantique.}
+Le benchmark de robustesse historique couvre quatre familles de scénarios, 240 sessions par politique, trois comparateurs internes et trois ablations ciblées. Relativement à la spécification contrôlée, MCAD y présente zéro false ALLOW, zéro false BLOCK et zéro exécution non contributive observée; les ablations établissent une sensibilité des maillons manipulés, non leur nécessité universelle et non une supériorité sur des systèmes externes.
+
+\input{tables/fr/T_robustness.tex}
+
+La croissance structurelle du CKG a été caractérisée jusqu'au facteur 40, avec 1693 nœuds, 2406 arêtes et 322 nœuds virtuels au maximum étudié. La latence de décision sémantique a été mesurée sur 118000 observations; les p50 publiés se situent approximativement entre 0,337 et 0,666~ms et les p99 entre 0,649 et 1,461~ms selon les facteurs. Ces mesures concernent le cœur sémantique et ne constituent ni un benchmark backend ni une preuve de capacité industrielle. Les figures et tableaux détaillés sont conservés dans l'Annexe~\ref{app:evidence-lineage}.
+
+\subsection{Robustesse sémantique contrôlée : fidélité des supports, perturbations et comparateurs internes}
+
+La lignée de robustesse sémantique contrôlée constitue un pont entre les campagnes historiques et le contrat actuel de complétion analytique et d'élagage sûr. Son intérêt actuel n'est pas de restaurer l'ancienne règle de contribution immédiate, mais de documenter les conséquences d'une spécification de supports ou de contexte imparfaite et de conserver des résultats négatifs utiles à la politique \emph{fail-open}.
+
+La campagne multi-requêtes contrôlée comprend 240 sessions et 1680 étapes. Elle observe une divergence $C_Q<C_E$ dans 240/240 sessions et encore au dernier pas dans 192/240, tout en atteignant la complétion de référence dans 240/240 sessions sous l'acquisition prévue. Une simulation strictement immédiate perd la complétion future dans 192/240 cas conçus. Cette fréquence est propre au protocole et n'est pas une prévalence populationnelle.
+
+\input{tables/fr/T_v88_r2_multiquery_headline.tex}
+
+La sensibilité aux supports distingue trois transformations déclarées équivalentes (SR1--SR3), sans désaccord observé, et deux erreurs de spécification. SR4, sur-permissive, introduit des états prématurés et des désaccords sans perte finale de complétion; SR5, sur-restrictive, manque des états nécessaires et perd la complétion finale dans 240/240 sessions. Cette asymétrie soutient la frontière méthodologique selon laquelle une incertitude de support ne doit pas créer un élagage optimiste.
+
+\input{tables/fr/T_v88_support_sensitivity.tex}
+
+Les perturbations CKG R4 couvrent huit familles et trois intensités. Les résultats montrent que l'effet dépend du type et de l'intensité de la mauvaise spécification; les pertes finales vont de nulles à complètes selon les cellules exercées. La référence ``propre'' est la spécification contrôlée du protocole, pas une vérité métier indépendante.
+
+\input{tables/fr/T_v88_ckg_perturbation_headline.tex}
+
+La comparaison sur tâche commune compare le critère MCAD à cinq critères internes sur une tâche commune held-out; le contrôle B4 est exactement à égalité avec M0 comme préenregistré, tandis que les autres diagnostics divergent. La caractérisation du cœur sémantique sous concurrence exécute 100800 requêtes du cœur sémantique sans mismatch, mais n'observe aucun speedup threads soutenu et montre une forte inflation p99 au facteur 128. Ces résultats sont détaillés en annexe et ne soutiennent ni supériorité externe ni capacité de production.
+
+\subsection{Sensibilités terminales et résultat de précision négatif}
+
+Les quatre facteurs de sensibilité ont une décision terminale gelée. Les campagnes \emph{constraint\_count}, \emph{virtual\_node\_count} et \emph{membership\_density} ferment respectivement aux stages 20, 10 et 10. Le facteur \emph{objective\_count} atteint le stage 30 mais conserve 17/192 cellules hors des cibles de précision préenregistrées après 30 clusters et 576000 mesures; aucun palier 40 n'a été autorisé. Ce résultat limite explicitement les interprétations de précision et ne doit pas être remplacé par une extrapolation favorable.
+
+\input{tables/fr/T_sensitivity_terminal_final.tex}
+
+\subsection{Validation contrôlée de préservation de l'élagage sûr et du fail-open}
+
+La validation contrôlée de l'élagage sûr constitue la fondation de référence du prédicat actuel. Le modèle classe séparément candidats inadmissibles, contributeurs immédiats, contributeurs de support différé, redondants dispensables et distracteurs dispensables. Son théorème de future-irrelevance est conditionnel aux hypothèses sémantiques gelées et a été accompagné d'un contrôle exhaustif sur un petit univers : 7560 états candidats sûrs, 60480 continuations futures et zéro contre-exemple observé. Cinq scénarios adversariaux préservent la complétion sous la règle sûre, tandis que la règle strictement immédiate en perd quatre; quatre fixtures d'incertitude sémantique vérifient le comportement fail-open.
+
+\input{tables/fr/T_nh_r1_safe_pruning_reference_model.tex}
+
+Cette validation n'autorise aucun claim de gain de ressources ou d'accélération : ces questions sont explicitement laissées aux campagnes système end-to-end et, pour les questions de scale/concurrence intégrées, à une extension future distincte.
+
+\subsection{Préservation de complétion et contribution différée multi-requêtes}
+
+La campagne de préservation de complétion et de contribution différée multi-requêtes exerce explicitement des scénarios où l'évidence utile à un support est répartie sur plusieurs requêtes. La campagne gelée comprend 1200 sessions et 86400 décisions candidates de politique. Elle enregistre 19496 paires de replay associées à un \texttt{PRUNE} sûr, zéro faux élagage d'un contributeur immédiat ou différé et zéro échec observé de préservation de l'objectif. En parallèle, \texttt{STRICT\_IMMEDIATE} perd la complétion dans 256 sessions du protocole.
+
+\input{tables/fr/T_nh_r2_completion_preservation.tex}
+
+L'observation centrale est donc qu'une requête peut ne rendre immédiatement aucune nouvelle contrainte calculable tout en apportant une partie d'un support qui deviendra suffisant après une requête ultérieure. Le résultat soutient la distinction
 \[
 \text{NONCONTRIBUTIVE\_NOW}\not\Rightarrow\text{SAFE\_TO\_PRUNE},
 \]
-mais ne constitue ni une preuve universelle pour toute forme de session, ni une validation automatique de tout mapping d'évidence possible.
+mais ne constitue ni une preuve universelle pour toute forme de session, ni une validation automatique de tout mapping d'évidence possible. Les claims de ressources restent explicitement non promus dans la campagne de préservation multi-requêtes et sont évalués séparément dans les campagnes système end-to-end.
 
-\subsection{R3-C : exécution contrôlée et absence de break-even établi face à UNGATED}
+\subsection{Calibration end-to-end et absence de break-even établi face à l'exécution admissible non contrôlée}
 
-R3-C confronte la politique sûre à \texttt{UNGATED\_EXECUTE\_ADMISSIBLE}, qui exécute les requêtes admissibles sans rechercher de preuve d'élagage. Ce comparateur répond à une question différente de la comparaison confirmatoire primaire : il demande si le coût du contrôle pré-backend est amorti par les exécutions évitées dans les scénarios testés.
+La calibration end-to-end confronte la politique sûre à \texttt{UNGATED\_EXECUTE\_ADMISSIBLE}, qui exécute les requêtes admissibles sans rechercher de preuve d'élagage. Ce comparateur répond à une question différente de la comparaison confirmatoire primaire : il demande si le coût du contrôle pré-backend est amorti par les exécutions évitées dans les scénarios testés.
 
 Dans les 40 sessions contrôlées de ce protocole, \texttt{SAFE\_PRUNING} est plus lent que \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} pour le temps observé de session, soit 40/40 cas dans le même sens. Le break-even temporel n'est donc pas établi dans ce périmètre. Cette observation n'annule pas les réductions de travail backend mesurées plus tard contre \texttt{PERMISSIVE\_GATED}; elle montre simplement que \emph{moins de travail backend} et \emph{temps de session inférieur à une exécution non instrumentée} sont deux claims distincts.
 
-\subsection{R3-D : campagne confirmatoire SQL Server Direct}
+\subsection{Campagne confirmatoire SQL Server Direct}
 
-R3-D constitue la campagne confirmatoire préspécifiée de coût système. Le plan comprend 300 sessions, soit 900 exécutions de bras au total, organisées en 20 strates de 15 sessions. La comparaison primaire est
+La campagne confirmatoire SQL Server Direct est la campagne préspécifiée de coût système. Le plan comprend 300 sessions, soit 900 exécutions de bras au total, organisées en 20 strates de 15 sessions. La comparaison primaire est
 \[
 \texttt{SAFE\_PRUNING}-\texttt{PERMISSIVE\_GATED},
 \]
@@ -655,11 +737,11 @@ Six endpoints sur huit sont confirmés en faveur de \texttt{SAFE\_PRUNING}. La d
 
 Les deux endpoints d'I/O en octets ne sont pas confirmés. Les lectures SQL Server présentent une différence moyenne de $-94126.08$~octets et les écritures de $-2416.64$~octets, mais leur $p_{\mathrm{Holm}}$ vaut $0.429436$. Ces directions descriptives ne sont donc pas promues en résultats confirmatoires.
 
-La conclusion R3-D est volontairement endpoint-spécifique : le protocole autorise à dire que six endpoints primaires sur huit sont confirmés, mais n'autorise pas un claim indivisible du type ``bénéfice système global''. De même, cette comparaison primaire n'implique pas que \texttt{SAFE\_PRUNING} soit universellement plus rapide que \texttt{UNGATED\_EXECUTE\_ADMISSIBLE}; R3-C fournit précisément une borne négative sur cette lecture.
+La conclusion de la campagne confirmatoire SQL Server Direct est volontairement endpoint-spécifique : le protocole autorise à dire que six endpoints primaires sur huit sont confirmés, mais n'autorise pas un claim indivisible du type ``bénéfice système global''. De même, cette comparaison primaire n'implique pas que \texttt{SAFE\_PRUNING} soit universellement plus rapide que \texttt{UNGATED\_EXECUTE\_ADMISSIBLE}; La calibration end-to-end fournit précisément une borne négative sur cette lecture.
 
-\subsection{R3-E14 : réplication secondaire XMLA/eMondrian mesurée}
+\subsection{Réplication secondaire XMLA/eMondrian mesurée}
 
-La voie XMLA/eMondrian a été exécutée comme une réplication R3 distincte après fermeture de la préparation et des barrières de runtime. La campagne R3-E14 comprend 300 sessions appariées et 900 bras. La comparaison primaire \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED} reprend les huit endpoints \emph{lower-is-better} préspécifiés et la même correction de Holm. Les huit endpoints sont confirmés dans la direction favorable à \texttt{SAFE\_PRUNING}; pour chacun, $p_{\mathrm{Holm}}=7.9999200008\times 10^{-5}$.
+La voie XMLA/eMondrian a été exécutée comme une réplication expérimentale distincte après fermeture de la préparation et des barrières de runtime. Cette réplication comprend 300 sessions appariées et 900 bras. La comparaison primaire \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED} reprend les huit endpoints \emph{lower-is-better} préspécifiés et la même correction de Holm. Les huit endpoints sont confirmés dans la direction favorable à \texttt{SAFE\_PRUNING}; pour chacun, $p_{\mathrm{Holm}}=7.9999200008\times 10^{-5}$.
 
 \input{tables/fr/T_r3e_primary_endpoints_post_a8_nh.tex}
 
@@ -667,17 +749,17 @@ Cette réplication est interprétée endpoint par endpoint et comme rôle backen
 
 \subsection{Interprétation intégrée et frontières de claim}
 
-L'échelle d'évidence conduit à cinq conclusions bornées. Premièrement, les campagnes contrôlées soutiennent la nécessité de distinguer contribution immédiate et sûreté d'élagage, notamment en présence de supports multi-requêtes. Deuxièmement, R3-D confirme des réductions de travail backend, de temps client, de CPU, d'octets de réponse et de temps jusqu'à complétion analytique relativement à \texttt{PERMISSIVE\_GATED}. Troisièmement, les I/O SQL Server en octets restent non confirmées et aucun bénéfice système global indivisible n'est autorisé. Quatrièmement, R3-E14 confirme séparément 8/8 endpoints primaires sur XMLA/eMondrian relativement à \texttt{PERMISSIVE\_GATED}, sans transformer cette réplication en équivalence inter-backend. Cinquièmement, le break-even temporel face à \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} n'est pas établi par R3-C et la comparaison XMLA SAFE versus UNGATED reste descriptive.
+L'échelle d'évidence conduit à cinq conclusions bornées. Premièrement, les campagnes contrôlées soutiennent la nécessité de distinguer contribution immédiate et sûreté d'élagage, notamment en présence de supports multi-requêtes. Deuxièmement, la campagne confirmatoire SQL Server Direct confirme des réductions de travail backend, de temps client, de CPU, d'octets de réponse et de temps jusqu'à complétion analytique relativement à \texttt{PERMISSIVE\_GATED}. Troisièmement, les I/O SQL Server en octets restent non confirmées et aucun bénéfice système global indivisible n'est autorisé. Quatrièmement, la réplication secondaire XMLA/eMondrian confirme séparément 8/8 endpoints primaires sur XMLA/eMondrian relativement à \texttt{PERMISSIVE\_GATED}, sans transformer cette réplication en équivalence inter-backend. Cinquièmement, le break-even temporel face à \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} n'est pas établi par la calibration end-to-end et la comparaison XMLA SAFE versus UNGATED reste descriptive.
 
 Ces résultats portent sur la complétion analytique et le coût système du contrôle. Ils ne mesurent ni la qualité d'une décision humaine, ni la satisfaction d'un analyste, ni un avantage organisationnel final. Ils n'établissent pas non plus une supériorité universelle sur des systèmes externes, une scalabilité industrielle sous concurrence, ou la validité automatique de CKG, objectifs et mappings construits hors du protocole.
 
-\paragraph*{Traçabilité probatoire.} Les claims post-A8 sont liés aux campagnes qui les autorisent : NH-R2 pour la contribution différée et la préservation contrôlée; R3-C pour le break-even pratique face à UNGATED; R3-D pour la confirmation SQL Direct endpoint par endpoint; R3-E14 pour la réplication secondaire XMLA endpoint par endpoint. Cette séparation empêche de combiner des niveaux de preuve hétérogènes en une conclusion plus forte que leurs protocoles respectifs et n'autorise aucune synthèse cross-backend.
+\paragraph*{Traçabilité probatoire.} Les claims du contrat actuel sont liés aux campagnes qui les autorisent : la campagne de préservation multi-requêtes pour la contribution différée et la préservation contrôlée; la calibration end-to-end pour le break-even pratique face à l'exécution admissible non contrôlée; la campagne confirmatoire SQL Direct pour la confirmation endpoint par endpoint; la réplication secondaire XMLA/eMondrian pour la confirmation endpoint par endpoint. Cette séparation empêche de combiner des niveaux de preuve hétérogènes en une conclusion plus forte que leurs protocoles respectifs et n'autorise aucune synthèse cross-backend.
 
 
 \section{Discussion, limites et perspectives}
 \label{sec:discussion}
 
-Le résultat central de cette étude n'est pas qu'une requête ``sans contribution immédiate'' doive être supprimée. Il est au contraire que la décision d'élagage doit être séparée de la simple contribution marginale et formulée relativement à ce qui reste nécessaire pour compléter l'objectif. Le contrat post-A8 peut ainsi se résumer par deux relations complémentaires :
+Le résultat central de cette étude n'est pas qu'une requête ``sans contribution immédiate'' doive être supprimée. Il est au contraire que la décision d'élagage doit être séparée de la simple contribution marginale et formulée relativement à ce qui reste nécessaire pour compléter l'objectif. Le contrat actuel de complétion analytique et d'élagage sûr peut ainsi se résumer par deux relations complémentaires :
 \[
 \text{NONCONTRIBUTIVE\_NOW}\not\Rightarrow\text{SAFE\_TO\_PRUNE},
 \]
@@ -691,17 +773,17 @@ comme condition suffisante et conservatrice permettant d'autoriser l'élagage. C
 
 Le premier enseignement est méthodologique. L'admissibilité sémantique, la réalisabilité d'une évidence, l'évidence effectivement acquise, la calculabilité d'une contrainte et l'action opérationnelle doivent rester distinctes. Un probe peut établir une propriété de réalisabilité sans créditer l'état de session; une exécution complète réussie peut enrichir $\mathcal{E}_t$; une politique peut enfin transformer la preuve disponible en \texttt{PRUNE}, \texttt{EXECUTE}, avertissement ou guidage. En cas d'incertitude de canonicalisation, de mapping ou de preuve, le mécanisme retourne vers l'exécution \emph{fail-open} plutôt que de créer un faux élagage.
 
-Cette séparation permet également d'interpréter correctement les comparateurs. \texttt{PERMISSIVE\_GATED} est le comparateur causal primaire de R3-D pour isoler l'effet du safe pruning à instrumentation comparable. \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} répond à une question pratique différente : le coût du contrôle est-il amorti face à une exécution admissible non filtrée ? Enfin, \texttt{STRICT\_IMMEDIATE} reste utile comme baseline sémantique pour exposer la perte de contribution différée. Aucun de ces modes ne redéfinit le noyau sémantique.
+Cette séparation permet également d'interpréter correctement les comparateurs. \texttt{PERMISSIVE\_GATED} est le comparateur causal primaire de la campagne confirmatoire SQL Direct pour isoler l'effet du safe pruning à instrumentation comparable. \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} répond à une question pratique différente : le coût du contrôle est-il amorti face à une exécution admissible non filtrée ? Enfin, \texttt{STRICT\_IMMEDIATE} reste utile comme baseline sémantique pour exposer la perte de contribution différée. Aucun de ces modes ne redéfinit le noyau sémantique.
 
 \subsection{Ce que les résultats système établissent -- et ce qu'ils n'établissent pas}
 
-R3-D fournit une évidence confirmatoire endpoint-spécifique. Six des huit endpoints primaires préspécifiés sont confirmés en faveur de \texttt{SAFE\_PRUNING} relativement à \texttt{PERMISSIVE\_GATED} : requêtes backend incluant les probes, exécutions backend complètes, temps client, CPU SQL Server, octets de réponse et temps jusqu'à complétion analytique. Les lectures et écritures I/O SQL Server en octets ne sont pas confirmées ($p_{\mathrm{Holm}}=0.429436$ pour les deux endpoints). Ils n'établissent donc aucun bénéfice système global indivisible.
+La campagne confirmatoire SQL Server Direct fournit une évidence confirmatoire endpoint-spécifique. Six des huit endpoints primaires préspécifiés sont confirmés en faveur de \texttt{SAFE\_PRUNING} relativement à \texttt{PERMISSIVE\_GATED} : requêtes backend incluant les probes, exécutions backend complètes, temps client, CPU SQL Server, octets de réponse et temps jusqu'à complétion analytique. Les lectures et écritures I/O SQL Server en octets ne sont pas confirmées ($p_{\mathrm{Holm}}=0.429436$ pour les deux endpoints). Ils n'établissent donc aucun bénéfice système global indivisible.
 
-R3-C fournit une borne complémentaire : dans les 40/40 sessions contrôlées de ce protocole, \texttt{SAFE\_PRUNING} est plus lent que \texttt{UNGATED\_EXECUTE\_ADMISSIBLE}. Le break-even temporel face à UNGATED n'est donc pas établi. Ces deux résultats ne sont pas contradictoires : réduire le travail backend relativement à un comparateur instrumenté et battre en temps mur une exécution admissible non contrôlée sont deux hypothèses différentes. L'article maintient volontairement cette dissociation plutôt que de choisir seulement le résultat favorable.
+La calibration end-to-end fournit une borne complémentaire : dans les 40/40 sessions contrôlées de ce protocole, \texttt{SAFE\_PRUNING} est plus lent que \texttt{UNGATED\_EXECUTE\_ADMISSIBLE}. Le break-even temporel face à UNGATED n'est donc pas établi. Ces deux résultats ne sont pas contradictoires : réduire le travail backend relativement à un comparateur instrumenté et battre en temps mur une exécution admissible non contrôlée sont deux hypothèses différentes. L'article maintient volontairement cette dissociation plutôt que de choisir seulement le résultat favorable.
 
 \subsection{Contribution différée et portée de la preuve de sûreté}
 
-NH-R2 montre pourquoi l'état de session ne peut pas être réduit à la dernière requête exécutée. Une requête peut fournir une partie d'un support sans rendre immédiatement une nouvelle contrainte calculable; une requête ultérieure complète alors le support. Une politique strictement immédiate peut perdre cette contribution différée. La frontière résiduelle $U(\mathcal{E}_t)$ évite ce raccourci en conservant les atomes encore nécessaires à l'ensemble des supports actifs.
+La campagne de préservation de complétion et de contribution différée multi-requêtes montre pourquoi l'état de session ne peut pas être réduit à la dernière requête exécutée. Une requête peut fournir une partie d'un support sans rendre immédiatement une nouvelle contrainte calculable; une requête ultérieure complète alors le support. Une politique strictement immédiate peut perdre cette contribution différée. La frontière résiduelle $U(\mathcal{E}_t)$ évite ce raccourci en conservant les atomes encore nécessaires à l'ensemble des supports actifs.
 
 La condition d'élagage utilisée ici demeure toutefois une condition suffisante, non une caractérisation nécessaire de toute dispensabilité possible. Elle dépend notamment de la fidélité du CQP, de la sûreté de $N_E(q)$ comme sur-approximation de l'évidence pertinente, du caractère correct des mappings d'évidence et du gel des objectifs/supports pendant la phase considérée. Si ces hypothèses sont violées ou inconnues, la conclusion correcte est ``preuve insuffisante'' et non ``requête dispensable''.
 
@@ -713,9 +795,9 @@ La construction automatique du CKG, de $G_O$, des supports suffisants et des map
 
 \subsection{Validité externe, backends et changement d'échelle}
 
-La confirmation R3-D porte sur SQL Server Direct. Les expériences historiques montrent que le prototype avait déjà exercé des chemins XMLA/Mondrian et plusieurs entrepôts; R3-E14 ajoute désormais une réplication secondaire mesurée sur XMLA/eMondrian, avec 8/8 endpoints primaires confirmés pour \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}. Ce résultat ne constitue cependant ni une preuve d'équivalence des backends, ni une homogénéité des effets, ni un test direct de différence d'effet entre SQL Direct et XMLA.
+La campagne confirmatoire porte sur SQL Server Direct. Les expériences historiques montrent que le prototype avait déjà exercé des chemins XMLA/Mondrian et plusieurs entrepôts; la réplication secondaire XMLA/eMondrian apporte désormais une mesure distincte, avec 8/8 endpoints primaires confirmés pour \texttt{SAFE\_PRUNING} versus \texttt{PERMISSIVE\_GATED}. Ce résultat ne constitue cependant ni une preuve d'équivalence des backends, ni une homogénéité des effets, ni un test direct de différence d'effet entre SQL Direct et XMLA.
 
-Le protocole courant n'établit pas non plus une scalabilité industrielle sous concurrence. Débit multi-utilisateur, files d'attente, mémoire, contention, changements de charge, maintenance dynamique du CKG et grands portefeuilles d'objectifs restent à caractériser de bout en bout. Les anciennes mesures de croissance structurelle et de latence sémantique restent informatives sur le prototype historique mais ne se substituent pas à ces expériences système.
+Le protocole courant n'établit pas non plus une scalabilité industrielle sous concurrence. Débit multi-utilisateur, files d'attente, mémoire, contention, changements de charge, maintenance dynamique du CKG et grands portefeuilles d'objectifs restent à caractériser de bout en bout. Les mesures historiques de croissance structurelle et de latence sémantique restent informatives sur le prototype, et la caractérisation in-process du cœur sémantique sous concurrence ajoute 100800 requêtes mesurées avec zéro mismatch mais sans speedup threads soutenu et avec forte inflation p99 au facteur 128; aucune de ces observations ne se substitue à une campagne système end-to-end de capacité industrielle.
 
 \subsection{Portabilité de représentation et extension à d'autres langages}
 
@@ -739,14 +821,15 @@ Les priorités expérimentales et méthodologiques suivent directement les front
 
 MCAD est présenté dans cette version comme une couche de contrôle analytique objectif-relative placée avant l'exécution complète. Un objectif $O$ est décomposé en contraintes, supports suffisants et atomes d'évidence dans $G_O$; la requête candidate est projetée vers un \emph{Canonical Query Profile}; le raisonneur sépare admissibilité, réalisabilité et évidence acquise; puis une preuve de sûreté confronte $N_E(q)$ à la frontière résiduelle $U(\mathcal{E}_t)$. Une requête n'est élaguée que lorsque sa dispensabilité est établie sous les hypothèses gelées; sinon, MCAD exécute en \emph{fail-open}. Un probe réussi ne vaut pas acquisition d'évidence, et \texttt{PRUNE} laisse l'état acquis inchangé.
 
-Les campagnes contrôlées montrent l'importance de cette distinction dans les sessions multi-requêtes : NH-R2 exerce des contributions différées que la règle strictement immédiate peut perdre. La campagne confirmatoire SQL Server Direct R3-D compare \texttt{SAFE\_PRUNING} à \texttt{PERMISSIVE\_GATED} sur huit endpoints primaires; six sont confirmés en faveur de SAFE, tandis que les lectures et écritures I/O en octets ne le sont pas. R3-C montre en parallèle que le break-even temporel face à \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} n'est pas établi. Ces résultats autorisent donc des claims endpoint-spécifiques, pas un bénéfice système global indivisible ni une supériorité universelle.
+Les campagnes contrôlées montrent l'importance de cette distinction dans les sessions multi-requêtes : la campagne de préservation de complétion et de contribution différée multi-requêtes exerce des contributions différées que la règle strictement immédiate peut perdre. La campagne confirmatoire SQL Server Direct compare \texttt{SAFE\_PRUNING} à \texttt{PERMISSIVE\_GATED} sur huit endpoints primaires; six sont confirmés en faveur de SAFE, tandis que les lectures et écritures I/O en octets ne le sont pas. La calibration end-to-end montre en parallèle que le break-even temporel face à \texttt{UNGATED\_EXECUTE\_ADMISSIBLE} n'est pas établi. Ces résultats autorisent donc des claims endpoint-spécifiques, pas un bénéfice système global indivisible ni une supériorité universelle.
 
-La réplication secondaire XMLA/eMondrian R3-E14 confirme 8/8 endpoints primaires relativement à \texttt{PERMISSIVE\_GATED}, tandis que R3-D en confirme 6/8 sur SQL Direct; ces résultats restent séparés et n'établissent ni équivalence backend, ni homogénéité d'effet, ni bénéfice système global. La qualité de la décision humaine, la construction automatique des objectifs et graphes d'évidence, la concurrence industrielle et la portabilité vers DAX restent également hors du périmètre confirmé. Dans ces limites, MCAD fournit un mécanisme explicable de préservation de la complétion analytique et d'élagage sûr relatif à l'objectif, dont les bénéfices et coûts doivent être interprétés séparément selon le backend, la politique et l'endpoint considérés.
+La réplication secondaire XMLA/eMondrian confirme 8/8 endpoints primaires relativement à \texttt{PERMISSIVE\_GATED}, tandis que la confirmation SQL Direct en confirme 6/8 sur SQL Direct; ces résultats restent séparés et n'établissent ni équivalence backend, ni homogénéité d'effet, ni bénéfice système global. La qualité de la décision humaine, la construction automatique des objectifs et graphes d'évidence, la concurrence industrielle et la portabilité vers DAX restent également hors du périmètre confirmé. Dans ces limites, MCAD fournit un mécanisme explicable de préservation de la complétion analytique et d'élagage sûr relatif à l'objectif, dont les bénéfices et coûts doivent être interprétés séparément selon le backend, la politique et l'endpoint considérés.
 
 \endgroup
 
 \FloatBarrier
 \appendices
+\input{supplement/fr/S_evidence_lineage_post_a8_nh.tex}
 \input{supplement/fr/S_formal_proofs_post_a8_nh.tex}
 \input{supplement/fr/S_foodmart_formalization_post_a8_nh.tex}
 \FloatBarrier

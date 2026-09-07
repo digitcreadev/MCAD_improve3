@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{Évaluation contrôlée multi-requêtes fondée sur l'évidence acquise.}
+\label{tab:v88-r2-multiquery}
+\small
+\begin{tabular}{p{0.28\textwidth}p{0.18\textwidth}p{0.45\textwidth}}
+\hline
+Indicateur & Valeur gelée & Frontière d'interprétation \\
+\hline
+Sessions / étapes & 240 / 1680 & Cas sémantiques contrôlés; aucune nouvelle validation backend. \\
+Complétion sous ACQUIRE\_ON\_SAT & 240/240 & Référence contrôlée, non vérité métier indépendante. \\
+Contraintes multi-requêtes conçues complétées & 360/360 & Incidence conçue, non prévalence populationnelle. \\
+Sessions avec $C_Q<C_E$ à au moins une étape & 240/240 & Montre la divergence query-local/evidence-wise. \\
+Sous-ensemble strict au dernier pas & 192/240 & Le raccourci query-local reste incomplet dans ces cas conçus. \\
+Pertes futures sous politique strictement immédiate & 192/240 & Simulation de politique; pas utilité humaine. \\
+Erreurs d'implémentation SAT/acquisition/$\varphi$ & 0 / 0 / 0 & Contrôle interne du protocole. \\
+\hline
+\end{tabular}
+\end{table*}

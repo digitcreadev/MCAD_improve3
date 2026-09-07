@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\caption{Caractérisation bornée du cœur sémantique sous concurrence (100800 requêtes mesurées; 0 mismatch sémantique).}
+\label{tab:v88-concurrency}
+\small
+\begin{tabular}{rrrrrr}
+\hline
+Facteur $K$ & Débit C1 (req/s) & meilleure concurrence & meilleur speedup & p99 C1 ($\mu$s) & inflation p99 max \\
+\hline
+1 & 425024.6 & 1 & 1.0000 & 3.7624 & 1.1805 \\
+8 & 108423.8 & 2 & 1.0221 & 19.2358 & 1.9415 \\
+32 & 28598.0 & 1 & 1.0000 & 124.4767 & 2.9097 \\
+128 & 6648.5 & 8 & 1.0363 & 510.7938 & 20.8854 \\
+\hline
+\multicolumn{6}{p{0.92\textwidth}}{\footnotesize Sur $K\ge 8$, la pente log--log gelée du p50 de service vaut +1.0038894633 et celle du débit -1.0068754290. Aucun speedup threads soutenu n'est observé; à $K=128$, l'inflation p99 maximale est d'environ 20.8854. Mesure in-process Python dans un seul conteneur; pas de claim de capacité production.}\\
+\end{tabular}
+\end{table*}

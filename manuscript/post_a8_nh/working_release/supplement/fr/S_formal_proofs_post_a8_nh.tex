@@ -1,7 +1,7 @@
-\section{Preuves formelles complémentaires post-A8}
+\section{Preuves formelles complémentaires du contrat actuel}
 \label{app:formal-proofs-post-a8}
 
-Cette annexe développe les propriétés utilisées par le noyau formel post-A8 sans réintroduire les objets et relations abandonnés de la formalisation antérieure. Les hypothèses sont celles de la Section~\ref{sec:formal} : objectif $O$, graphe objectif--évidence $G_O$, supports suffisants gelés pendant la phase considérée, évidence acquise $\mathcal{E}_t$, CQP fidèle ou traitement \emph{fail-open}, et sur-approximation sûre $N_E(q)$ de l'évidence pertinente que l'exécution complète de $q$ pourrait acquérir.
+Cette annexe développe les propriétés utilisées par le noyau formel actuel sans réintroduire les objets et relations abandonnés de la formalisation antérieure. Les hypothèses sont celles de la Section~\ref{sec:formal} : objectif $O$, graphe objectif--évidence $G_O$, supports suffisants gelés pendant la phase considérée, évidence acquise $\mathcal{E}_t$, CQP fidèle ou traitement \emph{fail-open}, et sur-approximation sûre $N_E(q)$ de l'évidence pertinente que l'exécution complète de $q$ pourrait acquérir.
 
 \paragraph*{Lemme 1 -- Monotonie de la calculabilité sous accumulation d'évidence.}
 Supposons $\mathcal{E}_{t-1}\subseteq\mathcal{E}_t$. Pour toute contrainte $c\in O$, si $\operatorname{Comp}(c,\mathcal{E}_{t-1})$ est vraie, alors il existe, par l'Éq.~\eqref{eq:comp}, un support $s\in\operatorname{Supp}(c)$ tel que $\operatorname{Req}(s)\subseteq\mathcal{E}_{t-1}$. L'inclusion $\mathcal{E}_{t-1}\subseteq\mathcal{E}_t$ implique alors $\operatorname{Req}(s)\subseteq\mathcal{E}_t$, donc $\operatorname{Comp}(c,\mathcal{E}_t)$. Par conséquent,
@@ -52,7 +52,7 @@ Considérons une contrainte $c$ ayant un support unique $s$ tel que
 \[
 \operatorname{Req}(s)=\{e_1,e_2\},\qquad \mathcal{E}_0=\emptyset.
 \]
-Une première requête $q_1$ peut acquérir $A_1=\{e_1\}$ et une seconde $q_2$ peut acquérir $A_2=\{e_2\}$. Après $q_1$, aucune contrainte nouvelle n'est encore calculable, mais $N_E(q_1)$ intersecte la frontière $U(\mathcal{E}_0)=\{e_1,e_2\}$. La condition suffisante d'élagage sûr échoue donc, ce qui conduit à l'exécution \emph{fail-open}. Après l'acquisition de $e_1$, $q_2$ complète le support et rend $c$ calculable. Cet exemple formalise le mécanisme de contribution différée exercé dans NH-R2 et montre pourquoi
+Une première requête $q_1$ peut acquérir $A_1=\{e_1\}$ et une seconde $q_2$ peut acquérir $A_2=\{e_2\}$. Après $q_1$, aucune contrainte nouvelle n'est encore calculable, mais $N_E(q_1)$ intersecte la frontière $U(\mathcal{E}_0)=\{e_1,e_2\}$. La condition suffisante d'élagage sûr échoue donc, ce qui conduit à l'exécution \emph{fail-open}. Après l'acquisition de $e_1$, $q_2$ complète le support et rend $c$ calculable. Cet exemple formalise le mécanisme de contribution différée exercé dans la campagne de préservation de complétion et de contribution différée multi-requêtes et montre pourquoi
 \[
 \text{NONCONTRIBUTIVE\_NOW}\not\Rightarrow\text{SAFE\_TO\_PRUNE}.
 \]

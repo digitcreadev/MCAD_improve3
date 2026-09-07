@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Validation contrôlée de préservation de l'élagage sûr et du fail-open.}
+\label{tab:nh-r1-safe}
+\small
+\begin{tabular}{p{0.30\textwidth}p{0.20\textwidth}p{0.40\textwidth}}
+\hline
+Propriété & Résultat gelé & Frontière \\
+\hline
+Classification sémantique & 20/20 fixtures PASS & Contrat sémantique contrôlé. \\
+Future-irrelevance exhaustive & 7560 états sûrs; 60480 continuations; 0 échec & Théorème de future-irrelevance conditionnel aux hypothèses sémantiques gelées du protocole. \\
+Préservation sur scénarios adversariaux & 5/5 PASS & 5 scénarios de référence; pas universalité. \\
+Perte sous règle strictement immédiate & 4/5 controlled scenarios & Contre-exemple contrôlé à l'assimilation contribution immédiate/sûreté. \\
+Fail-open sous contrat sémantique incertain & 4/4 PASS & L'incertitude conduit à EXECUTE\_FAIL\_OPEN. \\
+Claims ressources dans cette validation & NOT\_PROMOTED\_AT\_R1 & Aucun gain ressource/temps/scalabilité promu dans cette validation. \\
+\hline
+\end{tabular}
+\end{table*}

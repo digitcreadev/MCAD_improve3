@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth,
+height=0.58\linewidth,
+title={Sensibilité membership density : précision Stage-10},
+xlabel={Densité (%)},
+ylabel={Demi-largeur relative IC},
+grid=major,
+legend style={font=\scriptsize,at={(0.5,-0.28)},anchor=north,legend columns=2},
+xtick={25,50,75,100},
+ymin=0]
+\addplot+[mark=*] coordinates {(25.0,0.006101422311198159) (50.0,0.006566516903570908) (75.0,0.006595077110573776) (100.0,0.006613480513338569)};
+\addlegendentry{médiane}
+\addplot+[mark=square*] coordinates {(25.0,0.023700583596975716) (50.0,0.01864639393019678) (75.0,0.015337323961677085) (100.0,0.01984926325121557)};
+\addlegendentry{p95}
+\end{axis}
+\end{tikzpicture}

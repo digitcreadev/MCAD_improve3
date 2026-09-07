@@ -1,0 +1,101 @@
+\section{Lignée probatoire détaillée et résultats contrôlés complémentaires}
+\label{app:evidence-lineage}
+
+Cette annexe conserve les artefacts historiques et contrôlés utiles à la traçabilité sans les convertir en claims plus forts que leurs protocoles. Les identifiants techniques de station sont indiqués ici uniquement pour relier le texte aux paquets de reproductibilité.
+
+\subsection{FoodMart et profils historiques d'action}
+
+Les deux visualisations historiques suivantes sont des artefacts de publication exacts issus de la version historique de publication validée. Elles décrivent les actions et motifs de la campagne FoodMart; elles ne redéfinissent pas le prédicat actuel de safe pruning.
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.48\textwidth}\centering\input{figures/fr/F06_campaign_a_decisions.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}\centering\input{figures/fr/F07_campaign_a_reasons.tex}\end{minipage}
+\caption{Campagne FoodMart historique : décisions et motifs enregistrés. Le motif de redondance est un code primaire explicite de la politique historique, non une preuve moderne de dispensabilité sûre.}
+\label{fig:legacy-foodmart}
+\end{figure*}
+
+\input{tables/fr/T_legacy_campaign_b_controlled_minimal.tex}
+\input{tables/fr/T_legacy_campaign_c_portability.tex}
+
+\subsection{Robustesse historique, structure CKG et latence sémantique}
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.48\textwidth}\centering\input{figures/fr/F10_robustness_false_allow.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}\centering\input{figures/fr/F11_robustness_explainability.tex}\end{minipage}
+\caption{Robustesse historique contrôlée : taux de false ALLOW et artefact d'explicabilité. Ces résultats caractérisent la sensibilité interne au protocole; ils ne démontrent ni nécessité universelle des composants ni supériorité externe.}
+\label{fig:legacy-robustness-detail}
+\end{figure*}
+
+\begin{figure}[!tb]
+\centering
+\input{figures/fr/F12_scalability_structural.tex}
+\caption{Croissance structurelle historique du CKG jusqu'au facteur 40. Cette caractérisation ne constitue pas une mesure de capacité industrielle ou de concurrence.}
+\label{fig:legacy-ckg-structural}
+\end{figure}
+
+\input{tables/fr/T_scalability_V8_7_6.tex}
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/fr/F21_latency_constraint_count.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/fr/F22_latency_virtual_node_count.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}\centering\input{figures/fr/F23_latency_membership_density.tex}\end{minipage}
+\caption{Quantiles historiques de latence de décision sémantique pour les facteurs contrôlés. Le backend SQL/XMLA est exclu de ces mesures.}
+\label{fig:legacy-semantic-latency}
+\end{figure*}
+
+\input{tables/fr/T_semantic_latency_quantiles.tex}
+
+\subsection{Réutilisation secondaire de l'évidence et sensibilités contrôlées}
+
+La campagne historique de réutilisation secondaire de l'évidence est conservée comme preuve secondaire contrôlée seulement; elle ne mesure ni utilité humaine ni impact terrain.
+
+\input{tables/fr/T_phase6_secondary_evidence.tex}
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.48\textwidth}\centering\input{figures/fr/F13_evidence_steps_to_full.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}\centering\input{figures/fr/F14_evidence_auc.tex}\end{minipage}
+\caption{Artefacts historiques de progression/réutilisation contrôlée de l'évidence; preuve secondaire uniquement.}
+\label{fig:legacy-evidence-reuse}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.48\textwidth}\centering\input{figures/fr/F15_sensitivity_constraint_precision.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}\centering\input{figures/fr/F16_sensitivity_virtual_node_precision.tex}\end{minipage}\\[2mm]
+\begin{minipage}[t]{0.48\textwidth}\centering\input{figures/fr/F17_sensitivity_membership_density_precision.tex}\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}\centering\input{figures/fr/F18_objective_count_precision_cell_map.tex}\end{minipage}
+\caption{Sensibilités contrôlées et précision terminale. La carte \emph{objective\_count} conserve explicitement la limite palier 30; aucune extension palier 40 n'est implicite.}
+\label{fig:legacy-sensitivity-precision}
+\end{figure*}
+
+\begin{figure}[!tb]
+\centering
+\input{figures/fr/F19_sensitivity_failure_rates.tex}
+\caption{Artefact historique des taux de cellules hors cible de précision.}
+\label{fig:legacy-sensitivity-failures}
+\end{figure}
+
+\input{tables/fr/T_sensitivity_terminal_final.tex}
+
+\subsection{Robustesse sémantique contrôlée : détails complémentaires}
+
+\input{tables/fr/T_v88_ckg_perturbation_detail.tex}
+\input{tables/fr/T_v88_common_task_comparison.tex}
+\input{tables/fr/T_v88_semantic_core_concurrency.tex}
+
+Le registre final des claims de robustesse classe huit claims contrôlés comme substantiels dans leur périmètre propre. Cette fermeture de station est une autorité de traçabilité; elle n'ajoute aucune observation et ne transforme ni les comparaisons internes en supériorité externe, ni le cœur sémantique in-process en capacité de production.
+
+\subsection{Provenance et chaîne de reproductibilité}
+
+\begin{figure*}[!t]
+\centering
+\input{figures/fr/F20_provenance_pipeline.tex}
+\caption{Pipeline historique de provenance/reproductibilité, conservé comme contexte de traçabilité des artefacts.}
+\label{fig:legacy-provenance}
+\end{figure*}
+
+Les anciennes statistiques historiques de mai, anciens timings proxy et résultats \texttt{sim\_expert} ne sont pas réintroduits comme autorité numérique actuelle. Leur présence dans les archives est enregistrée dans le ledger d'exclusion de la working release.

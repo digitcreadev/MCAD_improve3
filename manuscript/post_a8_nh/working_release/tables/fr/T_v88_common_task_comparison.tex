@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{Comparaison interne contrôlée sur tâche commune, ensemble held-out (60 sessions, 420 étapes).}
+\label{tab:v88-common-task}
+\small
+\begin{tabular}{p{0.25\textwidth}rrrrrr}
+\hline
+Critère & $Err_\varphi$ moyen & FP & FN & précision & rappel & exactitude \\
+\hline
+M0\_MCAD\_CE & 0.000000 & 0 & 0 & 1.0000 & 1.0000 & 1.0000 \\
+B1\_SAT\_ONLY & 0.751786 & 312 & 0 & 0.1875 & 1.0000 & 0.2571 \\
+B2\_NEW\_EVIDENCE & 0.666071 & 276 & 0 & 0.2069 & 1.0000 & 0.3429 \\
+B3\_QUERY\_LOCAL\_COMPLETE & 0.201786 & 12 & 72 & 0.0000 & 0.0000 & 0.8000 \\
+B4\_SUPPORT\_OVERLAP\_SCORE & 0.000000 & 0 & 0 & 1.0000 & 1.0000 & 1.0000 \\
+B5\_RANDOM\_SANITY & 0.265278 & 56 & 56 & 0.2222 & 0.2222 & 0.7333 \\
+\hline
+\multicolumn{7}{p{0.94\textwidth}}{\footnotesize B4 est un contrôle quasi équivalent préenregistré et produit une égalité exacte avec M0; ces critères sont internes et n'établissent aucune supériorité sur des systèmes de la littérature.}\\
+\end{tabular}
+\end{table*}

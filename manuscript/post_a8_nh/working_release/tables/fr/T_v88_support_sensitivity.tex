@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\centering
+\caption{Sensibilité contrôlée à la spécification des supports.}
+\label{tab:v88-support-sensitivity}
+\small
+\begin{tabular}{p{0.13\textwidth}p{0.13\textwidth}p{0.16\textwidth}p{0.15\textwidth}p{0.16\textwidth}p{0.16\textwidth}}
+\hline
+Variante & Désaccord moyen $\varphi$ & IC bootstrap 95\% & Désaccord moyen état $C_E$ & Événements d'erreur & Perte de complétion finale \\
+\hline
+SR1--SR3 équivalentes & 0 & -- & 0 & 0 désaccord de contribution & 0 \\
+SR4 sur-permissive & 0.2238095238 & [0.2089781746, 0.2382936508] & 0.2380952381 & 192 FP + 192 FN; 504 états prématurés & 0/240 \\
+SR5 sur-restrictive & 0.1732142857 & [0.1661452133, 0.1807043651] & 0.6869047619 & 288 FN; 1656 états manqués & 240/240 \\
+\hline
+\end{tabular}
+\end{table*}
