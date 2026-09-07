@@ -1,0 +1,283 @@
+{
+  "authorization_date": "2026-09-07",
+  "authorization_parent": "a4f1e51822262794be2a5875354ea3f7f0541948",
+  "authorization_parent_branch": "paper/post-a8-a1-cumulative-editorial-repair-recovery-20260907T094500Z",
+  "authorization_parent_head": "501c6cd0eb9092d03fc7d1504827fe377cc14155",
+  "authorization_station": {
+    "apt_install_executed": false,
+    "apt_update_executed": false,
+    "article_compile_executed": false,
+    "build_executed": false,
+    "build_execution_consumed": false,
+    "pdf_render_executed": false,
+    "repository_mutated": false,
+    "working_release_mutated": false
+  },
+  "authorized_root_source_sha256": "4f036498522e200e1f9d8d7cbbac37d809f1c1ca3f796c7b1b8c9588f7cf30c0",
+  "authorized_working_release_tree": "107b201ee3bfc77bf0de12d6da3b92c834cd2584",
+  "contract_version": "mcad.post_a8.tex_toolchain_installation_authorization.v1",
+  "installation_authorization": {
+    "apt_install_allowed": true,
+    "apt_install_mode": "exact version-pinned resolved set with --no-install-recommends",
+    "apt_requested_packages": [
+      {
+        "package": "latexmk",
+        "version": "1:4.83-1"
+      },
+      {
+        "package": "texlive-latex-base",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-latex-recommended",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-latex-extra",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-fonts-recommended",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-pictures",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-science",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-publishers",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-lang-french",
+        "version": "2023.20240207-1"
+      }
+    ],
+    "apt_resolved_install_count": 40,
+    "apt_resolved_install_plan": [
+      {
+        "package": "fonts-gfs-baskerville",
+        "version": "1.1-6"
+      },
+      {
+        "package": "fonts-gfs-porson",
+        "version": "1.1-7"
+      },
+      {
+        "package": "fonts-lmodern",
+        "version": "2.005-1"
+      },
+      {
+        "package": "tex-common",
+        "version": "6.18"
+      },
+      {
+        "package": "libpaper1",
+        "version": "1.1.29build1"
+      },
+      {
+        "package": "libpaper-utils",
+        "version": "1.1.29build1"
+      },
+      {
+        "package": "libkpathsea6",
+        "version": "2023.20230311.66589-9build3"
+      },
+      {
+        "package": "libptexenc1",
+        "version": "2023.20230311.66589-9build3"
+      },
+      {
+        "package": "libsynctex2",
+        "version": "2023.20230311.66589-9build3"
+      },
+      {
+        "package": "libtexlua53-5",
+        "version": "2023.20230311.66589-9build3"
+      },
+      {
+        "package": "t1utils",
+        "version": "1.41-4build3"
+      },
+      {
+        "package": "libpotrace0",
+        "version": "1.16-2build1"
+      },
+      {
+        "package": "libteckit0",
+        "version": "2.5.12+ds1-1"
+      },
+      {
+        "package": "libice6",
+        "version": "2:1.0.10-1build3"
+      },
+      {
+        "package": "libsm6",
+        "version": "2:1.2.3-1build3"
+      },
+      {
+        "package": "libxt6t64",
+        "version": "1:1.2.1-1.2build1"
+      },
+      {
+        "package": "libxmu6",
+        "version": "2:1.1.3-3build2"
+      },
+      {
+        "package": "libxpm4",
+        "version": "1:3.5.17-1ubuntu0.24.04.1"
+      },
+      {
+        "package": "libxaw7",
+        "version": "2:1.0.14-1build2"
+      },
+      {
+        "package": "libxi6",
+        "version": "2:1.8.1-1build1"
+      },
+      {
+        "package": "libzzip-0-13t64",
+        "version": "0.13.72+dfsg.1-1.2build1"
+      },
+      {
+        "package": "texlive-binaries",
+        "version": "2023.20230311.66589-9build3"
+      },
+      {
+        "package": "xdg-utils",
+        "version": "1.1.3-4.1ubuntu3"
+      },
+      {
+        "package": "texlive-base",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-latex-base",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "latexmk",
+        "version": "1:4.83-1"
+      },
+      {
+        "package": "libapache-pom-java",
+        "version": "29-2"
+      },
+      {
+        "package": "libcommons-parent-java",
+        "version": "56-1"
+      },
+      {
+        "package": "libcommons-logging-java",
+        "version": "1.3.0-1ubuntu1"
+      },
+      {
+        "package": "preview-latex-style",
+        "version": "13.2-1"
+      },
+      {
+        "package": "texlive-fonts-recommended",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-lang-french",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-lang-greek",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "libfontbox-java",
+        "version": "1:1.8.16-5"
+      },
+      {
+        "package": "libpdfbox-java",
+        "version": "1:1.8.16-5"
+      },
+      {
+        "package": "texlive-latex-recommended",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-pictures",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-latex-extra",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-publishers",
+        "version": "2023.20240207-1"
+      },
+      {
+        "package": "texlive-science",
+        "version": "2023.20240207-1"
+      }
+    ],
+    "apt_update_allowed": false,
+    "article_compile_allowed": false,
+    "authorized": true,
+    "build_execution_consumption_allowed": false,
+    "confidence_interval_recomputation_allowed": false,
+    "cross_backend_synthesis_allowed": false,
+    "execution_cardinality": 1,
+    "expected_new_install_count": 40,
+    "expected_not_upgraded_count": 172,
+    "expected_remove_count": 0,
+    "expected_upgrade_count": 0,
+    "historical_experiment_regeneration_allowed": false,
+    "installation_failure_policy": "preserve exact package-manager output and system state; do not rerun, apt update, install additional packages, or build until classified",
+    "measurement_reexecution_allowed": false,
+    "new_claim_assignment_allowed": false,
+    "p_value_recomputation_allowed": false,
+    "pdf_render_allowed": false,
+    "post_install_policy": "verify exact requested package installed versions, tool binary hashes/versions, kpsewhich resolution for every required .cls/.sty, repository unchanged; do not build",
+    "post_install_required_commands": [
+      "latexmk",
+      "pdflatex",
+      "bibtex",
+      "kpsewhich"
+    ],
+    "post_install_required_tex_files": [
+      "IEEEtran.cls",
+      "french.ldf",
+      "amsmath.sty",
+      "amssymb.sty",
+      "amsthm.sty",
+      "graphicx.sty",
+      "array.sty",
+      "tabularx.sty",
+      "algorithm.sty",
+      "algorithmic.sty",
+      "microtype.sty",
+      "url.sty",
+      "booktabs.sty",
+      "placeins.sty",
+      "balance.sty",
+      "tikz.sty",
+      "pgfplots.sty"
+    ],
+    "repository_mutation_allowed": false,
+    "result_recomputation_allowed": false,
+    "working_release_mutation_allowed": false
+  },
+  "next": "STATIC_AUDIT_EXACT_TEX_TOOLCHAIN_INSTALLER_BEFORE_ONE_INSTALLATION_ATTEMPT",
+  "platform": {
+    "architecture": "amd64",
+    "codename": "noble",
+    "os": "Ubuntu",
+    "version_id": "24.04"
+  },
+  "r0_r1_toolchain_classification_sha256": "a26f6f69513ae8baf360ec23067491d0fdbfd6d792569981b78f1224c9f55f32",
+  "repository": "digitcreadev/MCAD_improve3",
+  "t0_resolution": "READY_FOR_EXACT_TOOLCHAIN_INSTALLATION_AUTHORIZATION",
+  "t0_resolution_bundle_sha256": "a74227b074ff4212d8a75a2a42060feebc7d4f8030a6c0bf1b56c87a518d2af4",
+  "t0_resolution_receipt_sha256": "95ad65eec1db0b45251ac7ff8e710d0a6e7a76716732c177f33c48ff9aa95971",
+  "t0_resolution_sha256": "c94c4de9ab0dd6cd161cd829cc94d48e18f8f434395e20400989dc30a17a1279"
+}
