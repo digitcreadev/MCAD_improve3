@@ -1,0 +1,61 @@
+{
+  "schema_version": "phase-2b-3a-v1",
+  "methods": [
+    {
+      "method_id": "delian_pre",
+      "method_version": "publication-2024",
+      "source_repository": "https://doi.org/10.1016/j.is.2024.102381",
+      "source_ref": "doi:10.1016/j.is.2024.102381",
+      "reproducibility_class": "NATIVE_CODE_SMOKE_PASS_UNDER_RECONSTRUCTED_PUBLICATION_ENV",
+      "native_role": "pre-result syntactic scoring",
+      "observation_stage": "pre_result",
+      "requires_current_query_result": false,
+      "requires_history": true,
+      "requires_auxiliary_query": false,
+      "native_measures": ["DirectNovelty", "PartialSyntacticAveragePeculiarity"],
+      "execution_capability": "native_output_packaging_only"
+    },
+    {
+      "method_id": "delian_post",
+      "method_version": "publication-2024",
+      "source_repository": "https://doi.org/10.1016/j.is.2024.102381",
+      "source_ref": "doi:10.1016/j.is.2024.102381",
+      "reproducibility_class": "NATIVE_CODE_SMOKE_PASS_UNDER_RECONSTRUCTED_PUBLICATION_ENV",
+      "native_role": "post-result extensional interestingness",
+      "observation_stage": "post_result",
+      "requires_current_query_result": true,
+      "requires_history": true,
+      "requires_auxiliary_query": false,
+      "native_measures": ["IndirectNovelty", "PartialDetailedExtensionalRelevance", "LabelSurprise"],
+      "execution_capability": "native_output_packaging_only"
+    },
+    {
+      "method_id": "djedaini_ideb",
+      "method_version": "publication-2019",
+      "source_repository": "https://doi.org/10.1016/j.is.2018.06.008",
+      "source_ref": "doi:10.1016/j.is.2018.06.008",
+      "reproducibility_class": "NATIVE_REPRODUCTION_BLOCKED_STRUCTURAL",
+      "native_role": "post-execution contribution baseline",
+      "observation_stage": "post_result",
+      "requires_current_query_result": true,
+      "requires_history": true,
+      "requires_auxiliary_query": false,
+      "native_measures": [],
+      "execution_capability": "non_executable_provenance_stub"
+    },
+    {
+      "method_id": "assess_iam",
+      "method_version": "1.0.0",
+      "source_repository": "https://doi.org/10.5441/002/edbt.2021.12",
+      "source_ref": "release:1.0.0",
+      "reproducibility_class": "RELEASE_1_0_0_TESTCLASSES_PASS_WITH_EXACT_SOURCE_DEPENDENCY_RECONSTRUCTION",
+      "native_role": "post-execution functional/cost comparator",
+      "observation_stage": "post_result",
+      "requires_current_query_result": true,
+      "requires_history": false,
+      "requires_auxiliary_query": false,
+      "native_measures": [],
+      "execution_capability": "build_smoke_only_provenance_stub"
+    }
+  ]
+}

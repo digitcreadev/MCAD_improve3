@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mcad.invalid/external-baselines-controlled/contract.schema.json",
+  "title": "MCAD controlled external-baseline contract",
+  "$defs": {
+    "common": {
+      "type": "object",
+      "required": ["method_id", "method_version", "source_repository", "source_ref", "reproducibility_class", "native_role", "observation_stage", "requires_current_query_result", "requires_history", "requires_auxiliary_query"],
+      "properties": {
+        "method_id": {"type": "string", "minLength": 1},
+        "method_version": {"type": "string", "minLength": 1},
+        "source_repository": {"type": "string", "minLength": 1},
+        "source_ref": {"type": "string", "minLength": 1},
+        "reproducibility_class": {"type": "string", "minLength": 1},
+        "native_role": {"type": "string", "minLength": 1},
+        "observation_stage": {"enum": ["pre_result", "post_result"]},
+        "requires_current_query_result": {"type": "boolean"},
+        "requires_history": {"type": "boolean"},
+        "requires_auxiliary_query": {"type": "boolean"}
+      }
+    },
+    "registry_method": {
+      "allOf": [
+        {"$ref": "#/$defs/common"},
+        {
+          "type": "object",
+          "required": ["native_measures", "execution_capability"],
+          "properties": {
+            "native_measures": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+            "execution_capability": {"enum": ["native_output_packaging_only", "non_executable_provenance_stub", "build_smoke_only_provenance_stub"]}
+          },
+          "unevaluatedProperties": false
+        }
+      ]
+    },
+    "result": {
+      "allOf": [
+        {"$ref": "#/$defs/common"},
+        {
+          "type": "object",
+          "required": ["input_digest", "raw_outputs", "native_decision", "normalized_binary_decision", "adapter_compute_ms", "backend_execution_ms", "auxiliary_execution_ms", "physical_query_count", "auxiliary_query_count", "status", "error", "provenance"],
+          "properties": {
+            "input_digest": {"type": "string", "minLength": 1},
+            "raw_outputs": {"type": "object"},
+            "native_decision": {"type": ["string", "number", "boolean", "null"]},
+            "normalized_binary_decision": {"type": "null"},
+            "adapter_compute_ms": {"type": "number", "minimum": 0},
+            "backend_execution_ms": {"type": "number", "minimum": 0},
+            "auxiliary_execution_ms": {"type": "number", "minimum": 0},
+            "physical_query_count": {"type": "integer", "minimum": 0},
+            "auxiliary_query_count": {"type": "integer", "minimum": 0},
+            "status": {"enum": ["native_outputs_recorded", "unavailable_structural", "build_smoke_only_not_runtime_integrated"]},
+            "error": {"type": ["string", "null"]},
+            "provenance": {"type": "object"}
+          },
+          "unevaluatedProperties": false
+        }
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["schema_version", "methods"],
+      "properties": {
+        "schema_version": {"const": "phase-2b-3a-v1"},
+        "methods": {"type": "array", "items": {"$ref": "#/$defs/registry_method"}, "minItems": 4}
+      },
+      "additionalProperties": false
+    },
+    {"$ref": "#/$defs/result"}
+  ]
+}
