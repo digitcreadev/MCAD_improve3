@@ -1,0 +1,44 @@
+{
+  "registry_version": "phase2b3b.mapping_registry.v1",
+  "delian": {
+    "provenance": {
+      "repository": "https://github.com/DAINTINESS-Group/DelianCubeEngine",
+      "source_ref": "606f94afe88767665ce185566ca8357a56f736d2",
+      "publication_reference": "doi:10.1016/j.is.2024.102381"
+    },
+    "mappings": {
+      "delian_pre": {
+        "observation_stage": "pre_result",
+        "measures": [
+          "DirectNovelty",
+          "PartialSyntacticAveragePeculiarity"
+        ],
+        "auxiliary_query": null,
+        "execution": "not_authorized"
+      },
+      "delian_post": {
+        "observation_stage": "post_result",
+        "measures": [
+          "IndirectNovelty",
+          "PartialDetailedExtensionalRelevance",
+          "LabelSurprise"
+        ],
+        "auxiliary_query": null,
+        "execution": "not_authorized"
+      }
+    },
+    "excluded_measures": [
+      "FamilyBasedRelevance"
+    ]
+  },
+  "deferred": {
+    "djedaini": {
+      "status": "NATIVE_REPRODUCTION_BLOCKED_STRUCTURAL",
+      "executable_mapping": null
+    },
+    "assess": {
+      "status": "RELEASE_1_0_0_TESTCLASSES_PASS_WITH_EXACT_SOURCE_DEPENDENCY_RECONSTRUCTION",
+      "runtime_mapping": null
+    }
+  }
+}

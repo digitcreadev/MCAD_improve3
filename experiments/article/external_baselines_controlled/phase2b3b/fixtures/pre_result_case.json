@@ -1,0 +1,45 @@
+{
+  "frame_version": "phase2b3b.observation_frame.v1",
+  "dataset_id": "synthetic_dataset",
+  "objective_id": "synthetic_objective",
+  "session_id": "synthetic_session",
+  "step_idx": 1,
+  "query": {
+    "canonical_text": "SELECT [Measures].[Sales] ON COLUMNS FROM [SyntheticCube]",
+    "canonical_digest": "ca8e976627bbfbd404517991bf56af728ff9dca18e3cf2c253228e0e516aa65a",
+    "query_spec": {
+      "cube": "SyntheticCube",
+      "axes": {
+        "columns": [
+          "Measures.Sales"
+        ]
+      }
+    }
+  },
+  "history": [
+    {
+      "step_idx": 0,
+      "canonical_text": "SELECT [Measures].[Count] ON COLUMNS FROM [SyntheticCube]",
+      "canonical_digest": "f49f3d660ef30c3dba0440e0ca3f2805066967c3d9b42ebf1ce129ddc4d083e3",
+      "result_digest": "1d7c038164c66d9ba77a83725b42e14f5c2b79e7eddf1179574076c95c0345d7"
+    }
+  ],
+  "provenance": {
+    "projection_version": "phase2b3b.projection.v1",
+    "source_kind": "synthetic_contract_fixture",
+    "source_identifiers": {
+      "fixture_family": "phase2b3b"
+    },
+    "source_digests": {
+      "source_artifact": "d6c17f58cea5e29118db2475f375f8c9979435b863f43ca3c79952c8c9265b0e"
+    }
+  },
+  "case_id": "synthetic_pre_result",
+  "observation_stage": "pre_result",
+  "current_result": {
+    "available": false,
+    "digest": null,
+    "payload": null,
+    "shape": null
+  }
+}
