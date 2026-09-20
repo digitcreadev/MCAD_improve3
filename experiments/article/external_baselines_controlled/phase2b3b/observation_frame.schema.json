@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "observation_frame.schema.json",
+  "title": "MCAD Phase 2B-3B observation frame",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "frame_version",
+    "case_id",
+    "dataset_id",
+    "objective_id",
+    "session_id",
+    "step_idx",
+    "observation_stage",
+    "query",
+    "history",
+    "current_result",
+    "provenance"
+  ],
+  "properties": {
+    "frame_version": {
+      "const": "phase2b3b.observation_frame.v1"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "step_idx": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "observation_stage": {
+      "enum": [
+        "pre_result",
+        "post_result"
+      ]
+    },
+    "query": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonical_text",
+        "canonical_digest",
+        "query_spec"
+      ],
+      "properties": {
+        "canonical_text": {
+          "type": "string"
+        },
+        "canonical_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "query_spec": {
+          "type": "object"
+        }
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "step_idx",
+          "canonical_text",
+          "canonical_digest"
+        ],
+        "properties": {
+          "step_idx": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "canonical_text": {
+            "type": "string"
+          },
+          "canonical_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "result_digest": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "current_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "available",
+        "digest",
+        "payload",
+        "shape"
+      ],
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "digest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "payload": {},
+        "shape": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "projection_version",
+        "source_kind",
+        "source_identifiers",
+        "source_digests"
+      ],
+      "properties": {
+        "projection_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_identifiers": {
+          "type": "object"
+        },
+        "source_digests": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "observation_stage": {
+            "const": "pre_result"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "current_result": {
+            "properties": {
+              "available": {
+                "const": false
+              },
+              "digest": {
+                "const": null
+              },
+              "payload": {
+                "const": null
+              },
+              "shape": {
+                "const": null
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "observation_stage": {
+            "const": "post_result"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "current_result": {
+            "properties": {
+              "available": {
+                "const": true
+              },
+              "digest": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
