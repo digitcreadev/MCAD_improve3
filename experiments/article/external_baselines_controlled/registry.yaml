@@ -1,0 +1,65 @@
+{
+  "schema_version": "phase-2b-3a-v1",
+  "methods": [
+    {
+      "method_id": "delian_pre",
+      "method_version": "publication-2024",
+      "source_repository": "https://github.com/DAINTINESS-Group/DelianCubeEngine",
+      "source_ref": "606f94afe88767665ce185566ca8357a56f736d2",
+      "publication_reference": "doi:10.1016/j.is.2024.102381",
+      "reproducibility_class": "NATIVE_CODE_SMOKE_PASS_UNDER_RECONSTRUCTED_PUBLICATION_ENV",
+      "native_role": "pre-result syntactic scoring",
+      "observation_stage": "pre_result",
+      "requires_current_query_result": false,
+      "requires_history": true,
+      "requires_auxiliary_query": false,
+      "native_measures": ["DirectNovelty", "PartialSyntacticAveragePeculiarity"],
+      "execution_capability": "native_output_packaging_only"
+    },
+    {
+      "method_id": "delian_post",
+      "method_version": "publication-2024",
+      "source_repository": "https://github.com/DAINTINESS-Group/DelianCubeEngine",
+      "source_ref": "606f94afe88767665ce185566ca8357a56f736d2",
+      "publication_reference": "doi:10.1016/j.is.2024.102381",
+      "reproducibility_class": "NATIVE_CODE_SMOKE_PASS_UNDER_RECONSTRUCTED_PUBLICATION_ENV",
+      "native_role": "post-result extensional interestingness",
+      "observation_stage": "post_result",
+      "requires_current_query_result": true,
+      "requires_history": true,
+      "requires_auxiliary_query": false,
+      "native_measures": ["IndirectNovelty", "PartialDetailedExtensionalRelevance", "LabelSurprise"],
+      "execution_capability": "native_output_packaging_only"
+    },
+    {
+      "method_id": "djedaini_ideb",
+      "method_version": "publication-2019",
+      "source_repository": "https://github.com/mdjedaini/indexBench",
+      "source_ref": "da82305cc5123560ebb7eef00eea3ce98c82e6b7",
+      "publication_reference": "doi:10.1016/j.is.2018.06.008",
+      "reproducibility_class": "NATIVE_REPRODUCTION_BLOCKED_STRUCTURAL",
+      "native_role": "post-execution contribution baseline",
+      "observation_stage": "post_result",
+      "requires_current_query_result": true,
+      "requires_history": true,
+      "requires_auxiliary_query": false,
+      "native_measures": [],
+      "execution_capability": "non_executable_provenance_stub"
+    },
+    {
+      "method_id": "assess_iam",
+      "method_version": "1.0.0",
+      "source_repository": "https://github.com/big-unibo/assess",
+      "source_ref": "f77bf3ae3727aa6e5605fc1fc57a454a0e6e6def",
+      "publication_reference": "doi:10.5441/002/edbt.2021.12; release:1.0.0",
+      "reproducibility_class": "RELEASE_1_0_0_TESTCLASSES_PASS_WITH_EXACT_SOURCE_DEPENDENCY_RECONSTRUCTION",
+      "native_role": "post-execution functional/cost comparator",
+      "observation_stage": "post_result",
+      "requires_current_query_result": true,
+      "requires_history": false,
+      "requires_auxiliary_query": false,
+      "native_measures": [],
+      "execution_capability": "build_smoke_only_provenance_stub"
+    }
+  ]
+}
