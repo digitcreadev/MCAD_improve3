@@ -24,12 +24,20 @@ def test_a9_freeze_digest_is_exact():
 def test_frozen_refs_and_reproducibility_classes_are_exact():
     entries = {item["method_id"]: item for item in _registry()["methods"]}
     expected = {
-        "delian_pre": ("doi:10.1016/j.is.2024.102381", "NATIVE_CODE_SMOKE_PASS_UNDER_RECONSTRUCTED_PUBLICATION_ENV"),
-        "delian_post": ("doi:10.1016/j.is.2024.102381", "NATIVE_CODE_SMOKE_PASS_UNDER_RECONSTRUCTED_PUBLICATION_ENV"),
-        "djedaini_ideb": ("doi:10.1016/j.is.2018.06.008", "NATIVE_REPRODUCTION_BLOCKED_STRUCTURAL"),
-        "assess_iam": ("release:1.0.0", "RELEASE_1_0_0_TESTCLASSES_PASS_WITH_EXACT_SOURCE_DEPENDENCY_RECONSTRUCTION"),
+        "delian_pre": ("https://github.com/DAINTINESS-Group/DelianCubeEngine", "606f94afe88767665ce185566ca8357a56f736d2", "doi:10.1016/j.is.2024.102381", "NATIVE_CODE_SMOKE_PASS_UNDER_RECONSTRUCTED_PUBLICATION_ENV"),
+        "delian_post": ("https://github.com/DAINTINESS-Group/DelianCubeEngine", "606f94afe88767665ce185566ca8357a56f736d2", "doi:10.1016/j.is.2024.102381", "NATIVE_CODE_SMOKE_PASS_UNDER_RECONSTRUCTED_PUBLICATION_ENV"),
+        "djedaini_ideb": ("https://github.com/mdjedaini/indexBench", "da82305cc5123560ebb7eef00eea3ce98c82e6b7", "doi:10.1016/j.is.2018.06.008", "NATIVE_REPRODUCTION_BLOCKED_STRUCTURAL"),
+        "assess_iam": ("https://github.com/big-unibo/assess", "f77bf3ae3727aa6e5605fc1fc57a454a0e6e6def", "doi:10.5441/002/edbt.2021.12; release:1.0.0", "RELEASE_1_0_0_TESTCLASSES_PASS_WITH_EXACT_SOURCE_DEPENDENCY_RECONSTRUCTION"),
     }
-    assert {key: (value["source_ref"], value["reproducibility_class"]) for key, value in entries.items()} == expected
+    assert {
+        key: (
+            value["source_repository"],
+            value["source_ref"],
+            value["publication_reference"],
+            value["reproducibility_class"],
+        )
+        for key, value in entries.items()
+    } == expected
 
 
 def test_blocked_stubs_cannot_claim_runtime_pass():

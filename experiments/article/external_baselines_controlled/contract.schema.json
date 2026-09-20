@@ -5,12 +5,13 @@
   "$defs": {
     "common": {
       "type": "object",
-      "required": ["method_id", "method_version", "source_repository", "source_ref", "reproducibility_class", "native_role", "observation_stage", "requires_current_query_result", "requires_history", "requires_auxiliary_query"],
+      "required": ["method_id", "method_version", "source_repository", "source_ref", "publication_reference", "reproducibility_class", "native_role", "observation_stage", "requires_current_query_result", "requires_history", "requires_auxiliary_query"],
       "properties": {
         "method_id": {"type": "string", "minLength": 1},
         "method_version": {"type": "string", "minLength": 1},
         "source_repository": {"type": "string", "minLength": 1},
         "source_ref": {"type": "string", "minLength": 1},
+        "publication_reference": {"type": "string", "minLength": 1},
         "reproducibility_class": {"type": "string", "minLength": 1},
         "native_role": {"type": "string", "minLength": 1},
         "observation_stage": {"enum": ["pre_result", "post_result"]},

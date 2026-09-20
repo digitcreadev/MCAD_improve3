@@ -9,8 +9,9 @@ class DelianPostAdapter(ControlledAdapter):
     identity = AdapterIdentity(
         method_id="delian_post",
         method_version="publication-2024",
-        source_repository="https://doi.org/10.1016/j.is.2024.102381",
-        source_ref="doi:10.1016/j.is.2024.102381",
+        source_repository="https://github.com/DAINTINESS-Group/DelianCubeEngine",
+        source_ref="606f94afe88767665ce185566ca8357a56f736d2",
+        publication_reference="doi:10.1016/j.is.2024.102381",
         reproducibility_class="NATIVE_CODE_SMOKE_PASS_UNDER_RECONSTRUCTED_PUBLICATION_ENV",
         native_role="post-result extensional interestingness",
         observation_stage="post_result",

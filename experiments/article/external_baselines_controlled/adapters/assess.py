@@ -7,8 +7,9 @@ class AssessAdapter(ControlledAdapter):
     identity = AdapterIdentity(
         method_id="assess_iam",
         method_version="1.0.0",
-        source_repository="https://doi.org/10.5441/002/edbt.2021.12",
-        source_ref="release:1.0.0",
+        source_repository="https://github.com/big-unibo/assess",
+        source_ref="f77bf3ae3727aa6e5605fc1fc57a454a0e6e6def",
+        publication_reference="doi:10.5441/002/edbt.2021.12; release:1.0.0",
         reproducibility_class="RELEASE_1_0_0_TESTCLASSES_PASS_WITH_EXACT_SOURCE_DEPENDENCY_RECONSTRUCTION",
         native_role="post-execution functional/cost comparator",
         observation_stage="post_result",

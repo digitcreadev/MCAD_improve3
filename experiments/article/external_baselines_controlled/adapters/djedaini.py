@@ -7,8 +7,9 @@ class DjedainiAdapter(ControlledAdapter):
     identity = AdapterIdentity(
         method_id="djedaini_ideb",
         method_version="publication-2019",
-        source_repository="https://doi.org/10.1016/j.is.2018.06.008",
-        source_ref="doi:10.1016/j.is.2018.06.008",
+        source_repository="https://github.com/mdjedaini/indexBench",
+        source_ref="da82305cc5123560ebb7eef00eea3ce98c82e6b7",
+        publication_reference="doi:10.1016/j.is.2018.06.008",
         reproducibility_class="NATIVE_REPRODUCTION_BLOCKED_STRUCTURAL",
         native_role="post-execution contribution baseline",
         observation_stage="post_result",

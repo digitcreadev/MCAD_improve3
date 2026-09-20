@@ -14,8 +14,9 @@ non-executable status stubs.  In every result,
 ## Layout
 
 * `registry.yaml` is a JSON-compatible YAML registry of the four frozen adapter
-  entries.  Keeping it in the JSON subset avoids adding a YAML runtime
-  dependency.
+  entries. `source_repository` and `source_ref` pin the audited code checkout;
+  `publication_reference` separately retains its DOI (and the ASSESS release).
+  Keeping it in the JSON subset avoids adding a YAML runtime dependency.
 * `contract.schema.json` describes both registry entries and result envelopes.
 * `adapters/` contains side-effect-free result builders and blocked stubs.
 * `provenance/a9_freeze_reference.json` pins the closed A9 evidence digest.

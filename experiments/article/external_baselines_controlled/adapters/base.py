@@ -12,6 +12,7 @@ class AdapterIdentity:
     method_version: str
     source_repository: str
     source_ref: str
+    publication_reference: str
     reproducibility_class: str
     native_role: str
     observation_stage: str
