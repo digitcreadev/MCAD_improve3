@@ -1,0 +1,51 @@
+{
+  "contract_version": "phase2b3c1",
+  "execution_authorized": false,
+  "source": {
+    "repository": "https://github.com/DAINTINESS-Group/DelianCubeEngine",
+    "commit": "606f94afe88767665ce185566ca8357a56f736d2",
+    "publication": "doi:10.1016/j.is.2024.102381"
+  },
+  "environment": {
+    "mysql_image": "mysql:8.0.33",
+    "dumps": {
+      "adult_backup.sql": "a898803ba45d45b9d0d12c8333f3d08f4b490fb58a617cf3db5fdc167de250a2",
+      "pkdd99_backup.sql": "6651a2ebe21011629dc3e17a4b03c5eb4ec07f3e439b42f0b1778740ed9fbcd9",
+      "pkdd99_star_backup.sql": "8454ce68a5a7d7c15c3a45ad8806fdff528296b4f257081ca20231617f691916"
+    },
+    "schemas": {
+      "adult_no_dublic": {"a7_table_count": 17},
+      "pkdd99": {"a7_table_count": 6, "loan_row_count": 682},
+      "pkdd99_star": {"a7_table_count": 6}
+    },
+    "publication_test_account": {"user": "CinecubesUser", "password": "Cinecubes", "minimum_access": "SELECT", "schema_grants": ["pkdd99.*", "pkdd99_star.*", "adult_no_dublic.*"], "credential_scope": "local_publication_test_only"},
+    "history_fixtures": [
+      "InputFiles/ServerRegisteredInfo/Interestingness/History/Queries/.gitignore",
+      "InputFiles/ServerRegisteredInfo/Interestingness/History/Results/.gitignore"
+    ]
+  },
+  "tracks": {
+    "PRE_NATIVE_SMOKE": {
+      "junit_classes": ["DirectNoveltyTest", "PartialSyntacticAveragePeculiarityTest"],
+      "measure_classification": {"DirectNovelty": "pre_result", "PartialSyntacticAveragePeculiarity": "pre_result"},
+      "future_command_template": "mvn -B -Dtest=DirectNoveltyTest,PartialSyntacticAveragePeculiarityTest test",
+      "expected_test_method_count": 2,
+      "timeout_seconds": 300
+    },
+    "POST_NATIVE_SMOKE": {
+      "junit_classes": ["IndirectNoveltyTest", "PartialDetailedExtensionalRelevanceTest", "LabelSurpriseTest"],
+      "measure_classification": {"IndirectNovelty": "post_result", "PartialDetailedExtensionalRelevance": "post_result", "LabelSurprise": "post_result"},
+      "future_command_template": "mvn -B -Dtest=IndirectNoveltyTest,PartialDetailedExtensionalRelevanceTest,LabelSurpriseTest test",
+      "expected_test_method_count": 5,
+      "timeout_seconds": 300
+    }
+  },
+  "isolation": {"fresh_exact_source_export_per_track": true, "history_mutation_cross_track_allowed": false, "exact_dump_overlay_required": true},
+  "failure_policy": {"fail_closed_on": ["timeout", "nonzero_maven_exit", "failed_junit_assertion", "missing_required_schema", "missing_history_fixture", "source_ref_mismatch", "dump_hash_mismatch", "unexpected_test_count"], "interpretation": "execution_or_reproducibility_failure_not_scientific_falsification"},
+  "toolchain_evidence": ["java -version", "mvn -version", "os_kernel_metadata", "docker_version", "mysql_image_id_or_digest_if_available"],
+  "timing_semantics": {"classification": "SMOKE_DIAGNOSTIC_ONLY", "comparative_tables_allowed": false, "pre_post_latency_comparison_allowed": false, "backend_avoidance_claim_allowed": false},
+  "scientific_caveat": "The pre_result native JUnit harness calls SessionQueryProcessorEngine.answerCubeQueryWithInterestMeasures(...) and executes database queries; PASS proves native reproducibility only, never pre-backend timing or performance.",
+  "excluded": {"measures": {"FamilyBasedRelevance": "helping-query behavior requires a separately preregistered auxiliary-query cost/accounting track"}, "executions": ["Djedaini", "ASSESS"], "claims_or_analyses": ["thresholds", "AUROC", "AUPRC", "ALLOW", "BLOCK", "SAFE_TO_PRUNE", "MCAD decision conversion", "comparative benchmark"]},
+  "evidence_contract": "evidence_contract.schema.json",
+  "native_assertions": "native_assertions.json"
+}
