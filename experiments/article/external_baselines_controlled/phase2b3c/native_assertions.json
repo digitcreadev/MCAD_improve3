@@ -1,0 +1,10 @@
+{
+  "source_commit": "606f94afe88767665ce185566ca8357a56f736d2",
+  "assertions": {
+    "DirectNoveltyTest": {"repeated query": "0.0", "novel query": "1.0"},
+    "PartialSyntacticAveragePeculiarityTest": {"query 1": "0.25", "query 2": "0.2333333333333333"},
+    "LabelSurpriseTest": {"value": "0.25"},
+    "IndirectNoveltyTest": {"loan test": "0.7857142857142857", "adult cases": ["1.0", "0.0", "0.14070321452264645", "0.0"]},
+    "PartialDetailedExtensionalRelevanceTest": {"loan test": "0.21428571428571427", "adult cases": ["0.0", "1.0", "0.8592967854773536", "1.0"]}
+  }
+}

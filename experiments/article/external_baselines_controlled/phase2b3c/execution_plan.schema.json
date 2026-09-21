@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Phase 2B-3C1 frozen native smoke plan",
+  "type": "object",
+  "required": ["contract_version", "execution_authorized", "source", "environment", "tracks", "isolation", "failure_policy", "toolchain_evidence", "timing_semantics", "scientific_caveat", "excluded", "evidence_contract", "native_assertions"],
+  "properties": {
+    "contract_version": {"const": "phase2b3c1"},
+    "execution_authorized": {"const": false},
+    "source": {"type": "object", "required": ["repository", "commit", "publication"]},
+    "environment": {"type": "object", "required": ["mysql_image", "dumps", "schemas", "publication_test_account", "history_fixtures"]},
+    "tracks": {"type": "object", "required": ["PRE_NATIVE_SMOKE", "POST_NATIVE_SMOKE"]},
+    "isolation": {"type": "object", "required": ["fresh_exact_source_export_per_track", "history_mutation_cross_track_allowed", "exact_dump_overlay_required"]},
+    "failure_policy": {"type": "object", "required": ["fail_closed_on", "interpretation"]},
+    "toolchain_evidence": {"type": "array"},
+    "timing_semantics": {"type": "object", "required": ["classification", "comparative_tables_allowed", "pre_post_latency_comparison_allowed", "backend_avoidance_claim_allowed"]},
+    "scientific_caveat": {},
+    "excluded": {"type": "object", "required": ["measures", "executions", "claims_or_analyses"]},
+    "evidence_contract": {"const": "evidence_contract.schema.json"},
+    "native_assertions": {"const": "native_assertions.json"}
+  },
+  "additionalProperties": false
+}

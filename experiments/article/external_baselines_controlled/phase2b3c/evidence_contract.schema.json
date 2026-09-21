@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Future Phase 2B-3C2 evidence bundle manifest",
+  "type": "object",
+  "required": ["bundle_status", "files", "all_evidence_listed_in_sha256sums", "timing_classification"],
+  "properties": {
+    "bundle_status": {"enum": ["CONTROLLED_NATIVE_DELIAN_SMOKE_PASS", "EXECUTION_REPRODUCIBILITY_FAILURE"]},
+    "files": {
+      "type": "array",
+      "contains": {"const": "status.tsv"},
+      "allOf": [
+        {"contains": {"const": "evidence.json"}}, {"contains": {"const": "sha256sums.txt"}},
+        {"contains": {"const": "source_ref.txt"}}, {"contains": {"const": "toolchain.txt"}},
+        {"contains": {"const": "environment_manifest.json"}}, {"contains": {"const": "dump_overlay_integrity.tsv"}},
+        {"contains": {"const": "schema_inventory.tsv"}}, {"contains": {"const": "history_fixture_validation.txt"}},
+        {"contains": {"const": "pre_native_smoke.log"}}, {"contains": {"const": "post_native_smoke.log"}},
+        {"contains": {"const": "pre_native_smoke.exit_status"}}, {"contains": {"const": "post_native_smoke.exit_status"}},
+        {"contains": {"const": "surefire-reports/pre"}}, {"contains": {"const": "surefire-reports/post"}},
+        {"contains": {"const": "native_assertion_manifest.json"}}, {"contains": {"const": "scope_and_interpretation.md"}}
+      ],
+      "uniqueItems": true
+    },
+    "all_evidence_listed_in_sha256sums": {"const": true},
+    "timing_classification": {"const": "SMOKE_DIAGNOSTIC_ONLY"}
+  },
+  "additionalProperties": false
+}
